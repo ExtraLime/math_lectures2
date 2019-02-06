@@ -1,0 +1,1477 @@
+text,start,stop
+"PROFESSOR PATRICK WINSTON:
+Ladies and gentlemen, the",00:00:09.330,00:00:10.970
+engineers drinking song.,00:00:10.970,00:00:13.670
+"Back in the day, I've drunk
+quite a lot to that song.",00:00:13.670,00:00:16.309
+"And as drinking songs
+go, it's not bad.",00:00:16.309,00:00:20.420
+"I caution you, however, before
+playing this song in the",00:00:20.420,00:00:24.260
+"presence of small children,
+audition it first.",00:00:24.260,00:00:28.240
+"Some of the verses are
+sufficiently gross as to make",00:00:28.240,00:00:32.460
+a sailor go beyond blushing.,00:00:32.460,00:00:37.130
+"It's an interesting song because
+there are an infinite",00:00:37.130,00:00:39.380
+number of verses.,00:00:39.380,00:00:41.580
+Here's the mathematical proof.,00:00:41.580,00:00:43.840
+"Suppose there were a finite
+number of verses.",00:00:43.840,00:00:46.920
+"Then there would be
+a last verse.",00:00:46.920,00:00:49.080
+"And if there were a last verse,
+then some drunk alumni",00:00:49.080,00:00:52.540
+would compose a new one.,00:00:52.540,00:00:54.570
+"Therefore, there is no last
+verse, the size is not finite,",00:00:54.570,00:00:58.400
+"and there are an infinite
+number of verses.",00:00:58.400,00:01:02.430
+"I play it for you today because
+I'm an engineer.",00:01:02.430,00:01:05.610
+I like to build stuff.,00:01:05.610,00:01:07.336
+I build stuff out of wood.,00:01:07.336,00:01:09.010
+I build stuff out of metal.,00:01:09.010,00:01:10.810
+I build stuff out of rocks.,00:01:10.810,00:01:12.830
+"And I especially like
+to write programs.",00:01:12.830,00:01:16.470
+"I don't know, sometimes people
+come to me and say, I'm",00:01:16.470,00:01:20.180
+"majoring in computer science,
+but I don't",00:01:20.180,00:01:21.960
+like to write programs.,00:01:21.960,00:01:23.030
+"I've always been mystified
+by that.",00:01:23.030,00:01:26.470
+"I mean, if you want to show how
+tough you are, you can go",00:01:26.470,00:01:29.900
+"bungee jumping or drive a nail
+through your hand or something",00:01:29.900,00:01:32.430
+like that instead.,00:01:32.430,00:01:33.680
+"But I've written quite a few
+programs for demonstrating",00:01:35.850,00:01:38.750
+stuff in this subject.,00:01:38.750,00:01:42.650
+"They're all written in Java,
+principally because I can",00:01:42.650,00:01:46.520
+"therefore make them available to
+you and to the rest of the",00:01:46.520,00:01:48.660
+world by way of Web Start.,00:01:48.660,00:01:50.785
+"A few weeks ago, I was mucking
+around with the system and",00:01:50.785,00:01:55.050
+"broke the version on the server,
+and within 15 minutes,",00:01:55.050,00:01:57.490
+"I got an email from somebody
+in the depths of Anatolia",00:01:57.490,00:02:01.490
+"complaining about it and asking
+me to bring it back up.",00:02:01.490,00:02:03.960
+"This particular program
+is patterned",00:02:07.500,00:02:09.699
+after an early AI classic.,00:02:09.699,00:02:14.830
+"And it was the business end of
+a program written by Terry",00:02:14.830,00:02:19.130
+"Winograd, who became, and is,
+a professor of computer",00:02:19.130,00:02:24.290
+"science at Stanford
+University--",00:02:24.290,00:02:27.220
+"which is on the west coast
+for those of you--",00:02:27.220,00:02:28.940
+"on the strength of his work on
+the natural language front end",00:02:31.990,00:02:35.510
+of this program.,00:02:35.510,00:02:37.100
+"But the natural language part
+is not what makes it of",00:02:37.100,00:02:40.260
+interest for us today.,00:02:40.260,00:02:44.080
+"It's more the other
+kinds of stuff.",00:02:44.080,00:02:48.440
+Let's pile these things up.,00:02:48.440,00:02:51.550
+"Now, I'm going to ask to
+do something, maybe put",00:02:51.550,00:02:55.320
+B2 on top of B7.,00:02:55.320,00:02:58.970
+Not bad.,00:03:07.140,00:03:07.840
+How about B6 on B3?,00:03:07.840,00:03:09.320
+This program's kind of clever.,00:03:18.500,00:03:20.880
+Let me do one more.,00:03:25.140,00:03:26.580
+Let's put B7 on B2.,00:03:26.580,00:03:28.280
+"OK, now let's see.",00:03:39.250,00:03:40.510
+Maybe B5 on B2?,00:03:40.510,00:03:42.530
+"B4 on B3 first, maybe?",00:03:46.170,00:03:49.730
+"Oh, I must have clicked
+the wrong button.",00:03:52.820,00:03:55.885
+"Oh, there it goes.",00:03:55.885,00:03:56.675
+OK.,00:03:56.675,00:03:58.780
+Let's put B4 on B1.,00:03:58.780,00:04:02.716
+"Agh, my mouse keeps getting
+out of control.",00:04:02.716,00:04:08.190
+"Now, let's put B1 on B2.",00:04:15.660,00:04:17.519
+"This is an example I'm
+actually going to",00:04:17.519,00:04:18.779
+work out on the board.,00:04:18.779,00:04:20.029
+"Oh, I see.",00:04:23.646,00:04:25.740
+"My touch pad accidentally
+got activated.",00:04:25.740,00:04:27.750
+B1 on B2.,00:04:27.750,00:04:30.440
+"Now, let's ask a question.",00:04:44.550,00:04:45.800
+OK.,00:04:58.075,00:04:59.560
+Well.,00:04:59.560,00:05:00.190
+SPEAKER 2: [SINGING],00:05:00.190,00:05:01.636
+"PROFESSOR PATRICK
+WINSTON: Stop.",00:05:01.636,00:05:03.564
+SPEAKER 3: [LAUGHTER],00:05:03.564,00:05:07.420
+"PROFESSOR PATRICK WINSTON:
+Had enough of that.",00:05:07.420,00:05:08.866
+Let's see.,00:05:11.760,00:05:12.550
+Why did you put--,00:05:12.550,00:05:15.460
+"why did you want to
+get rid of B4?",00:05:15.460,00:05:22.720
+"OK, one--",00:05:22.720,00:05:24.660
+SPEAKER 2: [SINGING],00:05:24.660,00:05:28.540
+"PROFESSOR PATRICK WINSTON: Maybe
+they think, that's what",00:05:28.540,00:05:34.010
+"happens when you use software
+you write yourself.",00:05:34.010,00:05:35.575
+"Why did you want to clear
+the top of B2?",00:05:42.010,00:05:51.662
+Did I do that?,00:05:51.662,00:05:55.050
+"Why did you clear
+the top of B1?",00:05:55.050,00:06:01.050
+OK.,00:06:01.050,00:06:01.520
+SPEAKER 2: [SINGING],00:06:01.520,00:06:03.400
+SPEAKER 3: [LAUGHTER],00:06:03.400,00:06:06.700
+"PROFESSOR PATRICK WINSTON:
+Oh, it's haunting me.",00:06:06.700,00:06:08.460
+Yeah.,00:06:08.460,00:06:09.290
+"So the drinking song is easily
+offended, I guess.",00:06:09.290,00:06:13.350
+"But I won't develop that
+scenario again.",00:06:29.160,00:06:31.310
+"What I want to show you is that
+this program looks like",00:06:31.310,00:06:35.260
+"it's kind of smart, and it
+somehow can answer questions",00:06:35.260,00:06:39.430
+about its own behavior.,00:06:39.430,00:06:40.230
+"Have you ever written a program
+that's answered",00:06:40.230,00:06:41.800
+"questions about its
+own behavior?",00:06:41.800,00:06:44.020
+Probably not.,00:06:44.020,00:06:44.620
+"Would you like to learn
+how to do that?",00:06:44.620,00:06:46.322
+OK.,00:06:46.322,00:06:47.680
+"So by the end of the hour,
+you'll be able to write this",00:06:47.680,00:06:49.470
+"program and many more like it
+that know how to answer",00:06:49.470,00:06:53.400
+"questions about their
+own behavior.",00:06:53.400,00:06:55.040
+"There have been tens of
+thousands of such programs",00:06:55.040,00:06:57.020
+"written, but only by people who
+know the stuff I'm going",00:06:57.020,00:07:00.175
+"to tell you about
+right now, OK?",00:07:00.175,00:07:03.080
+"So what I want to do is I want
+to start by taking this",00:07:03.080,00:07:05.240
+"program apart on the board and
+talking to you about the",00:07:05.240,00:07:08.500
+"modules, the subroutines
+that it contains.",00:07:08.500,00:07:12.670
+So here it is.,00:07:12.670,00:07:14.070
+"The first thing we need
+to think about,",00:07:17.440,00:07:20.280
+here are some blocks.,00:07:20.280,00:07:21.530
+"What has to happen if I'm going
+to put the bottom block",00:07:23.600,00:07:27.500
+on the larger block?,00:07:27.500,00:07:29.570
+"Well, first of all, I have
+to find space for it.",00:07:29.570,00:07:32.680
+"Then I have to grasp
+the lower block.",00:07:32.680,00:07:35.340
+"And I have to move it and
+I have to ungrasp it.",00:07:35.340,00:07:38.380
+"So those are four things I need
+to do in order to achieve",00:07:38.380,00:07:42.620
+what I want to do.,00:07:42.620,00:07:44.140
+"So therefore, I know that the
+put-on method has four pieces.",00:07:44.140,00:07:52.450
+"It has to find space on
+the target block.",00:07:52.450,00:07:57.480
+"It has to grasp the block that
+it's been commanded to move.",00:07:57.480,00:08:05.500
+"Then it has to move, and
+then it has to ungrasp.",00:08:05.500,00:08:10.580
+"But taking hints from some of
+the questions that it did",00:08:15.720,00:08:18.680
+"answer before I got haunted by
+the music, taking our cue from",00:08:18.680,00:08:23.350
+"that, we know that in order to
+grasp something, in this",00:08:23.350,00:08:26.850
+"particular world, you can't have
+anything on top of it.",00:08:26.850,00:08:30.150
+"So grasp, therefore, may call
+clear top in order to get",00:08:30.150,00:08:36.929
+"stuff off from the
+target object.",00:08:36.929,00:08:41.710
+"And that may happen in an
+iterative loop because there",00:08:41.710,00:08:45.020
+may be several things on top.,00:08:45.020,00:08:47.450
+"And how do you get
+rid of stuff?",00:08:47.450,00:08:49.120
+"Well, by calling get rid of.",00:08:49.120,00:08:50.370
+"And that may go around
+a loop several times.",00:08:54.810,00:08:57.660
+"And then, the way you get rid of
+stuff is by calling put-on.",00:08:57.660,00:09:04.210
+"So that gives us recursion, and
+it's from the recursion",00:09:04.210,00:09:06.780
+"that we get a lot of the
+apparent complexity of the",00:09:06.780,00:09:09.110
+"program's behavior when
+it solves a problem.",00:09:09.110,00:09:13.920
+"Now, in order to find space,
+you also have to",00:09:13.920,00:09:16.830
+call get rid of.,00:09:16.830,00:09:19.070
+"So that's where I meant to
+put this other iterative",00:09:19.070,00:09:20.820
+"loop, not down here.",00:09:20.820,00:09:22.270
+"Cleat top has got the iterative
+loop inside of it.",00:09:22.270,00:09:25.400
+"So that's the structure
+of the program.",00:09:25.400,00:09:26.930
+It's extremely simple.,00:09:26.930,00:09:29.610
+"And you might say to me, well,
+how can you get such",00:09:29.610,00:09:31.810
+"apparently complex-looking
+behavior out of",00:09:31.810,00:09:34.140
+such a simple program?,00:09:34.140,00:09:35.065
+A legitimate question.,00:09:35.065,00:09:36.665
+"But before we tackle that one
+head on, I'd like to do a",00:09:36.665,00:09:41.090
+"simulation of this program
+with a very",00:09:41.090,00:09:42.870
+simple blocks problem.,00:09:42.870,00:09:44.120
+"And it's the one I almost
+showed you, but",00:09:48.790,00:09:51.380
+it goes like this.,00:09:51.380,00:09:53.180
+Here's B1.,00:09:53.180,00:09:54.786
+"We'll call this BX because
+I forgot its name.",00:09:54.786,00:09:58.920
+Here's BY.,00:09:58.920,00:10:01.250
+And here's B2.,00:10:01.250,00:10:03.380
+"And the task is to
+put B1 on B2.",00:10:03.380,00:10:12.080
+"And according to our system
+diagram, that results in four",00:10:12.080,00:10:17.090
+calls to subroutines.,00:10:17.090,00:10:19.410
+We have to find space.,00:10:19.410,00:10:20.660
+We have to grasp B1.,00:10:25.750,00:10:27.995
+"We have to move, and
+then we ungrasp.",00:10:34.270,00:10:38.630
+"Now, the way we grasp something
+is the first thing",00:10:44.120,00:10:46.260
+"we have to do is clear
+off its top.",00:10:46.260,00:10:49.900
+So grasp calls clear top.,00:11:03.250,00:11:04.640
+"And clear top in turn
+calls get rid of.",00:11:08.760,00:11:10.900
+And let me see.,00:11:18.080,00:11:18.620
+Let me keep track of these.,00:11:18.620,00:11:19.650
+"This is clearing the top
+of B1, and this is",00:11:19.650,00:11:23.630
+getting rid of BX.,00:11:23.630,00:11:26.230
+"And the way we get rid of BX is
+by putting BX on the table.",00:11:26.230,00:11:34.685
+"And then that in turn causes
+calls to another find space,",00:11:38.710,00:11:44.800
+"another grasp, another move,
+and another ungrasp.",00:11:44.800,00:11:48.314
+"So that's a little trace of
+the program as it works on",00:11:48.314,00:11:51.410
+this simple problem.,00:11:51.410,00:11:53.960
+"So how does it go about
+answering the questions that I",00:11:53.960,00:11:56.440
+"demonstrated to you
+a moment ago?",00:11:56.440,00:11:59.660
+"Let's do that by using
+this trace.",00:11:59.660,00:12:03.340
+"So how, for example, does it
+answer the question, why did",00:12:03.340,00:12:09.810
+you get rid of BX?,00:12:09.810,00:12:11.060
+"[INAUDIBLE], what
+do you think?",00:12:17.980,00:12:19.520
+"How can it answer
+that question?",00:12:19.520,00:12:21.343
+SPEAKER 4: [INAUDIBLE],00:12:21.343,00:12:22.593
+"PROFESSOR PATRICK WINSTON: So
+it goes up one level and",00:12:26.280,00:12:29.480
+reports what it sees.,00:12:29.480,00:12:31.590
+"So it says, and said in the
+demonstration, I got rid of BX",00:12:31.590,00:12:36.800
+"because I was trying to
+clear the top of B1.",00:12:36.800,00:12:40.660
+"So if I were to say why did you
+clear the top of B1, it",00:12:40.660,00:12:44.325
+"would say because I was
+trying to grasp it.",00:12:44.325,00:12:47.015
+"If I were to say, why did you
+grasp B1, it would say because",00:12:47.015,00:12:49.840
+I was putting B1 on B2.,00:12:49.840,00:12:51.990
+"If I say, why did you put
+B1 on B2, it would say,",00:12:51.990,00:12:56.120
+"slavishly, because
+you told me to.",00:12:56.120,00:12:59.910
+"OK, so that's how it deals
+with why questions.",00:12:59.910,00:13:03.770
+How about how questions?,00:13:03.770,00:13:06.620
+"Timothy, what do you think
+about that one?",00:13:09.410,00:13:11.680
+"How would it go about answering
+a question about how",00:13:11.680,00:13:13.400
+you did something?,00:13:13.400,00:13:14.650
+Do you have a thought?,00:13:17.210,00:13:18.400
+"TIMOTHY: Um, yeah, it would
+think about what I was trying",00:13:18.400,00:13:21.428
+to accomplish.,00:13:21.428,00:13:21.750
+"PROFESSOR PATRICK WINSTON:
+Yeah, but",00:13:21.750,00:13:21.820
+how would it do that?,00:13:21.820,00:13:22.710
+How would the program do that?,00:13:22.710,00:13:24.550
+"We know that answering
+a why question makes",00:13:24.550,00:13:26.150
+it go up one level.,00:13:26.150,00:13:28.710
+"How does it answer
+a how question?",00:13:28.710,00:13:30.660
+Sebastian?,00:13:30.660,00:13:31.800
+"SEBASTIAN: It goes
+down one level.",00:13:31.800,00:13:32.560
+"PROFESSOR PATRICK WINSTON:
+You go down one level.",00:13:32.560,00:13:34.420
+"So you start off all the way
+up here with a put-on.",00:13:34.420,00:13:40.210
+"You will say, oh, well I
+did these four things.",00:13:40.210,00:13:42.360
+"You say, why did you grasp B1?",00:13:42.360,00:13:43.890
+"It will say because I was
+trying to clear its top.",00:13:43.890,00:13:46.170
+Why did you clear its top?,00:13:46.170,00:13:46.960
+"Because I was trying
+to get rid of it.",00:13:46.960,00:13:48.930
+"Why were you trying
+to get rid of it?",00:13:48.930,00:13:50.080
+"Because I was trying to
+put it on the table.",00:13:50.080,00:13:52.890
+"So that's how it answers how
+questions, by going down in",00:13:52.890,00:13:56.570
+"this tree and this trace of the
+program of action so as to",00:13:56.570,00:14:02.280
+"see how things are
+put together.",00:14:02.280,00:14:05.100
+"What are these things that
+are being put together?",00:14:05.100,00:14:07.940
+"What's the word I've been
+avoiding so as to bring this",00:14:07.940,00:14:10.460
+to a crescendo?,00:14:10.460,00:14:13.360
+"What are these objectives, these
+things it wants to do?",00:14:13.360,00:14:17.310
+They're goals.,00:14:17.310,00:14:19.530
+"So this thing is leaving a
+trace, which is a goal tree.",00:14:19.530,00:14:25.780
+Does that sound familiar?,00:14:25.780,00:14:29.260
+"Three days ago, we talked about
+goal trees in connection",00:14:29.260,00:14:31.400
+with integration.,00:14:31.400,00:14:33.820
+"So this thing is building a goal
+tree, also known as an",00:14:33.820,00:14:36.440
+and-or tree.,00:14:36.440,00:14:38.320
+So this must be an and tree.,00:14:38.320,00:14:40.940
+"And if this is an and tree,
+are there any and nodes?",00:14:40.940,00:14:44.300
+"Sure, there's one right there.",00:14:44.300,00:14:45.590
+"So do you think then that you
+can answer questions about",00:14:48.860,00:14:53.030
+"your own behavior as long as
+you build an and-or tree?",00:14:53.030,00:14:56.740
+Sure.,00:14:56.740,00:14:58.232
+"Does this mean that the
+integration program could",00:14:58.232,00:15:00.880
+"answer questions about
+its own behavior?",00:15:00.880,00:15:04.110
+Sure.,00:15:04.110,00:15:05.990
+"Because they both build goal
+trees, and wherever you got a",00:15:05.990,00:15:08.140
+"goal tree, you can answer
+certain kinds of questions",00:15:08.140,00:15:10.270
+about your own behavior.,00:15:10.270,00:15:11.520
+"So let me see if in fact it
+really does build itself a",00:15:15.290,00:15:22.910
+"goal tree as it solves
+problems.",00:15:22.910,00:15:25.660
+"So this time, we'll put
+B6 on B3 this time.",00:15:25.660,00:15:31.560
+"But watch it develop
+its goal tree.",00:15:35.400,00:15:37.000
+"So in contrast to the simple
+example I was working on the",00:15:42.490,00:15:44.950
+"board, this gets to be a pretty
+complicated goal tree.",00:15:44.950,00:15:49.726
+"But I could still answers
+questions about behavior.",00:15:49.726,00:15:52.550
+"For example, I could say, why
+did you put B6 on B3?",00:15:52.550,00:15:59.430
+Because you told me to.,00:16:02.440,00:16:04.790
+"All right, so the complexity of
+the behavior is largely a",00:16:04.790,00:16:08.090
+"consequence not of the
+complexity of the program in",00:16:08.090,00:16:10.780
+"this particular case, but the
+building of this giant goal",00:16:10.780,00:16:13.230
+"tree as a consequence of the
+complexity of the problem.",00:16:13.230,00:16:17.880
+"This brings us to one of
+our previous matters--",00:16:17.880,00:16:20.400
+"early on to one of the gold
+star ideas of today.",00:16:20.400,00:16:24.130
+"And this gold star idea goes
+back to a lecture given in the",00:16:24.130,00:16:29.080
+"late '60s by Herb Simon, who was
+the first Nobel Laureate",00:16:29.080,00:16:32.470
+"in the pseudo Nobel Prize
+for economics.",00:16:32.470,00:16:36.030
+"Is that right, Bob?",00:16:36.030,00:16:36.690
+Was he the first?,00:16:36.690,00:16:37.390
+"All right, he was the first
+winner of the Nobel Prize,",00:16:37.390,00:16:39.810
+"pseudo Nobel Prize
+in economics.",00:16:39.810,00:16:42.800
+"And in this lecture, which was
+titled ""The Sciences of the",00:16:42.800,00:16:45.170
+"Artificial,"" he said imagine
+that you're looking on a beach",00:16:45.170,00:16:50.500
+at the path of a ant.,00:16:50.500,00:16:53.705
+"And he said, well, you know,
+the path of the ant looks",00:16:53.705,00:16:56.580
+extremely complicated.,00:16:56.580,00:16:58.070
+"And you're tempted to think the
+ant is some kind of genius",00:16:58.070,00:17:02.640
+or monster brain ant.,00:17:02.640,00:17:05.670
+"But in fact, when you take a
+closer look, what you discover",00:17:05.670,00:17:10.780
+"is that there are a bunch of
+pebbles on the beach, and all",00:17:10.780,00:17:14.490
+"the ant is doing is avoiding
+those pebbles on his way home.",00:17:14.490,00:17:19.609
+"So the complexity of the
+behavior, said Simon, is a",00:17:19.609,00:17:23.450
+"consequence of the complexity
+of the environment, not the",00:17:23.450,00:17:25.900
+complexity of the program.,00:17:25.900,00:17:27.900
+"So that's the metaphoric
+Simon's ant.",00:17:27.900,00:17:30.620
+"And what it says is that the
+complexity of the behavior is",00:17:30.620,00:17:39.910
+"the max of the complexity of the
+program and the complexity",00:17:39.910,00:17:50.270
+of the environment.,00:17:50.270,00:17:51.520
+"So that's something we'll see
+many times during the rest of",00:17:58.720,00:18:01.960
+the semester.,00:18:01.960,00:18:02.830
+"Complex behavior,
+simple program.",00:18:02.830,00:18:05.000
+"You think it's going
+to be complicated.",00:18:05.000,00:18:06.105
+"It turns out to be simple
+because the problem has the",00:18:06.105,00:18:09.130
+"complexity, not the program.",00:18:09.130,00:18:11.810
+"So that brings us to check box
+three in today's talk, and",00:18:14.350,00:18:17.350
+"there's a little bit of a scene
+here because now I want",00:18:17.350,00:18:19.520
+"to stop talking about
+goal-centered programming and",00:18:19.520,00:18:24.140
+"start talking about rule-based
+expert systems.",00:18:24.140,00:18:28.840
+"The rule-based expert systems
+were developed in a burst of",00:18:28.840,00:18:35.190
+"enthusiasm about the prospects
+for commercial applications of",00:18:35.190,00:18:38.870
+"artificial intelligence
+in the mid-1980s.",00:18:38.870,00:18:45.530
+"At that time, it was supposed
+lengthy articles are written,",00:18:45.530,00:18:50.010
+"but you could account for
+useful aspects of human",00:18:50.010,00:18:52.620
+"intelligence by writing all the
+knowledge in the form of",00:18:52.620,00:18:55.980
+simple rules.,00:18:55.980,00:18:57.870
+"So if this is true,
+then that's true.",00:18:57.870,00:19:02.700
+"If you want to achieve
+this, then do that.",00:19:02.700,00:19:07.070
+"But all the knowledge had to be
+encapsulated in the form of",00:19:07.070,00:19:09.690
+simple rules.,00:19:09.690,00:19:12.440
+"So what might you want
+to do with this?",00:19:12.440,00:19:13.780
+All sorts of things.,00:19:13.780,00:19:15.110
+"Thousands of these systems
+were written,",00:19:15.110,00:19:16.510
+as I indicated before.,00:19:16.510,00:19:18.760
+But here's an example.,00:19:18.760,00:19:19.890
+"I'm going to work out an example
+having to do with",00:19:19.890,00:19:21.790
+identification.,00:19:21.790,00:19:23.870
+"And this example is patterned
+off of a classic program,",00:19:23.870,00:19:28.980
+"strangely also written at
+Stanford, called MYCIN.",00:19:28.980,00:19:31.885
+"It was developed to
+diagnose bacterial",00:19:31.885,00:19:34.210
+infections in the blood.,00:19:34.210,00:19:36.470
+So you come in.,00:19:36.470,00:19:37.140
+"You got some horrible disease,
+and the doctor gets curious",00:19:37.140,00:19:40.800
+"about what antibiotic would be
+perfect for your disease.",00:19:40.800,00:19:43.880
+"He starts asking a
+lot of questions.",00:19:43.880,00:19:45.500
+"So I'm not going to deal with
+that because that world has",00:19:49.380,00:19:54.710
+"all kinds of unpronounceable
+terms like bacterioides and",00:19:54.710,00:19:59.250
+anaerobic and stuff like that.,00:19:59.250,00:20:01.310
+"So it's completely analogous
+to talk about identifying",00:20:01.310,00:20:04.770
+"animals in a little zoo, sort
+of a small town type of zoo.",00:20:04.770,00:20:12.210
+"So I'm going to suggest that
+we write down on a piece of",00:20:12.210,00:20:15.320
+"paper all the things we can
+observe about an animal, and",00:20:15.320,00:20:18.710
+"then we'll try to figure
+out what the animal is.",00:20:18.710,00:20:23.210
+"So I don't know, what
+can we start with?",00:20:23.210,00:20:26.610
+Has hair.,00:20:26.610,00:20:27.860
+"Then there are some
+characteristics of the",00:20:34.440,00:20:37.660
+following form.,00:20:37.660,00:20:39.080
+Has claws.,00:20:39.080,00:20:40.330
+Sharp teeth.,00:20:45.590,00:20:46.840
+And forward-pointing eyes.,00:20:53.580,00:20:55.060
+"And these are all
+characteristics of carnivores.",00:21:04.390,00:21:08.120
+"We happen to have
+forward-pointing eyes too, but",00:21:08.120,00:21:10.190
+"that's more because we used to
+swing around the trees a lot,",00:21:10.190,00:21:12.560
+"and we needed the
+stereo vision.",00:21:12.560,00:21:14.420
+"And we don't have the claws
+and the sharp teeth",00:21:14.420,00:21:16.530
+that go with it.,00:21:16.530,00:21:18.400
+"But anyhow, those are typically
+characteristics of",00:21:18.400,00:21:21.030
+"carnivores, as is eating meat.",00:21:21.030,00:21:23.040
+"And this particular little
+animal we're looking at has",00:21:28.250,00:21:31.090
+"also got spots, and
+it's very fast.",00:21:31.090,00:21:35.435
+What is it?,00:21:39.770,00:21:42.550
+"Well, everybody says
+it's a cheetah.",00:21:42.550,00:21:44.480
+"Let's see how our program
+would figure that out.",00:21:44.480,00:21:46.970
+"Well, program might say, let's
+see if it has hair, then rule",00:21:46.970,00:21:53.210
+"one says that that means
+it must be a mammal.",00:21:53.210,00:21:57.985
+"We can imagine another rule that
+says if you have sharp",00:22:03.690,00:22:07.450
+"claws, sharp teeth, and
+forward-pointing eyes, then",00:22:07.450,00:22:12.410
+you're a carnivore.,00:22:12.410,00:22:14.750
+"And I'm using sort of hardware
+notation here.",00:22:14.750,00:22:17.670
+"That's an and gate, right?",00:22:17.670,00:22:19.940
+"So that means we have to have
+all of these characteristics",00:22:19.940,00:22:23.040
+"before we will conclude that
+the animal is a carnivore.",00:22:23.040,00:22:26.170
+"Now, this animal has been also
+observed to eat meat.",00:22:32.490,00:22:36.870
+"So that means we've got extra
+evidence that the animal is",00:22:36.870,00:22:40.750
+carnivorous.,00:22:40.750,00:22:42.700
+"And now, because the animal is
+a mammal and a carnivore and",00:22:42.700,00:22:52.020
+"has spots, and it's very fast,
+then the animal is a cheetah.",00:22:52.020,00:22:59.700
+"And I hope all of our African
+students agree that",00:23:05.116,00:23:07.850
+it must be a cheetah.,00:23:07.850,00:23:09.000
+It's a small zoo--,00:23:09.000,00:23:09.980
+"I mean, a big zoo.",00:23:09.980,00:23:11.420
+Who knows what it is?,00:23:11.420,00:23:11.830
+"It's probably got some
+unpronouncable name--",00:23:11.830,00:23:13.700
+there's possibilities.,00:23:13.700,00:23:14.990
+"But for our small zoo,
+that will do.",00:23:14.990,00:23:17.010
+"So we have group now written
+down in the form",00:23:17.010,00:23:20.260
+of these and gates.,00:23:20.260,00:23:22.270
+"Several rules, R1, R2--
+and there needs to",00:23:22.270,00:23:27.030
+be an and gate here--,00:23:27.030,00:23:29.040
+that's R3 and an R4.,00:23:29.040,00:23:31.665
+"All of which indicate that
+this animal is a cheetah.",00:23:36.950,00:23:40.500
+"So we built ourself a little
+rule-based expert system that",00:23:40.500,00:23:43.155
+"can recognize exactly one
+animal, but you could imagine",00:23:43.155,00:23:45.400
+"filling out this system with
+other rules so that you could",00:23:45.400,00:23:48.540
+"recognize giraffes and penguins
+and all the other",00:23:48.540,00:23:50.750
+"sorts of things you find
+in a small zoo.",00:23:50.750,00:23:52.590
+"So when you have a system like
+this that works as I've",00:23:55.890,00:23:57.920
+"indicated, then what we're
+going to call that, we're",00:23:57.920,00:24:01.236
+"going to give that a special
+name, and we're going to call",00:24:01.236,00:24:04.660
+"that a forward-chaining
+rule-based--",00:24:04.660,00:24:16.560
+because it uses rules--,00:24:16.560,00:24:17.810
+expert system.,00:24:26.050,00:24:30.403
+"And we're going to put expert
+in parentheses because when",00:24:34.320,00:24:38.050
+"these things were developed,
+for marketing reasons, they",00:24:38.050,00:24:41.280
+"called them expert systems
+instead of novice systems.",00:24:41.280,00:24:45.470
+"But are they really experts
+in a human sense?",00:24:45.470,00:24:47.490
+"Not really, because they have
+these knee-jerk rules.",00:24:47.490,00:24:51.880
+"They're not equipped with
+anything you might want to",00:24:51.880,00:24:53.500
+call common sense.,00:24:53.500,00:24:55.800
+"They don't have an ability to
+deal with previous cases, like",00:24:55.800,00:24:59.700
+"we do when we go to
+medical school.",00:24:59.700,00:25:01.940
+"So they really ought to be
+called rule-based novice",00:25:01.940,00:25:04.170
+"systems because they reason
+like novices on",00:25:04.170,00:25:06.120
+the basis of rules.,00:25:06.120,00:25:08.170
+"But the tradition
+is to call them",00:25:08.170,00:25:09.585
+rule-based expert systems.,00:25:09.585,00:25:11.590
+"And this one works forward from
+the facts we give it to",00:25:11.590,00:25:18.310
+"the conclusion off
+on the right.",00:25:18.310,00:25:20.260
+"That's why it's a
+forward-chaining system.",00:25:20.260,00:25:22.350
+"Can this system answer
+questions",00:25:26.850,00:25:28.420
+about its own behavior?,00:25:28.420,00:25:29.670
+"[INAUDIBLE], what
+do you think?",00:25:34.715,00:25:36.160
+SPEAKER 5: [INAUDIBLE].,00:25:36.160,00:25:36.900
+"PROFESSOR PATRICK
+WINSTON: Why?",00:25:36.900,00:25:38.010
+SPEAKER 5: [INAUDIBLE].,00:25:38.010,00:25:40.986
+"PROFESSOR PATRICK WINSTON:
+Because it",00:25:40.986,00:25:41.730
+looks like a goal tree.,00:25:41.730,00:25:43.466
+Right.,00:25:43.466,00:25:44.960
+"This is, in fact, building a
+goal tree because each of",00:25:44.960,00:25:48.130
+"these rules that require several
+things to be true is",00:25:48.130,00:25:55.000
+creating an and node.,00:25:55.000,00:25:56.920
+"And each of these situations
+here where you have multiple",00:25:56.920,00:26:00.180
+"reasons for believing that the
+thing is a carnivore, that's",00:26:00.180,00:26:02.190
+creating an or node.,00:26:02.190,00:26:03.960
+"And we already know that you
+can answer questions about",00:26:03.960,00:26:05.820
+"your own behavior if you leave
+behind a trace of a goal tree.",00:26:05.820,00:26:10.440
+So look at this.,00:26:10.440,00:26:11.620
+"If I say to it, why were
+you interested in",00:26:11.620,00:26:20.260
+the animal's claws?,00:26:20.260,00:26:21.520
+"Because I was trying to see
+if it was a carnivore.",00:26:21.520,00:26:25.020
+"How did you know that the
+animal is a mammal?",00:26:25.020,00:26:28.710
+Because it has hair.,00:26:28.710,00:26:31.190
+"Why did you think it
+was a cheetah?",00:26:31.190,00:26:33.450
+"Because it's a mammal,
+a carnivore, has",00:26:33.450,00:26:36.190
+"spots, and very fast.",00:26:36.190,00:26:38.010
+"So by working forward and
+backward in this goal tree,",00:26:38.010,00:26:41.570
+"this too can answer questions
+about its own behavior.",00:26:41.570,00:26:44.990
+"So now you know how, going
+forward, you can write",00:26:44.990,00:26:47.020
+"programs that answer questions
+about their behavior.",00:26:47.020,00:26:50.900
+"Either you write the subroutines
+so that each one",00:26:50.900,00:26:52.950
+"is wrapped around a goal, so
+you've got goal-centered",00:26:52.950,00:26:55.710
+"programming, or you build a
+so-called expert system using",00:26:55.710,00:26:59.420
+"rules, in which case it's easy
+to make it leave behind a",00:26:59.420,00:27:03.010
+"trace of a goal tree, which
+makes it possible to answer",00:27:03.010,00:27:06.180
+"questions about its own
+behavior, just as this",00:27:06.180,00:27:08.670
+[INAUDIBLE],00:27:08.670,00:27:09.170
+program did.,00:27:09.170,00:27:10.420
+"But now, a little
+more vocabulary.",00:27:12.290,00:27:16.330
+"I'm going to save time by
+erasing all of these things",00:27:16.330,00:27:20.260
+"that I previously drew by
+way of connections.",00:27:20.260,00:27:22.210
+"And I'm going to approach this
+zoo in a little different way.",00:27:25.818,00:27:33.610
+"I'm going to not ask any
+questions about the animal.",00:27:33.610,00:27:39.360
+"Instead, I'm going to say,
+mommy, is this thing I'm",00:27:39.360,00:27:43.510
+looking at a cheetah?,00:27:43.510,00:27:46.220
+"And how would mommy go about
+figuring it out.",00:27:46.220,00:27:50.640
+"In her head, she would say,
+well, I don't know.",00:27:50.640,00:27:54.330
+"If it's going to be a cheetah,
+then it must be the case that",00:27:54.330,00:27:58.425
+"it's a carnivore, and it must be
+the case that it has spots.",00:27:58.425,00:28:05.010
+"And it must be the case
+that it's very fast.",00:28:05.010,00:28:09.350
+"So so far, what we've
+established is that if it's",00:28:09.350,00:28:12.210
+"going to be a cheetah, it
+has to have the four",00:28:12.210,00:28:14.940
+"characteristics that
+mommy finds behind",00:28:14.940,00:28:17.880
+this rule are four.,00:28:17.880,00:28:20.440
+"So instead of working forward
+from facts, what I'm going to",00:28:20.440,00:28:24.710
+"do is work backward
+from a hypothesis.",00:28:24.710,00:28:31.460
+"So here the hypothesis is
+this thing is a cheetah.",00:28:31.460,00:28:35.720
+"How do I go about showing
+whether that's true or not?",00:28:35.720,00:28:40.110
+"Well, I haven't done anything so
+far because all I know is a",00:28:40.110,00:28:44.250
+"cheetah if all these things are
+true, but are they true?",00:28:44.250,00:28:46.740
+"Well, to find out if it's a
+mammal, I can use rule one.",00:28:46.740,00:28:51.160
+"And if I know or can determine
+that the animal has hair, then",00:28:51.160,00:28:55.270
+"that part of it is
+taken care of.",00:28:55.270,00:28:57.790
+"And I can similarly work my way
+back through carnivore.",00:28:57.790,00:29:01.990
+"I say, well, it's a carnivore if
+it has claws, sharp teeth,",00:29:01.990,00:29:06.870
+and forward-pointing eyes.,00:29:06.870,00:29:09.680
+"And then as much as the
+animal in question",00:29:09.680,00:29:11.860
+"does, then I'm through.",00:29:11.860,00:29:13.720
+I know it's a carnivore.,00:29:13.720,00:29:14.555
+"I don't have to go through and
+show that it's a carnivore",00:29:14.555,00:29:16.980
+another way.,00:29:16.980,00:29:18.230
+"So I never actually ask
+questions about",00:29:18.230,00:29:20.400
+whether it eats meat.,00:29:20.400,00:29:23.600
+"Finally, the final two
+conditions are met by just an",00:29:23.600,00:29:27.720
+inspection of the animal.,00:29:27.720,00:29:30.020
+"That's to say, it's
+in the database.",00:29:30.020,00:29:31.300
+"I don't have to use any rules
+to determine that the animal",00:29:31.300,00:29:34.400
+has spots and is very fast.,00:29:34.400,00:29:37.290
+"So now, I've got everything in
+place to say that it's a",00:29:37.290,00:29:39.610
+"cheetah, because it's a
+carnivore, because it has",00:29:39.610,00:29:42.490
+"claws, sharp teeth, and
+forward-pointing eyes, and all",00:29:42.490,00:29:45.330
+"the rest of this stuff is
+similarly determined by going",00:29:45.330,00:29:47.980
+"backwards, backwards from the
+hypothesis toward the facts,",00:29:47.980,00:29:54.170
+"instead of from the facts
+forward to the conclusions.",00:29:54.170,00:29:57.730
+"So building a system that works
+like that, I have a",00:29:57.730,00:30:09.180
+"backward-chaining rule-based
+expert system.",00:30:09.180,00:30:15.980
+"But there's a very important
+characteristic of this system",00:30:15.980,00:30:19.040
+"in both backward and forward
+mode, and that is that this",00:30:19.040,00:30:22.620
+thing is a deduction system.,00:30:22.620,00:30:24.400
+"That's because it's
+working with facts",00:30:29.090,00:30:31.760
+to produce new facts.,00:30:31.760,00:30:33.750
+"When you have a deduction
+system, you can never take",00:30:33.750,00:30:35.730
+anything away.,00:30:35.730,00:30:37.920
+"But these rule-based systems are
+also used in another mode,",00:30:37.920,00:30:40.790
+"where it's possible to
+take something away.",00:30:40.790,00:30:42.530
+"See, in fact world, in deduction
+world, you're",00:30:42.530,00:30:45.110
+talking about proving things.,00:30:45.110,00:30:46.920
+"And once you prove something
+is true, it can't be false.",00:30:46.920,00:30:51.320
+"If it is, you've got a
+contradiction in your system.",00:30:51.320,00:30:54.100
+"But if you think of this as a
+programming language, if you",00:30:54.100,00:30:56.340
+"think of using rules as a
+programming language, then you",00:30:56.340,00:30:59.510
+"can think of arranging it so
+these rules add or subtract",00:30:59.510,00:31:04.770
+from the database.,00:31:04.770,00:31:06.380
+"Let me show you an example
+of a couple of systems.",00:31:06.380,00:31:11.500
+"First of all, since I've talked
+about the MYCIN system,",00:31:11.500,00:31:15.650
+"let me show you an example
+of a MYCIN dialogue.",00:31:15.650,00:31:41.910
+That's a MYCIN dialogue.,00:31:41.910,00:31:43.750
+"And you can see the appearance
+of words you have to go to",00:31:43.750,00:31:47.320
+medical school to learn.,00:31:47.320,00:31:48.570
+"And here's a typical MYCIN rule,
+just like the rules for",00:31:51.000,00:31:53.830
+"doing zoo analysis, only a
+more complicated domain.",00:31:53.830,00:31:58.252
+"But here's another example of a
+system that was written, not",00:31:58.252,00:32:01.130
+"in the '80s, but just a couple
+of years ago by a student in",00:32:01.130,00:32:04.300
+"the architecture department,
+Ph.D. thesis.",00:32:04.300,00:32:09.340
+"He was interested in the
+architecture of a Portuguese",00:32:09.340,00:32:13.150
+architect named Siza.,00:32:13.150,00:32:15.250
+"And Siza's done a lot of
+mass housing stuff.",00:32:15.250,00:32:18.180
+"And Siza has the idea that you
+ought to be able to design",00:32:18.180,00:32:20.570
+your own house.,00:32:20.570,00:32:22.500
+"And so Jose Duarte, a Portuguese
+student, a Ph.D.",00:32:22.500,00:32:27.240
+"student in architecture, wrote
+a rule-based system that was",00:32:27.240,00:32:31.260
+"capable of designing Siza-like
+houses in response to the",00:32:31.260,00:32:35.950
+"requirements and recommendations
+and desires of",00:32:35.950,00:32:39.080
+"the people who are going
+to occupy the houses.",00:32:39.080,00:32:42.740
+"So the most compelling part of
+this thing, of this exercise,",00:32:42.740,00:32:46.150
+"was that Duarte took some of
+the designs of the program,",00:32:46.150,00:32:51.780
+"mixed them up with some of the
+designs of Siza, and put them",00:32:51.780,00:32:55.330
+"in front of Siza, and said,
+which ones did you do?",00:32:55.330,00:32:58.840
+And Siza couldn't tell.,00:32:58.840,00:33:01.550
+"So somehow, the rule-based
+system that was built using",00:33:01.550,00:33:04.600
+"this kind of technology was
+sufficient to confuse even the",00:33:04.600,00:33:08.530
+"expert that they were
+patterned after.",00:33:08.530,00:33:13.040
+"But this program is a
+little complicated.",00:33:13.040,00:33:14.555
+"It, too, has its own
+specialized lingo.",00:33:14.555,00:33:17.710
+"So I'm not going to talk about
+it in detail, but rather talk",00:33:17.710,00:33:21.460
+"instead about an analogous
+problem.",00:33:21.460,00:33:24.320
+"And that is a problem that
+everyone has faced at one",00:33:24.320,00:33:27.910
+"point or another, and that
+is the problem of putting",00:33:27.910,00:33:31.210
+"groceries in a bag at
+a grocery store.",00:33:31.210,00:33:34.952
+"It's the same thing, right?",00:33:34.952,00:33:37.110
+"Instead of putting rooms in
+a house, you're putting",00:33:37.110,00:33:39.770
+groceries in a bag.,00:33:39.770,00:33:41.660
+"And there must be some rules
+about how to do that.",00:33:41.660,00:33:46.640
+"In fact, maybe some of you have
+been professional grocery",00:33:46.640,00:33:49.910
+store baggers?,00:33:49.910,00:33:52.420
+"[INAUDIBLE] a grocery store
+professional bagger.",00:33:52.420,00:33:54.870
+You're a--,00:33:54.870,00:33:57.760
+which one?,00:33:57.760,00:33:58.480
+LISA: [INAUDIBLE],00:33:58.480,00:34:00.850
+"PROFESSOR PATRICK WINSTON:
+Yeah, what is your name?",00:34:00.850,00:34:01.475
+LISA: Lisa.,00:34:01.475,00:34:01.770
+"PROFESSOR PATRICK
+WINSTON: Lisa.",00:34:01.770,00:34:03.120
+"OK, well we got two
+professional",00:34:03.120,00:34:05.640
+grocery store baggers.,00:34:05.640,00:34:07.730
+"And I'm going to be now
+simulating a highly paid",00:34:07.730,00:34:10.429
+"knowledge engineer desirous of
+building a program that knows",00:34:10.429,00:34:13.800
+how to bag groceries.,00:34:13.800,00:34:16.300
+"So I'm going to visit your site,
+Market Basket, and I'm",00:34:16.300,00:34:22.300
+"going to ask Lisa, now fearful
+of losing her job, if she",00:34:22.300,00:34:26.889
+"would tell me about how
+she bags groceries.",00:34:26.889,00:34:30.250
+So could you suggest a rule?,00:34:30.250,00:34:32.780
+LISA: Sure.,00:34:32.780,00:34:34.226
+Large items in the bottom.,00:34:34.226,00:34:36.154
+"PROFESSOR PATRICK WINSTON: Large
+items in the bottom.",00:34:36.154,00:34:37.600
+"You see, that's why I'm a
+highly paid knowledge",00:34:37.600,00:34:39.350
+"engineer, because I translate
+what she said",00:34:39.350,00:34:43.090
+into an if-then rule.,00:34:43.090,00:34:44.090
+"So if large, then bottom.",00:34:44.090,00:34:46.300
+So now I--,00:34:46.300,00:34:47.370
+SPEAKER 3: [LAUGHTER],00:34:47.370,00:34:49.030
+"PROFESSOR PATRICK WINSTON: So
+how about you, [INAUDIBLE]?",00:34:49.030,00:34:50.020
+Have you got a suggestion?,00:34:50.020,00:34:51.270
+About how to bag groceries?,00:34:53.870,00:34:56.355
+"SPEAKER 6: The small
+things on top.",00:34:56.355,00:34:59.840
+"PROFESSOR PATRICK WINSTON:
+If small, then on top.",00:34:59.840,00:35:02.180
+"Lisa, have you got anything
+else you could tell me?",00:35:02.180,00:35:04.690
+"LISA: Don't put too many heavy
+things in the same bag.",00:35:04.690,00:35:07.070
+"PROFESSOR PATRICK WINSTON:
+Don't put too many heavy",00:35:07.070,00:35:08.500
+things in the same bag.,00:35:08.500,00:35:09.750
+"So if heavy greater than
+three, then new bag, or",00:35:09.750,00:35:14.330
+something like that.,00:35:14.330,00:35:16.560
+"Is that all we're going to be
+able to-- does anybody else",00:35:16.560,00:35:17.615
+want to volunteer?,00:35:17.615,00:35:18.430
+"[INAUDIBLE], have you bagged
+groceries in Turkey?",00:35:18.430,00:35:20.677
+"LISA: So they don't
+have grocery",00:35:20.677,00:35:22.665
+"baggers, so we have to--",00:35:22.665,00:35:26.144
+"PROFESSOR PATRICK WINSTON: So
+everybody's a professional",00:35:26.144,00:35:27.635
+bagger in Turkey.,00:35:27.635,00:35:28.640
+Yeah.,00:35:28.640,00:35:28.915
+"It's outsourced to
+the customers.",00:35:28.915,00:35:30.165
+"SPEAKER 7: So no squishies
+on the bottom.",00:35:32.324,00:35:34.694
+So if you have--,00:35:34.694,00:35:35.642
+"PROFESSOR PATRICK WINSTON: No
+squishies on the bottom.",00:35:35.642,00:35:36.590
+"SPEAKER 7: If you
+have tomatoes--",00:35:36.590,00:35:37.064
+"PROFESSOR PATRICK WINSTON:
+That's good.",00:35:37.064,00:35:38.050
+Tomatoes.,00:35:38.050,00:35:38.400
+"SPEAKER 7: You don't want
+them to get squished.",00:35:38.400,00:35:40.260
+"PROFESSOR PATRICK WINSTON: Now,
+there's a very different",00:35:40.260,00:35:40.880
+"thing about squishies and
+tomatoes because tomato is",00:35:40.880,00:35:44.070
+"specific, and squishy isn't.",00:35:44.070,00:35:46.395
+"Now, one tendency of MIT
+students, of course, is that",00:35:46.395,00:35:49.090
+we all tend to generalize.,00:35:49.090,00:35:52.270
+"I once knew a professor
+in the Sloan School",00:35:52.270,00:35:54.190
+who seemed real smart.,00:35:54.190,00:35:56.270
+And--,00:35:56.270,00:35:57.240
+SPEAKER 3: [LAUGHTER],00:35:57.240,00:36:00.150
+"PROFESSOR PATRICK
+WINSTON: Then I",00:36:00.150,00:36:00.410
+figured out what he did.,00:36:00.410,00:36:02.270
+"If I were to say, I'm thinking
+about a red apple.",00:36:02.270,00:36:06.250
+"They'd sit back and say, oh,
+I see you're contemplating",00:36:06.250,00:36:10.720
+colored fruit today.,00:36:10.720,00:36:12.330
+"They're just taking it up one
+level of abstraction.",00:36:12.330,00:36:16.740
+Not a genius.,00:36:16.740,00:36:17.530
+"He also was able to talk for
+an hour after he drew a",00:36:17.530,00:36:20.320
+triangle on the board.,00:36:20.320,00:36:21.460
+Amazing people.,00:36:21.460,00:36:22.520
+"Anyhow, where were we?",00:36:22.520,00:36:24.160
+"Oh, yes, bagging groceries.",00:36:24.160,00:36:27.690
+"So we're making some progress,
+but not as",00:36:27.690,00:36:31.690
+much as I would like.,00:36:31.690,00:36:32.950
+"And so in order to really make
+progress on tasks like this,",00:36:32.950,00:36:37.800
+you have to exercise--,00:36:37.800,00:36:38.790
+"you know about some principles
+of knowledge engineering.",00:36:38.790,00:36:43.040
+"So principle number one, which
+I've listed over here as part",00:36:43.040,00:36:48.310
+"of a gold star idea, is deal
+with specific cases.",00:36:48.310,00:36:52.950
+"So while you're at the site, if
+all you do is talk to the",00:36:52.950,00:36:55.870
+"experts like Lisa and
+[INAUDIBLE], all you're going",00:36:55.870,00:36:59.210
+"to get is vague generalities
+because they won't think of",00:36:59.210,00:37:01.490
+everything.,00:37:01.490,00:37:03.260
+"So what you do is you
+say, well, let me",00:37:03.260,00:37:05.620
+watch you on the line.,00:37:05.620,00:37:07.870
+"And then you'll see that they
+have to have some way of",00:37:07.870,00:37:09.810
+dealing with the milk.,00:37:09.810,00:37:12.540
+"And then you'll see that they
+have to have some way of",00:37:12.540,00:37:14.220
+dealing with the potato chips.,00:37:14.220,00:37:15.600
+"Nobody mentioned potato chips,
+except insofar as they might",00:37:15.600,00:37:19.150
+be squishy.,00:37:19.150,00:37:20.400
+"We don't have a definition
+for squishy.",00:37:22.650,00:37:24.520
+"Nobody talked about
+the macaroni.",00:37:24.520,00:37:27.840
+"And no one talked about
+the motor oil.",00:37:27.840,00:37:29.790
+This is a convenience store.,00:37:29.790,00:37:32.050
+"I don't want that in the
+same bag with the meat.",00:37:32.050,00:37:35.240
+"And then no one talked
+about canned stuff.",00:37:35.240,00:37:37.890
+Here's a can of olives.,00:37:37.890,00:37:40.450
+"So by looking at specific cases,
+you elicit from people",00:37:40.450,00:37:45.930
+"knowledge they otherwise would
+not have thought to give you.",00:37:45.930,00:37:48.620
+"That's knowledge engineering
+rule number one.",00:37:51.210,00:37:55.450
+"And within a very few minutes,
+you'll have all three",00:37:55.450,00:37:57.310
+"knowledge engineering rules and
+be prepared to be a highly",00:37:57.310,00:37:59.480
+paid knowledge engineer.,00:37:59.480,00:38:00.730
+"Heuristic, let's call
+these heuristics.",00:38:03.190,00:38:05.350
+"Heuristic number one,
+specific cases.",00:38:05.350,00:38:07.120
+"Heuristic number two is ask
+questions about things that",00:38:07.120,00:38:11.100
+"appear to be the same, but are
+actually handled differently.",00:38:11.100,00:38:15.070
+"So there's some Birds Eye
+frozen peas, and here--",00:38:15.070,00:38:20.888
+"ugh, some fresh cut
+sweet peas.",00:38:20.888,00:38:27.160
+"And to me, the person who's
+never touched a grocery bag in",00:38:27.160,00:38:31.540
+"my life-- maybe I'm
+from Mars--",00:38:31.540,00:38:33.900
+I can't tell the difference.,00:38:33.900,00:38:34.990
+They're both peas.,00:38:34.990,00:38:36.910
+"But I observe that the experts
+are handling these objects",00:38:36.910,00:38:40.980
+differently.,00:38:40.980,00:38:42.650
+"So I say, why did you handle
+those peas differently from",00:38:42.650,00:38:45.940
+"those peas, and what
+do they say?",00:38:45.940,00:38:48.250
+"One's canned, and
+one's frozen.",00:38:48.250,00:38:51.410
+So what happens?,00:38:51.410,00:38:53.150
+"Bingo, I've got some new
+words in my vocabulary.",00:38:53.150,00:38:57.280
+"And those new vocabulary words
+are going to give me power",00:38:57.280,00:38:59.660
+"over the domain because
+I can now use",00:38:59.660,00:39:01.570
+those words in my rules.,00:39:01.570,00:39:03.380
+"And I can write rules like if
+frozen, then put them all",00:39:03.380,00:39:07.540
+"together in a little
+plastic bag.",00:39:07.540,00:39:09.910
+"Actually, that's too
+complicated, but that's what",00:39:09.910,00:39:11.660
+"we end up doing, right?",00:39:11.660,00:39:13.000
+"Why do we put them
+all together in a",00:39:13.000,00:39:14.720
+little plastic bag?,00:39:14.720,00:39:16.141
+SPEAKER 8: [INAUDIBLE],00:39:16.141,00:39:18.105
+"PROFESSOR PATRICK WINSTON:
+What's that?",00:39:18.105,00:39:19.087
+SPEAKER 8: [INAUDIBLE],00:39:19.087,00:39:20.070
+"PROFESSOR PATRICK WINSTON:
+Well, there are two",00:39:20.070,00:39:20.690
+explanations.,00:39:20.690,00:39:21.940
+There's the MIT explanation.,00:39:24.390,00:39:26.750
+"We know that temperature flow
+is equal to the fourth power",00:39:26.750,00:39:31.120
+"of the temperature difference
+and the surface area and all",00:39:31.120,00:39:33.400
+that kind of stuff.,00:39:33.400,00:39:34.130
+"We want to get them all together
+in a ball, sphere.",00:39:34.130,00:39:39.500
+"The normal explanation is that
+they're going to melt anyway,",00:39:39.500,00:39:41.660
+"so they might as well not
+get everything else wet.",00:39:41.660,00:39:43.808
+All right.,00:39:43.808,00:39:44.784
+SPEAKER 3: [LAUGHTER],00:39:44.784,00:39:50.640
+"PROFESSOR PATRICK WINSTON: So
+that's heuristic number two.",00:39:50.640,00:39:52.760
+"And actually, there's heuristic
+number three, that I",00:39:52.760,00:39:56.140
+"just want to relate to you for
+the first time because I have",00:39:56.140,00:39:59.860
+"been dealing with it a lot
+over this past summer.",00:39:59.860,00:40:01.770
+"Heuristic number three is you
+build a system, and you see",00:40:01.770,00:40:04.160
+when it cracks.,00:40:04.160,00:40:05.820
+"And when it cracks is when you
+don't have one of the rules",00:40:05.820,00:40:07.770
+you need in order to execute--,00:40:07.770,00:40:11.130
+"in order to get the program
+to execute as",00:40:11.130,00:40:13.180
+you want it to execute.,00:40:13.180,00:40:14.890
+"So if I were to write a grocery
+store bagging program",00:40:14.890,00:40:17.730
+"and have it bag some groceries,
+again, eventually",00:40:17.730,00:40:20.290
+"it would either make a mistake
+or come to a grinding halt,",00:40:20.290,00:40:22.680
+"and bingo, I know that there's
+a missing rule.",00:40:22.680,00:40:24.350
+"Isn't that what happens when you
+do a problem set, and you",00:40:28.150,00:40:32.090
+hit an impasse?,00:40:32.090,00:40:34.360
+"You're performing an experiment
+on yourself, and",00:40:34.360,00:40:36.920
+"you're discovering that you
+don't have the whole program.",00:40:36.920,00:40:40.560
+"In fact, I've listed this as a
+gold star idea having to do",00:40:40.560,00:40:45.140
+"with engineering yourself
+because all of these things",00:40:45.140,00:40:47.460
+"that you can do for knowledge
+engineering are things you can",00:40:47.460,00:40:50.400
+"do when you learn a new
+subject yourself.",00:40:50.400,00:40:52.170
+"Because essentially, you're
+making yourself into an expert",00:40:52.170,00:40:54.730
+"system when you're learning
+circuit theory or",00:40:54.730,00:40:56.940
+"electromagnetism or something
+of that sort.",00:40:56.940,00:41:00.230
+"You're saying to yourself,
+well, let's look at some",00:41:00.230,00:41:02.420
+specific cases.,00:41:02.420,00:41:04.310
+"Well, what are the vocabulary
+items here that tell me why",00:41:04.310,00:41:06.870
+"this problem is different
+from that problem?",00:41:06.870,00:41:08.450
+"Oh, this is a cylinder
+instead of a sphere.",00:41:08.450,00:41:11.380
+"Or you're working with a problem
+set, and you discover",00:41:11.380,00:41:13.200
+"you can't work with the problem,
+and you need to get",00:41:13.200,00:41:16.000
+"another chunk of knowledge
+that makes it possible",00:41:16.000,00:41:17.860
+for you to do it.,00:41:17.860,00:41:19.600
+"So this sort of thing, which
+you think of primarily as a",00:41:19.600,00:41:23.260
+"mechanism, heuristics for doing
+knowledge engineering,",00:41:23.260,00:41:26.400
+"are also mechanisms for making
+yourself smarter.",00:41:26.400,00:41:32.515
+"So that concludes what I want to
+talk with you about today.",00:41:36.910,00:41:40.990
+"But the bottom line is, that
+if you build a rule-based",00:41:40.990,00:41:43.320
+"expert system, it can
+answer questions",00:41:43.320,00:41:44.880
+about its own behavior.,00:41:44.880,00:41:46.540
+"If you build a program that's
+centered on goals, it can",00:41:46.540,00:41:49.850
+"answer questions about
+its own behavior.",00:41:49.850,00:41:51.815
+"If you build an integration
+program, it can answer",00:41:51.815,00:41:54.190
+"questions about its
+own behavior.",00:41:54.190,00:41:56.120
+"And if you want to build one of
+these systems, and you need",00:41:56.120,00:41:57.950
+"to extract knowledge from an
+expert, you need to approach",00:41:57.950,00:42:00.760
+"it with these kinds of
+heuristics because the expert",00:42:00.760,00:42:03.610
+"won't think what to tell you
+unless you elicit that",00:42:03.610,00:42:06.320
+"information by specific cases,
+by asking questions about",00:42:06.320,00:42:09.680
+"differences, and by ultimately
+doing some experiments to see",00:42:09.680,00:42:12.760
+where your program is correct.,00:42:12.760,00:42:14.850
+"So that really concludes what I
+had to say, except I want to",00:42:14.850,00:42:19.960
+"ask the question, is this all
+we need to know about human",00:42:19.960,00:42:25.080
+intelligence?,00:42:25.080,00:42:26.010
+Can these things be--,00:42:26.010,00:42:27.260
+are these things really smart?,00:42:27.260,00:42:30.500
+"And the traditional answer is
+no, they're not really smart",00:42:30.500,00:42:34.890
+"because their intelligence is
+this sort of thin veneer.",00:42:34.890,00:42:39.610
+"And when you try to get
+underneath it, as written,",00:42:39.610,00:42:44.090
+they tend to crack.,00:42:44.090,00:42:46.160
+"For example, we talk about a
+rule, we could talk about a",00:42:46.160,00:42:50.030
+"rule that knows that you should
+put the potato chips on",00:42:50.030,00:42:53.290
+the top of the bag.,00:42:53.290,00:42:54.540
+"But a program that knows that
+would have no idea why you",00:42:57.080,00:43:00.375
+"would want to put the potato
+chips on top of the bag.",00:43:00.375,00:43:03.660
+"They wouldn't know that if you
+put them on the bottom of the",00:43:03.660,00:43:05.610
+"bag, they'll get crushed.",00:43:05.610,00:43:09.870
+"And it wouldn't know that if
+they get crushed, the customer",00:43:09.870,00:43:13.310
+"will get angry, because people
+don't like to eat crushed",00:43:13.310,00:43:17.630
+potato chips.,00:43:17.630,00:43:19.340
+"So that's what I mean when I
+say the knowledge of these",00:43:19.340,00:43:21.280
+things tends to be a veneer.,00:43:21.280,00:43:23.790
+"So the MYCIN program, during
+debugging, once prescribed a",00:43:23.790,00:43:28.000
+"barrel of penicillin to be
+administered to a patient for",00:43:28.000,00:43:31.595
+its disease.,00:43:31.595,00:43:34.340
+"They don't know, they don't
+have any common sense.",00:43:34.340,00:43:38.510
+"So the question then becomes,
+well, I don't know.",00:43:38.510,00:43:43.620
+Does rule-based--,00:43:43.620,00:43:45.460
+"do rules have anything to
+do with common sense?",00:43:45.460,00:43:50.550
+"And I'm becoming a little bit
+agnostic on that subject.",00:43:50.550,00:43:53.340
+"Because there are certain
+indications, there are certain",00:43:57.840,00:44:00.440
+"situations, in which rules could
+be said to play a role",00:44:00.440,00:44:06.600
+"in our ordinary understanding
+of things.",00:44:06.600,00:44:08.495
+"Would you like to see
+a demonstration?",00:44:11.250,00:44:13.560
+"What I'm going to show you,
+when the clip speaks up--",00:44:13.560,00:44:17.060
+"well, before I make any
+promises, let me see if I'm",00:44:17.060,00:44:21.640
+actually connected to the web.,00:44:21.640,00:44:22.910
+"MIT, good.",00:44:34.260,00:44:36.770
+MIT.,00:44:36.770,00:44:38.820
+Guest.,00:44:38.820,00:44:39.700
+"Yeah, that's me.",00:44:39.700,00:44:40.950
+Sounds good.,00:44:53.820,00:44:55.070
+"OK, I just tested the system,
+and I've seen it is actually",00:45:23.930,00:45:26.650
+connected to the web.,00:45:26.650,00:45:28.330
+"And I'm going to adjust some
+systems options here.",00:45:28.330,00:45:32.230
+I'll get rid of the text box.,00:45:32.230,00:45:35.120
+"And we'll get rid of those
+changes scale a little bit.",00:45:35.120,00:45:38.160
+"What I'm going to do is I'm
+going to read a little",00:45:38.160,00:45:40.780
+synopsis of the Macbeth plot.,00:45:40.780,00:45:44.050
+You're MIT students.,00:45:44.050,00:45:45.190
+"I'm sure you're all classically
+educated and very",00:45:45.190,00:45:46.920
+"familiar with Shakespearean
+plots.",00:45:46.920,00:45:49.830
+So I'm going to read one.,00:45:49.830,00:45:52.980
+"I'm going to read a version
+of a Macbeth plot.",00:45:52.980,00:45:56.330
+"And it's going to go
+along like this.",00:45:56.330,00:45:59.260
+"It's basically reading
+a rule base so far.",00:45:59.260,00:46:03.040
+"And pretty soon, it's going to
+get beyond the rule base and",00:46:03.040,00:46:07.910
+"start reading the
+Macbeth story.",00:46:07.910,00:46:09.435
+And there it is.,00:46:12.320,00:46:13.740
+It's read the Macbeth story.,00:46:13.740,00:46:14.720
+"Let me show you what the Macbeth
+story looks like as",00:46:14.720,00:46:16.860
+"it's actually retained
+by the system.",00:46:16.860,00:46:18.660
+That's it.,00:46:18.660,00:46:19.320
+Read that.,00:46:19.320,00:46:20.570
+"OK, you ran out of
+time because the",00:46:25.480,00:46:27.310
+machine's already finished.,00:46:27.310,00:46:28.490
+"It takes about five seconds
+to read this story.",00:46:28.490,00:46:30.830
+"Now, as you look at this little
+synopsis of Macbeth,",00:46:30.830,00:46:32.920
+"there are a couple
+things to note.",00:46:32.920,00:46:35.510
+"For one thing, it says that
+Duncan is murdered.",00:46:35.510,00:46:39.090
+"Duncan, I hope this doesn't
+bother you.",00:46:39.090,00:46:42.650
+Duncan is murdered by Macbeth.,00:46:42.650,00:46:44.530
+"But at no time does it say
+that Duncan is dead.",00:46:44.530,00:46:48.205
+"But you know Duncan's dead
+because he was murdered.",00:46:48.205,00:46:50.800
+"If murdered, then dead.",00:46:50.800,00:46:53.168
+SPEAKER 3: [LAUGHTER].,00:46:53.168,00:46:55.000
+"PROFESSOR PATRICK WINSTON: So
+if you look a little further",00:46:55.000,00:46:56.640
+"down, what you see is that
+Macduff kills Macbeth.",00:46:56.640,00:47:01.890
+"Fourth line up from
+the bottom.",00:47:01.890,00:47:04.260
+Why did Macduff kill Macbeth?,00:47:04.260,00:47:08.410
+"Doesn't say why in this story,
+but you have no trouble",00:47:08.410,00:47:11.630
+"figuring out that it's
+because he got angry.",00:47:11.630,00:47:16.950
+"And when you get angry, you
+don't necessarily kill",00:47:16.950,00:47:19.970
+"somebody, but it's possible.",00:47:19.970,00:47:21.300
+SPEAKER 3: [LAUGHTER].,00:47:21.300,00:47:24.190
+"PROFESSOR PATRICK WINSTON: So
+now that you see what's in the",00:47:24.190,00:47:25.240
+"story, let me take you
+back to this display.",00:47:25.240,00:47:28.550
+"It's what we call an
+elaboration graph.",00:47:28.550,00:47:31.210
+"And when I blow it up, you can
+see that there's some familiar",00:47:31.210,00:47:33.360
+looking things in there.,00:47:33.360,00:47:35.340
+"For example, up here in the
+left-hand corner, Macbeth",00:47:35.340,00:47:38.630
+"murders Duncan, right
+over there.",00:47:38.630,00:47:41.700
+"And over here, Macduff
+kills Macbeth.",00:47:41.700,00:47:45.510
+"And if you look at what is a
+consequence of that, it looks",00:47:45.510,00:47:50.710
+"like there must be a rule that
+says if you murder somebody,",00:47:50.710,00:47:53.010
+you harm them.,00:47:53.010,00:47:54.670
+"And if you murder somebody,
+then they're dead.",00:47:54.670,00:47:58.540
+"And one reason why you might
+kill somebody is because they",00:47:58.540,00:48:01.270
+angered you.,00:48:01.270,00:48:02.500
+"And if you go the other way,
+one consequence of killing",00:48:02.500,00:48:05.880
+"somebody is that you harm them,
+and that they die too.",00:48:05.880,00:48:10.160
+"And if you harm somebody, they
+get angry, and their state",00:48:10.160,00:48:13.120
+goes negative.,00:48:13.120,00:48:14.370
+"So that suggests that there are
+some things that we have",00:48:19.050,00:48:22.550
+"on our hands that are very
+compiled and very, strangely",00:48:22.550,00:48:26.145
+"enough, very rule-like
+in their character.",00:48:26.145,00:48:30.970
+"Now, to close, I'm just
+going to read Hamlet.",00:48:30.970,00:48:35.730
+"The Hamlet demonstration is
+much like the Macbeth one.",00:48:35.730,00:48:38.900
+"In fact, Hamlet and Macbeth are
+very alike in their plot.",00:48:38.900,00:48:42.270
+"But there's one thing that's
+well-illustrated by our",00:48:42.270,00:48:44.530
+"particular capturing
+of Hamlet here.",00:48:44.530,00:48:47.940
+"And that is that you'll note
+that the ratio of gray stuff",00:48:47.940,00:48:50.910
+"to white stuff is
+considerable.",00:48:50.910,00:48:54.060
+"The gray stuff is stuff that
+has been deduced by rules.",00:48:54.060,00:48:59.810
+"And the reason there's so much
+gray stuff in this Hamlet",00:48:59.810,00:49:02.140
+"story is because everybody's
+related to everybody else.",00:49:02.140,00:49:05.380
+"So when you kill anybody, you
+irritate everybody else.",00:49:05.380,00:49:08.920
+So look at that.,00:49:12.690,00:49:13.750
+"A few white things, those are
+the things that are explicit",00:49:13.750,00:49:16.310
+"in the story, and lots
+of gray stuff.",00:49:16.310,00:49:18.630
+"So what this is suggesting is
+that when we tell a story,",00:49:18.630,00:49:22.270
+"it's mostly a matter of
+controlled hallucination.",00:49:22.270,00:49:25.440
+"I know what rules are in your
+head, so I could take",00:49:25.440,00:49:28.560
+"advantage of that in telling the
+story and not have to tell",00:49:28.560,00:49:31.030
+"you anything I'm sure you're
+going to know.",00:49:31.030,00:49:33.490
+"And so that's why, we've
+discovered, that storytelling",00:49:33.490,00:49:36.640
+"is largely a matter of just
+controlling how you're going",00:49:36.640,00:49:39.500
+"along, a kind of controlled
+hallucination.",00:49:39.500,00:49:41.010

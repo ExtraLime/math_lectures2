@@ -1,0 +1,1203 @@
+text,start,stop
+"The following content is
+provided under a Creative",00:00:00.050,00:00:02.330
+Commons license.,00:00:02.330,00:00:03.610
+"Your support will help
+MIT OpenCourseWare",00:00:03.610,00:00:05.980
+"continue to offer high quality
+educational resources for free.",00:00:05.980,00:00:09.495
+"To make a donation or to
+view additional materials",00:00:09.495,00:00:12.540
+"from hundreds of MIT courses,
+visit MIT OpenCourseWare",00:00:12.540,00:00:15.610
+at ocw.mit.edu.,00:00:15.610,00:00:21.170
+"PROFESSOR: And this
+last little bit",00:00:21.170,00:00:23.070
+"is something which is
+not yet on the Web.",00:00:23.070,00:00:24.902
+"But, anyway, when I was
+walking out of the room",00:00:24.902,00:00:26.860
+"last time, I noticed
+that I'd written down",00:00:26.860,00:00:29.740
+the wrong formula for c_1 - c_2.,00:00:29.740,00:00:32.070
+"There's a misprint, there's
+a minus sign that's wrong.",00:00:32.070,00:00:35.380
+"I claimed last time
+that c_1 - c_2 was +1/2.",00:00:35.380,00:00:39.180
+"But, actually, it's -1/2.",00:00:39.180,00:00:40.580
+"If you go through
+the calculation",00:00:40.580,00:00:42.080
+"that we did with the
+antiderivative of sin x cos x,",00:00:42.080,00:00:45.780
+"we get these two
+possible answers.",00:00:45.780,00:00:48.500
+"And if they're to be equal,
+then if we just subtract them",00:00:48.500,00:00:52.900
+we get c_1 - c_2 + 1/2 = 0.,00:00:52.900,00:00:56.300
+So c_1 - c_2 = 1/2.,00:00:56.300,00:01:01.740
+"So, those are all
+of the corrections.",00:01:01.740,00:01:03.930
+"Again, everything here
+will be on the Web.",00:01:03.930,00:01:06.530
+"But just wanted to make
+it all clear to you.",00:01:06.530,00:01:14.660
+So here we are.,00:01:14.660,00:01:15.410
+"This is our last day of the
+second unit, Applications",00:01:15.410,00:01:19.900
+of Differentiation.,00:01:19.900,00:01:22.010
+"And I have one of the most fun
+topics to introduce to you.",00:01:22.010,00:01:30.210
+Which is differential equations.,00:01:30.210,00:01:32.530
+"Now, we have a whole course
+on differential equations,",00:01:32.530,00:01:35.410
+which is called 18.03.,00:01:35.410,00:01:38.140
+"And so we're only going
+to do just a little bit.",00:01:38.140,00:01:43.840
+"But I'm going to teach
+you one technique.",00:01:43.840,00:01:52.600
+"Which fits in precisely with
+what we've been doing already.",00:01:52.600,00:01:58.250
+Which is differentials.,00:01:58.250,00:02:05.280
+"The first and simplest kind
+of differential equation",00:02:05.280,00:02:08.480
+"is the rate of change
+of x with respect to y",00:02:08.480,00:02:12.770
+is equal to some function f(x).,00:02:12.770,00:02:16.770
+"Now, that's a perfectly
+good differential equation.",00:02:16.770,00:02:19.020
+"And we already
+discussed last time",00:02:19.020,00:02:21.420
+"that the solution, that
+is, the function y,",00:02:21.420,00:02:26.204
+"is going to be the
+antiderivative,",00:02:26.204,00:02:27.620
+"or the integral, of x.",00:02:27.620,00:02:33.100
+"Now, for the purposes
+of today, we're",00:02:33.100,00:02:35.880
+"going to consider this
+problem to be solved.",00:02:35.880,00:02:40.597
+"That is, you can always do this.",00:02:40.597,00:02:41.930
+"You can always take
+antiderivatives.",00:02:41.930,00:02:44.200
+"And for our purposes
+now, that is for now,",00:02:44.200,00:02:51.560
+"we only have one technique
+to find antiderivatives.",00:02:51.560,00:03:08.380
+And that's called substitution.,00:03:08.380,00:03:15.170
+"It has a very small
+variant, which",00:03:15.170,00:03:18.750
+we called advanced guessing.,00:03:18.750,00:03:27.940
+And that works just as well.,00:03:27.940,00:03:29.820
+"And that's basically all
+that you'll ever need to do.",00:03:29.820,00:03:32.490
+"As a practical matter, these are
+the ones you'll face for now.",00:03:32.490,00:03:36.457
+"Ones that you can actually
+see what the answer is,",00:03:36.457,00:03:38.540
+"or you'll have to
+make a substitution.",00:03:38.540,00:03:42.640
+"Now, the first tricky example,
+or the first maybe interesting",00:03:42.640,00:03:48.120
+"example of a
+differential equation,",00:03:48.120,00:03:50.190
+"which I'll call Example 2,
+is going to be the following.",00:03:50.190,00:04:00.750
+"d/dx + x acting on
+y is equal to 0.",00:04:00.750,00:04:07.510
+"So that's our first
+differential equation that",00:04:07.510,00:04:10.580
+were going to try to solve.,00:04:10.580,00:04:12.780
+"Apart from this standard
+antiderivative approach.",00:04:12.780,00:04:18.630
+This operation here has a name.,00:04:18.630,00:04:24.350
+"This actually has a name,
+it's called the annihilation",00:04:24.350,00:04:27.490
+operator.,00:04:27.490,00:04:33.460
+"And it's called that
+in quantum mechanics.",00:04:33.460,00:04:43.780
+"And there's a corresponding
+creation operator",00:04:43.780,00:04:45.950
+"where you change the
+sign from plus to minus.",00:04:45.950,00:04:50.780
+"And this is one of the simplest
+differential equations.",00:04:50.780,00:04:53.660
+"The reason why it's
+studied in quantum",00:04:53.660,00:04:55.550
+"mechanics all it that it
+has very simple solutions",00:04:55.550,00:04:58.360
+that you can just write out.,00:04:58.360,00:05:00.500
+"So we're going to
+solve this equation.",00:05:00.500,00:05:02.920
+"It's the one that
+governs the ground state",00:05:02.920,00:05:05.680
+of the harmonic oscillator.,00:05:05.680,00:05:08.670
+"So it has a lot of fancy
+words associated with it,",00:05:08.670,00:05:10.790
+"but it's a fairly simple
+differential equation",00:05:10.790,00:05:12.706
+"and it works perfectly
+by the method",00:05:12.706,00:05:14.430
+that we're going to propose.,00:05:14.430,00:05:17.270
+"So the first step
+in this solution",00:05:17.270,00:05:20.820
+"is just to rewrite the
+equation by putting",00:05:20.820,00:05:26.800
+"one of the terms on
+the right-hand side.",00:05:26.800,00:05:29.090
+So this is dy/dx = -xy.,00:05:29.090,00:05:32.300
+"Now, here is where
+you see the difference",00:05:35.700,00:05:37.700
+"between this type of equation
+and the previous type.",00:05:37.700,00:05:41.210
+"In the previous
+equation, we just",00:05:41.210,00:05:43.130
+"had a function of x on
+the right-hand side.",00:05:43.130,00:05:45.660
+"But here, the rate of change
+depends on both x and y.",00:05:45.660,00:05:50.260
+"So it's not clear
+at all that we can",00:05:50.260,00:05:51.830
+solve this kind of equation.,00:05:51.830,00:05:55.110
+"But there is a
+remarkable trick which",00:05:55.110,00:05:57.370
+works very well in this case.,00:05:57.370,00:05:59.420
+Which is to use multiplication.,00:05:59.420,00:06:02.710
+"To use this idea of differential
+that we talked about last time.",00:06:02.710,00:06:06.340
+"Namely, we divide by
+y and multiply by dx.",00:06:06.340,00:06:14.700
+"So now we've separated
+the equation.",00:06:14.700,00:06:17.660
+"We've separated out
+the differentials.",00:06:17.660,00:06:20.750
+"And what's going to
+be important for us",00:06:20.750,00:06:22.960
+"is that the left-hand side is
+expressed solely in terms of y",00:06:22.960,00:06:27.410
+"and the right-hand side is
+expressed solely in terms of x.",00:06:27.410,00:06:30.170
+"And we'll go through
+this in careful detail.",00:06:30.170,00:06:33.400
+"So now, the idea is if you've
+set up the equation in terms",00:06:33.400,00:06:36.410
+"of differentials as opposed
+to ratios of differentials,",00:06:36.410,00:06:39.680
+"or rates of change, now I
+can use Leibniz's notation",00:06:39.680,00:06:44.680
+"and integrate these
+differentials.",00:06:44.680,00:06:47.600
+Take their antiderivatives.,00:06:47.600,00:06:55.420
+"And we know what
+each of these is.",00:06:55.420,00:07:02.070
+"Namely, the left-hand side is
+just-- Ah, well, that's tough.",00:07:02.070,00:07:17.920
+OK.,00:07:17.920,00:07:24.250
+"I had an au pair who actually
+did a lot of Tae Kwan Do.",00:07:24.250,00:07:29.410
+"She could definitely defeat
+any of you in any encounter,",00:07:29.410,00:07:32.870
+I promise.,00:07:32.870,00:07:34.940
+OK.,00:07:34.940,00:07:35.440
+Anyway.,00:07:35.440,00:07:37.870
+"So, let's go back.",00:07:37.870,00:07:38.970
+"We want to take the
+antiderivative of this.",00:07:38.970,00:07:41.970
+"So remember, this
+is the function",00:07:41.970,00:07:48.130
+whose derivative is 1/y.,00:07:48.130,00:07:50.140
+"And now there's a
+slight novelty here.",00:07:50.140,00:07:52.320
+"Here we're differentiating
+the variable as x,",00:07:52.320,00:07:54.860
+"and here we're differentiating
+the variable as y.",00:07:54.860,00:07:58.220
+"So the antiderivative
+here is ln y.",00:07:58.220,00:08:02.860
+"And the antiderivative on
+the other side is -x^2 / 2.",00:08:02.860,00:08:07.970
+And they differ by a constant.,00:08:07.970,00:08:10.400
+"So we have this
+relationship here.",00:08:10.400,00:08:17.620
+"Now, that's almost
+the end of the story.",00:08:17.620,00:08:19.660
+"We have to exponentiate to
+express y in terms of x.",00:08:19.660,00:08:23.100
+"So, e^(ln y) = e^(-x^2 / 2) + c.",00:08:23.100,00:08:26.970
+"And now I can rewrite that as
+y is equal to-- I'll write as A",00:08:29.880,00:08:36.010
+"e^(-x^2 / 2), where A = e^c.",00:08:36.010,00:08:40.120
+"And incidentally, we're just
+taking the case y positive",00:08:43.870,00:08:47.940
+here.,00:08:47.940,00:08:48.440
+"We'll talk about
+what happens when",00:08:48.440,00:08:50.920
+y is negative in a few minutes.,00:08:50.920,00:08:55.590
+"So here's the answer
+to the question,",00:08:55.590,00:08:57.270
+"almost, except for this fact
+that I picked out y positive.",00:08:57.270,00:09:02.040
+"Really, the solution is y
+is equal to any multiple",00:09:02.040,00:09:09.890
+of e^(-x^2 / 2).,00:09:09.890,00:09:11.780
+"Any constant a; a
+positive, negative, or 0.",00:09:11.780,00:09:19.310
+Any constant will do.,00:09:19.310,00:09:22.240
+"And we should double-check
+that to make sure.",00:09:22.240,00:09:24.640
+"If you take d/dx of y right,
+that's going to be a d/dx",00:09:24.640,00:09:32.930
+e^(-x^2 / 2).,00:09:32.930,00:09:33.950
+"And now by the
+chain rule, you can",00:09:36.570,00:09:38.220
+"see that this is a times
+the factor of -x, that's",00:09:38.220,00:09:42.080
+"the derivative of the
+exponent, with respect to x,",00:09:42.080,00:09:45.080
+times the exponential.,00:09:45.080,00:09:48.190
+And now you just rearrange that.,00:09:48.190,00:09:50.770
+That's -xy.,00:09:50.770,00:09:54.430
+So it does check.,00:09:54.430,00:09:55.860
+"These are solutions
+to the equation.",00:09:55.860,00:09:57.360
+The a didn't matter.,00:09:57.360,00:09:58.560
+"It didn't matter whether it
+was positive or negative.",00:09:58.560,00:10:05.370
+"This function is known as
+the normal distribution,",00:10:05.370,00:10:08.750
+"so it fits beautifully
+with a lot of probability",00:10:08.750,00:10:11.310
+"and probabilistic interpretation
+of quantum mechanics.",00:10:11.310,00:10:15.710
+"This is sort of where
+the particle is.",00:10:15.710,00:10:22.630
+"So next, what I'd
+like to do is just",00:10:22.630,00:10:25.380
+"go through the method in general
+and point out when it works.",00:10:25.380,00:10:30.920
+"And then I'll make
+a few comments just",00:10:30.920,00:10:32.960
+"to make sure that you understand
+the technicalities of dealing",00:10:32.960,00:10:37.650
+with constants and so forth.,00:10:37.650,00:10:39.590
+"So, first of all, the
+general method of separation",00:10:39.590,00:10:42.385
+of variables.,00:10:42.385,00:10:53.830
+And here's when it works.,00:10:53.830,00:10:55.360
+"It works when you're
+faced with a differential",00:10:55.360,00:10:58.470
+equation of the form f(x) g(y).,00:10:58.470,00:11:03.410
+"That's the situation
+that we had.",00:11:03.410,00:11:05.920
+And I'll just illustrate that.,00:11:05.920,00:11:08.150
+Just to remind you here.,00:11:08.150,00:11:09.820
+Here's our equation.,00:11:09.820,00:11:11.650
+It's in that form.,00:11:11.650,00:11:13.120
+"And the function f(x) is -x,
+and the function g(y) is just y.",00:11:13.120,00:11:22.190
+"And now, the way the method
+works is, this separation step.",00:11:22.190,00:11:26.670
+"From here to here,
+this is the key step.",00:11:26.670,00:11:30.370
+"This is the only
+conceptually remarkable step,",00:11:30.370,00:11:35.070
+"which all has to
+do with the fact",00:11:35.070,00:11:37.360
+"that Leibniz fixed his
+notations up so that this",00:11:37.360,00:11:40.160
+works perfectly.,00:11:40.160,00:11:42.190
+"And so that involves taking
+the y, so dividing by g(y),",00:11:42.190,00:11:48.320
+"and multiplying by
+dx, it's comfortable",00:11:48.320,00:11:53.170
+"because it feels like
+ordinary arithmetic,",00:11:53.170,00:11:55.540
+"even though these
+are differentials.",00:11:55.540,00:11:59.430
+"And then, we just
+antidifferentiate.",00:11:59.430,00:12:02.710
+"So we have a function, H, which
+is the integral of dy / g(y),",00:12:02.710,00:12:10.560
+"and we have another
+function which",00:12:10.560,00:12:12.440
+"is F. Note they are functions of
+completely different variables",00:12:12.440,00:12:15.910
+here.,00:12:15.910,00:12:16.740
+Integral of f(x) dx.,00:12:16.740,00:12:20.850
+"Now, in our example we did that.",00:12:20.850,00:12:23.864
+"We carried out this
+antidifferentiation,",00:12:23.864,00:12:25.530
+"and this function
+turned out to be ln y,",00:12:25.530,00:12:29.680
+"and this function turned
+out to be -x^2 / 2.",00:12:29.680,00:12:39.630
+"And then we write
+the relationship.",00:12:39.630,00:12:42.350
+"Which is that if these
+are both antiderivatives",00:12:42.350,00:12:45.790
+"of the same thing, then they
+have to differ by a constant.",00:12:45.790,00:12:48.890
+"Or, in other words, H(y)
+has to equal to F(x) + c.",00:12:48.890,00:12:55.870
+Where c is constant.,00:12:55.870,00:13:10.130
+"Now, notice that
+this kind of equation",00:13:10.130,00:13:15.150
+"is what we call an
+implicit equation.",00:13:15.150,00:13:20.450
+"It's not quite a
+formula for y, directly.",00:13:20.450,00:13:23.930
+It defines y implicitly.,00:13:23.930,00:13:26.330
+That's that top line up here.,00:13:26.330,00:13:29.630
+That's the implicit equation.,00:13:29.630,00:13:33.020
+"In order to make it an
+explicit equation, which",00:13:33.020,00:13:35.110
+"is what is underneath, what I
+have to do is take the inverse.",00:13:35.110,00:13:38.780
+"So I write it as y
+= H^(-1)(F(x) + c).",00:13:38.780,00:13:41.260
+"Now, in real life the calculus
+part is often pretty easy.",00:13:45.080,00:13:48.140
+"And it can be quite messy
+to do the inverse operation.",00:13:48.140,00:13:52.620
+"So sometimes we just leave it
+alone in the implicit form.",00:13:52.620,00:13:55.850
+"But it's also
+satisfying, sometimes,",00:13:55.850,00:13:58.250
+"to write it in the
+final form here.",00:13:58.250,00:14:09.290
+"Now I've got to give you a few
+little pieces of commentary",00:14:09.290,00:14:14.160
+"before-- For those of you
+walked in a little bit late,",00:14:14.160,00:14:16.640
+this will all be on the Web.,00:14:16.640,00:14:25.660
+"So just a few pieces
+of commentary.",00:14:25.660,00:14:31.180
+"So if you like, some remarks.",00:14:31.180,00:14:36.230
+"The first remark is that I
+could have written natural log",00:14:36.230,00:14:51.140
+"of absolute y is
+equal to -x^2 / 2 + c.",00:14:51.140,00:14:55.850
+"We learned last time that
+the antiderivative works also",00:14:58.390,00:15:01.871
+for the negative values.,00:15:01.871,00:15:02.870
+"So this would work
+for y not equal to 0.",00:15:02.870,00:15:08.490
+"Both for positive
+and negative values.",00:15:08.490,00:15:10.900
+"And you can see that that
+would have captured most",00:15:10.900,00:15:13.990
+of the rest of the solution.,00:15:13.990,00:15:15.580
+"Namely, |y| would be
+equal to A e^(-x^2 / 2),",00:15:15.580,00:15:21.870
+by the same reasoning as before.,00:15:21.870,00:15:24.800
+"And then that would mean that
+y was plus or minus A e^(-x^2 /",00:15:24.800,00:15:29.052
+"2), which is really
+just what we got.",00:15:29.052,00:15:34.800
+"Because, in fact, I
+didn't bother with this.",00:15:34.800,00:15:38.120
+"Because actually in
+most-- and the reason why",00:15:38.120,00:15:40.087
+"I'm going through this, by
+the way, carefully this time,",00:15:40.087,00:15:42.420
+"is that you're going to be
+faced with this very frequently.",00:15:42.420,00:15:44.878
+"The exponential function
+comes up all the time.",00:15:44.878,00:15:47.290
+"And so, therefore, you want
+to be completely comfortable",00:15:47.290,00:15:49.710
+dealing with it.,00:15:49.710,00:15:52.300
+"So this time I had
+the positive A,",00:15:52.300,00:15:54.510
+"while the negative A
+fits in either this way,",00:15:54.510,00:15:56.540
+or I can throw it in.,00:15:56.540,00:15:57.740
+"Because I know that that's
+going to work that way.",00:15:57.740,00:15:59.970
+"But of course, I
+double-checked to be confident.",00:15:59.970,00:16:03.370
+"Now, this still
+leaves out one value.",00:16:03.370,00:16:07.380
+"So, this still leaves
+out-- So, if you like,",00:16:07.380,00:16:12.295
+"what I have here now is a
+is equal to plus or minus",00:16:12.295,00:16:14.420
+"capital A. The capital A
+one being the positive one.",00:16:14.420,00:16:18.540
+"But this still
+leaves out one case.",00:16:18.540,00:16:20.920
+Which is y = 0.,00:16:20.920,00:16:23.480
+"Which is an extremely boring
+solution, but nevertheless",00:16:23.480,00:16:27.180
+a solution to this problem.,00:16:27.180,00:16:28.760
+"If you plug in 0 here
+for y, you get 0.",00:16:28.760,00:16:32.330
+"If you plug in 0
+here for y, you get",00:16:32.330,00:16:34.600
+that these two sides are equal.,00:16:34.600,00:16:36.520
+0 = 0.,00:16:36.520,00:16:38.080
+"Not a very interesting
+answer to the question.",00:16:38.080,00:16:40.630
+But it's still an answer.,00:16:40.630,00:16:42.290
+And so y = 0 is left out..,00:16:42.290,00:16:43.930
+"Well, that's not so surprising
+that we missed that solution.",00:16:43.930,00:16:52.520
+"Because in the process of
+carrying out these operations,",00:16:52.520,00:16:56.360
+I divided by y.,00:16:56.360,00:16:58.250
+I did that right here.,00:16:58.250,00:17:02.290
+"So, that's what happens.",00:17:02.290,00:17:03.600
+"If you're going to do various
+non-linear operations,",00:17:03.600,00:17:05.941
+"in particular, if you're
+going to divide by something,",00:17:05.941,00:17:08.190
+"if it happens to be 0 you're
+going to miss that solution.",00:17:08.190,00:17:10.564
+"You might have problems
+with that solution.",00:17:10.564,00:17:13.860
+"But we have to live with that
+because we want to get ahead.",00:17:13.860,00:17:16.870
+"And we want to get the
+formulas for various solutions.",00:17:16.870,00:17:20.520
+"So that's the first remark
+that I wanted to make.",00:17:20.520,00:17:22.840
+"And now, the second
+one is almost related",00:17:22.840,00:17:30.340
+"to what I was just
+discussing right here.",00:17:30.340,00:17:33.380
+That I'm erasing.,00:17:33.380,00:17:37.240
+And that's the following.,00:17:37.240,00:17:39.420
+"I could have also written
+ln y + c_1 = -x^2 / 2 + c_2.",00:17:39.420,00:17:52.100
+"Where c_1 and c_2 are
+different constants.",00:17:52.100,00:17:54.300
+"When I'm faced with this
+antidifferentiation,",00:17:54.300,00:17:57.210
+"I just taught you last
+time, that you want",00:17:57.210,00:17:59.460
+to have an arbitrary constant.,00:17:59.460,00:18:02.230
+"Here and there, in both slots.",00:18:02.230,00:18:06.760
+"So I perfectly well could
+have written this down.",00:18:06.760,00:18:09.480
+"But notice that I can rewrite
+this as ln y = -x^2 / 2 + c_2 -",00:18:09.480,00:18:17.990
+c_1.,00:18:17.990,00:18:20.190
+I can subtract.,00:18:20.190,00:18:22.250
+"And then, if I just combine
+these two guys together",00:18:22.250,00:18:25.385
+"and name them c, I have
+a different constant.",00:18:25.385,00:18:29.060
+"In other words, it's
+superfluous and redundant",00:18:29.060,00:18:32.010
+"to have two arbitrary
+constants here,",00:18:32.010,00:18:35.060
+"because they can always
+be combined into one.",00:18:35.060,00:18:38.260
+"So two constants
+are superfluous.",00:18:38.260,00:18:47.010
+Can always be combined.,00:18:47.010,00:18:54.430
+"So we just never do
+it this first way.",00:18:54.430,00:18:56.490
+"It's just extra writing,
+it's a waste of time.",00:18:56.490,00:19:05.260
+"There's one other subtle
+remark, which you won't actually",00:19:05.260,00:19:08.120
+"appreciate until you've
+done several problems",00:19:08.120,00:19:10.020
+in this direction.,00:19:10.020,00:19:11.280
+"Which is that the
+constant appears",00:19:11.280,00:19:14.490
+"additive here, in this first
+solution to the problem.",00:19:14.490,00:19:18.900
+"But when I do this nonlinear
+operation of exponentiation,",00:19:18.900,00:19:22.590
+"it now becomes
+multiplicative constant.",00:19:22.590,00:19:26.390
+"And so, in general, there's
+a free constant somewhere",00:19:26.390,00:19:31.006
+in the problem.,00:19:31.006,00:19:31.630
+"But it's not always
+an additive constant.",00:19:31.630,00:19:35.490
+"It's only an additive constant
+right at the first step",00:19:35.490,00:19:38.330
+"when you take the
+antiderivative.",00:19:38.330,00:19:39.890
+"And then after that, when you
+do all your other nonlinear",00:19:39.890,00:19:42.265
+"operations, it can turn
+into anything at all.",00:19:42.265,00:19:45.440
+"So you should always expect it
+to be something slightly more",00:19:45.440,00:19:47.980
+"interesting than an
+additive constant.",00:19:47.980,00:19:49.563
+"Although occasionally it
+stays an additive constant.",00:19:49.563,00:19:59.060
+"The last little
+bit of commentary",00:19:59.060,00:20:01.180
+"that I want to make just goes
+back to the original problem",00:20:01.180,00:20:06.010
+here.,00:20:06.010,00:20:06.810
+Which is right here.,00:20:06.810,00:20:09.680
+The example 1.,00:20:09.680,00:20:11.190
+"And I want to solve it, even
+though this is simpleminded.",00:20:11.190,00:20:14.490
+But Example 1 via separation.,00:20:14.490,00:20:21.490
+So that you see our variables.,00:20:21.490,00:20:25.290
+So that you see what it does.,00:20:25.290,00:20:28.440
+The situation is this.,00:20:28.440,00:20:34.230
+"And the separation
+just means you",00:20:34.230,00:20:35.890
+put the dx on the other side.,00:20:35.890,00:20:38.570
+So this is dy = f(x) dx.,00:20:38.570,00:20:44.030
+And then we integrate.,00:20:44.030,00:20:54.680
+"And the antiderivative
+of dy is just y.",00:20:54.680,00:20:58.170
+"So this is the solution
+to the problem.",00:20:58.170,00:21:03.490
+"And it's just what
+we wrote before;",00:21:03.490,00:21:05.170
+it's just a funny notation.,00:21:05.170,00:21:07.480
+"And it comes to the same
+thing as the antiderivative.",00:21:07.480,00:21:19.480
+"OK, so now we're going to
+go on to a trickier problem.",00:21:19.480,00:21:23.240
+A trickier example.,00:21:23.240,00:21:24.090
+"We need one or two more
+just to get some practice",00:21:24.090,00:21:26.420
+with this method.,00:21:26.420,00:21:29.330
+Everybody happy so far?,00:21:29.330,00:21:31.730
+Question.,00:21:31.730,00:21:32.240
+STUDENT: [INAUDIBLE],00:21:32.240,00:21:53.472
+"PROFESSOR: So, the
+question is, how do we",00:21:53.472,00:21:55.180
+deal with this ambiguity.,00:21:55.180,00:21:58.150
+"I'm summarizing very,
+very, briefly what I heard.",00:21:58.150,00:22:03.020
+"Well, you know, sometimes
+a &gt; 0, sometimes a &lt; 0,",00:22:03.020,00:22:06.530
+sometimes it's not.,00:22:06.530,00:22:07.550
+So there's a name for this guy.,00:22:07.550,00:22:12.810
+"Which is that this is what's
+called the general solution.",00:22:12.810,00:22:20.136
+"In other words, the
+whole family of solutions",00:22:20.136,00:22:22.010
+is the answer to the question.,00:22:22.010,00:22:24.460
+"Now, it could be that you're
+given extra information.",00:22:24.460,00:22:28.020
+"If you're given extra
+information, that might be,",00:22:28.020,00:22:31.760
+"and this is very typical
+in such problems,",00:22:31.760,00:22:33.527
+"you have the rate of change
+of the function, which",00:22:33.527,00:22:35.610
+is what we've given.,00:22:35.610,00:22:36.510
+"But you might also have
+the place where it starts.",00:22:36.510,00:22:39.780
+"Which would be,
+say, it starts at 3.",00:22:39.780,00:22:44.579
+"Now, if you have that
+extra piece of information,",00:22:44.579,00:22:46.620
+"then you can nail down
+exactly which function it is.",00:22:46.620,00:22:50.670
+"If you do that,
+if you plug in 3,",00:22:50.670,00:22:52.420
+"you see that a times
+e^(-0^2 / 2) is equal to 3.",00:22:52.420,00:22:57.860
+So a = 3.,00:22:57.860,00:23:00.300
+"And the answer is
+y = 3e^(-x^2 / 2).",00:23:00.300,00:23:02.720
+"And similarly, if it's negative,
+if it starts out negative,",00:23:06.140,00:23:08.940
+it'll stay negative.,00:23:08.940,00:23:10.100
+For instance.,00:23:10.100,00:23:11.100
+"If it starts out 0, it'll stay
+0, this particular function",00:23:11.100,00:23:14.870
+here.,00:23:14.870,00:23:16.100
+"So the answer to
+your question is how",00:23:16.100,00:23:18.110
+you deal with the ambiguity.,00:23:18.110,00:23:19.700
+"The answer is that you simply
+say what the solution is.",00:23:19.700,00:23:23.620
+"And the solution is
+not one function,",00:23:23.620,00:23:25.200
+it's a family of functions.,00:23:25.200,00:23:26.324
+"It's a list and you have to have
+what's known as a parameter.",00:23:26.324,00:23:30.340
+"And that parameter
+gets nailed down",00:23:30.340,00:23:32.440
+"if you tell me more
+information about the function.",00:23:32.440,00:23:35.240
+"Not the rate of change, but
+something about the values",00:23:35.240,00:23:37.654
+of the function.,00:23:37.654,00:23:38.320
+STUDENT: [INAUDIBLE],00:23:46.620,00:23:53.660
+"PROFESSOR: The general
+solution is this solution.",00:23:53.660,00:23:55.720
+STUDENT: [INAUDIBLE],00:23:55.720,00:23:56.553
+"PROFESSOR: And I'm
+showing you here",00:23:56.553,00:23:58.176
+"that you could get to most
+of the general solution.",00:23:58.176,00:24:00.300
+"There's one thing that's left
+out, namely the case a = 0.",00:24:00.300,00:24:04.570
+"So, in other words, I would
+not go through this method.",00:24:04.570,00:24:08.120
+"I would only use this,
+which is simpler.",00:24:08.120,00:24:10.690
+"But then I have to understand
+that I haven't gotten",00:24:10.690,00:24:13.590
+all of the solutions this way.,00:24:13.590,00:24:15.410
+"I'm going to need to throw in
+all the rest of the solutions.",00:24:15.410,00:24:19.325
+"So in the back of
+your head, you always",00:24:19.325,00:24:20.950
+"have to have something
+like this in mind.",00:24:20.950,00:24:23.779
+"So that you can generate
+all the solutions.",00:24:23.779,00:24:25.570
+"This is very suggestive, right?",00:24:25.570,00:24:28.510
+"The restriction, it turns
+that the restriction A &gt; 0 is",00:24:28.510,00:24:31.840
+"superfluous, is unnecessary.",00:24:31.840,00:24:40.660
+"But that, we only get by
+further thought and by checking.",00:24:40.660,00:24:46.180
+Another question?,00:24:46.180,00:24:46.890
+Over here.,00:24:46.890,00:24:47.389
+STUDENT: [INAUDIBLE],00:24:47.389,00:24:52.210
+"PROFESSOR: The aim of
+differential equations",00:24:52.210,00:24:54.630
+is to solve them.,00:24:54.630,00:24:55.600
+"Just as with
+algebraic equations.",00:24:55.600,00:24:59.372
+"Usually, differential
+equations are telling you",00:24:59.372,00:25:01.330
+"something about the balance
+between an acceleration",00:25:01.330,00:25:04.300
+and a velocity.,00:25:04.300,00:25:05.980
+"If you have a falling object,
+it might have a resistance.",00:25:05.980,00:25:09.840
+It's telling you something.,00:25:09.840,00:25:11.210
+"So, actually, sometimes
+in applied problems,",00:25:11.210,00:25:13.700
+"formulating what differential
+equation describe",00:25:13.700,00:25:16.450
+"this situation is
+very important.",00:25:16.450,00:25:18.310
+"In order to see that
+that's the right thing,",00:25:18.310,00:25:21.910
+"you have to have solved
+it to see that it fits",00:25:21.910,00:25:24.330
+the data that you're getting.,00:25:24.330,00:25:25.780
+STUDENT: [INAUDIBLE],00:25:25.780,00:25:28.570
+"PROFESSOR: The question is, can
+you solve for x instead of y.",00:25:28.570,00:25:31.720
+"The answer is, sure.",00:25:31.720,00:25:36.250
+"That's the same
+thing as-- so that",00:25:36.250,00:25:38.356
+"would be the inverse
+function of the function",00:25:38.356,00:25:40.230
+"that we're officially
+looking for.",00:25:40.230,00:25:42.520
+"But yeah, it's legal.",00:25:42.520,00:25:43.960
+"In other words,
+oftentimes we're stuck",00:25:43.960,00:25:46.150
+"with just the implicit,
+some implicit formula",00:25:46.150,00:25:48.835
+"and sometimes we're stuck with
+a formula x is a function of y",00:25:48.835,00:25:51.540
+versus y is a function of x.,00:25:51.540,00:25:54.730
+"The way in which the
+function is specified",00:25:54.730,00:25:57.850
+"is something that
+can be complicated.",00:25:57.850,00:26:00.780
+"As you'll see in
+the next example,",00:26:00.780,00:26:02.810
+"it's not necessarily
+the best thing",00:26:02.810,00:26:04.760
+"to think about a function--
+y as a function of x.",00:26:04.760,00:26:07.530
+"Well, in the fourth example.",00:26:07.530,00:26:12.170
+"Alright, we're going to go on
+and do our next example here.",00:26:12.170,00:26:27.000
+"So the third example
+is going to be taken",00:26:27.000,00:26:32.440
+as a kind of geometry problem.,00:26:32.440,00:26:36.090
+I'll draw a picture of it.,00:26:36.090,00:26:38.990
+"Suppose you have a curve
+with the following property.",00:26:38.990,00:26:44.180
+"If you take a point on the
+curve, and you take the ray,",00:26:44.180,00:26:50.730
+"you take the ray from the origin
+to the curve, well, that's not",00:26:50.730,00:26:56.224
+going to be one that I want.,00:26:56.224,00:26:57.390
+"I think I'm going to want
+something which is steeper.",00:26:57.390,00:27:00.350
+"Because what I'm
+going to insist is",00:27:00.350,00:27:02.130
+"that the tangent line be
+twice as steep as the ray",00:27:02.130,00:27:09.050
+from the origin.,00:27:09.050,00:27:10.490
+"So, in other words,
+slope of tangent line",00:27:10.490,00:27:19.600
+"equals twice slope
+of ray from origin.",00:27:19.600,00:27:31.540
+"So the slope of this
+orange line is twice",00:27:31.540,00:27:34.110
+the slope of the pink line.,00:27:34.110,00:27:39.410
+"Now, these kinds of
+geometric problems",00:27:39.410,00:27:41.240
+"can be written very succinctly
+with differential equations.",00:27:41.240,00:27:48.700
+"Namely, it's just the
+following. dy / dx,",00:27:48.700,00:27:51.530
+"that's the slope of the
+tangent line, is equal to,",00:27:51.530,00:27:55.340
+"well remember what the
+slope of this ray is,",00:27:55.340,00:27:58.030
+"if this point-- I
+need a notation.",00:27:58.030,00:28:00.700
+"At this point is (x, y) which
+is a point on the curve.",00:28:00.700,00:28:04.520
+"So the slope of this
+pink line is what?",00:28:04.520,00:28:07.860
+STUDENT: [INAUDIBLE],00:28:07.860,00:28:09.650
+PROFESSOR: y/x.,00:28:09.650,00:28:12.610
+"So if it's twice it,
+there's the equation.",00:28:12.610,00:28:20.810
+"OK, now, we only have one method
+for solving these equations.",00:28:20.810,00:28:28.040
+So let's use it.,00:28:28.040,00:28:29.890
+It says to separate variables.,00:28:29.890,00:28:31.620
+"So I write dy / y here,
+is equal to 2 dx / x.",00:28:31.620,00:28:41.000
+That's the basic separation.,00:28:41.000,00:28:42.530
+"That's the procedure that
+we're always going to use.",00:28:42.530,00:28:47.990
+"And now if I
+integrate that, I find",00:28:47.990,00:28:54.640
+"that on the right-hand side
+I have the logarithm of y.",00:28:54.640,00:29:03.250
+"And on the left-hand--
+Sorry, on the left-hand side",00:29:03.250,00:29:05.380
+I have the logarithm of y.,00:29:05.380,00:29:06.590
+"On the right-hand side, I
+have twice the logarithm",00:29:06.590,00:29:10.500
+"of x, plus a constant.",00:29:10.500,00:29:20.150
+"So let's see what
+happens to this example.",00:29:20.150,00:29:27.330
+"This is an implicit
+equation, and of course we",00:29:27.330,00:29:29.846
+"have the problems of the
+plus or minus signs, which",00:29:29.846,00:29:31.970
+"I'm not going to worry
+about until later.",00:29:31.970,00:29:38.070
+"So let's exponentiate
+and see what happens.",00:29:38.070,00:29:40.320
+"We get e^(ln y)
+= e^(2 ln x + c).",00:29:40.320,00:29:43.600
+"So, again, this is y
+on the left-hand side.",00:29:47.340,00:29:51.940
+"And on the right-hand
+side, if you think about it",00:29:51.940,00:29:54.010
+"for a second, it's (e^(ln x))^2.",00:29:54.010,00:29:55.770
+Which is x^2.,00:29:59.050,00:30:00.370
+"So this is x^2, and
+then there's an e^c.",00:30:00.370,00:30:02.680
+"So that's another one
+of these A factors here.",00:30:02.680,00:30:06.390
+A = e^c.,00:30:06.390,00:30:13.240
+"So the answer is, well,
+I'll draw the picture.",00:30:13.240,00:30:20.160
+"And I'm going to
+cheat as I did before.",00:30:20.160,00:30:22.530
+We skipped the case y negative.,00:30:22.530,00:30:24.550
+"We really only did the
+case y positive, so far.",00:30:24.550,00:30:30.236
+"But if you think
+about it for a second,",00:30:30.236,00:30:31.860
+"and we'll check it
+in a second, you're",00:30:31.860,00:30:33.490
+"going to get all of
+these parabolas here.",00:30:33.490,00:30:36.390
+"So the solution is this
+family of functions.",00:30:36.390,00:30:40.970
+And they can be bending down.,00:30:40.970,00:30:44.330
+As well as up.,00:30:44.330,00:30:45.660
+"So these are the solutions
+to this equation.",00:30:45.660,00:30:48.140
+"Every single one of these
+curves has the property",00:30:48.140,00:30:50.410
+"that if you pick a point
+on it, the tangent line",00:30:50.410,00:30:52.750
+"has twice the slope of
+the ray to the origin.",00:30:52.750,00:30:58.050
+"And the formula, if you like,
+of the general solution is y =",00:30:58.050,00:31:01.840
+"ax^2, a is any constant.",00:31:01.840,00:31:08.960
+Question?,00:31:08.960,00:31:09.460
+STUDENT: [INAUDIBLE],00:31:09.460,00:31:21.844
+PROFESSOR: Yeah.,00:31:21.844,00:31:22.510
+"So again - so first
+of all, so there",00:31:22.510,00:31:28.960
+are two approaches to this.,00:31:28.960,00:31:30.110
+"One is to check it, and
+make sure that it's right.",00:31:30.110,00:31:32.900
+"When a formula works for
+some family of values,",00:31:32.900,00:31:35.140
+sometimes it works for others.,00:31:35.140,00:31:36.740
+"But another one is to realize
+that these things will usually",00:31:36.740,00:31:39.650
+work out this way.,00:31:39.650,00:31:40.970
+"Because in this argument here,
+I allow the absolute value.",00:31:40.970,00:31:45.459
+"And that would have been a
+perfectly legal thing for me",00:31:45.459,00:31:47.750
+to do.,00:31:47.750,00:31:48.250
+"I could have put in
+absolute values here.",00:31:48.250,00:31:51.220
+"In which case, I would've gotten
+that the absolute value of this",00:31:51.220,00:31:55.690
+was equal to that.,00:31:55.690,00:31:56.890
+"And now you see I've covered
+the plus and minus cases.",00:31:56.890,00:32:02.370
+So it's that same idea.,00:32:02.370,00:32:03.880
+"This implies that y is equal
+to either Ax^2 or -Ax^2,",00:32:03.880,00:32:11.180
+"depending on which
+sign you pick.",00:32:11.180,00:32:14.100
+"So that allows me for the
+curves above and curves below.",00:32:14.100,00:32:21.210
+"Because it's really true that
+the antiderivative here is this",00:32:21.210,00:32:25.470
+function.,00:32:25.470,00:32:26.240
+It's defined for y negative.,00:32:26.240,00:32:28.820
+So let's just double-check.,00:32:28.820,00:32:33.840
+"In this case, what's happening,
+we have y = ax^2 and we want",00:32:33.840,00:32:39.460
+"to compute dy/dx to make sure
+that it satisfies the equation",00:32:39.460,00:32:44.410
+that I started out with.,00:32:44.410,00:32:46.040
+"And what I see here
+is that this is 2ax.",00:32:46.040,00:32:50.890
+"And now I'm going to write
+this in a suggestive way.",00:32:50.890,00:32:53.370
+"I'm going to write
+it as 2ax^2 / x.",00:32:53.370,00:33:00.330
+"And, sure enough,
+this is 2y / x.",00:33:00.330,00:33:06.610
+"It does not matter
+whether a-- it",00:33:06.610,00:33:08.810
+"works for a positive,
+a negative, a equals 0.",00:33:08.810,00:33:17.370
+It's OK.,00:33:17.370,00:33:24.180
+"Again, we didn't pick up by
+this method the a = 0 case.",00:33:24.180,00:33:29.770
+"And that's not surprising
+because we divided by y.",00:33:29.770,00:33:35.350
+"There's another thing to watch
+out about, about this example.",00:33:35.350,00:33:39.660
+So there's another warning.,00:33:39.660,00:33:41.990
+Which I have to give you.,00:33:41.990,00:33:44.910
+"And this is a subtlety
+which you definitely",00:33:44.910,00:33:47.130
+"won't get to in any
+detail until you",00:33:47.130,00:33:50.090
+"get to a higher level ordinary
+differential equations course,",00:33:50.090,00:33:54.070
+"but I do want to warn
+you about it right now.",00:33:54.070,00:33:56.980
+"Which is that if you
+look at the equation,",00:33:56.980,00:34:05.310
+"you need to watch out that
+it's undefined at x = 0.",00:34:05.310,00:34:14.100
+It's undefined at x = 0.,00:34:14.100,00:34:15.700
+"We also divided by x,
+and x is also a problem.",00:34:15.700,00:34:20.350
+"Now, that actually has
+an important consequence.",00:34:20.350,00:34:24.690
+"Which is that, strangely,
+knowing the value here",00:34:24.690,00:34:27.820
+"and knowing the rate of change
+doesn't specify this function.",00:34:27.820,00:34:31.040
+This is bad.,00:34:31.040,00:34:33.180
+"And it violates one of
+our pieces of intuition.",00:34:33.180,00:34:36.160
+"And what's going wrong is
+that the rate of change",00:34:36.160,00:34:38.720
+was not specified.,00:34:38.720,00:34:40.600
+It's undefined at x = 0.,00:34:40.600,00:34:43.560
+"So there's a problem
+here, and in fact",00:34:43.560,00:34:45.260
+"if you think carefully about
+what this function is doing,",00:34:45.260,00:34:48.220
+"it could come in on one branch
+and leave on a completely",00:34:48.220,00:34:53.510
+different branch.,00:34:53.510,00:34:56.050
+"It doesn't really have to
+obey any rule across x = 0.",00:34:56.050,00:35:01.541
+"So you should really be
+thinking of these things",00:35:01.541,00:35:03.540
+"as rays emanating
+from the origin.",00:35:03.540,00:35:05.860
+"The origin was a special point
+in the whole geometric problem.",00:35:05.860,00:35:10.140
+"Rather than as being
+complete parabolas.",00:35:10.140,00:35:15.080
+But that's a very subtle point.,00:35:15.080,00:35:16.460
+"I don't expect you to be able
+to say anything about it.",00:35:16.460,00:35:23.270
+"But I just want to warn
+you that it really is true",00:35:23.270,00:35:25.920
+"that when x = 0 there's a
+problem for this differential",00:35:25.920,00:35:30.640
+equation.,00:35:30.640,00:35:33.810
+"So now, let me say
+our next problem.",00:35:33.810,00:35:46.570
+Next example.,00:35:46.570,00:35:47.690
+Just another geometry question.,00:35:47.690,00:35:52.370
+So here's Example 4.,00:35:52.370,00:36:01.430
+"I'm just going to use the
+example that we've already got.",00:36:01.430,00:36:04.430
+"Because there's only
+so much time left here.",00:36:04.430,00:36:09.090
+"The fourth example is to
+take the curves perpendicular",00:36:09.090,00:36:23.480
+to the parabolas.,00:36:23.480,00:36:31.610
+"This is another
+geometry problem.",00:36:31.610,00:36:33.332
+"And by specifying that
+the the curves are",00:36:33.332,00:36:35.040
+"perpendicular to
+these parabolas,",00:36:35.040,00:36:37.020
+"I'm telling you
+what their slope is.",00:36:37.020,00:36:44.500
+So let's think about that.,00:36:44.500,00:36:47.000
+What's the new equation?,00:36:47.000,00:36:48.900
+"The new diff. eq.
+is the following.",00:36:48.900,00:36:56.270
+"It's that the slope is equal
+to the negative reciprocal",00:36:56.270,00:37:01.550
+"of the slope of
+the tangent line.",00:37:01.550,00:37:05.610
+Of tangent to the parabola.,00:37:05.610,00:37:14.850
+So that's the equation.,00:37:14.850,00:37:16.800
+"That's actually fairly
+easy to write down,",00:37:16.800,00:37:19.270
+"because it's -1
+divided by 2 y/x.",00:37:19.270,00:37:26.570
+"That's the slope
+of the parabola.",00:37:26.570,00:37:32.281
+2y/x.,00:37:32.281,00:37:32.780
+So let's rewrite that.,00:37:36.860,00:37:38.300
+"Now, this is-- the x goes in
+the numerator, so it's -x/(2y).",00:37:38.300,00:37:52.160
+"And now I want to
+solve this one.",00:37:52.160,00:37:57.990
+"Well, again, there's
+only one technique.",00:37:57.990,00:38:01.780
+"Which is we're going
+to separate variables.",00:38:01.780,00:38:10.240
+"And we separate the
+differentials here,",00:38:10.240,00:38:12.010
+so we get 2y dy = -x dx.,00:38:12.010,00:38:18.201
+"That's just looking at
+the equation that I have,",00:38:18.201,00:38:20.200
+which is right over here.,00:38:20.200,00:38:22.640
+"dy/dx = -x/(2y), and
+cross-multiplying to get this.",00:38:22.640,00:38:30.760
+"And now I can take
+the antiderivative.",00:38:30.760,00:38:33.100
+This is y^2.,00:38:33.100,00:38:35.850
+"And the antiderivative
+over here is -x^2 / 2 + c.",00:38:35.850,00:38:40.670
+"And so, the solutions are x^2
+/ 2 + y^2 is equal to some c,",00:38:44.410,00:38:57.410
+some constant c.,00:38:57.410,00:39:02.600
+"Now, this time, things
+don't work the same.",00:39:02.600,00:39:06.460
+"And you can't expect them
+always to work the same.",00:39:06.460,00:39:09.600
+"I claimed that
+this must be true.",00:39:09.600,00:39:11.550
+"But unfortunately I cannot
+insist that every c will work.",00:39:11.550,00:39:16.910
+"As you can see here, only
+the positive numbers c",00:39:16.910,00:39:21.040
+can work here.,00:39:21.040,00:39:24.980
+"So the picture is that
+something slightly different",00:39:24.980,00:39:28.720
+happened here.,00:39:28.720,00:39:29.530
+And you have to live with this.,00:39:29.530,00:39:31.310
+"Is that sometimes not all
+the constants will work.",00:39:31.310,00:39:33.570
+"Because there's more to
+the problem than just",00:39:33.570,00:39:36.270
+the antidifferentiation.,00:39:36.270,00:39:37.880
+"And here there are fewer answers
+rather than more answers.",00:39:37.880,00:39:40.870
+"In the other case we had
+to add in some answers,",00:39:40.870,00:39:43.110
+here we have to take them away.,00:39:43.110,00:39:45.030
+"Some of them don't
+make any sense.",00:39:45.030,00:39:46.890
+"And the only ones we
+can get are the ones",00:39:46.890,00:39:48.644
+"which are of this
+form, where this",00:39:48.644,00:39:50.060
+"is, say, some radius squared.",00:39:50.060,00:39:53.804
+"Well maybe I shouldn't
+call it a radius.",00:39:53.804,00:39:55.470
+"I'll just call it
+a parameter, a^2.",00:39:55.470,00:39:58.800
+"And these are of
+course ellipses.",00:39:58.800,00:40:05.940
+"And you can see
+that the ellipses,",00:40:05.940,00:40:09.080
+"the length here is
+the square root of 2a",00:40:09.080,00:40:13.990
+"and the semi-axis,
+vertical semi-axis, is a.",00:40:13.990,00:40:18.160
+"So this is the kind of
+ellipse that we've got.",00:40:18.160,00:40:20.110
+"And I draw it on the
+previous diagram,",00:40:20.110,00:40:24.140
+"I think it's somewhat
+suggestive here.",00:40:24.140,00:40:28.100
+"There, ellipses
+are kind of eggs.",00:40:28.100,00:40:30.280
+"They're a little bit
+longer than they are high.",00:40:30.280,00:40:32.820
+And they go like this.,00:40:32.820,00:40:37.160
+"And if I drew them
+pretty much right,",00:40:37.160,00:40:40.960
+"they should be
+making right angles.",00:40:40.960,00:40:43.230
+At all of these places.,00:40:43.230,00:40:49.710
+"OK, last little bit here.",00:40:49.710,00:40:53.530
+"Again, you've got to be very
+careful with these solutions.",00:40:53.530,00:40:57.930
+"And so there's a
+warning here too.",00:40:57.930,00:41:06.760
+"So let's take a
+look at the-- This",00:41:06.760,00:41:08.500
+"is the implicit solution
+to the equation.",00:41:08.500,00:41:10.924
+"And this is the one that
+tells us what the shape is.",00:41:10.924,00:41:13.090
+"But we can also have
+the explicit solution.",00:41:13.090,00:41:16.350
+"And if I solve for
+the explicit solution,",00:41:16.350,00:41:18.170
+"it's y is equal to either plus
+square root of (a^2 - x^2 / 2),",00:41:18.170,00:41:25.400
+"or y is equal to minus the
+square root of (a^2 - x^2 / 2).",00:41:25.400,00:41:32.080
+"These are the
+explicit solutions.",00:41:32.080,00:41:39.770
+"And now, we notice
+something that we",00:41:39.770,00:41:41.350
+should have noticed before.,00:41:41.350,00:41:43.850
+"Which is that an ellipse
+is not a function.",00:41:43.850,00:41:50.490
+"It's only the top
+half, if you like,",00:41:50.490,00:41:54.070
+"that's giving you a
+solution to this equation.",00:41:54.070,00:41:56.610
+"Or maybe the bottom
+half that's giving it",00:41:56.610,00:41:58.740
+the solution to the equation.,00:41:58.740,00:42:00.450
+"So the one over here, this
+one is the top halves.",00:42:00.450,00:42:07.480
+"And this one over here
+is the bottom halves.",00:42:07.480,00:42:15.270
+"And there's something
+else that's interesting.",00:42:15.270,00:42:18.570
+"Which is that we have a
+problem at y = 0. y = 0",00:42:18.570,00:42:28.560
+is where x = square root of 2a.,00:42:28.560,00:42:33.550
+"That's when we get
+to this end here.",00:42:33.550,00:42:35.960
+"And what happens is the solution
+comes around and it stops.",00:42:35.960,00:42:38.800
+It has a vertical slope.,00:42:38.800,00:42:44.820
+Vertical slope.,00:42:44.820,00:42:48.910
+And the solution stops.,00:42:48.910,00:42:56.420
+"But really, that's
+not so unreasonable.",00:42:56.420,00:43:00.020
+"After all, look at the formula.",00:43:00.020,00:43:01.890
+"There was a y in the
+denominator here.",00:43:01.890,00:43:03.660
+"When y = 0, the slope
+should be infinite.",00:43:03.660,00:43:08.500
+"And so this equation
+is just giving us",00:43:08.500,00:43:12.530
+"what it geometrically
+and intuitively",00:43:12.530,00:43:14.490
+should be giving us.,00:43:14.490,00:43:15.800
+At that stage.,00:43:15.800,00:43:22.790
+"So that is the introduction
+to ordinary differential",00:43:22.790,00:43:26.221
+equations.,00:43:26.221,00:43:26.720
+"Again, there's
+only one technique",00:43:26.720,00:43:28.740
+"which is-- We're not done yet,
+we have a whole four minutes",00:43:28.740,00:43:32.580
+left and we're going to review.,00:43:32.580,00:43:34.030
+"Now, so fortunately, this
+review is very short.",00:43:34.030,00:43:39.220
+"Fortunately for you,
+I handed out to you",00:43:39.220,00:43:42.170
+"exactly what you're going
+to be covering on the test.",00:43:42.170,00:43:44.920
+"And it's what's printed
+here but there's a whole two",00:43:44.920,00:43:48.440
+pages of discussion.,00:43:48.440,00:43:51.000
+"And I want to give you very,
+very clear-cut instructions",00:43:51.000,00:43:59.500
+here.,00:43:59.500,00:44:00.000
+"This is usually the hardest
+test of this course.",00:44:00.000,00:44:04.780
+"People usually do
+terribly on it.",00:44:04.780,00:44:07.170
+"And I'm going to
+try to stop that",00:44:07.170,00:44:11.840
+"by making it a
+little bit easier.",00:44:11.840,00:44:14.850
+"And now here's what
+we're going to do.",00:44:14.850,00:44:17.620
+"I'm telling you exactly
+what type of problems",00:44:17.620,00:44:21.150
+are going to be on the test.,00:44:21.150,00:44:22.447
+These are these six.,00:44:22.447,00:44:23.280
+"It's also written on
+your sheet, your handout.",00:44:23.280,00:44:25.940
+"It's also just what was
+asked on last year's test.",00:44:25.940,00:44:29.012
+"You should go and you should
+look at last year's test",00:44:29.012,00:44:31.220
+"and see what types
+of problems they are.",00:44:31.220,00:44:33.420
+"I really, really, am going
+to ask the same questions,",00:44:33.420,00:44:36.210
+or the same type of questions.,00:44:36.210,00:44:38.900
+Not the same questions.,00:44:38.900,00:44:41.860
+"So that's what's going
+to happen on the test.",00:44:41.860,00:44:44.960
+"And let me just tell
+you, say one thing, which",00:44:44.960,00:44:48.680
+is the main theme of the class.,00:44:48.680,00:44:51.210
+And I will open up.,00:44:51.210,00:44:52.290
+"We'll have time for one
+question after that.",00:44:52.290,00:44:54.330
+"The main theme of this unit
+is simply the following.",00:44:54.330,00:44:58.540
+"That information about
+derivative and sometimes",00:44:58.540,00:45:05.460
+"maybe the second
+derivative, tells us",00:45:05.460,00:45:11.010
+information about f itself.,00:45:11.010,00:45:17.315
+"And that's just what were doing
+here with ordinary differential",00:45:17.315,00:45:19.940
+equations.,00:45:19.940,00:45:20.490
+"And that was what we were
+doing way at the beginning when",00:45:20.490,00:45:22.865
+we did approximations.,00:45:22.865,00:45:23.825

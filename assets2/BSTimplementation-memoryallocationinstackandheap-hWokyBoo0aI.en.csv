@@ -1,0 +1,372 @@
+text,start,stop
+"In our previous lesson, we wrote some code
+for binary search tree",00:00:00.669,00:00:03.870
+"we wrote functions to insert and search
+data",00:00:03.870,00:00:06.870
+"in BST .Now in this lesson we will go a
+little deeper",00:00:06.870,00:00:10.510
+"and try to understand how things move in
+various sections of applications memory.",00:00:10.510,00:00:15.360
+"When these functions get executed and
+this will give you a lot of clarity and",00:00:15.360,00:00:19.789
+"this will give you some general insight
+into",00:00:19.789,00:00:23.140
+"how memory is managed for execution of a
+program",00:00:23.140,00:00:26.769
+"and how recursion which is so
+frequently used in case of trees",00:00:26.769,00:00:31.029
+"works. The concepts that I'm going to
+talk about in this lesson",00:00:31.029,00:00:35.320
+"have been discussed earlier in some of
+our previous lessons,",00:00:35.320,00:00:39.200
+"but it will be good to go through these
+concepts again",00:00:39.200,00:00:42.489
+"when we are implementing trees. So, here's
+the code that he had written.",00:00:42.489,00:00:46.809
+"We have this function GetNewNode() to
+create a new node",00:00:46.809,00:00:50.649
+in dynamic memory and then we have this,00:00:50.649,00:00:53.980
+"function Insert() to insert a new node in
+the tree",00:00:53.980,00:00:57.629
+"and then we have this function to search
+some data in the tree",00:00:57.629,00:01:02.329
+and finally this is the main function.,00:01:02.329,00:01:07.310
+"You can check the description of this
+video for link to the source code.",00:01:07.310,00:01:11.080
+"Now in main function here we have this
+pointer to BSTnode",00:01:11.080,00:01:15.720
+"named root to store the address of the
+root note of my tree and am initially",00:01:15.720,00:01:21.540
+setting it as NULL,00:01:21.540,00:01:22.619
+"to create an empty tree and then I'm making
+some calls to insert function",00:01:22.619,00:01:26.930
+"to insert some data in the tree and
+finally I'm asking user",00:01:26.930,00:01:30.930
+"to input a number and I'm making call to
+search function",00:01:30.930,00:01:34.979
+"to find this number in the tree if the
+search function is returning me true I'm",00:01:34.979,00:01:39.610
+"printing found,",00:01:39.610,00:01:40.640
+"else I'am printing not found. Let's see
+what will happen in memory",00:01:40.640,00:01:45.030
+"when this program will execute. The
+memory that is allocated to a program",00:01:45.030,00:01:49.450
+"or application for its execution in a
+typical architecture can be divided into",00:01:49.450,00:01:54.600
+"these four segments,",00:01:54.600,00:01:56.170
+there is one segment called text segment,00:01:56.170,00:01:59.250
+"to store all the instructions in the
+program. The instructions would be",00:01:59.250,00:02:03.140
+compiled instructions in machine language.,00:02:03.140,00:02:05.420
+"There is another segment to store all the
+global variables.",00:02:05.420,00:02:09.039
+"A variable that is declared outside all
+the functions is called",00:02:09.039,00:02:12.940
+"global variable. It is accessible to all
+the functions.",00:02:12.940,00:02:16.090
+"The next segment stack is basically
+scratch space",00:02:16.090,00:02:20.060
+"for function call execution, all the
+local variables",00:02:20.060,00:02:23.560
+"the variables that are declared within
+functions live in stack.",00:02:23.560,00:02:27.150
+"and finally the fourth section heap
+which we also called the free store, ",00:02:27.150,00:02:31.459
+"is the dynamic memory that can grow
+or shrink as per our need.",00:02:31.459,00:02:35.980
+"the size of all other segments is fixed
+the size of all other segments is",00:02:35.980,00:02:40.640
+"decided at compile-time but heap
+can grow during runtime",00:02:40.640,00:02:44.599
+"and we cannot control allocation or
+de-allocation of memory",00:02:44.599,00:02:49.110
+in any other segment during runtime,00:02:49.110,00:02:52.250
+"but we can control allocation and de-allocation
+in heap",00:02:52.250,00:02:56.010
+"we have discussed all of this in detail
+in our lesson on dynamic memory",00:02:56.010,00:02:59.489
+allocation,00:02:59.489,00:03:00.280
+"you can check the description for a link.
+Now what I'm going to do here is am",00:03:00.280,00:03:04.099
+going to draw,00:03:04.099,00:03:04.890
+"stack and heap sections as these two
+rectangular containers.",00:03:04.890,00:03:09.530
+"I'm kind of zooming into these two
+sections. Now I will show you how things",00:03:09.530,00:03:13.980
+"will move in these two sections of
+application's memory",00:03:13.980,00:03:16.959
+"when this program will execute. When this
+program will start execution",00:03:16.959,00:03:21.200
+"first the main function will be called.
+Now whenever a function is called",00:03:21.200,00:03:25.720
+"some amount of memory from the stack is
+allocated for its execution.",00:03:25.720,00:03:30.159
+"The allocated memory is called stack
+frame of the function call.",00:03:30.159,00:03:34.769
+"All the local variables and the state of
+execution of the function call",00:03:34.769,00:03:39.610
+"would be stored in the stack frame of
+the function call.",00:03:39.610,00:03:42.790
+"In the main function we have this local
+variable root which is pointer to",00:03:42.790,00:03:47.220
+BSTnode,00:03:47.220,00:03:48.280
+"so I'm showing root here in this stack frame.
+We will execute instructions",00:03:48.280,00:03:51.870
+sequentially.,00:03:51.870,00:03:53.230
+"In the first line in main function, we
+have declared root",00:03:53.230,00:03:56.590
+"and we are initializing it and setting it
+as",00:03:56.590,00:04:00.370
+"NULL. NULL is only a map macro for
+address Zero.",00:04:00.370,00:04:04.780
+"So here in in this figure am setting
+address in root as 0.",00:04:04.780,00:04:10.360
+"Now in the next line we are making a call
+to insert function",00:04:10.360,00:04:13.700
+"so what will happen is execution of main
+will pause",00:04:13.700,00:04:17.169
+"at this stage and a new stack frame will
+be",00:04:17.169,00:04:20.449
+"allocated for execution of insert.
+Main will wait for",00:04:20.449,00:04:25.030
+this insert above to finish and return.,00:04:25.030,00:04:28.419
+"Once this insert call finishes, main
+will resume at line 2.",00:04:28.419,00:04:32.620
+"We have these two local variables root
+and data in",00:04:32.620,00:04:36.380
+"insert function, in which we are
+collecting the arguments.",00:04:36.380,00:04:39.949
+"Now for this call to insert function, we will
+go inside the first if condition here",00:04:39.949,00:04:44.490
+"because root is NULL, at this line",00:04:44.490,00:04:47.680
+"we will make call to GetNewNode
+function so once again execution of this",00:04:47.680,00:04:52.380
+insert call will,00:04:52.380,00:04:53.479
+"pause and a new stack frame will be
+allocated for execution of",00:04:53.479,00:04:57.680
+"GetNewNode function we have two local
+variables in GetNewNode",00:04:57.680,00:05:02.680
+"data in which we are collecting argument and this
+pointer to BSTnode named",00:05:02.680,00:05:07.979
+"newnode. Now in this function we are using
+new operator",00:05:07.979,00:05:11.900
+"to create a BSTnode in heap. Now let's
+say",00:05:11.900,00:05:15.320
+"we got a new node at address 200
+new operator will return us this ",00:05:15.320,00:05:19.680
+"address 200 so this address will be set
+here",00:05:19.680,00:05:22.630
+in new node so we have this link here,00:05:22.630,00:05:26.039
+"and now using this pointer newNode,",00:05:26.039,00:05:29.169
+"we are setting value in these three
+fields of Node.",00:05:29.169,00:05:33.659
+"Let's say the first field to store data
+so we are setting",00:05:33.659,00:05:37.199
+"value 15 here and let's say this
+second cell is to store address of left",00:05:37.199,00:05:42.169
+child,00:05:42.169,00:05:42.940
+"this is being set as NULL and address of
+right child is also being set as NULL",00:05:42.940,00:05:48.130
+"and now GetNewNode() will return the
+address of new node",00:05:48.130,00:05:52.770
+"and finish its execution. Whenever a
+function call finishes, the stack frame",00:05:52.770,00:05:57.610
+allocated to it is reclaimed.,00:05:57.610,00:06:00.229
+"Call to insert function will resume at
+this line and the return of GetNewNode()",00:06:00.229,00:06:04.810
+"address 200, will be set in this",00:06:04.810,00:06:07.900
+"the root which is local variable for
+insert call",00:06:07.900,00:06:11.930
+"and now insert function, this particular
+call to insert function",00:06:11.930,00:06:15.729
+return the address of root.The address,00:06:15.729,00:06:18.909
+"stored in this variable root which is
+200",00:06:18.909,00:06:21.940
+"now and finish and now main will resume
+at this line",00:06:21.940,00:06:26.470
+"and root of main will be set as
+200.",00:06:26.470,00:06:29.599
+"The return of this insert call, insert(root, 15)",00:06:29.599,00:06:33.009
+will be set here. Now in the,00:06:33.009,00:06:36.900
+"execution of main, control will go to the
+next line and we have this call to",00:06:36.900,00:06:41.129
+insert function,00:06:41.129,00:06:42.250
+"to insert number 10. Once again
+execution of main will be paused and",00:06:42.250,00:06:47.319
+"a stack frame will be allocated for
+execution of insert.",00:06:47.319,00:06:51.139
+"Now this time for insert call root
+is not NULL.",00:06:51.139,00:06:54.530
+"So we will not go inside to first if,
+now we will access the data field of",00:06:54.530,00:06:59.490
+this node at,00:06:59.490,00:07:00.110
+address 200 by using this pointer named,00:07:00.110,00:07:03.469
+"root in insert function and we
+will compare it with this value 10.",00:07:03.469,00:07:08.110
+"10 is lesser than 15 so we will go to
+this line",00:07:08.110,00:07:11.389
+"and now we're making a recursive call
+here because recursion is a function",00:07:11.389,00:07:15.930
+calling itself.,00:07:15.930,00:07:16.990
+"and a function calling itself is not any
+different from",00:07:16.990,00:07:20.340
+"a function A calling another function B
+so what will happen here",00:07:20.340,00:07:24.199
+"is that execution of this particular
+insert call",00:07:24.199,00:07:27.409
+"will be paused and a new stack frame
+will be allocated for the execution of",00:07:27.409,00:07:32.490
+this,00:07:32.490,00:07:32.849
+"another insert call to which the
+arguments passed are",00:07:32.849,00:07:36.569
+"address 0, in this local variable
+root, left child",00:07:36.569,00:07:40.539
+of Node at address 200 is NULL.,00:07:40.539,00:07:44.289
+"so we are passing 0 and root and in data
+we are passing",00:07:44.289,00:07:48.000
+"10. Now for this particular insert call
+control will go",00:07:48.000,00:07:51.969
+"inside first if and we will make a
+call to get new node function",00:07:51.969,00:07:57.050
+"at this line so execution of this
+insert will",00:07:57.050,00:08:01.509
+"pause and we'll go to GetNewNode()
+function here,",00:08:01.509,00:08:04.569
+we are creating a new node in heap.,00:08:04.569,00:08:07.690
+"Let's say we got this new node at address 150.
+Now GetNewNode() will",00:08:07.690,00:08:12.080
+"return 150 and finish execution of this call
+to insert",00:08:12.080,00:08:17.199
+"will resume at this line, return of",00:08:17.199,00:08:20.229
+GetNewNode() will be set here and now,00:08:20.229,00:08:23.370
+"this call to insert will return address
+150",00:08:23.370,00:08:27.240
+"and finish. insert below will resume at
+this line",00:08:27.240,00:08:31.389
+and now in this insert call left,00:08:31.389,00:08:34.510
+"child of this node at address 200 will
+be set as",00:08:34.510,00:08:38.760
+"return of the previous insert call
+which is 150 so..",00:08:38.760,00:08:42.669
+"now these two node are linked and finally
+this insert call will finish.",00:08:42.669,00:08:48.010
+"Control will return back to main at
+this line, root will be",00:08:48.010,00:08:51.660
+"rewritten as 200 but earlier also it is
+was 200, it's not changing.",00:08:51.660,00:08:55.960
+"Next in the main function may have
+caused to insert",00:08:55.960,00:08:59.010
+"number 20. I'm not going to show the
+simulation for this one",00:08:59.010,00:09:02.410
+"once again allocated memory in stack
+will",00:09:02.410,00:09:05.500
+"grow and shrink and finally when the
+control will return back to main",00:09:05.500,00:09:09.390
+function,00:09:09.390,00:09:10.100
+"after this insert call is over, we'll
+have a node in heap",00:09:10.100,00:09:14.960
+"with value 20 set as right child of
+this node",00:09:14.960,00:09:19.000
+"at 200. Let's say we got this
+new node with",00:09:19.000,00:09:22.090
+"value 20 at address 300 so as you
+can see the address of right child",00:09:22.090,00:09:27.470
+in node at address 200 is set as 300.,00:09:27.470,00:09:31.060
+Now next one is to insert number 25,00:09:31.060,00:09:34.280
+"this one is interesting let's see what
+will happen for this one. Main will be",00:09:34.280,00:09:37.910
+paused and we will go,00:09:37.910,00:09:39.090
+"to this call to insert, in the root which is
+local to this call",00:09:39.090,00:09:43.130
+address passed is 200 and we have passed,00:09:43.130,00:09:46.290
+number 25 In data.Now here 25,00:09:46.290,00:09:50.140
+"is greater than the value in this node
+at address 200",00:09:50.140,00:09:54.700
+so we will go inside this last else condition,00:09:54.700,00:09:58.000
+we need to insert in the right subtree so,00:09:58.000,00:10:01.560
+"another card insert will be made we
+will pass address",00:10:01.560,00:10:04.820
+"300 as root and data passed will be 25
+only. Now for this call",00:10:04.820,00:10:09.310
+once again the value in node at 300,00:10:09.310,00:10:12.620
+for this call which is 300 is lesser than,00:10:12.620,00:10:16.600
+25. 25 is greater than 20,00:10:16.600,00:10:20.120
+"so once again we will come to this last
+else",00:10:20.120,00:10:23.450
+"and make a recursive call to insert in
+the right subtree",00:10:23.450,00:10:26.660
+"the right subtree is empty this time so
+for this insert call at top",00:10:26.660,00:10:30.950
+the address in root here will be 0 so for this call,00:10:30.950,00:10:34.340
+we will go to the first if,00:10:34.340,00:10:37.210
+"and make a call to GetNewNode(). Let's
+say this new node",00:10:37.210,00:10:41.570
+returns us node at address 100.,00:10:41.570,00:10:44.640
+"I'm short of space so I'm not showing
+everything in GetNewNode()",00:10:44.640,00:10:47.900
+"stack frame here. we will return back
+to this insert call at top",00:10:47.900,00:10:52.320
+and now this root is set as 100,00:10:52.320,00:10:55.890
+"address of the newly created node and
+now this call to insert will finish.",00:10:55.890,00:11:01.130
+"We will come back to this insert below
+and this",00:11:01.130,00:11:04.370
+"insert will resume at this line
+inside the last else",00:11:04.370,00:11:07.470
+"and the right child of node address
+300 will be set as 100,",00:11:07.470,00:11:11.690
+"and now this insert will return back to
+address 300,",00:11:11.690,00:11:16.010
+whatever is set in it's root,00:11:16.010,00:11:19.410
+"and this insert below will resume at this
+line inside the last else",00:11:19.410,00:11:23.670
+"right child of node at address 200 will
+be set",00:11:23.670,00:11:27.700
+as 300. It was 300 previously also,00:11:27.700,00:11:31.540
+"so even after overwriting we will not
+change and this insert will finish now.",00:11:31.540,00:11:36.200
+"Finally main will resume at this line,
+root of main",00:11:36.200,00:11:40.140
+"will be set as return of this insert
+call.",00:11:40.140,00:11:43.140
+"It will only be overwritten with same
+value. It's really important that",00:11:43.140,00:11:47.720
+"this root in main and other links in
+nodes",00:11:47.720,00:11:51.370
+"not properly updated quite often because
+of bugs in our code,",00:11:51.370,00:11:55.779
+"will loose some links or some unwanted
+links are created.",00:11:55.779,00:11:59.810
+"Now as you can see, we are creating all the
+notes in heap here. ",00:11:59.810,00:12:03.279
+"heap gives us this flexibility that we
+can decide the creation of",00:12:03.279,00:12:07.510
+"node during runtime and we can control
+the lifetime of anything in heap",00:12:07.510,00:12:12.270
+"any memory claimed in heap has to be
+explicitly de-allocated",00:12:12.270,00:12:16.570
+using free in C or delete operator in C++,00:12:16.570,00:12:20.730
+"else the memory in heap remains allocated
+till the program is running.",00:12:20.730,00:12:25.010
+"The memory in stack as you can see gets
+De-allocated when function call finishes.",00:12:25.010,00:12:30.950
+"The rest of the function calls here in
+Main function will execute in similar",00:12:30.950,00:12:34.210
+manner,00:12:34.210,00:12:34.760
+"I'll leave it for you to see and think
+about. Right now we have this tree in the",00:12:34.760,00:12:39.530
+"heap,",00:12:39.530,00:12:39.900
+"logically memory itself is a linear
+structure",00:12:39.900,00:12:43.110
+"and this is how tree which is a
+non-linear structure",00:12:43.110,00:12:46.380
+"which is logically a non-linear
+structure will fit in it.",00:12:46.380,00:12:49.960
+"The way I'm showing the nodes at random
+locations linked to each other",00:12:49.960,00:12:54.180
+"in this heap. I hope this explanation
+gave you some clarity.",00:12:54.180,00:12:58.140
+"In coming lessons we will solve some
+problems on trees.",00:12:58.140,00:13:01.350
+"This is it for this lesson thanks for
+watching.",00:13:01.350,00:13:03.730

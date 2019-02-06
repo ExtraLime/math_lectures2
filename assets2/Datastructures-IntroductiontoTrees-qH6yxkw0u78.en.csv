@@ -1,0 +1,365 @@
+text,start,stop
+"Hello everyone ! In this lesson, we will introduce
+you to an interesting data structure that",00:00:00.220,00:00:04.729
+"has got its application in a wide number of
+scenarios in computer science and this data",00:00:04.729,00:00:09.680
+structure is tree.,00:00:09.680,00:00:11.220
+"So, far in this series, we have talked about
+what we can call linear data structures.",00:00:11.220,00:00:16.760
+"Array, Linked List, stack and queue, all of
+these are linear data structures.",00:00:16.760,00:00:22.380
+"All of these are basically collections of
+different kinds in which data is arranged",00:00:22.380,00:00:26.779
+in a sequential manner.,00:00:26.779,00:00:28.599
+"In all these structures that I am showing
+here, we have a logical start and a logical",00:00:28.599,00:00:32.820
+"end and then an element in any of these collections
+can have a next element and e previous element.",00:00:32.820,00:00:38.430
+"So, all in all we have linear or sequential
+arrangement.",00:00:38.430,00:00:42.190
+"Now, as we understand, these data structures
+are ways to store and organize data in computers.",00:00:42.190,00:00:49.250
+"For different kinds of data, we use different
+kinds of data structure.",00:00:49.250,00:00:52.820
+"Our choice of data structure depends upon
+a number of factors.",00:00:52.820,00:00:58.180
+"First of all, its about what needs to be stored.",00:00:58.180,00:01:01.370
+"A certain data structure can be best fit for
+a particular kind of data.",00:01:01.370,00:01:05.430
+"Then, we may care for the cost of operations.",00:01:05.430,00:01:08.720
+"Quite often, we want to minimize the cost
+of most frequently performed operations.",00:01:08.720,00:01:12.990
+"For example, lets say we have a simple list
+and we are searching for an element in the",00:01:12.990,00:01:18.810
+list most of the time.,00:01:18.810,00:01:20.280
+"Then, we may want to store the list or collection
+as an array in sorted order, so we can perform",00:01:20.280,00:01:26.250
+something like binary search really fast.,00:01:26.250,00:01:29.310
+Another factor can be memory consumption.,00:01:29.310,00:01:31.190
+"Sometimes, we may want to minimize the memory
+usage and finally we may also choose a data",00:01:31.190,00:01:37.410
+"structure for ease of implementation, although
+this may not be the best strategy.",00:01:37.410,00:01:42.000
+"Tree is one data structure that's quite often
+used to represent hierarchical data.",00:01:42.000,00:01:47.330
+"For example, lets say we want to show employees
+in an organization and their positions in",00:01:47.330,00:01:52.909
+"organizational hierarchy, then we can show
+it something like this.",00:01:52.909,00:01:56.990
+"Lets say this is organization hierarchy of
+some company.",00:01:56.990,00:02:00.979
+"In this company, John is CEO and john has
+two direct reports - Steve and Rama.",00:02:00.979,00:02:07.750
+Then Steve has 3 direct reports.,00:02:07.750,00:02:09.770
+"Steve is manager of Lee, Bob and Ella.",00:02:09.770,00:02:13.780
+They may be having some designation.,00:02:13.780,00:02:15.650
+Rama also has two direct reports.,00:02:15.650,00:02:18.670
+"Then Bob has two direct reports and then Tom
+has 1 direct report.",00:02:18.670,00:02:23.050
+"This particular logical structure that I have
+drawn here is a Tree.",00:02:23.050,00:02:27.010
+"Well, you have to look at this structure upside
+down and then it will resemble a real tree.",00:02:27.010,00:02:32.640
+"The root here is at top and we are branching
+out in downward direction.",00:02:32.640,00:02:40.560
+"Logical representation of tree data structure
+is always like this.",00:02:40.560,00:02:43.750
+"Root at top and branching out in downward
+direction.",00:02:43.750,00:02:47.819
+"Ok, so tree is an efficient way of storing
+and organizing data that is naturally hierarchical,",00:02:47.819,00:02:54.580
+"but this is not the only application of tree
+in computer science.",00:02:54.580,00:02:57.940
+"We will talk about other applications and
+some of the implementation details like how",00:02:57.940,00:03:02.820
+"we can create such a logical structure in
+computer's memory later.",00:03:02.820,00:03:06.800
+First I want to define tree as a logical model.,00:03:06.800,00:03:11.349
+"Tree data structure can be defined as a collection
+of entities called nodes linked together to",00:03:11.349,00:03:19.250
+simulate hierarchy.,00:03:19.250,00:03:21.349
+Tree is a non-linear data structure.,00:03:21.349,00:03:23.300
+Its a hierarchical structure.,00:03:23.300,00:03:25.690
+"The topmost node in the tree is called root
+of the tree.",00:03:25.690,00:03:30.460
+"Each node will contain some data and this
+can be data of any type.",00:03:30.460,00:03:34.830
+"In the tree that I am showing in right here
+data is name of employee and designation.",00:03:34.830,00:03:39.300
+"So, we can have an object with two string
+fields one to store name and another to store",00:03:39.300,00:03:45.890
+designation.,00:03:45.890,00:03:46.890
+"Okay, so each node will contain some data
+and may contain link or reference to some",00:03:46.890,00:03:52.560
+other nodes that can be called its children.,00:03:52.560,00:03:56.640
+"Now I am introducing you to some vocabulary
+that we use for tree data structure.",00:03:56.640,00:04:01.290
+"What I am going to do here is , I am going
+to number these Nodes in the left tree.",00:04:01.290,00:04:05.250
+"So, I can refer to these Nodes using these
+numbers.",00:04:05.250,00:04:09.750
+I am numbering these nodes only for my convenience.,00:04:09.750,00:04:12.120
+its not to show any order.,00:04:12.120,00:04:14.069
+"Ok, coming back, as i had said each node will
+have some data.",00:04:14.069,00:04:17.989
+We call fill in some data in these circles.,00:04:17.989,00:04:21.150
+It can be data of any type.,00:04:21.150,00:04:22.389
+"it can be an integer or a character or a string
+or we can simple assume that there is some",00:04:22.389,00:04:28.490
+"data filled inside these nodes and we are
+not showing it.",00:04:28.490,00:04:32.660
+"Ok, as we were discussing, a node may have
+link or reference to some other nodes that",00:04:32.660,00:04:38.720
+will be called its children.,00:04:38.720,00:04:41.180
+Each arrow in this structure here is a link.,00:04:41.180,00:04:44.300
+"Ok, now as you can see, the root node which
+is numbered 1 by me and once again this number",00:04:44.300,00:04:49.960
+is not indicative of any order.,00:04:49.960,00:04:52.860
+"I could have called the root node number 10
+also.",00:04:52.860,00:04:56.350
+"So, root node has link to these two nodes
+numbered 2 and 3.",00:04:56.350,00:05:00.800
+"So, 2 and 3 will be called children of 1 and
+node 1 will be called parent of nodes 2 and",00:05:00.800,00:05:07.560
+3.,00:05:07.560,00:05:08.560
+"I'll write down all these terms that I am
+talking about.",00:05:08.560,00:05:11.270
+"We mentioned root, children and parent.",00:05:11.270,00:05:16.160
+"In this tree, one is a parent of , 1 is parent
+of 2 and 3.",00:05:16.160,00:05:21.530
+2 is child of 1.,00:05:21.530,00:05:23.910
+"And now, 4 , 5 and 6 are children of 2.",00:05:23.910,00:05:27.300
+"So, node 2 is child of node 1, but parent
+of nodes 4, 5 and 6.",00:05:27.300,00:05:34.770
+Children of same parent are called sibling.,00:05:34.770,00:05:38.190
+I am showing siblings in same color here.,00:05:38.190,00:05:40.840
+2 and 3 are sibling.,00:05:40.840,00:05:42.259
+"Then, 4, 5 and 6 are sibling, then 7,8 are
+sibling and finally 9 and 10 are sibling.",00:05:42.259,00:05:50.510
+I hope you are clear with these terms now.,00:05:50.510,00:05:53.000
+The topmost node in the tree is called root.,00:05:53.000,00:05:55.080
+Root would be the only node without a parent.,00:05:55.080,00:05:59.710
+"And then, if a node has a direct link to some
+other node, then we have a parent child relationship",00:05:59.710,00:06:05.580
+between the nodes.,00:06:05.580,00:06:06.820
+"Any node in the tree that does not have a
+child is called leaf node.",00:06:06.820,00:06:12.410
+All these nodes marked in black here are leaves.,00:06:12.410,00:06:17.139
+"So, leaf is one more term.",00:06:17.139,00:06:20.390
+"All other nodes with at least one child can
+be called internal nodes.",00:06:20.390,00:06:26.420
+"And we can have some more relationships like
+parent of parent can be called grand-parent.",00:06:26.420,00:06:32.410
+"So, 1 is grand-parent of 4 and 4 is grand-child
+of 1.",00:06:32.410,00:06:38.270
+"In general, if we can go from node A to B
+walking through the links and remember these",00:06:38.270,00:06:45.680
+links are not bidirectional.,00:06:45.680,00:06:47.240
+"We have a link from 1 to 2, so we can go from
+1 to 2, but we cannot go from 2 to 1.",00:06:47.240,00:06:53.669
+"When we are walking the tree, we can walk
+in only one direction.",00:06:53.669,00:06:57.200
+"OK, so if we can go from node A to node B,
+then A can be called ancestor of B and B can",00:06:57.200,00:07:05.510
+"be called descendant of A. Lets pick up this
+node numbered 10.",00:07:05.510,00:07:10.310
+"1, 2 and 5 are all ancestors of 10 and 10
+is a descendant of all of these nodes.",00:07:10.310,00:07:17.750
+We can walk from any of these nodes to 10.,00:07:17.750,00:07:20.840
+"Ok, let me now ask you some questions to make
+sure you understand things.",00:07:20.840,00:07:25.110
+What are the common ancestors of 4 and 9?,00:07:25.110,00:07:29.590
+"Ancestors of 4 are 1 and 2 and ancestors of
+9 are 1,2 and 5.",00:07:29.590,00:07:34.930
+"So, common ancestors will be 1 and 2.",00:07:34.930,00:07:38.650
+"Ok, next question.",00:07:38.650,00:07:40.979
+Are 6 and 7 sibling?,00:07:40.979,00:07:44.030
+Sibling must have same parent.,00:07:44.030,00:07:45.710
+6 and 7 do not have same parent.,00:07:45.710,00:07:48.009
+They have same grand-parent.,00:07:48.009,00:07:50.550
+one is grandparent of both.,00:07:50.550,00:07:53.250
+"Nodes not having same parent but having same
+grandparent can be called cousins.",00:07:53.250,00:07:58.669
+"So, 6 and 7 are cousins.",00:07:58.669,00:08:01.889
+These relationships are really interesting.,00:08:01.889,00:08:03.970
+"We can also say that node number 3 is uncle
+of node number 6 because its sibling of 2",00:08:03.970,00:08:11.470
+"which is father of 6 or i should say parent
+of 6.",00:08:11.470,00:08:16.030
+"So, we have quite some terms in vocabulary
+of tree.",00:08:16.030,00:08:19.979
+"Ok, now I will talk about some properties
+of tree.",00:08:19.979,00:08:24.169
+Tree can be called a recursive data structure.,00:08:24.169,00:08:27.070
+"We can define tree recursively as a structure
+that consists of a distinguished node called",00:08:27.070,00:08:34.489
+"root and some sub-trees and the arrangement
+is such that root of the tree contains link",00:08:34.489,00:08:42.329
+to roots of all the sub-trees.,00:08:42.329,00:08:44.589
+"T1, T2 and T3 in this figure are sub-trees.",00:08:44.589,00:08:50.220
+"In the tree that I have drawn in left here,
+we have 2 sub-trees for root node.",00:08:50.220,00:08:55.500
+"I am showing the root node in red, the left
+sub-tree in brown and right sub-tree in yellow.",00:08:55.500,00:09:00.910
+"We can further split the left sub-tree and
+look at it like node number 2 is root of this",00:09:00.910,00:09:06.879
+"sub-tree and this particular tree with node
+number 2 as root has 3 sub-trees.",00:09:06.879,00:09:12.550
+"i am showing the three sub-trees in 3 different
+colors.",00:09:12.550,00:09:16.629
+"Recursion basically is reducing something
+in a self similar manner.",00:09:16.629,00:09:21.160
+"This recursive property of tree will be used
+everywhere in all implementation and usage",00:09:21.160,00:09:25.970
+of tree.,00:09:25.970,00:09:27.550
+"The next property that I want to talk about
+is - in a tree with n nodes, there will be",00:09:27.550,00:09:32.579
+exactly n-1 links or edges.,00:09:32.579,00:09:37.130
+"Each arrow in this figure can be called a
+link or an edge.",00:09:37.130,00:09:41.550
+"All nodes except the root node will have exactly
+1 incoming edge.",00:09:41.550,00:09:46.860
+"If you can see, I'll pick this node numbered
+2.",00:09:46.860,00:09:50.809
+There is only one incoming link.,00:09:50.809,00:09:52.639
+"This is incoming link and these three are
+outgoing links.",00:09:52.639,00:09:56.949
+"There will be one link for each parent-child
+relationship.",00:09:56.949,00:10:00.089
+"So, in a valid tree if there are n nodes,
+there will be exactly n-1 edges.",00:10:00.089,00:10:05.589
+"One incoming edge for each node except the
+root.",00:10:05.589,00:10:09.910
+"Ok, now i want to talk about these two properties
+called depth and height.",00:10:09.910,00:10:16.329
+"Depth of some node X in a tree can be defined
+as length of the path from root to Node X.",00:10:16.329,00:10:23.799
+"Each edge in the path will contribute one
+unit to the length.",00:10:23.799,00:10:26.930
+"So, we can also say number of edges in path
+from root to X.",00:10:26.930,00:10:31.929
+The depth of root node will be zero.,00:10:31.929,00:10:36.310
+Lets pick some other node.,00:10:36.310,00:10:38.139
+"For this node, numbered 5, we have 2 edges
+in the path from root.",00:10:38.139,00:10:43.110
+"So, the depth of this node is 2.",00:10:43.110,00:10:46.199
+"In this tree here, depth of nodes 2 and 3
+is 1.",00:10:46.199,00:10:51.189
+"Depth of nodes 4,5,6,7 and 8 is 2 and the
+depth of nodes 9, 10 and 11 is 3.",00:10:51.189,00:10:59.600
+"Ok, now height of a node in tree can be defined
+as number of edges in longest path from that",00:10:59.600,00:11:07.179
+node to a leaf node.,00:11:07.179,00:11:09.559
+"So, height of some node X will be equal to
+number of edges in longest path from X to",00:11:09.559,00:11:14.660
+a leaf.,00:11:14.660,00:11:16.019
+"In this figure, for node 3, the longest path
+from this node to any leaf is 2.",00:11:16.019,00:11:23.730
+"So, height of node 3 is 2.",00:11:23.730,00:11:26.889
+Node 8 is also a leaf node.,00:11:26.889,00:11:29.129
+I'll mark all the leaf nodes here.,00:11:29.129,00:11:31.170
+A leaf node is a node with zero child.,00:11:31.170,00:11:33.899
+"The longest path from node 3 to any of the
+leaf nodes is 2.",00:11:33.899,00:11:38.899
+"So, the height of Node 3 is 2.",00:11:38.899,00:11:42.120
+Height of leaf nodes will be 0.,00:11:42.120,00:11:45.930
+"So, what will be the height of root node in
+this tree.",00:11:45.930,00:11:50.240
+"We can reach all the leaves from root node.
+number of edges in longest path is 3.",00:11:50.240,00:11:56.589
+"So, height of the root node here is 3.",00:11:56.589,00:11:59.889
+We also define height of a tree.,00:11:59.889,00:12:02.970
+"Height of tree is defined as height of root
+node.",00:12:02.970,00:12:06.569
+"Height of this tree that I am showing here
+is 3.",00:12:06.569,00:12:10.029
+"Height and depth are different properties
+and height and depth of a node may or may",00:12:10.029,00:12:14.660
+not be same.,00:12:14.660,00:12:15.660
+We often confuse between the two.,00:12:15.660,00:12:18.059
+"Based on properties, trees are classified
+into various categories.",00:12:18.059,00:12:21.929
+"There are different kinds of trees that are
+used in different scenarios.",00:12:21.929,00:12:26.149
+"Simplest and most common kind of tree is a
+tree with this property that any node can",00:12:26.149,00:12:32.680
+have at most 2 children.,00:12:32.680,00:12:35.350
+"In this figure, node 2 has 3 children.",00:12:35.350,00:12:38.129
+"I am getting rid of some nodes and now this
+is a binary tree.",00:12:38.129,00:12:44.589
+"Binary tree is most famous and throughout
+this series, we will mostly be talking about",00:12:44.589,00:12:48.649
+binary trees.,00:12:48.649,00:12:50.160
+"The most common way of implementing tree is
+dynamically created nodes linked using pointers",00:12:50.160,00:12:57.290
+"or references, just the way we do for linked
+list.",00:12:57.290,00:13:01.420
+We can look at the tree like this.,00:13:01.420,00:13:04.149
+"in this structure that I have drawn in right
+here, node has 3 fields.",00:13:04.149,00:13:09.579
+one of the fields is to store data.,00:13:09.579,00:13:12.310
+Lets say middle cell is to store data.,00:13:12.310,00:13:14.899
+"The left cell is to store the address of the
+left child.",00:13:14.899,00:13:19.019
+"And the right cell is to store address of
+right child.",00:13:19.019,00:13:22.499
+"Because this is a binary tree, we cannot have
+more than two children.",00:13:22.499,00:13:26.449
+"We can all one of the children left child
+and another right child.",00:13:26.449,00:13:30.609
+"Programmatically, in C or C++, we can define
+a node as a structure like this.",00:13:30.609,00:13:36.879
+"We have three fields here - one to store data,
+lets say data type is integer.",00:13:36.879,00:13:41.399
+I have filled in some data in these nodes.,00:13:41.399,00:13:44.130
+"So, in each node, we have 3 fields.",00:13:44.130,00:13:46.889
+"We have an integer variable to store the data
+and then we have 2 pointers to Node, one to",00:13:46.889,00:13:53.169
+"store the address of the left child that will
+be the root of the left sub-tree and another",00:13:53.169,00:13:58.939
+to store the address of the right child.,00:13:58.939,00:14:00.899
+"We have kept only 2 pointers because we can
+have at most 2 children in binary tree.",00:14:00.899,00:14:07.629
+"This particular definition of Node can be
+used only for a binary tree.",00:14:07.629,00:14:11.939
+"For generic trees that can have any number
+of children, we use some other structure and",00:14:11.939,00:14:17.309
+I'll talk about it in later lessons.,00:14:17.309,00:14:19.220
+"In fact, we will discuss implementation in
+detail in later lessons.",00:14:19.220,00:14:22.790
+"This is just to give you a brief idea of how
+things will be like in implementation.",00:14:22.790,00:14:28.069
+"Ok, so this is cool.",00:14:28.069,00:14:30.129
+"We understand what a tree data structure is,
+but in the beginning we had said that storing",00:14:30.129,00:14:35.089
+"naturally hierarchical data is not the only
+application of tree.",00:14:35.089,00:14:38.819
+"So, lets quickly have a look at some of the
+applications of tree in computer science.",00:14:38.819,00:14:43.929
+"First application of course is storing naturally
+hierarchical data.",00:14:43.929,00:14:47.350
+"For example, the file system on your disc
+drive, the file and folder hierarchy is naturally",00:14:47.350,00:14:53.990
+hierarchical data.,00:14:53.990,00:14:55.739
+its stored in the form of tree.,00:14:55.739,00:14:58.259
+"Next application is organizing data, organizing
+collections for quick search, insertion and",00:14:58.259,00:15:04.220
+deletion.,00:15:04.220,00:15:05.220
+"For example, binary search tree that we'll
+be discussing a lot in next couple of lessons",00:15:05.220,00:15:11.329
+"can give us order of log N time for searching
+an element in it.",00:15:11.329,00:15:16.040
+"A special kind of tree called Trie is used
+, is use to store dictionary.",00:15:16.040,00:15:22.739
+"Its really fast and efficient and is used
+for dynamic spell checking.",00:15:22.739,00:15:28.949
+"Tree data structure is also used in network
+routing algorithms and this list goes on.",00:15:28.949,00:15:34.360
+"We'll talk about different kinds of trees
+and their applications in later lessons.",00:15:34.360,00:15:38.649
+I'll stop here now.,00:15:38.649,00:15:39.809
+This is good for an introduction.,00:15:39.809,00:15:42.300
+"In next couple of lessons, we will talk about
+binary search trees and its implementation.",00:15:42.300,00:15:47.050
+This is it for this lesson.,00:15:47.050,00:15:48.240
+Thanks for watching !,00:15:48.240,00:15:49.209

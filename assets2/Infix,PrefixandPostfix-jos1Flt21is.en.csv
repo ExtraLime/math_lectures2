@@ -1,0 +1,398 @@
+text,start,stop
+"Hello everyone. In this lesson we're
+going to talk about one important and",00:00:00.280,00:00:04.279
+"really interesting topic in computer
+science where we find application of",00:00:04.279,00:00:08.260
+"stack data structure,",00:00:08.260,00:00:09.650
+"and this topic is evaluation of arithmetic
+and logical expressions.",00:00:09.650,00:00:14.710
+"So how do we write an expression. I have
+written some simple arithmetic",00:00:14.710,00:00:19.090
+expressions here.,00:00:19.090,00:00:20.080
+"An expression can have constants,
+variables",00:00:20.080,00:00:23.529
+and symbols that can be operators or,00:00:23.529,00:00:26.650
+"paranthesis and all these components
+must be arranged",00:00:26.650,00:00:30.490
+"according to a set of rules, according to
+up grammer",00:00:30.490,00:00:34.130
+"and we should be able to parse and
+evaluate expression according to this",00:00:34.130,00:00:38.530
+grammer,00:00:38.530,00:00:39.210
+"All these expressions that I had written
+here have",00:00:39.210,00:00:42.280
+"a common structure. We have an operator
+in between two operands.",00:00:42.280,00:00:47.110
+"Operand by definition is an object or
+value on which operation is performed.",00:00:47.110,00:00:52.170
+"In this expression 2+3, 2 and 3
+are operands",00:00:52.170,00:00:56.390
+"and plus is operator, in the next
+expression",00:00:56.390,00:00:59.870
+"A and B are operands and - is operator,",00:00:59.870,00:01:03.020
+"in the third expression this asterisk is
+for multiplication operation so",00:01:03.020,00:01:08.270
+so this is operator the first operand,00:01:08.270,00:01:11.780
+P is a variable and a second operand 2,00:01:11.780,00:01:15.080
+"is a constant. This is the most common way
+of writing an expression,",00:01:15.080,00:01:19.820
+"but this is not the only way. This way of
+writing an expression in which we write",00:01:19.820,00:01:24.590
+"an operator in between operands is
+called",00:01:24.590,00:01:27.909
+"infix notation. Operand doesn't always have
+to be a constant or variable.",00:01:27.909,00:01:32.280
+"Operand can be an expression itself. In
+this fourth expression that I have written",00:01:32.280,00:01:37.479
+"here,",00:01:37.479,00:01:37.869
+"one of the operands of multiplication
+operator is an expression",00:01:37.869,00:01:42.140
+"itself, another operand is a constant
+We can have a further complex expression.",00:01:42.140,00:01:47.189
+"In this fifth expression that I have
+written here both the operands of",00:01:47.189,00:01:50.600
+multiplication operator,00:01:50.600,00:01:52.009
+"are expressions. We have three operators
+in this expression here,",00:01:52.009,00:01:56.219
+for this first plus operator P and Q these,00:01:56.219,00:01:59.790
+"variables P and Q are operands, for the
+second",00:01:59.790,00:02:04.130
+"plus operator we have R and S and for
+this multiplication operator",00:02:04.130,00:02:09.580
+"the first operand is this expression
+P + Q and the second operand",00:02:09.580,00:02:14.420
+"this expression R + S. While
+evaluating",00:02:14.420,00:02:18.280
+"expressions but multiple operators,
+operations will have to be performed in",00:02:18.280,00:02:22.709
+certain order,00:02:22.709,00:02:23.830
+"like in the fourth example we will first
+have to perform",00:02:23.830,00:02:26.970
+"addition and then only we can perform
+multiplication. In this fifth expression",00:02:26.970,00:02:31.959
+"first we will have to perform these two
+additions and then we can perform the",00:02:31.959,00:02:35.580
+multiplication.,00:02:35.580,00:02:36.420
+"We will come back to evaluation but if
+you can see in all these expressions",00:02:36.420,00:02:40.780
+operator is placed in between operands.,00:02:40.780,00:02:43.930
+"This is the syntax that we are following.
+One thing that I must point out here.",00:02:43.930,00:02:48.840
+"Throughout this lesson, we're going to
+talk only about binary operators.",00:02:48.840,00:02:52.519
+"An operator that require exactly two
+operands is called",00:02:52.519,00:02:56.160
+"a binary operator. Technically we can
+have an operator that may require",00:02:56.160,00:03:00.120
+"just one operand or maybe more than two
+operands but we're talking only about",00:03:00.120,00:03:04.360
+expressions with,00:03:04.360,00:03:05.330
+"binary operators. Okay so let's now see
+what are the rules we need to apply to",00:03:05.330,00:03:10.180
+"evaluate such expressions written in this
+syntax that we are calling",00:03:10.180,00:03:14.190
+infix notation. For an expression with,00:03:14.190,00:03:17.409
+"just one operator there's no problem we
+can simply apply that operator.",00:03:17.409,00:03:21.760
+"For an expression with multiple
+operators and",00:03:21.760,00:03:24.760
+"no parenthesis like this, we need to
+decide an order",00:03:24.760,00:03:28.170
+"in which operator should be applied. In
+this expression",00:03:28.170,00:03:31.569
+"if we will perform the addition
+first then this expression",00:03:31.569,00:03:35.730
+"will reduced to 10 * 2 and will
+finally evaluate",00:03:35.730,00:03:40.090
+"as 20 but if we will perform the
+multiplication first",00:03:40.090,00:03:44.470
+then this expression will reduce to ,00:03:44.470,00:03:47.810
+4 + 12 and would finally evaluate to,00:03:47.810,00:03:51.040
+"16. So basically, we can look at this
+expression in two ways.",00:03:51.040,00:03:55.430
+"We can say that operands for addition
+operator are 4 and 6",00:03:55.430,00:03:59.519
+"and operands for multiplication are
+this expression 4 + 6",00:03:59.519,00:04:04.209
+"and this constant 2 or we can say that
+all operands for multiplication are 6",00:04:04.209,00:04:09.959
+"and 2 and operands for addition
+operation are four and this expression ",00:04:09.959,00:04:15.110
+6 * 2.,00:04:15.110,00:04:16.280
+"There is some ambiguity here but if you
+remember your high school mathematics",00:04:16.280,00:04:20.509
+"this problem is the resolved by
+following operator precedence rules",00:04:20.509,00:04:25.550
+"In an algebraic expression this is the
+precedence that we follow.",00:04:25.550,00:04:29.270
+"First preference is given to
+paranthesis or brackets,",00:04:29.270,00:04:32.790
+"next preference is given to exponents.
+I'm using this symbol for exponent",00:04:32.790,00:04:37.660
+operator so if I have to write,00:04:37.660,00:04:39.479
+"2^3, I'll be writing it
+something like this.",00:04:39.479,00:04:43.130
+"In case of multiple exponentiation
+operator,",00:04:43.130,00:04:46.330
+"we apply the operators from right to left,",00:04:46.330,00:04:49.440
+"so if I have something like this then
+first",00:04:49.440,00:04:52.750
+"this right most exponentiation operator will
+be applied.",00:04:52.750,00:04:56.009
+So this will reduce to 512.,00:04:56.009,00:05:00.120
+"If you will apply the left operator
+first, then this will evaluate to 64.",00:05:00.120,00:05:04.940
+"After exponents, next preference is given
+to multiplication and division",00:05:04.940,00:05:08.979
+"and if it's between multiplication and
+division operators then",00:05:08.979,00:05:12.669
+"we should go from left to right. After
+multiplication and division we have",00:05:12.669,00:05:16.460
+addition and subtraction,00:05:16.460,00:05:18.220
+"and here also we go from left to right. If
+we have an expression like this",00:05:18.220,00:05:22.889
+"with just addition and subtraction
+operators, then we will apply",00:05:22.889,00:05:26.630
+leftmost operator first,00:05:26.630,00:05:28.520
+"because to precedence of these operators
+is same and this will evaluate to 3.",00:05:28.520,00:05:33.289
+"If you will apply the plus operator first this
+will evaluate",00:05:33.289,00:05:36.520
+as 1 and that will be wrong.,00:05:36.520,00:05:39.180
+"In the second expression 4 + 6 * 2
+that I had written here",00:05:39.180,00:05:42.700
+"if we will apply operator precedence
+then multiplication should be performed",00:05:42.700,00:05:47.030
+"first,",00:05:47.030,00:05:47.780
+"if we want to perform addition first
+then we need to write this",00:05:47.780,00:05:51.540
+"4 + 6 within parenthesis and
+now adddition will be performed first",00:05:51.540,00:05:56.240
+because,00:05:56.240,00:05:56.970
+"precedence of parenthesis is greater.
+I'll example of another complex",00:05:56.970,00:06:01.770
+"expression and try to evaluate it,",00:06:01.770,00:06:03.670
+"just to make things further clear. So I have an
+expression here. In this expression we",00:06:03.670,00:06:07.930
+have four operators,00:06:07.930,00:06:09.310
+"one multiplication and one division one
+subtraction and one",00:06:09.310,00:06:12.600
+"addition. Multiplication and division
+have higher precedence",00:06:12.600,00:06:15.740
+"between these two multiplication and
+division",00:06:15.740,00:06:19.100
+"which have seen precedence, we will pick
+the left one first.",00:06:19.100,00:06:22.690
+"So we will first reduced this expression
+like this and now we will perform the",00:06:22.690,00:06:27.260
+division,00:06:27.260,00:06:27.960
+"and now we have only subtraction and
+addition.",00:06:27.960,00:06:31.360
+"So we will go from left to right and this
+is what we will finally get.",00:06:31.360,00:06:35.430
+"This right to left and left to right
+rule that i have wriiten here",00:06:35.430,00:06:38.840
+"for operators with equal precedence is
+better termed as operator associativity.",00:06:38.840,00:06:44.130
+"If in case of multiple operators with
+equal",00:06:44.130,00:06:47.410
+"precedence we go from left to right then
+we say that operators are",00:06:47.410,00:06:51.440
+"left associative and if we go from right
+to left",00:06:51.440,00:06:55.290
+"we say that operators are right
+associative.",00:06:55.290,00:06:58.420
+"While evaluating an expression in infix
+form, we first need to look at",00:06:58.420,00:07:02.190
+precedence,00:07:02.190,00:07:03.070
+"and then to resolve conflict among
+operator with equal precedence,",00:07:03.070,00:07:07.590
+"we need to see associativity. All in all
+you need to do so many things just to",00:07:07.590,00:07:12.660
+parse and evaluate an,00:07:12.660,00:07:14.260
+"infix expression. The use of parenthesis
+becomes really important",00:07:14.260,00:07:17.770
+"because that's how we can control to
+order in which operation should be",00:07:17.770,00:07:21.680
+performed.,00:07:21.680,00:07:22.300
+"Paranthesis add explicit intent that
+operations should be performed in this",00:07:22.300,00:07:26.780
+order,00:07:26.780,00:07:27.320
+"and also improved readability of
+expression.",00:07:27.320,00:07:30.510
+"I have modified this third expression, we
+have some parenthesis here now,",00:07:30.510,00:07:34.720
+"and most often we write infix
+expressions like this only",00:07:34.720,00:07:38.820
+"using a lot of paranthesis. Even
+though infix notation is the most common",00:07:38.820,00:07:44.080
+way of writing expressions.,00:07:44.080,00:07:45.510
+"It's not very easy to parse and evaluate
+an infix expression without ambiguity,",00:07:45.510,00:07:50.470
+"so mathematicians and logicians studied
+this problem",00:07:50.470,00:07:54.300
+"and came up with 2 other ways of writing
+expressions",00:07:54.300,00:07:57.890
+"that are paranthesis free and can be passed
+without ambiguity",00:07:57.890,00:08:02.300
+"without requiring to take care of any of
+these operator precedence or",00:08:02.300,00:08:06.460
+"associativity rules,",00:08:06.460,00:08:07.729
+"and these two ways are postfix and prefix
+notations.",00:08:07.729,00:08:11.729
+Prefix notation was proposed earlier,00:08:11.729,00:08:14.960
+in your 1924 by Polish logician.,00:08:14.960,00:08:18.310
+"Prefix notation is also known as polish
+notation.",00:08:18.310,00:08:21.760
+"In prefix notation, operator is placed
+before",00:08:21.760,00:08:25.330
+operands. This expression 2 + 3 in,00:08:25.330,00:08:28.490
+"infix will be written as + 2 3
+in prefix.",00:08:28.490,00:08:32.650
+"Plus operator will be placed before the
+two operands ",00:08:32.650,00:08:35.979
+2 and 3. P - Q will be written as,00:08:35.979,00:08:39.260
+"- P Q. Once again just like infix notation,
+operand in prefix notation",00:08:39.260,00:08:43.800
+"doesn't always have to be a
+constant and variable,",00:08:43.800,00:08:47.930
+"operand can be a complex prefix
+notation itself.",00:08:47.930,00:08:51.300
+"This expression A + B * C in
+infix form",00:08:51.300,00:08:55.690
+"will be written like this in prefix form.
+I'll come back to how we can convert",00:08:55.690,00:09:00.210
+infix expression to prefix.,00:09:00.210,00:09:01.790
+"First have a look at the third
+expression in prefix form,",00:09:01.790,00:09:04.810
+"for this multiplication operator the 2
+operands are",00:09:04.810,00:09:08.630
+"variables B and C and the three elements
+are in prefix syntax.",00:09:08.630,00:09:13.589
+"First we have to operater and then we
+have the two operands. The operands for",00:09:13.589,00:09:17.740
+"addition operator are variable A
+and this prefix expression ",00:09:17.740,00:09:22.610
+"asterisk B C. In infix expression, we need
+to use parenthesis because",00:09:22.610,00:09:27.839
+"and operands can possibly be associated
+with",00:09:27.839,00:09:31.160
+"2 operators, like in this third
+expression in infix form B can be",00:09:31.160,00:09:35.550
+associated with,00:09:35.550,00:09:36.500
+both plus and multiplication.,00:09:36.500,00:09:39.700
+"To resolve this conflict we need to use
+operator precedence and associativity",00:09:39.700,00:09:44.020
+"rules,",00:09:44.020,00:09:45.240
+"or use parenthesis to explicitly
+specify",00:09:45.240,00:09:48.990
+"association but in prefix form and also
+in Postfix form that we will discuss in",00:09:48.990,00:09:54.370
+some time.,00:09:54.370,00:09:55.170
+"An operand can be associated with only one
+operator",00:09:55.170,00:09:58.520
+"so we do not have this ambiguity, while
+parsing and evaluating",00:09:58.520,00:10:02.610
+"prefix and postfix expressions we do not
+need extra information",00:10:02.610,00:10:07.350
+"we do not need all the operator
+precedence and associativity rules.",00:10:07.350,00:10:11.490
+"I'll come back to how we can evaluate
+prefix notation. I'll first define postfix",00:10:11.490,00:10:15.790
+notation.,00:10:15.790,00:10:17.410
+"Postfix notation is also known as
+reverse polish notation.",00:10:17.410,00:10:21.070
+"This syntax was proposed in 1950s
+by some computer scientists.",00:10:21.070,00:10:25.800
+"In postfix notation operator is placed
+after operands.",00:10:25.800,00:10:29.930
+"Programmatically, postfix expression is
+easiest to",00:10:29.930,00:10:33.060
+"parse and least costly in terms of time
+and memory",00:10:33.060,00:10:36.670
+"to evaluate, and that's why this was
+actually invented.",00:10:36.670,00:10:40.530
+"Prefix expression can also be evaluated
+in similar time and memory",00:10:40.530,00:10:44.930
+"but the algorithm to parse  and evaluate
+postfix expression is",00:10:44.930,00:10:49.770
+"really straightforward and intuitive and
+that's why its preferred for computation",00:10:49.770,00:10:54.450
+using machines.,00:10:54.450,00:10:55.860
+"I'm going to write postfix for these
+expressions that had written earlier",00:10:55.860,00:10:59.570
+in other forms this first expression,00:10:59.570,00:11:02.700
+2 + 3 in Postfix will be 2 3 +.,00:11:02.700,00:11:06.370
+"Two separate the operands we can use a
+space or some other delimiter",00:11:06.370,00:11:10.480
+"like a comma, that's how you would
+typically store prefix or postfix",00:11:10.480,00:11:15.810
+"in a string When you'll have to write a
+program.",00:11:15.810,00:11:19.410
+"this second expression in postfix will
+be P Q -.",00:11:19.410,00:11:23.600
+"So as you can see in Postfix form we are
+placing the operator",00:11:23.600,00:11:27.010
+"after the operands. This third expression in
+Postfix will be",00:11:27.010,00:11:31.890
+A B C * and then +.,00:11:31.890,00:11:34.950
+"For this multiplication operator, operands
+are variables B and C",00:11:34.950,00:11:39.640
+"and for this edition, operands are",00:11:39.640,00:11:42.930
+"variable A and this postfix
+expression B C *.",00:11:42.930,00:11:48.350
+"We will see efficient algorithms to
+convert infix to prefix or postfix",00:11:48.350,00:11:53.190
+"in later lessons. For now let's not
+bother how we will do",00:11:53.190,00:11:56.320
+"this in a program, let's quickly see how
+we can do this manually.",00:11:56.320,00:12:00.380
+"To convert an expression from infix to
+any of these other two forms,",00:12:00.380,00:12:04.380
+"we need to go step-by-step just a way we
+would go in evaluation",00:12:04.380,00:12:09.100
+"I have picked this expression
+A + B * C in",00:12:09.100,00:12:12.670
+"infix form. We should first convert the
+part that should be evaluated first,",00:12:12.670,00:12:17.350
+"so we should go in order of precedence.
+We can also first",00:12:17.350,00:12:21.120
+"put all the implicit parenthesis. So here
+we will first convert this B * C",00:12:21.120,00:12:27.020
+"so first we are doing this conversion
+for multiplication operator, and then",00:12:27.020,00:12:31.030
+"we will do this conversion for addition
+operator.",00:12:31.030,00:12:34.170
+"We will bring addition to the front, so
+this is how the",00:12:34.170,00:12:38.230
+"expression will transform. We can use
+parenthesis and",00:12:38.230,00:12:41.780
+"in intermediate steps and once we had
+done that all the steps",00:12:41.780,00:12:46.010
+we can erased a parenthesis.,00:12:46.010,00:12:49.160
+"Let's now do the same thing for postfix,
+we will first do the conversion for",00:12:49.160,00:12:54.220
+"multiplication operator and then in next
+step",00:12:54.220,00:12:58.110
+"we will do it for addition and now
+we can get rid of",00:12:58.110,00:13:02.040
+all the parenthesis. Parenthesis,00:13:02.040,00:13:05.160
+"surely adds readability to any of these
+expressions",00:13:05.160,00:13:09.079
+"to any of these forms but if we are not
+bothered about human readability,",00:13:09.079,00:13:13.870
+"then for a machine we are actually
+saving some memory",00:13:13.870,00:13:17.089
+"that would be used to store
+paranthesis information.",00:13:17.089,00:13:20.350
+"Infix expression definitely is most
+human readable,",00:13:20.350,00:13:23.500
+"but we prefix and postfix are good for
+machines.",00:13:23.500,00:13:27.110
+"So this is infix, prefix and postfix
+notation for you.",00:13:27.110,00:13:30.280
+"In next lesson, we will discuss
+evaluation of prefix and postfix",00:13:30.280,00:13:34.110
+Notations.,00:13:34.110,00:13:35.089
+"This is it for this lesson. 
+Thanks for watching.",00:13:35.089,00:13:37.430

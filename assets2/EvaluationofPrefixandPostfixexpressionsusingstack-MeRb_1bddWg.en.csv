@@ -1,0 +1,377 @@
+text,start,stop
+"In our previous lesson, we saw what
+prefix and postfix expressions",00:00:00.450,00:00:03.860
+"are but we did not discuss how we can
+evaluate these expressions.",00:00:03.860,00:00:07.669
+"In this lesson we'll see how we can
+evaluate prefix and postfix expressions.",00:00:07.669,00:00:12.009
+"Algorithms to evaluate prefix and
+postfix expressions are similar",00:00:12.009,00:00:16.209
+"but I'm going to talk about postfix
+evaluation first",00:00:16.209,00:00:19.470
+"because its easier to understand and
+implement",00:00:19.470,00:00:22.500
+"and then I'll talk about evaluation of
+prefix. Okay so let's get started.",00:00:22.500,00:00:26.920
+"I have written an expression in infix form
+here and I first want to convert this to ",00:00:26.920,00:00:30.949
+postfix form.,00:00:30.949,00:00:32.619
+"As we know in infix form  operator is
+written in between operands",00:00:32.619,00:00:37.050
+"and we want to convert to postfix in
+which operator is written after operands.",00:00:37.050,00:00:41.840
+"We have already seen how we can do
+this in our previous lesson.",00:00:41.840,00:00:44.950
+We need to go step by step just the way we would go in ,00:00:44.950,00:00:48.610
+"evaluation of infix. We need to go in
+order of precedence",00:00:48.610,00:00:52.690
+and in each step we need to identify,00:00:52.690,00:00:55.899
+"operands of an operator and we need to
+bring the operator",00:00:55.899,00:00:59.329
+"in front of the operands. What we can
+actually do is we can first",00:00:59.329,00:01:02.879
+"resolve operator precedence and put
+parenthesis",00:01:02.879,00:01:06.220
+"at appropriate places. In this expression
+we will first",00:01:06.220,00:01:09.689
+"do this multiplication this first
+multiplication then we'll do this second",00:01:09.689,00:01:13.979
+multiplication,00:01:13.979,00:01:14.850
+"then we will perform this addition and
+finally",00:01:14.850,00:01:18.909
+"the subtraction. Okay now we will go one
+operator at a time,",00:01:18.909,00:01:22.409
+"operands for this multiplication
+operator are 'A' and 'B'.",00:01:22.409,00:01:25.930
+So this A*B will become AB*.,00:01:25.930,00:01:30.840
+"Now next we would need to look at this
+multiplication this will transform",00:01:30.840,00:01:36.090
+to cd*,00:01:36.090,00:01:36.820
+and now we can do the change for this addition,00:01:36.820,00:01:40.540
+the two operands are these two expressions,00:01:40.540,00:01:44.250
+"in postfix, so I'm placing the plus
+operator after these two",00:01:44.250,00:01:48.360
+expressions. Finally for this last operator,00:01:48.360,00:01:51.890
+"the operands are this complex expression
+and this variable 'e'.",00:01:51.890,00:01:55.439
+So this is how we will look like,00:01:55.439,00:01:58.490
+"after the transformation. Finally when we 
+are done with all the operators we can get rid of",00:01:58.490,00:02:03.409
+all the paranthesis.,00:02:03.409,00:02:04.530
+They're not needed in postfix expression.,00:02:04.530,00:02:09.090
+"This is how you can do the conversion
+manualy. We will discuss efficient ways",00:02:09.090,00:02:12.700
+of doing this,00:02:12.700,00:02:13.620
+programitically in later lessons. We will discuss algorithms to  ,00:02:13.620,00:02:17.599
+convert infix to prefix or postfix,00:02:17.599,00:02:20.000
+"in later lessons. In this lesson we're
+only going to look at",00:02:20.000,00:02:23.510
+"algorithms to evaluate prefix and
+postfix expressions.",00:02:23.510,00:02:27.220
+"Okay so we have this postfix
+expression here",00:02:27.220,00:02:30.989
+"and we want to evaluate this expression,
+let's say for these values of variables",00:02:30.989,00:02:36.180
+"a,b,c,d and e. So we have this expression in
+terms of values to evaluate.",00:02:36.180,00:02:41.580
+"I'll first quickly tell you how you can
+evaluate a postfix expression manually.",00:02:41.580,00:02:46.610
+"What you need to do is you need to scan
+the expression from left to right",00:02:46.610,00:02:50.920
+"and find the first occurrence of an
+operator like here,",00:02:50.920,00:02:54.640
+"multiplication is the first operator.
+In postfix expression",00:02:54.640,00:02:58.620
+"operands of an operator will always
+lie to its left.",00:02:58.620,00:03:01.950
+"For the first operator, the preceding two
+entities will always be operands.",00:03:01.950,00:03:06.810
+"You need to look for the first
+occurrence of this pattern",00:03:06.810,00:03:09.970
+"operand, operand, operator in the expression 
+and now you can apply the operator on",00:03:09.970,00:03:14.600
+these two operands,00:03:14.600,00:03:15.709
+"and reduced expression. So this is
+what I'm getting after evaluating",00:03:15.709,00:03:20.340
+"23*. Now we need to repeat this
+process till we are done with",00:03:20.340,00:03:24.130
+"all the operators. Once again we need to
+scan the expression from left to right",00:03:24.130,00:03:28.690
+and,00:03:28.690,00:03:29.170
+"look for the first operator, if the
+expression is correct it will be",00:03:29.170,00:03:32.840
+preceeded by two values.,00:03:32.840,00:03:34.350
+"So basically we need to look for first
+occurrence of this pattern",00:03:34.350,00:03:37.940
+"operand, operand, operator. So now we can reduce this. we have 6",00:03:37.940,00:03:42.420
+and then we have 5*4  20.,00:03:42.420,00:03:45.459
+"We are using space as delimeter here, there should be some space",00:03:45.459,00:03:49.680
+"in between two operands. Okay so this is
+what I have now.",00:03:49.680,00:03:52.829
+"Once again I'll look for the first
+occurrence of operand, operand",00:03:52.829,00:03:57.280
+and operator.,00:03:57.280,00:03:57.930
+We will go on like this till we are done with all the operators.,00:03:57.930,00:04:03.800
+"When I am saying we need to look for first
+occurrence of this pattern operand,",00:04:03.800,00:04:07.700
+"operand and operator,",00:04:07.700,00:04:08.960
+"what I mean by operand here is a value and
+not",00:04:08.960,00:04:12.740
+"a complex expression itself. The first
+operator will always be preceded by two",00:04:12.740,00:04:17.220
+values,00:04:17.220,00:04:17.980
+"and if you will give this some thought you will
+be able to understand why.",00:04:17.980,00:04:21.230
+"If you can see in this expression we are
+applying the operators in the same",00:04:21.230,00:04:25.970
+"order in which we have them while
+parsing from left to right.",00:04:25.970,00:04:30.230
+"So first we're applying this leftmost
+multiplication",00:04:30.230,00:04:33.280
+"on 2 and 3 then we are applying the next
+multiplication on 5 and 4 then we're",00:04:33.280,00:04:37.300
+performing the addition,00:04:37.300,00:04:38.530
+"and then finally we are performing the
+subtraction and whenever we are performing",00:04:38.530,00:04:42.340
+"an operation, we're picking the last",00:04:42.340,00:04:44.410
+"two operands proceeding the operator in the
+expression.",00:04:44.410,00:04:48.290
+"So if we have to do this programitically,
+if we have to evaluate a postfix",00:04:48.290,00:04:53.030
+expression given to us,00:04:53.030,00:04:54.500
+in a string like this and let's say operands and operators,00:04:54.500,00:04:58.880
+"are separated by space we can have some
+other delimiter",00:04:58.880,00:05:02.290
+"like comma also to separate operands
+and operator.",00:05:02.290,00:05:06.500
+"Now what we can do is we can parse the
+string from left to right.",00:05:06.500,00:05:10.870
+"In each step in this parsing, in each
+step in the scanning process,",00:05:10.870,00:05:15.530
+"we can get a token that will either be an
+operator",00:05:15.530,00:05:19.190
+or an operand. What we can do is as we parse,00:05:19.190,00:05:22.840
+"from left to right, we can keep track
+of all the operands",00:05:22.840,00:05:26.890
+"seen so far and I'll come back to how it
+will help us.",00:05:26.890,00:05:30.290
+"So I'm keeping all the operands so seen so
+far in a list.",00:05:30.290,00:05:34.110
+The first entity that we have here is 2,00:05:34.110,00:05:37.170
+"which is an operand so it will go to the
+list, next we have 3 which once again",00:05:37.170,00:05:41.380
+is operand so it will go into the list,00:05:41.380,00:05:43.270
+"next we have this multiplication
+operator. Now this multiplication should",00:05:43.270,00:05:47.710
+be applied,00:05:47.710,00:05:48.440
+"to last two operands preceding it last
+two operands to the left of it",00:05:48.440,00:05:53.890
+because we already have the elements stored in this list.,00:05:53.890,00:05:57.750
+"All we need to do is we need to pick the
+last two from this list",00:05:57.750,00:06:01.180
+and perform the operation. It should be,00:06:01.180,00:06:05.180
+2*3 and with this multiplication we have reduced,00:06:05.180,00:06:10.380
+expression this 23* has now become 6,00:06:10.380,00:06:13.930
+it has become an operand that can be used by an operator later.,00:06:13.930,00:06:18.160
+"We are at this stage right now that I'm
+showing in the right.",00:06:18.160,00:06:22.669
+I'll continue the scanning. Next we have,00:06:22.669,00:06:25.720
+"an operand, will push this number 5 on to the
+list.",00:06:25.720,00:06:29.350
+"Next we have 4 which once again will
+come to the list",00:06:29.350,00:06:33.190
+and now we have the multiplication operator,00:06:33.190,00:06:36.270
+"and it should be applied to the last two
+operands in the reduced expression",00:06:36.270,00:06:41.240
+and we should put the result,00:06:41.240,00:06:44.470
+"back into the list. This is the stage
+where we are right now.",00:06:44.470,00:06:50.580
+"So this list actually is storing all the
+operands in the reduced expression",00:06:50.580,00:06:54.940
+preceeding the position at which we are during passing.,00:06:54.940,00:06:58.860
+"Now for this edition we should take out
+the last two elements from the list",00:06:58.860,00:07:02.530
+"and then we should put the result back,
+next we have an operand",00:07:02.530,00:07:06.810
+"we are at this stage right now. Next we have
+an operator",00:07:06.810,00:07:11.110
+"this subtraction. We will perform this
+subtraction",00:07:11.110,00:07:14.919
+"and put the result back. Finally when I'm done
+scanning the whole expression",00:07:14.919,00:07:20.220
+I'll have only one element left in the list,00:07:20.220,00:07:23.810
+"and this will be my final answer this
+will be my final result.",00:07:23.810,00:07:27.660
+"This is an efficient algorithm. We
+are doing only one pass",00:07:27.660,00:07:31.599
+on the string representing the expression,00:07:31.599,00:07:34.870
+and we have our result. The list that we are using here,00:07:34.870,00:07:38.340
+"if you could notice is being used in a
+special way",00:07:38.340,00:07:41.970
+"we are inserting operands one at a time
+from one side",00:07:41.970,00:07:45.680
+"and then to perform an operation we are
+taking out operand from the same side.",00:07:45.680,00:07:50.530
+"Whatever is coming in last is getting
+out first.",00:07:50.530,00:07:53.680
+"This whole thing that we're doing here
+with the list can be done efficiently",00:07:53.680,00:07:57.900
+"with a stack, which is nothing but a
+special kind of list in which elements",00:07:57.900,00:08:02.550
+are inserted,00:08:02.550,00:08:03.409
+"and removed from the same side in which
+whatever gets in last",00:08:03.409,00:08:07.870
+"comes out first. It's called Last In First
+Out(LIFO) structure.",00:08:07.870,00:08:11.750
+"Let's do this evaluation again. I have drawn
+logical representation of stack here,",00:08:11.750,00:08:17.000
+"and this time I'm going to use this stack. 
+I'll also write pseudo code for this algorithm.",00:08:17.000,00:08:21.210
+I'm going to write a function named,00:08:21.210,00:08:23.380
+"evaluate postfix that will take a string
+as argument.",00:08:23.380,00:08:28.050
+Let's name this string expression,00:08:28.050,00:08:31.180
+"exp for expression. In my function here, i'll first",00:08:31.180,00:08:34.810
+"create a stack. Now for the sake of simplicity,",00:08:34.810,00:08:38.000
+"let's assume that each operand or operator
+in the expression will be of only one",00:08:38.000,00:08:42.919
+character.,00:08:42.919,00:08:43.539
+"So to get a token or operator,
+We can simply run a loop from zero till",00:08:43.539,00:08:48.190
+length of expression -1. So exp[i],00:08:48.190,00:08:51.750
+"will be my operand or operator. If
+expression 'i' is operand",00:08:51.750,00:08:56.300
+"I should put, push it onto the stack
+else if exp[i] is operator",00:08:56.300,00:09:01.940
+"we should do two pop operations in the
+stack store the value of the operands",00:09:01.940,00:09:06.190
+in some variable.,00:09:06.190,00:09:07.410
+I'm using variable names op1 and op2.,00:09:07.410,00:09:10.630
+"Let's say this pop function will remove
+an element from top of stack s",00:09:10.630,00:09:14.790
+and also return this element. Once we have the two operands,00:09:14.790,00:09:19.620
+"we can perform the operation, I'm using this
+variable to store the output.",00:09:19.620,00:09:24.230
+Let's say this function will perform the operation. Now the result,00:09:24.230,00:09:28.690
+"should be pushed back onto the stack. If
+I have to run through this expression",00:09:28.690,00:09:33.720
+"with whatever code I have right now,
+then first entity is 2 which is",00:09:33.720,00:09:37.930
+operand,00:09:37.930,00:09:38.310
+"so it should be pushed onto the stack.
+Next we have 3,",00:09:38.310,00:09:42.040
+"once again this will go to the stack.
+Next we have this multiplication",00:09:42.040,00:09:45.589
+operator.,00:09:45.589,00:09:46.620
+"So we will come to this else if part of
+the code. I'll make first pop",00:09:46.620,00:09:51.670
+and I'll store 3 in this variable op1.,00:09:51.670,00:09:55.000
+"Well actually this is the second operand,
+so I should say this one is op2",00:09:55.000,00:09:59.850
+and next one will be op1. Once I have popped,00:09:59.850,00:10:03.750
+"these two elements I can perform the
+operation. As you can see I'm doing the",00:10:03.750,00:10:07.829
+"same stuff that I was doing with the list,",00:10:07.829,00:10:09.870
+"the only thing is that I'm showing
+things vertically. Stack is",00:10:09.870,00:10:13.650
+"being shown as a vertical list. I'm
+inserting or taking out from the top.",00:10:13.650,00:10:17.730
+"Now I'll push the result back onto the
+stack.",00:10:17.730,00:10:20.920
+"Now we will move to the next entity
+which is operand",00:10:20.920,00:10:24.990
+"it will go onto the stack. Next 4 will
+also go onto the stack",00:10:24.990,00:10:29.140
+"and now we have this multiplication, so we
+will perform",00:10:29.140,00:10:32.800
+"two pop operations. After this operation
+is performed",00:10:32.800,00:10:36.520
+"result will be pushed back. Next we have
+addition.",00:10:36.520,00:10:40.020
+"So we will go on like this. We have 26
+pushed onto the stack now.",00:10:40.020,00:10:44.709
+"Now it's 9 which will go in and
+finally we have this subtraction",00:10:44.709,00:10:49.540
+"26-9, 17 will be pushed onto the stack.",00:10:49.540,00:10:54.520
+At this stage we will be done with the loop,00:10:54.520,00:10:58.079
+"we are done with all the tokens, all the
+operands and operators.",00:10:58.079,00:11:01.720
+"The top of stack can be returned as
+final result.",00:11:01.720,00:11:04.920
+"At this stage we will have only one
+element in the stack",00:11:04.920,00:11:08.100
+"and this element will be my final result.
+You will have to take care of some",00:11:08.100,00:11:11.850
+"parsing logic in actual implementation.
+Operand can be a number of multiple",00:11:11.850,00:11:15.480
+digits,00:11:15.480,00:11:16.209
+"and then we will have delimiter like
+space or comma",00:11:16.209,00:11:19.630
+"so you'll have to take care of that.
+Parsing operand or operator will be",00:11:19.630,00:11:23.579
+some task.,00:11:23.579,00:11:24.790
+"If you want to see my implementation you
+can check the description of this video",00:11:24.790,00:11:27.920
+for a link.,00:11:27.920,00:11:28.959
+"Okay so this was postfix evaluation.
+Let's now quickly see how we can do",00:11:28.959,00:11:32.910
+prefix evaluation.,00:11:32.910,00:11:34.930
+"Once again I have written this expression in
+infix form and I'll first convert it to",00:11:34.930,00:11:39.130
+prefix.,00:11:39.130,00:11:40.360
+"We will go in order of precedence. I first
+put this paranthesis",00:11:40.360,00:11:44.600
+"this 2 * 3 will become *23,",00:11:44.600,00:11:48.069
+this 5 * 4 will become *54,00:11:48.069,00:11:52.079
+and now we will pick this plus(+) operator whose operands are these two,00:11:52.079,00:11:56.130
+prefix expressions. Finally,00:11:56.130,00:11:59.250
+"for the subtraction operator this is
+the first operand and this is the",00:11:59.250,00:12:03.400
+second operand.,00:12:03.400,00:12:04.860
+"In the last step we can get rid of all the
+parenthesis.",00:12:04.860,00:12:07.949
+"So this is what I have finally. Let's now
+see how we can evaluate",00:12:07.949,00:12:12.209
+a prefix expression like this. We will do it just like postfix,00:12:12.209,00:12:16.380
+"this time all we need to do is we need
+to scan",00:12:16.380,00:12:19.550
+"from right, so we will go from right to left.",00:12:19.550,00:12:23.140
+"Once again we will people use a stack if it's an
+operand we can push it onto the stack.",00:12:23.140,00:12:28.449
+So here for this example 9 will go onto the stack,00:12:28.449,00:12:32.420
+"and now we will go to the next entity in the left,",00:12:32.420,00:12:35.430
+it's 4. Once again we have an operand.,00:12:35.430,00:12:38.520
+It will go onto the stack. Now we have 5.,00:12:38.520,00:12:41.980
+"5 will also be pushed onto the stack and
+now we have this multiplication operator.",00:12:41.980,00:12:47.240
+At this stage we need to pop two elements from the stack.,00:12:47.240,00:12:50.780
+This time the first element popped will be the first operand.,00:12:50.780,00:12:54.790
+"In postfix the first element popped was 
+the second operand.",00:12:54.790,00:12:58.839
+"This time the second element popped will
+be the second operand.",00:12:58.839,00:13:02.620
+"For this multiplication, first operand is 5 and second operand is 4.",00:13:02.620,00:13:07.290
+This order is really important for multipication,00:13:07.290,00:13:10.890
+the order doesn't matter but for say division or,00:13:10.890,00:13:14.550
+subtraction this will matter. Result 20,00:13:14.550,00:13:17.970
+"will be pushed onto the stack and we
+will keep moving left.",00:13:17.970,00:13:21.709
+Now we have 3 and 2 both will go onto the stack,00:13:21.709,00:13:25.350
+and now we have this multiplication operation.,00:13:25.350,00:13:28.750
+3 and 2 will be popped and their product 6 will be pushed.,00:13:28.750,00:13:32.130
+"Now we have this addition, the two
+elements at top are 20 and 6 they will be",00:13:32.130,00:13:36.870
+popped,00:13:36.870,00:13:37.360
+and their sum 26 will be pushed. Finally we have to subtraction.,00:13:37.360,00:13:42.580
+"26 and 9 will be popped out and 17 will be
+pushed",00:13:42.580,00:13:46.470
+and finally this is my answer. Prefix evaluation can be performed,00:13:46.470,00:13:50.740
+"in couple of other ways also but this
+is easiest and most",00:13:50.740,00:13:54.550
+"straightforward. Okay so this was prefix
+and postfix",00:13:54.550,00:13:58.510
+"evaluation using Stack. In coming lessons, we will see efficient algorithms to",00:13:58.510,00:14:02.950
+convert,00:14:02.950,00:14:03.760
+"infix to prefix or postfix. This is it
+for this lesson.",00:14:03.760,00:14:07.860
+Thanks for Watching!,00:14:07.860,00:14:08.890

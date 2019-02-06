@@ -1,0 +1,1065 @@
+text,start,stop
+"ANNOUNCER: Open content is
+provided under a creative",00:00:00.000,00:00:02.400
+commons license.,00:00:02.400,00:00:03.820
+"Your support will help MIT
+OpenCourseWare continue to",00:00:03.820,00:00:06.840
+"offer high-quality educational
+resources for free.",00:00:06.840,00:00:10.530
+"To make a donation, or view
+additional materials from",00:00:10.530,00:00:13.390
+"hundreds of MIT courses, visit
+MIT OpenCourseWare at",00:00:13.390,00:00:17.190
+ocw.mit.edu .,00:00:17.190,00:00:17.600
+"PROFESSOR JOHN GUTTAG:
+Good morning.",00:00:17.600,00:00:24.030
+"We should start with the
+confession, for those of you",00:00:24.030,00:00:26.860
+"looking at this on
+OpenCourseWare, that I'm",00:00:26.860,00:00:29.990
+"currently lecturing to
+an empty auditorium.",00:00:29.990,00:00:34.760
+"The fifth lecture for 600 this
+term, we ran into some",00:00:34.760,00:00:38.750
+"technical difficulties, which
+left us with a recording we",00:00:38.750,00:00:43.810
+weren't very satisfied with.,00:00:43.810,00:00:45.950
+"So, I'm-- this is a redo, and if
+you will hear no questions",00:00:45.950,00:00:51.220
+"from the audience and that's
+because there is no audience.",00:00:51.220,00:00:54.450
+"Nevertheless I will do
+my best to pretend.",00:00:54.450,00:00:57.860
+"I've been told this is a little
+bit like giving a",00:00:57.860,00:01:00.840
+"speech before the US Congress
+when C-SPAN is",00:01:00.840,00:01:04.570
+the only thing watching.,00:01:04.570,00:01:07.280
+OK.,00:01:07.280,00:01:09.840
+"Computers are supposed to be
+good for crunching numbers.",00:01:09.840,00:01:14.400
+"And we've looked a little bit
+at numbers this term, but I",00:01:14.400,00:01:18.600
+"now want to get into looking
+at them in more depth than",00:01:18.600,00:01:21.660
+we've been doing.,00:01:21.660,00:01:23.050
+"Python has two different
+kinds of numbers.",00:01:23.050,00:01:32.090
+"So far, the only kind we've
+really paid any attention to",00:01:32.090,00:01:36.300
+is type int.,00:01:36.300,00:01:40.450
+"And those were intended to
+mirror the integers, as we all",00:01:40.450,00:01:45.430
+"learned about starting
+in elementary school.",00:01:45.430,00:01:48.930
+"And they're good for things
+that you can count.",00:01:48.930,00:01:52.500
+"Any place you'd use
+whole numbers.",00:01:52.500,00:01:55.620
+"Interestingly, Python, unlike
+some languages, has what are",00:01:55.620,00:02:00.540
+"called arbitrary precision
+integers.",00:02:00.540,00:02:09.520
+"By that, we mean, you can
+make numbers as big as",00:02:09.520,00:02:12.730
+you want them to.,00:02:12.730,00:02:14.380
+Let's look at an example.,00:02:14.380,00:02:17.620
+"We'll just take a for a variable
+name, and we'll set a",00:02:17.620,00:02:21.260
+"to be two raised to the
+one-thousandth power.",00:02:21.260,00:02:27.050
+"That, by the way, is a
+really big number.",00:02:27.050,00:02:31.400
+"And now what happens if
+we try and display it?",00:02:31.400,00:02:34.820
+We get a lot of digits.,00:02:34.820,00:02:37.340
+"You can see why I'm doing this
+on the screen instead of",00:02:37.340,00:02:39.770
+writing it on the blackboard.,00:02:39.770,00:02:43.700
+"I'm not going to ask you whether
+you believe this is",00:02:43.700,00:02:45.640
+"the right answer, trust
+me, trust Python.",00:02:45.640,00:02:48.900
+"I would like you to notice, at
+the very end of this is the",00:02:48.900,00:02:52.080
+letter L.,00:02:52.080,00:02:55.840
+What does that mean?,00:02:55.840,00:02:58.280
+It means long.,00:02:58.280,00:03:05.480
+"That's telling us that it's
+representing these-- this",00:03:05.480,00:03:10.030
+"particular integer in
+what it calls it's",00:03:10.030,00:03:13.900
+internal long format.,00:03:13.900,00:03:18.290
+You needn't worry about that.,00:03:18.290,00:03:20.440
+"The only thing to say about it
+is, when you're dealing with",00:03:20.440,00:03:22.760
+"long integers, it's a lot less
+efficient than when you're",00:03:22.760,00:03:26.190
+dealing with smaller numbers.,00:03:26.190,00:03:28.870
+"And that's all it's kind of
+warning you, by printing this",00:03:28.870,00:03:31.370
+L.,00:03:31.370,00:03:35.640
+"About two billion is
+the magic number.",00:03:35.640,00:03:38.260
+"When you get over two billion,
+it's now going to deal with",00:03:38.260,00:03:41.120
+"long integers, so if, for
+example, you're trying to deal",00:03:41.120,00:03:44.480
+"with the US budget deficit, you
+will need integers of type",00:03:44.480,00:03:48.030
+L.,00:03:48.030,00:03:50.390
+OK.,00:03:50.390,00:03:52.200
+"Let's look at another
+interesting example.",00:03:52.200,00:03:54.680
+"Suppose I said, b equal to two
+raised to the nine hundred",00:03:54.680,00:04:00.340
+ninety-ninth power.,00:04:00.340,00:04:04.010
+"I can display b, and it's a
+different number, considerably",00:04:04.010,00:04:10.600
+"smaller, but again,
+ending in an L.",00:04:10.600,00:04:14.420
+"And now, what you think I'll get
+if we try a divided by b?",00:04:14.420,00:04:21.590
+"And remember, we're now doing
+integer division.",00:04:21.590,00:04:25.470
+"Well, let's see.",00:04:25.470,00:04:27.800
+We get 2L.,00:04:27.800,00:04:31.070
+"Well, you'd expect it to be
+two, because if you think",00:04:31.070,00:04:34.080
+"about the meaning of
+exponentiation, indeed, the",00:04:34.080,00:04:37.580
+"difference between raising
+something to the nine hundred",00:04:37.580,00:04:40.940
+"ninety-ninth power and to the
+one-thousandth power should",00:04:40.940,00:04:43.930
+"be, in this case, two, since
+that's what we're",00:04:43.930,00:04:46.990
+raising to a power.,00:04:46.990,00:04:49.230
+"Why does it say 2L, right?",00:04:49.230,00:04:52.370
+"Two is considerably less than
+two billion, and that's",00:04:52.370,00:04:56.070
+"because once you get L, you
+stay L. Not particularly",00:04:56.070,00:05:00.870
+"important, but kind
+of worth knowing.",00:05:00.870,00:05:04.900
+"Well, why am I bothering you
+with this whole issue of how",00:05:04.900,00:05:08.480
+"numbers are represented
+in the computer?",00:05:08.480,00:05:12.370
+"In an ideal world, you would
+ignore this completely, and",00:05:12.370,00:05:15.940
+"just say, numbers do what
+numbers are supposed to do.",00:05:15.940,00:05:20.090
+"But as we're about to see,
+sometimes in Python, and in",00:05:20.090,00:05:23.880
+"fact in every programming
+language, things behave",00:05:23.880,00:05:28.880
+"contrary to what your
+intuition suggests.",00:05:28.880,00:05:32.420
+"And I want to spend a little
+time helping you understand",00:05:32.420,00:05:35.770
+why this happens.,00:05:35.770,00:05:38.530
+"So let's look at a different
+kind of number.",00:05:38.530,00:05:41.590
+"And now we're going to look at
+what Python, and almost every",00:05:41.590,00:05:48.620
+"other programming language,
+calls type float.",00:05:48.620,00:05:53.560
+"Which is short for
+floating point.",00:05:53.560,00:06:03.170
+"And that's the way that
+programming languages",00:06:03.170,00:06:06.160
+"typically represent what we
+think of as real numbers.",00:06:06.160,00:06:12.390
+"So, let's look at an example.",00:06:12.390,00:06:15.050
+"I'm going to set the variable
+x to be 0.1, 1/10, and now",00:06:15.050,00:06:24.160
+we're going to display x.,00:06:24.160,00:06:28.510
+Huh?,00:06:28.510,00:06:29.750
+Take a look at this.,00:06:29.750,00:06:31.640
+Why isn't it .1?,00:06:31.640,00:06:34.740
+"Why is it 0.1, a whole bunch
+of zeros, and then this",00:06:34.740,00:06:38.770
+"mysterious one appearing
+at the end?",00:06:38.770,00:06:43.100
+"Is it because Python just wants
+to be obnoxious and is",00:06:43.100,00:06:45.900
+making life hard?,00:06:45.900,00:06:47.960
+"No, it has to do with the way
+the numbers are represented",00:06:47.960,00:06:52.660
+inside the computer.,00:06:52.660,00:06:54.280
+"Python, like almost every modern
+programming language,",00:06:54.280,00:06:59.800
+"represents numbers using the
+i triple e floating point",00:06:59.800,00:07:05.560
+"standard, and it's
+i triple e 754.",00:07:05.560,00:07:20.820
+"Never again will you have to
+remember that it's 754.",00:07:20.820,00:07:23.760
+"I promise not to ask you that
+question on a quiz.",00:07:23.760,00:07:27.480
+But that's what they do.,00:07:27.480,00:07:29.320
+"This is a variant of scientific
+notation.",00:07:29.320,00:07:41.860
+"Something you probably learned
+about in high school, as a way",00:07:41.860,00:07:46.000
+"to represent very
+large numbers.",00:07:46.000,00:07:49.220
+"Typically, the way we do that,
+is we represent the numbers in",00:07:49.220,00:07:54.320
+"the form of a mantissa
+and an exponent.",00:07:54.320,00:08:07.730
+"So we represent a floating point
+number as a pair, of a",00:08:07.730,00:08:12.460
+mantissa and an exponent.,00:08:12.460,00:08:20.260
+"And because computers work in
+the binary system, it's unlike",00:08:20.260,00:08:26.110
+"what you probably learned in
+high school, where we raise",00:08:26.110,00:08:29.410
+ten to some power.,00:08:29.410,00:08:31.530
+"Here we'll always be raising
+two to some power.",00:08:31.530,00:08:35.710
+"Maybe a little later in the
+term, if we talk about",00:08:35.710,00:08:37.900
+"computer architecture, we'll get
+around to explaining why",00:08:37.900,00:08:40.500
+"computers working binary, but
+for now, just assume that they",00:08:40.500,00:08:45.720
+do and in fact they,00:08:45.720,00:08:46.970
+always have. All right.,00:08:46.970,00:08:50.810
+"Purists manage to refer to the
+mantissa as a significant, but",00:08:50.810,00:09:01.460
+"I won't do that, because I'm
+an old guy and it was a",00:09:01.460,00:09:05.400
+"mantissa when I first learned
+about it and I just can't",00:09:05.400,00:09:08.140
+break myself of the habit.,00:09:08.140,00:09:11.460
+All right.,00:09:11.460,00:09:11.870
+So how does this work?,00:09:11.870,00:09:18.520
+"Well, when we recognize so--
+when we represent something,",00:09:18.520,00:09:22.450
+"the mantissa is between
+one and two.",00:09:22.450,00:09:35.360
+Whoops.,00:09:35.360,00:09:37.270
+"Strictly less than two, greater
+than or equal to one.",00:09:37.270,00:09:42.090
+"The exponent, is in the
+range, -1022 to +1023.",00:09:42.090,00:10:07.420
+"So this lets us represent
+numbers up to about 10 to the",00:10:07.420,00:10:13.330
+"308th, plus or minus 10 to
+the 308th, plus or minus.",00:10:13.330,00:10:19.800
+"So, quite a large range
+of numbers.",00:10:19.800,00:10:24.050
+"Where did these magic
+things come from?",00:10:24.050,00:10:26.240
+"You know, what-- kind of a
+strange numbers to see here.",00:10:26.240,00:10:29.710
+"Well, it has to do with the fact
+that computers typically",00:10:29.710,00:10:37.040
+"have words in them, and the
+words today in a modern",00:10:37.040,00:10:41.830
+computer are 64 bits.,00:10:41.830,00:10:46.370
+"For many years they were 32
+bits, before that they were 16",00:10:46.370,00:10:50.780
+"bits, before that they were 8
+bits, they've continually",00:10:50.780,00:10:54.520
+"grown, but we've been at 64 for
+a while and I think we'll",00:10:54.520,00:10:58.350
+be stuck at 64 for a while.,00:10:58.350,00:11:02.300
+"So as we do this, what we do
+is, we get one bit for the",00:11:02.300,00:11:07.880
+"sign-- is it a positive
+or negative number?--",00:11:07.880,00:11:13.220
+"11 for the exponent, and that
+leaves 52 for the mantissa.",00:11:13.220,00:11:28.220
+"And that basically tells us
+how we're storing numbers.",00:11:28.220,00:11:32.340
+"Hi, are you here for
+the 600 lecture?",00:11:32.340,00:11:34.890
+"There is none today, because we
+have a quiz this evening.",00:11:34.890,00:11:40.840
+"It's now the time that the
+lecture would normally have",00:11:40.840,00:11:43.170
+"started, and a couple of
+students who forgot that we",00:11:43.170,00:11:46.450
+"have a quiz this evening,
+instead of a lecture, just",00:11:46.450,00:11:49.270
+"strolled in, and now
+strolled out.",00:11:49.270,00:11:53.780
+OK.,00:11:53.780,00:11:55.620
+"You may never need to know these
+constants again, but",00:11:55.620,00:12:00.260
+"it's worth knowing that they
+exist, and that basically,",00:12:00.260,00:12:04.290
+"this gives us about the
+equivalent of seventeen",00:12:04.290,00:12:08.360
+decimal digits of precision.,00:12:08.360,00:12:13.190
+"So we can represent numbers
+up to seventeen",00:12:13.190,00:12:16.810
+decimal digits long.,00:12:16.810,00:12:21.520
+"This is an important concept to
+understand, that unlike the",00:12:21.520,00:12:26.410
+"long ints where they can grow
+arbitrarily big, when we're",00:12:26.410,00:12:30.220
+"dealing with floating points, if
+we need something more than",00:12:30.220,00:12:33.930
+"seventeen decimal digits, in
+Python at least, we won't be",00:12:33.930,00:12:37.980
+able to get it.,00:12:37.980,00:12:39.570
+"And that's true in
+many languages.",00:12:39.570,00:12:41.740
+"Now the good news is, this is
+an enormous number, and it's",00:12:41.740,00:12:45.350
+"highly unlikely that ever in
+your life, you will need more",00:12:45.350,00:12:49.100
+precision than that.,00:12:49.100,00:12:51.850
+All right.,00:12:51.850,00:12:53.550
+"Now, let's go back to the 0.1
+mystery that we started at,",00:12:53.550,00:13:00.610
+"and ask ourselves, why we have
+a problem representing that",00:13:00.610,00:13:06.990
+"number in the computer, hence,
+we get something funny out",00:13:06.990,00:13:10.860
+from we try and print it back.,00:13:10.860,00:13:14.700
+"Well, let's look at an easier
+problem first. Let's look at",00:13:14.700,00:13:19.090
+representing the fraction 1/8.,00:13:19.090,00:13:26.420
+That has a nice representation.,00:13:26.420,00:13:29.210
+"That's equal in decimal to
+0.125, and we can represent it",00:13:29.210,00:13:37.060
+"conveniently in both
+base 10 and base 2.",00:13:37.060,00:13:42.980
+"So if you want to represent
+it in base 10, what is it?",00:13:42.980,00:13:53.200
+What is that equal to?,00:13:53.200,00:13:56.190
+"Well, we'll take a mantissa,
+1.25, and now we need to",00:13:56.190,00:14:02.010
+"multiply it by something that
+we can represent nicely, and",00:14:02.010,00:14:09.850
+"in fact that will be
+times 10 to the -1.",00:14:09.850,00:14:14.330
+"So the exponent would simply
+be -1, and we have a nice",00:14:14.330,00:14:17.880
+representation.,00:14:17.880,00:14:20.760
+"Suppose we want to represent
+it in base 2?",00:14:20.760,00:14:24.760
+What would it be?,00:14:24.760,00:14:29.260
+1.0 times-- anybody?--,00:14:29.260,00:14:37.210
+"Well, 2 to the -3.",00:14:37.210,00:14:44.040
+"So, in binary notation, that
+would be written as 0.001.",00:14:44.040,00:14:53.380
+"So you see, 1/8 is kind
+of a nice number.",00:14:53.380,00:14:56.190
+"We can represent it nicely in
+either base 10 or base 2.",00:14:56.190,00:15:01.850
+"But how about that pesky
+fraction 1/10?",00:15:01.850,00:15:14.970
+"Well, in base 10, we know
+how to represent, it's",00:15:14.970,00:15:20.010
+1 times 10 to the--,00:15:20.010,00:15:27.390
+10 to the what?--,00:15:27.390,00:15:28.420
+10 to the 1?,00:15:28.420,00:15:30.110
+No.,00:15:30.110,00:15:32.930
+"But in base 2, it's a problem.",00:15:32.930,00:15:41.110
+"There is no finite binary number
+that exactly represents",00:15:41.110,00:15:47.320
+this decimal fraction.,00:15:47.320,00:15:51.390
+"In fact, if we try and find
+the binary number, what we",00:15:51.390,00:15:55.360
+"find is, we get an infinitely
+repeating series.",00:15:55.360,00:15:59.710
+"Zero zero zero one one zero
+zero one one zero",00:15:59.710,00:16:06.570
+"zero, and et cetera.",00:16:06.570,00:16:09.970
+"Stop at any finite number of
+bits, and you get only an",00:16:09.970,00:16:14.500
+"approximation to the decimal
+fraction 1/10.",00:16:14.500,00:16:20.770
+"So on most computers, if you
+were to print the decimal",00:16:20.770,00:16:27.250
+"value of the binary
+approximation-- and that's",00:16:27.250,00:16:31.160
+"what we're printing here,
+on this screen, right?",00:16:31.160,00:16:33.660
+"We think in decimal, so Python
+quite nicely for us is",00:16:33.660,00:16:37.960
+"printing things in decimal--
+it would have to display--",00:16:37.960,00:16:43.160
+"well I'm not going to write it,
+it's a very long number,",00:16:43.160,00:16:47.190
+"lots of digits-- however, in
+Python, whenever we display",00:16:47.190,00:16:55.190
+"something, it uses the built-in
+function repr, short",00:16:55.190,00:17:01.130
+"for representation, that it
+converts the internal",00:17:01.130,00:17:05.950
+"representation in this case of
+a number, to a string, and",00:17:05.950,00:17:10.690
+"then displays that string in
+this case on the screen.",00:17:10.690,00:17:15.510
+"For floats, it rounds it
+to seventeen digits.",00:17:15.510,00:17:24.040
+"There's that magic number
+seventeen again.",00:17:24.040,00:17:31.060
+"Hence, when it rounds it to
+seventeen digits, we get",00:17:31.060,00:17:36.470
+"exactly what you see in the
+bottom of the screen up there.",00:17:36.470,00:17:44.160
+"Answer to the mystery, why
+does it display this?",00:17:44.160,00:17:49.240
+Now why should we care?,00:17:49.240,00:17:52.470
+"Well, it's not so much that
+we care about what gets",00:17:52.470,00:17:54.900
+"displayed, but we have to think
+about the implications,",00:17:54.900,00:17:59.010
+"at least sometimes we have to
+think about the implications,",00:17:59.010,00:18:02.250
+"of what this inexact
+representation of numbers",00:18:02.250,00:18:05.510
+"means when we start doing
+more-or-less complex",00:18:05.510,00:18:09.970
+computations on those numbers.,00:18:09.970,00:18:13.250
+"So let's look at a little
+example here.",00:18:13.250,00:18:17.140
+"I'll start by starting the
+variable s to 0.0 .",00:18:17.140,00:18:21.300
+"Notice I'm being careful
+to make it a float.",00:18:21.300,00:18:24.320
+"And then for i in range, let's
+see, let's take 10, we'll",00:18:24.320,00:18:33.960
+increase s by 0.1 .,00:18:33.960,00:18:44.710
+"All right, we've done that,
+and now, what happens",00:18:44.710,00:18:47.850
+when I print s?,00:18:47.850,00:18:52.330
+"Well, again you don't get
+what your intuition",00:18:52.330,00:18:56.140
+says you should get.,00:18:56.140,00:18:58.230
+"Notice the last two digits,
+which are eight and nine.",00:18:58.230,00:19:05.470
+"Well, what's happening here?",00:19:05.470,00:19:09.760
+"What's happened, is the
+error has accumulated.",00:19:09.760,00:19:13.670
+"I had a small error when I
+started, but every time I",00:19:13.670,00:19:17.180
+"added it, the error got bigger
+and it accumulates.",00:19:17.180,00:19:22.550
+"Sometimes you can get in trouble
+in a computation",00:19:22.550,00:19:27.170
+because of that.,00:19:27.170,00:19:30.410
+"Now what happens, by the
+way, if I print s?",00:19:30.410,00:19:32.940
+"That's kind of an interesting
+question.",00:19:32.940,00:19:36.130
+Notice that it prints one.,00:19:36.130,00:19:40.810
+And why is that?,00:19:40.810,00:19:42.550
+"It's because the print command
+has done a rounding here.",00:19:42.550,00:19:46.130
+It automatically rounds.,00:19:46.130,00:19:50.360
+"And that's kind of good, but
+it's also kind of bad, because",00:19:50.360,00:19:54.810
+"that means when you're debugging
+your program, you",00:19:54.810,00:19:56.980
+can get very confused.,00:19:56.980,00:19:59.010
+"You say, it says it's one, why
+am I getting a different",00:19:59.010,00:20:02.470
+"answer when I do the
+computation?",00:20:02.470,00:20:04.880
+"And that's because it's
+not really one inside.",00:20:04.880,00:20:08.100
+So you have to be careful.,00:20:08.100,00:20:10.740
+"Now mostly, these round-off
+errors balance each other out.",00:20:10.740,00:20:16.040
+"Some floats are slightly higher
+than they're supposed",00:20:16.040,00:20:18.690
+"to be, some are slightly
+lower, and in most",00:20:18.690,00:20:21.480
+"computations it all comes out
+in the wash and you get the",00:20:21.480,00:20:24.250
+right answer.,00:20:24.250,00:20:25.810
+"Truth be told, most of the time,
+you can avoid worrying",00:20:25.810,00:20:30.390
+about these things.,00:20:30.390,00:20:32.110
+"But, as we say in Latin,
+caveat computor.",00:20:32.110,00:20:37.400
+"Sometimes you have to
+worry a little bit.",00:20:37.400,00:20:40.490
+"Now there is one thing about
+floating points about which",00:20:40.490,00:20:44.860
+you should always worry.,00:20:44.860,00:20:49.720
+"And that's really the point I
+want to drive home, and that's",00:20:49.720,00:20:54.140
+"about the meaning
+of double equal.",00:20:54.140,00:21:08.260
+"Let's look at an example
+of this.",00:21:08.260,00:21:12.950
+"So we've before seen the use
+of import, so I'm going to",00:21:12.950,00:21:16.700
+"import math, it gives me some
+useful mathematical functions,",00:21:16.700,00:21:21.670
+"then I'm going to set the
+variable a to the",00:21:21.670,00:21:24.440
+square root of two.,00:21:24.440,00:21:29.190
+Whoops.,00:21:29.190,00:21:31.590
+Why didn't this work?,00:21:31.590,00:21:33.090
+"Because what I should have
+said is math dot",00:21:33.090,00:21:36.590
+square root of two.,00:21:36.590,00:21:42.100
+"Explaining to the interpreter
+that I want to get the",00:21:42.100,00:21:45.380
+"function sqrt from
+the module math.",00:21:45.380,00:21:52.600
+"So now I've got a here, and I
+can look at what a is, yeah,",00:21:52.600,00:21:59.520
+"some approximation to the square
+root about of two.",00:21:59.520,00:22:02.970
+"Now here's the interesting
+question.",00:22:02.970,00:22:04.560
+"Suppose I ask about the Boolean
+a times a equals",00:22:04.560,00:22:10.880
+equals two.,00:22:10.880,00:22:13.010
+"Now in my heart, I think, if
+I've taken the square root of",00:22:13.010,00:22:16.440
+"number and then I've multiplied
+it by itself, I",00:22:16.440,00:22:19.780
+"could get the original
+number back.",00:22:19.780,00:22:22.060
+"After all, that's the meaning
+of square root.",00:22:22.060,00:22:25.430
+"But by now, you won't be
+surprised if the answer of",00:22:25.430,00:22:28.460
+"this is false, because we know
+what we've stored is only an",00:22:28.460,00:22:33.020
+"approximation to the
+square root.",00:22:33.020,00:22:37.650
+"And that's kind of
+interesting.",00:22:37.650,00:22:39.040
+"So we can see that, by, if I
+look at a times a, I'll get",00:22:39.040,00:22:44.460
+"two point a whole bunch
+of zeros and then",00:22:44.460,00:22:46.265
+a four at the end.,00:22:46.265,00:22:48.730
+"So this means, if I've got a
+test in my program, in some",00:22:48.730,00:22:53.150
+"sense it will give me the
+unexpected answer false.",00:22:53.150,00:22:58.870
+"What this tells us, is that it's
+very risky to ever use",00:22:58.870,00:23:04.440
+"the built-in double--equals to
+compare floating points, and",00:23:04.440,00:23:08.870
+"in fact, you should never be
+testing for equality, you",00:23:08.870,00:23:13.100
+"should always be testing
+for close enough.",00:23:13.100,00:23:18.790
+"So typically, what you want to
+do in your program, is ask the",00:23:18.790,00:23:22.840
+"following question: is the
+absolute value of a times a",00:23:22.840,00:23:30.530
+minus 2.0 less than epsilon?,00:23:30.530,00:23:40.610
+"If we could easily type Greek,
+we'd have written it that way,",00:23:40.610,00:23:43.280
+but we can't.,00:23:43.280,00:23:46.380
+"So that's some small value
+chosen to be appropriate for",00:23:46.380,00:23:50.840
+the application.,00:23:50.840,00:23:52.520
+"Saying, if these two things
+are within epsilon of each",00:23:52.520,00:23:55.680
+"other, then I'm going to
+treat them as equal.",00:23:55.680,00:24:00.870
+"And so what I typically do when
+I'm writing a Python code",00:24:00.870,00:24:04.020
+"that's going to deal with
+floating point numbers, and I",00:24:04.020,00:24:06.990
+"do this from time to time, is I
+introduce a function called",00:24:06.990,00:24:12.040
+"almost equal, or near, or pick
+your favorite word, that does",00:24:12.040,00:24:18.940
+this for me.,00:24:18.940,00:24:20.070
+"And wherever I would normally
+written double x equals y,",00:24:20.070,00:24:24.310
+"instead I write, near x,y, and
+it computes it for me.",00:24:24.310,00:24:31.960
+"Not a big deal, but keep this
+in mind, or as soon as you",00:24:31.960,00:24:36.340
+"start dealing with numbers, you
+will get very frustrated",00:24:36.340,00:24:39.390
+"in trying to understand what
+your program does.",00:24:39.390,00:24:43.350
+OK.,00:24:43.350,00:24:45.940
+"Enough of numbers for a while,
+I'm sure some of you will find",00:24:45.940,00:24:48.600
+this a relief.,00:24:48.600,00:24:52.100
+"I now want to get away from
+details of floating point, and",00:24:52.100,00:24:57.380
+"talk about general methods
+again, returning to the real",00:24:57.380,00:25:01.690
+"theme of the course of solving
+problems using computers.",00:25:01.690,00:25:06.770
+"Last week, we looked at the
+rather silly problem of",00:25:06.770,00:25:11.070
+"finding the square root
+of a perfect square.",00:25:11.070,00:25:15.760
+"Well, that's not usually
+what you need.",00:25:15.760,00:25:21.640
+"Let's think about the more
+useful problem of finding the",00:25:21.640,00:25:25.170
+square root of a real number.,00:25:25.170,00:25:27.640
+"Well, you've just seen
+how you do that.",00:25:27.640,00:25:29.580
+"You import math and
+you call sqrt.",00:25:29.580,00:25:32.680
+"Let's pretend that we didn't
+know that trick, or let's",00:25:32.680,00:25:36.640
+"pretend it's your job to
+introduce-- implement,",00:25:36.640,00:25:39.750
+rather-- math.,00:25:39.750,00:25:41.200
+"And so, you need to figure out
+how to implement square root.",00:25:41.200,00:25:46.250
+Why might this be a challenge?,00:25:46.250,00:25:49.190
+What are some of the issues?,00:25:49.190,00:25:52.230
+And there are several.,00:25:52.230,00:25:53.900
+"One is, what we've just seen
+might not be an exact answer.",00:25:53.900,00:26:09.960
+"For example, the square
+root of two.",00:26:09.960,00:26:16.460
+"So we need to worry about that,
+and clearly the way",00:26:16.460,00:26:20.400
+"we're going to solve that, as
+we'll see, is using a concept",00:26:20.400,00:26:24.980
+similar to epsilon.,00:26:24.980,00:26:26.940
+"In fact, we'll even
+call it epsilon.",00:26:26.940,00:26:33.100
+"Another problem with the method
+we looked at last time",00:26:33.100,00:26:36.620
+"is, there we were doing
+exhaustive enumeration.",00:26:36.620,00:26:40.100
+"We were enumerating all the
+possible answers, checking",00:26:40.100,00:26:44.040
+"each one, and if it was
+good, stopping.",00:26:44.040,00:26:47.680
+"Well, the problem with reals, as
+opposed to integers, is we",00:26:47.680,00:26:55.380
+can't enumerate all guesses.,00:26:55.380,00:27:06.310
+"And that's because the reals
+are uncountable.",00:27:06.310,00:27:14.540
+"If I ask you to enumerate the
+positive integers, you'll say",00:27:14.540,00:27:19.280
+"one, two, three, four, five.",00:27:19.280,00:27:22.350
+"If I ask you to enumerate the
+reals, the positive reals,",00:27:22.350,00:27:28.880
+where do you start?,00:27:28.880,00:27:29.950
+"One over a billion,
+plus who knows?",00:27:29.950,00:27:32.960
+"Now as we've just seen in fact,
+since there's a limit to",00:27:32.960,00:27:37.610
+"the precision floating point,
+technically you can enumerate",00:27:37.610,00:27:42.000
+"all the floating
+point numbers.",00:27:42.000,00:27:44.970
+"And I say technically, because
+if you tried to do that, your",00:27:44.970,00:27:48.510
+"computation would not terminate
+any time soon.",00:27:48.510,00:27:53.630
+"So even though in some, in
+principle you could enumerate",00:27:53.630,00:27:57.050
+"them, in fact you
+really can't.",00:27:57.050,00:27:59.780
+"And so we think of the floating
+points, like the",00:27:59.780,00:28:02.280
+"reals, as being innumerable.",00:28:02.280,00:28:04.900
+"Or not innumerable, as to say
+as being uncountable.",00:28:04.900,00:28:10.020
+So we can't do that.,00:28:10.020,00:28:14.160
+"So we have to find something
+clever, because we're now",00:28:14.160,00:28:19.450
+"searching a very large space
+of possible answers.",00:28:19.450,00:28:24.220
+"What would, technically
+you might call",00:28:24.220,00:28:26.502
+a large state space.,00:28:26.502,00:28:29.400
+"So we're going to take our
+previous method of guess and",00:28:29.400,00:28:33.240
+"check, and replace it by
+something called guess, check,",00:28:33.240,00:28:41.850
+and improve.,00:28:41.850,00:28:45.430
+"Previously, we just generated
+guesses in some systematic",00:28:45.430,00:28:50.290
+"way, but without knowing
+that we were getting",00:28:50.290,00:28:53.010
+closer to the answer.,00:28:53.010,00:28:55.130
+"Think of the original barnyard
+problem with the chickens and",00:28:55.130,00:28:58.270
+"the heads and the legs, we just
+enumerated possibilities,",00:28:58.270,00:29:01.900
+"but we didn't know that one
+guess was better than the",00:29:01.900,00:29:04.440
+previous guess.,00:29:04.440,00:29:07.690
+"Now, we're going to find a way
+to do the enumeration where we",00:29:07.690,00:29:12.600
+"have good reason to believe,
+at least with high",00:29:12.600,00:29:18.190
+"probability, that each
+guess is better than",00:29:18.190,00:29:22.940
+the previous guess.,00:29:22.940,00:29:25.330
+"This is what's called successive
+approximation.",00:29:25.330,00:29:41.610
+"And that's a very important
+concept.",00:29:41.610,00:29:45.810
+"Many problems are solved
+computationally using",00:29:45.810,00:29:50.140
+successive approximation.,00:29:50.140,00:29:56.150
+"Every successive approximation
+method has",00:29:56.150,00:30:00.620
+the same rough structure.,00:30:00.620,00:30:03.640
+"You start with some guess, which
+would be the initial",00:30:03.640,00:30:09.490
+"guess, you then iterate-- and in
+a minute I'll tell you why",00:30:09.490,00:30:20.030
+"I'm doing it this particular
+way, over some range.",00:30:20.030,00:30:29.630
+"I've chosen one hundred, but
+doesn't have to be one",00:30:29.630,00:30:32.730
+"hundred, just some number
+there-- if f of x, that is to",00:30:32.730,00:30:44.550
+say some some function of my--,00:30:44.550,00:30:47.470
+"Whoops, I shouldn't
+have said x.",00:30:47.470,00:30:50.400
+"My notes say x, but it's the
+wrong thing-- if f of x, f of",00:30:50.400,00:30:58.340
+"the guess, is close enough, so
+for example, if when I square",00:30:58.340,00:31:05.950
+"guess, I get close enough to
+the number who's root I'm--",00:31:05.950,00:31:09.370
+"square root I'm looking for,
+then I'll return the guess.",00:31:09.370,00:31:20.750
+"If it's not close enough,
+I'll get a better guess.",00:31:20.750,00:31:39.860
+"If I do my, in this case, one
+hundred iterations, and I've",00:31:39.860,00:31:45.080
+"not get-- gotten a guess that's
+good enough, I'm going",00:31:45.080,00:31:48.635
+to quit with some error.,00:31:48.635,00:31:54.370
+"Saying, wow.",00:31:54.370,00:31:55.930
+"I thought my method was good
+enough that a hundred guesses",00:31:55.930,00:31:59.150
+should've gotten me there.,00:31:59.150,00:32:00.740
+"If it didn't, I may be wrong.",00:32:00.740,00:32:03.420
+"I always like to have some
+limit, so that my program",00:32:03.420,00:32:07.070
+"can't spin off into the ether,
+guessing forever.",00:32:07.070,00:32:12.050
+OK.,00:32:12.050,00:32:12.560
+"Let's look at an example
+of that.",00:32:12.560,00:32:35.410
+"So here's a successive
+approximation",00:32:35.410,00:32:40.730
+to the square root.,00:32:40.730,00:32:42.760
+I've called it square root bi.,00:32:42.760,00:32:45.930
+"The bi is not a reference to the
+sexual preferences of the",00:32:45.930,00:32:49.420
+"function, but a reference to
+the fact that this is an",00:32:49.420,00:32:53.020
+"example of what's called
+a bi-section method.",00:32:53.020,00:33:12.950
+"The basic idea behind any
+bi-section method is the same,",00:33:12.950,00:33:18.000
+"and we'll see lots of examples
+of this semester, is that you",00:33:18.000,00:33:21.790
+"have some linearly-arranged
+space of possible answers.",00:33:21.790,00:33:31.540
+"And it has the property that if
+I take a guess somewhere,",00:33:31.540,00:33:35.960
+"let's say there, I guess that's
+the answer to the",00:33:35.960,00:33:39.930
+"question, if it turns out that's
+not the answer, I can",00:33:39.930,00:33:45.590
+"easily determine whether the
+answer lies to the left or the",00:33:45.590,00:33:50.750
+right of the guess.,00:33:50.750,00:33:53.600
+"So if I guess that 89.12 is the
+square root of a number,",00:33:53.600,00:33:59.680
+"and it turns out not to be the
+square root of the number, I",00:33:59.680,00:34:03.170
+"have a way of saying, is 89.12
+too big or too small.",00:34:03.170,00:34:08.790
+"If it was too big, then I
+know I'd better guess",00:34:08.790,00:34:11.440
+some number over here.,00:34:11.440,00:34:13.680
+"It was too small, then
+I'd better guess",00:34:13.680,00:34:16.320
+some number over here.,00:34:16.320,00:34:20.450
+Why do I call it bi-section?,00:34:20.450,00:34:23.810
+"Because I'm dividing it in half,
+and in general as we'll",00:34:23.810,00:34:27.510
+"see, when I know what my space
+of answers is, I always, as my",00:34:27.510,00:34:33.330
+"next guess, choose something
+half-way along that line.",00:34:33.330,00:34:37.830
+"So I made a guess, and let's say
+was too small, and I know",00:34:37.830,00:34:41.750
+"the answer is between here and
+here, this was too small, I",00:34:41.750,00:34:46.020
+"now know that the answer is
+between here and here, so my",00:34:46.020,00:34:49.950
+"next guess will be
+in the middle.",00:34:49.950,00:34:53.200
+"The beauty of always guessing
+in the middle is, at each",00:34:53.200,00:34:56.870
+"guess, if it's wrong, I
+get to throw out half",00:34:56.870,00:35:00.060
+of the state space.,00:35:00.060,00:35:02.420
+"So I know how long it's going
+to take me to search the",00:35:02.420,00:35:05.950
+"possibilities in some sense,
+because I'm getting",00:35:05.950,00:35:10.780
+logarithmically progressed.,00:35:10.780,00:35:16.410
+"This is exactly what we saw when
+we looked at recursion in",00:35:16.410,00:35:21.200
+"some sense, where we solved the
+problem by, at each step,",00:35:21.200,00:35:25.790
+solving a smaller problem.,00:35:25.790,00:35:28.540
+"The same problem, but on a
+smaller solution space.",00:35:28.540,00:35:33.140
+"Now as it happens, I'm not
+using recursion in this",00:35:33.140,00:35:35.910
+"implementation we have up on
+the screen, I'm doing it",00:35:35.910,00:35:38.980
+"iteratively but the
+idea is the same.",00:35:38.980,00:35:42.070
+"So we'll take a quick look at
+it now, then we'll quit and",00:35:42.070,00:35:46.660
+"we'll come back to in the next
+lecture a little more",00:35:46.660,00:35:48.730
+thoroughly.,00:35:48.730,00:35:51.630
+"I'm going to warn you right
+now, that there's a bug in",00:35:51.630,00:35:53.810
+"this code, and in the next
+lecture, we'll see if we can",00:35:53.810,00:35:57.500
+discover what that is.,00:35:57.500,00:36:00.480
+"So, it takes two arguments; x,
+the number whose square root",00:36:00.480,00:36:04.900
+"we're looking for,
+and epsilon, how",00:36:04.900,00:36:07.620
+close we need to get.,00:36:07.620,00:36:09.910
+"It assumes that x is
+non-negative, and that epsilon",00:36:09.910,00:36:15.750
+is greater than zero.,00:36:15.750,00:36:18.440
+"Why do we need to assume
+that's epsilon is",00:36:18.440,00:36:20.210
+greater than zero?,00:36:20.210,00:36:21.950
+"Well, if you made epsilon zero,
+and then say, we're",00:36:21.950,00:36:24.380
+"looking for the square root
+of two, we know we'll",00:36:24.380,00:36:26.680
+never get an answer.,00:36:26.680,00:36:29.850
+"So, we want it to be positive,
+and then it returns y such",00:36:29.850,00:36:35.470
+"that y times y is within
+epsilon of x.",00:36:35.470,00:36:39.410
+"It's near, to use the
+terminology we used before.",00:36:39.410,00:36:44.400
+"The next thing we see in the
+program, is two assert",00:36:44.400,00:36:47.830
+statements.,00:36:47.830,00:36:49.860
+"This is because I never trust
+the people who call my",00:36:49.860,00:36:54.520
+"functions to do the
+right thing.",00:36:54.520,00:36:57.360
+"Even though I said I'm going to
+assume certain things about",00:36:57.360,00:37:00.670
+"x and epsilon, I'm actually
+going to test it.",00:37:00.670,00:37:04.240
+"And so, I'm going to assert
+that x is greater than or",00:37:04.240,00:37:07.630
+"equal to zero, and that epsilon
+is greater than zero.",00:37:07.630,00:37:11.710
+"What assert does, is it tests
+the predicate, say x greater",00:37:11.710,00:37:16.603
+"than or equal to zero, if it's
+true, it does nothing, just",00:37:16.603,00:37:21.450
+goes on to the next statement.,00:37:21.450,00:37:23.160
+"But if it's false, it prints a
+message, the string, which is",00:37:23.160,00:37:28.390
+"my second argument here, and
+then the program just stops.",00:37:28.390,00:37:33.180
+"So rather than my function going
+off and doing something",00:37:33.180,00:37:35.610
+"bizarre, for example running
+forever, it just stops with a",00:37:35.610,00:37:39.490
+"message saying, you called me
+with arguments you shouldn't",00:37:39.490,00:37:42.460
+have called me with.,00:37:42.460,00:37:45.900
+"All right, so that's the
+specification and then my",00:37:45.900,00:37:49.570
+check of the assumptions.,00:37:49.570,00:37:52.950
+"The next thing it does, is it
+looks for a range such that I",00:37:52.950,00:37:59.800
+"believe I am assured that my
+answer lies between the ran--",00:37:59.800,00:38:04.070
+"these values, and I'm going to
+say, well, my answer will be",00:38:04.070,00:38:08.260
+"no smaller than zero, and
+no bigger than x.",00:38:08.260,00:38:13.970
+"Now, is this the tightest
+possible range?",00:38:13.970,00:38:16.040
+"Maybe not, but I'm not
+too fussy about that.",00:38:16.040,00:38:19.280
+"I'm just trying to make sure
+that I cover the space.",00:38:19.280,00:38:25.010
+"Then I'll start with a guess,
+and again I'm not going to",00:38:25.010,00:38:28.470
+"worry too much about the guess,
+I'm going to take low",00:38:28.470,00:38:31.630
+"plus high and divide by two,
+that is to say, choose",00:38:31.630,00:38:36.220
+"something in the middle of
+this space, and then",00:38:36.220,00:38:40.240
+"essentially do what
+we've got here.",00:38:40.240,00:38:44.180
+"So it's a little bit more
+involved here, I'm going to",00:38:44.180,00:38:46.620
+"set my counter to one, just to
+keep checking, then say, while",00:38:46.620,00:38:52.130
+"the absolute value of the
+guess squared minus x is",00:38:52.130,00:38:55.950
+"greater than epsilon, that is
+to say, why my guess is not",00:38:55.950,00:38:59.340
+"yet good enough, and the counter
+is not greater than a",00:38:59.340,00:39:03.390
+"hundred, I'll get
+the next guess.",00:39:03.390,00:39:09.220
+"Notice by the way, I have a
+print statement here which",00:39:09.220,00:39:11.480
+"I've commented out, but I sort
+of figured that my program",00:39:11.480,00:39:15.120
+"would not work correctly the
+first time, and so, I, when I",00:39:15.120,00:39:20.500
+"first typed and put in a print
+statement, it would let me see",00:39:20.500,00:39:24.000
+"what was happening each
+iteration through this loop,",00:39:24.000,00:39:27.100
+"so that if it didn't work, I
+could get a sense of why not.",00:39:27.100,00:39:30.980
+"In the next lecture, when we
+look for the bug in this",00:39:30.980,00:39:33.760
+"program, you will see me
+uncomment out that print",00:39:33.760,00:39:36.880
+"statement, but for now, we
+go to the next thing.",00:39:36.880,00:39:42.720
+"And we're here, we know the
+guess wasn't good enough, so I",00:39:42.720,00:39:46.200
+"now say, if the guess squared
+was less than x, then I will",00:39:46.200,00:39:52.690
+"change the low bound
+to be the guess.",00:39:52.690,00:39:58.330
+"Otherwise, I'll change the high
+bound to be the guess.",00:39:58.330,00:40:03.100
+"So I move either the low bound
+or I move the high bound,",00:40:03.100,00:40:05.960
+"either way I'm cutting
+the search space",00:40:05.960,00:40:07.960
+in half each step.,00:40:07.960,00:40:10.530
+I'll get my new guess.,00:40:10.530,00:40:13.110
+"I'll increment my counter,
+and off I go.",00:40:13.110,00:40:17.970
+"In the happy event that
+eventually I get a good enough",00:40:17.970,00:40:20.440
+"guess, you'll see a--",00:40:20.440,00:40:23.230
+I'll exit the loop.,00:40:23.230,00:40:26.160
+"When I exit the loop, I checked,
+did I exit it because",00:40:26.160,00:40:30.030
+"I exceeded the counter,
+I didn't have",00:40:30.030,00:40:32.530
+a good-enough guess.,00:40:32.530,00:40:34.150
+"If so, I'll print the message
+iteration count exceeded.",00:40:34.150,00:40:39.140
+"Otherwise, I'll print the
+result and return it.",00:40:39.140,00:40:46.300
+"Now again, if I were writing a
+square root function to be",00:40:46.300,00:40:48.740
+"used in another program, I
+probably wouldn't bother",00:40:48.740,00:40:51.570
+"printing the result and the
+number of iterations and all",00:40:51.570,00:40:54.140
+"of that, but again, I'm doing
+that here for, because we want",00:40:54.140,00:40:57.950
+to see what it's doing.,00:40:57.950,00:40:58.780
+All right.,00:40:58.780,00:41:00.240
+"We'll run it a couple times
+and then I'll let",00:41:00.240,00:41:02.580
+you out for the day.,00:41:02.580,00:41:06.420
+Let's go do this.,00:41:06.420,00:41:20.600
+All right.,00:41:20.600,00:41:21.850
+We're here.,00:41:21.850,00:41:23.200
+"Well, notice when I run
+it, nothing happens.",00:41:23.200,00:41:25.280
+Why did nothing happen?,00:41:25.280,00:41:26.960
+"Well, nothing happens, it
+was just a function.",00:41:26.960,00:41:29.690
+"Functions don't do anything
+until I call them.",00:41:29.690,00:41:33.030
+So let's call it.,00:41:33.030,00:41:37.360
+"Let's call square root bi with
+40.001 Took only one at--",00:41:37.360,00:41:49.860
+"iteration, that was pretty
+fast, estimated two as an",00:41:49.860,00:41:52.970
+"answer, we're pretty happy
+with that answer.",00:41:52.970,00:41:55.720
+Let's try another example.,00:41:55.720,00:41:59.990
+Let's look at nine.,00:41:59.990,00:42:03.320
+"I always like to, by the way,
+start with questions whose",00:42:03.320,00:42:05.530
+answer I know.,00:42:05.530,00:42:08.690
+"We'll try and get a little
+bit more precise.",00:42:08.690,00:42:11.160
+"Well, all right.",00:42:11.160,00:42:12.360
+"Here it took eighteen
+iterations.",00:42:12.360,00:42:16.620
+"Didn't actually give me the
+answer three, which we know",00:42:16.620,00:42:19.910
+"happens to be the answer, but it
+gave me something that was",00:42:19.910,00:42:24.100
+"within epsilon of three, so it
+meets the specification, so I",00:42:24.100,00:42:28.900
+should be perfectly happy.,00:42:28.900,00:42:32.430
+Let's look at another example.,00:42:32.430,00:42:38.690
+Try a bigger number here.,00:42:38.690,00:42:46.960
+All right?,00:42:46.960,00:42:47.310
+"So I've looked for the square
+root of a thousand, here it",00:42:47.310,00:42:50.310
+"took twenty-nine iterations,
+we're kind of creeping up",00:42:50.310,00:42:53.000
+"there, gave me an estimate.",00:42:53.000,00:42:55.960
+"Ah, let's look at our infamous
+example of two, see",00:42:55.960,00:42:59.280
+what it does here.,00:42:59.280,00:43:12.200
+Worked around.,00:43:12.200,00:43:14.030
+"Now, we can see it's actually
+working, and I'm getting",00:43:14.030,00:43:20.790
+"answers that we believe are
+good-enough answers, but we",00:43:20.790,00:43:25.670
+"also see that the speed of
+what we talk about as",00:43:25.670,00:43:28.250
+"convergence-- how many
+iterations it takes, the",00:43:28.250,00:43:31.270
+"number of iterations-- is
+variable, and it seems to be",00:43:31.270,00:43:35.480
+"related to at least two things,
+and we'll see more",00:43:35.480,00:43:38.620
+"about this in the
+next lecture.",00:43:38.620,00:43:40.520
+"The size of the number whose
+square root we're looking for,",00:43:40.520,00:43:44.320
+"and the precision to which
+I want the answer.",00:43:44.320,00:43:49.240
+"Next lecture, we'll look at a,
+what's wrong with this one,",00:43:49.240,00:43:54.870
+"and I would ask you to between
+now and the next lecture,",00:43:54.870,00:43:58.140
+"think about it, see if you can
+find the bug yourself, we'll",00:43:58.140,00:44:01.830
+"look first for the bug, and then
+after that, we'll look at",00:44:01.830,00:44:05.740
+"a better method of finding
+the answer.",00:44:05.740,00:44:08.820
+Thank you.,00:44:08.820,00:44:10.270

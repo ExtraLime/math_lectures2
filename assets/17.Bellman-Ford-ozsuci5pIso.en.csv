@@ -1,0 +1,1378 @@
+text,start,stop
+"The following
+content is provided",00:00:00.080,00:00:01.770
+"under a Creative
+Commons license.",00:00:01.770,00:00:04.000
+"Your support will help MIT
+OpenCourseWare continue",00:00:04.000,00:00:06.860
+"to offer high quality
+educational resources for free.",00:00:06.860,00:00:10.720
+"To make a donation or
+view additional materials",00:00:10.720,00:00:13.320
+"from hundreds of MIT courses,
+visit MIT OpenCourseWare",00:00:13.320,00:00:17.207
+at ocw.mit.edu.,00:00:17.207,00:00:17.832
+"PROFESSOR: Good
+morning, everyone.",00:00:21.404,00:00:22.820
+"So lecture three of four in the
+shortest path module and today",00:00:25.410,00:00:32.150
+"we'll finally
+confront our nemesis,",00:00:32.150,00:00:37.390
+"which are negative cycles
+and negative edges.",00:00:37.390,00:00:40.220
+"And we will describe
+an algorithm",00:00:40.220,00:00:44.240
+"that is due to two
+different people.",00:00:44.240,00:00:46.470
+"They didn't collaborate
+to produce this algorithm.",00:00:46.470,00:00:49.360
+Bellman and Ford.,00:00:49.360,00:00:52.570
+"This computes shortest paths
+in a graph with negative edges.",00:00:52.570,00:00:58.720
+"And not only that,
+even in the graph",00:00:58.720,00:01:01.060
+"has negative cycles
+in it, the algorithm",00:01:01.060,00:01:03.890
+"will be correct in
+the sense that it",00:01:03.890,00:01:06.800
+"will report the existence
+of a negative cycle",00:01:06.800,00:01:09.830
+"and, essentially, abort the
+computation of shortest paths",00:01:09.830,00:01:13.490
+that are undefined.,00:01:13.490,00:01:15.290
+"And for the few
+vertices that do not",00:01:15.290,00:01:18.730
+"have negative cycles in
+between them and the source,",00:01:18.730,00:01:23.020
+"the algorithm will report
+correct shortest paths.",00:01:23.020,00:01:25.980
+"So it is a polynomial
+time algorithm.",00:01:25.980,00:01:29.260
+It's fairly easy to describe.,00:01:29.260,00:01:30.900
+"And what we'll do is describe
+it, analyze its complexity",00:01:30.900,00:01:35.080
+"and, for once, we'll do a
+formal proof of its correctness",00:01:35.080,00:01:40.800
+"to show that it reports the
+existence of negative cycles",00:01:40.800,00:01:43.940
+if they do exist.,00:01:43.940,00:01:45.140
+"And if they don't
+exist, it correctly",00:01:45.140,00:01:47.150
+computes shortest path weights.,00:01:47.150,00:01:49.270
+"So recall that when we
+look at the general case",00:01:52.720,00:01:59.530
+of the shortest path problem.,00:01:59.530,00:02:02.300
+"We're going to have, let's say,
+a vertex u that, in this case,",00:02:02.300,00:02:07.150
+happens to be our source.,00:02:07.150,00:02:09.490
+"And let's say for
+argument's sake",00:02:09.490,00:02:11.640
+"that we have a negative
+weight cycle like so.",00:02:11.640,00:02:17.312
+So let me to draw this in bold.,00:02:17.312,00:02:19.010
+"And this happens to be
+a negative rate cycle.",00:02:21.810,00:02:24.560
+"Let's assume that all of these
+edges have positive weights.",00:02:24.560,00:02:30.930
+"Then, if you have
+an algorithm that",00:02:30.930,00:02:37.640
+"needs to work on this type
+of graph, what you want",00:02:37.640,00:02:41.600
+"to be able to do is to detect
+that this negative cycle",00:02:41.600,00:02:45.590
+exists.,00:02:45.590,00:02:46.770
+"And you're going
+to, essentially,",00:02:46.770,00:02:49.190
+"say if this vertex
+is v1, for example,",00:02:49.190,00:02:53.170
+"you want to be able to say delta
+u v1 is undefined and similarly",00:02:53.170,00:02:59.720
+"for v2, v3, et cetera.",00:02:59.720,00:03:03.317
+"For all of these things,
+the shortest path lengths",00:03:03.317,00:03:05.400
+"are undefined because
+you can essentially",00:03:05.400,00:03:09.010
+"run through this negative
+cycle any number of times",00:03:09.010,00:03:11.330
+"and get whatever shortest
+path weight you want.",00:03:11.330,00:03:16.180
+"For this node, let's call
+that v0, we have delta u v0",00:03:16.180,00:03:22.400
+equals 2.,00:03:22.400,00:03:25.240
+"And there's a simple
+path of length 1",00:03:25.240,00:03:29.070
+"in this case that
+gets you from u to v0.",00:03:29.070,00:03:32.390
+"You don't encounter a cycle
+or negative cycle in between.",00:03:32.390,00:03:36.790
+So that's cool.,00:03:36.790,00:03:38.480
+All right?,00:03:38.480,00:03:39.850
+"And of course, if you have
+a vertex over here, z,",00:03:39.850,00:03:44.140
+"that can't be reached
+from u then we're",00:03:44.140,00:03:47.360
+"going to have delta
+uz being infinity.",00:03:47.360,00:03:51.630
+"And you can assume at the
+beginning of these algorithms",00:03:51.630,00:03:55.140
+"that the source-- in this
+case, I call the source u--",00:03:55.140,00:03:58.840
+"but the shortest
+path to u would be 0.",00:03:58.840,00:04:03.850
+"And all of the other
+ones are infinity.",00:04:03.850,00:04:06.140
+"And some of them
+may stay infinity.",00:04:06.140,00:04:08.250
+"Some of them may obtain
+finite shortest path weights.",00:04:08.250,00:04:13.090
+"And some of them
+will be undefined",00:04:13.090,00:04:14.810
+"if you have a graph with
+negative cycles in it.",00:04:14.810,00:04:17.820
+"So that's sort of the
+specification, if you will,",00:04:17.820,00:04:20.839
+"of the requirements on the
+Bellman-Ford algorithm.",00:04:20.839,00:04:23.530
+"We want it to be able to do all
+of the things I just described.",00:04:23.530,00:04:27.270
+OK?,00:04:27.270,00:04:29.300
+"So let's take a second look
+at our generic shortest path",00:04:29.300,00:04:40.540
+"algorithm that I put up,
+I think, about a week ago.",00:04:40.540,00:04:47.510
+"And this is a good
+review of our notation.",00:04:47.510,00:04:52.400
+"But there are a
+couple more things",00:04:52.400,00:04:53.840
+"I want to say about
+this algorithm",00:04:53.840,00:04:56.100
+that I didn't get to last time.,00:04:56.100,00:04:58.490
+"So you're given a graph and
+you set all of the vertices",00:04:58.490,00:05:02.910
+"in the graph to have
+infinite shortest path",00:05:02.910,00:05:06.760
+"weights, initially.",00:05:06.760,00:05:10.020
+Set the predecessors to be null.,00:05:10.020,00:05:13.220
+"And then we'll set
+d of s to be 0.",00:05:13.220,00:05:18.710
+That's your source.,00:05:18.710,00:05:20.850
+"And the main loop would
+be something like repeat,",00:05:20.850,00:05:30.920
+"select, and edge.",00:05:30.920,00:05:33.910
+"And we have a particular
+way of selecting this edge.",00:05:33.910,00:05:37.800
+"And we have positive
+edge weights",00:05:37.800,00:05:39.810
+"that corresponds to
+the minimum priority.",00:05:39.810,00:05:42.860
+"And we talked about
+Dijkstra but we have, maybe,",00:05:42.860,00:05:45.172
+different ways of doing that.,00:05:45.172,00:05:46.380
+"We have to select
+an edge somehow.",00:05:46.380,00:05:48.530
+"And then, we relaxed that edge.",00:05:48.530,00:05:52.045
+"u, v, w.",00:05:55.370,00:05:58.080
+"And you know about
+the relaxation step.",00:05:58.080,00:06:00.040
+"I won't bother writing
+it out right now.",00:06:00.040,00:06:03.000
+"But it's basically
+something where",00:06:03.000,00:06:05.920
+"you look at the value
+of d v. And if d v",00:06:05.920,00:06:09.340
+"is greater than d u plus the
+weight, you relax the edge.",00:06:09.340,00:06:14.280
+And you keep doing this.,00:06:14.280,00:06:17.350
+"The other thing that
+you do in the relaxation",00:06:17.350,00:06:20.250
+"is to set the predecessor
+pointers to be correct.",00:06:20.250,00:06:23.260
+"And that's part of
+the relax routine.",00:06:23.260,00:06:25.630
+"And you keep doing this until
+you can't relax anymore.",00:06:25.630,00:06:33.905
+All right?,00:06:36.791,00:06:37.290
+"So that's our generic
+shortest path algorithm.",00:06:37.290,00:06:40.830
+"There are two problems
+with this algorithm.",00:06:40.830,00:06:45.050
+"The first, which we talked
+about and both of these",00:06:45.050,00:06:48.700
+"have to do with the
+complexity but the first one",00:06:48.700,00:06:52.880
+"is that the complexity
+could be exponential time,",00:06:52.880,00:07:00.120
+even for positive edge weights.,00:07:00.120,00:07:01.840
+"And the particular
+example we talked about",00:07:08.090,00:07:10.450
+"was something where you had an
+exponential number of paths.",00:07:10.450,00:07:16.900
+"And if you had a graph
+that looks like this,",00:07:16.900,00:07:21.370
+"then it's possible that a
+pathological selection of edges",00:07:21.370,00:07:25.950
+"is going to make you relax edges
+an exponential number of times.",00:07:25.950,00:07:31.630
+"And in particular, if you
+have n nodes in this graph,",00:07:31.630,00:07:35.384
+"it's plausible that
+you'd end up getting",00:07:35.384,00:07:37.050
+"the complexity of order
+2 raised to n over 2.",00:07:37.050,00:07:41.390
+OK?,00:07:41.390,00:07:42.360
+So that's one problem.,00:07:42.360,00:07:44.809
+"The second problem,
+which is actually",00:07:44.809,00:07:46.350
+"a more obvious problem, is that
+this algorithm might not even",00:07:46.350,00:07:52.740
+"terminate if this--
+actually will not",00:07:52.740,00:08:04.800
+"terminate the way it's written
+if there's a negative weight",00:08:04.800,00:08:14.950
+cycle reachable from the source.,00:08:14.950,00:08:18.335
+"All right, so
+there's two problems.",00:08:29.180,00:08:31.380
+We fixed the first one.,00:08:31.380,00:08:33.720
+"In the case of positive
+edges are non-negative edges.",00:08:33.720,00:08:38.549
+"We have a neat algorithm that
+is an efficient algorithm called",00:08:38.549,00:08:41.600
+"Dijkstra that we talked
+about last time that fixed",00:08:41.600,00:08:43.990
+the first part.,00:08:43.990,00:08:45.200
+"But we don't know
+yet how we're going",00:08:45.200,00:08:47.460
+"to handle negative cycles
+in the general case.",00:08:47.460,00:08:51.371
+"We know how to
+handle negative edges",00:08:51.371,00:08:52.870
+"in the case of a DAG-- a
+directed acyclic graph--",00:08:52.870,00:08:55.650
+but not in the general case.,00:08:55.650,00:08:57.760
+OK?,00:08:57.760,00:08:58.260
+"So there's this great little
+skit from Saturday Night Live",00:09:01.930,00:09:07.150
+"from the 1980s-- so way before
+your time-- called The Five",00:09:07.150,00:09:11.680
+Minute University.,00:09:11.680,00:09:13.130
+Anybody seen this?,00:09:13.130,00:09:15.100
+All right.,00:09:15.100,00:09:15.600
+Look it up on YouTube.,00:09:15.600,00:09:16.450
+"Don't look it up during
+lecture but afterwards.",00:09:16.450,00:09:18.408
+"So the character
+here is a person",00:09:20.920,00:09:23.940
+"by the name of-- I
+forget his real name",00:09:23.940,00:09:26.620
+"but his fake name is
+Father Guido Sarducci.",00:09:26.620,00:09:30.200
+All right?,00:09:30.200,00:09:31.470
+"So what's this Five
+Minute University about?",00:09:31.470,00:09:33.990
+"Five Minute University,
+he's selling this notion",00:09:33.990,00:09:37.940
+"and he says, look, five
+years after you graduate",00:09:37.940,00:09:42.040
+"you, essentially, are
+going to remember nothing.",00:09:42.040,00:09:44.340
+OK?,00:09:44.340,00:09:44.910
+"I mean, you're not going
+to remember anything",00:09:44.910,00:09:46.800
+"about all the courses
+you took, et cetera.",00:09:46.800,00:09:49.580
+"So why waste your time on a
+college education or waste",00:09:49.580,00:09:53.590
+"money-- $100,000-- on
+a college education?",00:09:53.590,00:09:55.810
+"You know, for $20 I'll teach
+you in five minutes what you're",00:09:55.810,00:10:00.850
+"going to remember five
+years after you graduate.",00:10:00.850,00:10:04.320
+All right?,00:10:04.320,00:10:05.630
+So let's take it to an extreme.,00:10:05.630,00:10:07.960
+"Here's a 30 second
+version up 6006.",00:10:07.960,00:10:11.550
+"And this is what I want you to
+remember five years or 10 years",00:10:11.550,00:10:15.700
+or whatever after you graduate.,00:10:15.700,00:10:17.180
+All right?,00:10:17.180,00:10:18.080
+"And maybe the 10 second version
+as polynomial time is great.",00:10:18.080,00:10:23.220
+OK?,00:10:23.220,00:10:23.720
+Exponential time is bad.,00:10:23.720,00:10:25.800
+"And infinite time
+gets you fired.",00:10:25.800,00:10:28.200
+OK?,00:10:28.200,00:10:29.720
+"So that's all you
+need to remember.",00:10:29.720,00:10:33.267
+"No, that's all you need
+to remember for the final.",00:10:33.267,00:10:35.350
+"This happens, you know, five
+years after you graduate.",00:10:35.350,00:10:38.352
+"So you need to remember
+a lot more if you",00:10:38.352,00:10:40.060
+"want to take your quiz next
+week and the final exam.",00:10:40.060,00:10:42.850
+"But I think that
+summarized over here.",00:10:42.850,00:10:44.450
+"You have a generic
+shortest path algorithm.",00:10:44.450,00:10:47.480
+"And you realize that
+if you do this wrong",00:10:47.480,00:10:50.530
+"you could very easily
+get into a situation",00:10:50.530,00:10:54.450
+"where a polynomial
+time algorithm, and we",00:10:54.450,00:10:56.220
+"know one for Dijkstra,
+turns into exponential time",00:10:56.220,00:10:59.850
+"in the worst case, you
+know, for a graph like that",00:10:59.850,00:11:03.010
+"because you're
+selecting edges wrongly.",00:11:03.010,00:11:05.890
+"And in particular, that's
+problem number one.",00:11:05.890,00:11:09.900
+"And problem number
+two is if you have",00:11:09.900,00:11:13.180
+"a graph that isn't
+what you expect.",00:11:13.180,00:11:16.250
+"In this case, let's say
+you expected that a graph",00:11:16.250,00:11:19.850
+"with no negative cycles or maybe
+not even negative edges in it.",00:11:19.850,00:11:23.300
+"You could easily
+get into a situation",00:11:23.300,00:11:25.190
+"where your termination
+condition is such",00:11:25.190,00:11:26.920
+"that your algorithm
+never completes.",00:11:26.920,00:11:29.520
+"So we need to fix
+problem number two today",00:11:29.520,00:11:32.910
+"using this algorithm
+called Bellman-Ford.",00:11:32.910,00:11:36.830
+"And as it turns
+out, this algorithm",00:11:36.830,00:11:40.760
+is incredibly straightforward.,00:11:40.760,00:11:43.300
+"I mean, its complexity
+we'll have to look at.",00:11:43.300,00:11:45.640
+"But from a description
+standpoint,",00:11:45.640,00:11:47.850
+it's four lines of code.,00:11:47.850,00:11:50.440
+And let me put that up.,00:11:50.440,00:11:54.670
+"So Bellman-Ford takes a graph,
+weights, and a source s.",00:11:54.670,00:12:04.270
+"And you can assume an adjacency
+list specification of the graph",00:12:04.270,00:12:12.990
+"or the representation
+of the graph.",00:12:12.990,00:12:14.840
+And we do some initialization.,00:12:14.840,00:12:17.050
+"It's exactly the same
+as in the generic case",00:12:17.050,00:12:20.330
+"except the d values will still
+be looking at the d values",00:12:20.330,00:12:23.750
+"and talking about the
+relaxation operation.",00:12:23.750,00:12:26.500
+So we do an initialization.,00:12:26.500,00:12:28.710
+"And then, this algorithm
+has multiple passes",00:12:28.710,00:12:33.210
+"because for I equals
+1 to v minus 1.",00:12:33.210,00:12:38.120
+"So it does v minus 1 passes
+roughly order v passes",00:12:38.120,00:12:42.650
+"where v is the
+number of vertices.",00:12:42.650,00:12:45.040
+"And in each of these passes for
+each edge u v belonging to e",00:12:45.040,00:12:53.410
+relaxes every edge.,00:12:53.410,00:12:54.700
+"And just so everyone remembers,
+relax u, v, w is if d of v",00:13:02.850,00:13:14.060
+"is greater than d of u plus w
+u v then we'll set d v to be--",00:13:14.060,00:13:29.450
+and we also set pi v to be u.,00:13:29.450,00:13:32.200
+OK.,00:13:35.110,00:13:35.610
+"That's relax
+operation over here.",00:13:41.080,00:13:45.730
+So that's the algorithm.,00:13:45.730,00:13:48.460
+"And if you know
+magically that they're",00:13:48.460,00:13:57.460
+no negative cycles in the graph.,00:13:57.460,00:14:01.840
+"So if they're no negative
+cycles in the graph,",00:14:01.840,00:14:04.810
+"then after these-- we'll
+have to prove this.",00:14:04.810,00:14:07.360
+"But after these v
+minus 1 passes you're",00:14:07.360,00:14:10.310
+"going to get the correct
+shortest pathways.",00:14:10.310,00:14:12.731
+OK?,00:14:12.731,00:14:13.230
+"You want to do a
+little bit more, right?",00:14:15.760,00:14:17.460
+"I motivated what we
+want Bellman-Ford to do",00:14:17.460,00:14:21.950
+earlier in the lecture.,00:14:21.950,00:14:23.700
+So you can also do a check.,00:14:23.700,00:14:26.010
+"So you may not know if they're
+negative weight cycles or not.",00:14:26.010,00:14:30.750
+"But at this point,
+you can say I'm",00:14:30.750,00:14:32.520
+"going to do one more pass
+so the v path-- the v",00:14:32.520,00:14:37.190
+"is the number of
+vertices-- over the graph.",00:14:37.190,00:14:41.440
+"So for each edge in the graph,
+if you do one more relaxation",00:14:41.440,00:14:48.940
+"and you see that d v is
+greater than d u plus w u v. So",00:14:48.940,00:14:55.800
+you're not doing a relaxation.,00:14:55.800,00:14:57.050
+"You're doing a check to see
+if you can relax the edge.",00:14:57.050,00:15:02.180
+"Then report minus v
+negative cycle exists.",00:15:02.180,00:15:11.860
+So this is the check.,00:15:11.860,00:15:15.930
+"And the first part
+is the computation.",00:15:15.930,00:15:17.850
+So that's kind of neat.,00:15:22.310,00:15:23.290
+"I mean, it fit's on a board.",00:15:23.290,00:15:26.720
+We talk about the correctness.,00:15:26.720,00:15:29.140
+"The functionality,
+I hope everyone got.",00:15:29.140,00:15:31.085
+"Do people understand
+what's happening here",00:15:31.085,00:15:33.851
+with respect to functionality?,00:15:33.851,00:15:35.100
+Any questions?,00:15:35.100,00:15:35.683
+"Not about correctness
+but functionality?",00:15:37.489,00:15:39.155
+Yeah?,00:15:39.155,00:15:39.655
+"AUDIENCE: Where
+does the [INAUDIBLE]",00:15:39.655,00:15:41.214
+get used in the formula?,00:15:41.214,00:15:42.567
+"PROFESSOR: Oh, it doesn't.",00:15:42.567,00:15:43.985
+"It's just a counter
+that makes sure",00:15:46.780,00:15:48.380
+that you do v minus 1 passes.,00:15:48.380,00:15:50.335
+"So what's that complexity
+of this algorithm",00:15:54.760,00:15:57.690
+"using the best data structure
+that we can think of?",00:15:57.690,00:16:03.490
+Anyone?,00:16:03.490,00:16:03.990
+"Yeah, go ahead.",00:16:07.958,00:16:08.950
+"AUDIENCE: [INAUDIBLE] v plus e
+if you're using a [INAUDIBLE]",00:16:08.950,00:16:12.918
+to access [INAUDIBLE]?,00:16:12.918,00:16:14.387
+PROFESSOR: v plus e?,00:16:14.387,00:16:15.220
+AUDIENCE: Or v e plus e.,00:16:15.220,00:16:18.412
+PROFESSOR: So that would be?,00:16:18.412,00:16:20.632
+"AUDIENCE: That's
+using a dictionary?",00:16:20.632,00:16:22.295
+"PROFESSOR: Yeah, I know.
+v e plus e would be?",00:16:22.295,00:16:24.170
+That's correct but.,00:16:24.170,00:16:25.204
+AUDIENCE: [INAUDIBLE].,00:16:25.204,00:16:26.120
+PROFESSOR: Right.,00:16:26.120,00:16:26.828
+"But I mean when do v e plus
+e you can ignore the e.",00:16:26.828,00:16:31.800
+So say you have just v times e.,00:16:31.800,00:16:36.750
+All right.,00:16:36.750,00:16:37.250
+Good.,00:16:37.250,00:16:37.580
+Here you go.,00:16:37.580,00:16:38.079
+So this part here is v times e.,00:16:41.190,00:16:44.830
+And it doesn't really matter.,00:16:44.830,00:16:46.490
+"I mean, you can use an array
+structure adjacency list.",00:16:46.490,00:16:49.990
+"It's not like Dijkstra where
+we have this neat requirement",00:16:49.990,00:16:54.142
+"for a priority queue and
+there's different ways",00:16:54.142,00:16:56.100
+"of implementing
+the priority queue.",00:16:56.100,00:16:58.840
+This part would be order of v e.,00:16:58.840,00:17:02.280
+"And that gives you the
+overall complexity.",00:17:02.280,00:17:05.060
+"This part here is only one
+pass through the edges.",00:17:05.060,00:17:07.640
+"So that's order
+e, like you said.",00:17:07.640,00:17:10.390
+So the complexities order v e.,00:17:10.390,00:17:13.329
+"And this could be large, as
+I said before in, I think,",00:17:13.329,00:17:17.520
+the first lecture.,00:17:17.520,00:17:18.930
+"e is order of v square
+in a simple graph.",00:17:18.930,00:17:26.710
+"So you might end up with
+a v cubed complexity",00:17:26.710,00:17:29.240
+if you run Bellman-Ford.,00:17:29.240,00:17:30.690
+"So there's no question
+that Bellman-Ford",00:17:30.690,00:17:33.410
+"is, from a practical
+standpoint, substantially slower",00:17:33.410,00:17:37.170
+than Dijkstra.,00:17:37.170,00:17:38.880
+"You can get Dijkstra down
+to linear complexity.",00:17:38.880,00:17:46.460
+"But this would potentially,
+at least in terms of vertices,",00:17:46.460,00:17:49.050
+be cubic complexity.,00:17:49.050,00:17:52.320
+"So when you have a chance,
+you want to use Dijkstra.",00:17:52.320,00:17:54.979
+"And you're forced
+to use Bellman-Ford",00:17:54.979,00:17:56.520
+"because you could potentially
+have negative weight",00:17:56.520,00:17:58.840
+"cycles while you're
+stuck with that.",00:17:58.840,00:18:01.100
+All right?,00:18:01.100,00:18:03.100
+"OK, so why does this work?",00:18:03.100,00:18:04.770
+This looks a bit like magic.,00:18:04.770,00:18:06.830
+"It turns out we can actually do
+a fairly straightforward proof",00:18:06.830,00:18:12.260
+of correctness of Bellman-Ford.,00:18:12.260,00:18:14.480
+"And we're going
+to do two things.",00:18:14.480,00:18:15.985
+"We're going to not only
+show that if negative weight",00:18:15.985,00:18:19.850
+"cycles don't exist that
+this will correctly",00:18:19.850,00:18:25.540
+compute shorter stats.,00:18:25.540,00:18:27.720
+"But we also have to show that
+it will detect negative weight",00:18:27.720,00:18:31.480
+cycles if they in fact exist.,00:18:31.480,00:18:33.900
+So there's two parts to this.,00:18:33.900,00:18:35.670
+And let's start.,00:18:35.670,00:18:36.645
+"So what we have here
+for this algorithm",00:18:39.480,00:18:43.840
+"is that it can guarantee
+in a graph g equals",00:18:43.840,00:18:55.440
+"v E. If it contains no
+negative weight cycles then",00:18:55.440,00:19:13.150
+"after Bellman-Ford
+finishes execution,",00:19:13.150,00:19:21.850
+"d v equals delta s v for all
+v belonging to v. All right?",00:19:21.850,00:19:33.300
+And then there's that.,00:19:33.300,00:19:35.460
+"That's the theorem
+you want to prove.",00:19:35.460,00:19:37.290
+"And the second piece
+of it is corollary",00:19:37.290,00:19:44.230
+that we want to prove.,00:19:44.230,00:19:46.210
+"And that has to
+do with the check.",00:19:46.210,00:19:48.260
+"And this says if
+a value of d of v",00:19:48.260,00:19:55.460
+"fails to converge
+after v minus 1",00:19:55.460,00:20:05.530
+"passes there exists a negative
+weight cycle reachable from s.",00:20:05.530,00:20:17.416
+"So those are the two things
+that we need to show.",00:20:24.120,00:20:29.400
+"I'll probably take a few
+minutes to do each of these.",00:20:29.400,00:20:31.670
+"That theorem is a
+little more involved.",00:20:31.670,00:20:34.370
+"So one of the first
+things that we",00:20:37.104,00:20:38.520
+"have to do in order
+to prove this theorem",00:20:38.520,00:20:41.940
+"is to think about exactly what
+the shortest path corresponds",00:20:41.940,00:20:50.880
+to in a generic sense.,00:20:50.880,00:20:53.310
+"So when we have source
+vertex s and you have",00:20:53.310,00:20:58.900
+"a particular vertex
+v then there's",00:20:58.900,00:21:02.810
+"the picture that we need
+to keep in mind as we try",00:21:02.810,00:21:07.760
+and prove this theorem.,00:21:07.760,00:21:09.780
+"So you have v0, v1, v2, et
+cetera all the way to vk.",00:21:09.780,00:21:18.230
+This is my vertex v. This is s.,00:21:18.230,00:21:21.460
+So s equals v0.,00:21:21.460,00:21:24.860
+V equals vk.,00:21:24.860,00:21:26.150
+All right?,00:21:26.150,00:21:26.870
+So I'm going to have a path p.,00:21:26.870,00:21:29.970
+"That is v0, v1,
+all the way to vk.",00:21:29.970,00:21:35.470
+OK?,00:21:35.470,00:21:35.970
+How big is k in the worst case?,00:21:40.810,00:21:46.200
+How big is k?,00:21:46.200,00:21:47.120
+Anybody?,00:21:50.940,00:21:51.950
+How big is k?,00:21:51.950,00:21:52.495
+It's up on the black board.,00:21:55.150,00:21:56.535
+AUDIENCE: [INAUDIBLE].,00:21:56.535,00:21:58.190
+"PROFESSOR: v minus 1, right?",00:21:58.190,00:21:59.501
+Why?,00:21:59.501,00:22:00.000
+"What would happen if k
+is larger than v minus 1?",00:22:03.370,00:22:08.520
+I'd have a cycle.,00:22:08.520,00:22:09.550
+"I'd be visiting a
+vertex more than once.",00:22:09.550,00:22:11.780
+"And it wouldn't
+be a simple path.",00:22:11.780,00:22:13.870
+Right?,00:22:13.870,00:22:14.370
+"So k is less than or equal to v
+minus 1 else I'd have a cycle.",00:22:17.300,00:22:24.810
+OK?,00:22:24.810,00:22:26.590
+I wouldn't have a simple path.,00:22:26.590,00:22:28.630
+"And we're looking for the
+shortest, simple paths",00:22:28.630,00:22:31.520
+"because if you ever
+get to the point",00:22:31.520,00:22:33.150
+"where-- why are we looking
+for shortest, simple paths?",00:22:33.150,00:22:35.470
+"Well, in this
+case, we're looking",00:22:35.470,00:22:39.446
+"for shortest, simple paths.",00:22:39.446,00:22:40.570
+"And if there's a
+negative cycle, we're",00:22:40.570,00:22:43.700
+"in trouble because the
+shortest path is not",00:22:43.700,00:22:46.900
+"necessarily the simple
+path because you",00:22:46.900,00:22:49.690
+"could go around the
+cycle a bunch of times.",00:22:49.690,00:22:52.730
+I'll get back to that.,00:22:52.730,00:22:54.080
+"But in the case where we're
+trying to prove the theorem,",00:22:54.080,00:22:58.680
+"we know that no
+negative cycles exist.",00:22:58.680,00:23:00.809
+"We can assume that
+no negative cycles",00:23:00.809,00:23:02.350
+"exist for the case
+of the theorem.",00:23:02.350,00:23:04.060
+"And we want to show that
+Bellman-Ford correctly",00:23:04.060,00:23:07.940
+"computes each of the
+shortest path weights.",00:23:07.940,00:23:11.230
+"And in that case, there's
+no negative weight cycles.",00:23:11.230,00:23:13.970
+"We're guaranteed that k is less
+than or equal to v minus 1.",00:23:13.970,00:23:16.955
+All right?,00:23:16.955,00:23:18.880
+Everybody buy that?,00:23:18.880,00:23:21.190
+Good.,00:23:21.190,00:23:21.880
+All right.,00:23:21.880,00:23:22.380
+"So that's the picture I
+want you keep in mind.",00:23:22.380,00:23:24.500
+"Let's dive in and
+prove this theorem.",00:23:24.500,00:23:30.475
+And we prove it using induction.,00:23:30.475,00:23:33.130
+So let v be any vertex.,00:23:51.560,00:23:54.830
+"And let's say that
+we're looking at a path.",00:23:54.830,00:23:57.780
+"v0, v1, v2, to vk.",00:23:57.780,00:24:01.780
+"And like I said, from
+v0 equals s to vk",00:24:01.780,00:24:06.570
+"equals v. And in
+particular, I'm not",00:24:06.570,00:24:14.270
+"going to say that this
+path p is a shortest",00:24:14.270,00:24:22.830
+"path with the minimum
+number of edges.",00:24:22.830,00:24:28.835
+"So there may be
+many shortest paths.",00:24:33.550,00:24:35.770
+"And I'm going to
+pick the one that",00:24:35.770,00:24:37.230
+has the minimum number of edges.,00:24:37.230,00:24:39.040
+"If there's a unique shortest
+path, then that's a given.",00:24:39.040,00:24:42.020
+"But it may be that I have
+a path with four edges that",00:24:42.020,00:24:46.580
+"has the same weight as
+another path with three edges.",00:24:46.580,00:24:48.880
+"I'm going to pick the
+one that has three edges.",00:24:48.880,00:24:51.390
+OK?,00:24:51.390,00:24:51.890
+"So it may not be
+unique with respect",00:24:51.890,00:24:54.406
+"that they're not necessarily
+unique shortest paths.",00:24:54.406,00:24:56.530
+But I can certainly pick one.,00:24:56.530,00:24:59.900
+"And no negative weight cycles
+implies that p is simple.",00:24:59.900,00:25:07.370
+"And that implies that k is less
+than or equal to v minus 1,",00:25:10.390,00:25:16.660
+which is what I just argued.,00:25:16.660,00:25:19.470
+"Now keep in mind that picture
+over there to the right.",00:25:19.470,00:25:24.560
+"And basically, the argument
+is going to go as follows.",00:25:24.560,00:25:30.850
+"Remember that I'm
+going to be relaxing",00:25:30.850,00:25:33.250
+"every edge in each
+pass of the algorithm.",00:25:33.250,00:25:38.310
+OK?,00:25:38.310,00:25:39.120
+There's no choices here.,00:25:39.120,00:25:42.450
+"I'm going be relaxing every edge
+in each pass of the algorithm.",00:25:42.450,00:25:45.490
+"And essentially, the
+proof goes as follows.",00:25:45.490,00:25:48.680
+"I'm going to be moving
+closer and closer to vk",00:25:48.680,00:25:53.930
+"and constructing this
+shortest path at every pass.",00:25:53.930,00:26:00.170
+"So at some point
+in the first pass,",00:26:00.170,00:26:04.140
+"I'm going to relax
+this edge v0, v1.",00:26:04.140,00:26:07.620
+OK?,00:26:07.620,00:26:08.600
+"And at that point, thanks to the
+optimal substructure property,",00:26:08.600,00:26:14.640
+"given that this is
+the shortest path,",00:26:14.640,00:26:16.800
+"this has to be a
+shortest path, as well.",00:26:16.800,00:26:19.380
+"Any subset of the shortest
+path has to be a shortest path.",00:26:19.380,00:26:22.880
+"I'm going to relax
+this edge and I'm",00:26:22.880,00:26:25.150
+"going to get the value
+of delta from s to v1.",00:26:25.150,00:26:31.100
+"And it's going to be
+this relaxation that's",00:26:31.100,00:26:33.430
+going to get me that value.,00:26:33.430,00:26:34.861
+"And after the first pass, I'm
+going to be able to get to v1.",00:26:34.861,00:26:37.360
+"After the second
+pass, I can get to v2.",00:26:37.360,00:26:39.420
+"And after k passes, I'm going
+to be able to get to vk.",00:26:39.420,00:26:42.220
+"So I'm just growing this
+frontier one node every pass.",00:26:42.220,00:26:47.100
+And that's your induction.,00:26:47.100,00:26:49.380
+And you can write that out.,00:26:49.380,00:26:51.580
+And I'll write it out here.,00:26:51.580,00:26:53.660
+But that's basically it.,00:26:53.660,00:26:55.640
+"So after one pass through all
+of the edges e, we have d of v1",00:26:55.640,00:27:10.640
+to be delta s v1.,00:27:10.640,00:27:12.560
+"And the reason for this
+is because we'll relax.",00:27:15.890,00:27:19.380
+"We're guaranteed to
+relax all the edges.",00:27:25.310,00:27:27.300
+"And we'll relax the edge
+v0, v1 during this pass.",00:27:27.300,00:27:33.820
+"And we can't find a
+shorter path than this path",00:27:36.540,00:27:39.480
+"because, otherwise we'd violate
+the optimum substructure",00:27:39.480,00:27:41.950
+property.,00:27:41.950,00:27:44.000
+"And that means that
+it's a contradiction",00:27:44.000,00:27:47.270
+"that we selected a shortest
+path in the first place.",00:27:47.270,00:27:50.370
+"So can argue that we have delta
+s v1 after the first pass.",00:27:50.370,00:27:57.070
+And this goes on.,00:27:57.070,00:27:58.246
+"I'm going to write
+out this proof",00:27:58.246,00:27:59.620
+"because I think it's
+important for you guys",00:27:59.620,00:28:01.590
+to see the full proof.,00:28:01.590,00:28:06.340
+"But you can probably guess
+the rest at this point.",00:28:06.340,00:28:08.600
+"After one pass,
+that's what you get.",00:28:16.780,00:28:18.320
+"After two passes
+through e we have",00:28:18.320,00:28:25.940
+"d v2 equals delta s v2
+because in the second pass",00:28:25.940,00:28:33.710
+"we're going to
+relax edge v1, v2.",00:28:33.710,00:28:38.500
+"So it' a different edge
+that needs to be relaxed.",00:28:46.949,00:28:48.990
+"But that's cool because
+I'm relaxing all the edges.",00:28:48.990,00:28:51.400
+"And I'm going to be able
+to grow my frontier.",00:28:51.400,00:28:53.740
+"I'm going to be able to
+compute delta s v2 and the end",00:28:53.740,00:28:57.020
+"of my second pass and
+so on and so forth.",00:28:57.020,00:29:00.820
+"So after k passes, we have
+d vk equals delta s vk.",00:29:00.820,00:29:13.450
+"And if I run through v
+minus 1 passes, which",00:29:16.100,00:29:26.320
+"is what I do in the algorithm,
+all reachable vertices",00:29:26.320,00:29:37.070
+have delta values.,00:29:37.070,00:29:38.570
+All right?,00:29:41.410,00:29:41.910
+That's basically it.,00:29:41.910,00:29:44.232
+Any questions?,00:29:44.232,00:29:44.815
+"It's actually a simpler proof
+than the Dijkstra proof,",00:29:51.220,00:29:55.710
+which I just sketched last time.,00:29:55.710,00:29:57.455
+"I'll just give
+you some intuition",00:29:57.455,00:29:58.830
+of the Dijkstra proof.,00:29:58.830,00:29:59.850
+"It's probably a little too
+painful to do in a lecture.",00:29:59.850,00:30:04.590
+"But this one is, as you can
+see, nice and clean and fits",00:30:04.590,00:30:09.660
+"on two boards, which is kind
+of an important criterion here.",00:30:09.660,00:30:14.620
+So good.,00:30:14.620,00:30:16.370
+"All right, so that takes
+care of the theorem.",00:30:16.370,00:30:19.940
+"Hopefully you're all on
+board with the theorem.",00:30:19.940,00:30:21.940
+"And one thing that we haven't
+done is talk about the check.",00:30:21.940,00:30:26.230
+"So the argument with
+respect to the corollary",00:30:26.230,00:30:31.180
+"bootstraps this particular
+argument for the theorem.",00:30:31.180,00:30:36.490
+"But this requires the
+insight that if after v",00:30:36.490,00:30:44.110
+"minus 1 passes, if you can find
+an edge that can be relaxed,",00:30:44.110,00:30:49.790
+well what does that mean?,00:30:49.790,00:30:50.980
+"So at this point, let's say that
+I've done my v minus 1 passes",00:31:03.494,00:31:11.280
+"and we find an edge
+that can be relaxed.",00:31:11.280,00:31:19.725
+"Well, this means that the
+current shortest path from s",00:31:23.310,00:31:39.210
+"to some vertex that is
+obviously reachable v",00:31:39.210,00:31:47.200
+"is not simple once I've
+relaxed this edge because I",00:31:47.200,00:31:56.370
+have a repeated vertex.,00:31:56.370,00:32:01.286
+"So that means it's not simple
+to have a repeated vertex that's",00:32:08.000,00:32:11.160
+the same as I found a cycle.,00:32:11.160,00:32:13.140
+"And it's a negative
+weight cycle because I",00:32:17.040,00:32:19.940
+"was able to relax the edge
+and reduce the weight after I",00:32:19.940,00:32:24.800
+"added a vertex
+that cost a cycle.",00:32:24.800,00:32:28.121
+All right?,00:32:28.121,00:32:28.620
+"So this cycle has to
+be negative weight.",00:32:28.620,00:32:32.237
+"Found a cycle that
+is negative weight.",00:32:32.237,00:32:33.820
+All right.,00:32:39.930,00:32:40.794
+That's pretty much it.,00:32:40.794,00:32:41.710
+"So it's, I guess,
+a painful algorithm",00:32:46.200,00:32:49.920
+"from a standpoint of it's
+not particularly smart.",00:32:49.920,00:32:52.780
+"It's just relaxing
+all of the edges",00:32:52.780,00:32:54.340
+a certain fixed number of times.,00:32:54.340,00:32:56.560
+"And it just works out because
+you will find these cycles.",00:32:56.560,00:33:02.940
+"And if you keep going, it's
+like this termination condition.",00:33:02.940,00:33:06.302
+"What is neat is that I don't
+have the generic shortest path",00:33:06.302,00:33:08.760
+algorithm up there anymore.,00:33:08.760,00:33:10.450
+"But in effect,
+what you're saying",00:33:10.450,00:33:12.150
+"is after a certain
+number of passes,",00:33:12.150,00:33:14.760
+"if you haven't
+finished, you can quit",00:33:14.760,00:33:16.750
+"because you have found
+a negative cycle.",00:33:16.750,00:33:19.600
+"So it's very similar to
+the generic shortest path",00:33:19.600,00:33:22.710
+algorithm.,00:33:22.710,00:33:23.990
+"You're not really
+selecting the edges.",00:33:23.990,00:33:25.600
+"You're selecting all
+of them, in this case.",00:33:25.600,00:33:28.080
+"And you're running through
+a bunch of different passes.",00:33:28.080,00:33:31.310
+All right?,00:33:31.310,00:33:34.260
+"So that's it with
+respect to Bellman-Ford.",00:33:34.260,00:33:36.770
+"I want to do a couple
+of special cases",00:33:36.770,00:33:38.800
+"and revisit the
+directed acyclic graph.",00:33:38.800,00:33:41.740
+"But stop me here if you have any
+questions about Bellman-Ford.",00:33:41.740,00:33:45.340
+You first and then back there.,00:33:48.270,00:33:49.989
+Yeah?,00:33:49.989,00:33:50.489
+"AUDIENCE: Maybe
+I'm just confused",00:33:50.489,00:33:52.132
+about the definition of a cycle.,00:33:52.132,00:33:54.749
+"But if you had, like, a tree,
+which had a negative weight",00:33:54.749,00:33:57.123
+"edge, wouldn't it produce
+the same situation",00:33:57.123,00:33:58.956
+where you relaxed that edge.,00:33:58.956,00:34:01.360
+"PROFESSOR: But you would have
+relaxed that edge previously.",00:34:01.360,00:34:03.840
+"AUDIENCE: But it wouldn't
+be a cycle, right?",00:34:03.840,00:34:04.810
+"PROFESSOR: Yeah, it
+wouldn't be a cycle.",00:34:04.810,00:34:06.750
+So let's look at that.,00:34:06.750,00:34:07.666
+That's a fine question.,00:34:07.666,00:34:08.794
+"AUDIENCE: Doesn't
+that make assumptions",00:34:08.794,00:34:10.418
+about this structure?,00:34:10.418,00:34:12.529
+"PROFESSOR: Well if you
+had a tree-- I mean,",00:34:12.529,00:34:15.239
+a tree is a really simple case.,00:34:15.239,00:34:16.909
+"But if you had
+something like this",00:34:16.909,00:34:20.340
+"and if you did have
+a minus 1 edge here,",00:34:20.340,00:34:25.610
+"right-- we'll do a more
+complicated example.",00:34:25.610,00:34:27.770
+"But let's say you had
+something like this.",00:34:27.770,00:34:29.520
+2 3 minus 1.,00:34:29.520,00:34:31.179
+"And what will happen is if this
+happens to be your s vertex",00:34:31.179,00:34:35.070
+"and in the first step
+you relax all the edges.",00:34:35.070,00:34:38.949
+And this one would get two.,00:34:38.949,00:34:41.530
+"And then, depending on the
+order in which you relaxed,",00:34:41.530,00:34:45.380
+"it's quite possible that if
+you relax this edge first--",00:34:45.380,00:34:50.199
+"let's say in the first pass
+the ordering of the relaxation",00:34:50.199,00:34:56.070
+"is 1, 2, and 3.",00:34:56.070,00:34:59.570
+"So the edges are ordered
+in a certain way each time,",00:34:59.570,00:35:02.934
+"and you're going to be
+relaxing the edges in exactly",00:35:02.934,00:35:05.100
+the same order each time.,00:35:05.100,00:35:06.990
+All right?,00:35:06.990,00:35:07.940
+It doesn't matter.,00:35:07.940,00:35:08.829
+"The beauty of Bellman-Ford
+is that-- let's say",00:35:08.829,00:35:10.745
+you relax this edge.,00:35:10.745,00:35:11.950
+"Initially, this is at infinity.",00:35:11.950,00:35:14.010
+So this is at 0.,00:35:14.010,00:35:15.120
+This is at infinity.,00:35:15.120,00:35:16.030
+This is at infinity.,00:35:16.030,00:35:16.930
+This is at infinity.,00:35:16.930,00:35:18.800
+"If you relax this
+edge, nothing happens.",00:35:18.800,00:35:21.420
+All right?,00:35:21.420,00:35:22.920
+"Then you relax, let's say, this
+edge because that's number two.",00:35:22.920,00:35:25.830
+This gets set to two.,00:35:25.830,00:35:27.820
+"You relax this edge
+because that's 3.",00:35:27.820,00:35:30.190
+"And this is infinity
+so nothing happens.",00:35:30.190,00:35:31.910
+"Of course, this is already at
+two so nothing would happen.",00:35:31.910,00:35:34.480
+"So the end of the first pass,
+what you have is this is 0.",00:35:34.480,00:35:38.420
+That's 2.,00:35:38.420,00:35:39.330
+This is still infinity.,00:35:39.330,00:35:41.060
+That's still infinity.,00:35:41.060,00:35:42.770
+OK?,00:35:42.770,00:35:43.270
+"That's going to stay infinity
+because you can't reach it",00:35:43.270,00:35:45.603
+from s.,00:35:45.603,00:35:46.180
+"So we can, sort of, ignore that.",00:35:46.180,00:35:47.800
+"And then, of the second
+pass, what you have is",00:35:47.800,00:35:51.220
+"you start with this edge again
+because that's the ordering.",00:35:51.220,00:35:55.420
+"And this 2 minus 1
+would give this a 1.",00:35:55.420,00:36:01.240
+"And then you relax this edge
+or try to relax this edge.",00:36:01.240,00:36:04.720
+Nothing happens.,00:36:04.720,00:36:06.062
+Try to relax this edge.,00:36:06.062,00:36:07.020
+Nothing happens.,00:36:07.020,00:36:08.460
+"And at this point,
+you have one more pass",00:36:08.460,00:36:10.320
+"to go because you
+got 4 vertices.",00:36:10.320,00:36:12.110
+"And in that past,
+nothing changes again.",00:36:12.110,00:36:15.529
+So that's what you end up with.,00:36:15.529,00:36:16.820
+"You end up with 2 for
+this and 1 for that.",00:36:16.820,00:36:21.000
+OK?,00:36:21.000,00:36:22.260
+That makes sense?,00:36:22.260,00:36:25.200
+"So the important
+thing to understand",00:36:25.200,00:36:27.330
+"is that you are
+actually relaxing",00:36:27.330,00:36:28.980
+all of the edges in every pass.,00:36:28.980,00:36:31.872
+"And there's a slightly
+more complicated example",00:36:31.872,00:36:33.830
+than this that is in the notes.,00:36:33.830,00:36:35.910
+"And you can take a
+look at that offline.",00:36:35.910,00:36:38.210
+"There's another
+question in the back.",00:36:38.210,00:36:40.120
+Did you have a question?,00:36:40.120,00:36:42.050
+Someone raised their hand.,00:36:42.050,00:36:43.330
+Yeah?,00:36:43.330,00:36:43.520
+"AUDIENCE: Yes,
+I'm just curious--",00:36:43.520,00:36:44.999
+"is there a unknown
+better algorithm that",00:36:44.999,00:36:47.628
+can do the same thing?,00:36:47.628,00:36:49.350
+"PROFESSOR: No, there's
+no known better algorithm",00:36:49.350,00:36:51.350
+"for solving the
+general case like this.",00:36:51.350,00:36:53.670
+"There are a couple of
+algorithms that assume weights",00:36:53.670,00:36:59.160
+within a certain range.,00:36:59.160,00:37:00.400
+"And then there complexities
+include both v and e, as well",00:37:00.400,00:37:04.130
+"as w where w is the dynamic
+range of the weights.",00:37:04.130,00:37:08.250
+"And depending on
+what w is, you could",00:37:08.250,00:37:12.125
+"argue that they have
+better complexity.",00:37:12.125,00:37:13.750
+"But they're kind of
+incomparable in the sense",00:37:13.750,00:37:15.800
+"that they have this
+extra parameter, which",00:37:15.800,00:37:17.670
+is the dynamic range of the w.,00:37:17.670,00:37:18.919
+OK?,00:37:18.919,00:37:20.650
+"Now there's lots
+of special cases,",00:37:20.650,00:37:22.430
+"like I said, and well take a
+look at the DAG special case",00:37:22.430,00:37:25.150
+"in a second where you
+could imagine doing better",00:37:25.150,00:37:28.490
+"but not for the case where you
+have an arbitrary graph that",00:37:28.490,00:37:32.040
+"could have negative cycles in it
+because it's got negative rate",00:37:32.040,00:37:34.820
+edges.,00:37:34.820,00:37:36.950
+Yeah?,00:37:36.950,00:37:37.747
+"AUDIENCE: In the
+corollary, does that assume",00:37:37.747,00:37:39.580
+"you have a connected
+graph because, you know,",00:37:39.580,00:37:42.041
+"you could have a
+negative weight edge",00:37:42.041,00:37:44.447
+"in a separate part
+of the graph, which",00:37:44.447,00:37:47.158
+isn't reachable from this.,00:37:47.158,00:37:48.646
+PROFESSOR: Yeah.,00:37:51.622,00:37:52.540
+"So you're going to start when
+you have an undefined weight.",00:37:52.540,00:38:03.420
+"Remember your
+initialization condition.",00:38:03.420,00:38:06.180
+What is affected by s?,00:38:06.180,00:38:08.290
+Initialize is affected by s.,00:38:08.290,00:38:10.760
+"The rest of it
+isn't affected by s",00:38:10.760,00:38:12.450
+"because you're just
+relaxing the edges.",00:38:12.450,00:38:14.810
+"Initialize is affected
+by s because d of s",00:38:14.810,00:38:17.310
+"starts out being 0, like I put
+over here, and the rest of them",00:38:17.310,00:38:20.740
+are infinity.,00:38:20.740,00:38:22.910
+"So there is an effect of the
+choice of the starting vertex.",00:38:22.910,00:38:26.500
+"And the rest of it
+follows that you",00:38:26.500,00:38:30.240
+"will get an undefined
+value, or you",00:38:30.240,00:38:33.820
+"will find that
+negative cycle exists",00:38:33.820,00:38:37.220
+"based on whether you can
+reach it from s or not.",00:38:37.220,00:38:39.500
+"So if you happen to
+have s over here,",00:38:39.500,00:38:42.800
+"and it's just the
+one node, and then",00:38:42.800,00:38:45.090
+"it has no edges going
+out of it, this algorithm",00:38:45.090,00:38:49.870
+would just be trivial.,00:38:49.870,00:38:51.660
+"But it wouldn't detect
+any negative cycles",00:38:51.660,00:38:54.070
+that aren't reachable from s.,00:38:54.070,00:38:55.960
+That make sense?,00:38:55.960,00:38:56.725
+AUDIENCE: Yeah.,00:38:56.725,00:38:58.600
+"PROFESSOR: So there is this--
+it's kind of hidden over there.",00:38:58.600,00:39:01.410
+"So I'm glad you
+asked that question.",00:39:01.410,00:39:02.920
+"But initialize is
+setting things up.",00:39:02.920,00:39:05.410
+"And that is something
+that affects",00:39:05.410,00:39:08.060
+"the rest of the algorithm
+because d of s is 0",00:39:08.060,00:39:10.190
+"and the rest of them
+are set to infinity.",00:39:10.190,00:39:12.410
+All right?,00:39:12.410,00:39:14.540
+"So if there are no
+other questions,",00:39:14.540,00:39:19.330
+"I'll move on to
+the case of the DAG",00:39:19.330,00:39:21.870
+"and talk a little bit about
+shortest paths versus longest",00:39:21.870,00:39:24.750
+paths.,00:39:24.750,00:39:25.810
+"And this is somewhat of
+a preview of a lecture",00:39:25.810,00:39:28.710
+"that Eric is going to give a
+month from now on complexity",00:39:28.710,00:39:34.010
+"and the difference between
+polynomial time and exponential",00:39:34.010,00:39:36.810
+"time, though I'm not going
+to go into much depth here.",00:39:36.810,00:39:39.910
+"But there's some
+interesting relationships",00:39:39.910,00:39:42.630
+"between the shortest path
+problem and the longest path",00:39:42.630,00:39:46.950
+problem that I'd like to get to.,00:39:46.950,00:39:49.400
+But any other questions on this?,00:39:49.400,00:39:54.140
+"OK, so let me ask a question.",00:39:54.140,00:39:55.750
+"Suppose I wanted to find
+longest paths in a graph",00:39:58.940,00:40:04.270
+"and let's say that this graph
+had all positive edge weights.",00:40:04.270,00:40:09.960
+OK.,00:40:09.960,00:40:12.240
+"What if I negated all
+of the edge weights",00:40:12.240,00:40:17.320
+and ran a Bellman-Ford?,00:40:17.320,00:40:19.840
+"Would I find the longest
+path in the graph?",00:40:23.110,00:40:26.930
+"Do people understand
+the question?",00:40:29.174,00:40:30.590
+I don't need this.,00:40:35.230,00:40:35.980
+"So maybe we can talk about what
+a longest path means first.",00:40:45.500,00:40:48.810
+"So if this was s and this v1,
+v2, v3, fairly straightforward,",00:40:57.150,00:41:03.180
+"you know how to compute
+shortest paths now.",00:41:03.180,00:41:05.700
+These are all positive.,00:41:05.700,00:41:06.900
+Even easier.,00:41:06.900,00:41:08.450
+"The longest path
+to v3 is of length.",00:41:08.450,00:41:13.120
+"Six because I go here, go
+there, and go there, right?",00:41:13.120,00:41:16.180
+So that's my longest path.,00:41:16.180,00:41:18.050
+OK?,00:41:18.050,00:41:20.440
+"And the shortest path
+to v3 is of length 4.",00:41:20.440,00:41:23.930
+"So shortest path, longest
+paths, have these nice duality.",00:41:23.930,00:41:29.080
+"What if I said,
+well, you know, I",00:41:29.080,00:41:32.536
+"can solve the longest
+path problem, as well,",00:41:32.536,00:41:34.630
+"given all of what I've
+learned about shortest paths",00:41:34.630,00:41:37.440
+"simply by negating each of these
+edges and running Bellman-Ford.",00:41:37.440,00:41:49.750
+What would happen?,00:41:49.750,00:41:52.270
+Yeah?,00:41:52.270,00:41:52.770
+"AUDIENCE: [INAUDIBLE] shortest
+path branch [INAUDIBLE]",00:41:52.770,00:41:59.244
+"values, and if you
+switched to absolute value,",00:41:59.244,00:42:02.730
+"it will give you
+the longest path.",00:42:02.730,00:42:05.220
+"PROFESSOR: So you
+think it works?",00:42:05.220,00:42:06.692
+AUDIENCE: Yeah.,00:42:06.692,00:42:07.317
+It will also check the cycles.,00:42:07.317,00:42:09.435
+"So the negative cycles will be
+the longest path cycles that",00:42:09.435,00:42:12.760
+[INAUDIBLE].,00:42:12.760,00:42:13.710
+"PROFESSOR: But I think
+that's the key question.",00:42:13.710,00:42:16.840
+"What will Bellman-Ford do
+when it is run on this?",00:42:16.840,00:42:19.550
+What would it return?,00:42:19.550,00:42:22.492
+AUDIENCE: [INAUDIBLE].,00:42:22.492,00:42:24.445
+"PROFESSOR: No, what will
+Bellman-Ford return?",00:42:24.445,00:42:26.320
+I'm asking.,00:42:26.320,00:42:28.390
+Someone else?,00:42:28.390,00:42:31.000
+"What will Bellman-Ford
+return if I ran this?",00:42:31.000,00:42:33.830
+Undefined.,00:42:33.830,00:42:34.840
+Right?,00:42:34.840,00:42:35.910
+"Undefined because you got this
+negative weight cycle here.",00:42:35.910,00:42:39.574
+AUDIENCE: [INAUDIBLE].,00:42:39.574,00:42:40.490
+PROFESSOR: Sorry?,00:42:40.490,00:42:41.540
+Oh!,00:42:41.540,00:42:43.420
+Let's put another one in there.,00:42:43.420,00:42:45.920
+"Oops, sorry.",00:42:45.920,00:42:47.110
+Now I see.,00:42:47.110,00:42:47.610
+You're right.,00:42:47.610,00:42:48.151
+You're right.,00:42:48.151,00:42:49.070
+I'm wrong.,00:42:49.070,00:42:49.861
+And why did you say undefined?,00:42:49.861,00:42:51.110
+AUDIENCE: I was wrong.,00:42:51.110,00:42:52.595
+"PROFESSOR: OK, good.",00:42:52.595,00:42:54.080
+I got company.,00:42:54.080,00:42:55.560
+Thank you.,00:42:55.560,00:42:56.060
+Thank you.,00:42:56.060,00:42:58.020
+Good.,00:42:58.020,00:42:58.520
+Let's take it all over again.,00:42:58.520,00:43:01.020
+All over again.,00:43:01.020,00:43:01.911
+All right.,00:43:01.911,00:43:02.410
+"All right, start over.",00:43:10.570,00:43:12.500
+s v1 v2 v3.,00:43:12.500,00:43:15.990
+"Yeah, that is a cycle.",00:43:18.950,00:43:20.630
+"All right, good.",00:43:20.630,00:43:23.461
+Cycle.,00:43:23.461,00:43:23.960
+"So when you actually
+negate each of these edges,",00:43:27.640,00:43:33.580
+"you end up with a
+negative weight cycle.",00:43:33.580,00:43:37.270
+"So it's plausible that you
+could have a graph like this one",00:43:37.270,00:43:40.250
+"where this strategy won't
+work because what would happen",00:43:40.250,00:43:44.800
+"is Bellman-Ford would come back
+with, essentially, an abort",00:43:44.800,00:43:50.510
+"that says I can't compute
+shortest paths because they're",00:43:50.510,00:43:53.160
+undefined.,00:43:53.160,00:43:54.500
+All right?,00:43:54.500,00:43:55.190
+"Now it turns out it's actually
+more subtle than that.",00:43:55.190,00:44:00.060
+"What we're trying to do in
+Bellman-Ford is, in the case",00:44:00.060,00:44:04.340
+"where negative weight
+cycles don't exist,",00:44:04.340,00:44:11.770
+"we report on the
+shortest simple path.",00:44:11.770,00:44:15.350
+"That's the whole
+notion of the proof.",00:44:18.870,00:44:20.860
+"We say that the path has
+a certain length, which",00:44:20.860,00:44:23.460
+"is, at most, v minus 1
+and so on and so forth.",00:44:23.460,00:44:27.290
+We get the shortest simple path.,00:44:27.290,00:44:28.800
+"But if you actually have a
+problem where you say-- let",00:44:34.620,00:44:48.310
+me start over again.,00:44:48.310,00:44:49.310
+"Let's say I want to find
+the shortest simple path",00:44:49.310,00:44:52.090
+"for a different
+graph and it happens",00:44:52.090,00:44:56.380
+"to have a negative
+weight cycle in it.",00:44:56.380,00:45:01.280
+So I have something like this.,00:45:01.280,00:45:02.630
+"2 3 minus 6, 3 over here,
+3 over here, and so on.",00:45:02.630,00:45:10.240
+Maybe 2 here.,00:45:10.240,00:45:11.750
+"And I want to find the
+shortest simple path that",00:45:11.750,00:45:19.430
+reaches v from s.,00:45:19.430,00:45:23.250
+OK?,00:45:23.250,00:45:24.110
+"What is the shortest simple
+path that reaches v from s?",00:45:24.110,00:45:27.670
+"It's this path that
+goes horizontally,",00:45:27.670,00:45:29.890
+"which has a weight
+3 plus 2, 5, 5",00:45:29.890,00:45:32.820
+"plus 3, 8, 8 plus 3,
+11, 11 plus 2, 13.",00:45:32.820,00:45:38.470
+All right?,00:45:38.470,00:45:39.240
+"So the shortest
+simple path is 13.",00:45:39.240,00:45:48.580
+"Will Bellman-Ford give you any
+information about this path?",00:45:48.580,00:45:52.095
+AUDIENCE: [INAUDIBLE].,00:45:54.594,00:45:55.510
+"PROFESSOR: No because
+in [INAUDIBLE].",00:45:55.510,00:45:57.910
+"After it does its v minus 1
+passes, v is reachable from s.",00:45:57.910,00:46:06.200
+"But you potentially go through
+a negative weight cycle",00:46:06.200,00:46:11.480
+before you reach v. OK?,00:46:11.480,00:46:14.700
+"So it turns out that if you have
+a graph with negative weight",00:46:14.700,00:46:18.550
+"cycles, finding the
+shortest simple path",00:46:18.550,00:46:22.470
+is an NP-hard problem.,00:46:22.470,00:46:24.520
+It's a really hard problem.,00:46:24.520,00:46:26.240
+That's what NP means.,00:46:26.240,00:46:27.680
+"No, it means something
+else that Eric",00:46:27.680,00:46:30.420
+"will explain to you
+in a month or so.",00:46:30.420,00:46:33.550
+"But it means that we don't
+know any algorithm that",00:46:33.550,00:46:36.600
+"is better than exponential
+time to solve this problem.",00:46:36.600,00:46:40.500
+OK?,00:46:40.500,00:46:42.140
+"So amazingly, all you've done is
+taken the shortest path problem",00:46:42.140,00:46:48.620
+and changed it ever so slightly.,00:46:48.620,00:46:51.170
+"You said I want to look for
+the shortest simple path",00:46:51.170,00:46:53.610
+"in the general case where
+I could, potentially,",00:46:53.610,00:46:56.970
+"have negative weight
+cycles in my graph.",00:46:56.970,00:47:00.770
+"And when you do that,
+all bets are off.",00:47:00.770,00:47:03.370
+"You're not in the polynomial
+time complexity domain anymore.",00:47:03.370,00:47:06.470
+"At least, not that we know of.",00:47:06.470,00:47:08.630
+"And the best that you can do is
+an exponential time algorithm",00:47:08.630,00:47:13.045
+to find shorter simple paths.,00:47:13.045,00:47:15.430
+"And this problem,
+as it turns out,",00:47:15.430,00:47:17.370
+"is equivalent to the longest
+path problem in the sense",00:47:17.370,00:47:24.850
+that they're both NP-hard.,00:47:24.850,00:47:26.700
+"If you can solve one, you
+could solve the other.",00:47:26.700,00:47:29.840
+"So to summarize, what
+happens here simply",00:47:29.840,00:47:33.050
+"is that in the case
+of Bellman-Ford",00:47:33.050,00:47:36.140
+"running on the original
+shortest path problem,",00:47:36.140,00:47:41.910
+"you're allowed to abort when
+you detect the fact that there's",00:47:41.910,00:47:46.650
+a negative cycle.,00:47:46.650,00:47:48.640
+"So given that you're allowed
+to abort when there's",00:47:48.640,00:47:50.880
+"a negative cycle, you have
+a polynomial time solution",00:47:50.880,00:47:55.090
+"using Bellman-Ford
+that is not necessarily",00:47:55.090,00:47:58.760
+"going to give you shortest
+path weights but will",00:47:58.760,00:48:02.980
+"in the case of no
+negative cycles.",00:48:02.980,00:48:06.120
+All right?,00:48:06.120,00:48:07.610
+"But if you ask for more-- a
+little bit more-- you said,",00:48:07.610,00:48:11.770
+"you know, it'd be great
+if you could somehow",00:48:11.770,00:48:14.040
+"process these negative
+cycles and tell me",00:48:14.040,00:48:18.080
+"that if I had a simple path and
+I don't go through cycles what",00:48:18.080,00:48:23.140
+"would the shortest
+weight be, it becomes",00:48:23.140,00:48:25.030
+a much more difficult problem.,00:48:25.030,00:48:27.660
+"It goes from order
+of ve complexity",00:48:27.660,00:48:29.450
+"to exponential time complexity
+to the best of our knowledge.",00:48:29.450,00:48:34.260
+"So that's what I'd
+like to leave you with.",00:48:34.260,00:48:36.770
+"That there's much more to
+algorithms than just the ones",00:48:36.770,00:48:41.160
+that we're looking at.,00:48:41.160,00:48:42.230
+"And we get a little
+bit of a preview",00:48:42.230,00:48:43.730
+"of this-- so the difference
+between polynomial time",00:48:43.730,00:48:46.120
+"an exponential time--
+later on in the term.",00:48:46.120,00:48:49.510

@@ -1,0 +1,1636 @@
+text,start,stop
+"The following content is
+provided under a Creative",00:00:00.040,00:00:02.460
+Commons license.,00:00:02.460,00:00:03.870
+"Your support will help MIT
+OpenCourseWare continue to",00:00:03.870,00:00:06.910
+"offer high quality educational
+resources for free.",00:00:06.910,00:00:10.560
+"To make a donation or view
+additional materials from",00:00:10.560,00:00:13.460
+"hundreds of MIT courses, visit
+MIT OpenCourseWare at",00:00:13.460,00:00:19.290
+ocw.mit.edu,00:00:19.290,00:00:22.004
+"JOHN TSISIKLIS: So here's
+the agenda for today.",00:00:22.004,00:00:24.966
+"We're going to do a
+very quick review.",00:00:24.966,00:00:26.848
+"And then we're going
+to introduce some",00:00:26.848,00:00:28.936
+very important concepts.,00:00:28.936,00:00:30.560
+"The idea is that all
+information is--",00:00:30.560,00:00:34.060
+Information is always partial.,00:00:34.060,00:00:36.450
+"And the question is what do we
+do to probabilities if we have",00:00:36.450,00:00:40.260
+"some partial information about
+the random experiments.",00:00:40.260,00:00:43.340
+"We're going to introduce the
+important concept of",00:00:43.340,00:00:45.770
+conditional probability.,00:00:45.770,00:00:47.530
+"And then we will see three
+very useful ways",00:00:47.530,00:00:50.860
+in which it is used.,00:00:50.860,00:00:52.670
+"And these ways basically
+correspond to divide and",00:00:52.670,00:00:55.410
+"conquer methods for breaking
+up problems",00:00:55.410,00:00:58.070
+into simpler pieces.,00:00:58.070,00:01:00.120
+"And also one more fundamental
+tool which allows us to use",00:01:00.120,00:01:04.010
+"conditional probabilities to do
+inference, that is, if we",00:01:04.010,00:01:07.420
+"get a little bit of information
+about some",00:01:07.420,00:01:09.440
+"phenomenon, what can we
+infer about the things",00:01:09.440,00:01:12.620
+that we have not seen?,00:01:12.620,00:01:14.640
+So our quick review.,00:01:14.640,00:01:17.050
+"In setting up a model of a
+random experiment, the first",00:01:17.050,00:01:22.100
+"thing to do is to come up with
+a list of all the possible",00:01:22.100,00:01:25.930
+outcomes of the experiment.,00:01:25.930,00:01:27.870
+"So that list is what we
+call the sample space.",00:01:27.870,00:01:31.120
+It's a set.,00:01:31.120,00:01:32.480
+"And the elements of the
+sample space are all",00:01:32.480,00:01:34.580
+the possible outcomes.,00:01:34.580,00:01:35.720
+Those possible outcomes must be,00:01:35.720,00:01:37.560
+distinguishable from each other.,00:01:37.560,00:01:39.690
+They're mutually exclusive.,00:01:39.690,00:01:41.020
+"Either one happens or the other
+happens, but not both.",00:01:41.020,00:01:44.900
+"And they are collectively
+exhaustive, that is no matter",00:01:44.900,00:01:47.440
+"what the outcome of the
+experiment is going to be an",00:01:47.440,00:01:50.480
+element of the sample space.,00:01:50.480,00:01:52.130
+"And then we discussed last
+time that there's also an",00:01:52.130,00:01:54.200
+"element of art in how to choose
+your sample space,",00:01:54.200,00:01:57.510
+"depending on how much detail
+you want to capture.",00:01:57.510,00:02:01.440
+This is usually the easy part.,00:02:01.440,00:02:03.130
+"Then the more interesting part
+is to assign probabilities to",00:02:03.130,00:02:06.980
+"our model, that is to make some
+statements about what we",00:02:06.980,00:02:10.660
+"believe to be likely and what
+we believe to be unlikely.",00:02:10.660,00:02:14.610
+"The way we do that is by
+assigning probabilities to",00:02:14.610,00:02:17.720
+subsets of the sample space.,00:02:17.720,00:02:20.510
+"So as we have our sample space
+here, we may have a subset A.",00:02:20.510,00:02:26.120
+"And we assign a number to that
+subset P(A), which is the",00:02:26.120,00:02:31.090
+"probability that this
+event happens.",00:02:31.090,00:02:33.910
+"Or this is the probability that
+when we do the experiment",00:02:33.910,00:02:37.080
+"and we get an outcome it's the
+probability that the outcome",00:02:37.080,00:02:39.860
+"happens to fall inside
+that event.",00:02:39.860,00:02:41.850
+"We have certain rules that
+probabilities should satisfy.",00:02:41.850,00:02:44.500
+They're non-negative.,00:02:44.500,00:02:46.210
+"The probability of the overall
+sample space is equal to one,",00:02:46.210,00:02:49.780
+"which expresses the fact that
+we're are certain, no matter",00:02:49.780,00:02:52.900
+"what, the outcome is going
+to be an element",00:02:52.900,00:02:55.480
+of the sample space.,00:02:55.480,00:02:56.830
+"Well, if we set the top right
+so that it exhausts all",00:02:56.830,00:02:59.760
+"possibilities, this should
+be the case.",00:02:59.760,00:03:03.190
+"And then there's another
+interesting property of",00:03:03.190,00:03:05.480
+"probabilities that says that,
+if we have two events or two",00:03:05.480,00:03:09.240
+"subsets that are disjoint, and
+we're interested in the",00:03:09.240,00:03:11.910
+"probability, that one or the
+other happens, that is the",00:03:11.910,00:03:17.670
+"outcome belongs to A or belongs
+to B. For disjoint",00:03:17.670,00:03:21.870
+"events the total probability of
+these two, taken together,",00:03:21.870,00:03:25.320
+"is just the sum of their
+individual probabilities.",00:03:25.320,00:03:28.030
+"So probabilities behave
+like masses.",00:03:28.030,00:03:30.270
+"The mass of the object
+consisting of A and B is the",00:03:30.270,00:03:34.760
+"sum of the masses of
+these two objects.",00:03:34.760,00:03:37.230
+"Or you can think of
+probabilities as areas.",00:03:37.230,00:03:39.720
+"They have, again, the
+same property.",00:03:39.720,00:03:41.240
+"The area of A together with B is
+the area of A plus the area",00:03:41.240,00:03:45.490
+B.,00:03:45.490,00:03:46.410
+"But as we discussed at the end
+of last lecture, it's useful",00:03:46.410,00:03:50.290
+"to have in our hands a more
+general version of this",00:03:50.290,00:03:53.970
+"additivity property, which says
+the following, if we take",00:03:53.970,00:03:58.990
+a sequence of sets--,00:03:58.990,00:04:00.982
+"A1, A2, A3, A4, and so on.",00:04:00.982,00:04:07.480
+"And we put all of those
+sets together.",00:04:07.480,00:04:09.630
+It's an infinite sequence.,00:04:09.630,00:04:11.410
+"And we ask for the probability
+that the outcome falls",00:04:11.410,00:04:14.950
+"somewhere in this infinite
+union, that is we are asking",00:04:14.950,00:04:19.170
+"for the probability that the
+outcome belongs to one of",00:04:19.170,00:04:22.640
+"these sets, and assuming that
+the sets are disjoint, we can",00:04:22.640,00:04:27.950
+"again find the probability for
+the overall set by adding up",00:04:27.950,00:04:32.820
+"the probabilities of the
+individual sets.",00:04:32.820,00:04:36.000
+"So this is a nice and
+simple property.",00:04:36.000,00:04:38.910
+"But it's a little more subtle
+than you might think.",00:04:38.910,00:04:43.130
+"And let's see what's going
+on by considering",00:04:43.130,00:04:45.820
+the following example.,00:04:45.820,00:04:47.770
+"We had an example last time
+where we take our sample space",00:04:47.770,00:04:51.850
+to be the unit square.,00:04:51.850,00:04:53.800
+"And we said let's consider a
+probability law that says that",00:04:53.800,00:04:58.110
+"the probability of a subset is
+just the area of that subset.",00:04:58.110,00:05:04.190
+"So let's consider this
+probability law.",00:05:04.190,00:05:07.630
+OK.,00:05:07.630,00:05:08.530
+"Now the unit square is
+the set --let me just",00:05:08.530,00:05:13.990
+draw it this way--,00:05:13.990,00:05:15.210
+"the unit square is the union of
+one element set consisting",00:05:15.210,00:05:20.520
+all of the points.,00:05:20.520,00:05:21.680
+"So the unit square is made up
+by the union of the various",00:05:21.680,00:05:28.280
+points inside the square.,00:05:28.280,00:05:30.740
+So union over all x's and y's.,00:05:30.740,00:05:33.830
+OK?,00:05:33.830,00:05:34.770
+"So the square is made
+up out of all the",00:05:34.770,00:05:36.690
+points that this contains.,00:05:36.690,00:05:38.400
+"And now let's do
+a calculation.",00:05:38.400,00:05:41.140
+"One is the probability of our
+overall sample space, which is",00:05:41.140,00:05:45.060
+the unit square.,00:05:45.060,00:05:47.260
+"Now the unit square is the union
+of these things, which,",00:05:47.260,00:06:02.000
+"according to our additivity
+axiom, is the sum of the",00:06:02.000,00:06:06.810
+"probabilities of all of these
+one element sets.",00:06:06.810,00:06:10.595
+"Now what is the probability
+of a one element set?",00:06:16.830,00:06:20.580
+"What is the probability of
+this one element set?",00:06:20.580,00:06:23.520
+"What's the probability that our
+outcome is exactly that",00:06:23.520,00:06:26.100
+particular point?,00:06:26.100,00:06:27.490
+"Well, it's the area of that
+set, which is zero.",00:06:27.490,00:06:31.460
+So it's just the sum of zeros.,00:06:31.460,00:06:33.990
+"And by any reasonable
+definition the",00:06:33.990,00:06:35.950
+sum of zeros is zero.,00:06:35.950,00:06:38.370
+"So we just proved that
+one is equal to zero.",00:06:38.370,00:06:42.220
+OK.,00:06:42.220,00:06:42.680
+"Either probability theory is
+dead or there is some mistake",00:06:42.680,00:06:48.340
+in the derivation that I did.,00:06:48.340,00:06:51.030
+"OK, the mistake is quite
+subtle and it",00:06:51.030,00:06:54.580
+comes at this step.,00:06:54.580,00:06:57.300
+"We're sort of applied the
+additivity axiom by saying",00:06:57.300,00:07:00.640
+"that the unit square is the
+union of all those sets.",00:07:00.640,00:07:04.040
+"Can we really apply our
+additivity axiom.",00:07:04.040,00:07:06.500
+Here's the catch.,00:07:06.500,00:07:07.260
+"The additivity axiom applies
+to the case where we have a",00:07:07.260,00:07:11.470
+"sequence of disjoint events
+and we take their union.",00:07:11.470,00:07:17.180
+Is this a sequence of sets?,00:07:17.180,00:07:21.740
+"Can you make up the whole unit
+square by taking a sequence of",00:07:21.740,00:07:27.780
+"elements inside it and cover
+the whole unit square?",00:07:27.780,00:07:31.310
+"Well if you try, if you start
+looking at the sequence of one",00:07:31.310,00:07:34.900
+"element points, that sequence
+will never be able to exhaust",00:07:34.900,00:07:40.910
+the whole unit square.,00:07:40.910,00:07:43.100
+"So there's a deeper reason
+behind that.",00:07:43.100,00:07:45.680
+"And the reason is that infinite
+sets are not all of",00:07:45.680,00:07:48.790
+the same size.,00:07:48.790,00:07:50.130
+"The integers are an
+infinite set.",00:07:50.130,00:07:52.620
+"And you can arrange the integers
+in a sequence.",00:07:52.620,00:07:55.510
+"But the continuous set
+like the units",00:07:55.510,00:07:57.630
+square is a bigger set.,00:07:57.630,00:08:00.205
+It's so-called uncountable.,00:08:00.205,00:08:02.050
+"It has more elements than
+any sequence could have.",00:08:02.050,00:08:06.160
+"So this union here is not of
+this kind, where we would have",00:08:06.160,00:08:13.610
+a sequence of events.,00:08:13.610,00:08:16.930
+"It's a different
+kind of union.",00:08:16.930,00:08:18.370
+"It's a Union that involves a
+union of many, many more sets.",00:08:18.370,00:08:23.070
+"So the countable additivity
+axiom does not",00:08:23.070,00:08:25.420
+apply in this case.,00:08:25.420,00:08:27.360
+"Because, we're not dealing
+with a sequence of sets.",00:08:27.360,00:08:30.230
+"And so this is the
+incorrect step.",00:08:30.230,00:08:33.780
+"So at some level you might think
+that this is puzzling",00:08:33.780,00:08:37.240
+and awfully confusing.,00:08:37.240,00:08:38.580
+"On the other hand, if you think
+about areas of the way",00:08:38.580,00:08:41.070
+"you're used to them from
+calculus, there's nothing",00:08:41.070,00:08:43.520
+mysterious about it.,00:08:43.520,00:08:44.940
+"Every point on the unit
+square has zero area.",00:08:44.940,00:08:47.460
+"When you put all the points
+together, they make up",00:08:47.460,00:08:50.140
+"something that has
+finite area.",00:08:50.140,00:08:52.330
+"So there shouldn't be any
+mystery behind it.",00:08:52.330,00:08:55.470
+"Now, one interesting thing that
+this discussion tells us,",00:08:55.470,00:09:00.230
+"especially the fact that the
+single elements set has zero",00:09:00.230,00:09:03.670
+"area, is the following--",00:09:03.670,00:09:05.790
+"Individual points have
+zero probability.",00:09:05.790,00:09:08.960
+"After you do the experiment and
+you observe the outcome,",00:09:08.960,00:09:12.390
+"it's going to be an
+individual point.",00:09:12.390,00:09:14.660
+"So what happened in that
+experiment is something that",00:09:14.660,00:09:18.160
+"initially you thought had zero
+probability of occurring.",00:09:18.160,00:09:21.820
+"So if you happen to get some
+particular numbers and you",00:09:21.820,00:09:25.420
+"say, ""Well, in the beginning,
+what did I think about those",00:09:25.420,00:09:28.290
+specific numbers?,00:09:28.290,00:09:29.280
+"I thought they had
+zero probability.",00:09:29.280,00:09:31.290
+"But yet those particular
+numbers did occur.""",00:09:31.290,00:09:36.250
+"So one moral from this is that
+zero probability does not mean",00:09:36.250,00:09:41.640
+impossible.,00:09:41.640,00:09:42.890
+"It just means extremely,
+extremely unlikely by itself.",00:09:42.890,00:09:46.920
+"So zero probability
+things do happen.",00:09:46.920,00:09:49.420
+"In such continuous models,
+actually zero probability",00:09:49.420,00:09:53.340
+"outcomes are everything
+that happens.",00:09:53.340,00:09:56.930
+"And the bumper sticker version
+of this is to always expect",00:09:56.930,00:10:00.790
+the unexpected.,00:10:00.790,00:10:02.220
+Yes?,00:10:02.220,00:10:05.095
+AUDIENCE: [INAUDIBLE].,00:10:05.095,00:10:06.345
+"JOHN TSISIKLIS: Well,
+probability is supposed to be",00:10:08.532,00:10:11.800
+a real number.,00:10:11.800,00:10:12.530
+"So it's either zero or it's
+a positive number.",00:10:12.530,00:10:16.220
+"So you can think of the
+probability of things just",00:10:16.220,00:10:21.350
+"close to that point and those
+probabilities are tiny and",00:10:21.350,00:10:25.040
+close to zero.,00:10:25.040,00:10:26.390
+"So that's how we're going to
+interpret probabilities in",00:10:26.390,00:10:28.780
+continuous models.,00:10:28.780,00:10:29.810
+"But this is two chapters
+ahead.",00:10:29.810,00:10:31.340
+Yeah?,00:10:33.950,00:10:34.230
+"AUDIENCE: How do we interpret
+probability of zero?",00:10:34.230,00:10:36.198
+"If we can use models that
+way, then how about",00:10:36.198,00:10:37.674
+probability of one?,00:10:37.674,00:10:38.658
+"That it it's extremely
+likely but not",00:10:38.658,00:10:40.462
+necessarily for certain?,00:10:40.462,00:10:42.110
+"JOHN TSISIKLIS: That's
+also the case.",00:10:42.110,00:10:43.320
+"For example, if you ask in this
+continuous model, if you",00:10:43.320,00:10:47.450
+"ask me for the probability that
+x, y, is different than",00:10:47.450,00:10:52.190
+"the zero, zero this is
+the whole square,",00:10:52.190,00:10:55.840
+except for one point.,00:10:55.840,00:10:57.220
+"So the area of this is
+going to be one.",00:10:57.220,00:11:01.150
+"But this event is not entirely
+certain because the zero, zero",00:11:01.150,00:11:06.330
+outcome is also possible.,00:11:06.330,00:11:08.210
+"So again, probability of one
+means essential certainty.",00:11:08.210,00:11:12.330
+"But it still allows the
+possibility that the outcome",00:11:12.330,00:11:16.450
+might be outside that set.,00:11:16.450,00:11:18.320
+"So these are some of the weird
+things that are happening when",00:11:18.320,00:11:20.910
+you have continuous models.,00:11:20.910,00:11:22.680
+"And that's why we start to
+this class with discrete",00:11:22.680,00:11:25.240
+"models, on which would
+be spending the",00:11:25.240,00:11:27.050
+next couple of weeks.,00:11:27.050,00:11:30.400
+OK.,00:11:30.400,00:11:30.820
+"So now once we have set up our
+probability model and we have",00:11:30.820,00:11:35.650
+"a legitimate probability law
+that has these properties,",00:11:35.650,00:11:39.160
+"then the rest is
+usually simple.",00:11:39.160,00:11:43.070
+"Somebody asks you a question of
+calculating the probability",00:11:43.070,00:11:45.950
+of some event.,00:11:45.950,00:11:47.520
+"While you were told something
+about the probability law,",00:11:47.520,00:11:50.270
+"such as for example the
+probabilities are equal to",00:11:50.270,00:11:52.520
+"areas, and then you just
+need to calculate.",00:11:52.520,00:11:55.460
+"In these type of examples
+somebody would give you a set",00:11:55.460,00:11:58.730
+"and you would have
+to calculate the",00:11:58.730,00:12:00.230
+area of that set.,00:12:00.230,00:12:01.500
+"So the rest is just calculation
+and simple.",00:12:01.500,00:12:06.060
+"Alright, so now it's time
+to start with our main",00:12:06.060,00:12:09.390
+business for today.,00:12:09.390,00:12:12.600
+"And the starting point
+is the following--",00:12:12.600,00:12:16.880
+"You know something
+about the world.",00:12:16.880,00:12:18.920
+"And based on what you know when
+you set up a probability",00:12:18.920,00:12:21.690
+"model and you write down
+probabilities for the",00:12:21.690,00:12:23.820
+different outcomes.,00:12:23.820,00:12:26.000
+"Then something happens, and
+somebody tells you a little",00:12:26.000,00:12:28.950
+"more about the world, gives
+you some new information.",00:12:28.950,00:12:33.620
+"This new information, in
+general, should change your",00:12:33.620,00:12:37.430
+"beliefs about what happened
+or what may happen.",00:12:37.430,00:12:41.240
+"So whenever we're given new
+information, some partial",00:12:41.240,00:12:44.550
+"information about the outcome
+of the experiment, we should",00:12:44.550,00:12:47.400
+revise our beliefs.,00:12:47.400,00:12:49.750
+"And conditional probabilities
+are just the probabilities",00:12:49.750,00:12:54.470
+"that apply after the revision
+of our beliefs, when we're",00:12:54.470,00:12:58.820
+given some information.,00:12:58.820,00:13:00.580
+"So lets make this into
+a numerical example.",00:13:00.580,00:13:04.510
+"So inside the sample space, this
+part of the sample space,",00:13:04.510,00:13:07.870
+"let's say has probability 3/6,
+this part has 2/6, and that",00:13:07.870,00:13:12.580
+part has 1/6.,00:13:12.580,00:13:14.550
+"I guess that means that out here
+we have zero probability.",00:13:14.550,00:13:17.940
+"So these were our initial
+beliefs about the outcome of",00:13:17.940,00:13:21.900
+the experiment.,00:13:21.900,00:13:23.270
+"Suppose now that someone
+comes and tells you",00:13:23.270,00:13:27.160
+that event B occurred.,00:13:27.160,00:13:30.960
+"So they don't tell you the
+full outcome with the",00:13:30.960,00:13:33.560
+experiment.,00:13:33.560,00:13:34.440
+"But they just tell you that the
+outcome is known to lie",00:13:34.440,00:13:38.960
+inside this set B.,00:13:38.960,00:13:41.060
+"Well then, you should certainly
+change your beliefs",00:13:41.060,00:13:44.320
+in some way.,00:13:44.320,00:13:45.560
+"And your new beliefs about what
+is likely to occur and",00:13:45.560,00:13:48.420
+"what is not is going to be
+denoted by this notation.",00:13:48.420,00:13:51.770
+"This is the conditional
+probability that the event A",00:13:51.770,00:13:55.330
+"is going to occur, the
+probability that the outcome",00:13:55.330,00:13:57.970
+"is going to fall inside the set
+A given that we are told",00:13:57.970,00:14:01.580
+"and we're sure that the event
+lies inside the event B Now",00:14:01.580,00:14:05.890
+"once you're told that the
+outcome lies inside the event",00:14:05.890,00:14:09.000
+"B, then our old sample space
+in some ways is irrelevant.",00:14:09.000,00:14:13.740
+"We have then you sample space,
+which is just the set B. We",00:14:13.740,00:14:16.975
+"are certain that the outcome
+is going to be inside B.",00:14:16.975,00:14:21.020
+"For example, what is this
+conditional probability?",00:14:21.020,00:14:25.465
+It should be one.,00:14:29.120,00:14:30.160
+"Given that I told you that B
+occurred, you're certain that",00:14:30.160,00:14:33.250
+"B occurred, so this has
+unit probability.",00:14:33.250,00:14:36.380
+"So here we see an instance of
+revision of our beliefs.",00:14:36.380,00:14:40.340
+"Initially, event B had the
+probability of (2+1)/6 --",00:14:40.340,00:14:44.880
+that's 1/2.,00:14:44.880,00:14:46.300
+"Initially, we thought B
+had probability 1/2.",00:14:46.300,00:14:49.500
+"Once we're told that B occurred,
+the new probability",00:14:49.500,00:14:52.370
+of B is equal to one.,00:14:52.370,00:14:54.250
+OK.,00:14:54.250,00:14:55.160
+"How do we revise the probability
+that A occurs?",00:14:55.160,00:15:00.860
+"So we are going to have the
+outcome of the experiment.",00:15:00.860,00:15:03.950
+"We know that it's inside B. So
+we will either get something",00:15:03.950,00:15:07.330
+"here, and A does not occur.",00:15:07.330,00:15:09.200
+"Or something inside here,
+and A does occur.",00:15:09.200,00:15:12.570
+"What's the likelihood that,
+given that we're inside B, the",00:15:12.570,00:15:16.280
+outcome is inside here?,00:15:16.280,00:15:18.160
+"Here's how we're going
+to think about.",00:15:18.160,00:15:21.380
+"This part of this set B, in
+which A also occurs, in our",00:15:21.380,00:15:26.110
+"initial model was twice as
+likely as that part of B. So",00:15:26.110,00:15:31.280
+"outcomes inside here
+collectively were twice as",00:15:31.280,00:15:36.220
+likely as outcomes out there.,00:15:36.220,00:15:38.950
+"So we're going to keep the same
+proportions and say, that",00:15:38.950,00:15:43.240
+"given that we are inside the set
+B, we still want outcomes",00:15:43.240,00:15:47.280
+"inside here to be twice as
+likely outcomes there.",00:15:47.280,00:15:51.120
+"So the proportion of the
+probabilities should be two",00:15:51.120,00:15:55.800
+versus one.,00:15:55.800,00:15:57.570
+"And these probabilities should
+add up to one because together",00:15:57.570,00:16:01.210
+"they make the conditional
+probability of B. So the",00:16:01.210,00:16:04.340
+"conditional probabilities should
+be 2/3 probability of",00:16:04.340,00:16:09.260
+"being here and 1/3 probability
+of being there.",00:16:09.260,00:16:13.080
+"That's how we revise
+our probabilities.",00:16:13.080,00:16:16.860
+"That's a reasonable, intuitively
+reasonable, way of",00:16:16.860,00:16:20.740
+doing this revision.,00:16:20.740,00:16:22.230
+"Let's translate what we
+did into a definition.",00:16:22.230,00:16:26.650
+"The definition says the
+following, that the",00:16:26.650,00:16:29.490
+"conditional probability of A
+given that B occurred is",00:16:29.490,00:16:33.410
+calculated as follows.,00:16:33.410,00:16:35.270
+"We look at the total probability
+of B. And out of",00:16:35.270,00:16:39.430
+"that probability that was inside
+here, what fraction of",00:16:39.430,00:16:43.190
+"that probability is assigned to
+points for which the event",00:16:43.190,00:16:48.310
+A also occurs?,00:16:48.310,00:16:49.780
+"Does it give us the same numbers
+as we got with this",00:16:54.480,00:16:56.860
+heuristic argument?,00:16:56.860,00:16:58.420
+"Well in this example,
+probability of A intersection",00:16:58.420,00:17:01.530
+"B is 2/6, divided by total
+probability of B, which is",00:17:01.530,00:17:06.359
+"3/6, and so it's 2/3, which
+agrees with this answer that's",00:17:06.359,00:17:12.369
+we got before.,00:17:12.369,00:17:13.589
+"So the former indeed matches
+what we were trying to do.",00:17:13.589,00:17:18.280
+One little technical detail.,00:17:18.280,00:17:21.040
+"If the event B has zero
+probability, and then here we",00:17:21.040,00:17:24.970
+"have a ratio that doesn't
+make sense.",00:17:24.970,00:17:27.770
+"So in this case, we say that
+conditional probabilities are",00:17:27.770,00:17:30.470
+not defined.,00:17:30.470,00:17:31.720
+"Now you can take this definition
+and unravel it and",00:17:34.780,00:17:38.980
+write it in this form.,00:17:38.980,00:17:40.260
+"The probability of A
+intersection B is the",00:17:40.260,00:17:43.510
+"probability of B times the
+conditional probability.",00:17:43.510,00:17:46.780
+"So this is just consequence of
+the definition but it has a",00:17:50.350,00:17:53.820
+nice interpretation.,00:17:53.820,00:17:55.370
+"Think of probabilities
+as frequencies.",00:17:55.370,00:17:57.930
+"If I do the experiment over and
+over, what fraction of the",00:17:57.930,00:18:01.480
+"time is it going to be the case
+that both A and B occur?",00:18:01.480,00:18:05.300
+"Well, there's going to be a
+certain fraction of the time",00:18:05.300,00:18:08.490
+at which B occurs.,00:18:08.490,00:18:10.820
+"And out of those times when B
+occurs, there's going to be a",00:18:10.820,00:18:14.760
+"further fraction of
+the experiments in",00:18:14.760,00:18:17.270
+which A also occurs.,00:18:17.270,00:18:19.410
+"So interpret the conditional
+probability as follows.",00:18:19.410,00:18:21.930
+"You only look at those
+experiments at which",00:18:21.930,00:18:24.320
+B happens to occur.,00:18:24.320,00:18:26.050
+"And look at what fraction of
+those experiments where B",00:18:26.050,00:18:29.820
+"already occurred, event
+A also occurs.",00:18:29.820,00:18:33.670
+"And there's a symmetrical
+version of this equality.",00:18:33.670,00:18:39.610
+"There's symmetry between the
+events B and A. So you also",00:18:39.610,00:18:44.660
+"have this relation that
+goes the other way.",00:18:44.660,00:18:48.890
+"OK, so what do we use these
+conditional probabilities for?",00:18:48.890,00:18:53.950
+"First, one comment.",00:18:53.950,00:18:55.120
+"Conditional probabilities
+are just like ordinary",00:18:55.120,00:18:58.100
+probabilities.,00:18:58.100,00:18:59.170
+"They're the new probabilities
+that apply in a new universe",00:18:59.170,00:19:02.820
+"where event B is known
+to have occurred.",00:19:02.820,00:19:07.300
+"So we had an original
+probability model.",00:19:07.300,00:19:10.620
+We are told that B occurs.,00:19:10.620,00:19:12.210
+We revise our model.,00:19:12.210,00:19:13.840
+"Our new model should still be
+legitimate probability model.",00:19:13.840,00:19:16.690
+"So it should satisfy all sorts
+of properties that ordinary",00:19:16.690,00:19:20.770
+probabilities do satisfy.,00:19:20.770,00:19:23.210
+"So for example, if A and B are
+disjoint events, then we know",00:19:23.210,00:19:29.230
+"that the probability of A
+union B is equal to the",00:19:29.230,00:19:33.830
+"probability of A plus
+probability of B. And now if I",00:19:33.830,00:19:39.230
+"tell you that a certain event C
+occurred, we're placed in a",00:19:39.230,00:19:42.770
+"new universe where
+event C occurred.",00:19:42.770,00:19:45.220
+"We have new probabilities
+for that universe.",00:19:45.220,00:19:47.515
+"These are the conditional
+probabilities.",00:19:47.515,00:19:49.880
+"And conditional probabilities
+also satisfy",00:19:49.880,00:19:52.960
+this kind of property.,00:19:52.960,00:19:54.820
+"So this is just our usual
+additivity axiom but the",00:19:54.820,00:19:58.380
+"applied in a new model, in which
+we were told that event",00:19:58.380,00:20:02.290
+C occurred.,00:20:02.290,00:20:03.250
+"So conditional probabilities
+do not taste or smell any",00:20:03.250,00:20:06.580
+"different than ordinary
+probabilities do.",00:20:06.580,00:20:09.970
+"Conditional probabilities, given
+a specific event B, just",00:20:09.970,00:20:14.350
+"form a probability law
+on our sample space.",00:20:14.350,00:20:19.480
+"It's a different probability
+law but it's still a",00:20:19.480,00:20:22.460
+"probability law that has all
+of the desired properties.",00:20:22.460,00:20:26.430
+"OK, so where do conditional
+probabilities come up?",00:20:26.430,00:20:30.360
+"They do come up in quizzes
+and they do",00:20:30.360,00:20:32.450
+come up in silly problems.,00:20:32.450,00:20:34.070
+So let's start with this.,00:20:34.070,00:20:35.680
+"We have this example
+from last time.",00:20:35.680,00:20:37.790
+"Two rolls of a die, all possible
+pairs of roles are",00:20:37.790,00:20:42.220
+"equally likely, so every element
+in this square has",00:20:42.220,00:20:46.410
+probability of 1/16.,00:20:46.410,00:20:47.660
+"So all elements are
+equally likely.",00:20:50.300,00:20:52.330
+That's our original model.,00:20:52.330,00:20:54.280
+"Then somebody comes and tells us
+that the minimum of the two",00:20:54.280,00:20:57.210
+rolls is equal to zero.,00:20:57.210,00:20:59.530
+What's that event?,00:20:59.530,00:21:02.060
+"The minimum equal to zero can
+happen in many ways, if we get",00:21:02.060,00:21:05.990
+"two zeros or if we
+get a zero and--",00:21:05.990,00:21:08.990
+"sorry, if we get two
+two's, or get a two",00:21:08.990,00:21:13.140
+and something larger.,00:21:13.140,00:21:14.830
+"And so the is our new event B.
+The red event is the event B.",00:21:14.830,00:21:21.400
+"And now we want to calculate
+probabilities",00:21:21.400,00:21:23.500
+inside this new universe.,00:21:23.500,00:21:25.310
+"For example, you may be
+interested in the question,",00:21:25.310,00:21:28.770
+"questions about the maximum
+of the two rolls.",00:21:28.770,00:21:31.960
+"In the new universe, what's
+the probability that the",00:21:31.960,00:21:34.310
+maximum is equal to one?,00:21:34.310,00:21:37.550
+"The maximum being equal to
+one is this black event.",00:21:37.550,00:21:44.320
+"And given that we're told that
+B occurred, this black events",00:21:44.320,00:21:49.240
+cannot happen.,00:21:49.240,00:21:50.300
+"So this probability
+is equal to zero.",00:21:50.300,00:21:53.240
+"How about the maximum
+being equal to two,",00:21:53.240,00:21:56.500
+given that event B?,00:21:56.500,00:21:59.110
+"OK, we can use the
+definition here.",00:21:59.110,00:22:01.760
+"It's going to be the probability
+that the maximum",00:22:01.760,00:22:05.730
+"is equal to two and B occurs
+divided by the probability of",00:22:05.730,00:22:10.590
+"B. The probability that the
+maximum is equal to two.",00:22:10.590,00:22:16.020
+"OK, what's the event that the
+maximum is equal to two?",00:22:16.020,00:22:19.470
+Let's draw it.,00:22:19.470,00:22:20.340
+"This is going to be
+the blue event.",00:22:20.340,00:22:22.300
+"The maximum is equal to
+two if we get any",00:22:22.300,00:22:25.950
+of those blue points.,00:22:25.950,00:22:28.520
+"So the intersection of the two
+events is the intersection of",00:22:28.520,00:22:32.310
+"the red event and
+the blue event.",00:22:32.310,00:22:35.170
+"There's only one point in
+their intersection.",00:22:35.170,00:22:37.770
+"So the probability of
+that intersection",00:22:37.770,00:22:39.640
+happening is 1/16.,00:22:39.640,00:22:41.080
+That's the numerator.,00:22:43.740,00:22:45.160
+How about the denominator?,00:22:45.160,00:22:47.110
+"The event B consists of five
+elements, each one of which",00:22:47.110,00:22:50.610
+had probability of 1/16.,00:22:50.610,00:22:52.270
+So that's 5/16.,00:22:52.270,00:22:54.570
+And so the answer is 1/5.,00:22:54.570,00:22:58.340
+"Could we have gotten this
+answer in a faster way?",00:22:58.340,00:23:02.830
+Yes.,00:23:02.830,00:23:04.190
+Here's how it goes.,00:23:04.190,00:23:05.560
+"We're trying to find the
+conditional probability that",00:23:05.560,00:23:09.060
+"we get this point, given
+that B occurred.",00:23:09.060,00:23:13.210
+B consist of five elements.,00:23:13.210,00:23:15.570
+"All of those five elements were
+equally likely when we",00:23:15.570,00:23:18.250
+"started, so they remain equally
+likely afterwards.",00:23:18.250,00:23:22.720
+"Because when we define
+conditional probabilities, we",00:23:22.720,00:23:25.180
+"keep the same proportions
+inside the set.",00:23:25.180,00:23:28.110
+"So the five red elements
+were equally likely.",00:23:28.110,00:23:31.940
+"They remain equally likely
+in the conditional world.",00:23:31.940,00:23:35.050
+"So conditional event B having
+happened, each one of these",00:23:35.050,00:23:39.080
+"five elements has the
+same probability.",00:23:39.080,00:23:41.580
+"So the probability that we
+actually get this point is",00:23:41.580,00:23:44.300
+going to be 1/5.,00:23:44.300,00:23:46.210
+And so that's the shortcut.,00:23:46.210,00:23:48.280
+"More generally, whenever you
+have a uniform distribution on",00:23:48.280,00:23:53.070
+"your initial sample space,
+when you condition on an",00:23:53.070,00:23:56.470
+"event, your new distribution is
+still going to be uniform,",00:23:56.470,00:24:01.000
+"but on the smaller events
+of that we considered.",00:24:01.000,00:24:05.010
+"So we started with a uniform
+distribution on the big square",00:24:05.010,00:24:09.780
+"and we ended up with a
+uniform distribution",00:24:09.780,00:24:13.730
+just on the red point.,00:24:13.730,00:24:17.230
+"Now besides silly problems,
+however, conditional",00:24:17.230,00:24:19.850
+"probabilities show up in real
+and interesting situations.",00:24:19.850,00:24:25.070
+"And this example is going
+to give you some",00:24:25.070,00:24:27.390
+idea of how that happens.,00:24:27.390,00:24:30.430
+OK.,00:24:30.430,00:24:32.250
+"Actually, in this example,
+instead of starting with a",00:24:32.250,00:24:35.450
+"probability model in terms of
+regular probabilities, I'm",00:24:35.450,00:24:39.480
+"actually going to define the
+model in terms of conditional",00:24:39.480,00:24:43.070
+probabilities.,00:24:43.070,00:24:43.890
+"And we'll see how
+this is done.",00:24:43.890,00:24:45.880
+So here's the story.,00:24:45.880,00:24:48.330
+"There may be an airplane flying
+up in the sky, in a",00:24:48.330,00:24:52.210
+"particular sector of the sky
+that you're watching.",00:24:52.210,00:24:55.400
+"Sometimes there is one sometimes
+there isn't.",00:24:55.400,00:24:57.950
+"And from experience you know
+that when you look up, there's",00:24:57.950,00:25:01.760
+"five percent probability that
+the plane is flying above",00:25:01.760,00:25:04.400
+"there and 95% probability that
+there's no plane up there.",00:25:04.400,00:25:09.670
+"So event A is the event that the
+plane is flying out there.",00:25:09.670,00:25:14.930
+"Now you bought this wonderful
+radar that's looks up.",00:25:14.930,00:25:19.140
+"And you're told in the
+manufacturer's specs that, if",00:25:19.140,00:25:23.300
+"there is a plane out there,
+your radar is going to",00:25:23.300,00:25:27.310
+"register something, a
+blip on the screen",00:25:27.310,00:25:30.090
+with probability 99%.,00:25:30.090,00:25:32.940
+"And it will not register
+anything with",00:25:32.940,00:25:35.540
+probability one percent.,00:25:35.540,00:25:37.500
+"So this particular part of the
+picture is a self-contained",00:25:37.500,00:25:43.890
+"probability model of what your
+radar does in a world where a",00:25:43.890,00:25:50.280
+plane is out there.,00:25:50.280,00:25:52.530
+"So I'm telling you that the
+plane is out there.",00:25:52.530,00:25:55.380
+"So we're now dealing with
+conditional probabilities",00:25:55.380,00:25:58.240
+"because I gave you some
+particular information.",00:25:58.240,00:26:00.920
+"Given this information that the
+plane is out there, that's",00:26:00.920,00:26:04.120
+"how your radar is going to
+behave with probability 99% is",00:26:04.120,00:26:07.770
+"going to detect it, with
+probability one percent is",00:26:07.770,00:26:10.320
+going to miss it.,00:26:10.320,00:26:11.620
+"So this piece of the picture
+is a self-contained",00:26:11.620,00:26:14.100
+probability model.,00:26:14.100,00:26:15.060
+"The probabilities
+add up to one.",00:26:15.060,00:26:17.130
+"But it's a piece of
+a larger model.",00:26:17.130,00:26:20.300
+"Similarly, there's the
+other possibility.",00:26:20.300,00:26:22.820
+"Maybe a plane is not up there
+and the manufacturer specs",00:26:22.820,00:26:27.980
+"tell you something about
+false alarms.",00:26:27.980,00:26:32.630
+"A false alarm is the situation
+where the plane is not there,",00:26:32.630,00:26:37.490
+"but for some reason your radar
+picked up some noise or",00:26:37.490,00:26:41.190
+"whatever and shows a
+blip on the screen.",00:26:41.190,00:26:43.700
+"And suppose that this happens
+with probability ten percent.",00:26:43.700,00:26:46.790
+"Whereas with probability
+90% your radar",00:26:46.790,00:26:49.170
+gives the correct answer.,00:26:49.170,00:26:51.220
+"So this is sort of a model of
+what's going to happen with",00:26:51.220,00:26:55.430
+"respect to both the plane --
+we're given probabilities",00:26:55.430,00:26:59.430
+"about this -- and we're given
+probabilities about how the",00:26:59.430,00:27:02.000
+radar behaves.,00:27:02.000,00:27:04.120
+"So here I have indirectly
+specified the probability law",00:27:04.120,00:27:07.740
+"in our model by starting with
+conditional probabilities as",00:27:07.740,00:27:10.810
+"opposed to starting with
+ordinary probabilities.",00:27:10.810,00:27:13.670
+"Can we derive ordinary
+probabilities starting from",00:27:13.670,00:27:17.160
+the conditional number ones?,00:27:17.160,00:27:18.740
+"Yeah, we certainly can.",00:27:18.740,00:27:20.340
+"Let's look at this event, A
+intersection B, which is the",00:27:20.340,00:27:25.810
+"event up here, that there
+is a plane and our",00:27:25.810,00:27:31.160
+radar picks it up.,00:27:31.160,00:27:33.750
+"How can we calculate
+this probability?",00:27:33.750,00:27:35.760
+"Well we use the definition of
+conditional probabilities and",00:27:35.760,00:27:38.600
+"this is the probability of
+A times the conditional",00:27:38.600,00:27:41.430
+"probability of B given A.
+So it's 0.05 times 0.99.",00:27:41.430,00:27:50.260
+"And the answer, in
+case you care--",00:27:50.260,00:27:53.290
+It's 0.0495.,00:27:53.290,00:27:56.730
+OK.,00:27:56.730,00:27:57.650
+"So we can calculate the
+probabilities of final",00:27:57.650,00:28:01.370
+"outcomes, which are the leaves
+of the tree, by using the",00:28:01.370,00:28:05.120
+"probabilities that
+we have along the",00:28:05.120,00:28:07.250
+branches of the tree.,00:28:07.250,00:28:09.000
+"So essentially, what we ended
+up doing was to multiply the",00:28:09.000,00:28:11.950
+"probability of this
+branch times the",00:28:11.950,00:28:13.700
+probability of that branch.,00:28:13.700,00:28:17.220
+"Now, how about the answer
+to this question.",00:28:17.220,00:28:20.690
+"What is the probability
+that our radar is",00:28:20.690,00:28:25.350
+going to register something?,00:28:25.350,00:28:28.660
+"OK, this is an event that can
+happen in multiple ways.",00:28:28.660,00:28:32.800
+"It's the event that consists
+of this outcome.",00:28:32.800,00:28:38.020
+"There is a plane and the radar
+registers something together",00:28:38.020,00:28:41.640
+"with this outcome, there is no
+plane but the radar still",00:28:41.640,00:28:46.440
+registers something.,00:28:46.440,00:28:48.470
+"So to find the probability of
+this event, we need the",00:28:48.470,00:28:52.650
+"individual probabilities
+of the two outcomes.",00:28:52.650,00:28:56.940
+"For the first outcome, we
+already calculated it.",00:28:56.940,00:29:00.780
+"For the second outcome, the
+probability that this happens",00:29:00.780,00:29:03.870
+"is going to be this probability
+95% times 0.10,",00:29:03.870,00:29:08.480
+"which is the conditional
+probability for taking this",00:29:08.480,00:29:11.280
+"branch, given that there
+was no plane out there.",00:29:11.280,00:29:15.070
+So we just add the numbers.,00:29:15.070,00:29:18.080
+"0.05 times 0.99 plus 0.95
+times 0.1 and the",00:29:18.080,00:29:26.950
+final answer is 0.1445.,00:29:26.950,00:29:31.720
+OK.,00:29:31.720,00:29:32.410
+"And now here's the interesting
+question.",00:29:32.410,00:29:35.730
+"Given that your radar recorded
+something, how likely is it",00:29:35.730,00:29:41.480
+"that there is an airplane
+up there?",00:29:41.480,00:29:45.070
+"Your radar registering
+something --",00:29:45.070,00:29:46.810
+"that can be caused
+by two things.",00:29:46.810,00:29:48.730
+"Either there's a plane there,
+and your radar did its job.",00:29:48.730,00:29:52.390
+"Or there was nothing, but your
+radar fired a false alarm.",00:29:52.390,00:29:57.400
+"What's the probability that this
+is the case as opposed to",00:29:57.400,00:30:01.690
+that being the case?,00:30:01.690,00:30:05.370
+OK.,00:30:05.370,00:30:06.460
+"The intuitive shortcut would
+be that it should be the",00:30:06.460,00:30:10.510
+probability--,00:30:10.510,00:30:12.930
+"you look at their relative odds
+of these two elements and",00:30:12.930,00:30:15.820
+"you use them to find out how
+much more likely it is to be",00:30:15.820,00:30:19.570
+"there as opposed
+to being there.",00:30:19.570,00:30:21.730
+"But instead of doing this,
+let's just write down the",00:30:21.730,00:30:24.240
+definition and just use it.,00:30:24.240,00:30:26.570
+"It's the probability of A and
+B happening, divided by the",00:30:26.570,00:30:30.480
+"probability of B. This is just
+our definition of conditional",00:30:30.480,00:30:34.250
+probabilities.,00:30:34.250,00:30:35.540
+"Now we have already found
+the numerator.",00:30:35.540,00:30:39.300
+"We have already calculated
+the denominator.",00:30:39.300,00:30:42.450
+"So we take the ratio of these
+two numbers and we find the",00:30:42.450,00:30:46.440
+final answer --,00:30:46.440,00:30:47.650
+which is 0.34.,00:30:47.650,00:30:54.490
+OK.,00:30:54.490,00:30:55.980
+"There's this slightly
+curious thing that's",00:30:55.980,00:30:59.040
+happened in this example.,00:30:59.040,00:31:02.270
+"Doesn't this number feel
+a little too low?",00:31:02.270,00:31:08.380
+My radar --,00:31:08.380,00:31:10.700
+"So this is a conditional
+probability, given that my",00:31:10.700,00:31:13.820
+"radar said there is something
+out there, that there is",00:31:13.820,00:31:17.110
+indeed something there.,00:31:17.110,00:31:19.200
+"So it's sort of the probability
+that our radar",00:31:19.200,00:31:21.960
+gave the correct answer.,00:31:21.960,00:31:24.560
+"Now, the specs of our radar
+we're pretty good.",00:31:24.560,00:31:28.580
+"In this situation, it gives
+you the correct",00:31:28.580,00:31:31.460
+answer 99% of the time.,00:31:31.460,00:31:34.160
+"In this situation, it gives
+you the correct",00:31:34.160,00:31:36.020
+answer 90% of the time.,00:31:36.020,00:31:38.400
+"So you would think
+that your radar",00:31:38.400,00:31:39.730
+there is really reliable.,00:31:39.730,00:31:41.870
+"But yet here the radar recorded
+something, but the",00:31:41.870,00:31:47.730
+"chance that the answer that
+you get out of this is the",00:31:47.730,00:31:51.900
+"right one, given that it
+recorded something, the chance",00:31:51.900,00:31:55.180
+"that there is an airplane
+out there is only 30%.",00:31:55.180,00:31:58.970
+"So you cannot really rely on
+the measurements from your",00:31:58.970,00:32:01.980
+"radar, even though the specs of
+the radar were really good.",00:32:01.980,00:32:06.650
+What's the reason for this?,00:32:06.650,00:32:08.620
+"Well, the reason is that false
+alarms are pretty common.",00:32:08.620,00:32:17.730
+"Most of the time there's
+nothing.",00:32:17.730,00:32:20.110
+"And there's a ten percent
+probability of false alarms.",00:32:20.110,00:32:23.750
+"So there's roughly a ten percent
+probability that in",00:32:23.750,00:32:26.640
+"any given experiment, you
+have a false alarm.",00:32:26.640,00:32:29.730
+"And there is about the five
+percent probability that",00:32:29.730,00:32:33.450
+"something out there and
+your radar gets it.",00:32:33.450,00:32:37.090
+"So when your radar records
+something, it's actually more",00:32:37.090,00:32:41.350
+"likely to be a false
+alarm rather than",00:32:41.350,00:32:44.980
+being an actual airplane.,00:32:44.980,00:32:46.860
+"This has probability ten
+percent roughly.",00:32:46.860,00:32:49.100
+"This has probability roughly
+five percent",00:32:49.100,00:32:52.000
+"So conditional probabilities
+are sometimes",00:32:52.000,00:32:55.130
+"counter-intuitive in terms of
+the answers that they get.",00:32:55.130,00:32:58.250
+"And you can make similar
+stories about doctors",00:32:58.250,00:33:01.210
+"interpreting the results
+of tests.",00:33:01.210,00:33:04.370
+"So you tested positive for
+a certain disease.",00:33:04.370,00:33:07.560
+"Does it mean that you have
+the disease necessarily?",00:33:07.560,00:33:11.260
+"Well if that disease has been
+eradicated from the face of",00:33:11.260,00:33:14.590
+"the earth, testing positive
+doesn't mean that you have the",00:33:14.590,00:33:17.900
+"disease, even if the test
+was designed to be",00:33:17.900,00:33:21.740
+a pretty good one.,00:33:21.740,00:33:23.320
+"So unfortunately, doctors do get
+it wrong also sometimes.",00:33:23.320,00:33:28.190
+"And the reasoning that
+comes in such",00:33:28.190,00:33:29.990
+situations is pretty subtle.,00:33:29.990,00:33:32.290
+"Now for the rest of the lecture,
+what we're going to",00:33:32.290,00:33:34.890
+"do is to take this example where
+we did three things and",00:33:34.890,00:33:40.710
+abstract them.,00:33:40.710,00:33:41.880
+"These three trivial calculations
+that's we just",00:33:41.880,00:33:44.540
+"did are three very important,
+very basic tools that you use",00:33:44.540,00:33:50.190
+"to solve more general
+probability problems.",00:33:50.190,00:33:53.350
+So what's the first one?,00:33:53.350,00:33:55.040
+"We find the probability of a
+composite event, two things",00:33:55.040,00:33:58.040
+"happening, by multiplying
+probabilities and conditional",00:33:58.040,00:34:01.300
+probabilities.,00:34:01.300,00:34:03.130
+"More general version of this,
+look at any situation, maybe",00:34:03.130,00:34:08.639
+"involving lots and
+lots of events.",00:34:08.639,00:34:10.860
+"So here's a story that event A
+may happen or may not happen.",00:34:10.860,00:34:15.510
+"Given that A occurred, it's
+possible that B happens or",00:34:15.510,00:34:19.440
+that B does not happen.,00:34:19.440,00:34:21.360
+"Given that B also happens, it's
+possible that the event C",00:34:21.360,00:34:25.280
+"also happens or that event
+C does not happen.",00:34:25.280,00:34:29.770
+"And somebody specifies for you
+a model by giving you all",00:34:29.770,00:34:33.400
+"these conditional probabilities
+along the way.",00:34:33.400,00:34:36.230
+"Notice what we move along
+the branches as the tree",00:34:36.230,00:34:39.570
+progresses.,00:34:39.570,00:34:40.690
+"Any point in the tree
+corresponds to certain events",00:34:40.690,00:34:45.110
+having happened.,00:34:45.110,00:34:47.050
+"And then, given that this
+has happened, we specify",00:34:47.050,00:34:50.980
+conditional probabilities.,00:34:50.980,00:34:52.360
+"Given that this has happened,
+how likely is it for that C",00:34:52.360,00:34:55.989
+also occurs?,00:34:55.989,00:34:57.900
+"Given a model of this kind, how
+do we find the probability",00:34:57.900,00:35:00.890
+or for this event?,00:35:00.890,00:35:02.660
+"The answer is extremely
+simple.",00:35:02.660,00:35:05.310
+"All that you do is move along
+with the tree and multiply",00:35:05.310,00:35:09.930
+"conditional probabilities
+along the way.",00:35:09.930,00:35:12.950
+"So in terms of frequencies, how
+often do all three things",00:35:12.950,00:35:16.900
+"happen, A, B, and C?",00:35:16.900,00:35:19.310
+"You first see how often
+does A occur.",00:35:19.310,00:35:22.450
+"Out of the times that
+A occurs, how",00:35:22.450,00:35:24.860
+often does B occur?,00:35:24.860,00:35:26.710
+"And out of the times where both
+A and B have occurred,",00:35:26.710,00:35:29.630
+how often does C occur?,00:35:29.630,00:35:31.660
+"And you can just multiply those
+three frequencies with",00:35:31.660,00:35:34.390
+each other.,00:35:34.390,00:35:36.440
+"What is the formal
+proof of this?",00:35:36.440,00:35:39.740
+"Well, the only thing we have in
+our hands is the definition",00:35:39.740,00:35:43.000
+of conditional probabilities.,00:35:43.000,00:35:44.890
+So let's just use this.,00:35:44.890,00:35:49.660
+And--,00:35:49.660,00:35:50.910
+OK.,00:35:54.370,00:35:55.000
+"Now, the definition of
+conditional probabilities",00:35:55.000,00:35:58.210
+"tells us that the probability
+of two things is the",00:35:58.210,00:36:00.770
+"probability of one of them
+times a conditional",00:36:00.770,00:36:03.660
+probability.,00:36:03.660,00:36:04.620
+"Unfortunately, here we have the",00:36:04.620,00:36:05.850
+probability of three things.,00:36:05.850,00:36:07.310
+What can I do?,00:36:07.310,00:36:09.000
+"I can put a parenthesis in here
+and think of this as the",00:36:09.000,00:36:13.570
+"probability of this and that
+and apply our definition of",00:36:13.570,00:36:18.640
+"conditional probabilities
+here.",00:36:18.640,00:36:20.300
+"The probability of two things
+happening is the probability",00:36:20.300,00:36:23.920
+"that the first happens times
+the conditional probability",00:36:23.920,00:36:28.430
+"that the second happens, given
+A and B, given that the first",00:36:28.430,00:36:34.070
+one happened.,00:36:34.070,00:36:35.330
+"So this is just the definition
+of the conditional probability",00:36:35.330,00:36:38.850
+"of an event, given
+another event.",00:36:38.850,00:36:41.980
+"That other event is a
+composite one, but",00:36:41.980,00:36:44.270
+that's not an issue.,00:36:44.270,00:36:45.330
+It's just an event.,00:36:45.330,00:36:47.300
+"And then we use the definition
+of conditional probabilities",00:36:47.300,00:36:50.040
+"once more to break this apart
+and make it P(A), P(B given A)",00:36:50.040,00:36:56.290
+"and then finally,
+the last term.",00:36:56.290,00:36:58.260
+OK.,00:37:00.930,00:37:01.270
+"So this proves the formula
+that I have up",00:37:01.270,00:37:03.680
+there on the slides.,00:37:03.680,00:37:05.290
+"And if you wish to calculate
+any other",00:37:05.290,00:37:07.470
+probability in this diagram.,00:37:07.470,00:37:09.330
+"For example, if you want to
+calculate this probability,",00:37:09.330,00:37:12.590
+"you would still multiply the
+conditional probabilities",00:37:12.590,00:37:15.580
+"along the different branches
+of the tree.",00:37:15.580,00:37:18.560
+"In particular, here in this
+branch, you would have the",00:37:18.560,00:37:22.360
+"conditional probability of
+C complement, given A",00:37:22.360,00:37:26.670
+"intersection B complement,
+and so on.",00:37:26.670,00:37:29.790
+"So you write down probabilities
+along all those",00:37:29.790,00:37:32.070
+"tree branches and just multiply
+them as you go.",00:37:32.070,00:37:35.940
+"So this was the first skill
+that we are covering.",00:37:38.510,00:37:44.450
+What was the second one?,00:37:44.450,00:37:46.690
+"What we did was to calculate
+the total probability of a",00:37:46.690,00:37:53.240
+"certain event B that
+consisted of--",00:37:53.240,00:37:58.520
+"was made up from different
+possibilities, which",00:37:58.520,00:38:02.820
+"corresponded to different
+scenarios.",00:38:02.820,00:38:05.580
+"So we wanted to calculate the
+probability of this event B",00:38:05.580,00:38:08.870
+"that consisted of those
+two elements.",00:38:08.870,00:38:12.030
+Let's generalize.,00:38:12.030,00:38:13.280
+So we have our big model.,00:38:18.600,00:38:23.080
+"And this sample space
+is partitioned",00:38:23.080,00:38:26.110
+in a number of sets.,00:38:26.110,00:38:27.410
+"In our radar example, we had
+a partition in two sets.",00:38:27.410,00:38:30.620
+"Either a plane is there, or
+a plane is not there.",00:38:30.620,00:38:33.600
+"Since we're trying to
+generalize, now I'm going to",00:38:33.600,00:38:35.850
+"give you a picture for the case
+of three possibilities or",00:38:35.850,00:38:39.410
+three possible scenarios.,00:38:39.410,00:38:41.360
+"So whatever happens in the
+world, there are three",00:38:41.360,00:38:45.160
+"possible scenarios,
+A1, A2, A3.",00:38:45.160,00:38:49.660
+"So think of these as there's
+nothing in the air, there's an",00:38:49.660,00:38:54.695
+"airplane in the air, or there's
+a flock of geese",00:38:54.695,00:38:58.190
+flying in the air.,00:38:58.190,00:38:59.490
+"So there's three possible
+scenarios.",00:38:59.490,00:39:03.050
+"And then there's a certain event
+B of interest, such as a",00:39:03.050,00:39:08.972
+"radar records something or
+doesn't record something.",00:39:08.972,00:39:12.800
+We specify this model by giving,00:39:12.800,00:39:15.870
+probabilities for the Ai's--,00:39:15.870,00:39:18.040
+"That's the probability of
+the different scenarios.",00:39:20.690,00:39:23.420
+"And somebody also gives us the
+probabilities that this event",00:39:23.420,00:39:27.180
+"B is going to occur, given
+that the Ai-th",00:39:27.180,00:39:31.010
+scenario has occurred.,00:39:31.010,00:39:33.480
+"Think of the Ai's
+as scenarios.",00:39:33.480,00:39:36.230
+"And we want to calculate the
+overall probability of the",00:39:39.130,00:39:43.110
+"event B. What's happening
+in this example?",00:39:43.110,00:39:47.210
+"Perhaps, instead of this
+picture, it's easier to",00:39:47.210,00:39:49.640
+"visualize if I go back to the
+picture I was using before.",00:39:49.640,00:39:54.970
+"We have three possible
+scenarios, A1, A2, A3.",00:39:54.970,00:39:59.990
+"And under each scenario, B may
+happen or B may not happen.",00:39:59.990,00:40:05.150
+And so on.,00:40:11.360,00:40:12.250
+"So here we have A2 intersection
+B. And here we",00:40:12.250,00:40:16.060
+"have A3 intersection B. In the
+previous slide, we found how",00:40:16.060,00:40:22.110
+"to calculate the probability
+of any event of this kind,",00:40:22.110,00:40:25.350
+"which is done by multiplying
+probabilities here and",00:40:25.350,00:40:28.870
+"conditional probabilities
+there.",00:40:28.870,00:40:31.100
+"Now we are asked to calculate
+the total probability of the",00:40:31.100,00:40:34.320
+"event B. The event B can happen
+in three possible ways.",00:40:34.320,00:40:38.410
+It can happen here.,00:40:38.410,00:40:39.900
+It can happen there.,00:40:39.900,00:40:41.700
+And it can happen here.,00:40:41.700,00:40:43.780
+"So this is our event B. It
+consists of three elements.",00:40:43.780,00:40:50.020
+"To calculate the total
+probability of our event B,",00:40:50.020,00:40:53.370
+"all we need to do is to add
+these three probabilities.",00:40:53.370,00:40:56.730
+"So B is an event that consists
+of these three elements.",00:40:59.440,00:41:03.510
+"There are three ways
+that B can happen.",00:41:03.510,00:41:06.450
+"Either B happens together with
+A1, or B happens together with",00:41:06.450,00:41:10.390
+"A2, or B happens together
+with A3.",00:41:10.390,00:41:13.030
+"So we need to add the
+probabilities of these three",00:41:13.030,00:41:15.340
+contingencies.,00:41:15.340,00:41:16.630
+"For each one of those
+contingencies, we can",00:41:16.630,00:41:18.980
+"calculate its probability by
+using the multiplication rule.",00:41:18.980,00:41:23.020
+"So the probability of A1 and
+B happening is this--",00:41:23.020,00:41:27.580
+"It's the probability of A1
+and then B happening",00:41:27.580,00:41:30.030
+given that A1 happens.,00:41:30.030,00:41:32.020
+"The probability of this
+contingency is found by taking",00:41:32.020,00:41:36.140
+"the probability that A2 happens
+times the conditional",00:41:36.140,00:41:39.470
+"probability of A2, given
+that B happened.",00:41:39.470,00:41:42.350
+"And similarly for
+the third one.",00:41:42.350,00:41:44.640
+"So this is the general rule
+that we have here.",00:41:44.640,00:41:48.030
+"The rule is written for the
+case of three scenarios.",00:41:48.030,00:41:50.830
+"But obviously, it has a
+generalization for the case of",00:41:50.830,00:41:54.020
+"four or five or more
+scenarios.",00:41:54.020,00:41:57.440
+"It gives you a way of breaking
+up the calculation of an event",00:41:57.440,00:42:02.050
+"that can happen in multiple ways
+by considering individual",00:42:02.050,00:42:06.740
+"probabilities for the different
+ways that the event",00:42:06.740,00:42:09.720
+can happen.,00:42:09.720,00:42:10.970
+OK.,00:42:12.950,00:42:14.640
+So--,00:42:14.640,00:42:16.300
+Yes?,00:42:16.300,00:42:16.656
+"AUDIENCE: Does this
+have to change for",00:42:16.656,00:42:18.180
+infinite sample space?,00:42:18.180,00:42:19.800
+JOHN TSISIKLIS: No.,00:42:19.800,00:42:20.760
+"This is true whether
+your sample space",00:42:20.760,00:42:23.050
+is infinite or finite.,00:42:23.050,00:42:25.450
+"What I'm using in this argument
+that we have a",00:42:25.450,00:42:28.410
+"partition into just three
+scenarios, three events.",00:42:28.410,00:42:33.670
+"So it's a partition to a finite
+number of events.",00:42:33.670,00:42:36.720
+"It's also true if it's a
+partition into an infinite",00:42:36.720,00:42:41.100
+sequence of events.,00:42:41.100,00:42:43.670
+"But that's, I think, one of the
+theoretical problems at",00:42:43.670,00:42:47.550
+the end of the chapter.,00:42:47.550,00:42:49.430
+"You probably may not
+need it for now.",00:42:49.430,00:42:54.350
+"OK, going back to
+the story here.",00:42:54.350,00:42:57.550
+"There are three possible
+scenarios about what could",00:42:57.550,00:43:00.410
+"happen in the world that
+are captured here.",00:43:00.410,00:43:03.390
+"Event, under each scenario,
+event B may or may not happen.",00:43:03.390,00:43:08.660
+"And so these probabilities tell
+us the likelihoods of the",00:43:08.660,00:43:11.850
+different scenarios.,00:43:11.850,00:43:13.270
+"These conditional probabilities
+tell us how",00:43:13.270,00:43:17.640
+"likely is it for B to happen
+under one scenario, or the",00:43:17.640,00:43:21.030
+"other scenario, or the
+other scenario.",00:43:21.030,00:43:23.760
+"The overall probability of
+B is found by taking some",00:43:23.760,00:43:28.510
+"combination of the probabilities
+of B in the",00:43:28.510,00:43:32.380
+"different possible
+worlds, in the",00:43:32.380,00:43:34.250
+different possible scenarios.,00:43:34.250,00:43:36.230
+"Under some scenario, B
+may be very likely.",00:43:36.230,00:43:38.690
+"Under another scenario, it
+may be very unlikely.",00:43:38.690,00:43:42.280
+"We take all of these into
+account and weigh them",00:43:42.280,00:43:45.740
+"according to the likelihood
+of the scenarios.",00:43:45.740,00:43:48.590
+"Now notice that since A1, A2,
+and three form a partition,",00:43:48.590,00:43:53.040
+"these three probabilities
+have what property?",00:43:53.040,00:43:58.530
+Add to what?,00:43:58.530,00:44:00.810
+They add to one.,00:44:00.810,00:44:03.640
+"So it's the probability of this
+branch, plus this branch,",00:44:03.640,00:44:06.020
+plus this branch.,00:44:06.020,00:44:07.240
+"So what we have here is a
+weighted average of the",00:44:07.240,00:44:11.660
+"probabilities of the B's into
+the different worlds, or in",00:44:11.660,00:44:15.120
+the different scenarios.,00:44:15.120,00:44:16.690
+Special case.,00:44:16.690,00:44:17.860
+"Suppose the three scenarios
+are equally likely.",00:44:17.860,00:44:20.370
+"So P of A1 equals 1/3, equals
+to P of A2, P of A3.",00:44:20.370,00:44:25.300
+what are we saying here?,00:44:25.300,00:44:27.320
+"In that case of equally likely
+scenarios, the probability of",00:44:27.320,00:44:31.750
+"B is the average of the
+probabilities of B in the",00:44:31.750,00:44:35.920
+"three different words, or in the
+three different scenarios.",00:44:35.920,00:44:38.835
+OK.,00:44:42.950,00:44:43.450
+"So to finally, the last step.",00:44:43.450,00:44:46.630
+"If we go back again two slides,
+the last thing that we",00:44:46.630,00:44:53.800
+"did was to calculate a
+conditional probability of",00:44:53.800,00:44:57.510
+"this kind, probability of
+A given B, which is a",00:44:57.510,00:45:01.760
+"probability associated
+essentially with",00:45:01.760,00:45:04.080
+an inference problem.,00:45:04.080,00:45:05.630
+"Given that our radar recorded
+something, how likely is it",00:45:05.630,00:45:09.840
+that the plane was up there?,00:45:09.840,00:45:12.060
+"So we're trying to infer whether
+a plane was up there",00:45:12.060,00:45:15.240
+"or not, based on the information
+that we've got.",00:45:15.240,00:45:18.610
+So let's generalize once more.,00:45:18.610,00:45:20.770
+"And we're just going to rewrite
+what we did in that",00:45:24.560,00:45:28.250
+"example, but in terms of general
+symbols instead of the",00:45:28.250,00:45:32.190
+specific numbers.,00:45:32.190,00:45:33.650
+"So once more, the model that we
+have involves probabilities",00:45:33.650,00:45:38.180
+of the different scenarios.,00:45:38.180,00:45:40.480
+"These we call them prior
+probabilities.",00:45:40.480,00:45:42.830
+"They're are our initial beliefs
+about how likely each",00:45:42.830,00:45:46.690
+scenario is to occur.,00:45:46.690,00:45:49.360
+"We also have a model of our
+measuring device that tells us",00:45:49.360,00:45:54.500
+"under that scenario how likely
+is it that our radar will",00:45:54.500,00:45:58.110
+register something or not.,00:45:58.110,00:46:00.140
+"So we're given again these
+conditional probabilities.",00:46:00.140,00:46:03.220
+We're given the conditional,00:46:03.220,00:46:04.330
+probabilities for these branches.,00:46:04.330,00:46:06.950
+"Then we are told that
+event B occurred.",00:46:06.950,00:46:11.050
+"And on the basis of this new
+information, we want to form",00:46:11.050,00:46:15.330
+"some new beliefs about the
+relative likelihood of the",00:46:15.330,00:46:18.510
+different scenarios.,00:46:18.510,00:46:20.110
+"Going back again to our radar
+example, an airplane was",00:46:20.110,00:46:23.790
+present with probability 5%.,00:46:23.790,00:46:26.340
+"Given that the radar recorded
+something, we're going to",00:46:26.340,00:46:29.180
+change our beliefs.,00:46:29.180,00:46:30.540
+"Now, a plane is present
+with probability 34%.",00:46:30.540,00:46:34.870
+"The radar, since we saw
+something, we are going to",00:46:34.870,00:46:38.270
+"revise our beliefs as to whether
+the plane is out there",00:46:38.270,00:46:41.880
+or is not there.,00:46:41.880,00:46:43.130
+"And so what we need to do is to
+calculate the conditional",00:46:46.040,00:46:52.660
+"probabilities of the different
+scenarios, given the",00:46:52.660,00:46:57.290
+information that we got.,00:46:57.290,00:46:59.340
+"So initially, we have these
+probabilities for the",00:46:59.340,00:47:02.330
+different scenarios.,00:47:02.330,00:47:04.000
+"Once we get the information,
+we update them and we",00:47:04.000,00:47:06.870
+"calculate our revised
+probabilities or conditional",00:47:06.870,00:47:09.760
+"probabilities given the
+observation that we made.",00:47:09.760,00:47:14.130
+OK.,00:47:14.130,00:47:14.730
+So what do we do?,00:47:14.730,00:47:15.760
+"We just use the definition
+of conditional",00:47:15.760,00:47:17.620
+probabilities twice.,00:47:17.620,00:47:19.360
+"By definition the conditional
+probability is the probability",00:47:19.360,00:47:22.490
+"of two things happening divided
+by the probability of",00:47:22.490,00:47:25.740
+the conditioning event.,00:47:25.740,00:47:27.960
+"Now, I'm using the definition
+of conditional probabilities",00:47:27.960,00:47:30.480
+"once more, or rather I use
+the multiplication rule.",00:47:30.480,00:47:33.550
+"The probability of two things
+happening is the probability",00:47:33.550,00:47:35.970
+of the first and the second.,00:47:35.970,00:47:38.740
+"So these are things that
+are given to us.",00:47:38.740,00:47:41.190
+"They're the probabilities of
+the different scenarios.",00:47:41.190,00:47:43.430
+"And it's the model of our
+measuring device, which we",00:47:43.430,00:47:47.750
+assume to be available.,00:47:47.750,00:47:51.810
+And how about the denominator?,00:47:51.810,00:47:53.450
+"This is total probability of the
+event B. But we just found",00:47:53.450,00:47:57.780
+"that's it's easy to calculate
+using the formula in the",00:47:57.780,00:48:01.140
+previous slide.,00:48:01.140,00:48:02.400
+"To find the overall probability
+of event B",00:48:02.400,00:48:04.750
+"occurring, we look at the
+probabilities of B occurring",00:48:04.750,00:48:08.260
+"under the different scenario
+and weigh them according to",00:48:08.260,00:48:11.560
+"the probabilities of
+all the scenarios.",00:48:11.560,00:48:13.710
+"So in the end, we have a formula
+for the conditional",00:48:13.710,00:48:17.370
+"probability, A's given B,
+based on the data of the",00:48:17.370,00:48:22.730
+"problem, which were
+probabilities of the different",00:48:22.730,00:48:25.090
+"scenarios and conditional
+probabilities of",00:48:25.090,00:48:27.360
+"B, given the A's.",00:48:27.360,00:48:29.490
+"So what this calculation does
+is, basically, it reverses the",00:48:29.490,00:48:33.320
+order of conditioning.,00:48:33.320,00:48:35.310
+"We are given conditional
+probabilities of these kind,",00:48:35.310,00:48:39.000
+"where it's B given A and we
+produce new conditional",00:48:39.000,00:48:42.950
+"probabilities, where things
+go the other way.",00:48:42.950,00:48:46.630
+"So schematically, what's
+happening here is that we have",00:48:46.630,00:48:53.530
+"model of cause and
+effect and--",00:48:53.530,00:48:59.995
+"So a scenario occurs and that
+may cause B to happen or may",00:49:02.550,00:49:09.840
+not cause it to happen.,00:49:09.840,00:49:11.880
+"So this is a cause/effect
+model.",00:49:11.880,00:49:14.495
+"And it's modeled using
+probabilities, such as",00:49:17.300,00:49:20.090
+probability of B given Ai.,00:49:20.090,00:49:23.350
+"And what we want to do is
+inference where we are told",00:49:23.350,00:49:28.710
+"that B occurs, and we want
+to infer whether Ai",00:49:28.710,00:49:35.910
+also occurred or not.,00:49:35.910,00:49:38.580
+"And the appropriate
+probabilities for that are the",00:49:38.580,00:49:42.050
+"conditional probabilities
+that A occurred,",00:49:42.050,00:49:45.010
+given that B occurred.,00:49:45.010,00:49:48.110
+"So we're starting with a causal
+model of our situation.",00:49:48.110,00:49:52.250
+"It models from a given cause how
+likely is a certain effect",00:49:52.250,00:49:57.220
+to be observed.,00:49:57.220,00:49:58.830
+"And then we do inference, which
+answers the question,",00:49:58.830,00:50:02.920
+"given that the effect was
+observed, how likely is it",00:50:02.920,00:50:06.730
+"that the world was in this
+particular situation or state",00:50:06.730,00:50:10.870
+or scenario.,00:50:10.870,00:50:12.940
+"So the name of the Bayes rule
+comes from Thomas Bayes, a",00:50:12.940,00:50:17.260
+"British theologian back
+in the 1700s.",00:50:17.260,00:50:20.750
+It actually--,00:50:20.750,00:50:21.530
+"This calculation addresses
+a basic problem, a basic",00:50:21.530,00:50:25.000
+"philosophical problem, how one
+can learn from experience or",00:50:25.000,00:50:30.230
+"from experimental data and
+some systematic way.",00:50:30.230,00:50:33.300
+"So the British at that time
+were preoccupied with this",00:50:33.300,00:50:35.840
+type of question.,00:50:35.840,00:50:36.710
+"Is there a basic theory that
+about how we can incorporate",00:50:36.710,00:50:41.200
+"new knowledge to previous
+knowledge.",00:50:41.200,00:50:44.280
+"And this calculation made an
+argument that, yes, it is",00:50:44.280,00:50:47.600
+"possible to do that in
+a systematic way.",00:50:47.600,00:50:50.100
+"So the philosophical
+underpinnings of this have a",00:50:50.100,00:50:53.040
+"very long history and a lot
+of discussion around them.",00:50:53.040,00:50:57.050
+"But for our purposes, it's just
+an extremely useful tool.",00:50:57.050,00:51:00.560
+"And it's the foundation of
+almost everything that gets",00:51:00.560,00:51:03.550
+"done when you try to do
+inference based on partial",00:51:03.550,00:51:07.190
+observations.,00:51:07.190,00:51:08.860
+Very well.,00:51:08.860,00:51:09.690
+Till next time.,00:51:09.690,00:51:10.940

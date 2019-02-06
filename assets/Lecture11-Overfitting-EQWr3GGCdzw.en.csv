@@ -1,0 +1,2592 @@
+text,start,stop
+"ANNOUNCER: The following program
+is brought to you by Caltech.",00:00:00.610,00:00:03.270
+YASER ABU-MOSTAFA: Welcome back.,00:00:15.320,00:00:18.470
+"Last time, we introduced neural
+networks, and we started with",00:00:18.470,00:00:23.610
+"multilayer perceptrons, and the idea
+is to combine perceptrons using",00:00:23.610,00:00:28.530
+"logical operations like OR's and AND's, in
+order to be able to implement more",00:00:28.530,00:00:33.030
+"sophisticated boundaries than the
+simple linear boundary of",00:00:33.030,00:00:37.570
+a perceptron.,00:00:37.570,00:00:38.670
+"And we took a final example, where we
+were trying to implement a circle",00:00:38.670,00:00:43.840
+"boundary in this case, and
+we realized that we",00:00:43.840,00:00:46.520
+can actually do this--,00:00:46.520,00:00:48.080
+at least approximate it--,00:00:48.080,00:00:49.590
+"if we have a sufficient
+number of perceptrons.",00:00:49.590,00:00:52.330
+"And we convinced ourselves that combining
+perceptrons in a layered",00:00:52.330,00:00:55.790
+"fashion will be able to implement
+more interesting functionalities.",00:00:55.790,00:01:00.370
+"And then we faced the simple problem
+that, even for a single perceptron,",00:01:00.370,00:01:04.019
+"when the data is not linearly separable,
+the optimization--",00:01:04.019,00:01:07.900
+finding the boundary based on data--,00:01:07.900,00:01:09.810
+"is a pretty difficult optimization
+problem.",00:01:09.810,00:01:11.960
+It's combinatorial optimization.,00:01:11.960,00:01:13.820
+"And therefore, it is next to hopeless
+to try to do that for a network of",00:01:13.820,00:01:19.220
+perceptrons.,00:01:19.220,00:01:20.560
+"And therefore, we introduced neural
+networks that came in as a way of",00:01:20.560,00:01:24.560
+"having a nice algorithm for multilayer
+perceptrons, by simply softening the",00:01:24.560,00:01:28.740
+threshold.,00:01:28.740,00:01:30.790
+"Instead of having it as just going from
+-1 to +1, it would go",00:01:30.790,00:01:33.790
+"from -1 to +1 gradually
+using a sigmoid function, in",00:01:33.790,00:01:37.870
+this case the tanh.,00:01:37.870,00:01:39.720
+"And if the signal which is
+given by this amount--",00:01:39.720,00:01:42.270
+"the usual signal that goes
+into the perceptron--",00:01:42.270,00:01:44.770
+"is large, large negative
+or large positive,",00:01:44.770,00:01:47.020
+the tanh approximates -1 or +1.,00:01:47.020,00:01:49.080
+"So we get the decision
+function we want.",00:01:49.080,00:01:51.490
+"And if s is very small, this is almost
+linear-- tanh(s) is linear.",00:01:51.490,00:01:54.970
+"And the most important aspect about it
+is that it's differentiable-- it's a smooth",00:01:54.970,00:01:58.440
+"function, and therefore the dependency
+of the error in the output on the",00:01:58.440,00:02:03.530
+"parameters w_ij will be a well-behaved
+function, for which we can",00:02:03.530,00:02:08.400
+apply things like gradient descent.,00:02:08.400,00:02:10.900
+"And the neural network
+looks like this.",00:02:10.900,00:02:13.590
+"It starts with the input, followed by
+a bunch of hidden layers, followed",00:02:13.590,00:02:17.540
+by the output layer.,00:02:17.540,00:02:18.870
+"And we spent some time trying to argue
+about the function of the hidden",00:02:18.870,00:02:22.560
+"layers, and how they transform the
+inputs into a particularly useful",00:02:22.560,00:02:27.590
+"nonlinear transformation, as far as
+implementing the output is concerned,",00:02:27.590,00:02:30.900
+and the question of interpretation.,00:02:30.900,00:02:32.930
+"And then we introduced the
+backpropagation algorithm, which is",00:02:32.930,00:02:36.610
+"applying stochastic gradient descent
+to neural networks.",00:02:36.610,00:02:39.520
+"Very simply, it decides on the direction
+along every coordinate in",00:02:39.520,00:02:43.500
+"the w space, using the very simple
+rule of gradient descent.",00:02:43.500,00:02:47.680
+"And in this case, you only
+need two quantities.",00:02:47.680,00:02:49.970
+"One of them is x_i, that was implemented
+using this formula, the",00:02:49.970,00:02:53.550
+"forward formula, so to speak, going from
+layer l minus 1 to layer l.",00:02:53.550,00:02:57.960
+"And then there is another quantity
+that we defined, which was called",00:02:57.960,00:03:00.980
+"delta, that is computed backwards.",00:03:00.980,00:03:02.990
+"You start from layer l, and then
+go to layer l minus 1.",00:03:02.990,00:03:06.700
+"And the formula is strikingly similar
+to the formula in the forward thing,",00:03:06.700,00:03:11.160
+"but instead of the nonlinearity
+being applied,",00:03:11.160,00:03:13.000
+you multiply by something.,00:03:13.000,00:03:15.100
+"And once you get all the delta's and x's
+by a forward and a backward run,",00:03:15.100,00:03:19.710
+"then you simply can decide on the move
+in every weight, according to this very",00:03:19.710,00:03:24.830
+"simple formula that involves
+the x's and the delta's.",00:03:24.830,00:03:27.450
+"And the simplicity of the
+backpropagation algorithm, and its",00:03:27.450,00:03:31.040
+"efficiency, are the reasons why neural
+networks have become very popular as",00:03:31.040,00:03:36.300
+"a standard tool of implementing functions
+that need machine learning",00:03:36.300,00:03:40.560
+"in industry, for quite some time now.",00:03:40.560,00:03:43.380
+"Today, I'm going to start
+a completely new topic.",00:03:43.380,00:03:46.580
+"It's called overfitting, and it will
+take us three full lectures to cover",00:03:46.580,00:03:50.770
+"overfitting and the techniques
+that go with it.",00:03:50.770,00:03:54.110
+"And the techniques are very important,
+because they apply to almost any",00:03:54.110,00:03:57.510
+"machine learning problem that
+you're going to see.",00:03:57.510,00:04:00.410
+"And they are applied on top of any
+algorithm or model you use.",00:04:00.410,00:04:05.295
+"So you can use neural networks
+or linear models, et cetera.",00:04:05.295,00:04:08.410
+"But the techniques that we're going to
+use here, which are regularization and",00:04:08.410,00:04:11.970
+"validation, apply to all
+of these models.",00:04:11.970,00:04:14.420
+"So this is another layer of techniques
+for machine learning.",00:04:14.420,00:04:17.740
+And overfitting is a very important topic.,00:04:17.740,00:04:21.990
+"It is fair to say that
+the ability to deal with overfitting is",00:04:21.990,00:04:27.440
+"what separates professionals from
+amateurs in machine learning.",00:04:27.440,00:04:31.870
+"Everybody can fit, but if you know what
+overfitting is, and how to deal",00:04:31.870,00:04:35.640
+"with it, then you have an edge that
+someone who doesn't know the",00:04:35.640,00:04:38.510
+"fundamentals would not be
+able to comprehend.",00:04:38.510,00:04:42.440
+"So the outline today is, first, we are
+going to start-- what is the notion?",00:04:42.440,00:04:45.140
+what is overfitting?,00:04:45.140,00:04:46.810
+"And then we are going to identify
+the main culprit for",00:04:46.810,00:04:49.310
+"overfitting, which is noise.",00:04:49.310,00:04:51.550
+"And after observing some experiments, we
+will realize that noise covers more",00:04:51.550,00:04:57.350
+territory than we thought.,00:04:57.350,00:04:58.580
+"There's actually another type of noise,
+which we are going to call",00:04:58.580,00:05:01.070
+deterministic noise.,00:05:01.070,00:05:01.970
+"It's a novel notion that is very
+important for overfitting in machine",00:05:01.970,00:05:05.480
+"learning, and we're going to
+talk about it a little bit.",00:05:05.480,00:05:08.080
+"And then, very briefly, I'm going to
+give you a glimpse into the next two",00:05:08.080,00:05:11.080
+"lectures by telling you how
+to deal with overfitting.",00:05:11.080,00:05:14.340
+"And then we will be ready,",00:05:14.340,00:05:17.530
+"having diagnosed what the problem
+is, to go for the cures--",00:05:17.530,00:05:20.490
+"regularization next time, and validation
+the time after that.",00:05:20.490,00:05:24.520
+OK.,00:05:24.520,00:05:26.260
+"Let's start by illustrating the
+situation where overfitting occurs.",00:05:26.260,00:05:31.650
+"So let's say we have a simple
+target function.",00:05:31.650,00:05:34.850
+"Let's take it to be a 2nd-order
+target function, a parabola.",00:05:35.640,00:05:40.640
+So my input space is the real numbers.,00:05:40.640,00:05:42.550
+I have only a scalar input x.,00:05:42.550,00:05:44.960
+"And there's a value y, and I have
+this target that is 2nd-order.",00:05:44.960,00:05:49.560
+"We are going to generate five data
+points from that target, in order to",00:05:52.710,00:05:56.180
+learn from.,00:05:56.180,00:05:56.820
+This is an illustration.,00:05:56.820,00:05:58.320
+Let's look at the five data points.,00:05:58.320,00:06:02.370
+"As you see, the data points look like
+they belong to the curve, but they",00:06:02.370,00:06:06.450
+"don't seem to belong perfectly
+to the curve.",00:06:06.450,00:06:08.350
+"So there must be noise, right?",00:06:08.350,00:06:11.570
+"This is a noisy case, where
+the target itself--",00:06:11.570,00:06:14.530
+"the deterministic part of the target
+is a function, and then",00:06:14.530,00:06:17.790
+there is added noise.,00:06:17.790,00:06:18.750
+"It's not a lot of noise, obviously--
+very small amount.",00:06:18.750,00:06:21.960
+"But nonetheless, it will
+affect the outcome.",00:06:21.960,00:06:24.550
+"So we do have a noisy
+target in this case.",00:06:25.100,00:06:30.430
+"Now, if I just told you that you have
+five points, which is the case you",00:06:30.430,00:06:35.000
+face when you learn.,00:06:35.000,00:06:36.540
+"The target disappears, I have five
+points, and you want to fit them.",00:06:36.540,00:06:39.740
+"Going back to your math, you realize,
+I want to fit five points.",00:06:40.380,00:06:43.350
+"Maybe I should use-- a 4th-order
+polynomial will do it, right?",00:06:43.350,00:06:47.865
+You have five parameters.,00:06:47.865,00:06:48.940
+"So let's fit it with
+4th-order polynomial.",00:06:48.940,00:06:51.240
+"This is the guy who doesn't know
+machine learning, by the way.",00:06:51.900,00:06:53.810
+"So I say, I'm going to use
+the 4th-order polynomial.",00:06:54.540,00:06:57.950
+And what will the fit look like?,00:06:57.950,00:07:02.040
+"Perfect fit, in sample.",00:07:02.040,00:07:05.570
+And you measure your quantities.,00:07:06.860,00:07:08.920
+The first quantity is E_in.,00:07:08.920,00:07:10.680
+Success!,00:07:10.680,00:07:11.660
+We achieved zero training error.,00:07:11.660,00:07:13.890
+"And then when you go for the
+out-of-sample, you are comparing the red",00:07:13.890,00:07:19.280
+"curve to the blue curve, and
+the news is not good.",00:07:19.280,00:07:22.410
+"I'm not even going to calculate
+it, it's just huge.",00:07:22.410,00:07:24.790
+"This is a familiar situation
+for us, and we know what the deal is.",00:07:26.240,00:07:30.050
+"The point I want to make here is that,
+when you say overfitting, overfitting",00:07:30.050,00:07:36.550
+is a comparative term.,00:07:36.550,00:07:37.725
+"It must be that one situation
+is worse than another.",00:07:37.725,00:07:40.160
+You went further than you should.,00:07:40.160,00:07:41.660
+"And there is a distinction between
+overfitting, and just bad",00:07:42.610,00:07:45.520
+generalization.,00:07:45.520,00:07:46.860
+"So the reason I'm calling this
+overfitting is because, if you use,",00:07:46.860,00:07:49.540
+"let's say, 3rd-order polynomial, you
+will not be able to achieve zero",00:07:49.540,00:07:54.160
+"training error, in general.",00:07:54.160,00:07:56.600
+But you will get a better E_out.,00:07:56.600,00:07:58.410
+"Therefore, the overfitting here happened
+by using the 4th-order",00:07:58.980,00:08:02.490
+instead of the 3rd-order.,00:08:02.490,00:08:04.220
+You went further.,00:08:04.220,00:08:05.380
+That's the key.,00:08:05.600,00:08:06.780
+"And that point is made even more clearly,
+when you talk about neural",00:08:06.780,00:08:12.140
+"networks and overfitting
+within the same model.",00:08:12.140,00:08:15.960
+"In the case of overfitting with
+3rd-order polynomial versus 4th-order",00:08:15.960,00:08:18.890
+"polynomial, you are comparing
+two models.",00:08:18.890,00:08:21.150
+"Here, I'm going to take just neural
+networks, and I'll show you how",00:08:21.150,00:08:24.350
+"overfitting can occur within
+the same model.",00:08:24.350,00:08:28.000
+"So let's say we have a neural network,
+and it is fitting noisy data.",00:08:29.250,00:08:32.130
+That's a typical situation.,00:08:32.130,00:08:33.460
+"So you run your backpropagation
+algorithm with a number of epochs, and",00:08:33.460,00:08:37.370
+"you plot what happens to E_in,
+and you get this curve.",00:08:37.370,00:08:41.120
+Can you see this curve at all?,00:08:42.980,00:08:44.140
+"Let me try to magnify it, hoping
+that it will become clearer.",00:08:44.140,00:08:47.690
+A little bit better.,00:08:50.060,00:08:51.120
+This is the number of epochs.,00:08:51.910,00:08:54.670
+"You start from an initial condition,
+a random vector.",00:08:54.670,00:08:58.260
+"And then you run stochastic gradient
+descent, and evaluate the total E_in",00:08:58.260,00:09:03.990
+"at the end of every epoch,
+and you plot it.",00:09:03.990,00:09:06.030
+And it goes down.,00:09:06.030,00:09:07.110
+It doesn't go to zero.,00:09:07.110,00:09:08.010
+The data is noisy.,00:09:08.010,00:09:10.310
+"You don't have enough parameters
+to fit it perfectly.",00:09:10.310,00:09:12.950
+"But this looks like a typical situation,
+where E_in goes down.",00:09:12.950,00:09:17.360
+"Now, because this is an experiment, you
+have set aside a test set that you",00:09:18.620,00:09:22.740
+did not use in training.,00:09:22.740,00:09:24.610
+"And what you are going to do, you are
+going to take this test set and",00:09:24.610,00:09:27.310
+evaluate what happens out-of-sample.,00:09:27.310,00:09:29.260
+"Not only at the end, but as you go.",00:09:29.260,00:09:31.730
+"Just to see, as I train, am I making
+progress out-of-sample or not?",00:09:31.730,00:09:35.910
+"You're definitely making
+progress in-sample.",00:09:35.910,00:09:38.560
+"So you plot the out-of-sample,
+and this is what you get.",00:09:38.560,00:09:41.870
+So this is estimated by a test set.,00:09:41.870,00:09:44.780
+"Now, there are many things you can say
+about this curve, and one of them is,",00:09:46.030,00:09:49.710
+"in the beginning when you start
+with a random w, in spite",00:09:49.710,00:09:54.790
+"of the fact that you're using a full
+neural network, when you evaluate on",00:09:54.790,00:09:57.490
+"this point, you have only one
+hypothesis that does not",00:09:57.490,00:09:59.990
+depend on the data set.,00:09:59.990,00:10:01.100
+This is the random w that you got.,00:10:01.100,00:10:03.400
+"So it's not a surprise that E_in and E_out
+are about the same value here.",00:10:03.400,00:10:07.970
+Because they are floating around.,00:10:08.220,00:10:11.070
+"As you go down the road, and start
+exploring the weight space by going",00:10:11.070,00:10:15.490
+"from one iteration to the next, you're
+exploring more and more of the space",00:10:15.490,00:10:19.800
+of weights.,00:10:19.800,00:10:20.730
+"So you are getting the benefit, or the
+harm, of having the full neural",00:10:20.730,00:10:25.770
+"network model, gradually.",00:10:25.770,00:10:27.580
+"In the beginning here, you are only
+exploring a small part of",00:10:28.150,00:10:30.490
+the space.,00:10:30.490,00:10:31.970
+"So if you can think of an effective
+VC dimension as you go, if you",00:10:31.970,00:10:34.990
+"can define that, then there is
+an effective VC dimension that is",00:10:34.990,00:10:38.000
+growing with time until it gets--,00:10:38.000,00:10:40.680
+"after you have explored the whole
+space, or at least potentially",00:10:40.680,00:10:43.050
+"explored the whole space, if you
+had different data sets--",00:10:43.050,00:10:45.790
+"then you have the effective VC
+dimension, will be the total number of",00:10:45.790,00:10:51.000
+free parameters in the model.,00:10:51.000,00:10:53.210
+"So the generalization error, which is
+the difference between the red and",00:10:53.210,00:10:56.290
+"green curve, is getting
+worse and worse.",00:10:56.290,00:10:58.450
+That's not a surprise.,00:10:58.450,00:10:59.630
+"But there is a point, which is
+an important point here, which happens",00:11:00.340,00:11:03.930
+around here.,00:11:03.930,00:11:04.460
+"Let me now shrink this back, now that
+you know where the curves are.",00:11:04.460,00:11:08.080
+"And let's look at where
+overfitting occurs.",00:11:09.270,00:11:13.570
+"Overfitting occurs when you knock down
+E_in, so you get a smaller E_in,",00:11:13.570,00:11:19.300
+but E_out goes up.,00:11:19.300,00:11:22.260
+"If you look at these curves, you will
+realize that this is happening",00:11:23.250,00:11:27.060
+around here.,00:11:27.060,00:11:29.370
+"Now there is very little, in terms of the
+difference of generalization error,",00:11:29.370,00:11:33.080
+"before the blue line and
+after the blue line.",00:11:33.080,00:11:35.705
+"Yet I am making a specific distinction,
+that crossing this boundary went into",00:11:35.705,00:11:39.470
+overfitting.,00:11:39.470,00:11:40.110
+Why is that?,00:11:40.110,00:11:42.020
+"Because up till here, I can always
+reduce the E_in, and in spite of the",00:11:42.020,00:11:47.540
+"fact that E_out is following suit with
+very diminishing returns, it's still",00:11:47.540,00:11:52.870
+a good idea to minimize E_in.,00:11:52.870,00:11:56.210
+Because you are getting smaller E_out.,00:11:56.210,00:11:59.110
+"The problems happen when you cross,
+because now you think you're doing",00:11:59.110,00:12:02.250
+"well, you are reducing E_in, and you are
+actually harming the performance.",00:12:02.250,00:12:06.150
+That's what needs to be taken care of.,00:12:06.150,00:12:08.590
+So that's where overfitting occurs.,00:12:09.050,00:12:10.930
+"In this situation, it might be a very
+good idea to be able to detect when",00:12:10.930,00:12:14.790
+"this happens, and simply stop at that
+point and report that, instead of",00:12:14.790,00:12:20.010
+"reporting the final hypothesis
+you will get after all",00:12:20.010,00:12:22.920
+"the iterations, right?",00:12:22.920,00:12:24.220
+"Because in this case, you're going to get
+this E_out instead of that E_out,",00:12:24.220,00:12:27.610
+which is better.,00:12:27.610,00:12:28.650
+"And indeed, the algorithm that goes with
+that is called early stopping.",00:12:28.650,00:12:32.520
+And it will be based on validation.,00:12:33.140,00:12:34.960
+"And although it's based on validation,
+it really is a regularization, in",00:12:34.960,00:12:38.520
+terms of putting the brakes.,00:12:38.520,00:12:40.210
+"So now we can see the relative
+aspect of overfitting.",00:12:41.000,00:12:44.380
+"And overfitting can happen when you compare
+two things, whether the two",00:12:44.380,00:12:47.620
+"things are two different models, or two
+instances within the same model.",00:12:47.620,00:12:52.380
+"And we look at this and say that if
+there is overfitting, we'd better be",00:12:52.380,00:12:57.610
+"able to detect it, in order to stop
+earlier than we would otherwise,",00:12:57.610,00:13:01.580
+"because otherwise we will
+be harming ourselves.",00:13:01.580,00:13:03.460
+So this is the main story.,00:13:03.460,00:13:06.380
+"Now let's look at what is overfitting
+as a definition, and what",00:13:07.290,00:13:10.380
+is the culprit for it.,00:13:10.380,00:13:13.690
+"Overfitting, as a criterion,
+is the following.",00:13:13.690,00:13:17.370
+"It's fitting the data more
+than is warranted.",00:13:17.370,00:13:20.396
+And this is a little bit strange.,00:13:21.070,00:13:22.340
+What would be more than is warranted?,00:13:22.340,00:13:24.820
+"I mean, we are in machine learning.",00:13:24.820,00:13:26.170
+We are the business of fitting data.,00:13:26.170,00:13:27.540
+So I can fit the data.,00:13:27.540,00:13:28.490
+I keep fitting it.,00:13:28.490,00:13:29.190
+"But there comes a point, where
+this is no longer good.",00:13:29.190,00:13:32.120
+Why does this happen?,00:13:32.610,00:13:34.040
+What is the culprit?,00:13:34.040,00:13:35.720
+"The culprit, in this case, is that you're
+actually fitting the noise.",00:13:35.720,00:13:41.770
+"The data has noise in it, and you are
+trying to look at the finite sample",00:13:41.770,00:13:46.170
+"set that you got, and you're
+trying to get it right.",00:13:46.170,00:13:48.890
+"In trying to get it right, you are
+inadvertently fitting the noise.",00:13:48.890,00:13:53.910
+This is understood.,00:13:54.220,00:13:55.400
+I can see that this is not good.,00:13:55.400,00:13:59.930
+"At least, it's not useful at all.",00:13:59.930,00:14:01.880
+"Fitting the noise, there's no pattern to
+detect in the noise, so fitting the",00:14:01.880,00:14:05.560
+"noise cannot possibly
+help me out-of-sample.",00:14:05.560,00:14:07.890
+"However, if it was only just useless,
+we would be OK.",00:14:09.270,00:14:14.180
+We wouldn't be having this lecture.,00:14:14.180,00:14:15.530
+"Because you think, I give
+the data, the data has the",00:14:15.530,00:14:19.300
+signal and the noise.,00:14:19.300,00:14:21.290
+I cannot distinguish between them.,00:14:21.290,00:14:22.760
+"I just get x and get y.
+y has a component which is a signal, and",00:14:22.760,00:14:26.370
+"a component which is noise, but I get just
+one number. I cannot distinguish",00:14:26.370,00:14:29.330
+between the two.,00:14:29.330,00:14:30.240
+And I am fitting them.,00:14:30.240,00:14:31.770
+And now I'm going to fit the noise.,00:14:31.770,00:14:34.450
+Let's look at it this way.,00:14:34.450,00:14:35.660
+I'm in the business of fitting.,00:14:35.660,00:14:36.820
+I cannot distinguish the two.,00:14:36.820,00:14:38.230
+"Fitting the noise is the
+cost of doing business.",00:14:38.230,00:14:40.940
+"If it's just useless, I wasted some
+effort, but nothing bad happened.",00:14:40.940,00:14:45.290
+"The problem really is
+that it's harmful.",00:14:45.910,00:14:49.820
+"It's not a question of being useless,
+and that's a big difference.",00:14:49.820,00:14:52.285
+"Because machine learning
+is machine learning.",00:14:53.150,00:14:55.240
+"If you fit the noise in-sample, the
+learning algorithm gets a pattern.",00:14:55.240,00:14:59.680
+"It imagines a pattern, and extrapolates
+that out-of-sample.",00:14:59.680,00:15:03.640
+"So based on the noise, it gives you something
+out-of-sample and tells you this is",00:15:04.100,00:15:07.290
+"the pattern in the data, obviously,
+which it isn't.",00:15:07.290,00:15:09.780
+"And that will obviously worsen your
+out-of-sample, because it's taking you",00:15:09.780,00:15:12.820
+away from the correct solution.,00:15:12.820,00:15:14.580
+"So you can think of the learning
+algorithm in this case, when",00:15:15.190,00:15:17.370
+"detecting a pattern that doesn't exist,",00:15:17.370,00:15:19.000
+the learning algorithm is hallucinating.,00:15:19.000,00:15:21.570
+"Oh, there's a great pattern, and this is
+what it looks like, and it reports",00:15:21.570,00:15:24.570
+"it, and eventually, obviously that
+imaginary thing ends up hurting the",00:15:24.570,00:15:28.350
+performance.,00:15:28.350,00:15:29.770
+So let's look at a case study.,00:15:32.560,00:15:34.770
+"And the main reason for the case study,
+because we vaguely now understand",00:15:34.770,00:15:39.140
+"that it's a problem of the noise, so
+let's see how does the noise affect",00:15:39.140,00:15:42.830
+the situation?,00:15:42.830,00:15:43.610
+Can we get overfitting without noise?,00:15:43.610,00:15:45.330
+What is the deal?,00:15:45.330,00:15:45.970
+"So I'm going to give you
+a specific case.",00:15:45.970,00:15:49.690
+"I'm going to start with
+a 10th-order target.",00:15:49.690,00:15:51.860
+"10th-order target means
+10th-order polynomial.",00:15:51.860,00:15:53.610
+"I'm always working on
+the real numbers.",00:15:53.610,00:15:58.290
+"The input is a scalar, and I'm
+defining polynomials based on that,",00:15:58.290,00:16:01.850
+"and I'm going to take
+10th-order target.",00:16:01.850,00:16:04.020
+"The 10th-order target, one
+of them looks like this.",00:16:04.780,00:16:07.260
+"You choose the coefficient somehow,
+and you get something like that.",00:16:07.260,00:16:09.740
+A fairly elaborate thing.,00:16:09.740,00:16:12.010
+"And then you generate data, and the data
+will be noisy, because we want to",00:16:12.010,00:16:19.480
+"investigate the impact of
+noise on overfitting.",00:16:19.480,00:16:21.400
+"Let's say I'm going to generate
+15 data points in this case.",00:16:21.400,00:16:25.990
+So this is what you get.,00:16:25.990,00:16:28.270
+Let's look at these points.,00:16:28.270,00:16:29.470
+"The noise here is not trivial
+as it was last time.",00:16:29.470,00:16:31.980
+"There's a difference. Obviously,
+these are not lying on the curve.",00:16:32.690,00:16:36.000
+"So there is a noise that is
+contributing to that.",00:16:36.000,00:16:38.110
+"Now the other guy,",00:16:41.700,00:16:43.180
+"which is a 50th order,",00:16:43.180,00:16:46.270
+is noiseless.,00:16:46.270,00:16:47.800
+"That is, I'm going to generate
+a 50th-order polynomial, so it's",00:16:47.800,00:16:51.050
+"obviously much more elaborate than the
+blue curve here, but I'm not going to",00:16:51.050,00:16:55.520
+add noise to it.,00:16:55.520,00:16:56.330
+"I'm going to generate also 15 points
+from this guy, but the 15 points, as",00:16:56.330,00:17:00.340
+"you will see, perfectly
+lie on the curve.",00:17:00.340,00:17:04.040
+This is all of them here.,00:17:04.040,00:17:04.970
+"So this is the data, this
+is the target, and the",00:17:04.970,00:17:06.800
+data lies on the target.,00:17:06.800,00:17:08.020
+These are two interesting cases.,00:17:08.599,00:17:09.950
+"One of them is a simple
+target, so to speak.",00:17:09.950,00:17:13.210
+"Added noise, that makes it complicated.",00:17:13.210,00:17:15.640
+"This one is complicated
+in a different way.",00:17:15.640,00:17:17.400
+"It's a high-order target to begin
+with, but there is no noise.",00:17:17.400,00:17:20.300
+"These are the two cases that I'm
+going to try to investigate",00:17:21.160,00:17:23.849
+overfitting in.,00:17:23.849,00:17:25.099
+"We are going to have two different
+fits for each target.",00:17:28.069,00:17:30.810
+We are in the business of overfitting.,00:17:30.810,00:17:32.680
+We have to have comparative models.,00:17:32.680,00:17:34.370
+"So I'm going to have two models
+to fit every case.",00:17:34.370,00:17:36.570
+"And see if I get overfitting
+here, and I get it here.",00:17:36.740,00:17:40.440
+"This is the first guy
+that we saw before.",00:17:40.930,00:17:44.970
+The simple target with noise.,00:17:44.970,00:17:47.090
+"And this guy is the other one, which is
+the complex target without noise.",00:17:47.090,00:17:52.310
+"10th-order, 50th-order.",00:17:52.310,00:17:53.300
+"We'll just refer to them as a noisy
+low-order target, and a noiseless",00:17:53.300,00:17:59.140
+high-order target.,00:17:59.140,00:18:00.150
+This is what we want to learn.,00:18:00.460,00:18:03.240
+"Now, what are we going to learn with?",00:18:03.240,00:18:06.380
+We're going to learn with two models.,00:18:06.380,00:18:08.290
+"One of them is the same thing--
+we have a 2nd-order polynomial",00:18:08.290,00:18:12.770
+"that we're going to use to
+fit. That's our model.",00:18:12.770,00:18:15.150
+"And we're going to have
+a 10th-order polynomial",00:18:15.150,00:18:16.980
+"These are the two guys that
+we are going to use.",00:18:16.980,00:18:20.340
+"Here's what happens with
+the 2nd-order fit.",00:18:21.080,00:18:23.470
+"You have the data points, and you fit
+them, and it's not surprising.",00:18:24.150,00:18:26.860
+"For the 2nd order, it's a simple
+curve, and it tries to find",00:18:26.860,00:18:29.940
+"a compromise. Here we are
+applying mean squared",00:18:29.940,00:18:31.720
+"error, so this is what you get.",00:18:31.720,00:18:33.790
+"Now, let's analyze the performance
+of this fellow.",00:18:34.660,00:18:38.580
+"What I'm going list here, as you see,
+I'm going to say, what is the",00:18:38.580,00:18:41.285
+"in-sample error, what is the out-of-sample
+error, for the 2nd order which",00:18:41.285,00:18:44.430
+"is already here, and the 10th order,
+which I haven't shown yet.",00:18:44.430,00:18:47.490
+"The in-sample error
+in this case is 0.05.",00:18:48.520,00:18:54.840
+This is a number.,00:18:55.350,00:18:56.140
+"Obviously, it depends
+on the scale.",00:18:56.140,00:18:57.400
+It's some number.,00:18:57.400,00:18:58.340
+"When you get the out-of-sample version,
+not surprisingly, it's",00:18:58.340,00:19:01.890
+"bigger, because this one fit the data.",00:19:01.890,00:19:03.730
+"The other one is out-of-sample,
+so it's going to be bigger.",00:19:03.730,00:19:07.120
+"But the difference is not dramatic, and
+this is the performance you get.",00:19:07.120,00:19:10.530
+Now let's apply the 10th-order fit.,00:19:11.480,00:19:13.485
+"You already foresee what
+a problem can exist here.",00:19:17.110,00:19:20.920
+"The red curve sees the data, tries to
+fit that, uses all the degrees of",00:19:20.920,00:19:24.370
+"freedom it has-- it has 11 of them--
+and then it gets this guy.",00:19:24.370,00:19:27.970
+"And when you look at the in-sample
+error, obviously the in-sample error",00:19:27.970,00:19:31.380
+"must be smaller than
+the in-sample error here.",00:19:31.380,00:19:33.060
+"You have more to fit and you
+fit it better, so you get",00:19:33.060,00:19:35.575
+smaller in-sample error.,00:19:35.575,00:19:36.640
+And what is out-of-sample error?,00:19:37.330,00:19:40.050
+Just terrible.,00:19:40.050,00:19:41.980
+"So this is patently
+a case of overfitting.",00:19:42.950,00:19:45.210
+"When you went from 2nd order to
+10th order, the in-sample",00:19:45.210,00:19:49.020
+error indeed went down.,00:19:49.020,00:19:50.650
+The out-of-sample error went up.,00:19:50.650,00:19:53.110
+Way up.,00:19:53.110,00:19:54.300
+"So you say, this confirms
+what we have said before.",00:19:55.440,00:19:58.040
+We are fitting the noise.,00:19:58.040,00:19:59.530
+"And you can see here that you're
+actually fitting the noise.",00:19:59.530,00:20:01.670
+"You can see the red curve is trying to
+go for these guys, and you know that",00:20:01.670,00:20:04.430
+these guys are off the target.,00:20:04.430,00:20:06.410
+"Therefore, the red curve is bending
+particularly, in order to capture",00:20:06.410,00:20:10.580
+something that is really noise.,00:20:10.580,00:20:12.010
+So this is the case.,00:20:12.280,00:20:13.640
+"Here it's a little bit strange, because
+here we don't have any noise.",00:20:13.640,00:20:17.110
+"And we also have the same models.
+We're going to take",00:20:17.880,00:20:20.400
+the same two models.,00:20:20.400,00:20:21.540
+"We have 2nd order and 10th
+order, fitting here.",00:20:21.540,00:20:24.720
+Let's see how they perform here.,00:20:24.970,00:20:28.080
+"Well, this is the 2nd-order fit.",00:20:28.080,00:20:30.930
+"Again, that's what you expect
+from a 2nd-order fit.",00:20:30.930,00:20:33.400
+"And you look at the in-sample error and
+out-of-sample error, and they are",00:20:33.400,00:20:36.620
+OK-- ballpark fine.,00:20:36.620,00:20:37.970
+"You get some error, and the other
+one is bigger than it.",00:20:38.260,00:20:40.890
+"Now we go for the 10th order, which
+is the interesting one.",00:20:42.310,00:20:45.630
+This is the 10th order.,00:20:48.030,00:20:49.600
+"You need to remember that the 10th
+order is fitting a 50th order.",00:20:49.600,00:20:54.100
+"So it really doesn't have enough
+parameters to fit, if we had all the",00:20:54.100,00:20:59.100
+"glory of the target function
+in front of us.",00:20:59.100,00:21:00.970
+"But we don't have all the glory
+of the target function. We",00:21:01.180,00:21:03.790
+have only 15 points.,00:21:03.790,00:21:04.710
+"So it does as good a job as
+possible for fitting.",00:21:05.270,00:21:08.800
+"And when we look at the in-sample error,
+definitely the in-sample error",00:21:08.800,00:21:13.055
+is smaller than here.,00:21:13.055,00:21:14.490
+Because we have more.,00:21:14.720,00:21:15.275
+It's actually extremely small.,00:21:15.300,00:21:16.600
+"It did it really, really, well.",00:21:16.600,00:21:17.730
+"And then when you go for
+the out-of-sample.",00:21:19.510,00:21:21.105
+"Oh, no!",00:21:24.620,00:21:26.970
+"You see, this is squared error.",00:21:26.970,00:21:28.190
+"So these guys, when you go down
+and when you go up, kill you.",00:21:28.190,00:21:32.240
+And indeed they did.,00:21:32.840,00:21:33.870
+So this is overfitting galore.,00:21:34.800,00:21:37.220
+"And now you ask yourself, you just
+told us about noise and not noise.",00:21:38.110,00:21:42.780
+"This is noiseless, right?",00:21:42.780,00:21:44.285
+Why did we get overfitting here?,00:21:44.290,00:21:46.470
+"We will find out that the reason
+we are getting overfitting here,",00:21:47.370,00:21:50.020
+because actually this guy has noise.,00:21:50.020,00:21:53.320
+But it's not your usual noise.,00:21:53.320,00:21:55.150
+It's another type of noise.,00:21:55.150,00:21:57.020
+"And getting that notion down is very
+important to understand the situations",00:21:57.020,00:22:01.130
+"in practice, where you are going
+to get overfitting.",00:22:01.130,00:22:04.060
+"You could be facing a completely
+noiseless, in the conventional sense,",00:22:04.060,00:22:07.900
+"situation, and yet there is overfitting,
+because you are fitting",00:22:07.900,00:22:10.820
+another type of noise.,00:22:10.820,00:22:12.550
+"So let's look at the irony
+in this example.",00:22:14.590,00:22:17.940
+Here is the first example--,00:22:19.150,00:22:20.940
+the noisy simple target.,00:22:20.940,00:22:22.710
+"So you are learning a 10th-order target,
+and the target is noisy.",00:22:23.130,00:22:27.800
+"And I'm not showing the target here, I'm
+showing the data points together",00:22:27.800,00:22:30.420
+with the two fits.,00:22:30.420,00:22:31.420
+"Now let's say that I tell you that
+the target is 10th order, and",00:22:32.610,00:22:36.960
+you have two learners.,00:22:36.960,00:22:38.560
+"One of them is O, and
+one of them is R--",00:22:38.560,00:22:40.390
+"O for overfitting, and R is for
+restricted, as it turns out.",00:22:40.390,00:22:43.260
+"And you tell them, guys, I'm not going
+to tell you what the target is,",00:22:44.140,00:22:46.870
+"because if I tell you what
+the target is, this is no",00:22:46.870,00:22:48.600
+longer machine learning.,00:22:48.600,00:22:49.600
+But let me help you out a little bit.,00:22:50.110,00:22:52.050
+The target is a 10th-order polynomial.,00:22:52.050,00:22:54.710
+And I'm going to give you 15 points.,00:22:54.920,00:22:56.500
+Choose your model.,00:22:57.830,00:22:58.930
+Fair enough?,00:22:59.840,00:23:00.280
+"The information given does not
+depend on the data set, so",00:23:00.280,00:23:03.090
+it's a fair thing.,00:23:03.090,00:23:04.490
+"The first learner says, I know
+that the target is 10th order.",00:23:04.490,00:23:10.650
+Why not pick a 10th-order model?,00:23:10.650,00:23:15.510
+Sounds like a good idea.,00:23:15.510,00:23:16.825
+"And they do this, and they get the red
+curve, and they cry and cry and cry!",00:23:17.980,00:23:23.250
+"The other guy said, oh,
+it's 10th-order model?",00:23:25.020,00:23:30.060
+Who cares?,00:23:30.060,00:23:31.240
+How many points do you have?,00:23:31.240,00:23:33.810
+15.,00:23:33.810,00:23:34.460
+"OK, 15.",00:23:34.460,00:23:37.090
+"I am going to take a 2nd order, and I am
+actually pushing my luck, because",00:23:37.100,00:23:40.470
+"2nd order is 3 parameters, I have
+15 points, the ratio is 5.",00:23:40.470,00:23:44.180
+"Someone told us a rule of thumb
+that it should be 10.",00:23:44.180,00:23:46.350
+I'm flirting with danger.,00:23:46.350,00:23:47.720
+"But I cannot use a line when you are
+telling me the thing is 10th order, so",00:23:47.720,00:23:51.390
+let me try my luck with 2nd.,00:23:51.390,00:23:52.960
+That's what you do.,00:23:53.530,00:23:54.650
+And they win.,00:23:55.340,00:23:57.230
+"So it's a rather interesting irony,
+because there is a thought in people's",00:23:57.530,00:24:01.560
+"mind that you try to get as much
+information about the target function,",00:24:01.560,00:24:05.550
+and put it in the hypothesis set.,00:24:05.550,00:24:07.510
+"In some sense this is true,
+for certain properties.",00:24:08.020,00:24:10.860
+"But if you are matching the complexity,
+here the guy who actually",00:24:11.340,00:24:15.330
+"took the 10th-order target, and decided
+to put the information all too well",00:24:15.330,00:24:19.440
+in the hypothesis--,00:24:19.440,00:24:20.150
+I'm taking a 10th-order hypothesis,00:24:20.150,00:24:22.900
+set-- lost.,00:24:22.900,00:24:25.320
+"So again, we know all too well now.
+The question is, you match the data",00:24:26.210,00:24:30.950
+"resources, rather than the
+target complexity.",00:24:30.950,00:24:33.410
+"There will be other properties
+of the target function, that we",00:24:33.410,00:24:35.500
+will take to heart.,00:24:35.500,00:24:36.530
+"Symmetry and whatnot, there are a bunch
+of hints that we can take.",00:24:36.530,00:24:39.180
+"But the question of complexity is not
+one of the things that you just apply",00:24:39.180,00:24:44.460
+"the general idea of: let me match
+the target function.",00:24:44.460,00:24:46.960
+That's not the case.,00:24:46.960,00:24:47.810
+"In this case, you are looking at
+generalization issues, and you know",00:24:47.810,00:24:51.650
+"that generalization issues depend
+on the size and the",00:24:51.650,00:24:53.810
+quality of the data set.,00:24:53.810,00:24:55.640
+"Now, the example that I just gave you, we
+have seen it before when we introduced",00:24:58.130,00:25:03.930
+"learning curves, if you remember
+what those were.",00:25:03.930,00:25:05.820
+"Those were, yeah, I'm going to put
+how E_in and E_out change with",00:25:05.820,00:25:10.290
+"a number of examples. And I gave you
+something, and I told you that this is",00:25:10.290,00:25:13.750
+"an actual situation we'll see later,
+and this is the situation.",00:25:13.750,00:25:17.400
+"So this is the case where you take the
+2nd-order polynomial model, H_2, and",00:25:17.400,00:25:24.190
+"the inevitable error, which is the black
+line, comes now not only from",00:25:24.190,00:25:29.160
+"the limitations of the model--
+an inability for a 2nd order to replicate",00:25:29.160,00:25:34.920
+"a 10th order, which is the
+target in this case--",00:25:34.920,00:25:37.070
+but also because there is noise added.,00:25:37.070,00:25:39.060
+"Therefore, there's an amount
+of error that is inevitable",00:25:39.060,00:25:41.620
+because of the noise.,00:25:41.620,00:25:43.040
+But the model is very limited.,00:25:43.040,00:25:44.580
+"The generalization is not bad,
+which is the difference",00:25:44.580,00:25:47.100
+between the two curves.,00:25:47.100,00:25:48.370
+"And if you have more examples, the two
+curves will converge, as they always",00:25:48.370,00:25:52.060
+"do, but they converge to the inevitable
+amount of error, which is",00:25:52.060,00:25:55.910
+"dictated by the fact that you're using
+such a simple model in this case.",00:25:55.910,00:25:58.950
+"And when we looked at the other case,
+also introduced in this case-- this",00:25:59.870,00:26:03.250
+was the 10th-order fellow.,00:26:03.250,00:26:05.290
+"So the 10th-order fellow is-- you can
+fit a lot, so the in-sample error is",00:26:05.290,00:26:09.340
+always smaller than here.,00:26:09.340,00:26:10.600
+That is understood.,00:26:10.600,00:26:11.810
+"The out-of-sample error starts by
+being terrible, because you are",00:26:11.810,00:26:14.300
+overfitting.,00:26:14.300,00:26:15.170
+"And then it goes down, and it converges
+to something that is better,",00:26:15.170,00:26:18.790
+"because that carries the ability
+of H_10 to approximate",00:26:18.790,00:26:23.610
+"a 10th order, which should be
+perfect, except that we have noise.",00:26:23.610,00:26:26.420
+"So all of this actually is due to
+the noise added to the examples.",00:26:26.420,00:26:29.450
+"And the gray area is the interesting
+part for us.",00:26:30.490,00:26:33.050
+"Because in the gray area, the in-sample
+error for the more complex",00:26:33.050,00:26:38.630
+model is smaller.,00:26:38.630,00:26:40.100
+"It's smaller always, but we
+are observing it in this case.",00:26:40.100,00:26:43.570
+And the out-of-sample error is bigger.,00:26:43.570,00:26:45.940
+That's what defines the gray area.,00:26:45.940,00:26:47.900
+"Therefore in this gray area,
+very specifically,",00:26:47.900,00:26:50.700
+overfitting is happening.,00:26:50.700,00:26:51.840
+"If you move from the simpler model to
+the bigger model, you get better",00:26:51.840,00:26:55.610
+"in-sample error and worse
+out-of-sample error.",00:26:55.610,00:26:58.610
+"Now we realize that this guy is not going
+to lose forever. The guy who",00:26:58.610,00:27:01.770
+"chose the correct complexity is
+not going to lose forever.",00:27:01.770,00:27:04.050
+"They lost only because of the number
+of examples that was inadequate.",00:27:04.050,00:27:07.300
+"If the number of examples is adequate,
+they will win handily.",00:27:07.300,00:27:11.100
+"Like here-- if you look here, you end
+up with an out-of-sample error far",00:27:11.100,00:27:16.360
+better than you would ever get here.,00:27:16.360,00:27:18.090
+"But now I have enough examples,
+in order to be able to do that.",00:27:18.090,00:27:21.400
+"Now, we understand overfitting.",00:27:21.940,00:27:23.940
+"And we understand that overfitting will
+not happen for all the numbers of",00:27:23.940,00:27:27.570
+"examples, but for a small number of
+examples where you cannot pin down the",00:27:27.570,00:27:31.740
+"function, then you suffer from the usual
+bad generalization that we saw.",00:27:31.740,00:27:36.650
+"Now, we notice that we get overfitting
+even without noise, and we want to pin",00:27:39.530,00:27:43.530
+it down a little bit.,00:27:43.530,00:27:44.430
+So let's look at this case.,00:27:44.430,00:27:46.810
+"This is the case of the 50th-order
+target, the higher-order target",00:27:47.310,00:27:50.810
+that doesn't have any noise--,00:27:50.810,00:27:52.580
+"conventional noise, at least.",00:27:52.580,00:27:54.140
+And these are the two fits.,00:27:54.140,00:27:56.180
+"And there's still an irony, because
+here are the two learners.",00:27:56.180,00:28:00.690
+"The first guy chose the 10th order, the
+second guy chose the 2nd order.",00:28:00.690,00:28:04.120
+And the idea here is the following.,00:28:04.120,00:28:04.930
+"You told me that the target
+now doesn't have noise.",00:28:04.930,00:28:07.280
+Right?,00:28:07.280,00:28:07.620
+"That means I don't worry
+about overfitting.",00:28:08.230,00:28:11.260
+Wrong.,00:28:11.260,00:28:11.880
+But we'll know why.,00:28:11.880,00:28:12.850
+"So given the choices, I'm going to try
+to get close to the 50th order,",00:28:13.520,00:28:17.790
+because I have a better chance.,00:28:17.790,00:28:19.060
+"If I choose the 10th order, someone
+else chooses 2nd order, I'm closer",00:28:19.060,00:28:22.520
+"to the 50th, so I think
+I will perform better.",00:28:22.520,00:28:25.610
+At least that's the concept.,00:28:25.610,00:28:26.580
+"So you do this, and you know that there
+is no noise, so you decide on",00:28:27.420,00:28:32.360
+"this idea, and again you
+get bad performance.",00:28:32.360,00:28:37.430
+"And you ask yourself,
+this is not my day.",00:28:37.430,00:28:39.550
+"I tried everything, and I seem
+to be making the wise choice,",00:28:39.550,00:28:42.680
+and I'm always losing.,00:28:42.680,00:28:43.620
+"And why is this the case,
+when there is no noise?",00:28:44.390,00:28:47.250
+"And then you ask, is there
+really no noise?",00:28:47.250,00:28:50.070
+"And that will lead us to defining
+that there is an actual noise in",00:28:50.880,00:28:54.920
+"this case, and we'll analyze it and
+understand what it is about.",00:28:54.920,00:28:58.240
+"So I will take these two examples, and
+then make a very elaborate experiment.",00:28:59.450,00:29:04.580
+"And I will show you the results
+of that experiment.",00:29:04.580,00:29:06.520
+"I will encourage you, if you
+are interested in the subject,",00:29:06.520,00:29:10.840
+to do simulate this experiment.,00:29:10.840,00:29:12.985
+All the parameters are given.,00:29:13.800,00:29:16.150
+"And it will give you a very good feel
+for overfitting, because now we are",00:29:16.150,00:29:20.480
+"going to look at the figure, and have no
+doubt in our mind that overfitting",00:29:20.480,00:29:23.910
+"will occur whenever you actually
+encounter a real problem.",00:29:23.910,00:29:27.210
+"And therefore, you have to be careful.",00:29:27.800,00:29:29.660
+"It's not like I constructed a particular
+funny case.",00:29:29.660,00:29:33.320
+"No, if you average over a huge
+number of experiments, you will find",00:29:33.320,00:29:38.210
+"that overfitting occurs in the
+majority of the cases.",00:29:38.210,00:29:40.880
+"So let's look at the detailed
+experiment.",00:29:41.240,00:29:44.230
+"I'm going to study the impact of two
+things-- the noise level, which I",00:29:44.230,00:29:47.470
+"already conceptually convinced myself
+that it's related to overfitting, and",00:29:47.470,00:29:52.070
+"the target complexity, just because
+it does seem to be related.",00:29:52.070,00:29:54.750
+"Not sure why, but it seems like when
+I took a complex target, albeit",00:29:54.750,00:29:58.470
+"noiseless, I still got overfitting,
+so let me see what the",00:29:58.470,00:30:02.010
+target complexity does.,00:30:02.010,00:30:04.030
+"We are going to take, as
+general target function--",00:30:05.810,00:30:09.200
+"I'm going to describe what it is, and
+I'm going to add noise to it.",00:30:09.200,00:30:12.550
+The noise is a function of x.,00:30:12.550,00:30:14.340
+"So I'm just getting it generically, and
+as always, we have independence",00:30:15.160,00:30:20.490
+from one x to another.,00:30:20.490,00:30:21.420
+"In spite of the fact that the
+parameters of the noise distribution",00:30:21.420,00:30:26.800
+"depend on x-- I can have different
+noise for different",00:30:26.800,00:30:29.050
+points in the space--,00:30:29.050,00:30:30.260
+"the realization of epsilon is
+independent from one x to another.",00:30:30.260,00:30:33.150
+"That is always the assumption.
+When we have different data points,",00:30:33.150,00:30:35.475
+they are independent.,00:30:35.475,00:30:36.410
+"So this is the thing, and I'm going to
+measure the level of noise by the",00:30:37.110,00:30:42.150
+"energy in that noise, and we're going
+to call it sigma squared.",00:30:42.150,00:30:45.680
+"I'm taking the expected value
+of epsilon to be 0.",00:30:46.320,00:30:50.040
+"If there were an expected value, I would
+put it in the target, so I will",00:30:50.320,00:30:53.000
+remain with 0.,00:30:53.000,00:30:54.070
+"And then there's fluctuation around it,
+and the fluctuation either could",00:30:54.070,00:30:56.500
+"be big, large sigma
+squared, or small.",00:30:56.500,00:30:58.340
+"And I'm quantifying it
+with sigma squared.",00:30:58.340,00:30:59.985
+No particular distribution is needed.,00:31:01.160,00:31:02.970
+"You can say Gaussian,",00:31:02.970,00:31:04.200
+"and indeed I applied Gaussian
+in the experiment.",00:31:04.200,00:31:07.350
+"But for the statement, you just
+need the energy of that.",00:31:07.350,00:31:11.150
+Now let's write it down.,00:31:11.690,00:31:13.330
+"I want to make the target function
+more complex, at will.",00:31:13.330,00:31:17.510
+"So I'm going to make it
+higher-order polynomial.",00:31:17.510,00:31:19.980
+"Now I have another parameter, pretty
+much like the sigma squared.",00:31:19.980,00:31:22.500
+"I have another parameter which is
+capital Q, the order of the",00:31:22.500,00:31:25.330
+polynomial.,00:31:25.330,00:31:26.540
+"I'm calling it Q_f, because it describes
+the target complexity of",00:31:26.540,00:31:32.620
+"f, just to remember that
+it's related to f.",00:31:32.620,00:31:35.540
+"And what I do, I define a polynomial,
+which is the sum of coefficients times",00:31:35.540,00:31:40.520
+"a power of x, from q equals 0 to Q,
+so it's indeed a Qth-order",00:31:40.520,00:31:46.080
+"polynomial, and I add the noise here.",00:31:46.080,00:31:49.156
+"Now, in order to run the experiment
+right, I'm going to normalize this",00:31:50.130,00:31:55.580
+"quantity, such that the energy
+here is always 1.",00:31:55.580,00:31:59.150
+"And the reason I do that is
+because I want the sigma",00:31:59.150,00:32:01.690
+squared to mean something.,00:32:01.690,00:32:03.190
+"The signal to noise ratio is
+always what means something.",00:32:03.190,00:32:05.800
+"So if I normalize the signal to energy
+1, then I can say sigma squared is",00:32:05.800,00:32:09.640
+really the amount of noise.,00:32:09.640,00:32:11.500
+"And if you look at this, it is not
+easy to generate interesting",00:32:11.500,00:32:16.240
+polynomials using this formula.,00:32:16.240,00:32:18.270
+"Because if you pick these guys at
+random-- let's say independent",00:32:18.270,00:32:21.950
+"coefficients at random, in order
+to generate a general",00:32:21.950,00:32:24.120
+"target, these guys are",00:32:24.120,00:32:28.830
+the powers of x.,00:32:28.830,00:32:29.890
+"So you start with the x, and then the
+parabola, and then the 3rd order, and",00:32:30.070,00:32:33.950
+"then the 4th order, and
+then the 5th order.",00:32:33.950,00:32:36.260
+"Very, very boring guys.",00:32:36.260,00:32:38.260
+"One of them is doing this way, and the
+other one is doing this way, and they",00:32:38.260,00:32:41.180
+get steeper and steeper.,00:32:41.180,00:32:42.370
+"So if you combine them with random
+coefficients, you will almost always",00:32:43.070,00:32:46.360
+"get something that looks this way, or
+something that looks this way.",00:32:46.360,00:32:49.360
+"And the other guys don't play a role,
+because this one dominates.",00:32:49.360,00:32:52.290
+"The way to get interesting guys here
+is, instead of generating the",00:32:53.030,00:32:59.300
+"alpha_q's here as random, you go for
+a standard set of polynomials, which are",00:32:59.300,00:33:05.910
+called Legendre polynomials.,00:33:05.910,00:33:07.800
+"Legendre polynomials are just
+polynomials with specific",00:33:07.800,00:33:10.060
+coefficients.,00:33:10.060,00:33:10.690
+"There is nothing mysterious about them,
+except that the choice of the",00:33:10.690,00:33:12.830
+"coefficients is such that, from one
+order to the next, they're orthogonal",00:33:12.830,00:33:16.600
+to each other.,00:33:16.600,00:33:17.380
+"So it's like harmonics in
+a sinusoidal expansion.",00:33:18.430,00:33:21.940
+"If you take the 1st-order Legendre,
+then the 2nd, and the 3rd, and the",00:33:21.940,00:33:25.400
+"4th, and you take the inner product,
+you see they are 0.",00:33:25.400,00:33:28.330
+"They are orthogonal to each other, and
+you normalize them to get energy 1.",00:33:28.330,00:33:31.910
+"Because of this, if you have
+a combination of Legendre's with random",00:33:31.910,00:33:36.000
+"coefficients, then you get
+something interesting.",00:33:36.000,00:33:38.670
+"All of a sudden, you get the shape.",00:33:38.930,00:33:40.460
+"And when you are done, it
+is just a polynomial.",00:33:40.460,00:33:43.110
+"All you do, you collect the guys that
+happen to be the coefficients of x,",00:33:43.110,00:33:47.730
+"the coefficients of x squared,
+coefficients of x cubed, and these",00:33:47.730,00:33:50.160
+will be your alpha's.,00:33:50.160,00:33:51.510
+"Nothing changed in the fact
+that I'm generating a polynomial.",00:33:51.510,00:33:54.910
+"I just was generating the alpha's in
+a very elaborate way, in order to make",00:33:54.910,00:33:58.840
+sure that I get interesting targets.,00:33:58.840,00:34:00.280
+That's all there is to it.,00:34:00.280,00:34:01.160
+"As far as we are concerned, we generated
+guys that have this form and",00:34:01.160,00:34:04.440
+"happened to be interesting--
+representative of different",00:34:04.440,00:34:07.070
+functionalities.,00:34:07.070,00:34:08.150
+"So in this case we have the noise
+level. That's one parameter that",00:34:09.520,00:34:13.010
+affects overfitting.,00:34:13.010,00:34:14.820
+We have potentially--,00:34:14.820,00:34:16.500
+"the target complexity seems to
+be affecting overfitting.",00:34:16.500,00:34:18.929
+"At least we are conjecturing
+that it is.",00:34:18.929,00:34:20.880
+"And the final guy that affects
+overfitting is the",00:34:20.880,00:34:22.889
+number of data points.,00:34:22.889,00:34:23.989
+"If I give you more data points, you are
+less susceptible to overfitting.",00:34:23.989,00:34:27.400
+"Now I'd like to understand the
+dependency between these.",00:34:27.400,00:34:30.280
+"And if we go back to the experiment we
+had, this is just one instance of",00:34:30.280,00:34:34.389
+"those, where the target complexity
+here is 10.",00:34:34.389,00:34:38.909
+"I use the 10th-order polynomial,
+so Q_f is 10.",00:34:38.909,00:34:42.560
+"The noise is whatever the distance
+between the points and the curve is.",00:34:42.560,00:34:47.920
+That's what captures sigma squared.,00:34:47.920,00:34:50.060
+And the data size here is 15.,00:34:50.060,00:34:51.409
+I have 15 data points.,00:34:51.409,00:34:53.050
+So this is one instance.,00:34:53.050,00:34:54.040
+"I'm basically generating at will random
+instances of that, in order to",00:34:54.040,00:34:57.550
+"see if the observation of
+overfitting persists.",00:34:57.550,00:35:01.730
+"Now, how am I going
+to measure overfitting?",00:35:02.940,00:35:05.540
+"I'm going to define an overfit
+measure, which is a pretty simple one.",00:35:05.540,00:35:08.960
+"We're fitting a data set
+from x_1, y_1 to x_N, y_N.",00:35:09.590,00:35:14.630
+"And we are using two models,",00:35:14.630,00:35:17.500
+our usual two models.,00:35:17.500,00:35:19.320
+Nothing changed.,00:35:19.320,00:35:20.120
+"We either use 2nd-order polynomials,
+or the 10th-order",00:35:20.120,00:35:23.660
+polynomials.,00:35:23.660,00:35:24.210
+"And if going from the 2nd-order
+polynomial to the 10th-order",00:35:24.690,00:35:27.265
+"polynomial gets us in trouble,
+then we are overfitting.",00:35:27.265,00:35:29.330
+And we would like to quantify that.,00:35:29.890,00:35:31.720
+"When you compare the out-of-sample
+errors of the two models, you have",00:35:31.720,00:35:36.670
+"a final hypothesis from H_2,
+and this is the fit--",00:35:36.670,00:35:40.620
+the green curve that you have seen.,00:35:40.620,00:35:42.340
+"And another final hypothesis from the
+other model, which is the red curve--",00:35:42.340,00:35:46.050
+the wiggly guy.,00:35:46.050,00:35:47.540
+"If you want to define an overfit
+measure based on the two, what you do",00:35:47.540,00:35:51.780
+"is you get the out-of-sample error for
+the more complex guy, minus",00:35:51.780,00:35:56.310
+"the out of sample error
+for the simple guy.",00:35:56.310,00:35:58.620
+Why is this an overfit measure?,00:35:58.620,00:35:59.820
+"Because if the more complex guy is
+worse, it means its out-of-sample",00:35:59.820,00:36:03.995
+"error is bigger, and you
+get a positive number,",00:36:03.995,00:36:06.390
+"large positive if the overfitting
+is terrible.",00:36:06.390,00:36:08.660
+"And if this is negative, it means that
+actually the more complex guy is doing",00:36:08.660,00:36:12.200
+"better, so you are not overfitting.",00:36:12.200,00:36:13.580
+Zero means that they are the same.,00:36:14.110,00:36:15.780
+"So now I have a number in my mind that
+measures the level of overfitting in",00:36:15.780,00:36:18.750
+any particular setting.,00:36:18.750,00:36:20.310
+"And if you apply this to, again, the
+same case we had before, you look at",00:36:21.230,00:36:24.420
+"here, and the out-of-sample error
+for the red is terrible.",00:36:24.420,00:36:27.210
+"The out-of-sample error of green
+is nothing to be proud of,",00:36:27.210,00:36:29.930
+but definitely better.,00:36:29.930,00:36:31.110
+"And the overfit measure in this case
+will be positive, so we have",00:36:31.110,00:36:33.860
+overfitting.,00:36:33.860,00:36:34.770
+"Now let's look at the result of
+running this for tens of millions of",00:36:35.540,00:36:39.010
+iterations.,00:36:39.010,00:36:40.170
+Not epochs iterations.,00:36:40.180,00:36:41.550
+Complete runs.,00:36:41.550,00:36:42.630
+"Generate the target, generate
+the data set, fit both, look",00:36:42.630,00:36:45.930
+at the overfit measure.,00:36:45.930,00:36:48.460
+"Repeat 10 million times, for
+all kinds of parameters.",00:36:48.460,00:36:50.830
+"So you get a pattern for
+what is going on.",00:36:51.390,00:36:53.490
+This is what you get.,00:36:53.490,00:36:55.690
+"First, the impact of sigma squared.",00:36:55.690,00:36:57.980
+"I'm going to have a plot
+in which you get N,",00:36:57.980,00:37:01.740
+"the number of examples,",00:37:01.740,00:37:03.360
+"and the level of noise,
+sigma squared.",00:37:03.360,00:37:06.870
+"And on the plot, I'm going to give
+a color depending on the intensity of",00:37:06.870,00:37:10.235
+the overfit.,00:37:10.235,00:37:11.290
+"That intensity will be depending on
+the number of points, and the level of",00:37:11.290,00:37:15.690
+the noise that you have.,00:37:15.690,00:37:17.820
+And this is what you get.,00:37:17.820,00:37:21.160
+"First let's look at the
+color convention.",00:37:21.830,00:37:25.430
+So 0 is green.,00:37:25.430,00:37:27.090
+"If you get redder, there's
+more overfitting.",00:37:27.090,00:37:29.890
+"If you get bluer, there
+is less overfitting.",00:37:29.890,00:37:32.320
+"Now I looked at the number
+of examples, and I",00:37:33.320,00:37:35.520
+picked interesting range.,00:37:35.520,00:37:37.170
+"If you go, this is 80,
+100, and 120 points.",00:37:37.170,00:37:40.890
+So what happens to 40?,00:37:40.890,00:37:42.250
+All of them are dark red.,00:37:42.250,00:37:43.810
+Terrible overfitting.,00:37:43.810,00:37:44.790
+"And if you go beyond that, you
+have enough examples now not to",00:37:45.530,00:37:48.650
+"overfit, so it's almost all blue.",00:37:48.650,00:37:50.090
+"So I'm just giving you the
+transition part of it.",00:37:50.090,00:37:52.670
+You look at it.,00:37:53.580,00:37:54.000
+There is a noise level.,00:37:54.000,00:37:55.840
+"As I increase the noise level,
+overfitting worsens.",00:37:55.840,00:37:58.630
+Why is that?,00:37:58.630,00:37:59.220
+"Because if I pick any number
+of examples, let's say 100.",00:37:59.220,00:38:01.810
+"If I had 100, and it had that little
+noise, I'm doing fine.",00:38:01.810,00:38:06.110
+"Doing fine in terms of
+not overfitting.",00:38:06.110,00:38:08.000
+"And as I go, I get into the red
+region, and then I get deeply into",00:38:08.000,00:38:11.780
+the red region.,00:38:11.780,00:38:12.860
+"So this tells me, indeed,
+that overfitting",00:38:13.390,00:38:14.950
+worsens with sigma squared.,00:38:14.950,00:38:16.620
+"By the way, for all of the targets here,
+I picked a fixed complexity.",00:38:16.620,00:38:21.790
+20.,00:38:21.790,00:38:22.190
+20th-order polynomial.,00:38:22.190,00:38:23.530
+"I fixed it because I just wanted
+a number, and I wanted only to relate",00:38:23.530,00:38:27.170
+the noise to the overfitting.,00:38:27.170,00:38:28.920
+So that's what I'm doing here.,00:38:28.920,00:38:30.230
+"When I change the complexity,
+this will be the other plot.",00:38:30.230,00:38:32.580
+"For this guy, we get something that
+is nice, and it's really according to",00:38:33.230,00:38:38.220
+what we expect.,00:38:38.220,00:38:39.310
+"As you increase the number of points,
+the overfitting goes down.",00:38:39.310,00:38:42.630
+"As you increase the level of noise,
+the overfitting goes up.",00:38:42.630,00:38:44.900
+That is what we expect.,00:38:44.900,00:38:46.600
+"Now let's go for the impact of Q_f,
+because that was the mysterious part.",00:38:46.600,00:38:50.380
+"There was no noise and we
+are getting overfitting.",00:38:50.380,00:38:51.890
+Is this going to persist?,00:38:51.890,00:38:52.730
+What is the deal?,00:38:52.730,00:38:54.210
+This is what you get.,00:38:54.210,00:38:57.000
+"So here, we fixed the level of noise.",00:38:57.970,00:39:00.310
+"We fixed it at sigma
+squared equals 0.1.",00:39:00.310,00:39:02.910
+"Now we are increasing the target
+complexity, from trivial to 100th-order",00:39:02.910,00:39:07.590
+polynomial.,00:39:07.590,00:39:08.010
+That's a pretty serious guy.,00:39:08.010,00:39:09.300
+"And we are plotting the same range for
+the number of points, from 80, 100,",00:39:10.430,00:39:14.000
+120. That's where it happens.,00:39:14.000,00:39:15.580
+"And you can see that overfitting
+occurs significantly.",00:39:15.580,00:39:19.310
+"And it worsens also with
+the target complexity.",00:39:19.310,00:39:21.550
+"Because let's say, you
+look at this guy.",00:39:21.550,00:39:23.470
+"If you look at this guy, you are here
+in the green, and gets red, and then",00:39:23.470,00:39:26.480
+it gets darker red.,00:39:26.480,00:39:27.330
+Not as pronounced as in this case.,00:39:27.530,00:39:30.080
+"But you do get the overfitting effect
+by increasing the target complexity.",00:39:30.080,00:39:33.830
+"And when the number of examples is
+bigger, then there's less overfitting,",00:39:33.830,00:39:37.620
+as you expect it to be.,00:39:37.620,00:39:38.760
+But if you go high enough--,00:39:38.760,00:39:40.110
+"I guess it's getting lighter blue,
+green, yellow. Eventually,",00:39:40.110,00:39:43.235
+it will get to red.,00:39:43.235,00:39:44.620
+"And if you look at these two guys, the
+main observation is that the red",00:39:44.620,00:39:48.130
+region is serious.,00:39:48.130,00:39:49.730
+"Overfitting is real and here to stay,
+and we have to deal with it.",00:39:50.110,00:39:54.760
+"It's not like an individual
+case there.",00:39:55.130,00:39:59.090
+"Now, there are two things you can
+derive from these two figures.",00:39:59.090,00:40:02.960
+"The first thing is that there seems
+to be another factor, other than",00:40:02.960,00:40:08.050
+"conventional noise-- let's call it
+conventional noise for the moment--",00:40:08.050,00:40:11.420
+that affects overfitting.,00:40:11.420,00:40:13.340
+And we want to characterize that.,00:40:13.340,00:40:15.260
+That is the first thing we derive.,00:40:15.260,00:40:17.560
+"The second thing we derive is
+a nice logo for the course!",00:40:17.560,00:40:22.560
+That's where it came from.,00:40:22.890,00:40:24.140
+"So now let's look at noise, and
+look at the impact of noise.",00:40:28.860,00:40:31.510
+"And you can notice that noise is
+between quotation marks here, because",00:40:31.510,00:40:35.930
+"now we're going to expand our horizon
+about what constitutes noise.",00:40:35.930,00:40:40.058
+Here are the two guys.,00:40:41.330,00:40:43.940
+"And in the first case, we are going
+now to call it stochastic noise.",00:40:44.820,00:40:50.780
+"Noise is stochastic, but obviously
+we are calling it stochastic",00:40:53.550,00:40:56.420
+"because the other guy will
+not be stochastic.",00:40:56.420,00:40:57.930
+"And there's absolutely
+nothing to add here.",00:40:58.630,00:41:01.400
+This is what we expect.,00:41:01.400,00:41:02.520
+We're just calling it a name.,00:41:02.520,00:41:04.450
+"Now we are going to call whatever effect
+that is done by having a more",00:41:04.450,00:41:09.330
+"complex target here, we are going
+also to call it noise.",00:41:09.330,00:41:13.370
+"But it is going to be called
+deterministic noise.",00:41:13.370,00:41:18.430
+"Because there is nothing
+stochastic about it.",00:41:19.030,00:41:20.750
+There's a particular target function.,00:41:20.750,00:41:22.170
+"I just cannot capture it, so
+it looks like noise to me.",00:41:22.170,00:41:24.850
+"And we would like to understand what
+deterministic noise is about.",00:41:24.850,00:41:27.730
+"However, if you look at it, and now you
+speak in terms of stochastic noise",00:41:28.790,00:41:31.660
+"and deterministic noise, and you would
+like to see what affects overfitting.",00:41:31.660,00:41:35.260
+"So, we put it in a box.",00:41:35.260,00:41:36.430
+First observation:,00:41:37.210,00:41:38.400
+"if I have more points, I
+have less overfitting.",00:41:38.400,00:41:44.400
+"If you move from here to
+here, things get bluer.",00:41:44.400,00:41:48.040
+"If you move from here to here,
+things get bluer.",00:41:48.040,00:41:50.530
+I have less overfitting.,00:41:50.530,00:41:52.120
+Second thing:,00:41:53.490,00:41:55.560
+if I increase the stochastic noise--,00:41:55.560,00:41:57.280
+"increase the energy in the
+stochastic noise--",00:41:57.280,00:42:00.020
+the overfitting goes up.,00:42:00.020,00:42:01.710
+"Indeed, if I go from here to
+here, things get redder.",00:42:01.710,00:42:06.990
+"And finally, with deterministic noise,
+which is vaguely associated in my mind",00:42:08.140,00:42:12.590
+"with the increase of target complexity,
+I also increase the overfitting.",00:42:12.590,00:42:17.790
+"If I go from here to here,
+I am getting redder.",00:42:17.790,00:42:20.760
+"Albeit I have to travel further, and
+it's a bit more subtle, but the",00:42:21.270,00:42:24.920
+"direction is that I get more
+overfitting as I get more",00:42:24.920,00:42:27.940
+"deterministic noise, whatever
+that might be.",00:42:27.940,00:42:30.750
+"So now, let's spend some time just
+analyzing what deterministic noise is,",00:42:32.660,00:42:37.450
+"and why it affects overfitting
+the way it does.",00:42:37.450,00:42:42.810
+Let's start with the definition.,00:42:42.810,00:42:44.340
+What is it?,00:42:44.340,00:42:46.220
+It will be actually noise.,00:42:46.220,00:42:47.600
+"If I tell you what is
+the stochastic noise, you",00:42:47.600,00:42:49.917
+"will say, here's my target, and
+there is something on top of it. That",00:42:49.917,00:42:52.740
+is what I call stochastic noise.,00:42:52.740,00:42:54.310
+"So the deterministic noise will be
+the same thing, except that it",00:42:54.870,00:42:58.220
+captures something deterministic.,00:42:58.220,00:42:59.330
+"It's the part of the target that your
+hypothesis set cannot capture.",00:42:59.330,00:43:04.700
+So let's look at the picture.,00:43:05.420,00:43:07.170
+Here is the picture.,00:43:07.170,00:43:09.330
+"This is your target, the blue guy.",00:43:09.330,00:43:11.800
+"You take a hypothesis set that-- let's
+say simple, and you look for the guy",00:43:11.800,00:43:16.770
+that best approximates f.,00:43:16.770,00:43:19.090
+Not in the learning sense.,00:43:19.090,00:43:20.380
+"You actually try very hard to find
+the best possible approximation.",00:43:20.380,00:43:23.480
+"You're still not going to get f,
+because your hypothesis set is",00:43:23.480,00:43:25.960
+"limited, but the best guy will be
+sitting there, and it will fail to",00:43:25.960,00:43:30.610
+pick certain part of the target.,00:43:30.610,00:43:33.750
+"And that is the part we are labeling
+the deterministic noise.",00:43:33.750,00:43:36.740
+"And if you think from an operational
+point of view, if you are that",00:43:37.640,00:43:40.600
+"hypothesis, noise is all the same.",00:43:40.600,00:43:43.300
+It's something I cannot capture.,00:43:43.300,00:43:45.210
+"Whether I couldn't capture it, because
+there's nothing to capture--",00:43:45.210,00:43:48.090
+as in stochastic noise--,00:43:48.090,00:43:49.680
+"or I couldn't capture it, because I'm
+limited in capturing, and this I have",00:43:49.680,00:43:53.120
+to consider as out of my league.,00:43:53.120,00:43:55.430
+"Both of them are noise, as
+far as I'm concerned.",00:43:55.430,00:43:57.430
+Something I cannot deal with.,00:43:57.430,00:43:58.680
+This is how we define it.,00:44:01.270,00:44:04.180
+"And then we ask, why are
+we calling it noise?",00:44:04.180,00:44:07.620
+"It's a little bit of
+a philosophical issue.",00:44:07.620,00:44:10.040
+"But let's say that you have
+a young sibling--",00:44:10.040,00:44:14.790
+your kid brother--,00:44:14.790,00:44:17.900
+has just learned fractions.,00:44:17.900,00:44:18.970
+"So they used to have just
+1, 2, 3, 4, 5, 6.",00:44:18.970,00:44:22.480
+"They're not even into negative numbers,
+and they learn fractions,",00:44:22.480,00:44:25.130
+and now they're very excited.,00:44:25.130,00:44:26.050
+"They realize that there's more
+to numbers than just 1, 2, 3.",00:44:26.050,00:44:28.660
+So you are the big brother.,00:44:28.660,00:44:29.550
+You are big Caltech guy.,00:44:29.550,00:44:31.530
+So you must know more about numbers.,00:44:31.530,00:44:32.590
+"They come ask you, tell
+me more about numbers.",00:44:32.590,00:44:34.740
+"Now, in your mind, you probably
+can explain to them negative numbers",00:44:35.980,00:44:40.560
+a little bit by deficiency.,00:44:40.560,00:44:42.140
+"Real numbers, just intuitively
+continuous. You are not",00:44:42.140,00:44:45.545
+"going to tell them about limits,
+or anything like that.",00:44:45.545,00:44:46.910
+They're too young for that.,00:44:46.910,00:44:48.360
+"But you probably are not going to tell
+them about complex numbers, are you?",00:44:48.360,00:44:52.350
+"Because their hypothesis set is so
+limited that complex numbers, for",00:44:52.350,00:44:56.280
+"them, would be completely noise.",00:44:56.280,00:44:58.470
+"And the problem with explaining something
+that people cannot capture is",00:44:58.470,00:45:01.860
+"that they will create a pattern
+that really doesn't exist.",00:45:01.860,00:45:05.620
+"And then you tell them complex number,
+and they really can't comprehend it,",00:45:05.620,00:45:07.955
+but they got the notion.,00:45:07.955,00:45:09.260
+"So now it's the noise. They fit the
+noise, and they tell you, is 7.34521",00:45:09.260,00:45:14.620
+a complex number?,00:45:14.620,00:45:15.870
+Because in their minds--,00:45:15.870,00:45:17.110
+they just got on to a tangent.,00:45:17.110,00:45:18.840
+"So you're better off just
+killing that part.",00:45:18.840,00:45:21.940
+"And giving them a simple thing that they
+can learn, because the additional",00:45:21.940,00:45:25.140
+part will actually mislead them.,00:45:25.140,00:45:26.820
+"Mislead them, as in noise.",00:45:26.820,00:45:28.550
+"So this is our idea, that if I have
+a hypothesis set, and there is part of",00:45:29.090,00:45:32.910
+"the target that I cannot capture,
+there's no point in trying to capture",00:45:32.910,00:45:36.330
+"it, because when you try to capture it,
+you are detecting a false pattern",00:45:36.330,00:45:39.550
+"that you cannot extrapolate,
+given your limitations.",00:45:39.550,00:45:42.180
+That's why it's called noise.,00:45:42.180,00:45:44.760
+"Now the main differences between
+deterministic noise and stochastic",00:45:45.560,00:45:48.155
+"noise-- both of them can be
+plotted, a realization--",00:45:48.155,00:45:50.570
+"but the main differences are, the
+first thing is that deterministic",00:45:51.420,00:45:54.560
+noise depends on your hypothesis set.,00:45:54.560,00:45:57.730
+"For the same target function, if you
+use a more sophisticated hypothesis",00:45:57.730,00:46:01.600
+"set, the deterministic noise will be
+smaller, because you were able to",00:46:01.600,00:46:05.690
+capture more.,00:46:05.690,00:46:07.090
+"Obviously, the stochastic
+noise will be the same.",00:46:08.780,00:46:10.840
+"Nothing can capture it, so all
+hypotheses are the same.",00:46:10.840,00:46:13.830
+"We cannot capture it, and
+therefore it's noise.",00:46:13.830,00:46:16.940
+"The other thing is that, if I give you
+a particular point x, deterministic",00:46:16.940,00:46:21.320
+"noise is a fixed amount, which is the
+difference between the value of the",00:46:21.320,00:46:24.300
+"target at that point and the best
+hypothesis approximation you have.",00:46:24.300,00:46:27.750
+"If I gave you stochastic noise, then
+you are generating this at random.",00:46:28.620,00:46:32.450
+"And if I give you two instances
+of x, the same x,",00:46:32.450,00:46:35.550
+"the noise will change from one
+occurrence to another, whereas here,",00:46:35.550,00:46:38.300
+it's the same.,00:46:38.300,00:46:39.840
+"Nonetheless, they behave exactly the
+same for machine learning, because",00:46:39.840,00:46:44.220
+invariably we have a given data set.,00:46:44.220,00:46:47.950
+"Nobody changes x's on us, and give
+us another realization of the x.",00:46:47.950,00:46:50.830
+"We just have the x's given to
+us together with the labels.",00:46:50.830,00:46:53.940
+"So this doesn't make
+a difference for us.",00:46:54.380,00:46:56.380
+And we settle on a hypothesis set.,00:46:56.380,00:46:58.890
+"Once you settle on a hypothesis set, the
+deterministic noise is as bad as",00:46:58.890,00:47:03.310
+the stochastic noise.,00:47:03.310,00:47:04.590
+"It's something that we cannot capture,
+and it depends on something that we",00:47:04.590,00:47:07.686
+"have already fixed, so it doesn't
+depend on anything.",00:47:07.686,00:47:09.720
+"So in a given learning situation,
+they behave the same.",00:47:09.720,00:47:13.710
+"Now, let's see the impact
+on overfitting.",00:47:16.380,00:47:20.830
+This is what we have seen before.,00:47:20.830,00:47:24.190
+"This is the case where we have
+increasing target complexity, so",00:47:24.190,00:47:27.670
+"increasing deterministic noise in the
+terminology we just introduced, and",00:47:27.670,00:47:31.290
+"the number of points. And red means
+overfitting, so this is how much",00:47:31.290,00:47:34.210
+overfitting is there.,00:47:34.210,00:47:36.160
+"And we are looking at deterministic
+noise, as it relates to the target",00:47:36.160,00:47:42.390
+complexity.,00:47:42.390,00:47:42.810
+"Because the quantitative thing
+we had is target complexity.",00:47:42.810,00:47:45.810
+"We defined what a realization of
+deterministic noise is, but it's not",00:47:45.810,00:47:49.200
+"clear to us what quantity we should
+measure out of deterministic noise, in",00:47:49.200,00:47:53.220
+"order to tell us that this is the
+level of noise that results in",00:47:53.220,00:47:55.810
+"overfitting, yet.",00:47:55.810,00:47:56.860
+"We have the one in the case of
+stochastic noise very easily.",00:47:57.500,00:48:01.130
+We just take the energy of it.,00:48:01.130,00:48:02.540
+"So here we realize that as you increase
+the target complexity, the",00:48:02.540,00:48:07.490
+"deterministic noise increases, which is
+the overfitting phenomenon that we",00:48:07.490,00:48:12.110
+observe-- increases.,00:48:12.110,00:48:13.510
+"But you'll notice there's something
+interesting here.",00:48:13.510,00:48:15.425
+It doesn't start until you get to 10.,00:48:15.425,00:48:19.350
+Because this was overfitting of what?,00:48:19.350,00:48:21.420
+The 10th order versus the 2nd order.,00:48:21.420,00:48:23.920
+"So if you're going to start having
+deterministic noise, you'd better go",00:48:23.920,00:48:26.530
+"above 10, so that there is something
+that you cannot approximate.",00:48:26.530,00:48:29.430
+This is the part where it's there.,00:48:29.890,00:48:32.300
+"So here,",00:48:32.300,00:48:34.050
+"I wouldn't say proportional, but it
+definitely increases with the target",00:48:34.050,00:48:39.000
+"complexity, and it decreases
+with N as we expect.",00:48:39.000,00:48:43.580
+"Now for the finite N, you suffer the
+same way you suffer from the",00:48:46.580,00:48:50.100
+stochastic noise.,00:48:50.100,00:48:51.110
+"We have declared that deterministic noise
+is the part that your hypothesis set",00:48:51.990,00:48:55.590
+cannot capture.,00:48:55.590,00:48:56.960
+So what is the problem?,00:48:56.960,00:48:57.790
+"If I cannot capture it, it won't
+hurt me, because when I try to",00:48:57.790,00:49:02.470
+"fit, I won't capture it anyway.",00:49:02.470,00:49:04.540
+No.,00:49:04.540,00:49:05.370
+You cannot capture it in its entirety.,00:49:05.370,00:49:08.310
+"But if I give you only a finite sample,
+then you only get few",00:49:08.310,00:49:13.060
+"points, and you may be able to capture
+a little bit of the stochastic noise,",00:49:13.060,00:49:18.350
+"or the deterministic
+noise in this case.",00:49:18.350,00:49:20.250
+"Again, if I have 10 points--",00:49:21.020,00:49:23.400
+"if you give me a million points,
+and even if there is stochastic noise,",00:49:23.400,00:49:27.440
+"there's nothing I can do to
+capture the noise.",00:49:27.440,00:49:30.170
+"Let me remind you of the example
+we gave in linear regression.",00:49:30.170,00:49:34.600
+"We took linear regression and said,
+let's say that we are learning",00:49:34.600,00:49:37.350
+a linear function.,00:49:37.350,00:49:38.370
+"So linear regression would
+be perfect in this case.",00:49:38.370,00:49:40.270
+This is the target.,00:49:40.520,00:49:42.520
+"And then we added noise to the examples,
+so instead of getting the",00:49:42.520,00:49:45.400
+"points perfectly on that line,
+you get points right or left.",00:49:45.400,00:49:50.000
+"And then we tried to use linear
+regression to fit it.",00:49:50.000,00:49:52.630
+"If you didn't have any noise,
+linear regression would be",00:49:52.980,00:49:55.710
+perfect in this case.,00:49:55.710,00:49:57.020
+"Now, since there's noise, and it doesn't
+really see the line-- it only",00:49:57.020,00:49:59.970
+"sees those guys, it eats a little bit
+into the noise, and therefore gets",00:49:59.970,00:50:05.280
+"deviated from the target. And that is
+why you are getting worse performance",00:50:05.280,00:50:09.840
+than without the noise.,00:50:09.840,00:50:12.260
+"Now, if I have 10 points, linear
+regression will have easy time eating",00:50:12.260,00:50:16.800
+"into that, because there
+isn't much to fit.",00:50:16.800,00:50:18.910
+"There are only 10 guys, and maybe
+there's some linear pattern there.",00:50:18.910,00:50:22.340
+"If I get a million points, the chances
+are I won't be able to fit any of them",00:50:22.340,00:50:25.880
+"at all, because they are noise all
+over the place, and I cannot find",00:50:25.880,00:50:28.690
+"a compromise using my few parameters, and
+therefore I will end up really not being",00:50:28.690,00:50:32.000
+affected by them.,00:50:32.000,00:50:33.100
+"In the infinite case, I
+cannot get anything.",00:50:33.100,00:50:34.760
+"They are noise, and I cannot fit them.
+They are out of my ability.",00:50:34.760,00:50:37.480
+"But the problem is that once you have
+a finite sample, you're given the",00:50:37.950,00:50:41.440
+"unfortunate ability to be able to fit
+the noise, and you will indeed fit it.",00:50:41.440,00:50:45.490
+Whether it's stochastic--,00:50:45.490,00:50:46.670
+"that it doesn't make sense-- or
+deterministic, that there is no point",00:50:46.670,00:50:50.170
+"in fitting it, because you know in your
+hypothesis set, there is no way",00:50:50.170,00:50:53.400
+to generalize out-of-sample for it.,00:50:53.400,00:50:55.040
+It is out of your ability.,00:50:55.040,00:50:56.770
+"So the problem here is that for the
+finite N, you get to try to fit the",00:50:57.250,00:51:01.700
+"noise, both stochastic
+and deterministic.",00:51:01.700,00:51:05.380
+"Now, let me go quickly through
+a quantitative analysis that will put",00:51:07.940,00:51:12.180
+"deterministic noise and stochastic noise
+in the same equation, so that",00:51:12.180,00:51:15.530
+they become clear.,00:51:15.530,00:51:17.600
+Remember bias-variance?,00:51:17.600,00:51:18.740
+That was a few lectures ago.,00:51:18.740,00:51:19.920
+What was that about?,00:51:19.920,00:51:20.850
+"We had a decomposition of the expected
+out-of-sample error into two terms.",00:51:22.020,00:51:26.750
+"And this is the expected value of
+out-of-sample error. I remember, this is",00:51:26.750,00:51:31.890
+"the hypothesis we get, and we
+have dependency on the data",00:51:31.890,00:51:35.030
+set that got us.,00:51:35.030,00:51:36.250
+"We compare it to the target function,
+and we get the expected value with",00:51:36.250,00:51:39.620
+respect to those.,00:51:39.620,00:51:40.250
+"And that ended up being a variance,
+which tells me how far I am from the",00:51:40.250,00:51:45.980
+"centroid within the hypothesis set, and
+that means that there's a variety of",00:51:45.980,00:51:50.010
+things I get based on D.,00:51:50.010,00:51:51.870
+"And the other one is how far the
+centroid is from the target, which",00:51:51.870,00:51:54.960
+"tells me the bias of my hypothesis
+set from the target.",00:51:54.960,00:51:58.640
+"And the leap of faith we had is that
+this quantity, which is the average",00:51:58.640,00:52:02.720
+"hypothesis you get over all data sets,
+is about the same as the best",00:52:02.720,00:52:06.240
+hypothesis in the hypothesis set.,00:52:06.240,00:52:08.790
+So we had that.,00:52:10.390,00:52:11.770
+"And in this case, f was noiseless
+in this analysis.",00:52:11.770,00:52:16.270
+"Now, I'd like to add noise to the
+target, and see how this decomposition",00:52:16.270,00:52:19.820
+"will go, because this will give us
+a very good insight into the role of",00:52:19.820,00:52:23.740
+"stochastic noise versus
+deterministic noise.",00:52:23.740,00:52:26.160
+So we add noise.,00:52:26.160,00:52:27.470
+"And we're going to plot it red, because
+we want to pay attention to",00:52:27.470,00:52:31.420
+"it, and because we are going
+to get the expected values",00:52:31.420,00:52:33.160
+with respect to it.,00:52:33.160,00:52:33.850
+"So y now is the realization,
+the target plus epsilon.",00:52:33.850,00:52:38.510
+"And I'm going to assume that the
+expected value of the noise is 0.",00:52:38.510,00:52:41.380
+"Again, if the expected value is
+something else, we put that in the",00:52:41.380,00:52:43.630
+"target, and leave the part which is
+pure fluctuation outside, and call",00:52:43.630,00:52:47.040
+that epsilon.,00:52:47.040,00:52:47.380
+"Now I would like to
+repeat the analysis,",00:52:48.210,00:52:50.210
+"more quickly, obviously,",00:52:50.210,00:52:51.520
+with the added noise.,00:52:51.520,00:52:53.330
+Here is the noise term.,00:52:54.270,00:52:55.820
+"First, this is what we started with.",00:52:55.820,00:52:57.840
+"So I'm comparing what you get in your
+hypothesis, in a particular learning",00:52:58.670,00:53:02.690
+"situation, to the target.",00:53:02.690,00:53:04.350
+But now the target is noisy.,00:53:04.350,00:53:05.640
+"So the first thing is to replace
+this fellow by the noisy",00:53:05.640,00:53:08.870
+"version, which is y.",00:53:08.870,00:53:10.340
+"I know that y has f of
+x, plus the noise.",00:53:10.340,00:53:12.270
+That's what I'm comparing to.,00:53:12.270,00:53:14.050
+"And now, because y depends on the
+noise, I'm not only getting the",00:53:14.050,00:53:16.980
+"averaging with respect to the data set,
+I'm also getting the average with",00:53:16.980,00:53:20.190
+"respect to the realization
+of the noise.",00:53:20.190,00:53:22.240
+"So I'm getting expected value
+with respect to D and epsilon--",00:53:22.240,00:53:24.760
+epsilon affecting y.,00:53:24.760,00:53:26.690
+"So you expand this, and",00:53:28.170,00:53:30.290
+"this is just rewriting it. f of x
+plus epsilon is y, so I'm",00:53:30.290,00:53:34.550
+writing it this way.,00:53:34.550,00:53:36.110
+"And we do the same thing we did before,
+but just carrying this",00:53:36.110,00:53:38.950
+"around, until we see where it goes.",00:53:38.950,00:53:40.690
+So what did we do?,00:53:41.320,00:53:42.540
+We added and subtracted the centroid--,00:53:42.540,00:53:45.380
+"the average hypothesis, remember--",00:53:45.380,00:53:47.030
+"in preparation for getting squared
+terms, and cross terms.",00:53:47.030,00:53:50.400
+"And here we have the epsilon
+added to the mix.",00:53:50.400,00:53:55.060
+And then we write it down.,00:53:55.060,00:53:56.600
+"And in the first case, we get the
+squared, so we put these together and",00:53:56.600,00:54:00.360
+put them as squared.,00:54:00.360,00:54:01.290
+"We take these two guys together,
+and put them as squared.",00:54:01.290,00:54:03.840
+"And this guy by itself,
+we put it as squared.",00:54:03.840,00:54:05.940
+"We will still have cross terms, but
+these are the ones that I'm",00:54:05.940,00:54:08.040
+going to focus on.,00:54:08.040,00:54:09.140
+"And then we have more cross terms
+than we had before, because",00:54:09.140,00:54:11.900
+there's epsilon in it.,00:54:11.900,00:54:12.850
+"But the good news is that, if you get
+the expected value of the cross terms,",00:54:12.850,00:54:16.190
+all of them will go to 0.,00:54:16.190,00:54:17.340
+"The ones that used to go
+to 0 will go to 0.",00:54:17.340,00:54:19.570
+"The other ones will go to 0, because the
+expected value of epsilon goes to",00:54:19.570,00:54:22.290
+"0, and epsilon is independent of
+the other random thing here,",00:54:22.290,00:54:26.100
+which is the data set.,00:54:26.100,00:54:26.600
+Data set is generated.,00:54:26.600,00:54:27.830
+Its noise is generated.,00:54:27.830,00:54:29.150
+"Epsilon is generated on the test point
+x, which is independent, and therefore",00:54:29.150,00:54:32.690
+you will get 0.,00:54:32.690,00:54:33.340
+"So it's very easy to argue that this is
+0, and you will get basically the",00:54:33.340,00:54:36.610
+"same decomposition with
+this fellow added.",00:54:36.610,00:54:40.420
+So let's look at it.,00:54:40.420,00:54:43.150
+"Well, we'll see that there
+are actually two noise",00:54:43.150,00:54:45.380
+terms that come up.,00:54:45.380,00:54:46.400
+This is the variance term.,00:54:46.400,00:54:49.440
+Let me put it.,00:54:50.910,00:54:52.660
+This is the bias term.,00:54:52.660,00:54:55.460
+"And this is the added term, which
+is just sigma squared, the",00:54:55.460,00:55:00.350
+energy of the noise.,00:55:00.350,00:55:01.260
+Let me just discuss this a little bit.,00:55:01.260,00:55:04.490
+"We had the expected value with respect
+to D, and with respect to epsilon.",00:55:04.490,00:55:07.510
+"And then, remember that we take the
+expected value with respect to x,",00:55:07.510,00:55:10.940
+"average over all the space, in order to
+get just the bias and variance, rather",00:55:10.940,00:55:14.390
+"than the bias of x-- of your
+test point.",00:55:14.390,00:55:16.970
+So I did that already.,00:55:16.970,00:55:18.220
+"So every expectation is with respect to
+the data set, with respect to the",00:55:18.220,00:55:21.480
+"input point, and with respect to the
+realization of the noisy epsilon.",00:55:21.480,00:55:24.710
+"But I'm keeping the guys that survive,
+because the other guys--",00:55:25.410,00:55:27.950
+"epsilon doesn't appear here, so the
+thing is constant with respect to it,",00:55:28.130,00:55:31.423
+so I take it out.,00:55:31.423,00:55:32.510
+"Here, neither epsilon nor D appears
+here, so I just leave it for",00:55:32.510,00:55:36.120
+simplicity.,00:55:36.120,00:55:36.700
+"And here, D doesn't appear, but epsilon
+and x appear, so I do it this way.",00:55:36.700,00:55:40.070
+"I could put the more elaborate
+notation, but I just",00:55:40.620,00:55:43.070
+wanted to keep it simple.,00:55:43.070,00:55:44.870
+"Now, look at this decomposition.",00:55:45.220,00:55:46.720
+"We have the moving from your
+hypothesis to the centroid, from the",00:55:46.720,00:55:52.810
+"centroid to the target proper, and then
+from the target proper to the",00:55:52.810,00:55:57.620
+"actual output, which has
+a noise aspect to it.",00:55:57.620,00:56:00.640
+"So it's again the same thing of trying
+to approximate something, and putting",00:56:00.640,00:56:03.890
+it in steps.,00:56:03.890,00:56:05.890
+"Now if you look at the last quantity,
+that is patently the stochastic noise.",00:56:05.890,00:56:11.181
+"The interesting thing is that there
+is another term here which is",00:56:11.980,00:56:15.230
+"corresponding to the
+deterministic noise.",00:56:15.230,00:56:17.480
+And that is this fellow.,00:56:17.480,00:56:19.740
+That's another name for the bias.,00:56:19.740,00:56:21.100
+Why is that?,00:56:21.100,00:56:22.210
+"Because our leap of faith told us
+that this guy, the average, is about the",00:56:22.210,00:56:26.260
+same as the best hypothesis.,00:56:26.260,00:56:27.265
+"So we are measuring how the best
+hypothesis can approximate f.",00:56:27.265,00:56:30.900
+"Well, this tells me the energy
+of deterministic noise.",00:56:30.900,00:56:34.720
+"And this is why it's deterministic
+noise.",00:56:34.720,00:56:36.930
+"And putting it this way it gives
+you the solid ground to",00:56:36.930,00:56:41.710
+treat them the same.,00:56:41.710,00:56:43.430
+"Because if you increase the number of
+examples, you may get better variance.",00:56:43.430,00:56:48.620
+"There is more examples,
+so you don't float around",00:56:48.990,00:56:51.800
+fitting all of them.,00:56:51.800,00:56:52.460
+"So the red region, that used to be the
+variance, shrinks and shrinks.",00:56:52.460,00:56:56.130
+These guys are both inevitable.,00:56:56.130,00:56:58.100
+"There is nothing you can do about this,
+and there's nothing you can do",00:56:58.100,00:57:01.140
+about this given a hypothesis set.,00:57:01.140,00:57:03.350
+So these are fixed.,00:57:03.350,00:57:05.380
+"But again, in the bias-variance,
+remember the approximation was overall",00:57:05.380,00:57:08.570
+approximation.,00:57:08.570,00:57:09.250
+"We took the entire target function,
+and the entire hypothesis.",00:57:09.250,00:57:11.800
+"We didn't look at particular
+data points.",00:57:11.800,00:57:13.960
+"We looked at approximation proper, and
+that's why these are inevitable.",00:57:13.960,00:57:16.335
+"You tell me what the hypothesis set is,
+well, that's the best I can do.",00:57:16.335,00:57:19.690
+"And this is the best I can do as far
+as the noise, which is just not",00:57:19.690,00:57:22.330
+predicting anything in the noise.,00:57:22.330,00:57:24.230
+"Now, both the deterministic noise and
+the stochastic noise will have",00:57:24.230,00:57:27.540
+"a finite version on the data points, and
+the algorithm will try to fit them.",00:57:27.540,00:57:32.930
+"And that's why this guy
+gets a variety.",00:57:32.930,00:57:35.340
+"Because depending on the particular fit of
+those, you will get one or another.",00:57:35.820,00:57:40.360
+"So these guys affect the variance, by
+making the fit more susceptible to",00:57:40.360,00:57:46.820
+going in more places.,00:57:46.820,00:57:48.260
+"Depending on what happens, I will go
+this way and that way-- not because",00:57:48.260,00:57:51.770
+"it's indicated by the target function
+I want to learn, but just because",00:57:51.770,00:57:55.270
+"there is a noise present in the sample
+that I am blindly following, because I",00:57:55.270,00:57:58.790
+"can't distinguish noise from signal,
+and therefore I end up with more",00:57:58.790,00:58:01.570
+"variety, and I end up with worse
+variance and overfit.",00:58:01.570,00:58:05.640
+"Now very briefly, I'm going
+to give you a lead into",00:58:07.450,00:58:12.250
+the next two lectures.,00:58:12.250,00:58:14.110
+"We understand what overfitting is, and we
+understand that it's due to noise.",00:58:14.110,00:58:18.680
+"And we understand that noise is in the
+eye of the beholder, so to speak.",00:58:18.680,00:58:22.910
+"There is stochastic noise, but there's
+another noise which is not really",00:58:22.910,00:58:26.610
+"noise, but depends on which
+hypothesis looks at it.",00:58:26.610,00:58:29.000
+"It looks like noise to some, and not
+look like noise to other, and we call",00:58:29.000,00:58:32.000
+that deterministic noise.,00:58:32.000,00:58:33.220
+"And we saw experimentally that
+it affects overfitting.",00:58:33.220,00:58:36.000
+So how do we deal with overfitting?,00:58:36.000,00:58:37.330
+"What does it mean to deal
+with overfitting?",00:58:37.330,00:58:39.050
+We want to avoid it.,00:58:39.050,00:58:40.420
+"We don't want to spend more energy
+fitting, and get worse out-of-sample",00:58:40.420,00:58:44.120
+"error, whether by choice of a model,
+or by actually optimizing within",00:58:44.120,00:58:47.190
+"a model, like we did with
+neural networks.",00:58:47.190,00:58:49.440
+There are two cures.,00:58:50.070,00:58:52.420
+"One of them is called regularization,
+and that is best described as putting",00:58:52.420,00:58:59.260
+the brakes.,00:58:59.260,00:59:00.470
+"So overfitting-- you are going,
+going, going, going,",00:59:00.790,00:59:04.500
+and you hurt yourself.,00:59:04.500,00:59:06.090
+"So all I'm doing here is, I'm
+just making sure that you",00:59:06.090,00:59:07.870
+don't go all the way.,00:59:07.870,00:59:08.880
+"And when you do that, I'm going
+to avoid overfitting this way.",00:59:09.130,00:59:11.790
+The other one is called validation.,00:59:13.330,00:59:16.140
+"What is the cure in this
+case for overfitting?",00:59:16.410,00:59:20.140
+"You check the bottom line, and make
+sure that you don't overfit.",00:59:20.140,00:59:23.820
+It's a different philosophy.,00:59:23.820,00:59:25.340
+"That is, the reason I'm overfitting is
+because I'm going for E_in, and I'm",00:59:25.880,00:59:29.490
+"minimizing it, and I'm
+going all the way.",00:59:29.490,00:59:31.080
+"I say, no, wait a minute.",00:59:31.080,00:59:32.260
+"E_in is not a very good indication
+for what happens.",00:59:32.630,00:59:34.800
+"Maybe there's another way to be able to
+tell what is actually happening out",00:59:34.800,00:59:37.700
+"of sample, and therefore avoid
+overfitting, because you can check on",00:59:37.700,00:59:41.170
+"what is happening in the real
+quantity you care about.",00:59:41.170,00:59:43.300
+So these are the two approaches.,00:59:43.590,00:59:45.260
+I'll give you just an appetizer--,00:59:45.260,00:59:47.690
+"a very short appetizer for putting
+the brakes-- the regularization part,",00:59:47.690,00:59:52.080
+which is the subject of next lecture.,00:59:52.080,00:59:53.880
+Remember this curve?,00:59:55.480,00:59:56.810
+That's what we started with.,00:59:56.810,00:59:58.540
+"We had the five points, we had the
+4th-order polynomial, we fit, and we",00:59:58.540,01:00:02.450
+ended up in trouble.,01:00:02.450,01:00:04.330
+"And we can describe this as free fit,",01:00:04.330,01:00:08.290
+"that is, fit all you can.",01:00:08.290,01:00:10.170
+"So fit all you can, five points, I'll
+take 4th-order polynomial, go for it,",01:00:10.170,01:00:13.210
+"I get this, and that's what happens.",01:00:13.210,01:00:14.580
+"Now, putting the brakes means that
+you're going to not allow yourself to",01:00:15.380,01:00:19.570
+"go all the way, and you are going
+to have a restrained fit.",01:00:19.570,01:00:24.770
+"The reason I'm showing this is
+because it's fairly dramatic.",01:00:25.490,01:00:29.040
+You will think that I need--,01:00:29.040,01:00:30.866
+"this curve is so incredibly bad that
+you think you really need to do",01:00:30.866,01:00:35.120
+"something dramatic in
+order to avoid that.",01:00:35.120,01:00:36.870
+"But here, what I'm going to do, I'm just
+going to make you fit, and I'm",01:00:36.870,01:00:40.840
+"actually going to make you fit
+using a 4th-order polynomial.",01:00:40.840,01:00:43.250
+I'll give you that privilege.,01:00:43.250,01:00:45.130
+"But I'm going to prevent you from
+fitting the points perfectly.",01:00:46.050,01:00:49.560
+"I'm going to put some
+friction in it,",01:00:49.560,01:00:51.500
+"such that you cannot get
+exactly to the points.",01:00:51.500,01:00:53.610
+"And the amount of brake I'm
+going to put here is so",01:00:54.420,01:00:56.980
+"minimal, it's laughable.",01:00:56.980,01:00:58.430
+"When you go for your car service, they
+measure the brake, and they tell you,",01:00:58.430,01:01:02.720
+"oh, the brake is 70%, et cetera,
+and then when it gets to",01:01:02.720,01:01:05.670
+"40%, they tell you you need to
+do something about the brake.",01:01:05.670,01:01:08.040
+The brake's here are about 1%.,01:01:08.040,01:01:09.950
+"So if this was a car, you would be
+braking here, and you would be",01:01:10.430,01:01:13.530
+stopping in Glendale!,01:01:13.530,01:01:14.580
+It's like completely ridiculous.,01:01:14.810,01:01:17.150
+"But that little amount of brake
+will result in this.",01:01:17.150,01:01:20.990
+Totally dramatic.,01:01:24.140,01:01:25.910
+Fantastic fit.,01:01:25.910,01:01:27.520
+"The red curve is a 4th-order polynomial,
+but we didn't allow it to",01:01:27.520,01:01:31.200
+fit all the way.,01:01:31.200,01:01:32.020
+"And you can see that it's not fitting
+all the way, because it really is not",01:01:32.020,01:01:34.840
+getting the points right.,01:01:34.840,01:01:36.080
+"It's getting there, but not exactly.",01:01:36.080,01:01:37.980
+"So we don't have to do much to
+prevent the overfitting.",01:01:38.800,01:01:41.960
+"But we need to understand what
+is regularization, and how to",01:01:42.570,01:01:45.320
+"choose it, et cetera.",01:01:45.320,01:01:46.360
+And this we'll talk about next time.,01:01:46.360,01:01:47.880
+"And then the time after that, we're
+going to talk about validation, which",01:01:47.880,01:01:50.250
+is the other prescription.,01:01:50.250,01:01:51.780
+"I will stop here, and we will take
+questions after a short break.",01:01:51.780,01:01:55.050
+"Let's start the Q&amp;A, and we'll start
+with a question in house.",01:01:58.170,01:02:04.060
+"STUDENT: So on previous lecture we
+spoke about stochastic gradient",01:02:04.060,01:02:09.160
+"descent, and we say that we should
+choose point by point, and move in",01:02:09.160,01:02:17.090
+"the direction of gradient
+of error in this point.",01:02:17.090,01:02:20.450
+"PROFESSOR: Negative
+of the gradient, yes.",01:02:20.450,01:02:22.230
+"STUDENT: So the question is,
+how important is it to",01:02:22.230,01:02:26.450
+choose points randomly?,01:02:26.450,01:02:28.660
+"I mean, we can choose them just",01:02:28.660,01:02:32.310
+"from the list-- first point,
+second point, and so on?",01:02:32.320,01:02:34.850
+PROFESSOR: Yeah.,01:02:34.850,01:02:35.990
+"Depending on the runs, it could be no
+difference at all, or it could be",01:02:35.990,01:02:42.800
+a real difference.,01:02:42.800,01:02:43.620
+"And the best way to think of
+randomization in this case is that",01:02:43.620,01:02:46.280
+it's an insurance policy.,01:02:46.280,01:02:48.140
+"There's something about the pattern
+that is detrimental in",01:02:48.140,01:02:53.360
+a particular case.,01:02:53.360,01:02:54.840
+"You are always safe by picking the
+points at random, because there's no",01:02:54.840,01:02:57.690
+"chance that the random thing will
+have a pattern eventually, if",01:02:57.690,01:03:00.140
+you keep doing it.,01:03:00.140,01:03:01.135
+"So in many cases, you just run
+through examples 1 through N, 1",01:03:01.470,01:03:05.980
+"through N. 1 through N,
+and you will be fine.",01:03:05.980,01:03:08.480
+"Some cases, you take
+a random permutation.",01:03:08.480,01:03:10.520
+"Some cases even, you stay true to
+picking the point at random, and",01:03:10.520,01:03:15.600
+"you hope that the representation of
+a point will be the same, in the long run.",01:03:15.600,01:03:19.560
+"In my own experience, there is little
+difference in a typical case.",01:03:20.750,01:03:25.130
+"Every now and then, there's
+a funny case.",01:03:25.130,01:03:28.000
+"And therefore, you are safer using
+the stochastic presentation--",01:03:28.000,01:03:32.050
+"the random presentation
+of the examples--",01:03:32.050,01:03:33.840
+"in order to be able not to fall
+into the trap in those cases.",01:03:33.840,01:03:36.340
+Yeah.,01:03:40.444,01:03:40.900
+There's another question in house.,01:03:40.900,01:03:44.390
+"STUDENT: Hi, Professor.",01:03:44.390,01:03:45.505
+I have a question about slide 4.,01:03:45.505,01:03:46.960
+It's about neural networks.,01:03:46.960,01:03:50.440
+"I don't understand-- how do you draw the
+out-of-sample error on that plot?",01:03:50.440,01:03:54.940
+PROFESSOR: OK.,01:03:54.940,01:03:56.430
+"In general, you cannot, obviously,
+draw the out-of-sample error.",01:03:56.440,01:03:59.990
+"If you could draw it, you
+will just pick it.",01:04:00.000,01:04:01.580
+"This is a case where, I give you
+a data set, and you decide to set",01:04:02.090,01:04:06.480
+"aside part of the data
+set for testing.",01:04:06.480,01:04:11.290
+"So you are not involving it
+at all in the training.",01:04:11.290,01:04:13.910
+"And what you do, you go about your
+training, and at the end of every",01:04:14.570,01:04:18.620
+"epoch, when you evaluate the in-sample
+error on the entire batch, which is",01:04:18.620,01:04:21.900
+"the green curve here, you also evaluate,
+for that set of weights--",01:04:21.900,01:04:25.440
+"the frozen weights at the end of the
+epoch-- you evaluate that on the test",01:04:25.440,01:04:28.790
+"set, and you get a point.",01:04:28.790,01:04:30.720
+"And because that point is not involved
+in the training, it becomes",01:04:30.720,01:04:34.770
+"an out-of-sample point, and that
+gets the red point.",01:04:34.770,01:04:37.830
+And you go down.,01:04:37.830,01:04:38.720
+"Now, there's an interesting tricky point
+here, because if you decide at",01:04:39.370,01:04:43.130
+some point to,01:04:43.130,01:04:43.810
+"maybe, I look at the red curve.",01:04:43.810,01:04:46.210
+"Now I am going to stop where
+the red curve is minimum.",01:04:46.210,01:04:49.140
+STUDENT: Yes.,01:04:49.140,01:04:49.960
+PROFESSOR: OK?,01:04:49.960,01:04:50.880
+"Now at that point, the set that used to
+be a test set is no longer a test",01:04:50.880,01:04:56.470
+"set, because now it has just
+been involved in",01:04:56.470,01:04:59.170
+a decision regarding training.,01:04:59.170,01:05:01.660
+"Becomes slightly contaminated, becomes
+a validation set, which we're going to",01:05:02.770,01:05:06.570
+"talk about when we talk
+about validation.",01:05:06.570,01:05:07.870
+but that is really the premise.,01:05:07.870,01:05:09.310
+STUDENT: OK.,01:05:09.310,01:05:11.200
+I understand.,01:05:13.600,01:05:14.190
+"Also, can I--",01:05:14.190,01:05:16.590
+slide 16?,01:05:16.590,01:05:17.570
+PROFESSOR: Slide 16.,01:05:17.570,01:05:18.600
+"STUDENT: I didn't follow that. Why the
+two noises are the same, for the same",01:05:21.046,01:05:25.280
+learning problem.,01:05:25.280,01:05:27.170
+"PROFESSOR: They're the same
+in the sense that",01:05:27.170,01:05:31.150
+they are part of the outputs that I'm,01:05:31.150,01:05:34.370
+"being given, or that I'm
+trying to predict.",01:05:34.370,01:05:37.140
+"And that part, I cannot predict
+regardless of what I do.",01:05:37.140,01:05:41.140
+"In the case of stochastic
+noise, it's obvious.",01:05:41.140,01:05:43.140
+"There's nothing to predict there,
+so whatever I do, I miss it.",01:05:43.140,01:05:46.030
+"In the case here, it's particular to
+the hypothesis set that I have.",01:05:47.130,01:05:49.900
+"So I take a hypothesis set, and look
+in a non-learning scenario, look at",01:05:49.900,01:05:55.210
+"the target function and choose
+your best scenario.",01:05:55.210,01:05:57.315
+"You choose, this is my best hypothesis,
+which we called here h star.",01:05:57.930,01:06:01.010
+"If you look at the difference
+between h star and f,",01:06:02.000,01:06:07.000
+"the difference is a part which I cannot
+capture, because the best I",01:06:07.000,01:06:09.890
+could do is h star.,01:06:09.890,01:06:11.220
+"So the remaining part is what I'm
+referring to as deterministic noise,",01:06:11.220,01:06:14.560
+"and it is beyond my ability
+given my hypothesis set.",01:06:14.560,01:06:18.760
+"So that's why they are the same-- the
+same in the sense of unreachable as",01:06:18.760,01:06:22.140
+far as my resources are concerned.,01:06:22.140,01:06:24.480
+STUDENT: OK.,01:06:24.480,01:06:25.470
+"In a real problem, do we know the
+complexity of the target function?",01:06:25.470,01:06:31.790
+"PROFESSOR: In general, no.",01:06:31.790,01:06:33.530
+"We also don't know the particulars of the
+noise. We know that the problem is noisy, but",01:06:33.530,01:06:37.300
+we cannot identify the noise.,01:06:37.300,01:06:38.690
+"We cannot, in most cases,
+even measure the noise.",01:06:38.690,01:06:40.870
+"So the purpose here is to understand
+that, even in the case of a noiseless",01:06:41.380,01:06:45.750
+"target in the conventional
+sense, there is",01:06:45.750,01:06:48.250
+something that we can identify--,01:06:48.250,01:06:50.180
+conceptually identify--,01:06:50.180,01:06:51.840
+that does affect the overfitting.,01:06:51.840,01:06:54.280
+"And even if we don't know the
+particulars of it, we will have to put",01:06:54.280,01:06:57.530
+"in place the guards, in order
+to avoid overfitting.",01:06:57.530,01:07:00.280
+"That was the goal here,
+rather than try to--",01:07:00.280,01:07:02.460
+"Any time you see the target function
+drawn, you should immediately have",01:07:03.020,01:07:06.340
+"an alarm bell that this is conceptual,
+because you never actually see the",01:07:06.340,01:07:09.470
+"target function in a real
+learning situation.",01:07:09.470,01:07:11.780
+STUDENT: Oh.,01:07:11.780,01:07:12.027
+"So, that's why the two
+noises are equal, then.",01:07:12.027,01:07:14.470
+"Because we don't know the target
+function, so we don't know which part",01:07:14.470,01:07:17.100
+is deterministic.,01:07:17.100,01:07:17.880
+PROFESSOR: Yeah.,01:07:17.880,01:07:19.070
+"If I knew the target,
+and if I knew the noise,",01:07:19.070,01:07:22.070
+"then the situation would be good, but
+then I don't need machine learning.",01:07:22.070,01:07:24.420
+I already have that.,01:07:24.420,01:07:25.340
+STUDENT: Thank you.,01:07:25.340,01:07:27.590
+"PROFESSOR: So we go for the
+questions from the outside?",01:07:27.590,01:07:29.845
+"MODERATOR: Yeah.
+Quick conceptual question.",01:07:29.845,01:07:31.720
+"Is it OK to say that the deterministic
+noise is the part of reality that is",01:07:31.730,01:07:36.510
+too complex to be modeled?,01:07:36.510,01:07:38.690
+"PROFESSOR: It is definitely
+part of the reality--",01:07:38.690,01:07:41.140
+that part.,01:07:41.140,01:07:41.970
+"And basically, it's our failure to model
+it is what made it noise, as far",01:07:41.970,01:07:47.290
+as we are concerned.,01:07:47.290,01:07:48.260
+"So obviously you can, in some sense,
+model it by going to a bigger",01:07:48.910,01:07:52.250
+hypothesis set.,01:07:52.250,01:07:53.130
+"The bigger hypothesis set will have
+a closer h star to the target, and",01:07:53.130,01:07:56.650
+"therefore the difference
+will be small.",01:07:56.650,01:07:58.380
+"But the situation pertains to the case
+where you already chose the hypothesis",01:07:58.380,01:08:01.660
+"set according to prescriptions of
+VC dimension, number of examples, and",01:08:01.660,01:08:05.190
+other considerations.,01:08:05.190,01:08:06.400
+"And given that hypothesis set, you
+already concede that even if the",01:08:06.400,01:08:10.600
+"target is noiseless, there is part of
+it which behaves as noise, as far as",01:08:10.600,01:08:14.850
+I'm concerned.,01:08:14.850,01:08:15.720
+"And I will have to treat it as such, when
+I consider overfitting and the",01:08:15.720,01:08:18.369
+other considerations.,01:08:18.369,01:08:19.619
+"MODERATOR: Also, is it fair to say that
+over-training will cause overfitting?",01:08:21.450,01:08:26.140
+"PROFESSOR: I think they
+probably are synonymous.",01:08:26.140,01:08:29.420
+Overfitting is relative.,01:08:29.420,01:08:31.770
+"Over-training will be relative within
+the same model, if I try to give it",01:08:31.770,01:08:35.770
+a definition.,01:08:35.770,01:08:36.359
+"That you over-train, so you already
+settled on the model, and you're",01:08:36.359,01:08:38.620
+over-training it.,01:08:38.620,01:08:39.760
+"The case of neural network
+would be over-training.",01:08:39.760,01:08:41.960
+"The case of choosing the 3rd-order
+polynomial versus the 4th-order",01:08:41.960,01:08:45.130
+"polynomial will not really be
+over-training, but it will be",01:08:45.130,01:08:47.640
+overfitting.,01:08:47.640,01:08:48.109
+"It's all technicalities, but
+just to answer the question.",01:08:48.109,01:08:50.560
+"MODERATOR: Practically, when
+you implement",01:08:53.120,01:08:56.430
+"these algorithms, and there's also some",01:08:56.430,01:08:58.319
+"approximation, maybe due to the
+floating-point number or something.",01:08:58.319,01:09:03.270
+So is this another source of error?,01:09:03.270,01:09:06.460
+Does it produce overfitting?,01:09:06.460,01:09:07.740
+Or is it--,01:09:07.740,01:09:08.700
+PROFESSOR: It's--,01:09:08.700,01:09:09.479
+"Formally speaking, yes,
+it's another source.",01:09:09.790,01:09:11.510
+"But it is so minute with respect
+to the other guys,",01:09:11.510,01:09:14.140
+that it's never mentioned.,01:09:14.140,01:09:16.970
+We have another in-house question.,01:09:16.970,01:09:20.950
+"STUDENT: A couple of lectures ago, we
+spoke about 3rd linear model, which",01:09:20.950,01:09:26.180
+is logistic regression.,01:09:26.180,01:09:27.649
+"PROFESSOR: You said
+the 3rd linear model?",01:09:30.760,01:09:32.130
+STUDENT: Yes.,01:09:32.130,01:09:32.540
+"So the question is, is it true
+that initially I have data which",01:09:34.770,01:09:41.080
+is completely linearly separable?,01:09:41.080,01:09:42.610
+So the points marked--,01:09:42.610,01:09:46.399
+"some points are marked -1, and some
+are +1, and there is a plane",01:09:46.399,01:09:51.670
+which separates them.,01:09:51.670,01:09:53.710
+"Is it true that applying this learning
+model, you're never stuck in a local",01:09:53.710,01:09:59.240
+minimum and get 0 in-sample error?,01:09:59.240,01:10:03.590
+PROFESSOR: OK.,01:10:03.590,01:10:04.400
+"This is a very specific question
+about logistic regression.",01:10:04.400,01:10:06.820
+"If the thing is completely clean, then
+you obviously can get closer and",01:10:06.820,01:10:10.690
+"closer to having the probability
+being perfect, by having",01:10:10.690,01:10:13.700
+bigger and bigger weights.,01:10:13.700,01:10:15.500
+So there is a minimum.,01:10:15.500,01:10:16.640
+"And again, it's a unique minimum.",01:10:16.640,01:10:17.940
+"Except that the minimum is
+at infinity, in terms of",01:10:17.940,01:10:20.610
+the size of the weight.,01:10:20.610,01:10:21.550
+"But this doesn't bother you, because you
+are really going to stop at some",01:10:21.550,01:10:25.110
+"point when the gradient is small,
+according to your specification.",01:10:25.110,01:10:28.680
+"And you can specify this
+any way you want.",01:10:28.680,01:10:30.315
+"So the goal is not necessarily
+to arrive at the minimum.",01:10:31.080,01:10:36.900
+"Which hardly ever happens, even if
+the thing is not at infinity.",01:10:36.900,01:10:39.440
+"But get close enough, in the sense that
+the value is close to the minimum, and",01:10:39.440,01:10:43.180
+"therefore you achieve the small
+error that you want.",01:10:43.180,01:10:45.250
+MODERATOR: Can you resolve again,01:10:47.854,01:10:49.600
+"the contradiction of when
+you increase the",01:10:49.600,01:10:52.980
+"complexity of the model, you should be
+reducing your bias, and hence your",01:10:52.980,01:10:56.900
+deterministic noise?,01:10:56.900,01:10:58.530
+"So here we had an example
+when we had H--",01:10:58.530,01:11:03.040
+"well, H_10 had more
+error than H_2.",01:11:03.040,01:11:09.240
+"PROFESSOR: H_10 had total error
+more than H_2.",01:11:09.240,01:11:15.580
+"If we were doing the
+approximation game,",01:11:15.590,01:11:17.310
+H_10 would be better.,01:11:17.310,01:11:18.570
+"We had three terms in the bias-variance.
+If we were only going by",01:11:19.030,01:11:25.670
+"these two, then there is no question
+that the bigger model, H_10,",01:11:25.670,01:11:29.700
+will win.,01:11:29.700,01:11:29.980
+"Because this is for all, and this one
+will be better for H_10 than H_2,",01:11:29.980,01:11:35.220
+"because H_10 is closer to the target
+we want, and therefore we will be",01:11:35.220,01:11:38.740
+making smaller error.,01:11:38.740,01:11:40.190
+"This is not the source of the
+problem of overfitting.",01:11:40.190,01:11:42.920
+"This is just identifying terms in the
+bias-variance decomposition,",01:11:43.390,01:11:47.310
+"bias-variance-noise decomposition
+in this case,",01:11:47.310,01:11:49.630
+"that correspond to the different
+types of noise.",01:11:49.630,01:11:51.950
+"The problem of overfitting
+happens here.",01:11:51.950,01:11:54.870
+"And that happens because of
+the finite-sample version of both.",01:11:55.310,01:11:59.340
+"That is, I get N points in which there
+is a contribution of noise coming from",01:11:59.580,01:12:03.800
+"the stochastic and coming
+from the deterministic.",01:12:03.800,01:12:06.840
+"On those points, the algorithm will try
+to fit that noise, in spite of the",01:12:07.500,01:12:11.700
+"fact that if it knew, it wouldn't,
+because it knows that",01:12:11.700,01:12:14.590
+they're out of reach.,01:12:14.590,01:12:16.100
+"But it gets a finite sample, and it can
+use its resources to try to fit",01:12:16.100,01:12:19.880
+"part of that noise, and that is
+what is causing overfitting.",01:12:19.880,01:12:23.370
+"And that ends up being harmful, and so
+harmful in the H_10 case, that the",01:12:23.370,01:12:28.590
+"harm offsets the fact that I'm closer
+to the target function.",01:12:28.590,01:12:33.090
+That doesn't help me very much.,01:12:33.090,01:12:34.680
+"Because,",01:12:34.680,01:12:36.920
+"same thing we said before,",01:12:36.920,01:12:38.270
+Let's say there's H_10.,01:12:40.820,01:12:42.760
+"And the target function
+is sitting here.",01:12:42.760,01:12:44.610
+"That doesn't do me much good if my
+algorithm, and the distraction of the",01:12:45.210,01:12:50.505
+"noise, leads me to go
+in that direction.",01:12:50.505,01:12:52.970
+"I will be further from the target
+function than another guy who, only",01:12:52.970,01:12:56.290
+"working with this, remained in the
+confines and ended up being closer to",01:12:56.290,01:13:00.120
+the target function.,01:13:00.120,01:13:01.100
+"It's a question of the variance term
+that results in overfitting, not",01:13:01.100,01:13:06.690
+"this guy, in spite of the fact that
+these guys contain both types of noise",01:13:06.690,01:13:12.390
+contributing to their value.,01:13:12.390,01:13:13.560
+But their value is static.,01:13:13.560,01:13:14.850
+"It doesn't change with N, and
+it has nothing to do with",01:13:14.850,01:13:17.140
+the overfitting aspect.,01:13:17.140,01:13:18.390
+"MODERATOR: In the case of polynomial
+fitting, a way to avoid the",01:13:22.950,01:13:28.600
+"overfitting could be to
+use piecewise linear--",01:13:28.600,01:13:33.180
+"piecewise linear functions
+around each point.",01:13:35.010,01:13:37.320
+So it is a method of regularization?,01:13:37.320,01:13:39.470
+Or is it--,01:13:39.470,01:13:40.260
+PROFESSOR: OK.,01:13:40.260,01:13:41.270
+"Depends on the number of degrees
+of freedom you have.",01:13:41.270,01:13:43.200
+"You can have piecewise linear,
+which is really horrible.",01:13:43.200,01:13:46.310
+It's like something you can't tell.,01:13:46.310,01:13:47.920
+It depends on how many pieces.,01:13:47.920,01:13:49.470
+"If you have as many pieces as there
+are points, you can see what the",01:13:49.470,01:13:52.060
+problem is.,01:13:52.060,01:13:52.850
+"So it really is, what is the
+VC dimension of your model?",01:13:52.850,01:13:55.800
+"And I can take it-- if it's piecewise
+linear, and I have only four",01:13:56.200,01:14:00.070
+"parameters, then I don't worry too much
+that it's piecewise linear.",01:14:00.070,01:14:03.540
+"I only worry about the four
+parameters aspect of it.",01:14:03.540,01:14:06.580
+"10th-order polynomial was bad because
+of the 11 parameters, not because of",01:14:06.580,01:14:10.180
+other factor.,01:14:10.180,01:14:11.130
+"But anything you do to restrict your
+model, in terms of the fitting, can be",01:14:11.130,01:14:19.675
+called regularization.,01:14:19.675,01:14:20.710
+"And there are some good methods and
+bad methods, but they are all",01:14:20.710,01:14:23.830
+"regularization, in terms
+of putting the brakes.",01:14:23.830,01:14:25.910
+"MODERATOR: Some practical question is,
+how do you usually get the profile",01:14:32.270,01:14:36.240
+of the out-of-sample error?,01:14:36.240,01:14:39.140
+"Do you sacrifice points, or--",01:14:39.140,01:14:41.010
+PROFESSOR: OK.,01:14:41.010,01:14:42.000
+This is obviously a good question.,01:14:42.000,01:14:43.520
+"When we talk about validation--
+validation has an impact on",01:14:43.520,01:14:46.850
+overfitting.,01:14:46.850,01:14:47.400
+It's used to do that.,01:14:47.400,01:14:48.940
+"But it's also used in model
+selection in general.",01:14:48.940,01:14:51.090
+"And because of that, it's very tempting
+to say, I'm going to use",01:14:51.880,01:14:56.540
+"validation, and I'm going to set
+aside a number of points.",01:14:56.540,01:14:58.780
+"But obviously, the problem is that when
+you set aside a number of points, you",01:14:58.780,01:15:01.700
+"deprive yourself from a resource that
+you could have used for training, in",01:15:01.700,01:15:05.360
+order to arrive at a better hypothesis.,01:15:05.360,01:15:07.480
+"So there's a tradeoff, and we'll
+discuss that tradeoff in very",01:15:07.480,01:15:10.070
+"specific terms, and find ways
+to go around it, like",01:15:10.070,01:15:13.105
+cross-validation.,01:15:13.105,01:15:14.200
+"But this will be the subject of the
+lecture on validation, coming up soon.",01:15:14.200,01:15:17.660
+"MODERATOR: In the example of the color
+plots, here the order of the",01:15:22.950,01:15:29.090
+"polynomial is a good indication
+of the VC dimension, right?",01:15:29.090,01:15:35.112
+PROFESSOR: These are the plots.,01:15:35.112,01:15:36.280
+What is the question?,01:15:36.290,01:15:36.990
+"MODERATOR: Here, Q_f is directly related
+to the VC dimension, right?",01:15:36.990,01:15:41.800
+"PROFESSOR: The target complexity
+has nothing to do with the VC dimension.",01:15:41.800,01:15:49.350
+It's the target.,01:15:49.360,01:15:50.830
+I'm talking about different targets.,01:15:51.740,01:15:53.860
+"The VC dimension has to do only with
+the two fellows we are using.",01:15:54.550,01:15:57.580
+"We are using H_2 and H_10, 2nd-order
+polynomials and 10th-order polynomials.",01:15:57.580,01:16:02.530
+"So if we take the degrees of freedom
+as being a VC dimension, they will",01:16:02.530,01:16:05.760
+have different VC dimension.,01:16:05.760,01:16:07.310
+"And the discrepancy in the VC dimension,
+given the same number of",01:16:07.310,01:16:10.430
+"examples, is the reason why we
+have discrepancy in the",01:16:10.430,01:16:12.790
+out-of-sample error.,01:16:12.790,01:16:13.950
+"But you also have a discrepancy
+in the in-sample error.",01:16:13.950,01:16:16.310
+"And the case of overfitting is such that
+the in-sample error is moving in",01:16:16.310,01:16:19.640
+"one direction, and the out-of-sample
+moving in another direction.",01:16:19.640,01:16:22.140
+"So the only relevant thing in this plot
+to the VC dimension is the fact",01:16:22.140,01:16:26.470
+"that the two models have different
+VC dimensions,",01:16:26.470,01:16:29.090
+H_2 and H_10.,01:16:29.090,01:16:30.340
+"MODERATOR: I guess you never
+really have a measure on the target",01:16:33.680,01:16:39.310
+"complexity, like in practice?",01:16:39.310,01:16:41.976
+PROFESSOR: Correct.,01:16:41.976,01:16:42.340
+This was an illustration.,01:16:42.340,01:16:44.180
+"And even in the case of the illustration,
+when we had explicitly",01:16:44.180,01:16:47.820
+"a definition of the target complexity, it
+wasn't completely clear how to map",01:16:47.820,01:16:52.380
+"this into energy of deterministic
+noise, a counterpart for",01:16:52.380,01:16:57.320
+sigma squared here.,01:16:57.320,01:16:58.250
+This is completely clean.,01:16:58.250,01:17:00.510
+"And as you can see, because of that,
+the plot is very regular.",01:17:00.510,01:17:04.190
+"Here, first we define this in
+a particular case, in order to be able to",01:17:04.190,01:17:07.410
+run an experiment.,01:17:07.410,01:17:08.950
+"Second, in terms of that, it's not clear
+what is-- can you tell me what",01:17:08.950,01:17:12.000
+"is the energy of the deterministic
+noise here?",01:17:12.000,01:17:14.170
+"There's quite a bit of normalization
+that was done.",01:17:14.170,01:17:16.830
+"So when we normalize the target
+in order to make sigma squared",01:17:16.830,01:17:19.510
+"meaningful, we sacrifice the fact--
+the target now is sandwiched between",01:17:19.510,01:17:25.880
+limited range.,01:17:25.880,01:17:27.700
+"And therefore the amount of energy, of
+whatever the deterministic noise is,",01:17:27.700,01:17:31.950
+"will be limited, regardless of
+how complex is the target is.",01:17:31.950,01:17:35.650
+"So there is a compromise we had
+to do, in order to be able",01:17:35.650,01:17:40.070
+to find these plots.,01:17:40.070,01:17:41.690
+"However, the moral of the story here
+is that there's something about the",01:17:41.690,01:17:45.860
+"target complexity that behaved in the
+same way, as far as overfitting is",01:17:45.860,01:17:50.620
+"concerned, as noise.",01:17:50.620,01:17:52.980
+"And we identified it as
+deterministic noise.",01:17:52.980,01:17:55.240
+We didn't quantify it further.,01:17:55.240,01:17:57.090
+And it will be--,01:17:57.090,01:17:58.220
+It's possible to quantify it.,01:17:58.220,01:17:59.250
+"You can get the energy for this
+and that, and you can do it.",01:17:59.250,01:18:01.890
+But these are research topics.,01:18:01.890,01:18:04.030
+"As far as we are concerned, in a real
+situation, we won't be able to",01:18:04.030,01:18:06.380
+"identify either the stochastic noise
+or the deterministic noise.",01:18:06.380,01:18:12.740
+We just know they're there.,01:18:12.740,01:18:14.070
+We know the impact of overfitting.,01:18:14.070,01:18:15.880
+"And we will be able to find methods
+in order to be able to cure the",01:18:15.880,01:18:19.050
+"overfitting, without knowing all of the
+specifics that we could possibly know",01:18:19.050,01:18:23.260
+about the noise involved.,01:18:23.260,01:18:25.650
+MODERATOR: Do you ever measure the--,01:18:25.650,01:18:29.200
+"is there some similar kind of measure
+of the model complexity,",01:18:29.200,01:18:35.430
+of the target function?,01:18:35.430,01:18:36.770
+"Do you ever use a VC dimension
+for that?",01:18:36.770,01:18:38.900
+PROFESSOR: Not explicitly.,01:18:41.640,01:18:42.380
+"One can apply it. You say what
+is the model that would",01:18:42.380,01:18:45.140
+include the target function?,01:18:45.140,01:18:47.200
+"And then, based on the inclusion of the
+target function, you can say that",01:18:47.200,01:18:51.950
+this is the complexity of that model.,01:18:51.950,01:18:55.430
+"The analysis we use is such that the
+complexity of the target function",01:18:55.430,01:19:01.430
+"doesn't come in, in terms
+of the VC analysis.",01:19:01.430,01:19:06.280
+But there are other methods.,01:19:06.280,01:19:07.930
+"There are other approaches,",01:19:07.930,01:19:09.420
+"other than the VC analysis, where
+the target complexity matters.",01:19:09.420,01:19:13.160
+"So I didn't particularly spend time
+trying to capture the complexity of",01:19:13.160,01:19:17.930
+"the target function until this moment,
+where the complexity of the target",01:19:17.930,01:19:21.040
+"function could translate to something
+in the bias-variance decomposition, and",01:19:21.040,01:19:25.160
+"that has an impact on overfitting
+and generalization.",01:19:25.160,01:19:28.385
+MODERATOR: I think that's it.,01:19:31.170,01:19:32.760
+PROFESSOR: We will see you on Thursday.,01:19:32.770,01:19:35.460

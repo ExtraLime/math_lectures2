@@ -1,0 +1,422 @@
+text,start,stop
+"In our series on linked list so far, we
+have implemented",00:00:00.370,00:00:03.560
+"some of the basic operations like
+insertion deletion",00:00:03.560,00:00:07.410
+"and traversal. Now in this lesson we
+will write",00:00:07.410,00:00:10.559
+"code to traverse and print the
+elements of a linked list using",00:00:10.559,00:00:15.500
+recursion.,00:00:15.500,00:00:16.090
+"Prerequisite for this lesson is that you
+should understand recursion as a",00:00:16.090,00:00:20.560
+programming concept,00:00:20.560,00:00:21.740
+"well. Recursive traversal of linked list
+actually helps us solve",00:00:21.740,00:00:25.230
+"couple of interesting problems but in
+this lesson we will keep it simple",00:00:25.230,00:00:29.210
+"We will just traverse and print
+all the elements in linked list using",00:00:29.210,00:00:33.540
+recursion.,00:00:33.540,00:00:34.230
+and we will write one simple variation,00:00:34.230,00:00:37.489
+"to print all the elements in reverse order.
+using recursion.",00:00:37.489,00:00:40.800
+"We will actually not reverse the
+list we will just",00:00:40.800,00:00:43.850
+print the elements in reverse order.,00:00:43.850,00:00:47.399
+"So, once again I have taken example of a
+linked list of integers here",00:00:47.399,00:00:51.180
+"we have four nodes, each rectangle here is
+a Node",00:00:51.180,00:00:54.690
+"It has two fields, one to store the data
+and another to store the address of the",00:00:54.690,00:00:59.730
+next node,00:00:59.730,00:01:00.600
+"let's say we have four Nodes at addresses
+100 200 150 and 250 respectively.",00:01:00.600,00:01:05.770
+"And of course we will also have a
+variable that will store",00:01:05.770,00:01:09.380
+"the address of the head node. Let's name
+this variable head.",00:01:09.380,00:01:12.560
+"Programmatically in our C or C plus plus
+program",00:01:12.560,00:01:16.000
+"Node will be defined something like this
+We will have a structure with ",00:01:16.000,00:01:21.159
+"two fields,",00:01:21.159,00:01:21.470
+one to store the data and another to,00:01:21.470,00:01:24.710
+"store the address of the next Node. What
+we want to do in this particular",00:01:24.710,00:01:30.259
+"lesson is that we want to write two
+functions",00:01:30.259,00:01:33.310
+"first we want to write a function named
+print that will take",00:01:33.310,00:01:37.409
+"address of the Node as argument. We will first
+past this function the address of the",00:01:37.409,00:01:41.390
+"head node, so",00:01:41.390,00:01:42.479
+"let's name this argument head and in
+this function we will use recursion",00:01:42.479,00:01:47.799
+"to print elements in the list so for
+this particular example here",00:01:47.799,00:01:51.590
+"if we want to print a space separated
+list of all the elements",00:01:51.590,00:01:56.110
+"our output will be something like this and
+we also want to write",00:01:56.110,00:01:59.509
+"another function named reverse print.
+Here also we will take the",00:01:59.509,00:02:04.119
+"address of the Node. So we will pass this
+guy the address of the head node",00:02:04.119,00:02:08.590
+"and in this function we will use 
+recursion to print the elements in the list",00:02:08.590,00:02:12.930
+in,00:02:12.930,00:02:13.300
+"reversed order. So if we have to print a
+space separated list for this example",00:02:13.300,00:02:17.959
+"our output will be something like this.
+So let's first implement the print",00:02:17.959,00:02:23.500
+function.,00:02:23.500,00:02:24.140
+"in my C code here, I will declare print
+function like this",00:02:24.140,00:02:28.470
+"it will take as argument the address 
+of a node",00:02:28.470,00:02:31.599
+"so the argument is of type pointer to Node.
+Initially we will pass the address of the",00:02:31.599,00:02:36.849
+head node.,00:02:36.849,00:02:37.590
+"We can name this argument head or we can
+name this argument p.",00:02:37.590,00:02:41.269
+"we can name it whatever but we must
+understand that this",00:02:41.269,00:02:44.349
+"will be local variable and let's not
+bother about",00:02:44.349,00:02:47.860
+"other infrastructure in the code like
+how we would create",00:02:47.860,00:02:50.980
+"a linked list and how we would insert
+a node in the linked list.",00:02:50.980,00:02:54.660
+"let's assume that they are in place so let's
+keep the name of this particular",00:02:54.660,00:02:58.269
+argument,00:02:58.269,00:02:59.000
+p. Now recursion is a function calling,00:02:59.000,00:03:02.959
+"itself so we have been passed the address
+of the node initially the head node,",00:03:02.959,00:03:07.290
+"so what we can do in our code is first we can
+print",00:03:07.290,00:03:10.980
+"the value at that particular node with
+a printf",00:03:10.980,00:03:14.440
+"statement like this and then we can
+make another call to the print function",00:03:14.440,00:03:18.730
+and this time we will pass the,00:03:18.730,00:03:20.420
+"address of the next node with a
+statement like this. This next",00:03:20.420,00:03:25.010
+"field is also a pointer to node, so
+this will",00:03:25.010,00:03:28.750
+"pass the address of the, this will be the
+address of the next node",00:03:28.750,00:03:32.799
+"Now, there is one more important thing in
+recursion",00:03:32.799,00:03:36.230
+"and that we should never forget and it's
+the exit condition from recursion.",00:03:36.230,00:03:41.000
+"we should not go on making recursive
+calls infinitely.",00:03:41.000,00:03:44.709
+"So in this case if we go from the first
+node to the second node and from the",00:03:44.709,00:03:50.470
+second node to the,00:03:50.470,00:03:51.290
+"third node using recursion, then finally
+at one stage,",00:03:51.290,00:03:55.739
+"p will be equal to NULL in one of the calls. So at
+this stage",00:03:55.739,00:03:59.459
+"we can avoid making a recursive call,
+we will",00:03:59.459,00:04:02.569
+"exit and we will show you a simulation of
+how things will happen.",00:04:02.569,00:04:06.909
+"in memory. Hold on for a while,so once we
+will reach the end of the list",00:04:06.909,00:04:11.319
+"p will be equal to NULL and we will
+exit.",00:04:11.319,00:04:15.060
+"the recursion at that stage. Now I will write
+the main method,",00:04:15.060,00:04:18.910
+"We have already written the insert function
+here so",00:04:18.910,00:04:22.300
+I'll declare a variable head as NULL,00:04:22.300,00:04:25.870
+"in the main method. So head will be a
+local variable. Once again",00:04:25.870,00:04:29.810
+"we could name this particular variable
+a or b or whatever",00:04:29.810,00:04:33.470
+"Just because this variable points to the
+head node or the first node in the list",00:04:33.470,00:04:38.040
+we name this variable as head,00:04:38.040,00:04:40.000
+"and then we will insert some nodes in
+the linked list",00:04:40.000,00:04:43.620
+"by making calls to the insert
+function",00:04:43.620,00:04:47.330
+"that takes the address of the head node as
+argument.",00:04:47.330,00:04:51.009
+"Initially head is set as NULL to say
+that the list is empty",00:04:51.009,00:04:54.830
+and there should be two arguments to head,00:04:54.830,00:04:58.370
+"to the function insert. The address of
+the head node",00:04:58.370,00:05:01.870
+and the value that needs to be inserted,00:05:01.870,00:05:04.889
+"and why is it that this particular function
+insert is",00:05:04.889,00:05:08.570
+returning a pointer. It's because this,00:05:08.570,00:05:12.350
+"head in the main method is a local
+variable",00:05:12.350,00:05:15.870
+"and if we pass it to the function we
+just pass a copy",00:05:15.870,00:05:19.800
+"of the address of the head node. In this head
+which will be",00:05:19.800,00:05:23.610
+"a local variable of the insert function so
+this guy returns us back",00:05:23.610,00:05:27.639
+"the address of the modified head. So,
+we can update it",00:05:27.639,00:05:31.690
+"in the main function. This function inserts
+a",00:05:31.690,00:05:35.090
+"a node at the end of the list. So, initially
+when head is null",00:05:35.090,00:05:38.990
+"head will be modified in the insert
+function",00:05:38.990,00:05:42.820
+"For other cases it will not be modified
+if we are inserting at the end",00:05:42.820,00:05:46.840
+"so we will make four such calls to the
+insert function",00:05:46.840,00:05:50.169
+"to create a linked list of four integers
+2, 4, 6, 5",00:05:50.169,00:05:54.710
+"and now we will make a call to print
+function",00:05:54.710,00:05:58.699
+"and pass it the address of the head node.
+Let us now",00:05:58.699,00:06:02.150
+"run this code and see what happens. As you
+can see",00:06:02.150,00:06:05.220
+"we have got this output 2, 4, 6, 5",00:06:05.220,00:06:09.180
+"The print function here in our code
+which is a recursive",00:06:09.180,00:06:13.250
+"implementation to print the lists is
+working",00:06:13.250,00:06:17.280
+"now I'll make one slight change in the
+print function",00:06:17.280,00:06:19.990
+"instead of printing the value in the
+node and then making making a recursive",00:06:19.990,00:06:24.410
+call,00:06:24.410,00:06:24.930
+"I will first make a recursive call and then
+when the recursive call finishes,",00:06:24.930,00:06:29.970
+I will print the value in the Node and,00:06:29.970,00:06:33.490
+"I will not modify anything else in the code.
+The main method will remain the same",00:06:33.490,00:06:37.450
+"And if we run this code,",00:06:37.450,00:06:40.970
+"we can see that the elements in the
+list are printed in reverse order.",00:06:40.970,00:06:44.820
+"So we just implemented the reverse print
+print function that we have talked about",00:06:44.820,00:06:49.510
+"Let us now analyse these two
+recursive implementations",00:06:49.510,00:06:52.860
+in a logical view in our example here,00:06:52.860,00:06:56.350
+"if we want to print this particular list
+we will do something like",00:06:56.350,00:07:00.210
+"from the main method we will make a
+call to the",00:07:00.210,00:07:03.310
+"print function passing it the address of the head
+node",00:07:03.310,00:07:06.620
+"so initially this print function it's been
+called with ",00:07:06.620,00:07:10.600
+"p equal 100 now in the execution of
+this function we will come here",00:07:10.600,00:07:14.470
+"if p is equal to NULL, NULL is address
+zero.",00:07:14.470,00:07:17.540
+"And our argument is 100 so control will not
+go inside",00:07:17.540,00:07:21.850
+this if condition. We will come here we will print,00:07:21.850,00:07:26.040
+"p-&gt; data. p-&gt;data means that
+we will first dereference the address",00:07:26.040,00:07:30.910
+"So, we will go to the address 100 and then we
+will look at the data field there.",00:07:30.910,00:07:35.970
+"So, on the console we will print the data field
+of",00:07:35.970,00:07:39.860
+the data field at address 100 and now the,00:07:39.860,00:07:44.820
+"recursive call we will make a call
+to print function",00:07:44.820,00:07:49.220
+passing it address p-&gt;next which is,00:07:49.220,00:07:53.490
+"200 and execution of this particular
+call will not finish",00:07:53.490,00:07:57.730
+"It will finish only after print(200)
+finishes. ",00:07:57.730,00:08:01.680
+"We will come back to it now print(200)
+once again",00:08:01.680,00:08:05.310
+"prints the data at address 200 and
+then makes a recursive call",00:08:05.310,00:08:10.790
+"to print function passing address 150
+and we will go on like this.",00:08:10.790,00:08:16.370
+In this call to print with address 250,00:08:16.370,00:08:19.700
+"We will first print the data and the address
+field",00:08:19.700,00:08:23.660
+the value of P-&gt;next ,00:08:23.660,00:08:27.230
+"is 0, what we can also say NULL. ",00:08:27.230,00:08:30.650
+"We will make a call like this. Now for this
+call",00:08:30.650,00:08:34.200
+"with arguments null we have reached end,
+the exit condition",00:08:34.200,00:08:38.920
+"recursion will not grow
+further. So we will just print an",00:08:38.920,00:08:42.800
+end-of-line,00:08:42.800,00:08:43.500
+and return.,00:08:43.500,00:08:46.100
+"This particular structure that we have
+drawn here",00:08:46.100,00:08:48.650
+is called recursion tree so,00:08:48.650,00:08:52.660
+"print(NULL) function will finish
+and control will return back to ",00:08:52.660,00:08:57.460
+print(250) there is no statement after,00:08:57.460,00:09:00.720
+"this particular recursive call
+finishes so we will simply",00:09:00.720,00:09:04.380
+"exit this function call also and control
+will return back to print(150).",00:09:04.380,00:09:09.850
+"And we will go on like this. Finally we
+will come back to the main method",00:09:09.850,00:09:14.300
+"If you want to see how the recursion
+will execute in the memory",00:09:14.300,00:09:19.060
+"Then i will have to draw a diagram like
+this. Applications memory,",00:09:19.060,00:09:23.630
+"the memory that is allocated for the
+execution of a program",00:09:23.630,00:09:26.710
+"has these two sections. All the details
+of function called execution and the",00:09:26.710,00:09:32.400
+local variables,00:09:32.400,00:09:33.680
+"they're stored in the stack section of
+the memory",00:09:33.680,00:09:37.000
+"and any memory that is allocated using
+the malloc function",00:09:37.000,00:09:41.150
+"or the new operator in C plus plus they
+go to the heap section",00:09:41.150,00:09:45.850
+"The memory for the Nodes in a linked
+list is allocated",00:09:45.850,00:09:49.770
+from the heap so that's why,00:09:49.770,00:09:52.780
+"these four nodes in our example are
+sitting in the heap.",00:09:52.780,00:09:56.230
+"If you want to know in detail about
+stack and heap, check the description of",00:09:56.230,00:10:00.260
+"this video for a lesson on dynamic
+memory allocation. ",00:10:00.260,00:10:03.110
+"When the program will start executing
+first the main function will be invoked",00:10:03.110,00:10:07.560
+"anytime a function is invoked some
+amount of memory from the stack is",00:10:07.560,00:10:11.760
+allocated for the,00:10:11.760,00:10:12.660
+"execution of that particular function
+and is called the stack frame of that",00:10:12.660,00:10:16.780
+function,00:10:16.780,00:10:17.320
+"so let's say Main is executing. We have
+already inserted",00:10:17.320,00:10:21.130
+"some nodes in the linked list. We have
+this variable head in the",00:10:21.130,00:10:25.610
+"main function so all the local variables
+will sit",00:10:25.610,00:10:29.280
+"in the stack frame of the function so
+head will sit here.",00:10:29.280,00:10:33.190
+"Now at this stage let's say main
+makes a call to print function",00:10:33.190,00:10:36.660
+"so main was executing and now it makes a
+call to print function",00:10:36.660,00:10:39.970
+"execution of Main will be paused and
+we will go on to execute the print function.",00:10:39.970,00:10:45.210
+"The argument passed to the print function is
+100 which is",00:10:45.210,00:10:49.690
+"stored in the local area. This
+argument p is a local variable in the",00:10:49.690,00:10:54.010
+print function,00:10:54.010,00:10:54.780
+"Now, print function again makes a recursive call.
+Now, stack frame is alocated",00:10:54.780,00:10:59.430
+corresponding to,00:10:59.430,00:11:00.430
+"each call of a function. So,",00:11:00.430,00:11:03.650
+"a function calling itself is not
+different from a function calling",00:11:03.650,00:11:06.840
+"another function. At any time whatever
+function call is at the",00:11:06.840,00:11:10.180
+"top of the stack is executing. Finally
+when we will reach the exit condition",00:11:10.180,00:11:15.000
+"of recursion, stack will be something
+like this. ",00:11:15.000,00:11:17.250
+"First this call where p is 0 will
+finish. ",00:11:17.250,00:11:21.740
+"We will come back to this particular call
+and then this will finish",00:11:21.740,00:11:25.630
+and we will go on like this,00:11:25.630,00:11:28.549
+"so this is how recursion works. 
+This is how things will",00:11:28.549,00:11:32.189
+happen in the memory. Okay so now I'll,00:11:32.189,00:11:35.769
+"clear this diagram of stack and heap in
+the right",00:11:35.769,00:11:39.339
+"and I'll make some change in my print
+function.",00:11:39.339,00:11:42.600
+"What I've done is I have renamed
+my function",00:11:42.600,00:11:45.919
+"Print as ReversePrint and in my
+function",00:11:45.919,00:11:50.129
+"I am first making a recursive call
+and after coming back from that ",00:11:50.129,00:11:54.889
+recursive call,00:11:54.889,00:11:55.449
+"I'm writing a print statement and from
+the main function",00:11:55.449,00:11:59.279
+I'll make a call to reverseprint. Let's write,00:11:59.279,00:12:02.439
+"RP as shortcut for ReversePrint and
+initially I will pass the address of the head",00:12:02.439,00:12:07.249
+node,00:12:07.249,00:12:07.749
+so I'll make a call like this ReversePrint(100).,00:12:07.749,00:12:11.339
+"The control will come inside
+this function. p is 100. It is not equal",00:12:11.339,00:12:15.919
+to null.,00:12:15.919,00:12:16.489
+"and I have also drawn the console like
+before now this particular function call",00:12:16.489,00:12:21.399
+does not print first it just makes a recursive call,00:12:21.399,00:12:24.660
+"so this guy will go ahead and make a
+recursive call",00:12:24.660,00:12:28.359
+"to the ReversePrint function passing it
+address 200",00:12:28.359,00:12:31.789
+"nothing will be written on the console and
+once again",00:12:31.789,00:12:35.039
+"this particular function will make a
+recursive call",00:12:35.039,00:12:38.369
+"like this and once again this particular
+function will",00:12:38.369,00:12:42.289
+"go ahead and make a recursive call like
+this and finally we",00:12:42.289,00:12:46.169
+"will have recursive call where the
+function is at",00:12:46.169,00:12:49.829
+address null. At this stage we will come to,00:12:49.829,00:12:53.309
+"the exit condition in recursion. The
+recursion will not grow any further.",00:12:53.309,00:12:57.399
+"We will simply return, the control
+will return",00:12:57.399,00:13:00.679
+"to this particular call, ReversePrint(250)",00:13:00.679,00:13:03.980
+"So we will come here now. To this
+Printf statement",00:13:03.980,00:13:08.769
+the data field at address 250 is 4.,00:13:08.769,00:13:12.159
+"So, 4 will be printed on the console
+and now this particular function call",00:13:12.159,00:13:16.359
+will finish,00:13:16.359,00:13:17.069
+"and now we will  go to ReversePrint(150) and now
+this call will",00:13:17.069,00:13:21.829
+"print 5 and exit and we will go on like
+this.",00:13:21.829,00:13:25.739
+"Finally we will return back to the
+main function with this",00:13:25.739,00:13:29.809
+"output on the console, the elements of
+the list printed in reverse order",00:13:29.809,00:13:35.310
+"So, this was a recursive traversal of
+linked list",00:13:35.310,00:13:38.210
+"to print its elements.  I must point out
+here",00:13:38.210,00:13:41.380
+"that for normal traversal of the linked
+list not for",00:13:41.380,00:13:44.970
+"the reverse print, for the normal print an
+iterative approach will be a lot more",00:13:44.970,00:13:49.480
+efficient than the,00:13:49.480,00:13:50.750
+"recursive approach because in
+iterative approach we will just use",00:13:50.750,00:13:55.360
+"one temporary variable while in
+recursion",00:13:55.360,00:13:58.500
+"we will use space in the stack section
+of the memory for so many function calls",00:13:58.500,00:14:03.570
+so there is implicit use of memory there.,00:14:03.570,00:14:06.940
+"for ReversePrint operation we will any day 
+have to store elements in some",00:14:06.940,00:14:11.840
+structure,00:14:11.840,00:14:12.510
+so if we use recursion it's still okay.,00:14:12.510,00:14:15.700
+"In the coming lessons we will solve
+more problems, more interesting problems",00:14:15.700,00:14:19.690
+on linked list. ,00:14:19.690,00:14:20.730
+So thanks for watching!,00:14:20.730,00:14:22.400

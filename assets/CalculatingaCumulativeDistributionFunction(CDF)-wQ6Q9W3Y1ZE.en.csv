@@ -1,0 +1,256 @@
+text,start,stop
+ ,00:00:00.000,00:00:00.390
+Hi.,00:00:00.390,00:00:01.170
+"In this problem, we'll get some
+practice working with",00:00:01.170,00:00:03.250
+"PDFs and also using PDFs
+to calculate CDFs.",00:00:03.250,00:00:08.000
+"So the PDF that we're given
+in this problem is here.",00:00:08.000,00:00:11.170
+"So we have a random variable,
+z, which is a continuous",00:00:11.170,00:00:13.390
+random variable.,00:00:13.390,00:00:14.250
+"And we're told that the PDF of
+this random variable, z, is",00:00:14.250,00:00:17.550
+"given by gamma times 1 plus z
+squared in the range of z",00:00:17.550,00:00:21.790
+between negative 2 and 1.,00:00:21.790,00:00:23.480
+"And outside of this
+range, it's 0.",00:00:23.480,00:00:26.520
+"All right, so first thing we
+need to do and the first part",00:00:26.520,00:00:29.850
+"of this problem is we need to
+figure out what gamma is",00:00:29.850,00:00:32.420
+"because it's not really a
+fully specified PDF yet.",00:00:32.420,00:00:35.250
+"We need to figure out exactly
+what the value gamma is.",00:00:35.250,00:00:37.490
+And how do we do that?,00:00:37.490,00:00:38.620
+"Well, we've done analogous
+things before for",00:00:38.620,00:00:40.670
+the discrete case.,00:00:40.670,00:00:42.360
+"So the tool that we use
+is that the PDF must",00:00:42.360,00:00:46.200
+integrate to 1.,00:00:46.200,00:00:47.130
+"So in the discrete case, the
+analogy was that the PMF had",00:00:47.130,00:00:50.240
+to sum to 1.,00:00:50.240,00:00:52.140
+So what do we know?,00:00:52.140,00:00:53.150
+"We know that when you integrate
+this PDF from",00:00:53.150,00:00:56.380
+"negative infinity to infinity,
+fz of z, it has to equal 1.",00:00:56.380,00:01:04.330
+"All right, so what
+do we do now?",00:01:04.330,00:01:07.050
+"Well, we know what
+the PDF is--",00:01:07.050,00:01:09.300
+"partially, except for gamma--
+so let's plug that in.",00:01:09.300,00:01:11.880
+"And the first thing that we'll
+do is we'll simplify this",00:01:11.880,00:01:15.150
+"because we know that the PDF is
+actually only non-zero in",00:01:15.150,00:01:20.440
+the range negative 2 to 1.,00:01:20.440,00:01:21.580
+"So instead of integrating from
+negative infinity to infinity,",00:01:21.580,00:01:23.900
+"we'll just integrate from
+negative 2 to 1.",00:01:23.900,00:01:26.580
+"And now let's plug in
+this gamma times 1",00:01:26.580,00:01:30.190
+plus z squared dc.,00:01:30.190,00:01:34.380
+"And now the rest of the problem
+is just applying",00:01:34.380,00:01:36.610
+calculus and integrating this.,00:01:36.610,00:01:38.350
+"So let's just go through
+that process.",00:01:38.350,00:01:42.480
+"So we get z plus 1/3 z cubed
+from minus 2 to 1.",00:01:42.480,00:01:50.720
+"And now we'll plug
+in the limits.",00:01:50.720,00:01:53.340
+"And we get gamma, and that's 1
+plus 1/3 minus minus 2 plus",00:01:53.340,00:02:02.280
+1/3 times minus 2 cubed.,00:02:02.280,00:02:04.816
+ ,00:02:04.816,00:02:08.470
+"And then if we add this all up,
+you get 4/3 plus 2 plus",00:02:08.470,00:02:13.980
+"8/3, which will give you 6.",00:02:13.980,00:02:17.130
+"So what we end up with
+in the end is that 1",00:02:17.130,00:02:22.280
+is equal to 6 gamma.,00:02:22.280,00:02:23.690
+So what does that tell us?,00:02:23.690,00:02:24.640
+"That tells us that, in this
+case, gamma is 1/6.",00:02:24.640,00:02:29.110
+ ,00:02:29.110,00:02:32.030
+"OK, so we've actually figured
+out what this PDF really is.",00:02:32.030,00:02:37.420
+"And let's just substitute
+that in.",00:02:37.420,00:02:41.870
+So we know what gamma is.,00:02:41.870,00:02:46.610
+So it's 1/6.,00:02:46.610,00:02:48.970
+"So from this PDF, we can
+calculate anything",00:02:48.970,00:02:52.190
+that we want to.,00:02:52.190,00:02:53.430
+"This PDF, basically, fully
+specifies everything that we",00:02:53.430,00:02:56.930
+"need to know about this
+random variable, z.",00:02:56.930,00:02:59.420
+"And one of the things that
+we can calculate from",00:02:59.420,00:03:00.980
+the PDF is the CDF.,00:03:00.980,00:03:03.520
+"So the next part of the
+problem asks us to",00:03:03.520,00:03:05.830
+calculate the CDF.,00:03:05.830,00:03:07.460
+"So remember the CDF, we use
+capital F. And the definition",00:03:07.460,00:03:13.350
+"is that you integrate from
+negative infinity to this z.",00:03:13.350,00:03:19.630
+And what do you integrate?,00:03:19.630,00:03:20.650
+You integrate the PDF.,00:03:20.650,00:03:22.120
+"And all use some dummy variable,
+y, here in the",00:03:22.120,00:03:26.580
+integration.,00:03:26.580,00:03:28.420
+So what is it really doing?,00:03:28.420,00:03:29.510
+"It's basically just taking the
+PDF and taking everything to",00:03:29.510,00:03:33.130
+the left of it.,00:03:33.130,00:03:33.650
+"So another way to think about
+this-- this is the probability",00:03:33.650,00:03:38.920
+"that the random variable
+is less than or equal",00:03:38.920,00:03:42.290
+to some little z.,00:03:42.290,00:03:44.620
+"It's just accumulating
+probability as you go from",00:03:44.620,00:03:48.020
+left to right.,00:03:48.020,00:03:49.270
+ ,00:03:49.270,00:03:51.580
+"So the hardest part about
+calculating the CDFs, really,",00:03:51.580,00:03:54.120
+"is actually just keeping track
+of the ranges, because unless",00:03:54.120,00:03:59.710
+"the PDF is really simple, you'll
+have cases where the",00:03:59.710,00:04:03.340
+"PDF cold be 0 in some ranges and
+non-zero in other ranges.",00:04:03.340,00:04:06.820
+"And then what you really have
+to keep track of is where",00:04:06.820,00:04:09.710
+"those ranges are and where you
+actually have non-zero",00:04:09.710,00:04:12.800
+probability.,00:04:12.800,00:04:14.040
+"So in this case, we actually
+break things down into three",00:04:14.040,00:04:17.120
+"different ranges because
+this PDF actually looks",00:04:17.120,00:04:21.370
+something like this.,00:04:21.370,00:04:24.600
+"So it's non-zero between
+negative 2 and 1, and it's 0",00:04:24.600,00:04:31.060
+everywhere else.,00:04:31.060,00:04:33.250
+"So then what that means is
+that our job is a little",00:04:33.250,00:04:35.700
+"simpler because everything to
+the left of negative 2, the",00:04:35.700,00:04:40.070
+"CDF will be 0 because there's
+no probability",00:04:40.070,00:04:42.510
+density to the left.,00:04:42.510,00:04:44.190
+"And then everything to the
+right of 1, well we've",00:04:44.190,00:04:49.710
+"accumulated all the probability
+in the PDF because",00:04:49.710,00:04:52.780
+"we know that when you integrate
+from negative 2 to",00:04:52.780,00:04:55.640
+"1, you capture everything.",00:04:55.640,00:04:57.060
+"So anything to the right of
+1, the CDF will be 1.",00:04:57.060,00:05:00.510
+"So the only hard part is
+calculating what the CDF is in",00:05:00.510,00:05:05.370
+"this intermediate range, between
+negative 2 and 1.",00:05:05.370,00:05:08.390
+So let's do that case first--,00:05:08.390,00:05:10.300
+"so the case of z is between
+negative 2 and 1.",00:05:10.300,00:05:17.910
+ ,00:05:17.910,00:05:22.850
+"So what is the CDF
+in that case?",00:05:22.850,00:05:24.980
+"Well, the definition is to
+integrate from negative",00:05:24.980,00:05:32.690
+infinity to z.,00:05:32.690,00:05:34.190
+"But we know that everything
+to the left of negative 2,",00:05:34.190,00:05:37.610
+there's no probably density.,00:05:37.610,00:05:39.010
+"So we don't need to
+include that.",00:05:39.010,00:05:40.550
+"So we can actually change this
+lower limit to negative 2.",00:05:40.550,00:05:43.340
+"And the upper limit is
+wherever this z is.",00:05:43.340,00:05:48.500
+So that becomes our integral.,00:05:48.500,00:05:51.410
+"And the inside is
+still the PDF.",00:05:51.410,00:05:53.560
+So let's just plug that in.,00:05:53.560,00:05:56.550
+We know that it's 1/6 1 plus--,00:05:56.550,00:06:00.680
+we'll make this y squared--,00:06:00.680,00:06:04.620
+by.,00:06:04.620,00:06:07.130
+"And now it's just
+calculus again.",00:06:07.130,00:06:09.910
+"And in fact, it's more or less
+the same integral, so what we",00:06:09.910,00:06:12.800
+"get is y plus 1/3 y cubed
+from negative 2 to z.",00:06:12.800,00:06:22.370
+"Notice the only thing that's
+different here is that we're",00:06:22.370,00:06:24.760
+"integrating from negative 2 to
+z instead of negative 2 to 1.",00:06:24.760,00:06:30.180
+"And when we calculate this out,
+what we get is z plus 1/3",00:06:30.180,00:06:37.360
+"z cubed minus minus 2 plus 1/3
+minus 2 cubed, which gives us",00:06:37.360,00:06:48.520
+"1/6 z plus 1/3 z cubed plus plus
+2 plus 8/3 gives us 14/3.",00:06:48.520,00:07:01.976
+ ,00:07:01.976,00:07:06.470
+"So that actually is our CDF
+between the range of",00:07:06.470,00:07:10.730
+negative 2 to 1.,00:07:10.730,00:07:12.660
+"So for full completeness, let's
+actually write out the",00:07:12.660,00:07:15.450
+"entire CDF, because there's two
+other parts in the CDF.",00:07:15.450,00:07:20.950
+"So the first part is that
+it's 0 if z is less",00:07:20.950,00:07:26.380
+than negative 2.,00:07:26.380,00:07:28.530
+"And it's 1 if z is
+greater than 1.",00:07:28.530,00:07:34.850
+"And in between, it's this
+thing that we've just",00:07:34.850,00:07:37.190
+calculated.,00:07:37.190,00:07:37.340
+"So it's 1/6 z plus 1/3 z cubed
+plus 14/3 if z is between",00:07:37.340,00:07:55.240
+minus 2 and 1.,00:07:55.240,00:07:58.410
+So that is our final answer.,00:07:58.410,00:08:00.650
+ ,00:08:00.650,00:08:03.170
+"So the main point of this
+problem was to drill a little",00:08:03.170,00:08:07.400
+"bit more the concepts
+of PDFs and CDFs.",00:08:07.400,00:08:10.400
+"So for the PDF, the important
+thing to remember is that in",00:08:10.400,00:08:13.320
+"order to be a valid PDF, the
+PDF has to integrate to 1.",00:08:13.320,00:08:16.970
+"And you can use that fact to
+help you calculate any unknown",00:08:16.970,00:08:19.790
+constants in the PDF.,00:08:19.790,00:08:21.450
+"And then to calculate the CDF,
+it's just integrating the PDF",00:08:21.450,00:08:24.980
+"from negative infinity to
+whatever point that you want",00:08:24.980,00:08:27.490
+to cut off at.,00:08:27.490,00:08:28.290
+"And the tricky part, as I said
+earlier, was really just",00:08:28.290,00:08:31.270
+keeping track of the ranges.,00:08:31.270,00:08:32.230
+"In this case, we've broke it
+down into three ranges.",00:08:32.230,00:08:34.159
+"If we had a slightly more
+complicated PDF, then you",00:08:34.159,00:08:37.120
+"would have to keep track
+of even more ranged.",00:08:37.120,00:08:40.710
+"All right, so I hope that
+was helpful, and we'll",00:08:40.710,00:08:42.429
+see you next time.,00:08:42.429,00:08:43.679
+ ,00:08:43.679,00:08:44.579

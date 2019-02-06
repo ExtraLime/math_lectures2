@@ -1,0 +1,2439 @@
+text,start,stop
+"ANNOUNCER: The following program
+is brought to you by Caltech.",00:00:00.570,00:00:03.270
+YASER ABU-MOSTAFA: Welcome back.,00:00:15.100,00:00:18.030
+"Last time, we introduced the
+notion of overfitting.",00:00:18.030,00:00:22.980
+"The idea was that we are fitting the
+data all too well, at the expense of",00:00:22.980,00:00:29.760
+the generalization out of sample.,00:00:29.760,00:00:32.680
+"We took a case where the target
+was simple, but we",00:00:32.680,00:00:35.750
+added very little noise.,00:00:35.750,00:00:38.090
+"And that little noise was enough to
+misguide the fit using a higher-order",00:00:38.090,00:00:43.570
+"polynomial into getting an approximation
+that is very poor",00:00:43.570,00:00:46.890
+"approximation of the target that
+we are trying to approximate.",00:00:46.890,00:00:51.988
+"The overfitting as a notion is more in
+scope than just bad generalization.",00:00:51.988,00:01:01.650
+"If you think of what the VC analysis
+told us, the VC analysis told us that,",00:01:01.650,00:01:05.480
+"given the data resources and the
+complexity of the hypothesis set, with",00:01:05.480,00:01:11.400
+"nothing said about the target, given
+those we can predict the level of",00:01:11.400,00:01:16.070
+generalization as a bound.,00:01:16.070,00:01:19.540
+"Now, overfitting relates to the target.",00:01:19.540,00:01:22.400
+"For example, in this case the target
+is noisy, and we have overfitting.",00:01:22.400,00:01:26.650
+"If the target was noiseless, if we had
+points coming from the blue curve and",00:01:26.650,00:01:30.910
+"we fit them, we would fit them
+perfectly, because it's a very simple",00:01:30.910,00:01:33.720
+equation to solve for a polynomial.,00:01:33.720,00:01:35.640
+"And then we will get the
+blue curve exactly.",00:01:35.640,00:01:39.670
+"Since the VC analysis doesn't tackle
+the target function, you might be",00:01:39.670,00:01:44.320
+"curious about: are we
+changing the game,",00:01:44.320,00:01:46.450
+what is the deal here?,00:01:46.450,00:01:49.220
+"The idea is that the VC doesn't
+tackle the target, not in the sense",00:01:49.220,00:01:52.560
+"that it doesn't know how
+to deal with it.",00:01:52.560,00:01:55.010
+"What it does is, it gets you a bound
+that is valid for all possible",00:01:55.010,00:01:58.930
+"targets, noisy or noiseless.",00:01:58.930,00:02:02.090
+"And therefore, it allows the
+notion of overfitting.",00:02:02.090,00:02:05.090
+"It gives you a bar for
+bad generalization.",00:02:05.090,00:02:08.650
+"And you could, within this, have
+generalization that will be good.",00:02:08.650,00:02:14.000
+And it could be bad.,00:02:14.000,00:02:16.760
+"Furthermore, it could be that the
+in-sample error is going down while",00:02:16.760,00:02:20.530
+"out-of-sample error is going up, which
+is our definition of overfitting.",00:02:20.530,00:02:23.780
+"Or it could be that both of them are
+going down, but the generalization is",00:02:23.780,00:02:27.810
+getting worse.,00:02:27.810,00:02:29.260
+"So it doesn't specify to us whether
+overfitting will happen or not.",00:02:29.260,00:02:34.480
+"Although it doesn't predict
+it, it allows it.",00:02:34.480,00:02:36.240
+"So now we are zooming in into the
+details of the theory, and trying to",00:02:36.240,00:02:40.220
+"characterize a situation that happens
+very often in practice, where the",00:02:40.220,00:02:44.020
+"noise in the target function
+results in overfitting.",00:02:44.020,00:02:47.360
+And we can do something about it.,00:02:47.360,00:02:49.010
+"That's why we are actually studying it,
+because there will be ways to cure",00:02:49.010,00:02:52.840
+"that disease, if you will.",00:02:52.840,00:02:55.610
+"Then we characterized that the source of
+overfitting is fitting the noise.",00:02:55.610,00:03:00.440
+"And the conventional meaning of the
+noise we have is what we are referring",00:03:00.440,00:03:03.200
+"to now as stochastic noise, because
+we are introducing another type.",00:03:03.200,00:03:06.950
+"The idea is that if you fit the noise,
+this is bad, because you are fitting",00:03:06.950,00:03:11.280
+something that cannot be fit.,00:03:11.280,00:03:13.040
+"And because you are fitting it, you
+are predicting or extrapolating",00:03:13.040,00:03:16.800
+"out-of-sample into a non-existing
+pattern.",00:03:16.800,00:03:19.110
+"And that non-existing pattern will take
+you away from the target function.",00:03:19.110,00:03:22.780
+"So it will contribute in a harmful
+way to your out-of-sample error.",00:03:22.780,00:03:27.560
+"But the novel notion was the fact that,
+even if we don't have stochastic",00:03:27.560,00:03:31.190
+"noise, even if the data is not noisy
+in the conventional sense, there is",00:03:31.190,00:03:34.760
+"something which we refer to as
+deterministic noise, which is",00:03:34.760,00:03:38.970
+"a function of the limitations
+of your model.",00:03:38.970,00:03:42.080
+"So here, your model is
+4th-order polynomial.",00:03:42.080,00:03:45.010
+"Other models will give you different
+deterministic noise.",00:03:45.010,00:03:47.720
+"And they are defined as the difference
+between the target function, in this",00:03:47.720,00:03:51.540
+"case the blue wiggly curve, and the
+best approximation within your",00:03:51.540,00:03:55.890
+"hypothesis set to that
+target function.",00:03:55.890,00:03:58.630
+"Again, it captures the notion of
+something that we cannot learn at all,",00:03:58.630,00:04:02.510
+"because it's outside of our ability
+as a hypothesis set.",00:04:02.510,00:04:05.740
+"Therefore, it behaves like a noise.",00:04:05.740,00:04:07.370
+"If we try to fit it, on a finite sample,
+and try to dedicate some resources to",00:04:07.370,00:04:11.290
+"it, whatever we are learning doesn't
+make sense, and it will lead to",00:04:11.290,00:04:14.710
+"a pattern that harms the
+out-of-sample error.",00:04:14.710,00:04:17.430
+"And indeed, we ran an extensive
+experiment where we compared the",00:04:17.430,00:04:20.680
+"deterministic noise, parameterized
+by the target complexity.",00:04:20.680,00:04:23.940
+"The more complex the target is, the
+more deterministic noise we have.",00:04:23.940,00:04:28.280
+"And we found that the behavior, the
+impact on overfitting, is fairly",00:04:28.280,00:04:31.760
+"similar to the behavior when we
+increase the stochastic noise in",00:04:31.760,00:04:35.160
+a similar experiment.,00:04:35.160,00:04:38.280
+"Today, we are going to introduce the
+first cure for overfitting, which is",00:04:38.280,00:04:41.940
+regularization.,00:04:41.940,00:04:42.730
+"And next time, we are going to introduce
+validation, which is the",00:04:42.730,00:04:44.990
+other side of this.,00:04:44.990,00:04:46.700
+"Regularization is a technique that you
+will be using in almost every machine",00:04:46.700,00:04:52.250
+learning application you will encounter.,00:04:52.250,00:04:55.090
+"So it's a very important technique,
+very important to understand.",00:04:55.090,00:04:59.290
+There are many approaches to it.,00:04:59.290,00:05:01.190
+"So as an outline, I am going to first
+talk about it informally, and talk",00:05:01.190,00:05:05.150
+about the different approaches.,00:05:05.150,00:05:06.910
+"Then I'm going to give a mathematical
+development of the most famous form of",00:05:06.910,00:05:11.740
+regularization.,00:05:11.740,00:05:13.580
+"And from that, we are not only going to
+get the mathematical result, but we are",00:05:13.580,00:05:16.890
+"going to get very good intuition about
+the criteria for choosing",00:05:16.890,00:05:20.620
+"a regularizer, and we'll discuss
+it in some detail.",00:05:20.620,00:05:23.450
+"Then we will talk about the ups and
+downs of choosing a regularizer at the",00:05:23.450,00:05:27.410
+"end, which is the practical
+situation you will face.",00:05:27.410,00:05:29.610
+You have a problem.,00:05:29.610,00:05:30.420
+There is overfitting.,00:05:30.420,00:05:31.340
+How do I choose my regularizer?,00:05:31.340,00:05:34.080
+Let's start.,00:05:34.500,00:05:36.230
+"You will find two approaches to
+regularization in the literature,",00:05:36.230,00:05:39.370
+which are as vigorous as one another.,00:05:39.370,00:05:43.710
+"One of them is mathematical,
+purely mathematical.",00:05:43.710,00:05:46.290
+"And it mostly comes from function
+approximation, where you have",00:05:46.290,00:05:49.840
+an ill-posed problem.,00:05:49.840,00:05:51.050
+"You want to approximate the function,
+but there are many functions that",00:05:51.050,00:05:53.990
+"actually fit it, so the
+problem is ill-posed.",00:05:53.990,00:05:55.940
+"And then you impose smoothness
+constraints on it, in order to be able",00:05:55.940,00:05:59.610
+to solve it.,00:05:59.610,00:06:00.630
+This is a very well-developed area.,00:06:00.630,00:06:02.940
+"And it is borrowed in
+machine learning.",00:06:02.940,00:06:06.170
+"And actually, the mathematical
+development I am going to develop",00:06:06.170,00:06:09.200
+relates to that development.,00:06:09.200,00:06:12.220
+"Also, in the Bayesian approach to
+learning, regularization is completely",00:06:12.220,00:06:16.760
+mathematical.,00:06:16.760,00:06:17.400
+"You put it in the prior, and from then
+on you have a very well-defined",00:06:17.400,00:06:22.240
+"regularizer, in this case.",00:06:22.240,00:06:24.040
+"And in all of those cases, if the
+assumptions that you made in order to",00:06:24.040,00:06:28.420
+"make the developments hold, then
+this is the way to go.",00:06:28.420,00:06:31.600
+"There is no reason to go for intuition
+and heuristics and the other stuff, if",00:06:31.600,00:06:35.880
+"you have a solid assumption and a solid
+mathematical derivation that",00:06:35.880,00:06:39.910
+gets you the result.,00:06:39.910,00:06:41.620
+"The problem really is that, in most
+of the cases you will encounter, the",00:06:41.620,00:06:44.710
+"assumptions that are made
+here are not realistic.",00:06:44.710,00:06:49.380
+"Therefore, you end up with these
+approaches having a very careful",00:06:49.380,00:06:54.730
+"derivation, based on assumptions
+that do not hold.",00:06:54.730,00:07:00.100
+"And it's a strange activity
+when this is the case.",00:07:00.100,00:07:03.980
+"If you are very rigorous, and trying to
+get a very specific mathematical",00:07:03.980,00:07:08.380
+"result when your main assumption is not
+going to hold in the application",00:07:08.380,00:07:12.220
+"you are going to use it in, then you are
+being penny wise, dollar foolish.",00:07:12.220,00:07:18.850
+"The best utility for the mathematical
+approach in practical machine learning",00:07:18.850,00:07:24.320
+"is to develop the mathematics in
+a specific case, and then try to",00:07:24.320,00:07:28.550
+"interpret the mathematical result in
+such a way that we get an intuition",00:07:28.550,00:07:32.900
+"that applies when the assumptions don't
+apply, very much like we did",00:07:32.900,00:07:37.120
+with the VC analysis.,00:07:37.120,00:07:38.640
+"We don't compute the VC dimension
+and get the bound in every case, but",00:07:38.640,00:07:42.640
+"we got something out of the VC bound,
+which gives us the behavior of",00:07:42.640,00:07:47.270
+generalization.,00:07:47.270,00:07:48.090
+"And from then on, we used
+it as a rule of thumb.",00:07:48.090,00:07:50.510
+"So here we are going to
+use something similar.",00:07:50.510,00:07:53.570
+"The other approach you will
+find, is purely heuristic.",00:07:53.570,00:07:56.670
+"And in this case, you are just
+handicapping the minimization of the",00:07:56.670,00:08:00.390
+"in-sample error, which is putting the
+brakes, as we described it last time.",00:08:00.390,00:08:04.340
+"And indeed, this is what
+we are going to do.",00:08:04.340,00:08:06.210
+"We are going to borrow enough from the
+math, to make this not a completely",00:08:06.210,00:08:09.720
+"random activity, but rather pointed at
+something that is likely to help our",00:08:09.720,00:08:15.000
+cause of fighting overfitting.,00:08:15.000,00:08:16.425
+"I am going to start by an example of
+regularization, and how it affects",00:08:19.420,00:08:23.680
+overfitting.,00:08:23.680,00:08:24.320
+"And the example will
+be quite familiar.",00:08:24.320,00:08:25.990
+You have seen it before.,00:08:25.990,00:08:28.950
+You probably recognize this picture.,00:08:28.950,00:08:30.530
+This is a sinusoid.,00:08:30.530,00:08:32.289
+"And we had the funny problem, where we
+had only two points in the training",00:08:32.289,00:08:35.970
+"set, so N equals 2.",00:08:35.970,00:08:38.179
+"And we were fitting our model, which
+was a general line in this case.",00:08:38.179,00:08:42.500
+"So we pass the line through
+the two points.",00:08:42.500,00:08:45.050
+"And we get a variety of lines,
+depending on the data set you have.",00:08:45.050,00:08:48.570
+"And we noticed, after doing a careful
+analysis of this using the",00:08:48.570,00:08:52.140
+"bias-variance analysis,
+that this is really bad.",00:08:52.140,00:08:55.520
+"And the main reason it's bad is because
+it's all over the place.",00:08:55.520,00:08:58.680
+"And being all over the place results
+in a high variance term.",00:08:58.680,00:09:02.180
+That was the key.,00:09:02.180,00:09:03.590
+"In that case, a simplistic constant
+model, where you approximate the sine",00:09:03.590,00:09:07.890
+"by just a constant, which ends
+up being a zero on average,",00:09:07.890,00:09:10.720
+"is actually better in performance
+out-of-sample than",00:09:10.720,00:09:13.120
+fitting with a line.,00:09:13.120,00:09:14.140
+That was the lesson that we got there.,00:09:14.140,00:09:16.580
+"So let's see if we can improve the
+situation here by regularizing it, by",00:09:16.580,00:09:20.570
+controlling the lines.,00:09:20.570,00:09:21.890
+"Instead of having wild lines, we are
+going to have mild lines, if you will.",00:09:21.890,00:09:27.490
+"What we're going to do, we are
+going to not let the lines be",00:09:27.490,00:09:31.120
+whatever they want.,00:09:31.120,00:09:32.450
+"We are going to restrict them in terms
+of the offset they can have, and the",00:09:32.450,00:09:36.350
+slope they can have.,00:09:36.350,00:09:37.770
+"That is how we are putting
+the brakes on the fit.",00:09:37.770,00:09:40.220
+"Obviously, we are sacrificing the
+perfect fit on the training set when",00:09:40.220,00:09:43.900
+we do that.,00:09:43.900,00:09:44.830
+But maybe we are going to gain.,00:09:44.830,00:09:46.530
+Yet to be seen.,00:09:46.530,00:09:47.670
+"So this would be without regularization,
+using our new term.",00:09:48.540,00:09:52.910
+"And when you have it with regularization,
+and put the constraint",00:09:52.910,00:09:57.230
+"on the offset and the slope, these are
+the fits you are going to get on the",00:09:57.230,00:10:01.490
+same data sets.,00:10:01.490,00:10:03.490
+"Now you can see that they are not
+as crazy as the lines here.",00:10:06.050,00:10:09.840
+Each line tries to fit the two points.,00:10:09.840,00:10:11.750
+"It doesn't fit them perfectly, because
+it is under a constraint that prevents",00:10:11.750,00:10:14.940
+"it from passing through
+the points perfectly.",00:10:14.940,00:10:17.500
+"Nonetheless, it looks like the
+great variance here has",00:10:17.500,00:10:22.020
+been diminished here.,00:10:22.020,00:10:23.260
+"But we don't have to
+judge it visually.",00:10:23.260,00:10:24.920
+"We can go to our standard quantities,
+the bias and variance, and",00:10:24.920,00:10:28.130
+"do a complete analysis here,
+and see which one wins.",00:10:28.130,00:10:30.680
+So let's see who the winner is.,00:10:33.200,00:10:35.170
+"This is without regularization,
+versus with regularization.",00:10:35.170,00:10:39.070
+"We have seen without regularization
+before.",00:10:39.070,00:10:41.920
+"This was the case where, if you
+remember, this red guy is the average",00:10:41.920,00:10:45.790
+line you get.,00:10:45.790,00:10:46.850
+"It is not a hypothesis that you
+are going to get in any",00:10:46.850,00:10:49.340
+given learning scenario.,00:10:49.340,00:10:51.130
+"But it is the average of all the lines
+people get, when they get different",00:10:51.130,00:10:54.880
+data sets of two points each.,00:10:54.880,00:10:57.520
+"And around that is a great variance,
+depending on which two points you get.",00:10:57.520,00:11:02.190
+"And this is described as a standard
+deviation, by this region.",00:11:02.190,00:11:06.300
+"The width of the gray region is what
+killed us, in that case, because the",00:11:06.300,00:11:10.080
+"variance is so big that, in spite of the
+fact that if you have an infinite",00:11:10.080,00:11:13.630
+"number of data sets, each with two
+points, you will get the red thing",00:11:13.630,00:11:17.350
+which is not bad at all.,00:11:17.350,00:11:18.580
+But you don't get that.,00:11:18.580,00:11:19.370
+You will get only two points.,00:11:19.370,00:11:20.340
+"So sometimes you will be doing something
+like that, instead of this.",00:11:20.340,00:11:23.340
+"And on average, the out-of-sample
+error will be terrible.",00:11:23.340,00:11:27.660
+"Let's look at the situation
+with regularization.",00:11:27.660,00:11:30.930
+"As expected, the gray region
+has diminished, because the",00:11:30.930,00:11:33.580
+lines weren't as crazy.,00:11:33.580,00:11:35.770
+"If you look at the red line, the red
+line is a little bit different,",00:11:35.770,00:11:38.450
+"because we couldn't fit the points,",00:11:38.450,00:11:39.810
+"we couldn't fit the points, so there's
+a little bit of an added bias, because",00:11:39.810,00:11:44.240
+the fit is not perfect.,00:11:44.240,00:11:45.440
+And we get this.,00:11:45.440,00:11:46.780
+"Now regularization, in general, reduces
+the variance at the expense,",00:11:47.860,00:11:54.070
+"possibly, of increasing the
+bias just a little bit.",00:11:54.070,00:11:58.040
+"So think of it that I am
+handicapping the fit.",00:11:58.040,00:12:00.840
+"Well, you are handicapping the fit
+on both the noise and the signal.",00:12:00.840,00:12:03.890
+"You cannot distinguish
+one from another.",00:12:03.890,00:12:06.370
+"But the handicapping of the
+noise is significant.",00:12:06.370,00:12:08.580
+That's what reduced the variance.,00:12:08.580,00:12:10.400
+"The handicapping of the fit results in
+a certain loss of the quality of the",00:12:10.400,00:12:13.980
+fit. That is reflected by that.,00:12:13.980,00:12:15.590
+"Let's look at the numbers and see that,
+actually, this stands to the reality.",00:12:15.590,00:12:20.620
+The bias here was 0.21.,00:12:20.620,00:12:22.050
+We have seen these numbers before.,00:12:22.050,00:12:23.390
+And the variance was a horrific 1.69.,00:12:23.390,00:12:25.850
+"And when we added them up, the
+linear model lost to the",00:12:25.850,00:12:28.830
+simplistic constant model.,00:12:28.830,00:12:31.430
+So let's look at with regularization.,00:12:31.430,00:12:33.880
+"Now we are using still the linear model,
+but we are regularizing it.",00:12:33.880,00:12:36.960
+And you get a bias of 0.23.,00:12:36.960,00:12:39.770
+"Well, that's not too bad.",00:12:39.770,00:12:41.360
+We lost a little bit.,00:12:41.360,00:12:42.750
+"Think of it as a side effect
+of the treatment.",00:12:42.750,00:12:47.000
+"You're attacking the disease,
+which is overfitting.",00:12:47.000,00:12:50.040
+"And you will get some
+funny side effects.",00:12:50.040,00:12:52.710
+"So instead of getting the 0.21,
+you are getting 0.23.",00:12:52.710,00:12:55.070
+"OK, fine.",00:12:55.070,00:12:56.170
+How about the variance?,00:12:56.170,00:12:58.600
+"Totally dramatic, 0.33.",00:12:58.600,00:13:01.590
+"And when you add them up, not only do
+you win over the unregularized guy.",00:13:01.590,00:13:07.750
+You also win over the constant model.,00:13:07.750,00:13:09.830
+"If you get the numbers for the constant
+model, this guy wins.",00:13:09.830,00:13:13.390
+"And that has a very interesting
+interpretation.",00:13:13.390,00:13:15.440
+"Because when you are trying to choose
+a model, you have the constant, and",00:13:15.440,00:13:20.050
+"then you have the linear, and
+then you have the quadratic.",00:13:20.050,00:13:22.550
+This is sort of a discrete grid.,00:13:22.550,00:13:25.120
+"Maybe the best choice is actually
+in between these guys.",00:13:25.120,00:13:28.950
+"And you can look at regularization
+as a way of getting the",00:13:28.950,00:13:32.200
+intermediate guys.,00:13:32.200,00:13:33.330
+"There is a continuous set of models
+that go from extremely restricted to",00:13:33.330,00:13:40.230
+extremely unrestricted.,00:13:40.230,00:13:41.820
+"And therefore, you fill in the gap.",00:13:41.820,00:13:43.520
+"And by filling in the gap, you might
+find the sweet spot that gives you the",00:13:43.520,00:13:47.440
+best out-of-sample error.,00:13:47.440,00:13:49.120
+"In this case, we don't know that this
+is the best out-of-sample error, for",00:13:49.120,00:13:51.760
+"the particular level of
+regularization that I did.",00:13:51.760,00:13:54.280
+"But it certainly beats the previous
+champion, which was",00:13:54.280,00:13:57.870
+the constant model.,00:13:57.870,00:13:59.050
+"Knowing this, we would like to
+understand what was the regularization,",00:14:01.000,00:14:04.180
+"in specific terms, that
+resulted in this.",00:14:04.180,00:14:06.300
+"And I'm going to present
+it in a formal setting.",00:14:06.300,00:14:10.370
+"And in this formal setting, I am going
+to give a full mathematical",00:14:10.370,00:14:13.960
+"development, until we get to the solution
+for this regularization,",00:14:13.960,00:14:19.250
+"which is the most famous regularization
+you will encounter in",00:14:19.250,00:14:22.280
+machine learning.,00:14:22.280,00:14:23.960
+"My goal is not mathematics for
+the sake of mathematics.",00:14:23.960,00:14:27.030
+"My goal is to get to a concrete
+conclusion in this case, and then read",00:14:27.030,00:14:32.140
+"off that conclusion what lessons can we
+learn, in order to be able to deal",00:14:32.140,00:14:37.110
+"with a situation which is not as ideal
+as this one, which indeed we will",00:14:37.110,00:14:41.030
+succeed in.,00:14:41.030,00:14:42.770
+So let's look at the polynomial model.,00:14:42.770,00:14:45.190
+"We are going to use polynomials,
+as the expanding components.",00:14:45.190,00:14:50.780
+"And we are using Legendre
+polynomials, which I",00:14:50.780,00:14:53.610
+alluded to last time.,00:14:53.610,00:14:55.360
+"There is nothing mysterious
+about them.",00:14:55.360,00:14:56.800
+"They are polynomials, as you can see.",00:14:56.800,00:14:58.270
+And L_2 is of order two.,00:14:58.270,00:15:01.570
+"L_3 is of order three, and so on.",00:15:01.570,00:15:03.700
+"And the only thing is that, they are
+created such that they would be",00:15:03.700,00:15:06.980
+"orthogonal to each other, which would
+make the mathematics nice, and will",00:15:06.980,00:15:10.540
+"make it such that when we combine them
+using coefficients, the coefficients",00:15:10.540,00:15:14.560
+can be treated as independent.,00:15:14.560,00:15:16.210
+"They deal with different coordinates
+that don't interfere with each other.",00:15:16.210,00:15:19.110
+"If we use just the monomials, the
+monomials are extremely correlated.",00:15:19.110,00:15:22.590
+"Therefore, the relevant parameter, as
+far as you're concerned, would be",00:15:22.590,00:15:26.530
+"a combination of the weights,
+rather than an individual weight.",00:15:26.530,00:15:30.240
+"So this saves you by getting the
+combinations ahead of time, so that the",00:15:30.240,00:15:33.550
+"weights actually are meaningful
+in their own right.",00:15:33.550,00:15:35.410
+That's the purpose here.,00:15:35.410,00:15:36.880
+So what is the model?,00:15:36.880,00:15:39.030
+"The model will be H_Q, which is,
+by definition, the polynomials of",00:15:39.030,00:15:44.390
+"order Q. And the nonlinear
+transformation that takes the scalar",00:15:44.390,00:15:51.210
+"variable x, and produces this
+polynomial, is given by",00:15:51.210,00:15:55.120
+"this vector, as usual.",00:15:55.120,00:15:56.760
+"You start with the mandatory 1,
+and then you have Legendre",00:15:56.760,00:15:59.980
+of order 1 up to Legendre,00:15:59.980,00:16:01.660
+of order Q.,00:16:01.660,00:16:02.722
+"When you combine these linearly, you are
+going to get a polynomial of order",00:16:02.722,00:16:06.830
+"Q, not a weird polynomial of order Q,
+just a regular polynomial of order Q,",00:16:06.830,00:16:11.850
+just represented in this way.,00:16:11.850,00:16:14.650
+"If you actually sum up all of the
+coefficients, there will be",00:16:14.650,00:16:16.730
+"a coefficient for constant, coefficient
+for x, coefficient for x squared, up",00:16:16.730,00:16:20.350
+to x to the Q.,00:16:20.350,00:16:25.920
+"Using these polynomials, the formal
+parameterization of the hypothesis set",00:16:25.920,00:16:30.820
+would be the following.,00:16:30.820,00:16:32.970
+"You take these guys, and
+give them weights.",00:16:32.970,00:16:35.520
+"And these weights are the parameters
+that will tell you one hypothesis",00:16:35.520,00:16:38.900
+versus the other.,00:16:38.900,00:16:39.760
+"And you sum up over the
+range that you have.",00:16:39.760,00:16:41.920
+"And this will be the general hypothesis,
+in this hypothesis set.",00:16:41.920,00:16:46.970
+"Because it has that nice form, which is
+linear, we obviously are going to",00:16:46.970,00:16:50.680
+"apply the old-fashioned linear
+regression, in the Z space, in order to",00:16:50.680,00:16:55.060
+find the solution.,00:16:55.060,00:16:55.970
+"It will be a very easy analytic
+solution because of this.",00:16:55.970,00:16:59.180
+Let me just underline one thing.,00:16:59.180,00:17:01.380
+"I am talking here about
+the hypothesis set.",00:17:01.380,00:17:03.455
+"I am using the Legendre polynomials, and
+this model, in order to construct",00:17:03.455,00:17:06.849
+the hypothesis set.,00:17:06.849,00:17:08.250
+"I didn't say a word about
+the target function.",00:17:08.250,00:17:10.790
+The target function here is unknown.,00:17:10.790,00:17:13.089
+"And the reason I am saying that is
+because, last time in the experiment",00:17:13.089,00:17:17.130
+"for overfitting, I constructed
+the target function",00:17:17.130,00:17:19.960
+using the same apparatus.,00:17:19.960,00:17:21.490
+"And I did it just because the
+overfitting depended on the target",00:17:21.490,00:17:25.349
+"function, and I wanted
+it to pin it down.",00:17:25.349,00:17:27.050
+"But here, the target function goes back
+to the normal learning scenario.",00:17:27.050,00:17:31.290
+The target function is unknown.,00:17:31.290,00:17:32.640
+"And I am using this as a parameterized
+hypothesis set, in order to get a good",00:17:32.640,00:17:37.420
+"approximation for the target function
+using a finite training set.",00:17:37.420,00:17:40.550
+That's the deal.,00:17:40.550,00:17:41.800
+"Let's look at the unconstrained
+solution.",00:17:44.310,00:17:46.150
+Let's say I don't have regularization.,00:17:46.150,00:17:47.690
+This is my model.,00:17:47.690,00:17:48.540
+What do you do?,00:17:48.540,00:17:49.300
+We have seen this before.,00:17:49.300,00:17:50.110
+"I am just repeating it, because it's in
+the Z space, and in order to refresh",00:17:50.110,00:17:53.050
+your memory.,00:17:53.050,00:17:55.260
+"So you are given the examples x_1 up to
+x_N with the labels, the labels being",00:17:55.260,00:17:59.120
+"real numbers, in this case.",00:17:59.120,00:18:00.270
+"And x_1 up to x_N, I'm writing them
+as a scalar, because they are.",00:18:00.270,00:18:04.380
+"And then I transform them into the
+Z space, so I get a full vector",00:18:04.380,00:18:07.400
+"corresponding to every x, which is the
+vector of the Legendre polynomials.",00:18:07.400,00:18:12.080
+"I evaluate it at the corresponding
+x, so I get this.",00:18:12.080,00:18:16.180
+"And my goal of the learning is to
+minimize the in-sample error.",00:18:16.180,00:18:22.490
+"The in-sample error will be function
+of the parameters, w.",00:18:22.490,00:18:26.340
+"And this is the formula for
+it. Exactly, it's",00:18:26.340,00:18:29.160
+"a squared error formula that
+we used for linear regression.",00:18:29.160,00:18:32.590
+"So you do this, which is the linear
+combination in the Z space.",00:18:32.590,00:18:35.980
+"Compare it to the target
+value, which is y_n.",00:18:35.980,00:18:38.370
+The error measure is squared.,00:18:38.370,00:18:40.150
+"You sum up over all the examples and
+normalize by N. So, this is indeed the",00:18:40.150,00:18:43.560
+in-sample error as we know it.,00:18:43.560,00:18:46.810
+"And we put it in vector form,",00:18:46.810,00:18:48.350
+if you remember this one.,00:18:48.350,00:18:49.640
+"So all of a sudden, instead of z
+as vector, we have Z as a matrix.",00:18:49.640,00:18:53.820
+"And instead of y as a scalar,
+we have y as a vector.",00:18:53.820,00:18:56.090
+So everybody got promoted.,00:18:56.090,00:18:58.240
+"The matrix Z is where every
+vector z is a row.",00:18:58.240,00:19:02.150
+"So you have a bunch of
+rows describing this.",00:19:02.150,00:19:04.750
+"It's a tall matrix if you have
+a big training set, which",00:19:04.750,00:19:07.570
+is the typical situation.,00:19:07.570,00:19:09.190
+"And the vector y is the corresponding
+vector of the labels y.",00:19:09.190,00:19:14.910
+"When you put it in vector form,
+you have this equals that.",00:19:14.910,00:19:17.360
+Very easy to verify.,00:19:17.360,00:19:18.390
+"And it allows us to do the operations
+in a matrix form, which is",00:19:18.390,00:19:22.260
+much easier to do.,00:19:22.260,00:19:23.680
+So we want to minimize that.,00:19:23.680,00:19:25.760
+"And the solution we are going
+to call w_lin, for linear",00:19:25.760,00:19:28.760
+regression in this case.,00:19:28.760,00:19:30.560
+And we have the form for it.,00:19:30.560,00:19:33.170
+It's the one-step learning.,00:19:33.170,00:19:34.580
+"It happens to be the pseudo-inverse,
+now in the Z space,",00:19:34.580,00:19:36.860
+so it has this form.,00:19:36.860,00:19:38.680
+"If I give you the x's, and you know the
+form for the Legendre polynomials,",00:19:38.680,00:19:42.380
+you compute the z's.,00:19:42.380,00:19:43.460
+You have the matrix.,00:19:43.460,00:19:44.150
+You have the labels.,00:19:44.150,00:19:44.740
+"You plug it into the formula,
+and you have your solution.",00:19:44.740,00:19:47.440
+So this is an open and shut case.,00:19:47.440,00:19:49.920
+Let's look at the constrained version.,00:19:49.920,00:19:52.350
+"What happens if we constrain
+the weights?",00:19:52.350,00:19:55.600
+"Now come to think of it, we have already
+constrained the weights in one",00:19:55.600,00:19:58.760
+of the applications.,00:19:58.760,00:19:59.450
+"We didn't say that we did, but that's
+what we effectively did.",00:19:59.450,00:20:02.590
+Why is that?,00:20:02.590,00:20:03.430
+"We actually had a hard constraint
+on the weights, when we used",00:20:03.430,00:20:08.320
+H_2 instead of H_10.,00:20:08.320,00:20:10.390
+"Remember, H_2 is a 2nd-order polynomial.",00:20:10.390,00:20:12.150
+H_10 was a 10th-order polynomial.,00:20:12.150,00:20:13.840
+Wait a minute.,00:20:13.840,00:20:14.360
+"These are two different
+hypothesis sets.",00:20:14.360,00:20:15.920
+"I thought the constraint was going into
+one hypothesis set, and then playing",00:20:15.920,00:20:19.140
+around with the weights.,00:20:19.140,00:20:20.060
+"Yes, that's what it is.",00:20:20.060,00:20:21.430
+"But one way to view H_2 is, as if it
+was H_10, with a constraint.",00:20:21.430,00:20:26.770
+And what would that constraint be?,00:20:26.770,00:20:30.130
+"Just set all the parameters
+to zero, above power 2.",00:20:30.130,00:20:34.110
+That is a constraint.,00:20:34.110,00:20:36.380
+But obviously that's an extreme case.,00:20:36.380,00:20:38.100
+"What we mean in a constraint, usually
+with regularization, is something",00:20:38.100,00:20:40.780
+a little bit softer.,00:20:40.780,00:20:43.660
+"So here is the constraint we
+are going to work with.",00:20:43.660,00:20:47.130
+"We are going to work with a budget
+C for the total magnitude",00:20:47.130,00:20:52.780
+squared of the weights.,00:20:52.780,00:20:54.030
+"Before we interpret this, let's first
+concede that this is indeed",00:20:56.670,00:21:00.190
+"a constraint. The hypotheses that
+satisfy this are a proper subset of",00:21:00.190,00:21:07.250
+"H_Q, because I have excluded the
+guys that happen to have weights",00:21:07.250,00:21:10.980
+bigger than that.,00:21:10.980,00:21:12.350
+"Because of that, I am already ahead,
+using the VC analysis that",00:21:13.510,00:21:16.850
+I have in my mind.,00:21:16.850,00:21:17.800
+"I have a smaller hypothesis set, so
+the VC dimension is going in the",00:21:17.800,00:21:22.190
+direction of being smaller.,00:21:22.190,00:21:23.360
+"So I am standing a chance of
+better generalization.",00:21:23.360,00:21:26.450
+This is good.,00:21:26.450,00:21:27.690
+"Now, interpreting this as something
+along the same lines here,",00:21:27.690,00:21:31.000
+"instead of setting some weights to 0,
+which is a little bit hard, you just",00:21:31.000,00:21:34.480
+"want them, in general, to be small.",00:21:34.480,00:21:36.250
+You cannot have them all big.,00:21:36.250,00:21:37.840
+"So if you have some of them 0, that
+leaves more in the budget for you to",00:21:37.840,00:21:41.220
+play around with the rest of the guys.,00:21:41.220,00:21:43.650
+"And because of this, if you think of
+this as a hard-order constraint, that",00:21:43.650,00:21:48.810
+is you say it's 2.,00:21:48.810,00:21:50.770
+Anything above 2 is zero.,00:21:50.770,00:21:52.280
+"Here you can deal with it as if
+it's a soft-order constraint.",00:21:52.930,00:21:57.030
+"I'm not really excluding
+any orders.",00:21:57.030,00:21:59.030
+"I'm just making it harder for you to
+play around with all the powers.",00:21:59.030,00:22:02.580
+"Now let's look at the problem, given
+that this is the constraint.",00:22:05.980,00:22:09.040
+"You are still minimizing
+the in-sample error.",00:22:09.040,00:22:12.190
+"But now you are not free to choose the
+w's here any which way you want.",00:22:12.190,00:22:17.602
+"You have to be satisfying
+the constraint.",00:22:17.602,00:22:20.390
+"So that minimization is subject to, and
+you put the constraint in vector",00:22:20.390,00:22:24.690
+"form, and this is what you have.",00:22:24.690,00:22:27.790
+This is now the problem you have.,00:22:27.790,00:22:31.450
+"When you solve it, however you do
+that, we are going to call the",00:22:31.450,00:22:34.660
+"solution w_reg, for regularization,
+instead of w_lin, for linear",00:22:34.660,00:22:40.220
+regression.,00:22:40.220,00:22:41.270
+"And the question is, what happens
+when you put that constraint?",00:22:41.270,00:22:44.250
+"What happens to the old solution,
+which is w_lin?",00:22:44.250,00:22:46.600
+"Given w_reg, which one
+generalizes better?",00:22:46.600,00:22:48.440
+"What is the form for each, et cetera?",00:22:48.440,00:22:50.040
+"Let's see what we do
+to solve for w_reg.",00:22:53.480,00:22:56.630
+"You are minimizing this, subject
+to the constraint.",00:22:59.590,00:23:02.235
+"I can do this mathematically very easily
+using Lagrange multipliers, or",00:23:05.390,00:23:10.600
+"the inequality version of Lagrange
+multipliers, KKT, which I will",00:23:10.600,00:23:14.000
+"actually use in the derivation of
+support vector machines next week.",00:23:14.000,00:23:18.650
+"But here, I am just going to settle
+for a pictorial proof of what the",00:23:18.650,00:23:22.130
+"solution is, in order to motivate it.",00:23:22.130,00:23:24.220
+"And obviously, after you learn the KKT,
+you can go back and verify that",00:23:24.220,00:23:27.430
+"this is indeed the solution
+you get analytically.",00:23:27.430,00:23:30.130
+So let's look at this.,00:23:30.130,00:23:31.380
+I have two things here.,00:23:31.380,00:23:32.790
+"I have the error surface that I'm trying
+to minimize, and I have the",00:23:32.790,00:23:36.800
+constraint.,00:23:36.800,00:23:37.500
+"So let's plot both of them in
+two dimensions, because",00:23:37.500,00:23:40.030
+that's what we can plot.,00:23:40.030,00:23:42.780
+"Here is the way I'm drawing
+the in-sample error.",00:23:42.780,00:23:46.020
+"I am putting contours where the
+in-sample error is a constant.",00:23:46.020,00:23:50.100
+"So inside it will be a smaller
+E_in, smaller E_in,",00:23:50.100,00:23:52.620
+"and outside it will be bigger
+E_in, et cetera.",00:23:52.620,00:23:54.990
+"But on all points on that contour,
+which actually happens to be the",00:23:54.990,00:23:57.970
+"surface of an ellipsoid, if you
+solve it analytically, the",00:23:57.970,00:24:00.455
+E_in is the same value.,00:24:00.455,00:24:02.430
+"When you look at the constraint,
+the constraint tells you to",00:24:03.930,00:24:08.260
+be inside this circle.,00:24:08.260,00:24:09.510
+"So let's look at the centers
+for these guys.",00:24:12.630,00:24:14.620
+What is the center for here?,00:24:14.620,00:24:16.090
+"Well, the center for here is the minimum
+possible in-sample error you",00:24:16.090,00:24:19.825
+can get without a constraint.,00:24:19.825,00:24:21.210
+"And that we already declared to be
+w_lin, the solution for linear",00:24:21.210,00:24:24.220
+regression.,00:24:24.220,00:24:25.450
+"So that is where you achieve
+the minimum possible E_in.",00:24:25.450,00:24:27.980
+"And as you go further and further,
+the E_in increases.",00:24:27.980,00:24:31.690
+Now here's the constraint.,00:24:31.690,00:24:32.570
+What is the center of the constraint?,00:24:32.570,00:24:33.970
+"Well, the center of the constraint
+is the origin, just because of",00:24:33.970,00:24:36.620
+the nature of it.,00:24:36.620,00:24:38.900
+"Now the idea here is that you want to
+pick a point within this disc, such",00:24:38.900,00:24:43.880
+that it minimizes that.,00:24:43.880,00:24:45.355
+"It shouldn't be a surprise to you that
+I will need to go as far out as I can",00:24:45.355,00:24:49.900
+"afford to, without violating the
+constraint, because this gets me",00:24:49.900,00:24:52.700
+closer to that.,00:24:52.700,00:24:53.520
+"So the visual impression here is
+actually true mathematically.",00:24:53.520,00:24:57.210
+"Indeed, the constraint that you will
+actually end up working with is not",00:24:57.210,00:25:00.130
+"that w T w is less than or equal to C, but
+actually equals C. That is where the",00:25:00.130,00:25:05.830
+"best value for E_in, given the
+constraint, would occur.",00:25:05.830,00:25:08.740
+It will occur at the boundary.,00:25:08.740,00:25:10.390
+"Let's look at a possible point that
+satisfies this, and try to find",00:25:12.630,00:25:16.770
+an analytic condition for the solution.,00:25:16.770,00:25:19.710
+"Before we do that, let's say that the
+constraint was big enough to include",00:25:19.710,00:25:24.390
+"the solution for linear regression, that
+is, C is big enough that this is",00:25:24.390,00:25:28.040
+the big circle.,00:25:28.040,00:25:29.590
+What is the solution?,00:25:29.590,00:25:31.900
+You already know it.,00:25:31.900,00:25:33.810
+It's w_lin.,00:25:33.810,00:25:34.770
+"Because that is the minimum absolute,
+and it happens to be allowed by the",00:25:34.770,00:25:37.470
+constraint.,00:25:37.470,00:25:37.950
+So this is the solution.,00:25:37.950,00:25:39.340
+"The only case where you are interested
+in doing something new, is when the",00:25:39.340,00:25:43.120
+constraint takes you away from that.,00:25:43.120,00:25:44.460
+"And now you have to find a compromise
+between the objective and the",00:25:44.460,00:25:47.040
+constraint.,00:25:47.040,00:25:47.840
+"The compromise is such that you
+have to obey the constraint.",00:25:47.840,00:25:50.190
+There is no compromise there.,00:25:50.190,00:25:51.410
+"But given that this is the condition,
+what would be the best you can get, in",00:25:51.410,00:25:54.510
+terms of the in-sample error?,00:25:54.510,00:25:57.230
+Let's take a point on the surface.,00:25:57.230,00:25:58.720
+This is a candidate.,00:25:58.720,00:26:00.010
+"I don't know whether this
+gives you the minimum.",00:26:00.010,00:26:01.620
+"I don't think it will give me, because
+I already said that it should be as",00:26:01.620,00:26:03.930
+close as possible to the outside.,00:26:03.930,00:26:05.600
+But let's see.,00:26:05.600,00:26:06.260
+Maybe this will give us the condition.,00:26:06.260,00:26:08.260
+"Let's look at this point, and
+look at the gradient of",00:26:08.260,00:26:12.460
+the objective function.,00:26:12.460,00:26:14.790
+"The gradient of the objective function
+will give me a good idea about",00:26:14.790,00:26:17.380
+"directions to move in order to minimize
+E_in, as we have done before.",00:26:17.380,00:26:22.620
+"So if you draw this, you'll find that
+the gradient has to be orthogonal to",00:26:22.620,00:26:28.220
+"the ellipse, because the ellipse,
+by definition, has the",00:26:28.220,00:26:31.270
+same value of E_in.,00:26:31.270,00:26:32.770
+"So the value of E_in does not change
+as you move along this.",00:26:32.770,00:26:36.570
+"The only change it is allowed will
+have to be orthogonal to this.",00:26:36.570,00:26:39.560
+"So the direction of the gradient
+will be this way.",00:26:39.560,00:26:42.250
+"And I'm putting it outside, because E_in
+grows as you move away from w_lin.",00:26:42.250,00:26:47.460
+So that's one vector.,00:26:47.460,00:26:48.890
+"Now let's look at the orthogonal
+vector to the other",00:26:48.890,00:26:52.080
+"surface, the red surface.",00:26:52.080,00:26:53.480
+That's not a gradient of anything yet.,00:26:53.480,00:26:55.570
+"But if we draw it, it looks like that.",00:26:55.570,00:26:58.030
+"And then I find out that
+this is, what?",00:26:58.030,00:27:00.850
+This is just w.,00:27:00.850,00:27:03.330
+"If I take a point here,
+this is the origin.",00:27:05.840,00:27:08.370
+This is the vector.,00:27:08.370,00:27:09.260
+It happens to be orthogonal.,00:27:09.260,00:27:10.760
+"So this is the direction
+of the vector w.",00:27:10.760,00:27:12.550
+"This is the direction of the vector,
+the gradient of E_in.",00:27:12.550,00:27:16.540
+"Now by looking at this, I can
+immediately tell you that w does not",00:27:16.540,00:27:19.770
+"achieve the minimum of this function,
+subject to this constraint.",00:27:19.770,00:27:25.090
+How do I know that?,00:27:25.090,00:27:26.690
+"Because I look at these, and there is
+an angle between them. If I move",00:27:26.690,00:27:32.790
+"in this direction, E_in will increase.",00:27:32.790,00:27:37.540
+"If I move in this direction,
+E_in will decrease.",00:27:37.540,00:27:41.570
+"I wouldn't be having that situation,
+if they were exactly the",00:27:41.570,00:27:44.110
+opposite of each other.,00:27:44.110,00:27:45.170
+"Then I would be moving, and
+nothing will happen.",00:27:45.170,00:27:47.310
+"But now E_in has a component
+along the tangent here.",00:27:47.310,00:27:51.170
+"And therefore, moving along this circle
+will change the value of E_in.",00:27:51.170,00:27:55.240
+"And if I increase it and decrease it by
+moving, then definitely this does",00:27:55.240,00:27:58.550
+not achieve the minimum of E_in.,00:27:58.550,00:28:01.330
+"So I keep going until I get the point
+where I achieve the minimum of E_in.",00:28:01.330,00:28:04.940
+"And at that point, what would
+be the analytic condition?",00:28:04.940,00:28:07.370
+"The analytic condition is that this guy
+is going in one direction, this",00:28:07.370,00:28:09.670
+"guy is going in exactly the
+opposite direction.",00:28:09.670,00:28:12.840
+So let's write the condition.,00:28:12.840,00:28:14.890
+"The condition is that the gradient,
+which is the blue guy, is proportional",00:28:14.890,00:28:20.180
+to the negative of w of your solution.,00:28:20.180,00:28:23.310
+Because now we declared it the solution.,00:28:23.310,00:28:24.730
+"This is the value at which you achieve
+the optimal, under the constraint.",00:28:24.730,00:28:28.480
+We've already called that w_reg.,00:28:28.480,00:28:30.410
+"So at the value of w_reg, the gradient
+should be proportional to",00:28:30.410,00:28:34.000
+the negative of that.,00:28:34.000,00:28:35.620
+"Now because it's proportional to the
+negative of it, I'm going to put the",00:28:35.620,00:28:38.170
+"constant of proportionality in a very
+convenient way for further derivation.",00:28:38.170,00:28:42.120
+"I'm going to write it as minus,",00:28:42.120,00:28:46.240
+twice--,00:28:46.240,00:28:48.050
+"I'm going to differentiate a squared
+somewhere, and I don't want the 2 to",00:28:48.050,00:28:51.460
+"hang around, so I'm putting
+it already--",00:28:51.460,00:28:53.520
+"lambda, that is my generic parameter.",00:28:53.520,00:28:55.680
+"And I'll divide it by N. Of course, I'm
+allowed to do that, because there",00:28:55.680,00:28:58.440
+"is some lambda that makes it
+right, so I'm just",00:28:58.440,00:29:00.560
+putting it in that form.,00:29:00.560,00:29:03.320
+"When I put it in this form, I
+can now go-- this is the",00:29:03.320,00:29:06.470
+condition for w_reg.,00:29:06.470,00:29:08.310
+This equals minus that.,00:29:08.310,00:29:09.410
+I can move things to the other side.,00:29:09.410,00:29:11.420
+"And now I have an equation which
+is very interesting.",00:29:11.420,00:29:13.120
+"I have this plus that,
+equals the vector 0.",00:29:13.120,00:29:18.410
+"Now this looks suspiciously close to
+being the gradient of something.",00:29:18.410,00:29:23.480
+"And if it happens to be the minimum of
+a function, then I can say, the",00:29:23.480,00:29:27.910
+"gradient is 0, so that corresponds to
+the minimum of whatever that is.",00:29:27.910,00:29:31.420
+"So let's look at what this is
+the differentiation of.",00:29:31.420,00:29:34.350
+It's as if I was minimizing.,00:29:34.350,00:29:36.990
+E_in gives me this fellow.,00:29:36.990,00:29:38.800
+"And conveniently, this fellow gives me
+this fellow, when I differentiate.",00:29:38.800,00:29:43.020
+"So the solution here is the
+minimization of this guy.",00:29:43.020,00:29:47.170
+That's actually pretty cool.,00:29:47.170,00:29:48.640
+"Because I started with a constrained
+optimization problem, which is fairly",00:29:48.640,00:29:53.150
+difficult to do in general.,00:29:53.150,00:29:54.150
+You need some method to do that.,00:29:54.150,00:29:56.380
+"And by doing this logic, I ended
+up with minimizing something,",00:29:56.380,00:29:59.260
+unconditionally.,00:29:59.260,00:30:00.590
+"Just minimize this, and whatever
+you find will be your solution.",00:30:00.590,00:30:04.120
+"And here we have a parameter lambda, and
+here we have a parameter C. They",00:30:04.120,00:30:09.240
+are related to each other.,00:30:09.240,00:30:11.280
+"And actually, parameter lambda depends
+on C, depends on the data set, depends",00:30:11.280,00:30:15.120
+on a bunch of stuff.,00:30:15.120,00:30:16.060
+"So I'm not going to even attempt
+to get lambda analytically.",00:30:16.060,00:30:19.570
+I just know that there is a lambda.,00:30:19.570,00:30:21.690
+"Because when we are done, you'll realize
+that the lambda we get for",00:30:21.690,00:30:24.730
+"regularization is decided by validation,
+not by solving anything.",00:30:24.730,00:30:29.400
+"So we don't have to worry
+about it yet.",00:30:29.400,00:30:31.260
+"But it's a good idea to think of what
+is C, related to lambda, just to be",00:30:31.260,00:30:35.040
+"able to relate to that translation of
+the problem, from the constrained",00:30:35.040,00:30:38.300
+version to the unconstrained version.,00:30:38.300,00:30:41.540
+"The idea is that C goes up, lambda
+goes down, and vice versa.",00:30:41.540,00:30:45.360
+So let's start with the formula.,00:30:45.360,00:30:47.170
+What happens if C is huge?,00:30:47.170,00:30:49.280
+"Well, if C is huge, then w_lin
+is already the solution.",00:30:49.280,00:30:52.830
+"And therefore, you should be just
+minimizing E_in, as if there was",00:30:52.830,00:30:56.260
+"nothing, no constraint.",00:30:56.260,00:30:57.960
+"But that does correspond to lambda
+equals 0, doesn't it?",00:30:57.960,00:31:01.260
+You will be minimizing E_in.,00:31:01.260,00:31:03.600
+"So if C is huge, lambda is 0.",00:31:03.600,00:31:06.390
+"Now let's get C smaller, and smaller.",00:31:06.390,00:31:09.020
+"When C is smaller, the regularization is
+more severe, because the condition",00:31:09.020,00:31:13.600
+now is becoming more severe.,00:31:13.600,00:31:16.010
+"And in order to make the condition
+here more severe, in terms of the",00:31:16.010,00:31:19.240
+"regularization term, you need
+to increase lambda.",00:31:19.240,00:31:21.580
+"The bigger lambda is, the more emphasis
+you have to put on the",00:31:21.580,00:31:24.750
+regularization part of the game.,00:31:24.750,00:31:26.820
+"And therefore, indeed, if C
+goes down, lambda goes up.",00:31:26.820,00:31:30.690
+"To the level where, let's say that C
+is 0. What is the solution here?",00:31:30.690,00:31:36.230
+"Well, you just left me one
+point in the domain.",00:31:36.230,00:31:37.860
+I don't care what E_in is.,00:31:37.860,00:31:38.830
+"It happens to be the minimum,
+because it's the only value.",00:31:38.830,00:31:41.270
+"So the solution is whatever the value
+is, so w equals 0 is the solution.",00:31:41.270,00:31:45.210
+"How do you force this to have
+the solution w equals 0?",00:31:45.210,00:31:49.170
+"By getting lambda to be infinite, in
+which case you don't care about the",00:31:49.170,00:31:52.120
+first term.,00:31:52.120,00:31:52.680
+"You just absolutely positively
+have to make w equal to 0.",00:31:52.680,00:31:56.010
+"So indeed, that correspondence
+matters.",00:31:56.010,00:31:58.790
+So we put it there.,00:31:58.790,00:31:59.560
+"And we understand in our mind,
+there are two parameters that are",00:31:59.560,00:32:02.690
+related to each other.,00:32:02.690,00:32:04.650
+"Analytically, we didn't find them.",00:32:04.650,00:32:06.250
+But now we have a correspondence.,00:32:06.250,00:32:08.000
+"And the form we have here
+will serve as our form.",00:32:08.000,00:32:13.060
+"We have to be able to get lambda
+in a principled way, which we will.",00:32:13.060,00:32:17.280
+"This is the only remaining
+outstanding item of business.",00:32:17.280,00:32:20.250
+"Now let's look at augmented error,
+which is an interesting notion.",00:32:22.800,00:32:26.460
+"If you are minimizing E augmented,
+what is E augmented?",00:32:26.460,00:32:30.390
+We used to minimize E_in.,00:32:30.390,00:32:32.260
+"Now we augmented it with another term,
+which is a regularization term.",00:32:32.260,00:32:35.680
+So we write it down this way.,00:32:35.680,00:32:39.450
+"And this simply can be written,
+for this particular case.",00:32:39.450,00:32:43.470
+Because E_in is no mystery.,00:32:43.470,00:32:44.750
+We have a formula for it.,00:32:44.750,00:32:46.310
+"You look at this, and now this
+looks very promising.",00:32:46.310,00:32:48.220
+"If I asked you to solve this, this
+used to be a quadratic form, and now",00:32:48.220,00:32:51.320
+it's a quadratic form.,00:32:51.320,00:32:53.350
+"So I don't think the solution
+would be difficult at all.",00:32:53.350,00:32:56.280
+"But the good news is that solving
+this is equivalent to-- which is",00:32:56.280,00:33:00.940
+"unconditional optimization,
+unconstrained optimization-- solves the",00:33:00.940,00:33:04.260
+following problem.,00:33:04.260,00:33:05.630
+"You minimize E_in by itself, which we
+have the formula for, subject to the",00:33:05.630,00:33:10.980
+constraint.,00:33:10.980,00:33:12.470
+"It's an important correspondence,
+because of the following.",00:33:12.470,00:33:16.420
+"The bottom formulation of the problem
+lends itself to the VC analysis.",00:33:16.420,00:33:21.890
+"I am restricting my hypothesis
+set, explicitly.",00:33:21.890,00:33:25.670
+"There are certain hypotheses
+that are no longer allowed.",00:33:25.670,00:33:28.330
+"I am using a subset of
+the hypothesis set.",00:33:28.330,00:33:30.200
+I expect good generalization.,00:33:30.200,00:33:32.780
+"Mathematically, this is equivalent
+to the top one.",00:33:32.780,00:33:35.190
+"If you look at the top one, I am using
+the full hypothesis set, without",00:33:35.190,00:33:39.430
+explicitly forbidding any value.,00:33:39.430,00:33:42.350
+"I am just using a different learning
+algorithm to find the solution.",00:33:42.350,00:33:45.930
+"Here, in principle, minimize this.",00:33:45.930,00:33:47.630
+"Whatever the solution happens, happens.",00:33:47.630,00:33:49.670
+"And I'm going to get a full-fledged w
+that happens to be member of H_Q,",00:33:49.670,00:33:54.170
+my hypothesis set.,00:33:54.170,00:33:55.710
+Nothing here is forbidden.,00:33:55.710,00:33:57.730
+"Certain things are more likely
+than others, but that's",00:33:57.730,00:34:00.100
+an algorithmic question.,00:34:00.100,00:34:01.630
+"So it will be very difficult to invoke
+a VC analysis here, but it's easy to",00:34:01.630,00:34:05.780
+invoke it here.,00:34:05.780,00:34:06.950
+"And that correspondence between
+a constrained version, which is",00:34:06.950,00:34:11.044
+"the pure form of regularization as
+stated, and an augmented error,",00:34:11.044,00:34:15.699
+"which doesn't put a constraint, but
+adds a term that captures the",00:34:15.699,00:34:19.020
+"constraint in a soft form, that
+correspondence is the justification of",00:34:19.020,00:34:23.760
+"regularization in terms of
+generalization, as far as VC analysis",00:34:23.760,00:34:27.739
+is concerned.,00:34:27.739,00:34:28.520
+"And it's true for any
+regularizer you use.",00:34:28.520,00:34:30.740
+"We are just giving here an example for
+this particular type of regularizer.",00:34:30.740,00:34:34.850
+"Now, let's get the solution.",00:34:36.440,00:34:37.429
+That's the easy part.,00:34:37.429,00:34:39.429
+We minimize this.,00:34:39.429,00:34:40.630
+Not subject to anything.,00:34:40.630,00:34:42.409
+And this is the formula for it.,00:34:42.409,00:34:44.130
+What do you do?,00:34:44.130,00:34:46.250
+"You get the gradient
+of it equated to 0.",00:34:46.250,00:34:48.570
+"Can anybody differentiate this,
+as we have done it before?",00:34:48.570,00:34:52.340
+That results in--,00:34:52.340,00:34:54.880
+This is the solution.,00:34:54.880,00:34:55.860
+"So this is the part we got from the
+first part, as we got in linear",00:34:55.860,00:35:00.130
+regression.,00:35:00.130,00:35:00.550
+"That's what got us the pseudo-inverse
+solution in the first place.",00:35:00.550,00:35:03.310
+"And the other guy conveniently
+gets lambda.",00:35:03.310,00:35:05.740
+"You can see why I chose the
+parameter to be funny.",00:35:05.740,00:35:07.720
+"The 2 was because of the
+differentiation.",00:35:07.720,00:35:09.150
+Now I have squared.,00:35:09.150,00:35:10.490
+"The over N, because this one has 1 over
+N, so I was able to factor 1/N",00:35:10.490,00:35:14.420
+"out, and leave lambda here,
+which is clean.",00:35:14.420,00:35:16.660
+"That's why I chose the constant of
+proportionality in that particular",00:35:16.660,00:35:21.000
+functional form.,00:35:21.000,00:35:22.440
+"So I get this, and solve it.",00:35:22.440,00:35:23.530
+"And when you solve it, you get w_reg.",00:35:23.530,00:35:25.910
+"That's the formal name of the
+solution to this problem.",00:35:25.910,00:35:28.370
+"And that happens to be-- it's not the
+pseudo-inverse, but it's not that",00:35:28.370,00:35:31.620
+far from it.,00:35:31.620,00:35:32.230
+"All you do is,",00:35:32.230,00:35:33.830
+"you just group the w guys, and then get
+the y on the other side, and do",00:35:33.830,00:35:39.430
+"an inverse, and that's what you get.",00:35:39.430,00:35:41.710
+"So this would be the solution,
+with regularization.",00:35:41.710,00:35:43.980
+"And as a reminder to us, if we didn't
+have regularization, and we were",00:35:43.980,00:35:47.470
+"solving for w_lin, w_lin would be
+simply this fellow, the regular",00:35:47.470,00:35:52.750
+"pseudo-inverse, which you can also get
+by simply setting lambda to 0 here.",00:35:52.750,00:35:56.670
+"Let's look at the solution. We
+had this without regularization.",00:35:57.790,00:36:01.010
+"And let's put this, because this is
+the one we're going to use with",00:36:01.010,00:36:03.580
+regularization.,00:36:03.580,00:36:04.600
+"Now this is remarkable, in this case--
+under the assumptions, under the clean",00:36:04.600,00:36:08.170
+"thing-- we actually have one-step
+learning, including regularization.",00:36:08.170,00:36:13.600
+"You just tell me what it is, and I
+actually have the solution outright.",00:36:13.600,00:36:17.160
+"So instead of doing a constrained
+optimization, or doing it in increments",00:36:17.160,00:36:20.930
+"or that, this is the solution.",00:36:20.930,00:36:22.660
+That's a pretty good tool to have.,00:36:22.660,00:36:25.670
+It also is very intuitive.,00:36:25.670,00:36:27.120
+Because look at this.,00:36:27.120,00:36:28.820
+"If lambda is 0, you have the
+unconstrained, and you have without",00:36:28.820,00:36:31.770
+regularization.,00:36:31.770,00:36:33.330
+"As you increase lambda, what happens?",00:36:33.330,00:36:36.060
+"The regularization term becomes
+dominant in the solution.",00:36:36.060,00:36:39.140
+"This is the guy that carries the
+information about the inputs.",00:36:39.140,00:36:41.970
+This guy is just lambda 'I'.,00:36:41.970,00:36:44.680
+Now take it to the extreme.,00:36:44.680,00:36:45.740
+Let's say lambda is enormous.,00:36:45.740,00:36:47.550
+"Well, if lambda in enormous, this
+completely dominates this.",00:36:47.550,00:36:50.780
+"And the result of getting this-- this
+would be about lambda 'I'. The other",00:36:50.780,00:36:53.930
+guy is just noise.,00:36:53.930,00:36:55.290
+"And when I invert it, I will get
+something like 1 over lambda.",00:36:55.290,00:36:59.420
+"So w_reg would be 1 over lambda, for
+lambda huge, times something.",00:36:59.420,00:37:02.990
+Who cares about the something?,00:37:02.990,00:37:04.300
+1 over lambda is huge.,00:37:04.300,00:37:04.960
+It will knock it down to 0.,00:37:04.960,00:37:06.840
+"I am going to get w_reg
+that is very close to 0.",00:37:06.840,00:37:10.120
+"And indeed, I am getting smaller and
+smaller w_reg solution, given that",00:37:10.120,00:37:13.980
+"lambda is large, which
+is what I expect.",00:37:13.980,00:37:15.860
+"And in the extreme case, I am going to
+be forced to have w equal to 0, which",00:37:15.860,00:37:19.050
+"is the case we saw before
+as the extreme case.",00:37:19.050,00:37:21.430
+"So this, indeed, stands to the
+logic of what we expect.",00:37:21.430,00:37:24.940
+We have the solution.,00:37:24.940,00:37:26.800
+"Let's apply it, and see the
+result in a real case.",00:37:26.800,00:37:30.100
+"So we're now minimizing this, but we
+know what the solution is explicitly.",00:37:30.100,00:37:34.020
+"And what I am going to do, I'm going to
+vary lambda, because this will be",00:37:34.020,00:37:37.490
+a very important parameter for us.,00:37:37.490,00:37:39.590
+"So we have the same regularizer, w
+transposed w, and I'm going to vary the",00:37:39.590,00:37:43.740
+amount of regularization I put.,00:37:43.740,00:37:45.750
+"And I'm going to apply it
+to a familiar problem.",00:37:45.750,00:37:48.410
+This is for different lambdas.,00:37:48.410,00:37:50.020
+Remember this problem?,00:37:50.020,00:37:52.450
+"Yeah, we saw it last time.",00:37:52.450,00:37:53.550
+"Actually, we saw it earlier
+this lecture.",00:37:53.550,00:37:55.810
+So this is the case.,00:37:55.810,00:37:56.940
+"Now, we are going to put it
+in the new terminology.",00:37:56.940,00:37:58.850
+What is this?,00:37:58.850,00:37:59.450
+This is unconstrained.,00:37:59.450,00:38:01.290
+"Therefore, it is really constrained,
+but with lambda equals 0.",00:38:01.290,00:38:05.620
+"Now let's put a little bit
+of regularization.",00:38:08.550,00:38:11.840
+"And here's what I mean
+by a little bit.",00:38:11.840,00:38:14.565
+Is this a little bit for you?,00:38:14.565,00:38:17.470
+Let's see the result.,00:38:17.470,00:38:18.720
+Wow.,00:38:21.930,00:38:23.550
+"This is the guy I showed you last
+time, just as an appetizer.",00:38:23.550,00:38:25.770
+Remember?,00:38:25.770,00:38:26.680
+That's what it took.,00:38:26.680,00:38:27.970
+So the medicine is working.,00:38:27.970,00:38:29.170
+"A small dose of the medicine
+did the job.",00:38:29.170,00:38:32.650
+That's good.,00:38:32.650,00:38:33.150
+"Let's get carried away, like people get
+carried away with medicine, and",00:38:33.150,00:38:36.000
+get a bigger dose.,00:38:36.000,00:38:37.250
+What happens?,00:38:40.530,00:38:43.540
+Oops.,00:38:43.540,00:38:46.420
+I think we are overdosing here.,00:38:46.420,00:38:49.812
+Let's do it further.,00:38:49.812,00:38:51.062
+You can see what's happening.,00:38:57.630,00:38:58.910
+I'm constraining the weights.,00:38:58.910,00:39:00.570
+"And now the algorithm, all it's doing is
+just constraining the weights, and",00:39:00.570,00:39:03.780
+it doesn't care as much about the fit.,00:39:03.780,00:39:06.320
+"So the line keeps getting flatter and
+more horizontal, until there is",00:39:06.320,00:39:12.710
+absolutely nothing in the line.,00:39:12.710,00:39:14.450
+"If you keep increasing lambda, this was
+a line that used to exactly fit,",00:39:14.450,00:39:19.470
+"and now the curvature is going small,
+and the slope is really mitigated.",00:39:19.470,00:39:23.420
+"And the curve is getting
+small, et cetera.",00:39:23.420,00:39:24.860
+And eventually what will happen?,00:39:24.860,00:39:26.570
+"This will be just a silly
+horizontal line.",00:39:26.570,00:39:30.820
+"You have just taken a fatal
+dose of the medicine!",00:39:30.820,00:39:34.360
+That's what happened.,00:39:34.360,00:39:36.840
+"When you deal with lambda, you really
+need to understand that the choice of",00:39:36.840,00:39:41.510
+lambda is extremely critical.,00:39:41.510,00:39:43.720
+"And the good news is that, in spite of
+the fact that our choice of type of",00:39:43.720,00:39:47.910
+"regularizer, like the w transposed
+w in this case, that choice",00:39:47.910,00:39:52.880
+will be largely heuristic.,00:39:52.880,00:39:54.730
+"Studying the problem, trying to
+understand how to pick a regularizer,",00:39:54.730,00:39:58.140
+this will be a heuristic choice.,00:39:58.140,00:40:00.160
+"The choice of lambda will be extremely
+principled, based on validation.",00:40:00.160,00:40:04.130
+"And that will be the saving grace,
+if our heuristic choice for the",00:40:04.130,00:40:08.090
+"regularizer is not that great,
+as we will see in a moment.",00:40:08.090,00:40:12.790
+"If you want to characterize what's
+happening as you increase lambda, here",00:40:12.790,00:40:16.740
+we started with overfitting.,00:40:16.740,00:40:19.380
+"That was the problem we
+were trying to solve.",00:40:19.380,00:40:22.200
+And we solved it.,00:40:22.200,00:40:24.280
+And we solved it.,00:40:24.280,00:40:25.370
+And we solved it all too well.,00:40:25.370,00:40:26.680
+We are certainly not overfitting here.,00:40:26.680,00:40:29.320
+"But the problem is that we went
+to the other extreme.",00:40:29.320,00:40:32.340
+"And now we are underfitting,
+just as bad.",00:40:32.340,00:40:37.800
+"So the proper choice of
+lambda is important.",00:40:37.800,00:40:40.130
+"Now, the regularizer that I described to
+you is the most famous regularizer",00:40:42.880,00:40:47.540
+in machine learning.,00:40:47.540,00:40:48.370
+And it's called weight decay.,00:40:48.370,00:40:50.420
+"And the name is not very strange,
+because we're trying to get the",00:40:50.420,00:40:53.290
+"weights to be small, so
+decay is not a far term.",00:40:53.290,00:40:55.680
+"But I would like to understand
+why it is actually called,",00:40:55.680,00:40:58.190
+"specifically, decay.",00:40:58.190,00:41:02.780
+The reason is the following.,00:41:02.780,00:41:05.170
+"Let's say that you are not in
+a neat, linear case like that.",00:41:05.170,00:41:08.310
+"Let's say you are doing this
+in a neural network.",00:41:08.310,00:41:10.260
+"And in neural networks, weight decay--
+trying to minimize w transposed w,",00:41:10.260,00:41:14.100
+"is a very important regularization
+method.",00:41:14.100,00:41:17.220
+"We know that in neural networks, you
+don't have a neat closed-form",00:41:17.220,00:41:20.120
+"solution, and you use
+gradient descent.",00:41:20.120,00:41:21.870
+"So let's say you use gradient
+descent on this.",00:41:21.870,00:41:24.730
+"And let's say just batch gradient
+descent, for the simplicity of the",00:41:24.730,00:41:27.620
+derivation.,00:41:27.620,00:41:28.500
+What do you do?,00:41:28.500,00:41:29.630
+"Batch gradient descent, you have
+a step that takes you from w at time t",00:41:29.630,00:41:34.780
+to w time t plus 1.,00:41:34.780,00:41:36.882
+"And they happen to be this minus
+eta, which is the learning",00:41:36.882,00:41:40.350
+"rate, times the gradient.",00:41:40.350,00:41:42.030
+"So we just need to put the gradient,
+and we have our step.",00:41:42.030,00:41:44.690
+Right?,00:41:44.690,00:41:45.510
+The gradient is the following.,00:41:47.130,00:41:48.190
+"The gradient is the gradient
+of the sum of this.",00:41:48.190,00:41:50.070
+"The gradient of the first part
+is what we had before.",00:41:50.070,00:41:51.890
+"If we didn't have regularization,
+that's what we would be doing.",00:41:51.890,00:41:54.300
+And that is what happens.,00:41:54.300,00:41:55.200
+And we got backpropagation.,00:41:55.200,00:41:57.510
+"But now there is an added
+term, because of this.",00:41:57.510,00:42:00.180
+"And that added term looks like that,
+just by differentiating.",00:42:00.180,00:42:04.450
+"So now, if I reorganize this by taking
+the terms that correspond to w(t) by",00:42:04.450,00:42:08.530
+"themselves, I am going to get this term,
+basically collecting these two",00:42:08.530,00:42:13.950
+"fellows, this guy and this guy, which
+happen to be multiplied by w(t).",00:42:13.950,00:42:18.070
+"And then I have this remaining guy,
+which I can put this way.",00:42:18.070,00:42:21.810
+"Now look at the interpretation
+of the step here.",00:42:21.810,00:42:25.140
+"I am in the weight space,
+and this is my weight.",00:42:25.140,00:42:28.590
+"And here is the direction
+that backpropagation is",00:42:28.590,00:42:31.640
+suggesting that I move to.,00:42:31.640,00:42:33.800
+"It used to be, without regularization,
+that I'm moving from here to here.",00:42:33.800,00:42:37.140
+Right?,00:42:37.140,00:42:38.640
+"Now using this thing, before I do that,
+which I'm going to do, I am",00:42:38.640,00:42:43.260
+actually going to shrink the weights.,00:42:43.260,00:42:46.010
+Here's the origin.,00:42:46.010,00:42:47.140
+I am here.,00:42:47.140,00:42:47.920
+I'm going to move in this direction.,00:42:47.920,00:42:50.230
+Because this fellow is a fraction.,00:42:50.230,00:42:54.520
+"And it could be a very small fraction,
+depending on lambda.",00:42:54.520,00:42:57.300
+"I could be going by a factor
+of a half, or something.",00:42:57.300,00:43:00.120
+"Most likely, I'll go by very
+little, like 0.999.",00:43:00.120,00:43:03.720
+"But in every step now, instead of just
+moving from this according to the",00:43:03.720,00:43:06.670
+"solution, I am shrinking then moving,
+shrinking then moving,",00:43:06.670,00:43:11.380
+shrinking then moving.,00:43:11.380,00:43:12.890
+So these guys are informative.,00:43:12.890,00:43:14.600
+"They tell me about what to do, in order
+to approximate the function.",00:43:14.600,00:43:18.020
+This guy is just obediently,00:43:18.020,00:43:19.330
+trying to go to 0.,00:43:19.330,00:43:21.430
+"That makes you unable to really
+escape very much.",00:43:21.430,00:43:24.660
+"If I was just going this way, this way,
+that way, et cetera, I would be",00:43:24.660,00:43:27.200
+going very far.,00:43:27.200,00:43:28.580
+"But here now, every time, there is
+something that grounds you.",00:43:28.580,00:43:32.490
+"And if you take lambda to be big enough,
+that that fraction is huge,",00:43:32.490,00:43:36.440
+"then your learning would be, here, and
+this is a suggested direction.",00:43:36.440,00:43:40.120
+I'm going to do it.,00:43:40.430,00:43:41.040
+"But before I do it, I'm
+going to go here.",00:43:41.040,00:43:44.510
+"Then you move this way, and
+the next time you go here.",00:43:44.510,00:43:47.210
+"And before you know it, you are at the
+origin, regardless of what the other",00:43:47.210,00:43:50.140
+guy is suggesting.,00:43:50.140,00:43:51.650
+"And that is indeed what happens
+when lambda is huge.",00:43:51.650,00:43:53.980
+"You are so tempted towards the 0
+solution that you don't really care",00:43:53.980,00:43:57.230
+about learning the function itself.,00:43:57.230,00:43:58.620
+"The other factor pushes
+you over there.",00:43:58.620,00:44:01.410
+"So that's why it's called weight decay,
+because the weight decays",00:44:01.410,00:44:03.725
+from one iteration to the next.,00:44:03.725,00:44:06.780
+And it applies to neural networks.,00:44:06.780,00:44:08.200
+"All you need to remember in neural
+networks, the w transposed w is a pretty",00:44:08.200,00:44:12.030
+elaborate sum.,00:44:12.030,00:44:12.710
+"You have to sum over all of the layers,
+all the input units, all the",00:44:12.710,00:44:15.570
+output units.,00:44:15.570,00:44:15.980
+"And you sum the value of
+that weight squared.",00:44:15.980,00:44:18.750
+So that's what you have.,00:44:18.750,00:44:22.250
+"Now let's look at variations
+of weight decay.",00:44:22.250,00:44:24.130
+This is the method we developed.,00:44:24.130,00:44:26.190
+"And we would like to move to other
+regularizers, and try to infer some",00:44:26.190,00:44:30.170
+"intuition about the type
+of regularizer we pick.",00:44:30.170,00:44:33.180
+So what do we do here?,00:44:33.180,00:44:35.740
+"You can, instead of just uniformly
+giving a budget C, and having the sum",00:44:35.740,00:44:40.180
+"of the w's squared being less than or
+equal to C, you can decide that some",00:44:40.180,00:44:44.090
+"weights are more important
+than others.",00:44:44.090,00:44:46.610
+"And the way you do it is by having
+this as your regularizer.",00:44:46.610,00:44:50.090
+You introduce an importance factor.,00:44:50.090,00:44:52.410
+Let's call it gamma.,00:44:52.410,00:44:54.200
+"And by the choice of
+the proper gamma--",00:44:54.200,00:44:55.860
+"these are constants that specify
+what type of regularizer",00:44:55.860,00:44:58.260
+you are working with--,00:44:58.260,00:44:59.650
+"if this becomes less than or
+equal to C, now you have a play.",00:44:59.650,00:45:04.350
+"If gamma is very small, I have more
+liberty of making that weight big,",00:45:04.350,00:45:07.470
+"because it doesn't take
+much from the budget.",00:45:07.470,00:45:09.160
+"If gamma is big, then I'd better be
+careful with the corresponding weight,",00:45:09.160,00:45:11.890
+because it kills the budget.,00:45:11.890,00:45:14.170
+Let's look at two extremes.,00:45:14.170,00:45:17.070
+"Let's say that I take the gamma
+to be positive exponential.",00:45:17.070,00:45:20.930
+"How do you articulate what
+the regularizer is doing?",00:45:20.930,00:45:24.630
+"Well, the regularizer is giving huge
+emphasis on higher-order terms.",00:45:24.630,00:45:31.270
+So what is it trying to do?,00:45:31.270,00:45:32.880
+"It is trying to find, as much as
+possible, a low-order fit.",00:45:32.880,00:45:38.030
+Let's say Q equals 10.,00:45:41.600,00:45:43.900
+"If it tries to put a 10th-order
+polynomial, the smallest weight for the",00:45:43.900,00:45:48.340
+"10th order term will
+kill the budget already.",00:45:48.340,00:45:53.600
+Let's look at the opposite.,00:45:53.600,00:45:55.410
+"If you have that, well, you find it.",00:45:55.410,00:45:57.310
+"Now, the bad guys are the early guys.",00:45:57.310,00:46:00.390
+"I'm OK with the high-order guys,
+but not the other guys.",00:46:00.390,00:46:02.600
+So this would be a high-order fit.,00:46:02.600,00:46:05.200
+You can see quite a variety of this.,00:46:05.200,00:46:07.030
+"And in fact, this functional form is
+indeed used in neural networks, not",00:46:07.030,00:46:11.790
+"for high-order or low-order,
+but for something else.",00:46:11.790,00:46:15.280
+"It is used because, when you do the
+analysis properly for neural networks,",00:46:15.280,00:46:19.050
+"you find that the best way to do
+weight decay is to give different",00:46:19.050,00:46:22.630
+"emphasis to the weights
+in different layers.",00:46:22.630,00:46:24.590
+"They play a different role
+in affecting the output.",00:46:24.590,00:46:28.290
+"And therefore, this would be
+accommodated by just having the proper",00:46:28.290,00:46:31.505
+gamma in this case.,00:46:31.505,00:46:33.420
+"The most general form of this type
+of things is the famous Tikhonov",00:46:33.420,00:46:37.780
+"regularizer, which is a very
+well-studied set of regularizers that",00:46:37.780,00:46:41.010
+has this general form.,00:46:41.010,00:46:43.700
+"This is a quadratic form, but it's
+a diagonal quadratic form.",00:46:43.700,00:46:46.890
+"I only take the w_0 squared, w_1
+squared, up to w_Q squared.",00:46:46.890,00:46:51.020
+"This one, when I put it in matrix form,
+is a general quadratic form.",00:46:51.020,00:46:54.830
+"It has the diagonal guys, and
+it has off-diagonal guys.",00:46:54.830,00:46:57.900
+"So it will be giving weights to guys
+that happen to be w_1 w_3, et cetera.",00:46:57.900,00:47:03.060
+"And by the proper choice of the matrix
+Gamma in this case, you'll get weight decay,",00:47:03.060,00:47:09.510
+"you will get the low-order, high-order,
+and many others that are fit in that.",00:47:09.510,00:47:15.710
+"Therefore, studying this form
+is very interesting, because you cover",00:47:15.710,00:47:18.050
+a lot of territory using it.,00:47:18.050,00:47:20.230
+So these are some variations.,00:47:20.230,00:47:21.920
+"Now let's even go more extreme,
+and go for not weight",00:47:21.920,00:47:26.330
+"decay, but weight growth.",00:47:26.330,00:47:29.510
+Why not?,00:47:29.510,00:47:30.520
+The game was what?,00:47:30.520,00:47:31.780
+"The game was constraining, right?",00:47:31.780,00:47:33.660
+"You don't want to allow all
+values of the weights.",00:47:33.660,00:47:35.890
+You didn't allow big weights.,00:47:35.890,00:47:38.150
+I'm going not to allow small weights.,00:47:38.150,00:47:39.930
+What's wrong with that?,00:47:39.930,00:47:40.650
+It's a constraint.,00:47:40.650,00:47:42.470
+"OK, it's a constraint,",00:47:42.470,00:47:43.310
+let's see how it behaves.,00:47:43.310,00:47:46.040
+"First, let's look at weight decay.",00:47:46.040,00:47:47.830
+"I'm plotting the performance of weight
+decay, the expected out-of-sample",00:47:47.830,00:47:50.695
+"error, as a function of the
+regularization parameter lambda.",00:47:50.695,00:47:54.170
+"There is an optimal value for the
+parameter, like we saw in the example,",00:47:54.170,00:47:57.980
+that gives me the smallest one.,00:47:57.980,00:47:59.540
+"And before that, I am overfitting, and
+after that, I am starting to underfit.",00:47:59.540,00:48:04.100
+And there's a value.,00:48:04.100,00:48:05.680
+"Any time you see the curve going down
+and then going up, it means that",00:48:05.680,00:48:08.780
+"that regularizer works, if you
+choose lambda right.",00:48:08.780,00:48:11.620
+"Because if I choose lambda here, I am
+going to get better out-of-sample",00:48:11.620,00:48:14.560
+"performance than if I didn't use
+regularization at all, which is",00:48:14.560,00:48:17.460
+lambda equals 0.,00:48:17.460,00:48:20.140
+"Now we are going to plot the curve
+for if we constrain the",00:48:20.140,00:48:24.500
+weights to be large.,00:48:24.500,00:48:26.320
+"So your penalty is for small weights,
+not for large weights.",00:48:26.320,00:48:30.170
+"What would the curve look
+like again here?",00:48:30.170,00:48:33.240
+"If it goes down from 0 to something,
+that's fine.",00:48:33.240,00:48:35.900
+But it looks like this.,00:48:35.900,00:48:37.150
+It's just bad.,00:48:39.840,00:48:43.760
+"But it's not fatal, because what?",00:48:43.760,00:48:45.830
+"Because our principled way of getting
+lambda got us lambda equals 0 as the",00:48:45.830,00:48:50.470
+proper choice.,00:48:50.470,00:48:51.540
+"So we killed the regularizer
+altogether.",00:48:51.540,00:48:54.490
+But it's a curious case.,00:48:54.490,00:48:55.510
+Because now we are using regularizers.,00:48:55.510,00:48:57.880
+"It seems like you can even use
+a regularizer that harms you.",00:48:57.880,00:49:01.820
+"And I'm not sure now that
+I need to--",00:49:01.820,00:49:03.820
+I should use a regularizer--,00:49:03.820,00:49:04.810
+"You have to use a regularizer, because
+without a regularizer, you are going",00:49:06.680,00:49:10.760
+to get overfitting.,00:49:10.760,00:49:12.350
+There is no question about it.,00:49:12.350,00:49:13.560
+It's a necessary evil.,00:49:13.560,00:49:15.950
+"But there are guidelines for choosing
+the regularizer that I'm going",00:49:15.950,00:49:19.370
+to talk about now.,00:49:19.370,00:49:20.780
+"And after you choose the regularizer,
+there is the check of the lambda.",00:49:20.780,00:49:25.350
+"If you happen to choose the wrong one,
+and you do the correct validation, the",00:49:25.350,00:49:28.600
+"correct validation will recommend
+that you give the weight 0.",00:49:28.600,00:49:31.690
+"So there is no downside, except for
+the price you pay for validation.",00:49:31.690,00:49:36.020
+So what is the lesson here?,00:49:36.020,00:49:38.210
+It's a practical rule.,00:49:38.210,00:49:39.300
+"I am not going to make a mathematical
+statement here.",00:49:39.300,00:49:42.370
+"What is the criterion that we learned
+from weight decay that will guide us",00:49:42.370,00:49:46.980
+in the choice of a regularizer?,00:49:46.980,00:49:48.690
+"Here is the observation that
+leads to the practical rule.",00:49:48.690,00:49:52.960
+"Stochastic noise, which we are
+trying to avoid fitting,",00:49:52.960,00:49:56.530
+happens to be high-frequency.,00:49:56.530,00:49:58.180
+"That is, when you think of
+noise, it's like that.",00:49:58.180,00:50:00.300
+"Whereas the usual target
+functions are this way.",00:50:00.300,00:50:01.990
+So this guy is this way.,00:50:01.990,00:50:03.370
+"How about the other type of noise,
+which is also a culprit for",00:50:04.600,00:50:06.960
+overfitting?,00:50:06.960,00:50:08.040
+"Well, it's not as high-frequency.",00:50:08.040,00:50:09.810
+But it is also non-smooth.,00:50:09.810,00:50:11.630
+"That is, we capture what we could
+capture by the model.",00:50:11.630,00:50:15.070
+"And what we left out, the chances are
+we really couldn't capture it",00:50:15.070,00:50:18.260
+"because it's going up and down, faster
+or stronger than we can capture.",00:50:18.260,00:50:21.620
+"Again, I am saying this is
+a practical observation.",00:50:21.620,00:50:23.950
+"This happens in most of the hypothesis
+sets that I get to choose, and the",00:50:23.950,00:50:27.630
+"target functions that
+I get to encounter.",00:50:27.630,00:50:30.440
+"And because of this, here is the
+guideline for choosing a regularizer.",00:50:30.440,00:50:38.120
+"Make it tend to pick smoother
+hypotheses.",00:50:38.120,00:50:44.510
+Why is that?,00:50:44.510,00:50:46.490
+"We said that regularization is a cure,
+and the cure has a side effect.",00:50:46.490,00:50:51.360
+It's a cure for what?,00:50:51.360,00:50:52.460
+For fitting the noise.,00:50:52.460,00:50:54.450
+"So you want to make sure that you are
+punishing the noise, more than you are",00:50:54.450,00:51:00.010
+punishing the signal.,00:51:00.010,00:51:02.170
+"These are the organisms we
+are trying to fight.",00:51:02.170,00:51:05.300
+"If we harm them more than we harm
+the patient, we'll be OK.",00:51:05.300,00:51:08.990
+"We'll put up with the side effect,
+because we are killing the disease.",00:51:08.990,00:51:12.830
+"These guys happen to
+be high-frequency.",00:51:12.830,00:51:15.780
+"So if your regularizer prefers smooth
+guys, it will fail to fit these guys",00:51:15.780,00:51:21.520
+"more than it will fail
+to fit the signal.",00:51:21.520,00:51:23.685
+That is the guideline.,00:51:23.685,00:51:25.960
+"And it turns out that most of the ways
+you mathematically write a hypothesis",00:51:25.960,00:51:29.880
+"set, as a parameterized set, is by making
+smaller weights correspond to",00:51:29.880,00:51:35.890
+smoother hypotheses.,00:51:35.890,00:51:37.920
+I could do it the other way around.,00:51:37.920,00:51:39.600
+"Instead of my hypothesis being
+a summation of w times a polynomial, I",00:51:39.600,00:51:43.830
+"can make a summation of 1/w
+times a polynomial.",00:51:43.830,00:51:47.270
+"These are my parameters, in which
+case big weights will",00:51:47.270,00:51:50.820
+"be better, smoother.",00:51:50.820,00:51:52.260
+"But that's not the way people
+write hypothesis sets.",00:51:52.260,00:51:55.290
+"In most of the parametrization you're
+going to see, small weights correspond",00:51:55.290,00:51:59.840
+to smoother hypotheses.,00:51:59.840,00:52:01.830
+"That's why small weights, or weight decay,
+works very well in those cases.",00:52:01.830,00:52:06.130
+"Because it has a tendency
+towards smooth guys.",00:52:06.130,00:52:08.500
+"Now let's write the general form of
+regularization, and then talk about",00:52:11.250,00:52:15.170
+choosing a regularizer.,00:52:15.170,00:52:16.420
+"We are going to call the regularizer,
+like the weight decay regularizer by",00:52:18.790,00:52:22.180
+itself without the lambda.,00:52:22.180,00:52:23.180
+We are going to call it Omega.,00:52:23.180,00:52:26.470
+And it happens to be Omega of h.,00:52:26.470,00:52:28.840
+"It used to be function of w.
+w are the parameters that determine h.",00:52:28.840,00:52:33.080
+"So if I now leave out the parameters
+explicitly, and I'm talking about the",00:52:33.080,00:52:36.020
+"general hypothesis set, it depends
+on which hypothesis you pick.",00:52:36.020,00:52:39.320
+The value of the regularizer is that.,00:52:39.320,00:52:41.000
+"And the regularizer will prefer the
+guys for which Omega of h",00:52:41.000,00:52:44.790
+happens to be smaller in value.,00:52:44.790,00:52:46.340
+"So you define this function, and
+you have defined a regularizer.",00:52:46.340,00:52:50.150
+"What is the augmented
+error that we minimize?",00:52:50.150,00:52:54.030
+"In this case, the augmented error is,
+again, the augmented error of the",00:52:54.030,00:52:57.250
+hypothesis.,00:52:57.250,00:52:57.600
+"It happens to be of the weight, if that
+is the way you parameterize your",00:52:57.600,00:53:00.280
+hypotheses.,00:53:00.280,00:53:01.450
+And we write it down as this.,00:53:01.450,00:53:03.680
+This is the form we had.,00:53:03.680,00:53:04.990
+You get E_in.,00:53:04.990,00:53:06.840
+"That, already, we have.",00:53:06.840,00:53:07.830
+"And then you have the lambda, the
+important parameter, the dose of the",00:53:07.830,00:53:12.440
+"regularizer, and the form of the
+regularizer itself, which we just",00:53:12.440,00:53:15.570
+called Omega of h.,00:53:15.570,00:53:17.420
+So this is what we minimize.,00:53:17.420,00:53:18.935
+Does this ring a bell?,00:53:22.320,00:53:23.570
+"Does it look like something
+you have seen before?",00:53:25.990,00:53:30.010
+"Well, yeah, it does.",00:53:30.010,00:53:31.020
+"But I have no idea what the relation
+might possibly be.",00:53:31.020,00:53:34.640
+"I have seen this one before
+from the VC analysis.",00:53:34.640,00:53:37.340
+"But it was a completely
+different ball game.",00:53:37.340,00:53:39.960
+"We were talking about
+E_out, not E_aug.",00:53:39.960,00:53:42.720
+We were not optimizing anything.,00:53:42.720,00:53:44.660
+This was less than or equal to.,00:53:44.660,00:53:45.750
+"Less than or equal to is fine, because
+we said that the behavior is generally",00:53:46.230,00:53:49.260
+proportional to the bound.,00:53:49.260,00:53:50.200
+So that's fine.,00:53:50.200,00:53:51.390
+"This is E_in, so that's perfect.",00:53:51.390,00:53:53.340
+This guy is Omega.,00:53:53.340,00:53:54.990
+"Oh, I'm sneaky.",00:53:54.990,00:53:55.730
+"I called this Omega, deliberately.",00:53:55.730,00:53:58.560
+"But this one was the penalty
+for model complexity.",00:53:58.560,00:54:02.120
+And the model was the whole model.,00:54:02.120,00:54:04.050
+This is not a single hypothesis.,00:54:04.050,00:54:05.400
+"You give me the hypothesis set, I came
+up with a number that tells you how",00:54:05.400,00:54:08.690
+"bad the generalization will
+be for that model.",00:54:08.690,00:54:11.810
+"But now let's look at the
+correspondence here.",00:54:11.810,00:54:13.160
+"This is a complexity, and
+this is a complexity.",00:54:16.200,00:54:18.160
+"Although the complexity here is
+for individual hypotheses.",00:54:18.160,00:54:21.500
+"That's why it's helpful for me to
+navigate the hypothesis set.",00:54:21.500,00:54:24.550
+"Whereas this was just sitting
+here as an estimate.",00:54:24.550,00:54:27.900
+"When I talk about Occam's razor, I
+will relate the complexity of",00:54:27.900,00:54:31.940
+"an individual object, to the complexity
+of the set of objects, which is a very",00:54:31.940,00:54:36.790
+important notion in its own right.,00:54:36.790,00:54:38.850
+"But if you look at that correspondence,
+you realize that what",00:54:38.850,00:54:41.700
+"I'm really doing here, instead of using
+E_in, I am using E_aug as",00:54:41.700,00:54:47.930
+"an estimate for E_out, if
+I take it literally.",00:54:47.930,00:54:51.510
+"And the thing here is that E_aug, the
+augmented error, is better than E_in.",00:54:51.510,00:54:58.340
+Better in what?,00:54:58.340,00:55:00.220
+Better as a proxy to E_out.,00:55:00.220,00:55:05.170
+"You can think of the holy grail of
+machine learning, is to find",00:55:05.170,00:55:11.140
+"an in-sample estimate of the
+out-of-sample error.",00:55:11.140,00:55:15.770
+"If you get that, you're done.",00:55:15.770,00:55:16.970
+"Minimize it, and go home.",00:55:16.970,00:55:18.900
+"But there's always the slack, and there
+are bounds, and this and that.",00:55:18.900,00:55:22.380
+"And now our augmented error is our
+next attempt, from using the plain",00:55:22.380,00:55:26.550
+"vanilla in-sample error, adding something
+up that gets us closer to",00:55:26.550,00:55:30.540
+the out-of-sample error.,00:55:30.540,00:55:32.570
+"Of course, the augmented error is
+better than E_in in approximating",00:55:32.570,00:55:36.450
+"E_out, because it's purple.",00:55:36.450,00:55:39.200
+Purple is closer to red than blue!,00:55:39.200,00:55:40.540
+"OK, no.",00:55:40.540,00:55:41.900
+That's not the reason.,00:55:41.900,00:55:42.980
+"But that's at last the
+reason for the slide.",00:55:42.980,00:55:45.210
+"So this is the idea in
+terms of the theory.",00:55:45.210,00:55:47.250
+"We found a better proxy
+for the out-of-sample.",00:55:47.250,00:55:51.700
+"Now, very quickly, let's see how
+we choose a regularizer.",00:55:51.700,00:55:54.980
+"I say very quickly, not because of
+anything, but because it's really",00:55:54.980,00:55:57.950
+"a heuristic exercise, and I want to
+emphasize a main point here.",00:55:57.950,00:56:03.780
+What is the perfect regularizer?,00:56:03.780,00:56:06.620
+"Remember when we talked about
+the perfect hypothesis set?",00:56:06.620,00:56:09.430
+"This was the hypothesis set that has
+a singleton, that happens to be our",00:56:09.430,00:56:12.130
+target function.,00:56:12.130,00:56:14.000
+Dream on!,00:56:14.000,00:56:15.370
+We don't know the target function.,00:56:15.370,00:56:16.470
+"We cannot construct something
+like that.",00:56:16.470,00:56:18.140
+"Well, the perfect regularizer is also
+one that restricts, but in the",00:56:18.140,00:56:22.480
+direction of the target function.,00:56:22.480,00:56:25.410
+"I think we can say that we
+are going in circles here.",00:56:25.410,00:56:28.530
+We don't know the target function.,00:56:28.530,00:56:30.400
+"Now if you know a property of the target
+function, that allows you to go",00:56:30.400,00:56:33.460
+"there, that is not regularization.",00:56:33.460,00:56:35.260
+"There's another technique which uses
+properties of the target function, in",00:56:35.260,00:56:39.480
+order to improve the learning.,00:56:39.480,00:56:40.700
+"Explicitly, this property holds for the
+target function, and there is",00:56:40.700,00:56:43.810
+a prescription for how to use it.,00:56:43.810,00:56:46.250
+"Regularization is an attempt
+to reduce overfitting.",00:56:46.250,00:56:49.700
+So it is not matching the target.,00:56:49.700,00:56:52.160
+It doesn't know the target.,00:56:52.160,00:56:53.400
+"All it does is apply generically
+a methodology that harms the overfitting",00:56:53.400,00:56:58.900
+more than it harms the fitting.,00:56:58.900,00:57:01.620
+"It harms fitting the noise, more than
+it harms fitting the signal.",00:57:01.620,00:57:06.720
+And that is our guideline.,00:57:06.720,00:57:08.410
+"Because of that, it's a heuristic.",00:57:08.410,00:57:10.880
+"So the guiding principle we found was,
+you move in the direction of smoother.",00:57:10.880,00:57:18.590
+"And the direction of smoother-- we need
+to find the logic in our mind.",00:57:18.590,00:57:21.590
+"We are moving in the direction
+of smoother, because the",00:57:21.590,00:57:24.940
+noise is not smooth.,00:57:24.940,00:57:27.000
+That is really the reason.,00:57:27.000,00:57:29.520
+"Because we tend to harm the
+noise more by doing that.",00:57:29.520,00:57:32.880
+"And smoother is fine when we
+have a surface like that.",00:57:32.880,00:57:35.250
+"In some learning problems, we don't have
+a surface to be smooth, so the",00:57:35.250,00:57:39.400
+corresponding thing is: simpler.,00:57:39.400,00:57:41.130
+"I'll give you an example from something
+you have seen before, which",00:57:41.130,00:57:44.150
+"is the movie rating, our famous example
+that we keep going back to.",00:57:44.150,00:57:47.880
+"We had the error function for
+the movie rating, right?",00:57:47.880,00:57:51.270
+"We were trying to get the factors to
+multiply to a quantity that is very",00:57:51.270,00:57:55.020
+"close to the rating of this user, that
+has those factors, to this movie, that",00:57:55.020,00:57:59.050
+has those factors.,00:57:59.050,00:58:00.040
+That's what we did.,00:58:00.040,00:58:00.740
+And the factors were our parameters.,00:58:00.740,00:58:02.430
+"So we were adjusting the parameters,
+in order to match the rating.",00:58:02.430,00:58:05.820
+"And now in the new terminology, you
+realize that this is very susceptible",00:58:05.820,00:58:08.750
+to overfitting.,00:58:08.750,00:58:09.570
+"Because let's say I have a user,
+and I'm using 100 factors.",00:58:09.570,00:58:12.760
+"That's 100 parameters dedicated
+to that user.",00:58:12.760,00:58:15.920
+"If that user only rated 10 movies,
+then I'm trying to determine 100",00:58:15.920,00:58:20.100
+parameters using 10 ratings.,00:58:20.100,00:58:22.850
+That's bad news.,00:58:22.850,00:58:25.160
+"So clearly, regularization
+is called for.",00:58:25.160,00:58:28.170
+"A notion of simpler here
+is very interesting.",00:58:28.170,00:58:30.830
+"The default that you are trying to go
+to is that everything gives the",00:58:30.830,00:58:35.520
+average rating.,00:58:35.520,00:58:37.400
+"In the absence of further information,
+consider that everything is just",00:58:37.400,00:58:40.660
+"average rating of all
+movies or all users.",00:58:40.660,00:58:43.310
+"Or you can be more finicky about it, and
+say the average of the movies that",00:58:43.310,00:58:46.960
+"I have seen, and average of the
+ratings that I have done.",00:58:46.960,00:58:49.220
+Maybe I'm an optimistic user or not.,00:58:49.220,00:58:50.770
+But just an average.,00:58:50.770,00:58:51.940
+"So you don't consider this particular
+movie, or this particular user.",00:58:51.940,00:58:55.040
+You just take an average.,00:58:55.040,00:58:56.640
+"If you pull your solution toward the
+average, now we are regularizing",00:58:56.640,00:59:00.450
+toward the simpler solution.,00:59:00.450,00:59:02.600
+"And indeed, that is the type of
+regularization that was used in the",00:59:02.600,00:59:05.770
+"winning solution of the
+Netflix competition.",00:59:05.770,00:59:08.960
+"So this is another notion of simpler,
+in a case where smoother",00:59:08.960,00:59:12.920
+doesn't lend itself.,00:59:12.920,00:59:14.170
+"What happens if you choose
+a bad omega?",00:59:17.180,00:59:19.590
+Which happens.,00:59:19.590,00:59:20.140
+It's a heuristic choice.,00:59:20.140,00:59:21.080
+I am moving toward this.,00:59:21.080,00:59:22.330
+"I may choose a good one, or a bad one.",00:59:22.330,00:59:23.740
+"And in a real situation, you will be
+choosing the regularizer in",00:59:23.740,00:59:27.040
+a heuristic way.,00:59:27.040,00:59:28.080
+"You can do all of the
+math in the world.",00:59:28.080,00:59:29.850
+"But whenever you do the math, remember
+that you are always making",00:59:29.850,00:59:32.710
+an assumption.,00:59:32.710,00:59:33.680
+"And your math will be as good, or
+as bad, as your assumption is",00:59:33.680,00:59:36.950
+"valid, or not valid.",00:59:36.950,00:59:38.200
+There is no escaping that.,00:59:38.200,00:59:39.630
+"You don't hide behind a great-looking
+derivation, when the",00:59:40.150,00:59:44.910
+basis of it is shaky.,00:59:44.910,00:59:46.160
+"We don't worry too much, because we
+have the saving grace of lambda.",00:59:49.400,00:59:52.440
+"We are going to go to validation, so
+you had better be here for the next",00:59:52.440,00:59:55.000
+"lecture, where we are going
+to choose lambda.",00:59:55.000,00:59:57.410
+"And if we happen to be unlucky, that
+after applying the guidelines we end",00:59:57.410,01:00:01.120
+"up with something that is actually
+harmful, then the validation will",01:00:01.120,01:00:04.960
+"tell us it's harmful, and we'll factor
+the regularizer out of the game",01:00:04.960,01:00:08.480
+altogether.,01:00:08.480,01:00:09.320
+"But trying to put a regularizer in
+the first place is inevitable.",01:00:09.320,01:00:13.610
+"If you don't do it, you will end up
+with overfitting in almost all the",01:00:13.610,01:00:16.950
+"practical machine learning problems
+that you will encounter.",01:00:16.950,01:00:19.460
+"Now let's look at neural network
+regularizers, in order to get more",01:00:22.400,01:00:25.030
+intuition about them.,01:00:25.030,01:00:25.950
+"And it's actually pretty useful
+for the intuition.",01:00:25.950,01:00:28.900
+"Let's look at weight decay
+for the neural network.",01:00:28.900,01:00:32.020
+"The math is not as clean, because we
+don't have a closed-form solution.",01:00:32.020,01:00:35.260
+"But there is a very interesting
+interpretation that relates the small",01:00:35.260,01:00:38.850
+"weights to simplicity, in this case.",01:00:38.850,01:00:41.750
+Remember this guy?,01:00:41.750,01:00:43.030
+"This was the activation function
+of the neurons.",01:00:43.030,01:00:45.970
+And they were soft threshold.,01:00:45.970,01:00:48.570
+"And we said that the soft threshold
+is somewhere between",01:00:48.570,01:00:50.720
+linear and hard threshold.,01:00:50.720,01:00:53.080
+What does it mean to be between?,01:00:53.080,01:00:55.100
+"It means that if the signal is very
+small, you are almost linear.",01:00:55.100,01:00:59.560
+"If the signal is very large, one way or
+the other, you are almost binary.",01:00:59.560,01:01:03.610
+Right?,01:01:03.610,01:01:04.710
+"So let's say that you are using small
+weights versus big weights.",01:01:04.710,01:01:11.740
+"If you use very small weights, then
+you are always within here.",01:01:11.740,01:01:15.740
+"Because the weights are the ones
+that determine the signal.",01:01:15.740,01:01:19.550
+"So every neuron now is basically
+computing the linear function.",01:01:19.550,01:01:24.490
+"I have this big network, layer upon
+layer upon layer upon layer.",01:01:24.490,01:01:28.690
+"And I'm taking it, because someone told
+me that multilayer perceptrons are",01:01:28.690,01:01:31.470
+capable of implementing large things.,01:01:31.470,01:01:32.880
+"So if I put enough of them,
+I'll be doing great.",01:01:32.880,01:01:35.190
+"And then I look at the functionality
+that I'm implementing, if I force the",01:01:35.190,01:01:38.730
+"weights to be very, very small.",01:01:38.730,01:01:40.850
+"Well, this is linear.",01:01:40.850,01:01:42.500
+But this is linear of linear.,01:01:42.500,01:01:44.660
+Linear of linear of linear.,01:01:44.660,01:01:46.580
+"And when I am done, what am I doing?",01:01:46.580,01:01:49.300
+"I am implementing just a simple
+linear function in",01:01:49.300,01:01:51.980
+a huge camouflage disguise.,01:01:51.980,01:01:55.530
+"All the weights are just interacting and
+adding up, and I end up with just",01:01:55.530,01:01:58.580
+"a linear function,
+a very simple one.",01:01:58.580,01:02:00.710
+"So very small weights, I'm implementing
+a very simple function.",01:02:00.710,01:02:04.580
+"As you increase the weights, you are
+getting into the more interesting",01:02:04.580,01:02:08.410
+nonlinearity here.,01:02:08.410,01:02:10.700
+"And if you go all the way, you will
+end up with a logical dependency.",01:02:10.700,01:02:13.910
+"And a logical dependency, as we did
+with a sum of products, you can",01:02:13.910,01:02:16.360
+implement any functionality you want.,01:02:16.360,01:02:18.580
+"You're going from the most simple
+to the most complex, by",01:02:18.580,01:02:21.830
+increasing the weights.,01:02:21.830,01:02:23.080
+"So indeed, we have a correspondence in
+this case, not just smoothness per se,",01:02:23.080,01:02:27.100
+"but actually the simplicity of the
+function you are implementing, in",01:02:27.100,01:02:30.320
+terms of the size of the weights.,01:02:30.320,01:02:32.650
+"There is another regularizer for neural
+networks, which is called",01:02:32.650,01:02:35.630
+weight elimination.,01:02:35.630,01:02:37.100
+The idea is the following.,01:02:37.100,01:02:37.850
+"We said that the VC dimension of neural
+networks is the number of weights,",01:02:37.850,01:02:41.280
+more or less.,01:02:41.280,01:02:43.190
+"So maybe it's a good idea to
+take the network, and just",01:02:43.190,01:02:45.670
+kill some of the weights.,01:02:45.670,01:02:47.590
+"So although I have the full-fledged
+network, I am forcing some of the",01:02:47.590,01:02:50.100
+"weights to be 0, in which case the
+number of free parameters that I have",01:02:50.100,01:02:53.530
+will be smaller.,01:02:53.530,01:02:54.590
+"I will have a smaller VC dimension,
+and I stand a better chance of",01:02:54.590,01:02:57.180
+generalizing.,01:02:57.180,01:02:57.810
+Maybe I won't overfit.,01:02:57.810,01:02:59.250
+Now this is true.,01:03:00.780,01:03:02.260
+"And there is an implementation of it,
+which-- the argument I just said is",01:03:02.260,01:03:07.790
+"fewer weights lead to
+a smaller VC dimension--",01:03:07.790,01:03:10.050
+"There is a version of it that lends
+itself to regularization, which is",01:03:10.050,01:03:13.490
+called soft weight elimination.,01:03:13.490,01:03:16.440
+"I'm not going to go and combinatorially
+say, should I kill this",01:03:16.440,01:03:19.220
+weight or kill that weight?,01:03:19.220,01:03:20.040
+"You can see this is a nightmare,
+in terms of optimization.",01:03:20.040,01:03:22.510
+"I'm going to apply something on
+a continuous function that will result,",01:03:22.510,01:03:25.370
+"more or less, in emphasizing some of
+the weights and killing the others.",01:03:25.370,01:03:29.870
+Here is the regularizer in this case.,01:03:29.870,01:03:32.400
+"It looks awfully similar
+to the weight decay.",01:03:32.400,01:03:35.655
+"If that's all I had, and this wasn't
+upstairs in anticipation of something",01:03:35.655,01:03:39.540
+"that will happen downstairs, this
+would be just weight decay.",01:03:39.540,01:03:42.230
+"I'm adding these guys, and that is the
+term, so I'm just doing this.",01:03:42.230,01:03:46.810
+But the actual form is this fellow.,01:03:46.810,01:03:50.240
+So what does this do?,01:03:50.240,01:03:52.050
+"Well, for very small
+w, beta dominates.",01:03:52.050,01:03:56.480
+"We end up with something proportional
+to w squared.",01:03:56.480,01:03:58.880
+"So for very small weights, you
+are doing weight decay.",01:03:58.880,01:04:03.030
+"For very large weights,
+the w's dominate.",01:04:03.030,01:04:06.690
+"Therefore, this basically
+is 1, close to 1.",01:04:06.690,01:04:09.760
+"So there is nothing to be gained
+by changing the weights.",01:04:09.760,01:04:11.810
+"At least, not much to be gained
+by changing the weights.",01:04:11.810,01:04:14.700
+"In this case, big weights
+are left alone.",01:04:14.700,01:04:18.000
+Small weights are pushed towards zero.,01:04:18.000,01:04:20.340
+"We end up, after doing the optimization,
+clustering the weights into two",01:04:20.340,01:04:23.330
+"groups, serious weights that happen to
+have value, and other weights that are",01:04:23.330,01:04:27.140
+"really being pushed towards 0, that you
+have considered to be eliminated,",01:04:27.140,01:04:30.910
+although they are soft-eliminated.,01:04:30.910,01:04:32.590
+And that's the corresponding notion.,01:04:32.590,01:04:34.850
+"Early stopping, which we alluded to last
+time, is a form of regularizer,",01:04:37.960,01:04:40.850
+and it's an interesting one.,01:04:40.850,01:04:44.090
+Remember this thing?,01:04:44.090,01:04:44.880
+"We were training on E_in, no
+augmentation, nothing, just the",01:04:44.880,01:04:49.340
+in-sample error.,01:04:49.340,01:04:50.390
+"And we realized by looking at the
+out-of-sample error, using",01:04:50.390,01:04:53.970
+"a test set, that it's a good idea
+to stop before you get to the end.",01:04:53.970,01:04:59.170
+"This is a form of regularizer,
+but it's a funny regularizer.",01:04:59.170,01:05:01.740
+It's through the optimizer.,01:05:01.740,01:05:03.720
+"So we are not changing the
+objective function.",01:05:03.720,01:05:06.200
+"You are just handing the objective
+function, which is the in-sample error,",01:05:06.200,01:05:09.020
+"to the optimizer and telling
+it, please minimize this.",01:05:09.020,01:05:12.700
+"By the way, could you please
+not do a great job?",01:05:12.700,01:05:15.610
+"Because if you do a great
+job, I'm in trouble.",01:05:15.610,01:05:17.200
+So that's what you do.,01:05:18.070,01:05:19.310
+It's a funny situation.,01:05:19.310,01:05:20.460
+"It's not funny for early stopping,",01:05:20.460,01:05:21.840
+"because the way we choose when
+to stop is principled.",01:05:21.840,01:05:26.210
+"We are going to use validation
+to determine that point.",01:05:26.210,01:05:28.590
+"But some people get carried away and
+realize, maybe we can always put",01:05:28.590,01:05:32.560
+"the regularizer in the optimizer, and
+just do a sloppy job of optimization,",01:05:32.560,01:05:37.970
+thus regularizing the thing.,01:05:37.970,01:05:39.850
+"Oh, wait a minute.",01:05:39.850,01:05:40.930
+"Maybe local minima is
+a blessing in disguise.",01:05:40.930,01:05:44.730
+"They force us to stop short of the
+global minimum, and therefore that's",01:05:44.730,01:05:48.050
+a great regularizer.,01:05:48.050,01:05:49.370
+"OK, guys.",01:05:49.370,01:05:51.500
+Heuristic is heuristic.,01:05:51.500,01:05:52.320
+"But we are still scientists
+and engineers.",01:05:52.320,01:05:55.220
+Separate the concerns.,01:05:55.220,01:05:57.860
+"Put what you consider to be the right
+thing to minimize in the proper",01:05:57.860,01:06:01.600
+"function, in this case
+the augmented error.",01:06:01.600,01:06:04.180
+"And after that, give it to the optimizer
+to go all the way in",01:06:04.180,01:06:08.360
+optimizing.,01:06:08.360,01:06:10.000
+"The wishy-washy thing is
+just uncertain.",01:06:10.000,01:06:12.425
+I have no idea how this will work.,01:06:12.425,01:06:14.770
+"But if we capture as much as we can in
+the objective function, and we know",01:06:14.770,01:06:18.510
+"that we really want to minimize it, then
+we have a principled way of doing",01:06:18.510,01:06:21.580
+"that, and we will get what we want.",01:06:21.580,01:06:23.200
+"The early stopping is
+done by validation.",01:06:27.250,01:06:28.740
+"So the final slide is the optimal
+lambda, which is a good lead into the",01:06:28.740,01:06:32.010
+next lecture.,01:06:32.010,01:06:34.280
+"What I am going to show you is the
+choice of the optimal lambda in the",01:06:34.280,01:06:38.480
+big experiment that I did last time.,01:06:38.480,01:06:40.120
+"Last time we had overfitting
+in a situation that had",01:06:40.120,01:06:42.590
+the colorful graphs.,01:06:42.590,01:06:44.700
+"And now I am applying regularization
+there, using weight decay.",01:06:44.700,01:06:48.390
+"And I'm just asking myself,
+what is lambda, given the",01:06:48.390,01:06:51.620
+different levels of noise?,01:06:51.620,01:06:52.870
+So we look here.,01:06:55.550,01:06:56.310
+I am applying the regularization.,01:06:56.310,01:06:58.420
+This is the lambda.,01:06:58.420,01:06:59.680
+"It's the same regularizer, and I
+am changing the emphasis on the",01:06:59.680,01:07:03.650
+regularizer.,01:07:03.650,01:07:04.640
+"And I am getting the bottom
+line, the expected",01:07:04.640,01:07:06.390
+"out-of-sample error, as a result.",01:07:06.390,01:07:08.000
+"When there is no noise, guess what?",01:07:09.120,01:07:13.100
+Regularization is not indicated.,01:07:13.100,01:07:15.170
+"You just put lambda equals
+0, and you are fine.",01:07:15.170,01:07:17.330
+There's no overfitting to begin with.,01:07:17.330,01:07:20.150
+"As you increase the level of noise,
+as you see here, first you need",01:07:20.150,01:07:24.310
+regularization.,01:07:24.310,01:07:24.650
+"The minimum occurs at a point
+where lambda is not 0.",01:07:24.650,01:07:28.490
+"So that means you actually
+need regularization.",01:07:28.490,01:07:30.800
+And the end result is worse anyway.,01:07:30.800,01:07:32.500
+"But the end result has to be worse,
+because there is noise.",01:07:32.500,01:07:34.820
+"The expected out-of-sample error will
+have to have that level of noise in",01:07:34.820,01:07:37.510
+"it, even if I fit the
+other thing perfectly.",01:07:37.510,01:07:40.590
+"And as I increase the noise,
+I need more regularization.",01:07:40.590,01:07:43.710
+The best value of lambda is greater.,01:07:43.710,01:07:45.970
+"So this is very, very intuitive.",01:07:45.970,01:07:48.120
+"And if we can determine this value using
+validation, then we have a very",01:07:48.120,01:07:52.090
+good thing.,01:07:52.090,01:07:52.440
+"Now instead of using this, which
+was horrible overfitting,",01:07:52.440,01:07:55.730
+I am getting this.,01:07:55.730,01:07:56.470
+"And I'm getting the best
+possible, given those.",01:07:56.470,01:07:59.420
+"Now this happens to be
+for stochastic noise.",01:07:59.420,01:08:02.980
+"Out of curiosity, what would the situation
+be if we were talking about",01:08:02.980,01:08:06.660
+deterministic noise?,01:08:06.660,01:08:09.980
+"And when you plot deterministic noise,
+well, you could have fooled me.",01:08:09.980,01:08:15.820
+I am not increasing the sigma squared.,01:08:15.820,01:08:17.399
+"I am increasing the complexity of this
+guy, the complexity of the target.",01:08:17.399,01:08:20.800
+"And therefore, I'm increasing
+the deterministic noise.",01:08:20.800,01:08:23.760
+It's exactly the same behavior.,01:08:23.760,01:08:25.010
+"Again, if I have this, I don't
+need any regularization.",01:08:27.370,01:08:29.319
+"As I increase the deterministic noise,
+I need more regularization.",01:08:29.319,01:08:32.840
+"The lambda is bigger, and I end
+up with worse performance.",01:08:32.840,01:08:35.710
+"And if you look at these two, that
+should seal the correspondence in your",01:08:36.359,01:08:39.550
+"mind that, as far as overfitting and its
+cures are concerned, deterministic",01:08:39.550,01:08:44.880
+"noise behaves almost exactly as if
+it were unknown stochastic noise.",01:08:44.880,01:08:52.000
+"I will stop here, and will take questions
+after a short break.",01:08:52.000,01:08:55.069
+Let's start the Q&amp;A.,01:09:03.080,01:09:06.270
+"MODERATOR: The first question is, when
+the regularization parameter is",01:09:06.270,01:09:11.420
+"chosen, say lambda, if it's chosen
+according to the data does that mean",01:09:11.420,01:09:16.840
+we are doing data snooping?,01:09:16.840,01:09:18.430
+PROFESSOR: OK.,01:09:18.430,01:09:20.810
+"If we were using the same data for
+training as for choosing the",01:09:20.810,01:09:25.780
+"regularization parameter,
+that would be bad news.",01:09:25.780,01:09:29.800
+It's snooping.,01:09:29.800,01:09:30.729
+"But it's so clear, that I wouldn't
+even call it snooping.",01:09:30.729,01:09:32.779
+"It's blatant, in this case.",01:09:32.779,01:09:36.065
+"The reality is that we determine this
+using validation, which is a very",01:09:36.065,01:09:40.080
+controlled form of using the data.,01:09:40.080,01:09:42.439
+"And we will discuss the subject
+completely, from beginning to end, in",01:09:42.439,01:09:46.270
+the next lecture.,01:09:46.270,01:09:47.170
+"So there will be a way
+to deal with that.",01:09:47.170,01:09:50.880
+"MODERATOR: Would there be a case where
+you use different types of",01:09:50.880,01:09:53.390
+regularization in the same function?,01:09:53.390,01:09:55.570
+PROFESSOR: Correct.,01:09:55.570,01:09:57.400
+"Sometimes you use a combination of
+regularizers, with two different",01:09:57.400,01:09:59.950
+"parameters, depending
+on the performance.",01:09:59.950,01:10:03.710
+"As I mentioned, it is an experimental
+activity, more than a completely",01:10:03.710,01:10:10.020
+principled activity.,01:10:10.020,01:10:10.950
+"There are guidelines, and there
+are regularizers that",01:10:10.950,01:10:13.470
+stood the test of time.,01:10:13.470,01:10:14.790
+"And you can look at the problem, and
+you realize that, I'd better use",01:10:14.790,01:10:18.190
+"these two regularizers, because they
+behave differently in different parts",01:10:18.190,01:10:20.510
+"of the space, or something of that
+sort, and then decide to have",01:10:20.510,01:10:23.170
+a combination.,01:10:23.170,01:10:26.130
+"MODERATOR: In the examples, you were
+using Legendre polynomials as the",01:10:26.130,01:10:30.120
+orthogonal functions.,01:10:30.120,01:10:32.290
+Was there any reason for these?,01:10:32.290,01:10:33.840
+Or can you choose other functions?,01:10:33.840,01:10:36.680
+"PROFESSOR: They give me a level
+of generality, which is pretty",01:10:36.680,01:10:39.900
+interesting.,01:10:39.900,01:10:40.620
+And the solution is very simple.,01:10:40.620,01:10:42.250
+"So it's the analytic appeal of
+it that got me into this.",01:10:42.250,01:10:46.280
+"The typical situation in machine
+learning-- machine learning is",01:10:46.280,01:10:50.310
+somewhere between theory and practice.,01:10:50.310,01:10:52.930
+"And it really has very strong
+grounding in both.",01:10:52.930,01:10:55.640
+"So the way to use theory is that,
+because you cannot really model every",01:10:55.640,01:10:59.400
+"situation such that you can get
+the closed-form solution.",01:10:59.400,01:11:01.845
+You are far from that.,01:11:01.845,01:11:03.500
+"What you do is you get an idealized
+situation, but a situation as general",01:11:03.500,01:11:08.560
+as you can get it.,01:11:08.560,01:11:09.390
+"With polynomials, you can
+do a lot of things.",01:11:09.390,01:11:11.650
+"So because I can get the solution in
+this case, when I look at the form of",01:11:11.650,01:11:15.740
+"the solution, I may be able to read off
+some intuitive properties that I can",01:11:15.740,01:11:20.790
+"extrapolate, and apply as a leap of
+faith, to situations where my",01:11:20.790,01:11:24.410
+assumptions don't hold.,01:11:24.410,01:11:25.870
+"In this case, after getting this, we had
+a specific form for weight decay.",01:11:25.870,01:11:30.040
+"And when we look at the performance,
+we realize that",01:11:30.040,01:11:32.810
+smoothness is a good criterion.,01:11:32.810,01:11:34.490
+"And then we look for smoothness or
+simplicity, and we interpret that in",01:11:34.490,01:11:38.080
+"terms of, oh, smoothness is actually
+good because of the properties of",01:11:38.080,01:11:41.580
+"noise, and so on.",01:11:41.580,01:11:43.300
+"So there is a formal part, where we can
+develop it completely, and try to make",01:11:43.300,01:11:47.780
+"it as general as possible while
+mathematically tractable.",01:11:47.780,01:11:50.330
+"But then try to see if the lessons
+learned from the solution, that you got",01:11:50.330,01:11:54.110
+"analytically, can apply to a situation
+in a heuristic way, where you don't",01:11:54.110,01:11:58.000
+"have the full mathematical benefit
+because the assumptions don't hold.",01:11:58.000,01:12:02.790
+"MODERATOR: Could noise be
+an indicator of missing input?",01:12:02.790,01:12:06.170
+"PROFESSOR: Missing input is
+a big deal in machine learning.",01:12:09.540,01:12:13.910
+"Sometimes you are missing some
+attributes of the input.",01:12:13.910,01:12:17.530
+"And it can be treated
+in a number of ways.",01:12:17.530,01:12:20.260
+One of them is as if it's noise.,01:12:20.260,01:12:23.550
+"But missing inputs are sufficiently
+well defined, that they are treated",01:12:23.550,01:12:27.520
+"with their own methodology, rather
+than being generic noise.",01:12:27.520,01:12:30.070
+"MODERATOR: How do you trade off
+choosing more features in your",01:12:34.150,01:12:40.380
+"transformation, with the
+regularization?",01:12:40.380,01:12:42.510
+PROFESSOR: It's a good question.,01:12:45.825,01:12:47.620
+"The first question was a question that
+we addressed, even before we heard of",01:12:47.620,01:12:51.900
+overfitting and regularization.,01:12:51.900,01:12:53.290
+"And it was a question
+of generalization.",01:12:53.290,01:12:55.540
+"What is the dimensionality that
+we can afford, given the",01:12:55.540,01:12:58.340
+resources of the data?,01:12:58.340,01:13:00.090
+"What regularization adds to the
+equation is that, maybe you can afford",01:13:00.090,01:13:03.740
+"a little bit of a bigger dimension,
+provided that you do the proper",01:13:03.740,01:13:08.020
+regularization.,01:13:08.020,01:13:09.010
+"So again, it's the question of instead
+of having discrete steps-- I'm going",01:13:09.600,01:13:13.180
+"from this hypothesis set, to this
+hypothesis set, to this hypothesis set.",01:13:13.180,01:13:17.010
+"Let me try to find a continuum, such
+that, by the validation or by other",01:13:17.010,01:13:21.650
+"methods, I'll be able to find a sweet
+spot where I get the best performance.",01:13:21.650,01:13:25.820
+"And the best performance could
+be lying between two of",01:13:25.820,01:13:27.905
+the discrete steps.,01:13:27.905,01:13:29.420
+"In this case, I can say, I couldn't
+initially afford to go to the",01:13:29.420,01:13:33.000
+bigger hypothesis set.,01:13:33.000,01:13:33.990
+"Because if I go for it, and
+I go unconstrained, the",01:13:33.990,01:13:36.570
+generalization just kills me.,01:13:36.570,01:13:38.470
+"But now what I'm going to do, I'm going
+to go to it anyway, and apply",01:13:38.470,01:13:41.480
+regularization.,01:13:41.480,01:13:42.180
+"So I go this, and then I'm tracking
+back in continuous steps using",01:13:42.180,01:13:46.540
+regularization.,01:13:46.540,01:13:47.660
+"And I will end up with a situation, maybe,
+that I can afford, that wasn't",01:13:47.660,01:13:51.210
+"accessible to me without regularization,
+because it didn't",01:13:51.210,01:13:53.780
+"belong to the discrete grid
+that I used to work in.",01:13:53.780,01:13:56.640
+"MODERATOR: When regularization is done,
+will it depend on the data set",01:14:07.990,01:14:13.310
+that you use for training?,01:14:13.310,01:14:14.680
+"PROFESSOR: The regularization
+is a term added.",01:14:17.755,01:14:21.150
+"So there is no explicit dependency of
+the regularization on the data set.",01:14:21.150,01:14:24.780
+"The data set goes into
+the in-sample error.",01:14:24.780,01:14:26.250
+"The regularization goes into
+a property of the hypothesis.",01:14:26.250,01:14:28.780
+That is fairly independent--,01:14:28.780,01:14:30.980
+"actually, in the examples we gave,
+were independent of the inputs.",01:14:30.980,01:14:35.290
+"The dependency comes from the fact that
+the optimal parameter, lambda,",01:14:35.290,01:14:39.680
+does depend on the training set.,01:14:39.680,01:14:41.410
+"But I said that we were not going to
+worry about that analytically.",01:14:41.410,01:14:43.820
+"Because when all is said and done,
+lambda will be determined by",01:14:43.820,01:14:46.760
+validation.,01:14:46.760,01:14:47.730
+"So it will inherit any properties
+just because of that.",01:14:47.730,01:14:50.415
+MODERATOR: I think that's it.,01:14:56.670,01:14:58.350
+PROFESSOR: We'll see you next week.,01:14:58.360,01:15:00.070

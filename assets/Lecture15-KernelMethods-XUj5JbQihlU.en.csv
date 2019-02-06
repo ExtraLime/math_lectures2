@@ -1,0 +1,2480 @@
+text,start,stop
+ ,00:00:00.000,00:00:00.285
+"ANNOUNCER: The following program
+is brought to you by Caltech.",00:00:00.285,00:00:03.270
+ ,00:00:03.270,00:00:15.870
+YASER ABU-MOSTAFA: Welcome back.,00:00:15.870,00:00:19.460
+"Last time, we introduced support
+vector machines.",00:00:19.460,00:00:23.380
+"And if you think of linear models as
+economy cars, which is what we said",00:00:23.380,00:00:29.240
+"when we introduced them, you can think
+of support vector machines as the",00:00:29.240,00:00:33.040
+luxury line of those cars.,00:00:33.040,00:00:35.720
+"And indeed, they are nothing but
+a linear model in the simplest form",00:00:35.720,00:00:39.400
+"except that they actually are a little
+bit more keen on the performance.",00:00:39.400,00:00:44.690
+"And the key to the performance was the
+idea of the margin-- is that if the",00:00:44.690,00:00:49.810
+"data is linearly separable, there
+is more than one line that can",00:00:49.810,00:00:54.400
+separate the data.,00:00:54.400,00:00:56.600
+"And if you take the line that has the
+biggest margin, furthest away from the",00:00:56.600,00:01:01.110
+"closest point, then you
+have an advantage.",00:01:01.110,00:01:03.980
+"It's both an intuitive advantage and
+an advantage that can be theoretically",00:01:03.980,00:01:08.560
+"established, which we did through
+the idea of the growth",00:01:08.560,00:01:11.600
+function in this case.,00:01:11.600,00:01:13.510
+"And after we determined that it's a good
+idea to maximize the margin, we",00:01:13.510,00:01:17.520
+set out to do that.,00:01:17.520,00:01:19.100
+"And after a chain of mathematics, we
+ended up with a Lagrangian that",00:01:19.100,00:01:23.450
+we're going to maximize.,00:01:23.450,00:01:25.090
+"And the Lagrangian has very
+interesting properties.",00:01:25.090,00:01:27.420
+"It's quadratic, so it's
+a simple function.",00:01:27.420,00:01:30.510
+"And the constraints are inequality
+constraints, very simple inequality",00:01:30.510,00:01:33.880
+"constraints in this case, and
+one equality constraint.",00:01:33.880,00:01:36.720
+"And we're not going to actually
+do the solving ourselves.",00:01:36.720,00:01:40.110
+"We're going to pass the problem on to
+a package of quadratic programming.",00:01:40.110,00:01:44.690
+"And then, we will wait for quadratic
+programming to give us back",00:01:44.690,00:01:47.760
+the values of alphas.,00:01:47.760,00:01:50.170
+"Now, quadratic programming will have
+problems with solving this if the",00:01:50.170,00:01:54.460
+number of examples is bigger.,00:01:54.460,00:01:56.580
+"So once you get to thousands,
+its becomes an issue.",00:01:56.580,00:02:00.750
+"And then, there are all kinds of
+heuristics to deal with that case.",00:02:00.750,00:02:04.050
+"And in general, quadratic programming
+sometimes needs babysitting, tweaking,",00:02:04.050,00:02:08.389
+"limiting range, and whatnot.",00:02:08.389,00:02:09.910
+"But at least someone else wrote it, and
+we only have to do these things in",00:02:09.910,00:02:13.110
+"order to get the solution, rather
+than to write this from scratch.",00:02:13.110,00:02:15.740
+So it's not a bad deal for us.,00:02:15.740,00:02:17.820
+"And once we get the alphas back, there
+is a very interesting interpretation",00:02:17.820,00:02:22.370
+that happens.,00:02:22.370,00:02:23.500
+"You look at the alphas, the
+Lagrange multipliers.",00:02:23.500,00:02:26.780
+"And some of them will
+be greater than 0.",00:02:26.780,00:02:29.120
+"And most of them will be 0,
+should be identically 0.",00:02:29.120,00:02:33.910
+"In reality, because of the rounding
+error, we might get",00:02:33.910,00:02:35.790
+"them very, very small.",00:02:35.790,00:02:36.610
+And you set them manually to 0.,00:02:36.610,00:02:39.110
+"But the guys that happen to be bigger
+than 0 are special, and they are",00:02:39.110,00:02:43.010
+called the support vectors.,00:02:43.010,00:02:45.120
+"And whether you're working in the X space,
+or took the X space and moved to",00:02:45.120,00:02:49.690
+"a Z space and moved back here, the
+support vectors are the ones that",00:02:49.690,00:02:55.380
+achieve the margin.,00:02:55.380,00:02:56.510
+"They are sitting exactly at
+the critical point here.",00:02:56.510,00:02:59.510
+And they're used to define the plane.,00:02:59.510,00:03:02.210
+"And the most important aspect about them
+is the fact that you can predict",00:03:02.210,00:03:08.510
+"a bound on the out-of-sample error, based
+on the number of support vectors",00:03:08.510,00:03:13.460
+that you get.,00:03:13.460,00:03:14.390
+"And it is the normal form of dividing
+the complexity, in terms of the number",00:03:14.390,00:03:18.910
+"of parameters, in this case the non-zero
+alphas or the number of",00:03:18.910,00:03:21.460
+"support vectors that corresponds to it,
+divided by more or less the number",00:03:21.460,00:03:24.810
+of examples.,00:03:24.810,00:03:25.350
+We have seen that before.,00:03:25.350,00:03:27.030
+"But the key issue here is something
+really worth noting.",00:03:27.030,00:03:32.780
+"The right-hand side without the expected
+value-- the expected value just",00:03:32.780,00:03:36.090
+"tells us that we average this over
+a number of cases for this to be true.",00:03:36.090,00:03:39.870
+"We are dividing the number of support
+vectors by N. The number of support",00:03:39.870,00:03:44.210
+vectors is an in-sample quantity.,00:03:44.210,00:03:47.960
+You do all of this.,00:03:47.960,00:03:49.610
+You get the alphas back.,00:03:49.610,00:03:50.980
+"And you can tell what the number of
+support vectors are, in sample.",00:03:50.980,00:03:55.570
+"So we are able to check on the
+out-of-sample error, using",00:03:55.570,00:03:59.620
+an in-sample quantity.,00:03:59.620,00:04:01.330
+"And we know, by the previous experience,
+that this is a biggie.",00:04:01.330,00:04:04.870
+"Because now, not only are we going to
+check on the in-sample error, we're",00:04:04.870,00:04:08.320
+"also going to check on the
+out-of-sample error using",00:04:08.320,00:04:11.060
+a quantity we can measure.,00:04:11.060,00:04:13.000
+"Now, we applied support vectors only
+to linearly separable data, at",00:04:13.000,00:04:19.130
+least in the previous lecture.,00:04:19.130,00:04:20.390
+"In this lecture, we will
+generalize that.",00:04:20.390,00:04:23.200
+"And in order to deal with cases where
+the data is not linearly separable in",00:04:23.200,00:04:26.800
+"the X space, what we did is we used
+nonlinear transform, as we did before",00:04:26.800,00:04:30.800
+with linear models.,00:04:30.800,00:04:32.220
+"And a curious thing happened
+when we did that.",00:04:32.220,00:04:34.980
+"Because we went to a fairly
+high-dimensional Z space.",00:04:34.980,00:04:38.390
+"And we got a surface that is wiggly,
+and so on, which in our mind raises",00:04:38.390,00:04:43.610
+"alarm bells as far as generalization
+is concerned.",00:04:43.610,00:04:46.510
+"But we ended up with something that can
+be stated in a simplistic form as:",00:04:46.510,00:04:51.470
+"we get a complex hypothesis,
+which is the snake,",00:04:51.470,00:04:57.090
+"but we don't pay the price for it in
+terms of the complexity of the",00:04:57.090,00:05:00.540
+hypothesis set.,00:05:00.540,00:05:01.420
+"Remember, the complexity of the
+hypothesis set is what we pay the",00:05:01.420,00:05:03.700
+"price for in terms of the
+VC analysis, right?",00:05:03.700,00:05:06.570
+"And it's typically the case that when
+H is more complex,",00:05:06.570,00:05:12.800
+each individual is also complex.,00:05:12.800,00:05:15.190
+"But here, we sort of did some cheating.",00:05:15.190,00:05:17.290
+"And we managed to use a high-dimensional
+Z space,",00:05:17.290,00:05:20.720
+"so it's a complex H,
+complex hypothesis set.",00:05:20.720,00:05:24.570
+But the hypothesis we get is really--,00:05:24.570,00:05:29.510
+"although it looks very complex, it
+really belongs to a simple set because",00:05:29.510,00:05:33.490
+it maximizes the margin.,00:05:33.490,00:05:35.020
+"So we get the benefit of a fairly low
+out-of-sample error, in spite of the",00:05:35.020,00:05:39.190
+"fact that we captured the fitting very
+well by getting the 0 in-sample error.",00:05:39.190,00:05:43.270
+"Now, this is exaggerated.",00:05:43.270,00:05:45.910
+I grant you that.,00:05:45.910,00:05:46.910
+But it has an element of truth in it.,00:05:46.910,00:05:49.110
+"And it captures what support
+vector machines do.",00:05:49.110,00:05:52.460
+"They allow you to go very sophisticated,
+without fully paying the",00:05:52.460,00:05:55.530
+price for it.,00:05:55.530,00:05:57.440
+"Today, we're going to continue
+this by extending the support vector",00:05:57.440,00:06:02.680
+"machines in the basic case, and we're
+going to cover the main method, which",00:06:02.680,00:06:06.820
+"is the kernel methods, in
+the bulk of the lecture.",00:06:06.820,00:06:09.260
+"And the two topics are the kernels,
+referred to as the kernel trick",00:06:09.260,00:06:15.140
+"actually, formally, and that takes care
+of the nonlinear transformation",00:06:15.140,00:06:19.900
+"when the Z space can be very
+sophisticated, so sophisticated that",00:06:19.900,00:06:23.820
+you can't even write it down.,00:06:23.820,00:06:24.970
+"It's an infinite-dimensional
+space.",00:06:24.970,00:06:27.200
+"Which would be completely unheard
+of if you're using plain",00:06:27.200,00:06:30.000
+vanilla linear models.,00:06:30.000,00:06:32.260
+"The other topic is to extend support
+vector machines from the linearly",00:06:32.260,00:06:37.010
+"separable case to the non-linearly-separable
+case, allowing yourself to",00:06:37.010,00:06:41.010
+make errors.,00:06:41.010,00:06:42.620
+"So this is pretty much that, if you were
+using perceptrons and went to",00:06:42.620,00:06:46.070
+"pocket, this would be if you went from
+the support vector machines that we",00:06:46.070,00:06:50.670
+"introduced-- that we're going to label now
+hard-margin, because they strictly",00:06:50.670,00:06:55.260
+"obey the margin-- to a soft margin
+that allows some errors.",00:06:55.260,00:06:59.530
+"And both of these extensions will expand
+your horizons in terms of the",00:06:59.530,00:07:04.780
+problems you're able to deal with.,00:07:04.780,00:07:06.330
+"And chances are, in a practical problem,
+you're going to use both.",00:07:06.330,00:07:10.280
+"You're going to go to
+a high-dimensional space, sometimes",00:07:10.280,00:07:13.310
+"an infinite-dimensional space, without
+paying the price for it, as we'll see",00:07:13.310,00:07:16.150
+in a moment.,00:07:16.150,00:07:17.020
+"And in addition to that, you're going
+to allow some errors in order not to",00:07:17.020,00:07:20.400
+"make outliers dictate an unduly complex
+nonlinear transformation.",00:07:20.400,00:07:26.880
+So both of them will come in handy.,00:07:26.880,00:07:29.320
+Let's start with the kernels.,00:07:29.320,00:07:32.270
+"So the idea of the kernels is that I
+want to go to the Z space without",00:07:32.270,00:07:36.520
+paying the price for it.,00:07:36.520,00:07:37.810
+And we are already halfway there.,00:07:37.810,00:07:39.820
+"If you remember from last lecture,
+the way z manifests itself in the",00:07:39.820,00:07:43.860
+computation is very simple.,00:07:43.860,00:07:45.950
+"You do an inner product in the Z
+space, and from then on, it's",00:07:45.950,00:07:49.450
+a regular quadratic programming problem.,00:07:49.450,00:07:51.530
+"And the dimensionality of the problem
+depends on the number of examples, not",00:07:51.530,00:07:55.810
+"on the dimensionality of the Z space,
+once you get the inner product.",00:07:55.810,00:07:59.100
+"And when you get the result back, you
+count the number of support vectors,",00:07:59.100,00:08:04.960
+"which really depends again on the
+number of examples, not the",00:08:04.960,00:08:07.690
+"dimensionality. Obviously, the
+dimensionality will come in because",00:08:07.690,00:08:10.880
+"you may end up with such a wiggly
+surface that every other vector",00:08:10.880,00:08:16.410
+"becomes a support vector in order to
+support this type of boundary.",00:08:16.410,00:08:21.160
+"But basically, the dimensionality
+of Z explicitly doesn't appear.",00:08:21.160,00:08:25.230
+"Nonetheless, we still have to take
+an inner product in the Z space.",00:08:25.230,00:08:28.990
+"So in this viewgraph, I'm going to zoom
+in to the very simple question.",00:08:28.990,00:08:33.460
+"What do I need from the Z space in
+order to be able to carry out the",00:08:33.460,00:08:37.549
+machinery that I have seen so far?,00:08:37.549,00:08:41.179
+So what do we do?,00:08:41.179,00:08:43.409
+We have a Lagrangian to solve.,00:08:43.409,00:08:45.330
+So the Lagrangian looks like this.,00:08:45.330,00:08:47.680
+"And since we are interested in what we
+do in the Z space, I'm going to make",00:08:47.680,00:08:52.080
+these purple.,00:08:52.080,00:08:54.450
+"So in order to be able to carry out
+the Lagrangian, I need to get the",00:08:54.450,00:08:58.330
+inner product in the Z space.,00:08:58.330,00:09:00.870
+"But getting an inner product in the Z
+space is less demand than getting the",00:09:00.870,00:09:05.630
+actual vector in the Z space.,00:09:05.630,00:09:07.990
+Think of it this way.,00:09:07.990,00:09:10.060
+I am a guardian of the Z space.,00:09:10.060,00:09:11.980
+I'm closing the door.,00:09:11.980,00:09:12.830
+Nobody has access to the Z space.,00:09:12.830,00:09:15.200
+You come to me with requests.,00:09:15.200,00:09:17.850
+"If you give me an x and ask me,
+what is the transformation,",00:09:17.850,00:09:20.480
+that's a big demand.,00:09:20.480,00:09:21.470
+I have to hand you a big z.,00:09:21.470,00:09:24.370
+And I may not allow that.,00:09:24.370,00:09:26.340
+"But let's say that all I'm willing
+to give you are inner products.",00:09:26.340,00:09:31.910
+"You give me x and x dash, I close the
+door, do my thing, and come back with",00:09:31.910,00:09:37.100
+"a number, which is the inner product
+between z and z dash, without actually",00:09:37.100,00:09:41.410
+telling you what z and z dash were.,00:09:41.410,00:09:44.660
+That would be a simple operation.,00:09:44.660,00:09:46.570
+"And if you can get away with it, then
+that's a pretty good thing.",00:09:46.570,00:09:49.780
+"Because now, we can completely focus
+on inner products in the Z space",00:09:49.780,00:09:53.530
+"and see if that can lead
+to a simplification.",00:09:53.530,00:09:56.200
+"So in this slide, we are going through
+step by step in the entire process to",00:09:56.200,00:10:00.790
+"see if we ever need anything
+out of the Z space, other",00:10:00.790,00:10:05.142
+than the inner product.,00:10:05.142,00:10:07.020
+"So in forming the Lagrangian,
+we need the inner product.",00:10:07.020,00:10:12.020
+Let's look at the constraints.,00:10:12.020,00:10:13.130
+"We have to pass the constraints
+to quadratic programming.",00:10:13.130,00:10:15.630
+This is the first constraint.,00:10:15.630,00:10:17.300
+I don't see any z.,00:10:17.300,00:10:18.590
+So we're cool.,00:10:18.590,00:10:20.410
+"The other one, the equality,
+I don't see any z either.",00:10:20.410,00:10:23.780
+"So if you have an inner product in the
+Z space, you are ready with the",00:10:23.780,00:10:28.750
+"problem that you're going to pass
+on to the quadratic programming.",00:10:28.750,00:10:32.110
+"You give it to quadratic programming.
+Back comes the vector alpha: alpha_1,",00:10:32.110,00:10:35.590
+"alpha_2, up to alpha_N. Now, you need
+to implement your function.",00:10:35.590,00:10:39.460
+You're not just solving this.,00:10:39.460,00:10:40.330
+"You actually are going to hand a hypothesis
+to your customer, right?",00:10:40.330,00:10:43.680
+And the hypothesis looks like this.,00:10:43.680,00:10:46.680
+"Now, I look at this.",00:10:46.680,00:10:47.290
+"And now, I'm a little bit worried
+because here's w and z.",00:10:47.290,00:10:52.800
+"Although this is an inner product, it's
+not an inner product between points",00:10:52.800,00:10:55.290
+"in X-- between w, and I don't know what
+w is. w lives in the Z space.",00:10:55.290,00:10:59.380
+"So I want to make sure: can I get away
+with just inner products in order to",00:10:59.380,00:11:02.900
+solve this?,00:11:02.900,00:11:04.270
+"Well, w is no mystery to us.",00:11:04.270,00:11:05.640
+We have solved for it explicitly.,00:11:05.640,00:11:07.580
+"And we found that you can find w by
+adding up, over all the vectors but in",00:11:07.580,00:11:12.480
+"particular over the support vectors
+that happen to have nonzero alpha,",00:11:12.480,00:11:15.340
+this quantity.,00:11:15.340,00:11:17.030
+"If you take this quantity back and plug
+it in for w, what do you get in",00:11:17.030,00:11:21.710
+terms of what you need to compute?,00:11:21.710,00:11:23.830
+You need to compute inner products.,00:11:23.830,00:11:28.460
+That's encouraging.,00:11:28.460,00:11:31.750
+"One more item, this innocent-looking b
+is loaded.",00:11:31.750,00:11:37.020
+"This is one of the parameters
+that we solved for.",00:11:37.020,00:11:39.870
+Maybe that's what will kill us.,00:11:39.870,00:11:41.730
+Let's see.,00:11:41.730,00:11:42.460
+How do I solve for b?,00:11:42.460,00:11:45.430
+"I solve for b by taking any support
+vector, and solving for this equation.",00:11:45.430,00:11:50.560
+"So I take a support vector,
+m, and plug it in.",00:11:50.560,00:11:55.020
+Am I in trouble because I have the w?,00:11:55.020,00:11:57.000
+"No, we already saw that w is here.",00:11:57.000,00:11:58.860
+It has this form.,00:11:58.860,00:11:59.740
+So I can plug it in here.,00:11:59.740,00:12:01.380
+"And all I need, in order to solve
+for b here, is this fellow.",00:12:01.380,00:12:07.590
+Done.,00:12:07.590,00:12:09.130
+"We only deal with z as far as the
+inner product is concerned.",00:12:09.130,00:12:12.710
+"Now, that raises a very interesting
+possibility.",00:12:12.710,00:12:16.660
+"If I am able to compute the inner
+product in the Z space, without",00:12:16.660,00:12:21.190
+"visiting the Z space, I still
+can carry this machinery.",00:12:21.190,00:12:27.600
+We can even move further.,00:12:27.600,00:12:30.290
+"If I can carry the inner product in the
+Z space, without knowing what the Z",00:12:30.290,00:12:35.420
+"space is, I still will be OK.",00:12:35.420,00:12:39.350
+"You may wonder, how am
+I going to do that?",00:12:39.350,00:12:40.750
+That's a different question.,00:12:40.750,00:12:42.290
+"But all we need to do now is something:
+I give you x and x dash,",00:12:42.290,00:12:46.730
+two points in the X space.,00:12:46.730,00:12:48.120
+"You do your thing, come back with
+a number, and promise me that this is",00:12:48.120,00:12:51.680
+"the inner product in the Z space,
+the mysterious Z space.",00:12:51.680,00:12:55.990
+"And then, I will do all the support
+vector machinery in your space that I",00:12:55.990,00:13:01.240
+"never visited, and come up with the
+support vectors which live in your",00:13:01.240,00:13:05.030
+"space, and get the performance based on
+the number of support vectors, and",00:13:05.030,00:13:08.800
+"deliver to the customer, and tell
+them I used really a very",00:13:08.800,00:13:11.210
+sophisticated space.,00:13:11.210,00:13:12.340
+"And then, they would ask, what is it?",00:13:12.340,00:13:15.200
+"And usually, we have our stunned-silence
+moments in machine learning",00:13:15.200,00:13:19.080
+"where you do something, and you know
+that the existence is sufficient.",00:13:19.080,00:13:24.050
+"So let's look at this idea as
+being a generalized inner",00:13:24.050,00:13:27.960
+"product. x and x dash,",00:13:27.960,00:13:29.530
+"we transform them and take an inner
+product in the Z space.",00:13:29.530,00:13:31.950
+"We're going to treat it as if
+it was a generalized inner",00:13:31.950,00:13:33.920
+product in the X space.,00:13:33.920,00:13:35.020
+So what are the components?,00:13:35.020,00:13:37.170
+You take two points.,00:13:37.170,00:13:38.080
+"We're going to label them x and
+x dash in the input space.",00:13:38.080,00:13:41.770
+And we need this quantity.,00:13:41.770,00:13:45.440
+"So this quantity is a function
+of x and x dash.",00:13:45.440,00:13:51.210
+That much we know.,00:13:51.210,00:13:52.250
+"We don't know which function,
+but we know it's a function.",00:13:52.250,00:13:54.560
+Why's that?,00:13:54.560,00:13:55.480
+"Because z is exclusively
+a function of x.",00:13:55.480,00:14:00.630
+"z dash is exclusively a function
+of x dash, being",00:14:00.630,00:14:03.670
+transformed versions of them.,00:14:03.670,00:14:05.780
+"And therefore, their inner product will
+be a function that is determined",00:14:05.780,00:14:08.700
+by x and x dash.,00:14:08.700,00:14:10.350
+"So this is the function that
+I'm looking for.",00:14:10.350,00:14:14.770
+"Now, we're going to call this
+the kernel, hence the name.",00:14:14.770,00:14:17.500
+"So this is the kernel
+we're going to use.",00:14:17.500,00:14:19.480
+"A kernel will correspond
+to some Z space.",00:14:19.480,00:14:24.770
+"And as I mentioned, this will be
+labeled as an inner product--",00:14:24.770,00:14:28.390
+"I put it between quotations because it's
+general-- between x and x dash.",00:14:28.390,00:14:31.170
+"It's not a straight inner product,
+but an inner product after",00:14:31.170,00:14:33.960
+a transformation.,00:14:33.960,00:14:35.310
+ ,00:14:35.310,00:14:37.890
+Now let me give you an example.,00:14:37.890,00:14:39.500
+"It's a bit of a simplistic example,
+but just to illustrate the idea.",00:14:39.500,00:14:44.810
+"Let's say that I have x
+being two-dimensional.",00:14:44.810,00:14:48.530
+"Two-dimensional Euclidean space, so
+I have two coordinates, x_1 and x_2.",00:14:48.530,00:14:52.010
+"And I'm using a nonlinear
+transformation, which happens to be",00:14:52.010,00:14:55.070
+2nd-order polynomial.,00:14:55.070,00:14:56.070
+We have seen that a number of times.,00:14:56.070,00:14:57.970
+So what do we have?,00:14:57.970,00:15:01.000
+"We have a transformation that takes the
+vector x, produces the vector z.",00:15:01.000,00:15:06.370
+"And that would be the full 2nd-order
+guy, so we have 6 coordinates",00:15:06.370,00:15:11.230
+"corresponding to all terms of the second
+order involving x_1 and x_2, and",00:15:11.230,00:15:15.030
+this is the guy.,00:15:15.030,00:15:15.600
+We used that before.,00:15:15.600,00:15:17.970
+"And therefore, if you want to get the
+kernel, which is formally the inner",00:15:17.970,00:15:24.230
+"product between the transformation of
+x and x dash, you will get this.",00:15:24.230,00:15:30.830
+"Nothing mysterious, you're just going
+to substitute for this for x, and",00:15:30.830,00:15:34.400
+"substitute for it again for x dash,
+multiply the corresponding terms, and",00:15:34.400,00:15:38.540
+add them up.,00:15:38.540,00:15:39.070
+And this is what you get.,00:15:39.070,00:15:40.860
+"So the only lesson we're learning here
+is that indeed this is just a function",00:15:40.860,00:15:44.910
+of x and x dash.,00:15:44.910,00:15:46.180
+"If I didn't know this was an inner
+product, I can look at this.",00:15:46.180,00:15:48.510
+This is a function I can compute.,00:15:48.510,00:15:51.130
+"Fine, now we come to the trick.",00:15:51.130,00:15:53.850
+ ,00:15:53.850,00:15:57.160
+"Can we compute this kernel without
+transforming x and x dash?",00:15:57.160,00:16:04.970
+So let's look at the example again.,00:16:04.970,00:16:08.250
+I'm going to now improvise a kernel.,00:16:08.250,00:16:12.580
+"It doesn't transform things
+to the Z space, and then",00:16:12.580,00:16:15.820
+does the inner product.,00:16:15.820,00:16:16.750
+It just tells you what the kernel is.,00:16:16.750,00:16:19.390
+"And then, I'm going to convince you that
+this kernel actually corresponds",00:16:19.390,00:16:23.650
+"to a transformation to some Z space,
+and taking an inner product there.",00:16:23.650,00:16:29.220
+So here is my kernel.,00:16:29.220,00:16:31.640
+It's function of x and x dash.,00:16:31.640,00:16:33.430
+And it happens to have that form.,00:16:33.430,00:16:36.070
+"This is a special form that
+will help me later on.",00:16:36.070,00:16:39.420
+"But the main thing you would want to
+look at is that this is not",00:16:39.420,00:16:42.310
+"an inner product in the X space, in spite
+of the fact that it involves one",00:16:42.310,00:16:46.300
+computationally.,00:16:46.300,00:16:47.370
+"I take this, add 1, and square it.",00:16:47.370,00:16:49.070
+So this is just a function.,00:16:49.070,00:16:50.490
+"I happen to formalize it in terms
+of an inner product, just",00:16:50.490,00:16:52.980
+because it's simple.,00:16:52.980,00:16:54.000
+So this is a function.,00:16:54.000,00:16:55.850
+"This is also not clearly an inner
+product in any other space,",00:16:55.850,00:16:59.190
+transformed or otherwise.,00:16:59.190,00:17:00.950
+It is just a function.,00:17:00.950,00:17:02.920
+"So now, I'm going to
+take this function.",00:17:02.920,00:17:05.040
+"And I'm going to write it explicitly
+in terms of the components.",00:17:05.040,00:17:08.069
+"I'm still working with
+two-dimensional input.",00:17:08.069,00:17:10.470
+So this would be--,00:17:10.470,00:17:11.800
+"the inner product here would be x_1
+x_1 dash plus x_2 x_2 dash.",00:17:11.800,00:17:14.829
+So this is the quantity that I have.,00:17:14.829,00:17:17.310
+And I can definitely square things.,00:17:17.310,00:17:19.220
+And I get this quantity.,00:17:19.220,00:17:22.329
+So this is the value of the kernel.,00:17:22.329,00:17:24.819
+"Now, this looks awfully familiar.",00:17:24.819,00:17:27.280
+"It looks like an inner product,
+except for these annoying 2's.",00:17:27.280,00:17:32.690
+"This would have been as if
+I transformed to the 2nd order and",00:17:32.690,00:17:35.290
+"took it, except that
+I have these guys.",00:17:35.290,00:17:37.970
+But is this going to discourage me?,00:17:37.970,00:17:39.585
+No.,00:17:39.585,00:17:40.840
+This still is an inner product.,00:17:40.840,00:17:43.100
+"And the transformation to the space that
+makes this an inner product is",00:17:43.100,00:17:47.320
+this fellow. x goes through this.,00:17:47.320,00:17:51.030
+See? I put a square root.,00:17:51.030,00:17:53.280
+"Nonlinear transform, so I can put
+anything, right?",00:17:53.280,00:17:54.960
+This is my transformation.,00:17:54.960,00:17:56.120
+"The only test you need to ask me is
+whether I applied exactly the same",00:17:56.120,00:17:59.790
+transformation to x dash.,00:17:59.790,00:18:01.770
+"Yes, I did.",00:18:01.770,00:18:03.020
+ ,00:18:03.020,00:18:05.410
+"So that is indeed a transformation
+of x into z.",00:18:05.410,00:18:08.330
+"And when I take the inner
+product, what do I get?",00:18:08.330,00:18:10.330
+I get my kernel.,00:18:10.330,00:18:12.780
+"OK, good establishment
+of concept here.",00:18:12.780,00:18:16.350
+"But the idea is that's a lot
+of fuss about nothing really.",00:18:16.350,00:18:20.080
+"I could have done this
+in the first place.",00:18:20.080,00:18:22.190
+"Now, think of what happens if I am, instead
+of taking 1 plus x x dash to the 2,",00:18:22.190,00:18:26.350
+I do it to the 100.,00:18:26.350,00:18:28.760
+"Look at the difference between computing
+this quantity and actually",00:18:28.760,00:18:32.160
+"going to the 100-order transformation,
+getting this expanded, and getting the",00:18:32.160,00:18:39.880
+"other one expanded, and then
+doing the inner product.",00:18:39.880,00:18:43.150
+So let's see how this works.,00:18:43.150,00:18:44.800
+That's called the polynomial kernel.,00:18:44.800,00:18:47.360
+"So now I take a d-dimensional
+space, not 2, but general d.",00:18:47.360,00:18:53.700
+"And I would like to take
+a transformation of that space into",00:18:53.700,00:18:58.020
+Qth-order polynomial.,00:18:58.020,00:18:59.270
+ ,00:18:59.270,00:19:02.540
+"And here's my kernel, the
+equivalent kernel.",00:19:02.540,00:19:05.520
+"I'm putting it between quotations
+because the square root will happen",00:19:05.520,00:19:08.100
+here again in abundance.,00:19:08.100,00:19:10.000
+But it's just a scale.,00:19:10.000,00:19:11.590
+The main idea is still there.,00:19:11.590,00:19:14.060
+So here's my kernel.,00:19:14.060,00:19:16.740
+"I get 1 plus x-- that to the Q. First,
+establishing what does it take",00:19:16.740,00:19:23.120
+to compute this?,00:19:23.120,00:19:24.150
+"I don't know yet whether this
+is a kernel, a valid kernel.",00:19:24.150,00:19:26.780
+"A valid kernel is an inner
+product in some space.",00:19:26.780,00:19:29.010
+I haven't seen that yet.,00:19:29.010,00:19:30.290
+"I pretty much suspect that it will be
+by the previous argument, but that",00:19:30.290,00:19:33.410
+will become clearer when I do this.,00:19:33.410,00:19:35.800
+"So when I evaluate this, so
+this is an inner product.",00:19:35.800,00:19:38.870
+"Now, I have d dimensions.",00:19:38.870,00:19:39.870
+"So I have d of these guys corresponding
+to each other, and then",00:19:39.870,00:19:42.580
+"multiply them, raised to the power Q. How
+much computation does it take you",00:19:42.580,00:19:47.030
+to do this?,00:19:47.030,00:19:49.030
+I have d multiplications here.,00:19:49.030,00:19:51.410
+"That's the dimensionality
+of the X space.",00:19:51.410,00:19:54.940
+"And then, I need to raise it to the
+power Q. Whether Q is 10 or 100 or",00:19:54.940,00:19:59.340
+"a million, it's the same complexity.",00:19:59.340,00:20:01.760
+"What I'm going to do, I'm going to take
+the logarithm, multiply it by Q,",00:20:01.760,00:20:04.500
+and exponentiate.,00:20:04.500,00:20:06.100
+It doesn't matter what this fellow is.,00:20:06.100,00:20:08.330
+This is a number.,00:20:08.330,00:20:08.770
+I'm not expanding them.,00:20:08.770,00:20:10.100
+"I'm just plugging in these,
+and this becomes a number.",00:20:10.100,00:20:12.260
+"Raising it to the power 100, or
+raising it to the power 1000.",00:20:12.260,00:20:15.820
+"So this is a very simple
+operation to carry out.",00:20:15.820,00:20:18.850
+"Now, think of what happens if you were
+actually taking d equals 10 and Q",00:20:18.850,00:20:23.360
+equals 100.,00:20:23.360,00:20:25.060
+"And you can see that if I actually
+expanded this conceptually, not",00:20:25.060,00:20:29.060
+"computationally, it's very convenient
+because every time an x appears, the x",00:20:29.060,00:20:34.540
+dash version of it appears.,00:20:34.540,00:20:37.210
+"When I multiply any combination,
+that will always be the case.",00:20:37.210,00:20:40.740
+"I will get a tremendous number of terms,
+which are all orders up to Q, of",00:20:40.740,00:20:47.200
+different combinations of the x's.,00:20:47.200,00:20:49.050
+And I will have a huge expansion here.,00:20:49.050,00:20:51.080
+"And it shouldn't be a surprise that I
+will be able to decompose this into",00:20:51.080,00:20:54.270
+"something of x dot something of x dash,
+because every term here appears with",00:20:54.270,00:21:00.090
+both x and x dash--,00:21:00.090,00:21:01.060
+"the same trick we did here,
+except more elaborately.",00:21:01.060,00:21:03.760
+"But if you actually go at it explicitly,
+you have to give me the",00:21:03.760,00:21:07.920
+"entire vector in the Z space that
+results from a 100th-order polynomial",00:21:07.920,00:21:12.760
+transformation of a 10th-order guy.,00:21:12.760,00:21:15.560
+"This will be an ugly
+beast to deal with.",00:21:15.560,00:21:19.090
+"And now I can do this by just computing
+this number, just a number.",00:21:19.090,00:21:23.210
+"Take your x and x dash to get this
+number, raise it to the power Q, and I",00:21:23.210,00:21:26.210
+"already have, as if I visited the Z
+space and got that number there.",00:21:26.210,00:21:29.710
+OK?,00:21:29.710,00:21:32.840
+"So if you're worried about the square
+root-- because obviously,",00:21:32.840,00:21:36.280
+you will get this.,00:21:36.280,00:21:36.950
+"But you will get a bunch
+of combinations.",00:21:36.950,00:21:38.370
+"This gets here, gets here, and
+now, you're power 100.",00:21:38.370,00:21:41.630
+"So there will be all kinds
+of combinations.",00:21:41.630,00:21:43.030
+"So you'll get a bunch of constants
+in front of the terms.",00:21:43.030,00:21:45.820
+"And you're going to square-root them in
+order to get it to be a canonical",00:21:45.820,00:21:49.680
+transformation.,00:21:49.680,00:21:50.660
+"You can adjust the scales a little bit,
+not fully, by taking your kernel",00:21:50.660,00:21:54.290
+"instead of being 1 plus, you have scales
+'a' and 'b' that will mitigate",00:21:54.290,00:21:59.670
+"a little bit the diversity of the
+coefficients you get here.",00:21:59.670,00:22:03.920
+"But the bottom line is that a kernel
+of this form does correspond to",00:22:03.920,00:22:07.060
+an inner product in a higher space.,00:22:07.060,00:22:08.990
+"And by computing it just in the X space,
+using this formula, I'm doing all I",00:22:08.990,00:22:14.530
+"need to do in order to carry
+out the SV machinery.",00:22:14.530,00:22:17.250
+ ,00:22:17.250,00:22:21.400
+"Now, with this in mind-- I did this
+by construction because it's an easy",00:22:21.400,00:22:24.850
+"polynomial, and we can visualize it.",00:22:24.850,00:22:26.350
+"We can get it in the 2 case,
+and extrapolate mentally",00:22:26.350,00:22:29.290
+for the other cases.,00:22:29.290,00:22:30.690
+"Now, we realize in this case that
+we only need z to exist.",00:22:30.690,00:22:34.190
+"In this case, I showed you what z is
+explicitly in the case of d equals 2,",00:22:34.190,00:22:37.860
+"and by hand waving in the
+bigger case.",00:22:37.860,00:22:40.450
+But you can visualize what z is.,00:22:40.450,00:22:42.990
+"So now, let's get carried away and try
+to just get a kernel that maps us to z",00:22:42.990,00:22:48.580
+without even imagining what z is.,00:22:48.580,00:22:51.010
+So this is the case.,00:22:51.010,00:22:53.720
+"We take this to be an inner
+product in some space, Z.",00:22:53.720,00:23:00.450
+"And once you do that, we are good with
+the entire machinery, and the",00:23:00.450,00:23:04.170
+"guarantees, and we'll get the support
+vectors, and we'll get generalization",00:23:04.170,00:23:07.410
+"bound, all of the above.",00:23:07.410,00:23:10.490
+And here's an example of a kernel.,00:23:10.490,00:23:12.560
+This will be a useful kernel.,00:23:12.560,00:23:15.940
+Let's look at it.,00:23:15.940,00:23:19.000
+"It's definitely a function
+of x and x dash.",00:23:19.000,00:23:20.930
+"That's as much as I would require--
+the minimum requirement",00:23:20.930,00:23:23.180
+for this to be true.,00:23:23.180,00:23:24.700
+"And now, it doesn't even have an inner
+product term clearly, either in X",00:23:24.700,00:23:29.870
+space or Z space.,00:23:29.870,00:23:31.300
+And I have no idea what that is.,00:23:31.300,00:23:33.050
+I can compute it.,00:23:33.050,00:23:34.330
+"And my question is, does this actually
+correspond to some Z space, an inner",00:23:34.330,00:23:39.390
+product in Z space.,00:23:39.390,00:23:40.220
+"So is this equivalent to taking each
+of them by itself, transforming it",00:23:40.220,00:23:44.260
+"into z in that space, and taking
+a straight inner product",00:23:44.260,00:23:47.260
+between z and z dash?,00:23:47.260,00:23:48.760
+"Do I get the same number
+by visiting some space?",00:23:48.760,00:23:52.440
+The answer is yes.,00:23:52.440,00:23:53.450
+"And the interesting thing is that
+that space is infinite-dimensional.",00:23:53.450,00:23:56.420
+ ,00:23:56.420,00:23:58.970
+"So by doing this operation, which is
+not very difficult to compute, you",00:23:58.970,00:24:03.510
+"have done an inner product in
+an infinite-dimensional space.",00:24:03.510,00:24:06.310
+Congratulations!,00:24:06.310,00:24:08.330
+"And you will get the full benefit of
+a horrific nonlinear transformation.",00:24:08.330,00:24:12.900
+"And you don't worry about the
+ramifications of going to an infinite",00:24:12.900,00:24:17.440
+dimensional space.,00:24:17.440,00:24:18.620
+"In the third lecture, when I introduced
+linear models, if I told you",00:24:18.620,00:24:22.420
+"go to an infinite-dimensional space, you
+would probably be screaming at me",00:24:22.420,00:24:25.950
+"because the generalization issues
+become completely ridiculous.",00:24:25.950,00:24:29.530
+"But here, we don't worry.",00:24:29.530,00:24:31.150
+We'll carry the machinery.,00:24:31.150,00:24:32.390
+"And then, we will count the number
+of support vectors.",00:24:32.390,00:24:34.240
+"If I have 1000 examples and you only
+have 10 support vectors, I know I'm in",00:24:34.240,00:24:37.660
+good shape.,00:24:37.660,00:24:38.510
+"Well, if I get 500 support
+vectors, tough luck.",00:24:38.510,00:24:42.065
+It was a nice try.,00:24:42.065,00:24:43.660
+There's no harm done.,00:24:43.660,00:24:45.710
+"So let's look at the
+infinite-dimensional space.",00:24:45.710,00:24:47.600
+"I'm trying to convince you that
+this indeed is the case.",00:24:47.600,00:24:50.310
+"What I'm going to do, I'm going
+to take a simple case that I can",00:24:50.310,00:24:52.620
+illustrate.,00:24:52.620,00:24:55.120
+"Let's take the kernel, but apply it in
+this case to 1-dimensional space.",00:24:55.120,00:25:00.370
+"So x and x dash are both scalars,
+I call them x and x dash.",00:25:00.370,00:25:05.490
+"And I'm going to take gamma to be 1,
+which is my modulating constant here,",00:25:05.490,00:25:09.860
+so I get this fellow.,00:25:09.860,00:25:11.830
+"Now, let me express this
+using Taylor series.",00:25:11.830,00:25:16.030
+"First, I do the following.",00:25:16.030,00:25:18.990
+"I expand this, so I get x squared, x
+dash squared, and minus twice x x dash,",00:25:18.990,00:25:23.960
+"and minus twice gets the
+minus, and becomes a plus.",00:25:23.960,00:25:27.410
+"So I get e to the minus x squared,
+e to the minus x dash squared,",00:25:27.410,00:25:32.390
+e to the 2 x x dash.,00:25:32.390,00:25:35.020
+"So that's a legitimate
+expansion of this.",00:25:35.020,00:25:38.180
+"So now, I take this and expand it using
+Taylor, and I get this fellow.",00:25:38.180,00:25:44.490
+"You take whatever the argument is,
+raise it the power k, divide it by",00:25:44.490,00:25:48.190
+"k factorial, sum up from
+k equals 0 to infinity.",00:25:48.190,00:25:50.670
+"That's the Taylor series
+for the e, right?",00:25:50.670,00:25:52.790
+"Now, I conveniently took out the x dash
+to the k, x to the k, and 2 to",00:25:52.790,00:25:57.620
+"the k, separately.",00:25:57.620,00:25:58.980
+This is just to put it in that form.,00:25:58.980,00:26:00.510
+And I get that.,00:26:00.510,00:26:01.780
+"OK, that's very nice.",00:26:01.780,00:26:02.830
+"You seem to be complicating matters,
+rather than simplifying it.",00:26:02.830,00:26:05.930
+"Remember, my purpose is to convince you
+that there is a Z space in which",00:26:05.930,00:26:10.010
+this is an inner product.,00:26:10.010,00:26:11.980
+So now look at this last line.,00:26:11.980,00:26:15.190
+"And miraculously, some
+terms will turn blue.",00:26:15.190,00:26:19.610
+Keep your eyes on it.,00:26:19.610,00:26:20.860
+ ,00:26:20.860,00:26:23.850
+"Oh, you see where I'm going with this.",00:26:23.850,00:26:25.990
+"The guys that go with
+x have turned blue.",00:26:25.990,00:26:30.750
+"The guys that will go with
+x dash have turned red.",00:26:30.750,00:26:35.850
+ ,00:26:35.850,00:26:38.840
+And why am I doing that?,00:26:38.840,00:26:40.710
+"Because I'm going to separate this
+into an inner product, something",00:26:40.710,00:26:45.650
+"coming from x, and something
+coming from x dash.",00:26:45.650,00:26:48.770
+"And I want to make sure
+that it's the same.",00:26:48.770,00:26:50.970
+"Once it is the same, then
+the dimensionality",00:26:50.970,00:26:53.240
+is really this summation.,00:26:53.240,00:26:54.830
+Each of these is a coordinate.,00:26:54.830,00:26:56.920
+"And this is the contribution
+to the inner product by",00:26:56.920,00:27:01.040
+this coordinate.,00:27:01.040,00:27:02.300
+"So here, I am getting this
+x dash multiplied by x.",00:27:02.300,00:27:05.910
+"Both of them normalized by e to
+the minus x squared.",00:27:05.910,00:27:08.960
+"So if I want to see what is the
+transformation of the first guy, it",00:27:08.960,00:27:12.890
+"would be e to the minus x squared
+multiplied by x to the k.",00:27:12.890,00:27:17.900
+That's one coordinate.,00:27:17.900,00:27:19.020
+"And as k goes from 0 to infinity,
+I get different coordinates.",00:27:19.020,00:27:22.670
+"I would be ready to go, except
+for the annoying constants.",00:27:22.670,00:27:25.810
+so let's put them in purple!,00:27:25.810,00:27:29.000
+So what do you do with them?,00:27:29.000,00:27:30.780
+You divide them between red and blue.,00:27:30.780,00:27:32.750
+"Take the square root of that
+and put it in the red.",00:27:32.750,00:27:35.370
+"And take the other square root,
+and put it in the blue.",00:27:35.370,00:27:37.830
+"And now, we have formally
+two identical vectors.",00:27:37.830,00:27:40.750
+One is a transformed version of x.,00:27:40.750,00:27:42.290
+"And one is a transformed
+version of x dash.",00:27:42.290,00:27:44.120
+And this is the inner product.,00:27:44.120,00:27:45.450
+"And it happens to be in infinite-dimensional
+space, because you're",00:27:45.450,00:27:48.200
+summing for 0 until infinity.,00:27:48.200,00:27:52.750
+"So now, this is a very
+interesting kernel.",00:27:52.750,00:27:57.380
+"It's called the radial-basis-function
+kernel, if that rings a bell.",00:27:57.380,00:28:00.490
+"Indeed, that's the subject
+of the next lecture.",00:28:00.490,00:28:02.700
+"So let us look at this
+kernel in action.",00:28:02.700,00:28:05.840
+"And it's very interesting, because it's
+a very sophisticated kernel.",00:28:05.840,00:28:08.050
+"It corresponds to an infinite-dimensional
+space.",00:28:08.050,00:28:10.190
+"Nonetheless, we can carry it out by
+computing a fairly simple exponential",00:28:10.190,00:28:13.360
+between the x points.,00:28:13.360,00:28:15.910
+So let's look at it in action.,00:28:15.910,00:28:18.960
+"I'm going to take a slightly
+non-separable case in the X space.",00:28:18.960,00:28:23.200
+"After all, I'm taking this glorious
+nonlinear transformation.",00:28:23.200,00:28:26.190
+"I'd better have something which is not
+linearly separable in order to show",00:28:26.190,00:28:28.890
+you the goods.,00:28:28.890,00:28:30.640
+"But I'm taking it slightly,
+in order to make a point.",00:28:30.640,00:28:34.050
+So this is my target function.,00:28:34.050,00:28:37.710
+"So if I generate points from here, the
+chances are it will not be linearly",00:28:37.710,00:28:40.310
+"separable, because just this wiggling
+will result in that.",00:28:40.310,00:28:43.690
+"And indeed, I'm going to generate
+100 points at random.",00:28:43.690,00:28:46.860
+And I get them here.,00:28:46.860,00:28:47.770
+"And if you look at the 100
+points, really there's no",00:28:47.770,00:28:49.890
+line to separate them.,00:28:49.890,00:28:53.520
+"So now what I'm going to do, I'm going
+to lighten the target function because",00:28:53.520,00:28:56.440
+"the target function did its job--
+generated the examples.",00:28:56.440,00:28:58.770
+"But I'm going to leave it, in order
+to compare it with the final",00:28:58.770,00:29:01.530
+surface that we get.,00:29:01.530,00:29:02.520
+"So I'm just going to have
+it as a light surface.",00:29:02.520,00:29:04.410
+"You can't even see it, probably.",00:29:04.410,00:29:06.330
+It's now a green surface.,00:29:06.330,00:29:07.900
+"This is the data set
+that I'm working with.",00:29:07.900,00:29:10.620
+"So this is a slightly
+non-separable case.",00:29:10.620,00:29:13.640
+"And now, I'm going to transform X into
+an infinite-dimensional space.",00:29:13.640,00:29:22.320
+Someone else worries about that.,00:29:22.320,00:29:23.550
+"All I'm doing in my mind, I am
+effectively doing that by just",00:29:23.550,00:29:26.660
+"computing the kernel instead
+of just the simple inner",00:29:26.660,00:29:29.300
+product in the X space.,00:29:29.300,00:29:30.720
+"And the kernel is the kernel I got from
+the last slide, which happens to",00:29:30.720,00:29:33.980
+"be a simple exponential, I
+compute it and get that.",00:29:33.980,00:29:36.830
+What happens when you do that?,00:29:36.830,00:29:39.390
+You get the kernel.,00:29:39.390,00:29:40.530
+"You pass it on to quadratic
+programming.",00:29:40.530,00:29:42.220
+"And quadratic programming gives
+you back the support vectors.",00:29:42.220,00:29:46.440
+You get the support vectors.,00:29:46.440,00:29:48.760
+Let me magnify it.,00:29:48.760,00:29:51.570
+ ,00:29:51.570,00:29:55.860
+So we have the two classes.,00:29:55.860,00:29:57.330
+"And I darken the points that ended
+up being support vectors.",00:29:57.330,00:30:00.910
+"These 1, 2, 3, 4 blue guys.",00:30:00.910,00:30:05.860
+"And in the red, I have 1, 2, 3, 4, 5.",00:30:05.860,00:30:09.760
+I have 9 support vectors altogether.,00:30:09.760,00:30:11.800
+ ,00:30:11.800,00:30:14.420
+"Now, it's very interesting.",00:30:14.420,00:30:15.610
+"9 support vectors, how many points?",00:30:15.610,00:30:17.860
+100 points.,00:30:17.860,00:30:19.510
+"Can you tell me what is the
+out-of-sample error?",00:30:19.510,00:30:21.790
+Can you bound it above?,00:30:21.790,00:30:24.060
+"Oh, it looks like it should
+be less than 10%.",00:30:24.060,00:30:28.170
+I have gone to an infinite-dimensional space.,00:30:28.170,00:30:30.540
+You're a witness to that. Right?,00:30:30.540,00:30:33.320
+"I used what is effectively an infinite
+number of parameters.",00:30:33.320,00:30:37.990
+"Completely suicidal in terms of
+generalization, but hey, I get 9",00:30:37.990,00:30:43.420
+support vectors.,00:30:43.420,00:30:44.020
+I can claim victory.,00:30:44.020,00:30:46.100
+"So now, let's look at the surface
+in the Z space when I",00:30:46.100,00:30:50.350
+transform it back here.,00:30:50.350,00:30:52.920
+"Again, the Z space
+is a mysterious guy.",00:30:52.920,00:30:55.950
+"It's a hyperplane of degree
+infinity minus 1.",00:30:55.950,00:30:59.940
+That's very nice.,00:30:59.940,00:31:01.310
+"And now, I'm trying to transform this
+to this space and look at it.",00:31:01.310,00:31:04.990
+And it looks like this.,00:31:04.990,00:31:06.240
+ ,00:31:06.240,00:31:09.640
+How did I get that?,00:31:09.640,00:31:10.370
+I didn't go to the Z space.,00:31:10.370,00:31:11.620
+"What I did, I classified every point on
+the grid, and saw when it transforms",00:31:11.620,00:31:15.870
+from -1 to +1.,00:31:15.870,00:31:16.960
+That's my only tool.,00:31:16.960,00:31:18.410
+"But I can do it because the
+kernel is easy to compute.",00:31:18.410,00:31:21.050
+"If I went into the Z space, you would
+have never heard from me again!",00:31:21.050,00:31:24.940
+So this is a good way of doing it.,00:31:24.940,00:31:28.060
+"You look at it, and it's
+really very pretty.",00:31:28.060,00:31:32.350
+"First thing, you don't get
+the green thing exactly.",00:31:32.350,00:31:35.420
+"But you can see why support vectors
+are called support vectors.",00:31:35.420,00:31:39.460
+They're sort of holding the guy.,00:31:39.460,00:31:43.010
+"You can see it up and down, up
+and down, up and down.",00:31:43.010,00:31:45.590
+That's pretty good.,00:31:45.590,00:31:47.450
+"The other thing is that, when you think
+of the notion of a distance, remember",00:31:47.450,00:31:51.010
+"that-- this is linearly
+separable in that",00:31:51.010,00:31:53.240
+space. Had better be.,00:31:53.240,00:31:55.040
+We've got the infinite-dimensional space.,00:31:55.040,00:31:56.640
+"If you don't get linearly separability
+there, you are really in trouble!",00:31:56.640,00:31:59.720
+"And when I get the linear separability
+there, I get a margin.",00:31:59.720,00:32:02.580
+"I try to maximize the margin.
+That has already been",00:32:02.580,00:32:04.240
+maximized by the machinery.,00:32:04.240,00:32:05.490
+So I get a respectable margin.,00:32:05.490,00:32:06.850
+"And the evidence for the respectable
+margin is that I do get the small",00:32:06.850,00:32:10.560
+"number of support vectors,
+which are here. Fine.",00:32:10.560,00:32:13.350
+"And now, when I look at the distance,
+the value of the margin, the value of",00:32:13.350,00:32:17.720
+the margin is in the Z space.,00:32:17.720,00:32:19.070
+I cannot see that.,00:32:19.070,00:32:21.180
+"But here, you can see that if you look
+by the distance, these two support",00:32:21.180,00:32:24.890
+"vectors are awfully close
+to the surface.",00:32:24.890,00:32:28.340
+This support vector is not that close.,00:32:28.340,00:32:30.300
+"Well, maybe it will become close
+when this goes to extend.",00:32:30.300,00:32:32.170
+"But it's definitely further away,
+in the X space as we see it.",00:32:32.170,00:32:36.950
+"But again, this is not the margin.",00:32:36.950,00:32:40.200
+"These guys are pre-images
+of support vectors.",00:32:40.200,00:32:42.200
+They are not support vectors per se.,00:32:42.200,00:32:43.950
+"And the distance that was solved
+for happened in the Z space.",00:32:43.950,00:32:47.130
+Whatever happens here happens here.,00:32:47.130,00:32:48.900
+"You may end up with something,
+where you get support vectors far",00:32:48.900,00:32:51.600
+"away, and it's like a strange thing.",00:32:51.600,00:32:53.580
+Don't sweat bullets over it.,00:32:53.580,00:32:56.040
+"It's happening in a space that
+we don't understand.",00:32:56.040,00:32:58.110
+"As long as the machinery for the
+solution is correct and I get the",00:32:58.110,00:33:01.320
+"support vectors that happen
+to have lambda greater",00:33:01.320,00:33:03.170
+"than 0, I am in business.",00:33:03.170,00:33:06.280
+Let's shrink this back.,00:33:06.280,00:33:08.560
+So we get this solution.,00:33:08.560,00:33:10.710
+And it's a pretty nice tool to have.,00:33:10.710,00:33:13.530
+"And we ask ourselves: was this
+an overkill to go to an infinite",00:33:13.530,00:33:16.865
+dimensional space?,00:33:16.865,00:33:17.880
+ ,00:33:17.880,00:33:17.900
+"Yes, early on before we studied
+this thing, we would say",00:33:17.900,00:33:20.180
+that's a complete overkill.,00:33:20.180,00:33:22.210
+"Even for these two dimensions,
+it's slightly OK.",00:33:22.210,00:33:24.400
+"If you went to a 5th-order polynomial,
+I would already be worried",00:33:24.400,00:33:28.280
+that you're really doing too much.,00:33:28.280,00:33:29.570
+"Now, you went to an infinite one.",00:33:29.570,00:33:31.190
+"But now, we're asking
+a different question.",00:33:31.190,00:33:32.980
+"We're asking: check the number
+of support vectors.",00:33:32.980,00:33:36.190
+That is your guide.,00:33:36.190,00:33:37.870
+"And that is an in-sample quantity
+that you can observe.",00:33:37.870,00:33:41.370
+"And that will tell you the
+generalization property.",00:33:41.370,00:33:42.860
+ ,00:33:42.860,00:33:46.940
+"So now, we are completely sold
+on the idea of the kernels.",00:33:46.940,00:33:50.580
+"Now let's look at if I give you
+a kernel, and it's a valid kernel that",00:33:50.580,00:33:53.970
+"corresponds to an inner product in some
+Z space, how do you formulate",00:33:53.970,00:33:57.360
+the problem?,00:33:57.360,00:33:58.560
+This is just formality.,00:33:58.560,00:34:00.395
+You already know.,00:34:00.395,00:34:00.840
+But just let's take it step by step.,00:34:00.840,00:34:02.260
+What do you do?,00:34:02.260,00:34:03.365
+You remember quadratic programming?,00:34:03.365,00:34:04.900
+"Yes, I do.",00:34:04.900,00:34:06.290
+"And in quadratic programming,
+we have this huge matrix.",00:34:06.290,00:34:10.400
+"This is the big Q matrix that you
+pass on to the algorithm.",00:34:10.400,00:34:13.580
+"And you compute it in terms
+of inner products.",00:34:13.580,00:34:15.790
+"And these were genuine inner products,
+when you were working with linearly",00:34:15.790,00:34:19.510
+separable data in the X space.,00:34:19.510,00:34:22.440
+"So now, the only thing you're going to
+do is that, instead of passing this to",00:34:22.440,00:34:26.420
+"the quadratic programming, you're
+going to pass this instead.",00:34:26.420,00:34:29.450
+ ,00:34:29.450,00:34:32.159
+That's it.,00:34:32.159,00:34:34.840
+"This may not be too much
+computation at all.",00:34:34.840,00:34:36.900
+"I can get the exponentials,
+and get this number.",00:34:36.900,00:34:39.120
+"And now, quadratic program
+is ready to go.",00:34:39.120,00:34:41.670
+Absolutely nothing else.,00:34:41.670,00:34:42.639
+"If you look at the rest of the details,
+nothing is affected by the",00:34:42.639,00:34:45.100
+"transformation, other than this
+quadratic-programming matrix.",00:34:45.100,00:34:50.276
+That's good.,00:34:50.276,00:34:52.179
+"Now, quadratic programming
+passes you the alphas.",00:34:52.179,00:34:54.989
+You need the hypothesis.,00:34:54.989,00:34:55.835
+"So how do I construct the hypothesis
+in terms of the kernel?",00:34:55.835,00:34:59.330
+ ,00:34:59.330,00:35:02.830
+So this is g of x equals that.,00:35:02.830,00:35:05.680
+"I'm writing it because
+it's safe to write.",00:35:05.680,00:35:07.380
+There's a Z space.,00:35:07.380,00:35:08.350
+I know I am linear there.,00:35:08.350,00:35:09.790
+"And this is the form that I've
+already been solving in.",00:35:09.790,00:35:12.350
+"Now, I just want to translate
+it in terms of the kernel.",00:35:12.350,00:35:15.880
+"I know that I can, because we've spent
+a lot of time realizing that we don't",00:35:15.880,00:35:19.270
+"need anything from the Z space other
+than the inner product, and the inner",00:35:19.270,00:35:22.340
+product is the kernel.,00:35:22.340,00:35:23.620
+"I just want to put the
+explicit form here.",00:35:23.620,00:35:26.570
+"So you want to put this in terms of
+kernel of something and something.",00:35:26.570,00:35:30.620
+And you take w to be this.,00:35:30.620,00:35:34.220
+"And you're not going to solve
+for any of those.",00:35:34.220,00:35:35.990
+These are just for illustration.,00:35:35.990,00:35:37.240
+"And then, you get: g of x
+would be this fellow.",00:35:37.240,00:35:42.470
+"So you took this, substituted there,
+you took the inner products.",00:35:42.470,00:35:45.820
+The inner product is what the kernel is.,00:35:45.820,00:35:47.570
+"You put the kernel in place
+of it, and you get that.",00:35:47.570,00:35:50.270
+"Now, this is very interesting because
+this is your model, so to speak.",00:35:50.270,00:35:55.140
+Support vector machines is a plural.,00:35:55.140,00:35:57.180
+"Support vector machines-- doesn't
+dictate a particular model.",00:35:57.180,00:36:00.370
+"You choose a kernel, and it'll
+give you a different model.",00:36:00.370,00:36:02.740
+"So if you have ever been curious, in the
+middle of all of this jungle, what",00:36:02.740,00:36:05.970
+is the model?,00:36:05.970,00:36:06.650
+"What is the hypothesis that
+I'm working with?",00:36:06.650,00:36:08.720
+"It happens to have this
+functional form.",00:36:08.720,00:36:11.290
+The kernel you choose appears here.,00:36:11.290,00:36:13.280
+It gets summed up with coefficients.,00:36:13.280,00:36:15.520
+"The coefficients happen to
+be determined by alpha.",00:36:15.520,00:36:18.910
+"They all happen to agree
+in sign with the label.",00:36:18.910,00:36:21.190
+"That's one of the artifacts of that,
+because alphas are non-negative.",00:36:21.190,00:36:23.930
+And we have plus b.,00:36:23.930,00:36:25.860
+"And again, plus b is the one
+that we haven't solved for.",00:36:25.860,00:36:28.140
+"But I can solve for it
+using the other one.",00:36:28.140,00:36:31.170
+"And I end up with this
+equation for it.",00:36:31.170,00:36:33.725
+"Take any support vector, small m, and
+you can identify it by having its",00:36:33.725,00:36:37.840
+alpha being bigger than 0.,00:36:37.840,00:36:39.750
+"You plug it in, and you have that.",00:36:39.750,00:36:42.110
+"So we have the full definition
+of your hypothesis.",00:36:42.110,00:36:44.930
+And you get the solution in this form.,00:36:44.930,00:36:47.530
+ ,00:36:47.530,00:36:51.710
+"And this is for any support vector
+which is defined by: alpha_m",00:36:51.710,00:36:54.970
+greater than 0.,00:36:54.970,00:36:55.990
+"Now, let me make a point.",00:36:55.990,00:36:58.490
+ ,00:36:58.490,00:37:01.830
+"The nonlinear transformation
+that started support vector",00:37:01.830,00:37:05.520
+machines is this guy.,00:37:05.520,00:37:07.380
+"So in reality, I have an infinite
+dimensional nonlinear transformation.",00:37:07.380,00:37:11.930
+"Each of these is a coordinate
+that depends fully on x.",00:37:11.930,00:37:15.500
+"So I end up with 1, x, x squared,
+x cubed, x to the 4, and so on.",00:37:15.500,00:37:19.210
+"And if I'm working from an x that is
+more than one-dimensional, I get x_1,",00:37:19.210,00:37:24.480
+"x_2 squared, x_1 x_2, whole thing.",00:37:24.480,00:37:27.630
+"I just avoided the labor
+by using the kernel.",00:37:27.630,00:37:31.250
+"Nonetheless, when I got the solution,
+I got this solution that made me",00:37:31.250,00:37:35.450
+"completely forget that
+I did a nonlinear",00:37:35.450,00:37:37.640
+transformation into the Z space.,00:37:37.640,00:37:39.640
+"I can look at this and say: what
+I'm really doing is that this is my",00:37:39.640,00:37:43.730
+"transformation, so to speak, the K's
+I have, however many of them as there",00:37:43.730,00:37:48.790
+are terms here.,00:37:48.790,00:37:49.970
+And each of them has a coefficient.,00:37:49.970,00:37:51.735
+"This would be a legitimate
+way of looking at it.",00:37:51.735,00:37:54.990
+"The only thing to remember, and it's
+very important to remember, is that",00:37:54.990,00:37:57.960
+"this transformation depends
+on your data set.",00:37:57.960,00:38:03.150
+You see this x_n?,00:38:03.150,00:38:05.570
+This one doesn't.,00:38:05.570,00:38:08.640
+"This one, before you gave me the data
+set, I decided that I'm going to use",00:38:08.640,00:38:13.360
+"the RBF kernel-- exponential, so I get
+1, x, x squared, x cubed, x to the 4.",00:38:13.360,00:38:18.750
+"All of this is determined without
+looking at the data set.",00:38:18.750,00:38:21.080
+"This transformation, in order to get
+this thing, I need to know what x_n is.",00:38:21.080,00:38:26.020
+But we have seen this before.,00:38:26.020,00:38:27.630
+"Remember the hidden layer
+in neural networks?",00:38:27.630,00:38:30.230
+"It got a nonlinear transform
+based on the data set.",00:38:30.230,00:38:34.810
+So this is not foreign to us.,00:38:34.810,00:38:37.300
+"But this tells you why this
+looks very simple.",00:38:37.300,00:38:39.480
+Where is the infinite-dimensional space?,00:38:39.480,00:38:41.060
+I'm only determining this.,00:38:41.060,00:38:42.255
+"This is the solution after all the
+manipulation has been done.",00:38:42.255,00:38:47.030
+And that is why it has this form.,00:38:47.030,00:38:49.240
+"But then, it will allow us to compare
+support vector machines to other",00:38:49.240,00:38:52.920
+approaches.,00:38:52.920,00:38:53.440
+"For example, if I put the RBF kernel
+here, the one with e to the minus x",00:38:53.440,00:38:57.610
+"squared with the norm, I will
+get a functional form.",00:38:57.610,00:39:01.410
+"It is completely legitimate to say:
+let me look at functional forms of",00:39:01.410,00:39:05.080
+"that form, and try to solve the learning
+problem based on these, without",00:39:05.080,00:39:09.260
+ever hearing of support vectors.,00:39:09.260,00:39:10.880
+It's just a model.,00:39:10.880,00:39:11.900
+Let me see if I can get a solution.,00:39:11.900,00:39:13.780
+"And it's very interesting to go through
+this exercise, and to compare",00:39:13.780,00:39:17.060
+"the result of doing it this way
+versus doing it the SVM route.",00:39:17.060,00:39:21.080
+"You can also do that for a neural
+network and other",00:39:21.080,00:39:23.310
+kernels that you have.,00:39:23.310,00:39:24.560
+ ,00:39:24.560,00:39:27.290
+"Now, the question is-- I am
+completely ready here.",00:39:27.290,00:39:32.180
+"If you give me the kernel,
+everything is understood.",00:39:32.180,00:39:35.120
+"I can solve it, and I can
+interpret the solution.",00:39:35.120,00:39:37.470
+"And I can judge the quality of the
+solution, and all of that.",00:39:37.470,00:39:40.690
+"The only problem I have is that we don't
+know that the kernel is valid.",00:39:40.690,00:39:45.680
+"If I improvise, I tell you
+what K of x and x dash is, and",00:39:45.680,00:39:48.490
+just give you a formula.,00:39:48.490,00:39:50.250
+"The whole idea of the kernel is that
+you don't visit the Z space.",00:39:50.250,00:39:53.160
+"So how are you going to verify that
+this is a valid kernel, namely",00:39:53.160,00:39:56.810
+"an inner product in some space,
+without visiting that space?",00:39:56.810,00:40:00.560
+That's the question.,00:40:00.560,00:40:01.700
+"How do I know that Z exists
+for a given kernel?",00:40:01.700,00:40:05.340
+"By the way, in support vector machines,
+you will come up with your",00:40:05.340,00:40:08.110
+own kernels.,00:40:08.110,00:40:09.450
+"So it's a good idea to just ask yourself,
+what are the conditions to get",00:40:09.450,00:40:14.170
+the kernel right?,00:40:14.170,00:40:15.030
+"In order to get it to be a valid kernel,
+there are three approaches.",00:40:15.030,00:40:19.000
+ ,00:40:19.000,00:40:21.770
+"First approach, we have already seen.",00:40:21.770,00:40:25.440
+"This is by construction, conceptual
+construction if not explicit",00:40:25.440,00:40:28.980
+"construction, like we did
+with the polynomial.",00:40:28.980,00:40:31.230
+"We looked at it, and we realized that
+there is a polynomial thing.",00:40:31.230,00:40:34.110
+"And although I didn't do it for the case
+of Q equals 100, I realize that",00:40:34.110,00:40:38.880
+"there will be corresponding terms, and
+I will be able to separate them.",00:40:38.880,00:40:41.120
+"So in my mind, that is the Z space.",00:40:41.120,00:40:42.900
+"And without constructing it explicitly,
+I realize that the kernel",00:40:42.900,00:40:46.070
+"that I wrote will correspond to
+an inner product in that space.",00:40:46.070,00:40:49.320
+"This is a very effective approach, and
+the polynomial transformations are the",00:40:49.320,00:40:53.290
+most famous ones there.,00:40:53.290,00:40:55.920
+"The other one is the one we're going to
+talk about in the next slide, which",00:40:55.920,00:40:59.390
+"is using math properties of
+the kernel, something",00:40:59.390,00:41:03.430
+called Mercer's condition.,00:41:03.430,00:41:06.040
+So I'll talk about it.,00:41:06.040,00:41:07.810
+I wish it was a practical condition.,00:41:07.810,00:41:10.650
+"It's a very appealing condition
+theoretically.",00:41:10.650,00:41:13.740
+"You will find it a little bit
+difficult to apply in given",00:41:13.740,00:41:15.930
+situations.,00:41:15.930,00:41:16.840
+"The good news is that people have
+applied it to a bunch of kernels, and",00:41:16.840,00:41:20.660
+have declared them legitimate.,00:41:20.660,00:41:22.160
+"So you can pick from that catalog
+without worrying about it, that these",00:41:22.160,00:41:26.780
+have already been established.,00:41:26.780,00:41:28.120
+"It comes into play when you
+want to test a new kernel.",00:41:28.120,00:41:31.260
+"Not an easy endeavor-- not
+an impossible endeavor,",00:41:31.260,00:41:33.110
+but not an easy endeavor.,00:41:33.110,00:41:35.060
+"The third approach is the one
+I find rather interesting.",00:41:35.060,00:41:38.500
+So how do you know that Z exists?,00:41:38.500,00:41:40.385
+ ,00:41:40.385,00:41:44.080
+Who cares?,00:41:44.080,00:41:46.440
+"This is an approach followed by people
+who say: this looks like a great",00:41:46.440,00:41:49.750
+machinery you have.,00:41:49.750,00:41:50.450
+You give me the kernel.,00:41:50.450,00:41:51.360
+I do this.,00:41:51.360,00:41:51.760
+I go to that.,00:41:51.760,00:41:53.410
+"So I'll just improvise a kernel,
+and who cares if there is",00:41:53.410,00:41:56.990
+a Z space or not?,00:41:56.990,00:41:57.890
+I never visit it anyway.,00:41:57.890,00:42:00.990
+Wait a minute!,00:42:00.990,00:42:02.040
+"You don't visit it, but it has to exist
+for all the guarantees that I",00:42:02.040,00:42:05.290
+talked about.,00:42:05.290,00:42:06.690
+"Quadratic programming, and you get
+support vectors, and alpha greater",00:42:06.690,00:42:09.750
+"than 0, and the generalization, all of that
+depends on the Z space being there,",00:42:09.750,00:42:13.680
+"and you're actually separating
+the data there.",00:42:13.680,00:42:15.650
+"Believe it or not, there's quite
+a number of people who just improvise",00:42:15.650,00:42:19.240
+"a kernel, apply the machinery,
+and see what happens.",00:42:19.240,00:42:22.690
+And sometimes they succeed.,00:42:22.690,00:42:24.820
+"I have my reservations, let
+me put it this way!",00:42:24.820,00:42:29.010
+"So let's go for the mathematical
+route, if you actually care,",00:42:29.010,00:42:32.400
+rather than who cares!,00:42:32.400,00:42:34.070
+"So if you design your own kernel, and
+then you want to see what happens,",00:42:34.070,00:42:37.760
+here is the condition.,00:42:37.760,00:42:39.690
+The following statement holds.,00:42:39.690,00:42:41.620
+"The kernel that you wrote down is a valid
+kernel, this is, the Z space that",00:42:41.620,00:42:46.350
+"you're talking about actually exists,
+if and only if two conditions in",00:42:46.350,00:42:52.610
+conjunction are satisfied.,00:42:52.610,00:42:55.200
+"One is the fact that the
+kernel is symmetric.",00:42:55.200,00:42:58.280
+"That should be abundantly obvious,
+symmetric being K of x and x dash",00:42:58.280,00:43:01.950
+being equal to K of x dash and x.,00:43:01.950,00:43:04.540
+"Well, this is supposed to be the dot
+product in the Z space, right?",00:43:04.540,00:43:08.210
+"So we're going to transform
+x and x dash into z and z dash.",00:43:08.210,00:43:11.350
+"While in the Z space, certainly z dot z dash
+is the same as z dash dot z.",00:43:11.350,00:43:17.300
+Inner product is commutative.,00:43:17.300,00:43:19.280
+"So if this has a chance, it
+had better be symmetric.",00:43:19.280,00:43:22.140
+"So this is definitely one
+of the conditions.",00:43:22.140,00:43:24.820
+"The other one is that there is a matrix
+that we're going to require",00:43:24.820,00:43:27.340
+a property on.,00:43:27.340,00:43:28.430
+And that matrix looks like this.,00:43:28.430,00:43:30.790
+"Similar to the one you're passing to the
+quadratic programming, but without",00:43:30.790,00:43:34.300
+"the y's. What you do, you just list
+the value of your kernels on all the",00:43:34.300,00:43:39.920
+pairs coming from your data set.,00:43:39.920,00:43:43.790
+"So if this was a genuine inner product
+and you had it explicitly, each of",00:43:43.790,00:43:48.340
+these will be the inner product.,00:43:48.340,00:43:49.560
+This one would be z1 transposed z1.,00:43:49.560,00:43:52.180
+"This would be z2 transposed
+z1, et cetera.",00:43:52.180,00:43:55.930
+"And therefore, this thing could be
+decomposed as an outer product between",00:43:55.930,00:44:00.750
+z's standing and z's sitting.,00:44:00.750,00:44:03.920
+And you will get that.,00:44:03.920,00:44:05.840
+"So the condition here on that matrix,
+without visiting the z, is that when",00:44:05.840,00:44:09.630
+"you put these numbers, to your pleasant
+surprise, this needs to be positive",00:44:09.630,00:44:14.930
+semi-definite.,00:44:14.930,00:44:16.150
+"That is, in matrix lingo, this matrix
+should be greater than or equal to 0.",00:44:16.150,00:44:19.860
+"That's what positive semi-definite
+really means conceptually.",00:44:19.860,00:44:24.380
+"This should be true for any
+choice of the points.",00:44:24.380,00:44:31.010
+And that is Mercer's condition.,00:44:31.010,00:44:33.130
+"Now, we can see the difficulty.",00:44:33.130,00:44:34.220
+"If I want to satisfy that this is true
+for any points I choose,",00:44:34.220,00:44:38.230
+"obviously I have to have some math
+helping me to corner that this has to",00:44:38.230,00:44:41.960
+"be positive semi-definite
+for some reason.",00:44:41.960,00:44:44.650
+But this is indeed the condition.,00:44:44.650,00:44:46.370
+"And if you look at the case where you
+know the transformation into the z and",00:44:46.370,00:44:49.910
+"you put this as an outer product between
+a bunch of z's and a bunch of",00:44:49.910,00:44:53.350
+"z's, what you're going to get is
+patently positive semi-definite.",00:44:53.350,00:44:57.250
+Because what is positive semi-definite?,00:44:57.250,00:44:58.680
+"You put a sleeping vector here and
+the same vector standing here.",00:44:58.680,00:45:03.600
+"And you're guaranteed to get
+a number greater than or equal",00:45:03.600,00:45:05.490
+to 0 for any vector.,00:45:05.490,00:45:06.540
+"That's what positive
+semi-definite means.",00:45:06.540,00:45:08.880
+"If you put that and the matrix happens
+to be the outer product of these guys,",00:45:08.880,00:45:12.750
+"then the guy sleeping here gets
+multiplied by z, and the other guy is",00:45:12.750,00:45:16.530
+a transpose of that.,00:45:16.530,00:45:17.680
+"So you get a number squared, and
+a number squared is always greater than",00:45:17.680,00:45:20.340
+or equal to 0.,00:45:20.340,00:45:21.200
+So the necessity part is obvious.,00:45:21.200,00:45:23.610
+"Sufficiency is a very elaborate
+thing to prove.",00:45:23.610,00:45:25.830
+"And actually, it is proved in a fairly
+elaborate integral form, not in",00:45:25.830,00:45:30.030
+a particular realization.,00:45:30.030,00:45:31.910
+But that is indeed the condition.,00:45:31.910,00:45:33.190
+"And if you manage to establish this
+for any kernel, then you establish",00:45:33.190,00:45:36.120
+"that the Z space exists even if you
+don't know what the Z space is.",00:45:36.120,00:45:39.810
+ ,00:45:39.810,00:45:42.850
+Done with kernels.,00:45:42.850,00:45:44.110
+That's half the deal.,00:45:44.110,00:45:45.310
+"And now, we are going to the
+case where the data is",00:45:45.310,00:45:48.550
+not linearly separable.,00:45:48.550,00:45:50.390
+"And we still insist on separating
+them, with making some errors.",00:45:50.390,00:45:55.220
+"And this brings us back to the old
+dichotomy between two types of",00:45:55.220,00:46:00.480
+non-separable.,00:46:00.480,00:46:01.180
+We have seen this before.,00:46:01.180,00:46:02.260
+"And this actually turns out to be the
+subject of this lecture, if you will.",00:46:02.260,00:46:07.010
+"So if the data is non-separable, that
+could be slightly non-separable, like",00:46:07.010,00:46:13.530
+"this, where these guys are just-- you
+can take them as here and here.",00:46:13.530,00:46:21.510
+These are outliers.,00:46:21.510,00:46:23.490
+"I really don't want to go to a high-dimensional
+nonlinear space in order",00:46:23.490,00:46:26.630
+"to just go for this guy
+and go for this guy.",00:46:26.630,00:46:29.380
+"It doesn't look like a plausible
+thing to do.",00:46:29.380,00:46:31.660
+"And even with counting support vectors,
+by the time I do this and",00:46:31.660,00:46:34.810
+"come back, I would have touched on so
+many points that the chances are the",00:46:34.810,00:46:37.990
+"number of support vectors
+would be huge.",00:46:37.990,00:46:40.300
+"So in this case, if there's a method
+like the pocket, I would just make",00:46:40.300,00:46:44.000
+"errors on those, accept an E_in
+which is non-zero.",00:46:44.000,00:46:46.740
+"But since the generalization is
+good, E_out would be OK.",00:46:46.740,00:46:49.350
+"Rather than insist on E_in being 0, and
+then go for the generalization error",00:46:49.350,00:46:53.220
+"being huge, because I used something
+inordinately complex.",00:46:53.220,00:46:56.730
+So this is the slightly-case.,00:46:56.730,00:46:58.860
+"And then, there is a seriously
+non-separable case,",00:46:58.860,00:47:01.410
+as in: you get this.,00:47:01.410,00:47:04.050
+It's not a question of outliers.,00:47:04.050,00:47:05.700
+"The surface is this, and you have to
+go to a nonlinear transformation.",00:47:05.700,00:47:09.790
+Kernels deal with this.,00:47:09.790,00:47:11.460
+ ,00:47:11.460,00:47:15.190
+"Soft-margin support vector
+machines deal with this.",00:47:15.190,00:47:20.210
+"And in all reality, when you deal with
+a practical data set, the chance are",00:47:20.210,00:47:27.350
+the data set will have aspects of both.,00:47:27.350,00:47:30.280
+"It will have a built-in nonlinearity,
+and still, even modulo that",00:47:30.280,00:47:34.620
+"nonlinearity, some annoying
+guys are there just to test",00:47:34.620,00:47:37.490
+your learning ability!,00:47:37.490,00:47:40.030
+"And therefore, you will be combining
+the kernel with the soft-margin",00:47:40.030,00:47:45.300
+"support vector machines in almost all
+the problems that you encounter.",00:47:45.300,00:47:49.470
+"Now, let's focus on this.",00:47:49.470,00:47:52.070
+I'm now back to the X space.,00:47:52.070,00:47:54.340
+The data is not linearly separable.,00:47:54.340,00:47:56.190
+"And I want to apply the support
+vector machines algorithm,",00:47:56.190,00:48:01.410
+notwithstanding that.,00:48:01.410,00:48:02.590
+"And after I do that, I'm not going to
+even go through the route of: and by",00:48:02.590,00:48:06.260
+"the way, you can transform x into z,
+and by the way, you can instead of",00:48:06.260,00:48:09.770
+"going to Z, you do the kernel.
+You do that yourself.",00:48:09.770,00:48:11.940
+I'll just do the basic case.,00:48:11.940,00:48:13.600
+"And you know how to extrapolate, to both
+the Z and to the kernel case.",00:48:13.600,00:48:19.630
+"So here is the idea of an error
+measure, as we had before.",00:48:19.630,00:48:23.850
+"I'm going to consider the
+margin violation.",00:48:23.850,00:48:25.555
+"Let me have a picture
+and talk about it.",00:48:25.555,00:48:27.670
+"So when you solve support vector
+machines in a linearly separable case,",00:48:27.670,00:48:31.390
+you maximize the margin.,00:48:31.390,00:48:32.540
+"And these will be the ones
+that achieve the margin.",00:48:32.540,00:48:35.510
+"And these guys will be
+interior points.",00:48:35.510,00:48:38.690
+"And now, we are going
+to consider errors.",00:48:38.690,00:48:42.060
+"There are many ways for
+considering errors.",00:48:42.060,00:48:43.550
+"I can consider the number of
+points I misclassify.",00:48:43.550,00:48:47.390
+"We realize that it's not a good idea to
+deal with the number of points that",00:48:47.390,00:48:50.900
+"are misclassified, because optimization
+becomes completely",00:48:50.900,00:48:53.730
+intractable in this case.,00:48:53.730,00:48:54.730
+It's a combinatorial optimization.,00:48:54.730,00:48:56.430
+"And we discussed that when we talked
+about perceptron and pocket.",00:48:56.430,00:48:59.540
+"And we said that the problem of optimizing--
+getting the absolute optimum-- in",00:48:59.540,00:49:03.140
+"this case, is generally NP-hard.",00:49:03.140,00:49:05.310
+"So we are going to have
+a numerical value.",00:49:05.310,00:49:08.380
+"And because the margin means something
+to me now-- it's not a question of",00:49:08.380,00:49:12.300
+"being on the right side of the line,
+it's a question of how far you are",00:49:12.300,00:49:15.090
+"from the line-- that turned out to be
+an important notion in support vector",00:49:15.090,00:49:18.150
+"machines, I'm going to define my error
+measure based on violating the margin.",00:49:18.150,00:49:23.280
+So let's see what I mean.,00:49:23.280,00:49:27.070
+"This point that used to be here
+has violated the margin.",00:49:27.070,00:49:30.470
+"Now, I'm not saying that once you put
+this here, the same solution will hold",00:49:30.470,00:49:34.010
+or whatever.,00:49:34.010,00:49:34.450
+"I'm just illustrating to you what
+is a violation of the margin.",00:49:34.450,00:49:37.990
+And how do I quantify it.,00:49:37.990,00:49:39.270
+This is just an illustration.,00:49:39.270,00:49:40.650
+So this point went in.,00:49:40.650,00:49:42.590
+"In spite of the fact that it's correctly
+classified-- yes, because",00:49:42.590,00:49:45.590
+"this is the line, and it's on the blue
+side of the line, so to speak.",00:49:45.590,00:49:49.130
+"So there's no change in
+terms of the label.",00:49:49.130,00:49:50.950
+"If I'm working with in-sample
+error, nothing has changed.",00:49:50.950,00:49:53.450
+"But now, I am not achieving the margin
+that I want for this point.",00:49:53.450,00:49:56.790
+"And the amount of violation will be
+decided by this displacement.",00:49:56.790,00:50:02.170
+So here is what I'm going to do.,00:50:02.170,00:50:05.520
+"This will be the case if the margin
+is satisfied for every point.",00:50:05.520,00:50:08.520
+That is the canonical form we put.,00:50:08.520,00:50:11.750
+"And when this fails, the
+margin is violated.",00:50:11.750,00:50:15.130
+And I'd like to quantify that.,00:50:15.130,00:50:17.430
+"The way I'm going to quantify it,
+I'm going to introduce a slack for",00:50:17.430,00:50:21.180
+"every point, potentially every point.
+Hopefully, most of them will satisfy",00:50:21.180,00:50:24.790
+"the margin, only a few of
+them will violate it.",00:50:24.790,00:50:27.360
+"And I'm going to say that the quantity
+that used to be greater than or equal",00:50:27.360,00:50:31.700
+"to 1, is actually greater than
+or equal to 1 minus a slack.",00:50:31.700,00:50:36.340
+So this is what I will have.,00:50:36.340,00:50:37.530
+"The movement from here to here
+resulted in the red xi.",00:50:37.530,00:50:42.420
+"And the slack is greater
+than or equal to 0.",00:50:42.420,00:50:45.050
+I'm only considering violations.,00:50:45.050,00:50:48.950
+"Now, I'm going to consider--
+this is the condition.",00:50:48.950,00:50:52.900
+"And now, I'm going to penalize you
+for the total violation you made.",00:50:52.900,00:50:56.930
+What is the total violation?,00:50:56.930,00:50:58.460
+"I'm just going to add
+up these violations.",00:50:58.460,00:51:01.260
+We have seen error measures before.,00:51:01.260,00:51:03.180
+"We know that it's largely hand-waving,
+because I have something in mind.",00:51:03.180,00:51:07.300
+"Either I'm thinking of an optimizer, and
+I want to hand something friendly",00:51:07.300,00:51:10.550
+"to it, or I'm thinking of something
+that is analytically plausible.",00:51:10.550,00:51:14.260
+This is no different.,00:51:14.260,00:51:15.700
+"Why did I choose this
+instead of squared?",00:51:15.700,00:51:17.710
+Why did I choose this instead of that?,00:51:17.710,00:51:19.170
+"All of these are considerations that
+will come up when you see the result",00:51:19.170,00:51:21.680
+of choosing this.,00:51:21.680,00:51:23.060
+This is reasonable.,00:51:23.060,00:51:24.080
+"This does seem like violating
+the margin.",00:51:24.080,00:51:26.240
+"This does seem like measuring
+the violation of the margin.",00:51:26.240,00:51:28.930
+"So in the absence of further evidence
+one way or the other, this is a good",00:51:28.930,00:51:32.950
+error measure to have.,00:51:32.950,00:51:34.080
+"And then, when I plug this error measure
+into what we had, things will",00:51:34.080,00:51:36.980
+"collapse completely back to where
+we solved it already.",00:51:36.980,00:51:40.290
+So this is the big advantage here.,00:51:40.290,00:51:43.050
+"So that is going to be
+my error measure.",00:51:43.050,00:51:46.010
+"So now, the new optimization I'm
+going to do is the following.",00:51:46.010,00:51:49.300
+"It used to be that I was minimizing this,
+because minimizing this maximized",00:51:49.300,00:51:52.980
+the margin.,00:51:52.980,00:51:53.440
+That was what we did the last lecture.,00:51:53.440,00:51:56.030
+"And now, I'm going to add an error term
+that corresponds to the violation",00:51:56.030,00:52:00.490
+"of the margin, and it is
+going to be this.",00:52:00.490,00:52:04.540
+"So this is the quantity that I promised
+you captures the violation of",00:52:04.540,00:52:07.600
+the margin.,00:52:07.600,00:52:08.900
+"And this is a constant that gives me the
+relative importance of this term",00:52:08.900,00:52:15.130
+versus this term.,00:52:15.130,00:52:17.250
+"This is no different from our
+notion of augmented error.",00:52:17.250,00:52:22.040
+"In augmented error, we used to have the
+in-sample performance, which I guess",00:52:22.040,00:52:25.980
+"would be the violation
+of the margin here.",00:52:25.980,00:52:27.800
+"If you're violating too much, you'll
+start making errors. Plus lambda",00:52:27.800,00:52:32.340
+"times a regularization term. This
+looks pretty much like",00:52:32.340,00:52:35.220
+"a regularization term, like weight decay.",00:52:35.220,00:52:37.860
+"So this C is actually 1
+over the other lambda.",00:52:37.860,00:52:41.150
+"But this is a standard formulation
+in SVM for a good reason.",00:52:41.150,00:52:44.370
+"C will appear in a very nice
+way in the solution.",00:52:44.370,00:52:47.660
+"So this is an augmented error. That
+gives different weights.",00:52:47.660,00:52:50.370
+"If I have C close to infinity,
+then what am I saying?",00:52:50.370,00:52:53.400
+You'd better not violate the margins.,00:52:53.400,00:52:56.450
+"Because the slightest violation, you
+mess up what you're minimizing.",00:52:56.450,00:53:00.750
+"So the end result is that you're going
+to pick xi's, all of them, close to 0.",00:53:00.750,00:53:05.440
+"And then, the data had better
+be linearly separable.",00:53:05.440,00:53:08.010
+And that's what you're solving for.,00:53:08.010,00:53:09.610
+So we go back to the hard margin.,00:53:09.610,00:53:11.680
+"If C is very, very small, then
+you could be violating the",00:53:11.680,00:53:14.910
+margin right and left.,00:53:14.910,00:53:16.710
+"So nominally, you're getting
+a great margin.",00:53:16.710,00:53:20.100
+"But you're violating
+it very frequently.",00:53:20.100,00:53:22.580
+And there's a compromise here.,00:53:22.580,00:53:24.240
+But that's what you're minimizing.,00:53:24.240,00:53:26.300
+"Subject to: this is what I had before,
+and now the condition adds xi to it.",00:53:26.300,00:53:35.790
+"So I'm now requiring this
+to be the case.",00:53:35.790,00:53:38.710
+And I said that xi's are non-negative.,00:53:38.710,00:53:40.930
+"I'm only penalizing the violating
+of the margin.",00:53:40.930,00:53:43.670
+"I'm not rewarding the anti-violation
+of the margin.",00:53:43.670,00:53:47.370
+"If here's the thing, and one of the
+points is there, good for it.",00:53:47.370,00:53:50.810
+"I'm not going to give it credit that
+allows me to violate the other guys",00:53:50.810,00:53:54.220
+because that's not going to help me.,00:53:54.220,00:53:55.720
+So xi is non-negative.,00:53:55.720,00:53:58.200
+"And I get this condition for all
+points, all N of them.",00:53:58.200,00:54:04.010
+"And finally, I have the range in which
+I'm optimizing, which used to be this.",00:54:04.010,00:54:08.990
+"And now, I have the xi's being R to the
+N. I guess positive, but that is",00:54:08.990,00:54:12.960
+captured by the constraint.,00:54:12.960,00:54:14.990
+"If you look at this slide, take out the
+red, and you have the problem you",00:54:14.990,00:54:20.290
+"already solved, the hard-margin SVM
+in the linearly separable case.",00:54:20.290,00:54:25.460
+So this is the added guy.,00:54:25.460,00:54:27.530
+"Now what we're going to do, we're
+actually going to go through the",00:54:27.530,00:54:29.930
+"Lagrangian again, because the Lagrangian
+is not that much different",00:54:29.930,00:54:35.650
+from before.,00:54:35.650,00:54:36.210
+So we can take it as a review.,00:54:36.210,00:54:38.010
+"And the good thing is that, if you thought
+that the terms dropped right and left",00:54:38.010,00:54:41.830
+"before, wait until you see this one.",00:54:41.830,00:54:45.220
+So here is the Lagrange formulation.,00:54:45.220,00:54:48.110
+"We have L of w, b, and alpha, and some
+missing guys that will be filled.",00:54:48.110,00:54:53.870
+And we have this and minus that.,00:54:53.870,00:54:55.870
+"So you can see that it's spread out,
+because obviously I'm going to put the",00:54:55.870,00:54:58.570
+new stuff in.,00:54:58.570,00:54:59.580
+"What I put here is exactly the
+Lagrangian you worked with before.",00:54:59.580,00:55:05.070
+This was your target.,00:55:05.070,00:55:06.680
+"This was the 0 form of
+the inequality--",00:55:06.680,00:55:09.350
+"that means this minus 1 is greater
+than or equal to 0.",00:55:09.350,00:55:12.310
+"You put that and multiplied it by the
+Lagrange multiplier, which is",00:55:12.310,00:55:15.690
+"non-negative, minus because it's in the
+form of greater than or equal to,",00:55:15.690,00:55:19.160
+"and this is your Lagrangian
+that we solved.",00:55:19.160,00:55:21.020
+"And we ended up with the quadratic
+programming problem we had.",00:55:21.020,00:55:24.140
+"So now, there is a new
+guy which is xi.",00:55:24.140,00:55:28.840
+"That's a new variable that
+I'm determining.",00:55:28.840,00:55:31.710
+How does it appear in the Lagrangian?,00:55:31.710,00:55:34.070
+"Well, the target is no longer just
+minimizing this, but minimizing this",00:55:34.070,00:55:38.430
+"plus the other guy that penalizes
+the violation of the margin.",00:55:38.430,00:55:41.520
+So let's put that.,00:55:41.520,00:55:42.770
+ ,00:55:42.770,00:55:47.870
+"Now, the constraint that I had used to
+be: this is greater than or equal to 1.",00:55:47.870,00:55:52.130
+So I had it as minus 1 for the 0 form.,00:55:52.130,00:55:55.300
+"The new constraint is: this is greater
+than or equal to 1 minus xi.",00:55:55.300,00:55:59.820
+"So I need to put the new constant,
+and when you put, it's minus",00:55:59.820,00:56:03.150
+"minus, you get the plus.",00:56:03.150,00:56:04.600
+So that's the complete term.,00:56:04.600,00:56:07.100
+"Now, the other guy is that I have
+a bunch of constraints on xi itself.",00:56:07.100,00:56:10.470
+"I need to put them in
+the Lagrangian form.",00:56:10.470,00:56:14.090
+And this would be this.,00:56:14.090,00:56:17.700
+Not scary at all.,00:56:17.700,00:56:19.550
+"xi_n is really the constraint
+on xi in the 0 form.",00:56:19.550,00:56:24.350
+xi is greater than or equal to 0.,00:56:24.350,00:56:26.680
+"So if I wanted to put it in the 0 form,
+then I put xi-- that has to be",00:56:26.680,00:56:29.860
+"greater than or equal to 0, pretty
+much like this fellow had to be",00:56:29.860,00:56:32.590
+greater than or equal to 0.,00:56:32.590,00:56:34.390
+"I need to multiply it by a Lagrange
+multiplier, a new guy.",00:56:34.390,00:56:37.160
+So I call those guys beta.,00:56:37.160,00:56:39.560
+"And I do this for all of the
+constraints, N of them.",00:56:39.560,00:56:42.470
+"And I have a minus because this
+is in the direction greater",00:56:42.470,00:56:44.420
+than or equal to.,00:56:44.420,00:56:45.370
+"So there's absolutely nothing
+different here.",00:56:45.370,00:56:47.330
+"And now, I add the new Lagrange
+multipliers to them,",00:56:47.330,00:56:50.030
+and I get this fellow.,00:56:50.030,00:56:52.580
+"Now, I'm proud of this
+because of a reason.",00:56:52.580,00:56:56.500
+"The slides are wide-screen
+for this course, right?",00:56:56.500,00:57:01.070
+"I had to have an equation that
+takes the full width of that.",00:57:01.070,00:57:04.750
+"And finally, in lecture number
+15, I managed to do that!",00:57:04.750,00:57:09.360
+Now you say: forget it.,00:57:09.360,00:57:12.240
+This is just too complicated.,00:57:12.240,00:57:14.080
+"Please bear with me, because terms
+will be dropping like flies.",00:57:14.080,00:57:18.460
+"Just follow this and
+see where we arrive.",00:57:18.460,00:57:23.400
+"We're going to minimize this with respect
+to w and b, which we used to",00:57:23.400,00:57:26.560
+"do, and with respect to xi,
+which is our new guys.",00:57:26.560,00:57:31.270
+"Minimize, and then we're going to
+maximize with respect to the Lagrange",00:57:31.270,00:57:34.290
+"multipliers, the alphas which we used
+to have, and the betas are the new",00:57:34.290,00:57:37.470
+guys in town.,00:57:37.470,00:57:39.340
+So let's do the first guy.,00:57:39.340,00:57:40.730
+"Let's do the minimization with respect
+to w, which we did before.",00:57:40.730,00:57:45.010
+"Can you differentiate this
+with respect to w?",00:57:45.010,00:57:48.660
+I will get a w here.,00:57:48.660,00:57:51.020
+This red guy doesn't contribute.,00:57:51.020,00:57:53.780
+"Here, I will get what I used to get.",00:57:53.780,00:57:56.920
+This guy doesn't interfere.,00:57:56.920,00:57:58.850
+This guy doesn't play a role.,00:57:58.850,00:58:00.960
+That's encouraging.,00:58:00.960,00:58:02.160
+"I am actually getting
+what I got before.",00:58:02.160,00:58:07.510
+Let's do partial by partial b.,00:58:07.510,00:58:10.860
+ ,00:58:10.860,00:58:13.790
+Does this guy play any role?,00:58:13.790,00:58:16.060
+Does this guy play any role?,00:58:16.060,00:58:17.540
+This guy gets multiplied by here.,00:58:17.540,00:58:19.260
+ ,00:58:19.260,00:58:20.180
+Does this guy?,00:58:20.180,00:58:20.690
+b doesn't appear here.,00:58:20.690,00:58:23.940
+I get exactly what I got before.,00:58:23.940,00:58:25.280
+ ,00:58:25.280,00:58:28.240
+"So the final guy is to get the
+partial by partial xi's.",00:58:28.240,00:58:31.570
+That's the new guy.,00:58:31.570,00:58:33.800
+So you do this.,00:58:33.800,00:58:35.550
+Let's see what happens.,00:58:35.550,00:58:36.660
+I'll do it one at a time.,00:58:36.660,00:58:37.790
+There are N of those.,00:58:37.790,00:58:39.060
+"I didn't put it as a gradient,
+just to make it simple.",00:58:39.060,00:58:41.480
+So I do it one at a time.,00:58:41.480,00:58:43.380
+"And I see xi_n gets multiplied by C.
+xi_n gets multiplied by alpha with",00:58:43.380,00:58:49.440
+a negative sign.,00:58:49.440,00:58:51.112
+"xi gets multiplied by a beta
+with a negative sign.",00:58:51.112,00:58:53.850
+"So if I differentiate with respect to
+xi, this is what I'm going to get,",00:58:53.850,00:58:57.930
+C minus alpha minus beta.,00:58:57.930,00:59:00.050
+Equate that with 0.,00:59:00.050,00:59:02.730
+"Now, isn't that grand?",00:59:02.730,00:59:05.060
+"Because now, you are saying that this
+quantity is always 0 for any n",00:59:05.060,00:59:10.550
+"from 1 to N. Let's look at the
+ramifications as far as the Lagrangian,",00:59:10.550,00:59:15.150
+when you substitute in the Lagrangian.,00:59:15.150,00:59:16.770
+"Here, I have a C. Here,
+I have a minus alpha.",00:59:16.770,00:59:21.160
+"Here, I have a minus beta.",00:59:21.160,00:59:23.490
+These are multiplied by xi.,00:59:23.490,00:59:25.480
+That combination happens to be 0.,00:59:25.480,00:59:28.650
+"So conveniently, this guy and this guy
+and this guy, together with beta, are",00:59:28.650,00:59:35.950
+dropping out.,00:59:35.950,00:59:37.900
+"We are back to exactly the same
+Lagrangian we had before, with exactly",00:59:37.900,00:59:42.810
+the same solution we had before.,00:59:42.810,00:59:45.520
+And what happened to beta?,00:59:45.520,00:59:47.560
+"Well, beta did its service.",00:59:47.560,00:59:49.150
+"And we thank it for its great service,
+and we bid farewell!",00:59:49.150,00:59:52.880
+It's gone.,00:59:52.880,00:59:54.310
+"The only ramification of beta that we
+have is that because beta is greater",00:59:54.310,00:59:58.580
+"than or equal to 0, and we have this
+condition, alpha is not only greater",00:59:58.580,01:00:03.940
+"than or equal to 0, which it used to
+be. It also cannot be bigger than C,",01:00:03.940,01:00:09.590
+"because if it's bigger than C, this
+quantity becomes negative.",01:00:09.590,01:00:13.030
+"And all of a sudden, I cannot find
+a legitimate beta to make this true.",01:00:13.030,01:00:17.440
+"So the only thing out of all of this
+adventure is that we're going to",01:00:17.440,01:00:21.990
+"require that alpha be at most C.
+Everything before, plus this added",01:00:21.990,01:00:27.390
+"condition, that's the whole thing.",01:00:27.390,01:00:32.130
+So you get the solution.,01:00:32.130,01:00:34.670
+You get this.,01:00:34.670,01:00:36.190
+"That's what we saw before with respect
+to alpha, and beta doesn't appear.",01:00:36.190,01:00:42.060
+"And you have alphas being non-negative
+with the added red condition. That's",01:00:42.060,01:00:46.400
+"the only thing which is added,
+less than or equal to C.",01:00:46.400,01:00:49.950
+The equality constraint is there.,01:00:49.950,01:00:51.740
+"The equality constraint, that is
+inherited from the condition from the",01:00:51.740,01:00:54.410
+"previous slide, same as we did before.",01:00:54.410,01:00:57.880
+"And when you get the solution,
+w will be this.",01:00:57.880,01:01:02.820
+"And w will guarantee that
+you're minimizing this",01:01:02.820,01:01:08.200
+plus the new objective.,01:01:08.200,01:01:11.350
+"So if you already wrote your routine
+in order to apply support",01:01:11.350,01:01:15.440
+"vector machines, all you need to do now
+is go to that routine, and instead",01:01:15.440,01:01:19.100
+"of 0 less than or equal to alpha less
+than or equal to infinity, make it 0",01:01:19.100,01:01:22.240
+"less than or equal to alpha less than
+or equal to C. And you have the soft",01:01:22.240,01:01:25.960
+margin support vector machines.,01:01:25.960,01:01:28.820
+That is a good bargain.,01:01:28.820,01:01:31.630
+"Let's look at, just very quickly,
+types of support vectors.",01:01:31.630,01:01:36.140
+This is the picture.,01:01:36.140,01:01:38.240
+"And this is the picture where you
+have support vectors in the hard",01:01:38.240,01:01:41.020
+margin case.,01:01:41.020,01:01:41.770
+"There are only two types of points here,
+interior, where the margin is",01:01:41.770,01:01:45.570
+"greater than 1 strictly, and the boundary
+guys that happen to be support vectors",01:01:45.570,01:01:50.130
+"where the margin is exactly 1, or at
+least the quantity that corresponds to",01:01:50.130,01:01:52.820
+the margin is exactly 1.,01:01:52.820,01:01:54.850
+And that is all I have.,01:01:54.850,01:01:57.300
+"Now, when you have the soft version,
+we are going to label these guys",01:01:57.300,01:02:04.000
+"margin support vectors, just because
+there will be other guys that violate",01:02:04.000,01:02:07.460
+the margin.,01:02:07.460,01:02:08.510
+And they will be support vectors.,01:02:08.510,01:02:09.700
+"They will get Lagrange multipliers
+that are greater than 1.",01:02:09.700,01:02:14.370
+"And in this case, the margin support
+vectors that used to be just alpha",01:02:14.370,01:02:19.120
+"greater than 0, they also happen to be
+strictly less than C. You can look at",01:02:19.120,01:02:24.450
+"it independently in order to understand,
+but let me just give you",01:02:24.450,01:02:28.330
+the hint here.,01:02:28.330,01:02:30.310
+"When alpha hits C, beta, the
+lost multiplier, hits 0.",01:02:30.310,01:02:38.540
+"We know when the Lagrange multiplier
+hits 0, the corresponding slack has to",01:02:38.540,01:02:43.770
+become positive.,01:02:43.770,01:02:44.980
+That was one of the conditions we had.,01:02:44.980,01:02:47.810
+"And therefore, because here the slack
+is 0, you actually don't have xi.",01:02:47.810,01:02:52.610
+xi is 0.,01:02:52.610,01:02:53.590
+"You have to be clear of C. That
+is the reason for it.",01:02:53.590,01:02:58.110
+"So this is the condition
+for those guys.",01:02:58.110,01:03:00.560
+And xi is 0.,01:03:00.560,01:03:02.070
+"And these are the guys you used to
+solve in order to get the b.",01:03:02.070,01:03:06.740
+"These are as clean
+as they used to be.",01:03:06.740,01:03:09.900
+"Now, we add the non-margin
+support vectors.",01:03:09.900,01:03:15.120
+"And by those, we mean that now alpha_n
+equals C. So it's positive.",01:03:15.120,01:03:19.220
+They are support vectors.,01:03:19.220,01:03:20.160
+Alpha_n is greater than 0.,01:03:20.160,01:03:21.990
+"But they happen to hit C.
+And now, I have a slack.",01:03:21.990,01:03:24.790
+The slack xi starts becoming positive.,01:03:24.790,01:03:28.140
+"And therefore, the margin is violated.",01:03:28.140,01:03:31.830
+I'm less than 1.,01:03:31.830,01:03:33.540
+"So that's 1 minus xi,
+and xi is positive.",01:03:33.540,01:03:35.860
+"Indeed, xi is positive in this case.",01:03:35.860,01:03:39.130
+"So let's look at those non-margin
+support vectors, and see",01:03:39.130,01:03:43.110
+what they look like.,01:03:43.110,01:03:44.490
+"Again, just for illustration, I'm
+going to take these two points and",01:03:44.490,01:03:48.640
+"start making them violate the margin,
+not that the new solution will be",01:03:48.640,01:03:52.130
+"exactly the same except that
+these guys are inside.",01:03:52.130,01:03:54.080
+"You have to re-solve it
+with C, et cetera.",01:03:54.080,01:03:56.230
+"But I'm just illustrating, just
+to show you the point.",01:03:56.230,01:04:00.130
+"So this is one way to
+violate the margin.",01:04:00.130,01:04:02.320
+"You violated the margin, but you're
+still classifying them correctly.",01:04:02.320,01:04:06.000
+"These are non-margin support
+vectors, one type.",01:04:06.000,01:04:09.690
+"You can violate it further, and cross.",01:04:09.690,01:04:12.860
+"So now, these points
+are misclassified.",01:04:12.860,01:04:15.360
+"And they are still non-margin
+support vectors.",01:04:15.360,01:04:17.480
+"And now, the E_in is affected.",01:04:17.480,01:04:19.690
+And you can go wild.,01:04:19.690,01:04:21.410
+And you're just completely deep.,01:04:21.410,01:04:25.040
+"As long as you're violating,
+you are a support vector.",01:04:25.040,01:04:28.710
+"Not a clean support vector, but
+a support vector nonetheless.",01:04:28.710,01:04:30.995
+ ,01:04:30.995,01:04:33.610
+"Now, the value of C is a very important
+parameter here because it",01:04:33.610,01:04:38.070
+"tells us how much violation we have,
+versus the width of the yellow region.",01:04:38.070,01:04:43.200
+"And this is a quantity that will be
+decided in a practical problem using",01:04:43.200,01:04:47.790
+old-fashioned cross-validation.,01:04:47.790,01:04:53.430
+"This is a point, a parameter
+that we need to determine.",01:04:53.430,01:04:56.810
+"And whenever we have one parameter to
+determine, and we want to pick it",01:04:56.810,01:04:59.880
+"optimally, we can use
+cross-validation.",01:04:59.880,01:05:02.060
+"So as you see, validation and
+cross-validation are a layer on top of this.",01:05:02.060,01:05:05.760
+"Here, I'm using a very elaborate
+algorithm which is support vector",01:05:05.760,01:05:09.240
+"machines, yet I am resorting to
+cross-validation in order to",01:05:09.240,01:05:13.500
+determine C.,01:05:13.500,01:05:15.165
+"I'll make two quick technical
+remarks and end the lecture here.",01:05:15.165,01:05:20.870
+"These are just practical points
+in case they bother you.",01:05:20.870,01:05:23.790
+"If you didn't see them, they are
+not going to bother you.",01:05:23.790,01:05:26.800
+Here is the idea.,01:05:26.800,01:05:28.970
+"With the hard margin, I
+apply this machinery.",01:05:28.970,01:05:31.060
+"I get the dual, pass it",01:05:31.060,01:05:31.920
+to quadratic programming.,01:05:31.920,01:05:34.120
+"So I'm asking myself, if the data is
+not linearly separable, what gives?",01:05:34.120,01:05:39.820
+Because think about it.,01:05:39.820,01:05:40.720
+"I never told you to check that the
+data is linearly separable.",01:05:40.720,01:05:43.070
+"I gave you the data, formulated--
+minimize this subject to that.",01:05:43.070,01:05:46.930
+"Now, if the data is not linearly
+separable, subject to that will be",01:05:46.930,01:05:49.810
+impossible to satisfy.,01:05:49.810,01:05:50.775
+There will be no feasible solution.,01:05:50.775,01:05:53.180
+"Nonetheless, this didn't prevent me from
+getting a dual and passing it to",01:05:53.180,01:05:56.390
+quadratic programming.,01:05:56.390,01:05:57.700
+"And maybe quadratic programming
+will give me back a solution.",01:05:57.700,01:05:59.970
+"So now, I'm in a strange world.",01:05:59.970,01:06:03.240
+"The key thing to realize is that the
+translation from the primary form,",01:06:03.240,01:06:08.960
+"minimizing w transposed w, to the dual
+form, maximizing with respect to alpha--",01:06:08.960,01:06:14.750
+"the Lagrangian-- that step is
+mathematically valid only if there is",01:06:14.750,01:06:20.110
+a feasible solution.,01:06:20.110,01:06:21.920
+The KKT conditions are necessary.,01:06:21.920,01:06:23.790
+"So they have to be satisfied
+if the point is there.",01:06:23.790,01:06:26.480
+"Obviously if there is no point in the
+domain, then I'm now working pretty",01:06:26.480,01:06:30.130
+"much like the guy who improvised
+a kernel that does not",01:06:30.130,01:06:33.080
+correspond to a Z space.,01:06:33.080,01:06:34.460
+"Yeah, you can plug it in
+and get a solution.",01:06:34.460,01:06:36.360
+No guarantees there.,01:06:36.360,01:06:37.750
+"In this case, actually, if you go
+to the Lagrangian, the quadratic",01:06:37.750,01:06:41.850
+programming will try to converge to,01:06:41.850,01:06:43.480
+something in infinity.,01:06:43.480,01:06:45.840
+"But you need not to worry
+about this case at all.",01:06:45.840,01:06:48.140
+"Let's say that you have a buggy
+quadratic programming.",01:06:48.140,01:06:51.740
+"And you innocently translate
+the problem into the dual.",01:06:51.740,01:06:55.280
+You pass on to quadratic programming.,01:06:55.280,01:06:56.990
+"Quadratic program passes
+alphas back to you.",01:06:56.990,01:06:59.900
+"Now, it's impossible that all of
+a sudden, the data became linearly",01:06:59.900,01:07:02.410
+"separable, right?",01:07:02.410,01:07:03.680
+You don't have to worry.,01:07:03.680,01:07:04.890
+"You can always check if the solution
+separates the data.",01:07:04.890,01:07:08.400
+"You can evaluate the solution on every
+point, compare it with the label.",01:07:08.400,01:07:12.720
+"And when you realize that it's not
+agreeing with the label, you realize",01:07:12.720,01:07:16.240
+that something is wrong.,01:07:16.240,01:07:17.720
+"So you don't have to go through the
+combinatorial problem: is this",01:07:17.720,01:07:20.230
+linearly separable in the first place?,01:07:20.230,01:07:22.090
+"Should I run the perceptron first
+to see if it converges before?",01:07:22.090,01:07:25.220
+"No, no, no, no.",01:07:25.220,01:07:26.210
+"Just be lazy if you want,
+and go through this.",01:07:26.210,01:07:28.740
+"And when it comes back, check.",01:07:28.740,01:07:30.300
+"If it's linearly separable,
+things are valid.",01:07:30.300,01:07:32.140
+There is a feasible solution.,01:07:32.140,01:07:33.400
+"The dual solution is valid and
+quadratic programming works.",01:07:33.400,01:07:35.650
+"If it's not, then something
+went wrong.",01:07:35.650,01:07:37.350
+"Chances are you won't get to that stage,
+because quadratic programming",01:07:37.350,01:07:40.080
+will be complaining.,01:07:40.080,01:07:41.040
+"But quadratic programming will be
+complaining anyway, as you may have",01:07:41.040,01:07:44.410
+experienced when you tried it.,01:07:44.410,01:07:46.640
+"Tells you: ill conditioned, that, there,
+and sometimes you have tweaks.",01:07:46.640,01:07:49.980
+"Let me put a bound on this,
+in order not to make it go into",01:07:49.980,01:07:52.890
+a bad region and whatnot.,01:07:52.890,01:07:54.190
+So it's not a perfect package.,01:07:54.190,01:07:56.230
+"So this is just a reminder that we will
+never be susceptible to a big",01:07:56.230,01:08:00.300
+"mistake, like getting a solution
+when none exists.",01:08:00.300,01:08:04.130
+"The last point is when we transform to
+the Z space, you may have noticed that",01:08:04.130,01:08:08.750
+"some of the transformations had
+a constant coordinate, 1.",01:08:08.750,01:08:14.340
+"1 in our mind used to
+correspond to w_0.",01:08:14.340,01:08:19.250
+"We made it a point at the beginning
+of discussing support vectors",01:08:19.250,01:08:22.450
+that there is no w_0.,01:08:22.450,01:08:24.090
+"We took it out and called
+it b, the bias.",01:08:24.090,01:08:26.689
+We treated it differently.,01:08:26.689,01:08:28.870
+"So now, we are working
+with both w_0 and b.",01:08:28.870,01:08:32.340
+"Because if you have a constant,
+you may not call it w_0.",01:08:32.340,01:08:35.109
+"But effectively, it's w_0.",01:08:35.109,01:08:36.130
+"It's the guy that gets multiplied
+by the constant.",01:08:36.130,01:08:38.720
+So what gives?,01:08:38.720,01:08:39.439
+"Now, I have two guys that
+play the same role.",01:08:39.439,01:08:42.460
+"And you don't have to worry about
+that. Have the Z space have 20",01:08:42.460,01:08:46.460
+constant coordinates.,01:08:46.460,01:08:48.210
+Don't worry about it.,01:08:48.210,01:08:49.100
+Because of what?,01:08:49.100,01:08:50.390
+"Because when you get the solution,
+all of the corresponding",01:08:50.390,01:08:53.700
+weights will go to 0.,01:08:53.700,01:08:55.229
+"And all the bulk of the
+bias will go to the b.",01:08:55.229,01:08:58.930
+How do I know that?,01:08:58.930,01:09:00.540
+"Because you are charged for the size
+of w_0 because it's part of w.",01:09:00.540,01:09:06.020
+You are minimizing half w transposed w.,01:09:06.020,01:09:09.590
+You're not charged for the size of b.,01:09:09.590,01:09:12.180
+"So obviously, if you want to minimize,
+and you can do it with both,",01:09:12.180,01:09:14.720
+"everything will go to the b,
+and this guy will go to 0.",01:09:14.720,01:09:17.140
+So no need to worry about that.,01:09:17.140,01:09:19.399
+"With that, we'll stop here,
+and we'll take questions",01:09:19.399,01:09:23.210
+after a short break.,01:09:23.210,01:09:24.460
+ ,01:09:24.460,01:09:28.279
+"So let's start the Q&amp;A. And
+we have an in-house question.",01:09:28.279,01:09:31.570
+ ,01:09:31.570,01:09:38.460
+STUDENT: Hi.,01:09:38.460,01:09:39.109
+"It seems intuitive to me that the
+number of support vectors goes",01:09:39.109,01:09:44.779
+"linearly with the dimension of the
+space that you're looking at.",01:09:44.779,01:09:49.439
+"For example, in an N-dimensional
+Euclidean space, you need N-vectors to",01:09:49.439,01:09:54.840
+"define an N-minus-1 dimensional hyperplane,
+and one other to define the",01:09:54.840,01:10:00.560
+"thickness of the fat plane, right?",01:10:00.560,01:10:02.875
+"PROFESSOR: It's not that
+easy, because I could get two clusters",01:10:02.875,01:10:09.690
+"that are far away of points, and then
+two points that are +1 and -1",01:10:09.690,01:10:14.260
+that are close to each other.,01:10:14.260,01:10:16.150
+"And in order to separate, I have
+to be sandwiched here.",01:10:16.150,01:10:19.000
+"And then, I am guided by these guys--
+I have the orientation here.",01:10:19.000,01:10:25.230
+"And the orientation is decided by the
+two points that are around me.",01:10:25.230,01:10:28.890
+"So in spite of the fact that in a general
+case, I will do that, I could",01:10:28.890,01:10:34.210
+"construct cases where it's not
+linear in the dimension.",01:10:34.210,01:10:38.910
+Let's put it this way.,01:10:38.910,01:10:39.700
+"STUDENT: So you're saying
+it's less than linear?",01:10:39.700,01:10:41.730
+It's better than linear?,01:10:41.730,01:10:42.990
+PROFESSOR: It's better.,01:10:42.990,01:10:45.260
+"And obviously if it was completely
+linear, and I transform it to the",01:10:45.260,01:10:49.090
+"infinite-dimensional space, I obviously
+would be in trouble.",01:10:49.090,01:10:50.930
+"STUDENT: Yes, that's my aim.",01:10:50.930,01:10:52.510
+"PROFESSOR: Ah, so that was
+that question, yes.",01:10:52.510,01:10:54.470
+"STUDENT: But it should go positively
+with the dimension.",01:10:54.470,01:10:57.070
+"PROFESSOR: It's likely
+to increase with",01:10:57.070,01:10:59.355
+the increasing dimension.,01:10:59.355,01:11:01.310
+"And the exact form depends on the data
+set, and depends on the position of the",01:11:01.310,01:11:07.900
+"data set, including the
+interior points.",01:11:07.900,01:11:09.320
+ ,01:11:09.320,01:11:13.390
+Let me put it this way.,01:11:13.390,01:11:14.030
+"If I give you, even without considering
+the interior points.",01:11:14.030,01:11:17.200
+"Let's say I give you two points,
+one +1 and one -1.",01:11:17.200,01:11:21.560
+There is an optimal separating plane.,01:11:21.560,01:11:23.890
+"And how many support vectors
+am I going to get?",01:11:23.890,01:11:27.440
+"I cannot get more than two because I
+only have two, even if I go to 100",01:11:27.440,01:11:30.070
+dimension space.,01:11:30.070,01:11:30.990
+"So the linearity is an impression that
+requires further assumptions.",01:11:30.990,01:11:37.690
+"But in general, it will not hold.",01:11:37.690,01:11:39.435
+"STUDENT: Yes and for example, the RBF
+kernel, it may in its form look like",01:11:39.435,01:11:45.240
+infinite-dimensional.,01:11:45.240,01:11:46.080
+"But in reality, I think its effective
+dimension is very small because the",01:11:46.080,01:11:50.900
+higher-order terms decay very fast.,01:11:50.900,01:11:54.890
+"So with both an exponential term
+and a factorial term--",01:11:54.890,01:11:59.590
+"PROFESSOR: Completely agree, and
+indeed that affects it because you",01:11:59.590,01:12:01.405
+"are actually measuring a distance
+proper, a Euclidean distance proper in",01:12:01.405,01:12:04.365
+that space.,01:12:04.365,01:12:05.070
+"So if a dimension is very small, then
+it doesn't affect it very much.",01:12:05.070,01:12:08.830
+ ,01:12:08.830,01:12:12.280
+"Whether it's really infinite dimension
+or infinite dimension in disguise.",01:12:12.280,01:12:18.030
+"In general, when you have an infinite-dimensional
+space, the only way to",01:12:18.030,01:12:20.120
+"really define an inner product
+is to have a decaying term so",01:12:20.120,01:12:23.470
+that the thing converges.,01:12:23.470,01:12:25.070
+"So this is essential when
+you want to compute it.",01:12:25.070,01:12:27.600
+"STUDENT: So it doesn't converge, so
+you changed the negative sign in the",01:12:27.600,01:12:30.250
+RBF kernel into positive signs?,01:12:30.250,01:12:32.870
+"Then, it won't be a valid kernel.",01:12:32.870,01:12:34.610
+"PROFESSOR: But the inner product now
+is not well defined, right?",01:12:34.610,01:12:36.960
+"STUDENT: So it won't be a valid
+kernel, and you'll get horrible--",01:12:36.960,01:12:39.800
+"PROFESSOR: Yeah, because a valid
+kernel, I have to be able to",01:12:39.800,01:12:42.560
+evaluate the inner product.,01:12:42.560,01:12:43.720
+"And lack of convergence would
+not allow that, right?",01:12:43.720,01:12:48.720
+"STUDENT: Yeah, OK, thanks.",01:12:48.720,01:12:50.080
+PROFESSOR: Absolutely.,01:12:50.080,01:12:51.330
+ ,01:12:51.330,01:12:53.314
+MODERATOR: People are curious.,01:12:53.314,01:12:55.050
+"How can you generalize SVM's
+to a regression case?",01:12:55.050,01:13:01.020
+"PROFESSOR: There's a huge body of
+knowledge for generalizing it.",01:13:01.020,01:13:05.710
+"And I didn't touch on
+it for two reasons.",01:13:05.710,01:13:07.700
+"Again pretty much like when I did the
+VC analysis, it's more technical.",01:13:07.700,01:13:11.800
+"And I get the basic concept without
+having to go through the technicality.",01:13:11.800,01:13:16.060
+"The other aspect is that the major
+success of support vector machines is",01:13:16.060,01:13:20.580
+really in classification.,01:13:20.580,01:13:22.890
+"They're not as successful, competitively,
+in regression.",01:13:22.890,01:13:27.790
+That's the practical experience.,01:13:27.790,01:13:29.630
+"So I have found that it's not worth the
+amount of time to go into that.",01:13:29.630,01:13:37.060
+"MODERATOR: So is it safe to assume,
+then, that if you do the",01:13:37.060,01:13:40.500
+"transformation to an infinite-dimensional
+space, the data will be",01:13:40.500,01:13:43.370
+linearly separable there?,01:13:43.370,01:13:45.880
+"PROFESSOR: It is
+safe but not certain.",01:13:45.880,01:13:47.850
+"I can create situations that
+are opposed to that.",01:13:47.850,01:13:52.050
+"But again, this is one of the reasons
+why I made the final remarks there.",01:13:52.050,01:13:55.740
+"Because let's say that I took my data
+and applied RBF, I needn't know",01:13:55.740,01:13:59.790
+"whether they would be linearly separable
+in that space or not.",01:13:59.790,01:14:02.040
+"I just apply the machinery, but I can
+always find the solution back and see",01:14:02.040,01:14:05.970
+"if the points are classified
+correctly.",01:14:05.970,01:14:09.300
+"MODERATOR: So a technical question
+on the quadratic programming.",01:14:09.300,01:14:11.790
+"Usually, if the matrix you give is
+not positive definite, there will be",01:14:11.790,01:14:17.910
+complaints by the--,01:14:17.910,01:14:19.530
+"or there would not be complaints
+in particular?",01:14:19.530,01:14:23.250
+"PROFESSOR: My experience with quadratic
+programming, there are tons",01:14:23.250,01:14:25.430
+of packages there.,01:14:25.430,01:14:26.130
+"So I'm describing a subset of them
+necessarily, the ones I tried.",01:14:26.130,01:14:30.570
+They tend to complain.,01:14:30.570,01:14:32.490
+"And it's almost like when you use MatLab
+and it tells you-- please get me",01:14:32.490,01:14:38.040
+the inverse.,01:14:38.040,01:14:38.840
+"And it tells you the condition
+number is bad, and so on.",01:14:38.840,01:14:43.190
+"So in most of the cases, even with the
+complaints, the solution is fine.",01:14:43.190,01:14:47.750
+"It just has a certain reliability
+that it has to have in",01:14:47.750,01:14:52.230
+order not to complain.,01:14:52.230,01:14:53.330
+"So invariably, when you use quadratic
+programming, there will be a complaint",01:14:53.330,01:14:56.870
+one way or another.,01:14:56.870,01:14:58.530
+"But I have learned not to be completely
+discouraged by that, and",01:14:58.530,01:15:02.840
+"tweak, limit variables, and whatnot.",01:15:02.840,01:15:04.780
+"But this is just completely
+a practical situation,",01:15:04.780,01:15:07.440
+depending on the package.,01:15:07.440,01:15:10.080
+"MODERATOR: Going back to
+a previous question.",01:15:10.080,01:15:11.660
+"So when you said safe but not certain,
+so does that mean just in very",01:15:11.660,01:15:15.920
+"degenerate cases, or--?",01:15:15.920,01:15:18.500
+"PROFESSOR: With a real data set
+that is not completely",01:15:18.500,01:15:23.360
+"ridiculous, I have never
+seen it happen.",01:15:23.360,01:15:29.530
+"In some sense, you can have--",01:15:29.530,01:15:30.980
+"especially with the radial basis function,
+you can have one on top of each point,",01:15:30.980,01:15:33.840
+so you can separate whatever is there.,01:15:33.840,01:15:37.790
+So I have not encountered it.,01:15:37.790,01:15:39.650
+ ,01:15:39.650,01:15:45.690
+MODERATOR: Another question.,01:15:45.690,01:15:46.280
+"Is it possible to combine kernels to
+produce new, different kernels?",01:15:46.280,01:15:50.280
+"How useful is it to do
+these kind of things?",01:15:50.280,01:15:53.450
+"PROFESSOR: You can do it as long
+as the combination is legitimate,",01:15:53.450,01:15:55.440
+"that it maintains that there
+is a Z space in which",01:15:55.440,01:15:57.780
+this is an inner product.,01:15:57.780,01:15:58.970
+That's really the requirement.,01:15:58.970,01:16:02.720
+"If you have that, then there are many
+variations of the methods, the basic",01:16:02.720,01:16:10.470
+SVM method that are in the literature.,01:16:10.470,01:16:11.790
+People tried several things.,01:16:11.790,01:16:13.760
+"And as long as what you're doing is
+legitimate, so that you have the",01:16:13.760,01:16:18.700
+"generalization guarantees
+of SVM, it can be done.",01:16:18.700,01:16:23.810
+"MODERATOR: Since we're only talking
+about inner products and they",01:16:23.810,01:16:26.060
+"usually induce a norm, are we always
+preferring the Euclidean norm, or can",01:16:26.060,01:16:32.410
+"it still be changed and still
+use inner products?",01:16:32.410,01:16:34.610
+"PROFESSOR: The way I derived
+it is based on Euclidean norm and",01:16:34.610,01:16:37.420
+straightforward inner product.,01:16:37.420,01:16:39.530
+"There are obviously variations of that
+that you can get, and still have the",01:16:39.530,01:16:43.660
+"machinery go through with
+modified quantities.",01:16:43.660,01:16:47.150
+So it's not impossible.,01:16:47.150,01:16:49.010
+"But you just need to make sure that
+the quadratic programming problem",01:16:49.010,01:16:52.415
+"you're solving corresponds to the
+version of the norm that you used and",01:16:52.415,01:16:56.740
+"the version of the inner
+product that you used.",01:16:56.740,01:16:59.670
+"MODERATOR: What would you say is the
+scale of the problems that can be",01:16:59.670,01:17:03.610
+"solved by SVM's, in the number
+of points?",01:17:03.610,01:17:07.765
+"PROFESSOR: The scale of problems
+that can be solved by",01:17:07.765,01:17:10.390
+"quadratic programming is a more pointed
+question, because that's the",01:17:10.390,01:17:12.770
+bottleneck.,01:17:12.770,01:17:14.300
+"It depends on if you're using MatLab
+versus something else, they get",01:17:14.300,01:17:22.600
+saturated at different stages.,01:17:22.600,01:17:24.970
+"I would say if you get to 10,000 points,
+that's pretty formidable.",01:17:24.970,01:17:28.860
+"And if you're below 1000,
+you should be OK.",01:17:28.860,01:17:32.600
+"But some packages will still
+give you a hard time.",01:17:32.600,01:17:37.010
+"There are packages specifically
+for SVM that use heuristics.",01:17:37.010,01:17:40.580
+"So they don't specifically pass on the
+thing to quadratic programming",01:17:40.580,01:17:43.810
+"directly, but try to break it into
+pieces, get support vectors for each",01:17:43.810,01:17:47.510
+"case, and then get the union
+and so on, the hierarchical",01:17:47.510,01:17:50.090
+methods and other methods.,01:17:50.090,01:17:51.300
+"So they are basically heuristic
+methods for solving SVM when",01:17:51.300,01:17:55.080
+"straightforward quadratic
+programming will fail.",01:17:55.080,01:17:57.070
+"And these are also available, and should
+be used when you have too many",01:17:57.070,01:18:00.750
+data points.,01:18:00.750,01:18:02.000
+ ,01:18:02.000,01:18:07.130
+MODERATOR: I think that's it.,01:18:07.130,01:18:08.910
+PROFESSOR: Very good.,01:18:08.910,01:18:09.180
+We'll see you on Thursday.,01:18:09.180,01:18:10.430
+ ,01:18:10.430,01:18:18.866

@@ -1,0 +1,2267 @@
+text,start,stop
+"ANNOUNCER: The following program
+is brought to you by Caltech.",00:00:00.580,00:00:03.270
+YASER ABU-MOSTAFA: Welcome back.,00:00:17.890,00:00:19.140
+"Last time, we introduced
+the learning problem.",00:00:21.230,00:00:25.490
+"And if you have an application in your
+domain that you wonder if machine",00:00:25.490,00:00:30.820
+"learning is the right technique for
+it, we found that there are three",00:00:30.820,00:00:34.360
+criteria that you should check.,00:00:34.360,00:00:37.320
+"You should ask yourself: is
+there a pattern to begin",00:00:37.320,00:00:40.460
+with that we can learn?,00:00:40.460,00:00:42.430
+"And we realize that this condition can be
+intuitively met in many applications,",00:00:42.430,00:00:49.230
+"even if we don't know mathematically
+what the pattern is.",00:00:49.230,00:00:52.270
+"The example we gave was the
+credit card approval.",00:00:52.270,00:00:55.290
+"There is clearly a pattern-- if someone
+has a particular salary, has",00:00:55.290,00:00:58.380
+"been in a residence for so long, has
+that much debt, and so on, that this",00:00:58.380,00:01:02.420
+"is somewhat correlated to
+their credit behavior.",00:01:02.420,00:01:06.520
+"And therefore, we know that the pattern
+exists in spite of the fact",00:01:06.520,00:01:09.610
+"that we don't know exactly
+what the pattern is.",00:01:09.610,00:01:13.230
+"The second item is that we cannot pin
+down the pattern mathematically, like",00:01:13.230,00:01:18.520
+the example I just gave.,00:01:18.520,00:01:19.990
+"And this is why we resort
+to machine learning.",00:01:19.990,00:01:23.240
+"The third one is that we have data
+that represents that pattern.",00:01:23.240,00:01:27.570
+"In the case of the credit application,
+for example, there are historical",00:01:27.570,00:01:30.970
+"records of previous customers, and we
+have the data they wrote in their",00:01:30.970,00:01:35.940
+"application when they applied, and we
+have some years' worth of record of",00:01:35.940,00:01:40.400
+their credit behavior.,00:01:40.400,00:01:41.910
+"So we have data that are going to enable
+us to correlate what they wrote in the",00:01:41.910,00:01:46.500
+"application to their eventual credit
+behavior, and that is what we are",00:01:46.500,00:01:50.210
+going to learn from.,00:01:50.210,00:01:52.090
+"Now, if you look at the three criteria,
+basically there are two that",00:01:52.090,00:01:55.960
+"you can do without, and one that
+is absolutely essential.",00:01:55.960,00:02:00.130
+What do I mean?,00:02:00.130,00:02:02.020
+"Let's say that you don't
+have a pattern.",00:02:02.020,00:02:04.890
+"Well, if you don't have a pattern,
+then you can try learning.",00:02:04.890,00:02:10.039
+"And the only problem is
+that you will fail.",00:02:10.039,00:02:13.290
+That doesn't sound very encouraging.,00:02:13.290,00:02:16.050
+"But the idea here is that, when we develop
+the theory of learning, we will",00:02:16.050,00:02:20.340
+"realize that you can apply the technique
+regardless of whether there",00:02:20.340,00:02:24.370
+is a pattern or not.,00:02:24.370,00:02:26.010
+"And you are going to determine whether
+there's a pattern or not.",00:02:26.010,00:02:30.070
+"So you are not going to be fooled and
+think, I learned, and then give the",00:02:30.070,00:02:33.360
+"system to your customer, and the
+customer will be disappointed.",00:02:33.360,00:02:36.330
+"There is something you can actually
+measure that will tell you whether you",00:02:36.330,00:02:39.460
+learned or not.,00:02:39.460,00:02:40.710
+"So if there's no pattern, there is no
+harm done in trying machine learning.",00:02:40.710,00:02:46.110
+"The other one, also,
+you can do without.",00:02:46.110,00:02:48.860
+"Let's say that we can pin the
+thing down mathematically.",00:02:48.860,00:02:51.950
+"Well, in that case, machine learning
+is not the recommended technique.",00:02:52.760,00:02:55.580
+It will still work.,00:02:55.580,00:02:57.120
+It may not be the optimal technique.,00:02:57.120,00:02:58.660
+"If you can outright program it, and
+find the result perfectly, then why",00:02:58.660,00:03:02.570
+"bother generate examples, and try to
+learn, and go through all of that?",00:03:02.570,00:03:06.720
+"But machine learning is
+not going to refuse.",00:03:06.720,00:03:09.010
+"It is going to learn, and it is
+going to give you a system.",00:03:09.010,00:03:11.520
+"It may not be the best system in this
+case, but it's a system nonetheless.",00:03:11.520,00:03:15.570
+"The third one, I'm afraid
+you cannot do without.",00:03:15.570,00:03:19.040
+You have to have data.,00:03:19.040,00:03:20.960
+"Machine learning is about
+learning from data.",00:03:20.960,00:03:23.600
+"And if you don't have data, there is
+absolutely nothing you can do.",00:03:23.600,00:03:26.920
+"So this is basically the picture about
+the context of machine learning.",00:03:26.920,00:03:31.750
+"Now, we went on to focus on one type,
+which is supervised learning.",00:03:31.750,00:03:36.650
+"And in the case of supervised learning,
+we have a target function.",00:03:36.650,00:03:41.860
+"The target function we
+are going to call f.",00:03:41.860,00:03:44.780
+That is our standard notation.,00:03:44.780,00:03:46.830
+"And this corresponds, for example,
+to the credit application.",00:03:46.830,00:03:49.790
+"x is your application, and f of x is
+whether you are a good credit risk or",00:03:49.790,00:03:55.760
+"not, for the bank.",00:03:55.760,00:03:57.430
+"So if you look at the target function,
+the main criterion about the target",00:03:57.430,00:04:02.710
+function is that it's unknown.,00:04:02.710,00:04:05.140
+"This is a property that we
+are going to insist on.",00:04:05.140,00:04:07.970
+"And obviously, unknown is a very generous
+assumption, which means that",00:04:07.970,00:04:13.140
+"you don't have to worry about what
+pattern you are trying to learn.",00:04:13.140,00:04:15.980
+"It could be anything, and you will learn
+it-- if we manage to do that.",00:04:15.980,00:04:19.310
+"There's still a question
+mark about that.",00:04:19.310,00:04:21.470
+"But it's a good assumption to have, or
+lack of assumption, if you will,",00:04:21.470,00:04:25.710
+"because then you know that you don't
+worry about the environment that",00:04:25.710,00:04:29.740
+generated the examples.,00:04:29.740,00:04:30.660
+"You only worry about the system that you
+use to implement machine learning.",00:04:30.660,00:04:35.396
+"Now, you are going to be given data.",00:04:35.396,00:04:37.840
+"And the reason it's called supervised
+learning is that you are not only",00:04:37.840,00:04:40.660
+"given the input x's, as
+you can see here.",00:04:40.660,00:04:43.370
+You're also given the output--,00:04:43.370,00:04:45.100
+the target outputs.,00:04:45.100,00:04:46.590
+"So in spite of the fact that the target
+function is generally unknown,",00:04:46.590,00:04:49.810
+"it is known on the data
+that I give you.",00:04:49.810,00:04:52.380
+"This is the data that you are going to
+use as training examples, and that you",00:04:52.380,00:04:56.105
+"are going to use to figure out
+what the target function is.",00:04:56.105,00:04:59.440
+"So in the case of supervised learning,
+you have the targets",00:04:59.440,00:05:02.470
+explicitly.,00:05:02.470,00:05:04.080
+"In the other cases, you have less
+information than the target, and we",00:05:04.080,00:05:07.150
+"talked about it-- like unsupervised
+learning, where you don't have",00:05:07.150,00:05:09.280
+"anything, and reinforcement learning,
+where you have partial information,",00:05:09.280,00:05:12.610
+"which is just a reward or punishment
+for a choice of a value of y that",00:05:12.610,00:05:17.190
+may or may not be the target.,00:05:17.190,00:05:19.920
+"Finally, you have the solution tools.",00:05:19.920,00:05:21.830
+"These are the things that you're going
+to choose in order to solve the",00:05:21.830,00:05:24.360
+"problem, and they are called the learning
+model, as we discussed.",00:05:24.360,00:05:28.040
+"They are the learning algorithm
+and the hypothesis set.",00:05:28.040,00:05:30.950
+"And the learning algorithm will
+produce a hypothesis--",00:05:30.950,00:05:34.390
+"the final hypothesis, the one that you
+are going to give your customer, and",00:05:34.390,00:05:38.420
+we give the symbol g for that.,00:05:38.420,00:05:40.680
+"And hopefully g approximates f,
+the actual target function,",00:05:40.680,00:05:44.150
+which remains unknown.,00:05:44.150,00:05:45.590
+"And g is picked from a hypothesis set,
+and the general the symbol for",00:05:45.590,00:05:50.340
+"a member of the hypothesis
+set is h.",00:05:50.340,00:05:52.870
+So h is a generic hypothesis.,00:05:52.870,00:05:55.160
+"The one you happen to pick,
+you are going to call g.",00:05:55.160,00:05:59.330
+"Now, we looked at an example
+of a learning algorithm.",00:05:59.330,00:06:02.250
+"First, the learning model-- the
+perceptron itself, which is a linear",00:06:02.250,00:06:07.140
+"function, thresholded.",00:06:07.140,00:06:08.560
+That happens to be the hypothesis set.,00:06:08.560,00:06:10.730
+"And then, there is an algorithm that
+goes with it that chooses which",00:06:10.730,00:06:14.700
+"hypothesis to report
+based on the data.",00:06:14.700,00:06:17.130
+"And the hypothesis in this case is
+represented by the purple line.",00:06:17.130,00:06:20.220
+"Different hypotheses in the
+set H will result",00:06:20.220,00:06:24.970
+in different lines.,00:06:24.970,00:06:25.660
+"Some of them are good and some of them
+are bad, in terms of separating",00:06:25.660,00:06:28.440
+"correctly the examples which
+are the pluses and minuses.",00:06:28.440,00:06:32.830
+"And we found that there's a very simple
+rule to adjust the current",00:06:32.830,00:06:36.510
+"hypothesis, while the algorithm is still
+running, in order to get a better",00:06:36.510,00:06:39.890
+hypothesis.,00:06:39.890,00:06:40.790
+"And once you have all the points
+classified correctly, which is",00:06:40.790,00:06:43.780
+"guaranteed in the case of the perceptron
+learning algorithm if the",00:06:43.780,00:06:46.730
+"data was linearly separable
+in the first place,",00:06:46.730,00:06:49.510
+"then you will get there, and that will
+be the g that you are going to report.",00:06:49.510,00:06:54.960
+"Now, we ended the lecture on sort of
+a sad note, because after all of this",00:06:54.960,00:06:59.050
+"encouragement about learning,
+we asked ourselves: well,",00:06:59.050,00:07:01.900
+can we actually learn?,00:07:01.900,00:07:04.270
+"So we said
+it's an unknown function.",00:07:04.270,00:07:06.755
+"Unknown function is an attractive
+assumption, as I said.",00:07:06.755,00:07:10.050
+"But can we learn an unknown
+function, really?",00:07:10.050,00:07:13.000
+"And then we realized that if you look at
+it, it's really impossible.",00:07:13.000,00:07:16.580
+Why is it impossible?,00:07:16.580,00:07:18.120
+"Because I'm going to give you a finite
+data set, and I'm going to give you",00:07:18.120,00:07:22.360
+the value of the function on this set.,00:07:22.360,00:07:24.500
+Good.,00:07:24.500,00:07:25.830
+"Now, I'm going to ask you what is
+the function outside that set?",00:07:25.830,00:07:30.100
+"How in the world are you going to tell
+what the function is outside, if the",00:07:30.100,00:07:33.710
+function is genuinely unknown?,00:07:33.710,00:07:35.735
+Couldn't it assume any value it wants?,00:07:35.735,00:07:38.900
+"Yes, it can.",00:07:38.900,00:07:40.270
+"I can give you 1000 points, a million
+points, and on the million-and-first point,",00:07:40.270,00:07:46.170
+"still the function can behave
+any way it wants.",00:07:46.170,00:07:49.300
+"So it doesn't look like the statement
+we made is feasible in terms of",00:07:49.300,00:07:53.850
+"learning, and therefore we have
+to do something about it.",00:07:53.850,00:07:57.190
+"And what we are going to do about it
+is the subject of this lecture.",00:07:57.190,00:08:03.220
+"Now, the lecture is called
+Is Learning Feasible?",00:08:03.220,00:08:06.300
+"And I am going to address this question
+in extreme detail from",00:08:06.300,00:08:13.040
+beginning to end.,00:08:13.040,00:08:14.590
+"This is the only topic
+for this lecture.",00:08:14.590,00:08:17.410
+"Now, if you want an outline--",00:08:19.170,00:08:21.100
+it's really a logical flow.,00:08:21.100,00:08:22.920
+"But if you want to cluster
+it into points--",00:08:22.920,00:08:25.010
+"we are going to start with
+a probabilistic situation, that is a very",00:08:25.010,00:08:28.210
+simple probabilistic situation.,00:08:28.210,00:08:29.880
+It doesn't seem to relate to learning.,00:08:29.880,00:08:32.059
+But it will capture the idea--,00:08:32.059,00:08:34.500
+"can we say something outside the
+sample data that we have?",00:08:34.500,00:08:39.429
+"So we're going to answer it in a way
+that is concrete, and where the",00:08:39.429,00:08:42.820
+mathematics is very friendly.,00:08:42.820,00:08:44.990
+"And then after that, I'm going to be
+able to relate that probabilistic",00:08:44.990,00:08:48.670
+situation to learning as we stated.,00:08:48.670,00:08:51.360
+It will take two stages.,00:08:51.360,00:08:52.790
+"First, I will just translate the
+expressions into something that",00:08:52.790,00:08:56.220
+"relates to learning, and then we will
+move forward and make it correspond to",00:08:56.220,00:09:01.610
+real learning.,00:09:01.610,00:09:03.300
+That's the last one.,00:09:03.300,00:09:04.320
+"And then after we do that, and we think
+we are done, we find that there is",00:09:04.320,00:09:07.520
+a serious dilemma that we have.,00:09:07.520,00:09:09.450
+"And we will find a solution to that
+dilemma, and then declare victory-- that",00:09:09.450,00:09:13.290
+"indeed, learning is feasible
+in a very particular sense.",00:09:13.290,00:09:18.130
+"So let's start with the experiment
+that I talked about.",00:09:18.640,00:09:22.310
+Consider the following situation.,00:09:22.310,00:09:24.716
+"You have a bin, and the
+bin has marbles.",00:09:24.716,00:09:28.350
+The marbles are either red or green.,00:09:28.350,00:09:32.740
+That's what it looks like.,00:09:32.740,00:09:34.950
+"And we are going to do an experiment
+with this bin.",00:09:34.950,00:09:40.170
+"And the experiment is to pick
+a sample from the bin--",00:09:40.170,00:09:43.510
+some marbles.,00:09:43.510,00:09:44.790
+"Let's formalize what the probability
+distribution is.",00:09:44.790,00:09:48.020
+"There is a probability of picking
+a red marble, and let's call it mu.",00:09:48.020,00:09:52.410
+"So now you think of mu as the
+probability of a red marble.",00:09:55.320,00:09:59.180
+"Now, the bin is really just a visual
+aid to make us relate to the",00:09:59.180,00:10:03.110
+experiment.,00:10:03.110,00:10:03.830
+"You can think of this abstractly
+as a binary experiment--",00:10:03.830,00:10:07.560
+"two outcomes, red or green.",00:10:07.560,00:10:09.360
+"Probability of red is mu,
+independently from",00:10:09.360,00:10:11.530
+one point to another.,00:10:11.530,00:10:13.040
+"If you want to stick to the bin, you can
+say the bin has an infinite number",00:10:13.040,00:10:16.100
+"of marbles and the fraction
+of red marbles is mu.",00:10:16.100,00:10:19.250
+"Or maybe it has a finite number of
+marbles, and you are going to pick the",00:10:19.250,00:10:22.410
+"marbles, but replace them.",00:10:22.410,00:10:24.740
+"But the idea now is that every time you
+reach in the bin, the probability",00:10:24.740,00:10:28.310
+of picking a red marble is mu.,00:10:28.310,00:10:30.440
+That's the rule.,00:10:30.440,00:10:31.690
+"Now, there's a probability of
+picking a green marble.",00:10:33.630,00:10:35.930
+And what might that be?,00:10:35.930,00:10:38.670
+That must be 1 minus mu.,00:10:38.670,00:10:41.360
+So that's the setup.,00:10:41.360,00:10:42.610
+"Now, the value of mu is unknown to us.",00:10:44.950,00:10:47.680
+"So in spite of the fact that you can
+look at this particular bin and see",00:10:47.680,00:10:50.550
+"there's less red than green,
+so mu must be small.",00:10:50.550,00:10:54.010
+and all of that.,00:10:54.010,00:10:54.790
+You don't have that advantage in real.,00:10:54.790,00:10:57.930
+"The bin is opaque-- it's sitting there,
+and I reach for it like this.",00:10:57.930,00:11:03.200
+"So now that I declare mu is unknown,
+you probably see",00:11:03.200,00:11:06.370
+where this is going.,00:11:06.370,00:11:08.190
+"Unknown is a famous word from last lecture,
+and that will be the link to",00:11:08.190,00:11:11.800
+what we have.,00:11:11.800,00:11:14.340
+"Now, we pick N marbles independently.",00:11:14.340,00:11:18.910
+"Capital N. And I'm using the same
+notation for N, which is the",00:11:18.910,00:11:22.450
+"number of data points in
+learning, deliberately.",00:11:22.450,00:11:26.180
+So the sample will look like this.,00:11:26.180,00:11:29.070
+"And it will have some
+red and some green.",00:11:29.070,00:11:31.020
+It's a probabilistic situation.,00:11:31.020,00:11:33.430
+"And we are going to call the fraction
+of marbles in the sample--",00:11:33.430,00:11:40.940
+"this now is a probabilistic
+quantity.",00:11:40.940,00:11:42.830
+"mu is an unknown constant
+sitting there.",00:11:42.830,00:11:45.660
+"If you pick a sample, someone else picks
+a sample, you will have a different",00:11:45.660,00:11:49.210
+"frequency in sample from
+the other person.",00:11:49.210,00:11:51.540
+And we are going to call it nu.,00:11:51.540,00:11:56.120
+"Now, interestingly enough, nu also
+should appear in the figure.",00:11:56.120,00:12:00.740
+"So it says nu equals fraction
+of red marbles.",00:12:00.740,00:12:03.780
+So that's where it lies.,00:12:03.780,00:12:05.570
+Here is nu!,00:12:05.790,00:12:07.270
+"For some reason that I don't understand,
+the app wouldn't show nu",00:12:07.270,00:12:10.740
+in the figures.,00:12:10.740,00:12:13.070
+"So I decided maybe the app is actually
+a machine learning expert.",00:12:13.070,00:12:16.700
+It doesn't like things in sample.,00:12:16.700,00:12:18.950
+It only likes things that are real.,00:12:18.950,00:12:21.010
+So it knows that nu is not important.,00:12:21.010,00:12:22.930
+It's not an indication.,00:12:22.930,00:12:23.860
+"We are really interested in
+knowing what's outside.",00:12:23.860,00:12:25.910
+"So it kept the mu, but actually
+deleted the nu.",00:12:25.910,00:12:28.500
+"At least that's what we are going to
+believe for the rest of the lecture.",00:12:28.500,00:12:32.720
+"Now, this is the bin.",00:12:32.720,00:12:35.380
+"So now, the next step is to ask ourselves
+the question we asked in",00:12:35.380,00:12:40.290
+machine learning.,00:12:40.290,00:12:41.740
+"Does nu, which is the sample frequency,
+tell us anything about mu,",00:12:41.740,00:12:47.810
+"which is the actual frequency in the bin
+that we are interested in knowing?",00:12:47.810,00:12:53.790
+The short answer--,00:12:53.790,00:12:56.690
+this is to remind you what it is.,00:12:56.690,00:12:58.080
+The short answer is no.,00:12:58.080,00:13:02.490
+Why?,00:13:02.490,00:13:04.890
+"Because the sample can be mostly green,
+while the bin is mostly red.",00:13:04.890,00:13:14.870
+Anybody doubts that?,00:13:14.870,00:13:18.880
+"The thing could have 90% red,
+and I pick 100 marbles, and all",00:13:18.880,00:13:26.310
+of them happen to be green.,00:13:26.310,00:13:28.640
+"This is possible, correct?",00:13:28.640,00:13:31.570
+"So if I ask you what is actually mu, you
+really don't know from the sample.",00:13:31.570,00:13:35.400
+"You don't know anything about the
+marbles you did not pick.",00:13:35.400,00:13:38.020
+"Well, that's the short answer.",00:13:40.950,00:13:42.420
+The long answer is yes.,00:13:42.420,00:13:47.840
+"Not because no and yes, but
+this is more elaborate.",00:13:47.840,00:13:50.480
+"We have to really discuss a lot
+in order to get there.",00:13:50.480,00:13:54.020
+So why is it yes?,00:13:54.020,00:13:55.960
+"Because if you know a little bit about
+probability, you realize that if the",00:13:55.960,00:14:03.330
+"sample is big enough, the sample
+frequency, which is nu-- the mysterious",00:14:03.330,00:14:09.090
+"disappearing quantity here-- that
+is likely to be close to mu.",00:14:09.090,00:14:16.800
+Think of a presidential poll.,00:14:16.800,00:14:19.810
+"There are maybe 100 million or more
+voters in the US, and you make a poll",00:14:19.810,00:14:25.230
+of 3000 people.,00:14:25.230,00:14:26.740
+"You have 3000 marbles, so to speak.",00:14:26.740,00:14:29.660
+"And you look at the result in the
+marbles, and you tell me how the 100",00:14:29.660,00:14:32.460
+million will vote.,00:14:32.460,00:14:33.610
+How the heck did you know that?,00:14:33.610,00:14:36.240
+So now the statistics come in.,00:14:36.240,00:14:37.880
+"That's where the probability
+plays a role.",00:14:37.880,00:14:40.450
+"And the main distinction between
+the two answers is",00:14:40.450,00:14:43.510
+possible versus probable.,00:14:43.510,00:14:46.620
+"In science and in engineering, you go
+a huge distance by settling for not",00:14:46.620,00:14:52.060
+"absolutely certain, but
+almost certain.",00:14:52.060,00:14:55.000
+"It opens a world of possibilities,
+and this is one of the",00:14:55.000,00:14:57.950
+possibilities that it opens.,00:14:57.950,00:14:59.200
+"So now we know that, from
+a probabilistic point of view, nu does",00:15:01.980,00:15:06.920
+tell me something about mu.,00:15:06.920,00:15:08.070
+"The sample frequency tells me
+something about the bin.",00:15:08.070,00:15:10.610
+So what does it exactly say?,00:15:10.610,00:15:13.500
+"Now we go into a mathematical
+formulation.",00:15:13.500,00:15:15.985
+"In words, it says: in a big sample,
+nu, the sample frequency,",00:15:19.110,00:15:24.370
+"should be close to mu,
+the bin frequency.",00:15:24.370,00:15:27.940
+"So now, the symbols that go with
+that-- what is a big sample?",00:15:28.690,00:15:32.690
+"Large N, our parameter N.",00:15:32.690,00:15:35.690
+"And how do we say that
+nu is close to mu?",00:15:35.690,00:15:39.100
+We say that they are within epsilon.,00:15:39.100,00:15:43.720
+That is our criterion.,00:15:43.720,00:15:45.780
+"Now, with this in mind, we are
+going to formalize this.",00:15:45.780,00:15:50.130
+"The formula that I'm going to show
+you is a formula that is going to",00:15:50.130,00:15:54.500
+"stay with us for the
+rest of the course.",00:15:54.500,00:15:56.330
+I would like you to pay attention.,00:15:56.330,00:15:57.840
+And I'm going to build it gradually.,00:15:57.840,00:16:01.440
+"We are going to say that the probability
+of something is small.",00:16:01.440,00:16:09.580
+"So we're going to say that it's less
+than or equal to, and hopefully the",00:16:09.580,00:16:12.120
+"right-hand side will be
+a small quantity.",00:16:12.120,00:16:15.000
+"Now if I am claiming that the
+probability of something is small, it",00:16:15.000,00:16:18.880
+must be that that thing is a bad event.,00:16:18.880,00:16:22.110
+I don't want it to happen.,00:16:22.110,00:16:24.030
+"So we have a probability of something
+bad happening being small.",00:16:24.030,00:16:28.760
+"What is a bad event in the context
+we are talking about?",00:16:28.760,00:16:32.180
+"It is that nu does not
+approximate mu well.",00:16:35.860,00:16:40.220
+"They are not within epsilon
+of each other.",00:16:40.220,00:16:42.810
+"And if you look at it, here you have
+nu minus mu in absolute value, so",00:16:42.810,00:16:47.510
+"that's the difference
+in absolute value.",00:16:47.510,00:16:49.840
+"That happens to be bigger
+than epsilon.",00:16:49.840,00:16:51.670
+"So that's bad, because that tells us
+that they are further away from our",00:16:51.670,00:16:56.110
+tolerance epsilon.,00:16:56.110,00:16:57.700
+We don't want that to happen.,00:16:57.700,00:16:59.460
+"And we would like the probability
+of that happening to",00:16:59.460,00:17:02.120
+be as small as possible.,00:17:02.120,00:17:04.080
+"Well, how small can we guarantee it?",00:17:04.080,00:17:06.569
+Good news.,00:17:09.230,00:17:11.670
+It's e to the minus N.,00:17:11.670,00:17:13.990
+It's a negative exponential.,00:17:13.990,00:17:16.060
+"That is great, because negative
+exponentials tend to die very fast.",00:17:16.060,00:17:20.190
+"So if you get a bigger sample, this
+will be diminishingly small",00:17:20.190,00:17:23.230
+probability.,00:17:23.230,00:17:24.240
+"So the probability of something bad
+happening will be very small, and we",00:17:24.240,00:17:27.630
+"can claims that, indeed, nu will be
+within epsilon from mu, and we will be",00:17:27.630,00:17:33.530
+"wrong for a very minute
+amount of the time.",00:17:33.530,00:17:36.820
+But that's the good news.,00:17:36.820,00:17:39.680
+Now the bad news--,00:17:39.680,00:17:41.310
+ouch!,00:17:41.310,00:17:43.610
+Epsilon is our tolerance.,00:17:43.610,00:17:45.630
+"If you're a very tolerant
+person, you say:",00:17:45.630,00:17:47.670
+"I just want nu and mu to be
+within, let's say, 0.1.",00:17:47.670,00:17:52.080
+That's not very much to ask.,00:17:52.080,00:17:54.630
+"Now, the price you pay for that is
+that you plug in the exponent",00:17:54.630,00:17:59.220
+"not epsilon, but epsilon squared.",00:17:59.220,00:18:01.650
+So that becomes 0.01.,00:18:01.650,00:18:04.140
+"0.01 will dampen N significantly, and
+you lose a lot of the benefit of the",00:18:04.140,00:18:09.170
+negative exponential.,00:18:09.170,00:18:11.290
+"And if you are more stringent and
+you say, I really want nu",00:18:11.290,00:18:15.045
+to be close to mu.,00:18:15.045,00:18:15.660
+I am not fooling around here.,00:18:15.660,00:18:17.480
+"So I am going to pick epsilon
+to be 10 to the minus 6.",00:18:17.480,00:18:20.790
+Good for you.,00:18:20.790,00:18:22.020
+10 to the minus 6?,00:18:22.020,00:18:23.150
+Pay the price for it.,00:18:23.150,00:18:24.510
+"You go here, and now that's
+10 to the minus 12.",00:18:24.510,00:18:27.950
+"That will completely kill any
+N you will ever encounter.",00:18:27.950,00:18:31.260
+"So the exponent now will
+be around zero.",00:18:31.260,00:18:34.170
+"So this probability will be around
+1, if that was the final answer.",00:18:34.170,00:18:37.360
+That's not yet the final answer.,00:18:37.360,00:18:38.850
+"So now, you know that the probability
+is less than or equal to 1.",00:18:38.850,00:18:41.830
+Congratulations!,00:18:41.830,00:18:43.170
+"You knew that already.
+[LAUGHTER]",00:18:43.170,00:18:44.960
+"Well, this is almost the formula,
+but it's not quite.",00:18:46.300,00:18:51.520
+What we need is fairly trivial.,00:18:51.520,00:18:54.590
+"We just put 2 here, and 2 there.",00:18:54.590,00:18:57.810
+"Now, between you and me, I prefer
+the original formula",00:18:57.810,00:19:01.400
+"better, without the 2's.",00:19:01.400,00:19:03.400
+"However, the formula with the 2's has the
+distinct advantage of being: true. [LAUGHTER]",00:19:03.400,00:19:11.150
+So we have to settle for that.,00:19:11.150,00:19:13.550
+"Now that inequality is called
+Hoeffding's Inequality.",00:19:13.550,00:19:20.720
+"It is the main inequality we are going
+to be using in the course.",00:19:20.720,00:19:24.730
+You can look for the proof.,00:19:24.730,00:19:26.910
+It's a basic proof in mathematics.,00:19:26.910,00:19:28.350
+"It's not that difficult, but
+definitely not trivial.",00:19:28.350,00:19:31.380
+"And we are going to use it all the way--
+and this is the same formula",00:19:31.380,00:19:35.790
+"that will get us to prove something
+about the VC dimension.",00:19:35.790,00:19:38.265
+"If the buzzword 'VC dimension' means
+anything to you, it will come from",00:19:38.265,00:19:42.200
+this after a lot of derivation.,00:19:42.200,00:19:44.590
+"So this is the building block that
+you have to really know cold.",00:19:44.590,00:19:48.235
+"Now, if you want to translate the
+Hoeffding Inequality into words, what",00:19:51.980,00:19:56.970
+"we have been talking about is that
+we would like to make the",00:19:56.970,00:20:00.280
+statement: mu equals nu.,00:20:00.280,00:20:03.020
+That would be the ultimate.,00:20:03.020,00:20:04.140
+"I look at the in-sample frequency, that's
+the out-of-sample frequency.",00:20:04.140,00:20:06.780
+That's the real frequency out there.,00:20:06.780,00:20:09.150
+But that's not the case.,00:20:09.150,00:20:10.880
+"We actually are making the statement
+mu equals nu, but we're not",00:20:10.880,00:20:15.380
+making the statement--,00:20:15.380,00:20:16.170
+we are making a PAC statement.,00:20:16.170,00:20:19.690
+"And that stands for: this statement is
+probably, approximately, correct.",00:20:19.690,00:20:30.520
+Probably because of this.,00:20:30.520,00:20:34.590
+"This is small, so the probability
+of violation is small.",00:20:34.590,00:20:37.740
+Approximately because of this.,00:20:37.740,00:20:39.530
+We are not saying that mu equals nu.,00:20:39.530,00:20:42.050
+"We are saying that they are
+close to each other.",00:20:42.050,00:20:44.950
+"And that theme will remain
+with us in learning.",00:20:44.950,00:20:48.010
+"So we put the glorified Hoeffding's
+Inequality at the top, and we spend",00:20:51.020,00:20:55.190
+a viewgraph analyzing what it means.,00:20:55.190,00:20:59.130
+"In case you forgot what nu and
+mu are, I put the figure.",00:20:59.130,00:21:02.610
+So mu is the frequency within the bin.,00:21:02.610,00:21:08.040
+"This is the unknown quantity
+that we want to tell.",00:21:08.040,00:21:10.510
+"And nu is the disappearing quantity
+which happens to be the frequency in",00:21:10.510,00:21:13.990
+the sample you have.,00:21:13.990,00:21:15.660
+"So what about the Hoeffding
+Inequality?",00:21:16.920,00:21:20.470
+"Well, one attraction of this
+inequality is that it is valid for",00:21:20.470,00:21:25.560
+"every N, positive integer, and every
+epsilon which is greater than zero.",00:21:25.560,00:21:31.590
+"Pick any tolerance you want, and
+for any number of examples you",00:21:31.590,00:21:35.370
+"want, this is true.",00:21:35.370,00:21:36.730
+It's not an asymptotic result.,00:21:36.730,00:21:38.600
+"It's a result that holds for
+every N and epsilon.",00:21:38.600,00:21:41.180
+"That's a very attractive proposition
+for something that has",00:21:41.180,00:21:43.640
+an exponential in it.,00:21:43.640,00:21:46.060
+"Now, Hoeffding Inequality belongs to
+a large class of mathematical laws,",00:21:46.060,00:21:50.690
+"which are called the Laws
+of Large Numbers.",00:21:50.690,00:21:54.170
+"So this is one law of large numbers,
+one form of it, and",00:21:54.170,00:21:57.120
+there are tons of them.,00:21:57.120,00:21:58.710
+"This happens to be one of the
+friendliest, because it's not",00:21:58.710,00:22:01.100
+"asymptotic, and happens to have
+an exponential in it.",00:22:01.100,00:22:03.290
+"Now, one observation here is that if you
+look at the left-hand side, we are",00:22:06.630,00:22:12.470
+computing this probability.,00:22:12.470,00:22:14.080
+"This probability patently
+depends on mu.",00:22:14.080,00:22:17.680
+"mu appears explicitly in it, and
+also mu affects the probability",00:22:17.680,00:22:22.430
+distribution of nu.,00:22:22.430,00:22:23.680
+"Nu is the sample, in N
+marbles you picked.",00:22:23.680,00:22:26.830
+"That's a very simple binomial
+distribution.",00:22:26.830,00:22:29.400
+"You can find the probability that
+nu equals anything based on",00:22:29.400,00:22:33.150
+the value of mu.,00:22:33.150,00:22:34.760
+"So the probability that this quantity,
+which depends on mu, exceeds epsilon--",00:22:34.760,00:22:40.220
+"the probability itself
+does depend on mu.",00:22:40.220,00:22:43.340
+"However, we are not interested
+in the exact probability.",00:22:43.340,00:22:46.330
+We just want to bound it.,00:22:46.330,00:22:47.900
+"And in this case, we are
+bounding it uniformly.",00:22:47.900,00:22:50.360
+"As you see, the right-hand side
+does not have mu in it.",00:22:50.360,00:22:53.800
+"And that gives us a great tool, because
+now we don't use the quantity",00:22:53.800,00:22:59.580
+"that, we already declared, is unknown.",00:22:59.580,00:23:02.000
+mu is unknown.,00:23:02.000,00:23:02.690
+"It would be a vicious cycle if I go
+and say that it depends on mu,",00:23:02.690,00:23:07.310
+but I don't know what mu is.,00:23:07.310,00:23:08.640
+"Now you know uniformly, regardless of
+the value of mu-- mu could be anything",00:23:08.640,00:23:12.360
+"between 0 and 1, and this will still
+be bounding the deviation of the",00:23:12.360,00:23:16.820
+"sample frequency from
+the real frequency.",00:23:16.820,00:23:20.180
+That's a good advantage.,00:23:20.180,00:23:21.430
+"Now, the other point is that there is
+a trade-off that you can read off the",00:23:23.760,00:23:28.590
+inequality.,00:23:28.590,00:23:29.340
+What is the trade-off?,00:23:29.340,00:23:32.280
+"The trade-off is between
+N and epsilon.",00:23:32.280,00:23:35.780
+"In a typical situation, if we think of N
+as the number of examples that are",00:23:35.780,00:23:39.430
+"given to you-- the amount of data-- in
+this case, the number of marbles out",00:23:39.430,00:23:43.040
+"of the bin,",00:23:43.040,00:23:44.560
+N is usually dictated.,00:23:44.560,00:23:45.840
+"Someone comes and gives you a certain
+resource of examples.",00:23:45.840,00:23:49.380
+Epsilon is your taste in tolerance.,00:23:49.380,00:23:52.800
+"You are very tolerant. You
+pick epsilon equals 0.5.",00:23:52.800,00:23:55.900
+That will be very easy to satisfy.,00:23:55.900,00:23:58.080
+"And if you are very stringent, you can
+pick epsilon smaller and smaller.",00:23:58.080,00:24:01.570
+"Now, because they get multiplied here,
+the smaller the epsilon is, the bigger",00:24:01.570,00:24:08.670
+"than N you need in order to compensate
+for it and come up with the same level",00:24:08.670,00:24:12.490
+of probability bound.,00:24:12.490,00:24:15.280
+And that makes a lot of sense.,00:24:15.280,00:24:17.510
+"If you have more examples, you are more
+sure that nu and mu will be close",00:24:17.510,00:24:22.620
+"together, even closer and
+closer and closer,",00:24:22.620,00:24:25.230
+as you get larger N.,00:24:25.230,00:24:27.090
+So this makes sense.,00:24:27.090,00:24:28.340
+"Finally,",00:24:30.830,00:24:31.850
+"it's a subtle point, but
+it's worth saying.",00:24:31.850,00:24:34.600
+"We are making the statement that nu
+is approximately the same as mu.",00:24:34.600,00:24:40.860
+"And this implies that mu is
+approximately the same as nu.",00:24:40.860,00:24:47.190
+What is this?,00:24:47.190,00:24:50.600
+The logic here is a little bit subtle.,00:24:50.600,00:24:53.230
+"Obviously, the statement is a tautology,
+but I'm just making",00:24:53.230,00:24:56.670
+"a logical point, here.",00:24:56.670,00:24:59.130
+"When you run the experiment,
+you don't know what mu is.",00:24:59.130,00:25:02.540
+mu is an unknown.,00:25:02.540,00:25:03.640
+It's a constant.,00:25:03.640,00:25:05.260
+"The only random fellow in this
+entire operation is nu.",00:25:05.260,00:25:09.790
+"That is what the probability
+is with respect to.",00:25:09.790,00:25:12.400
+"You generate different samples, and
+you compute the probability.",00:25:12.400,00:25:15.510
+This is the probabilistic thing.,00:25:15.510,00:25:16.670
+"This is a happy constant sitting
+there, albeit unknown.",00:25:16.670,00:25:22.670
+"Now, the way you are using the
+inequality is to infer mu, the sample",00:25:22.670,00:25:30.150
+"here, from nu.",00:25:30.150,00:25:34.280
+"That is not the cause and effect
+that actually takes place.",00:25:34.280,00:25:38.240
+"The cause and effect is that mu affects
+nu, not the other way around.",00:25:38.240,00:25:43.590
+"But we are using it the
+other way around.",00:25:43.590,00:25:47.200
+"Lucky for us, the form of the
+probability is symmetric.",00:25:47.200,00:25:51.640
+"Therefore, instead of saying that nu
+tends to be close to mu, which will",00:25:51.640,00:25:58.620
+"be the accurate logical statement-- mu
+is there, and nu has a tendency to be",00:25:58.620,00:26:03.130
+close to it.,00:26:03.130,00:26:04.420
+"We, instead of that, say that I know
+already nu, and now mu tends to",00:26:04.420,00:26:10.440
+be close to nu.,00:26:10.440,00:26:12.070
+That's the logic we are using.,00:26:12.070,00:26:13.380
+"Now, I think we understand what the bin
+situation is, and we know what the",00:26:19.967,00:26:25.030
+"mathematical condition that
+corresponds to it is.",00:26:25.030,00:26:28.330
+"What I'd like to do,",00:26:28.330,00:26:29.230
+"I'd like to connect that to the
+learning problem we have.",00:26:29.230,00:26:32.090
+"In the case of a bin, the unknown
+quantity that we want to decipher is",00:26:35.040,00:26:42.540
+"a number, mu.",00:26:42.540,00:26:43.840
+Just unknown.,00:26:43.840,00:26:44.580
+What is the frequency inside the bin.,00:26:44.580,00:26:48.080
+"In the learning situation that we had,
+the unknown quantity we would like to",00:26:48.080,00:26:53.160
+decipher is a full-fledged function.,00:26:53.160,00:26:57.260
+"It has a domain, X, that could be
+a 10th-order Euclidean space.",00:26:57.260,00:27:02.570
+Y could be anything.,00:27:02.570,00:27:03.430
+"It could be binary, like
+the perceptron.",00:27:03.430,00:27:04.650
+It could be something else.,00:27:04.650,00:27:06.000
+That's a huge amount of information.,00:27:06.000,00:27:08.660
+The bin has only one number.,00:27:08.660,00:27:10.060
+"This one, if you want to specify it,
+that's a lot of specification.",00:27:10.060,00:27:13.940
+"So how am I going to be able to relate
+the learning problem to something that",00:27:13.940,00:27:18.240
+simplistic?,00:27:18.240,00:27:19.490
+"The way we are going to do it
+is the following.",00:27:23.000,00:27:29.060
+"Think of the bin as your input space
+in the learning problem.",00:27:29.060,00:27:34.310
+That's the correspondence.,00:27:34.310,00:27:35.900
+So every marble here is a point x.,00:27:35.900,00:27:38.630
+That is a credit card applicant.,00:27:38.630,00:27:41.920
+"So if you look closely at the gray
+thing, you will read: salary, years in",00:27:41.920,00:27:46.030
+"residence, and whatnot.",00:27:46.030,00:27:47.330
+"You can't see it here because
+it's too small!",00:27:47.330,00:27:50.710
+"Now the bin has all the points
+in the space. Therefore, this",00:27:50.710,00:27:57.290
+is really the space.,00:27:57.290,00:27:59.860
+That's the correspondence in our mind.,00:27:59.860,00:28:01.980
+"Now we would like to give
+colors to the marbles.",00:28:01.980,00:28:04.355
+So here are the colors.,00:28:08.930,00:28:10.225
+"There are green marbles, and they
+correspond to something in the",00:28:14.710,00:28:18.520
+learning problem.,00:28:18.520,00:28:19.420
+What do they correspond to?,00:28:19.420,00:28:22.870
+"They correspond to your hypothesis
+getting it right.",00:28:22.870,00:28:30.270
+So what does that mean?,00:28:30.270,00:28:31.570
+"There is a target function
+sitting there, right?",00:28:31.570,00:28:34.300
+You have a hypothesis.,00:28:34.300,00:28:35.460
+"The hypothesis is a full function,
+like the target function is.",00:28:35.460,00:28:39.470
+"You can compare the hypothesis to the
+target function on every point.",00:28:39.470,00:28:45.550
+And they either agree or disagree.,00:28:45.550,00:28:48.610
+"If they agree, please color
+the corresponding point",00:28:48.610,00:28:52.210
+in the input space--,00:28:52.210,00:28:53.605
+Color it green.,00:28:53.605,00:28:56.500
+"Now, I'm not saying that you know which
+ones are green and which ones",00:28:56.500,00:28:59.910
+"are not, because you don't know
+the target function overall.",00:28:59.910,00:29:03.120
+"I'm just telling you the mapping that
+takes an unknown target function into",00:29:03.120,00:29:07.940
+an unknown mu.,00:29:07.940,00:29:09.880
+"So both of them are unknown,
+admittedly, but that's the",00:29:09.880,00:29:12.190
+correspondence that maps it.,00:29:12.190,00:29:14.840
+"And now you go, and there
+are some red ones.",00:29:14.840,00:29:17.660
+"And, you guessed it.",00:29:17.660,00:29:19.280
+"You color the thing red if your
+hypothesis got the answer wrong.",00:29:19.280,00:29:25.260
+"So now I am collapsing the entire
+thing into just agreement and",00:29:25.260,00:29:29.970
+"disagreement between your hypothesis
+and the target function, and that's",00:29:29.970,00:29:34.280
+how you get to color the bin.,00:29:34.280,00:29:36.420
+"Because of that, you have a mapping for
+every point, whether it's green or",00:29:36.420,00:29:43.030
+"red, according to this rule.",00:29:43.030,00:29:45.860
+"Now, this will add a component to
+the learning problem that we",00:29:45.860,00:29:49.510
+did not have before.,00:29:49.510,00:29:52.580
+"There is a probability associated
+with the bin.",00:29:52.580,00:29:54.870
+"There is a probability of
+picking a marble, and",00:29:54.870,00:29:57.010
+"independently, and all of that.",00:29:57.010,00:29:58.760
+"When we talked about the learning
+problem, there was no probability.",00:29:58.760,00:30:01.730
+"I will just give you a sample set,
+and that's what you work with.",00:30:01.730,00:30:05.770
+"So let's see what is the addition we
+need to do in order to adjust the",00:30:05.770,00:30:09.610
+"statement of the learning problem to
+accommodate the new ingredient.",00:30:09.610,00:30:14.140
+"And the new ingredient is important,
+because otherwise we cannot learn.",00:30:14.140,00:30:16.510
+"It's not like we have the luxury
+of doing without it.",00:30:16.510,00:30:20.060
+"So we go back to the learning
+diagram from last time.",00:30:20.060,00:30:22.890
+Do you remember this one?,00:30:22.890,00:30:23.770
+Let me remind you.,00:30:23.770,00:30:25.600
+"Here is your target function,
+and it's unknown.",00:30:25.600,00:30:29.610
+"And I promised you last time that it
+will remain unknown, and the promise",00:30:29.610,00:30:34.150
+will be fulfilled.,00:30:34.150,00:30:34.970
+We are not going to touch this box.,00:30:34.970,00:30:37.390
+"We're just going to add another box
+to accommodate the probability.",00:30:37.390,00:30:41.490
+"And the target function generates
+the training examples.",00:30:41.490,00:30:44.290
+"These are the only things that
+the learning algorithm sees.",00:30:44.290,00:30:47.060
+"It picks a hypothesis from the
+hypothesis set, and produces it as the",00:30:47.060,00:30:51.170
+"final hypothesis, which hopefully
+approximates f.",00:30:51.170,00:30:54.360
+That's the game.,00:30:54.360,00:30:55.390
+"So what is the addition
+we are going to do?",00:30:55.390,00:30:58.880
+"In the bin analogy, this
+is the input space.",00:30:58.880,00:31:03.170
+"Now the input space
+has a probability.",00:31:03.170,00:31:05.320
+"So I need to apply this probability to
+the points from the input space that",00:31:05.320,00:31:09.290
+are being generated.,00:31:09.290,00:31:12.110
+"I am going to introduce a probability
+distribution over the",00:31:12.110,00:31:16.490
+input space.,00:31:16.490,00:31:17.870
+"Now the points in the input space--
+let's say the d-dimensional",00:31:17.870,00:31:20.640
+Euclidean space--,00:31:20.640,00:31:21.630
+are not just generic points now.,00:31:21.630,00:31:23.620
+"There is a probability of picking
+one point versus the other.",00:31:23.620,00:31:26.880
+"And that is captured by the probability,
+which I'm going to call",00:31:26.880,00:31:29.700
+capital P.,00:31:29.700,00:31:31.480
+"Now the interesting thing is that I'm
+making no assumptions about P. P can",00:31:31.480,00:31:35.990
+be anything.,00:31:35.990,00:31:36.520
+I just want a probability.,00:31:36.520,00:31:40.310
+"So invoke any probability you want, and
+I am ready with the machinery.",00:31:40.310,00:31:44.710
+"I am not going to restrict the
+probability distributions over X.",00:31:44.710,00:31:49.260
+That's number one.,00:31:49.260,00:31:50.110
+So this is not as bad as it looks.,00:31:50.110,00:31:52.610
+"Number two, I don't even
+need to know what P is.",00:31:52.610,00:31:57.780
+"Of course, the probability choice will
+affect the choice of the probability",00:31:57.780,00:32:02.710
+"of getting a green marble or a red
+marble, because now the probability of",00:32:02.710,00:32:06.620
+"different marbles changed, so it
+could change the value mu.",00:32:06.620,00:32:11.450
+"But the good news with the Hoeffding is
+that I could bound the performance",00:32:11.450,00:32:14.900
+independently of mu.,00:32:14.900,00:32:16.860
+"So I can get away with not only any P,
+but with a P that I don't know, and",00:32:16.860,00:32:22.470
+"I'll still be able to make the
+mathematical statement.",00:32:22.470,00:32:25.140
+"So this is a very benign addition
+to the problem.",00:32:25.140,00:32:28.970
+"And it will give us very high
+dividends, which is the",00:32:28.970,00:32:31.370
+feasibility of learning.,00:32:31.370,00:32:33.590
+"So what do you do with
+the probability?",00:32:33.590,00:32:36.050
+"You use the probability to generate the
+points x_1 up to x_N. So now",00:32:36.050,00:32:43.190
+"x_1 up to x_N are assumed to be
+generated by that probability",00:32:43.190,00:32:47.290
+independently.,00:32:47.290,00:32:49.000
+"That's the only assumption
+that is made.",00:32:49.000,00:32:51.600
+"If you make that assumption,
+we are in business.",00:32:51.600,00:32:54.950
+"But the good news is, as
+I mentioned before,",00:32:54.950,00:32:57.220
+"we did not compromise about
+the target function.",00:32:57.220,00:32:59.800
+"You don't need to make assumptions about
+the function you don't know and",00:32:59.800,00:33:02.505
+"you want to learn, which is good news.",00:33:02.505,00:33:04.690
+And the addition is almost technical.,00:33:04.690,00:33:07.610
+"That there is a probability somewhere,
+generating the points.",00:33:07.610,00:33:10.060
+"If I know that, then I can make
+a statement in probability.",00:33:10.060,00:33:12.700
+"Obviously, you can make that statement
+only to the extent that the assumption",00:33:12.700,00:33:15.550
+"is valid, and we can discuss that
+in later lectures when the",00:33:15.550,00:33:18.840
+assumption is not valid.,00:33:18.840,00:33:20.240
+"So, OK.",00:33:23.500,00:33:23.800
+Happy ending.,00:33:23.800,00:33:24.640
+"We are done, and we now have
+the correspondence.",00:33:24.640,00:33:27.320
+Are we done?,00:33:27.320,00:33:28.570
+"Well, not quite.",00:33:31.170,00:33:33.740
+Why are we not done?,00:33:33.740,00:33:36.330
+"Because the analogy I gave
+you requires a particular",00:33:36.330,00:33:42.190
+hypothesis in mind.,00:33:42.190,00:33:44.720
+"I told you that the red and green marbles
+correspond to the agreement between h",00:33:44.720,00:33:48.940
+and the target function.,00:33:48.940,00:33:50.850
+"So when you tell me what h is,
+you dictate the colors here.",00:33:50.850,00:33:56.250
+All of these colors.,00:33:56.250,00:33:57.330
+"This is green not because it's
+inherently green, not because of",00:33:57.330,00:34:01.190
+"anything inherent about
+the target function.",00:34:01.190,00:34:03.620
+"It's because of the agreement between
+the target function and your",00:34:03.620,00:34:07.380
+"hypothesis, h.",00:34:07.380,00:34:09.980
+"That's fine, but what is the problem?",00:34:09.980,00:34:12.300
+"The problem is that I know that
+for this h, nu generalizes to mu.",00:34:12.300,00:34:21.739
+"You're probably saying, yeah,
+but h could be anything.",00:34:21.739,00:34:24.130
+I don't see the problem yet.,00:34:24.130,00:34:25.780
+Now here is the problem.,00:34:27.989,00:34:30.370
+"What we have actually discussed is
+not learning, it's verification.",00:34:30.370,00:34:34.600
+The situation as I describe it--,00:34:34.600,00:34:36.199
+"you have a single bin and you have red
+and green marbles, and this and that,",00:34:36.199,00:34:39.070
+corresponds to the following.,00:34:39.070,00:34:40.530
+A bank comes to my office.,00:34:40.530,00:34:41.949
+"We would like a formula
+for credit approval.",00:34:41.949,00:34:45.679
+And we have data.,00:34:45.679,00:34:47.500
+"So instead of actually taking the data,
+and searching hypotheses, and picking",00:34:47.500,00:34:51.239
+"one, like the perceptron learning
+algorithm, here is what I do that",00:34:51.239,00:34:54.699
+corresponds to what I just described.,00:34:54.699,00:34:56.780
+You guys want a linear formula?,00:34:57.080,00:34:58.945
+OK.,00:34:58.945,00:34:59.200
+"I guess the salary should
+have a big weight.",00:34:59.200,00:35:01.170
+Let's say 2.,00:35:01.170,00:35:02.410
+"The outstanding debt is negative, so
+that should be a weight minus 0.5.",00:35:02.410,00:35:06.530
+"And years in residence are important,
+but not that important.",00:35:06.530,00:35:09.560
+So let's give them a 0.1.,00:35:09.560,00:35:11.250
+"And let's pick a threshold
+that is high, in order for",00:35:11.250,00:35:14.050
+you not to lose money.,00:35:14.050,00:35:14.890
+Let's pick a threshold of 0.5.,00:35:14.890,00:35:17.520
+"Sitting down, improvising an h.",00:35:17.520,00:35:20.870
+"Now, after I fix the h, I ask you for
+the data and just verify whether the h",00:35:20.870,00:35:27.190
+I picked is good or bad.,00:35:27.190,00:35:29.690
+"That I can do with the bin, because
+I'm going to look at the data.",00:35:29.690,00:35:34.080
+"If I miraculously agree with everything
+in your data, I can",00:35:34.080,00:35:37.720
+"definitely declare victory
+by Hoeffding.",00:35:37.720,00:35:40.390
+"But what are the chances that this
+will happen in the first place?",00:35:40.390,00:35:43.570
+"I have no control over whether I will
+be good on the data or not.",00:35:43.570,00:35:47.050
+"The whole idea of learning is that I'm
+searching the space to deliberately",00:35:47.050,00:35:51.170
+"find a hypothesis that
+works well on the data.",00:35:51.170,00:35:54.250
+"In this case, I just dictated
+a hypothesis.",00:35:54.250,00:35:57.300
+"And I was able to tell you for sure
+what happens out-of-sample.",00:35:57.300,00:36:00.470
+"But I have no control of what news
+I'm going to tell you.",00:36:00.470,00:36:03.550
+You can come to my office.,00:36:03.550,00:36:04.430
+I improvise this.,00:36:04.430,00:36:05.490
+I go to the data.,00:36:05.490,00:36:06.560
+"And I tell you, I have
+a fantastic system.",00:36:06.560,00:36:08.750
+"It generalizes perfectly, and
+it does a terrible job.",00:36:08.750,00:36:13.580
+"That's what I have, because when
+I tested it, nu was terrible.",00:36:13.580,00:36:16.840
+So that's not what we are looking for.,00:36:16.840,00:36:19.090
+"What we are looking for is
+to make it learning.",00:36:19.090,00:36:23.430
+So how do we do that?,00:36:23.430,00:36:26.020
+No guarantee that nu will be small.,00:36:26.020,00:36:28.280
+"And we need to choose the hypothesis
+from multiple h's.",00:36:28.280,00:36:36.430
+That's the game.,00:36:36.430,00:36:37.340
+"And in that case, you are going to go for
+the sample, so to speak, generated",00:36:37.340,00:36:41.250
+"by every hypothesis, and then you pick
+the hypothesis that is most favorable,",00:36:41.250,00:36:44.790
+that gives you the least error.,00:36:44.790,00:36:46.320
+"So now, that doesn't look
+like a difficult thing.",00:36:47.060,00:36:50.490
+It worked with one bin.,00:36:50.490,00:36:52.140
+"Maybe I can have more than one bin, to
+accommodate the situation where I have",00:36:52.140,00:36:56.120
+more than one hypothesis.,00:36:56.120,00:36:57.860
+It looks plausible.,00:36:57.860,00:36:59.630
+So let's do that.,00:36:59.630,00:37:01.290
+We will just take multiple bins.,00:37:01.290,00:37:02.800
+So here is the first bin.,00:37:05.540,00:37:08.180
+"Now you can see that
+this is a bad bin.",00:37:08.180,00:37:11.380
+So that hypothesis is terrible.,00:37:11.380,00:37:14.830
+"And the sample reflects
+that, to some extent.",00:37:14.830,00:37:18.250
+"But we are going to have other bins,
+so let's call this something.",00:37:18.250,00:37:22.120
+"So this bin corresponds
+to a particular h.",00:37:22.120,00:37:26.120
+"And since we are going to have other
+hypotheses, we are going to call this",00:37:26.120,00:37:31.340
+"h_1 in preparation
+for the next guy.",00:37:31.340,00:37:34.310
+"The next guy comes in,
+and you have h_2.",00:37:34.310,00:37:38.900
+And you have another mu_2.,00:37:38.900,00:37:41.150
+"This one looks like a good hypothesis,
+and it's also reflected in the sample.",00:37:41.150,00:37:45.200
+"And it's important to look
+at the correspondence.",00:37:45.200,00:37:48.450
+"If you look at the top red point here
+and the top green point here, this is",00:37:48.450,00:37:54.500
+the same point in the input space.,00:37:54.500,00:37:56.950
+"It just was colored red here
+and colored green here.",00:37:56.950,00:38:00.460
+Why did that happen?,00:38:00.460,00:38:01.800
+"Because the target function disagrees
+with this h, and the target function",00:38:01.800,00:38:07.110
+happens to agree with this h.,00:38:07.110,00:38:08.960
+That's what got this the color green.,00:38:08.960,00:38:11.690
+"And when you pick a sample, the sample
+also will have different colors,",00:38:11.690,00:38:15.000
+"because the colors depend
+on which hypothesis.",00:38:15.000,00:38:17.290
+And these are different hypotheses.,00:38:17.290,00:38:19.720
+That looks simple enough.,00:38:19.720,00:38:21.200
+So let's continue.,00:38:21.200,00:38:22.620
+And we can have M of them.,00:38:22.620,00:38:25.640
+"I am going to consider a finite number
+of hypotheses, just to make the math",00:38:25.640,00:38:29.520
+easy for this lecture.,00:38:29.520,00:38:31.020
+"And we're going to go more sophisticated
+when we get into the",00:38:31.020,00:38:33.500
+theory of generalization.,00:38:33.500,00:38:36.160
+So now I have this.,00:38:36.160,00:38:37.670
+This is good.,00:38:37.670,00:38:38.550
+"I have samples, and the samples
+here are different.",00:38:38.550,00:38:42.540
+"And I can do the learning, and the
+learning now, abstractly, is to scan",00:38:42.540,00:38:47.180
+"these samples looking
+for a good sample.",00:38:47.180,00:38:50.510
+"And when you find a good sample, you
+declare victory, because of Hoeffding,",00:38:50.510,00:38:54.770
+"and you say that it must be that the
+corresponding bin is good, and the",00:38:54.770,00:38:59.210
+"corresponding bin happens to be
+the hypothesis you chose.",00:38:59.210,00:39:02.320
+So that is an abstraction of learning.,00:39:02.320,00:39:05.200
+That was easy enough.,00:39:05.200,00:39:08.160
+"Now, because this is going to stay with
+us, I am now going to introduce",00:39:08.160,00:39:11.820
+"the notation that will survive with us
+for the entire discussion of learning.",00:39:11.820,00:39:17.460
+So here is the notation.,00:39:17.460,00:39:19.670
+"We realize that both mu, which
+happens to be inside the bin,",00:39:19.670,00:39:24.860
+"and nu, which happens to be
+the sample frequency--",00:39:24.860,00:39:27.200
+"in this case, the sample frequency of
+error-- both of them depend on h.",00:39:27.200,00:39:31.580
+"So I'd like to give a notation
+that makes that explicit.",00:39:31.580,00:39:35.100
+"The first thing,",00:39:35.100,00:39:36.230
+"I am going to call mu and nu
+with a descriptive name.",00:39:36.230,00:39:40.850
+"So nu, which is the frequency in the
+sample you have, is in-sample.",00:39:40.850,00:39:45.910
+"That is a standard definition for what
+happens in the data that I give you.",00:39:45.910,00:39:49.390
+"If you perform well in-sample, it means
+that your error in the sample",00:39:49.390,00:39:52.900
+that I give you is small.,00:39:52.900,00:39:55.190
+"And because it is called in-sample,
+we are going to denote it by E_in.",00:39:55.190,00:40:02.210
+"I think this is worth blowing up,
+because it's an important one.",00:40:02.210,00:40:08.310
+"This is our standard notation for
+the error that you have in-sample.",00:40:08.310,00:40:11.980
+"Now, we go and get the other one,
+which happens to be mu.",00:40:15.020,00:40:19.660
+And that is called out-of-sample.,00:40:19.660,00:40:22.320
+"So if you are in this field, I guess
+what matters is the out-of-sample",00:40:22.320,00:40:26.930
+performance.,00:40:26.930,00:40:27.510
+That's the lesson.,00:40:27.510,00:40:28.430
+"Out-of-sample means something
+that you haven't seen.",00:40:28.430,00:40:31.920
+"And if you perform out-of-sample, on
+something that you haven't seen, then",00:40:31.920,00:40:35.180
+you must have really learned.,00:40:35.180,00:40:36.690
+"That's the standard for it,
+and the name for it is E_out.",00:40:36.690,00:40:39.940
+"With this in mind, we realize that we
+don't yet have the dependency on h",00:40:44.010,00:40:49.550
+which we need.,00:40:49.550,00:40:51.070
+"So we are going to make the notation a little
+bit more elaborate, by calling",00:40:51.070,00:40:56.925
+E_in and E_out--,00:40:56.925,00:40:59.270
+"calling them E_in of h, and E_out of h.",00:40:59.270,00:41:05.670
+Why is that?,00:41:05.670,00:41:06.880
+"Well, the in-sample performance-- you
+are trying to see the error of",00:41:06.880,00:41:10.920
+"approximating the target function
+by your hypothesis.",00:41:10.920,00:41:14.400
+That's what E_in is.,00:41:14.400,00:41:15.760
+"So obviously, it depends
+on your hypothesis.",00:41:15.760,00:41:18.330
+So it's E_in of h.,00:41:18.330,00:41:19.780
+"Someone else picks another h, they will
+get another E_in of their h.",00:41:19.780,00:41:25.050
+"Similarly E_out, the corresponding
+one is E_out of h.",00:41:25.050,00:41:28.490
+"So now, what used to be
+nu is now E_in of h.",00:41:28.490,00:41:32.170
+"What used to be mu, inside
+the bin, is E_out of h.",00:41:32.170,00:41:36.010
+"Now, the Hoeffding Inequality,
+which we know all too well",00:41:39.980,00:41:43.600
+"by now, said that.",00:41:43.600,00:41:45.730
+"So all I'm going to do is just
+replace the notation.",00:41:45.730,00:41:50.270
+"And now it looks a little bit
+more crowded, but it's",00:41:50.270,00:41:52.310
+exactly the same thing.,00:41:52.310,00:41:54.580
+"The probability that your in-sample
+performance deviates from your out-of-",00:41:54.580,00:42:00.440
+"sample performance by more than your
+prescribed tolerance is less than or",00:42:00.440,00:42:05.440
+"equal to a number that
+is hopefully small.",00:42:05.440,00:42:09.060
+And you can go back and forth.,00:42:09.060,00:42:12.720
+"There's nu and mu, or you can go here
+and you get the new notation.",00:42:12.720,00:42:18.050
+So we're settled on the notation now.,00:42:18.050,00:42:20.220
+"Now, let's go for the multiple
+bins and use this notation.",00:42:20.220,00:42:25.710
+"These are the multiple
+bins as we left them.",00:42:25.710,00:42:27.820
+"We have the hypotheses h_1 up to h_M,
+and we have the mu_1 and mu_M.",00:42:27.820,00:42:32.350
+"And if you see 1, 2, M, again,
+this is a disappearing nu--",00:42:32.350,00:42:35.100
+the symbol that the app doesn't like.,00:42:35.100,00:42:37.890
+"But thank God we switched
+notations, so that",00:42:37.890,00:42:40.070
+something will appear.,00:42:40.070,00:42:42.180
+Yeah!,00:42:42.180,00:42:42.840
+"So right now, that's what we have.",00:42:43.280,00:42:46.640
+"Every bin has an out-of-sample
+performance, and out-of-",00:42:46.640,00:42:50.400
+sample is: Out. Of. Sample.,00:42:50.400,00:42:54.310
+So this is a sample.,00:42:54.310,00:42:55.200
+What's in it is in-sample.,00:42:55.200,00:42:56.670
+What is not in it is out-of-sample.,00:42:56.670,00:42:58.510
+"And the out-of-sample depends on
+h_1 here, h_2 here, and h_M here.",00:42:58.510,00:43:02.760
+"And obviously, these quantities will be
+different according to the sample, and",00:43:02.760,00:43:05.860
+"these quantities will be different
+according to the ultimate performance",00:43:05.860,00:43:08.960
+of your hypothesis.,00:43:08.960,00:43:12.072
+So we solved the problem.,00:43:12.510,00:43:13.860
+"It's not verification.
+It's not a single bin.",00:43:13.860,00:43:16.040
+It's real learning.,00:43:16.040,00:43:16.940
+I'm going to scan these.,00:43:16.940,00:43:18.330
+So that's pretty good.,00:43:18.330,00:43:20.640
+Are we done already?,00:43:20.640,00:43:21.890
+Not so fast.,00:43:25.358,00:43:27.220
+[LAUGHING],00:43:27.220,00:43:27.610
+What's wrong?,00:43:28.800,00:43:30.830
+Let me tell you what's wrong.,00:43:30.830,00:43:34.190
+"The Hoeffding Inequality, that we have
+happily studied and declared important",00:43:34.190,00:43:39.940
+"and all of that, doesn't apply
+to multiple bins.",00:43:39.940,00:43:43.465
+What?,00:43:47.780,00:43:49.700
+"You told us mathematics, and you go
+read the proof, and all of that.",00:43:49.700,00:43:52.970
+Are you just pulling tricks on us?,00:43:52.970,00:43:55.260
+What is the deal here?,00:43:55.260,00:43:57.430
+And you even can complain.,00:43:57.430,00:43:59.390
+"We sat for 40 minutes now going from
+a single bin, mapping it to",00:43:59.390,00:44:04.960
+"the learning diagram, mapping it to
+multiple bins, and now you tell us",00:44:04.960,00:44:08.450
+"that the main tool we developed
+doesn't apply.",00:44:08.450,00:44:12.350
+"Why doesn't it apply, and what
+can we do about it?",00:44:12.350,00:44:17.070
+"Let me start by saying why it doesn't
+apply, and then we can go for what we",00:44:17.070,00:44:23.360
+can do about it.,00:44:23.360,00:44:25.330
+"Now, everybody has a coin.",00:44:25.330,00:44:27.890
+"I hope the online audience
+have a coin ready.",00:44:27.890,00:44:32.370
+"I'd like to ask you to take
+the coin out and flip it,",00:44:32.370,00:44:38.110
+"let's say, five times.",00:44:38.110,00:44:40.800
+And record what happens.,00:44:40.800,00:44:42.260
+"And when you at home flip the
+coin five times, please,",00:44:45.085,00:44:49.360
+"if you happen to get all five heads in
+your experiment, then text us that you",00:44:49.360,00:44:55.660
+got all five heads.,00:44:55.660,00:44:56.750
+"If you get anything else,
+don't bother text us.",00:44:56.750,00:44:59.300
+"We just want to know if someone
+will get five heads.",00:44:59.300,00:45:02.050
+Everybody is done flipping the coin.,00:45:09.140,00:45:10.730
+"Because you have been so generous and
+cooperative, you can keep the coin!",00:45:14.070,00:45:17.715
+[LAUGHTER],00:45:17.715,00:45:20.640
+"Now, did anybody get five heads?",00:45:20.640,00:45:24.110
+All five heads?,00:45:24.110,00:45:25.360
+"Congratulations, sir.",00:45:28.480,00:45:29.810
+"You have a biased coin, right?",00:45:29.810,00:45:32.090
+"We just argued that in-sample
+corresponds to out-of-sample, and we",00:45:32.090,00:45:35.420
+"have this Hoeffding thing, and therefore
+if you get five heads, it",00:45:35.420,00:45:38.250
+"must be that this coin
+gives you heads.",00:45:38.250,00:45:40.470
+We know better.,00:45:40.910,00:45:41.600
+"So in the online audience,
+what happened?",00:45:41.600,00:45:43.980
+"MODERATOR: Yeah, in the online audience,
+there's also five heads.",00:45:43.980,00:45:46.040
+"PROFESSOR: There are lots of
+biased coins out there.",00:45:46.050,00:45:48.870
+Are they really biased coins?,00:45:48.870,00:45:51.920
+No.,00:45:51.920,00:45:54.000
+What is the deal here?,00:45:54.000,00:45:56.580
+Let's look at it.,00:45:56.580,00:45:58.440
+"Here, with the audience here, I didn't
+want to push my luck with 10 flips,",00:45:58.440,00:46:03.870
+because it's a live broadcast.,00:46:03.870,00:46:05.810
+So I said five will work.,00:46:05.810,00:46:07.880
+"For the analytical example,
+let's take 10 flips.",00:46:07.880,00:46:11.360
+"Let's say you have a fair coin,
+which every coin is.",00:46:11.360,00:46:14.410
+You have a fair coin.,00:46:14.410,00:46:15.740
+And you toss it 10 times.,00:46:15.740,00:46:18.100
+"What is the probability that you
+will get all 10 heads?",00:46:18.100,00:46:22.170
+Pretty easy.,00:46:22.170,00:46:23.845
+"One half, times one half,
+10 times, and that will give",00:46:23.845,00:46:27.210
+you about 1 in 1000.,00:46:27.210,00:46:30.240
+No chance that you will get it--,00:46:30.240,00:46:32.511
+"not no chance, but very little chance.",00:46:32.511,00:46:35.540
+"Now, the second question is the one we
+actually ran the experiment for.",00:46:35.540,00:46:40.080
+"If you toss 1000 fair coins-- it wasn't
+1000 here. It's how many there.",00:46:40.080,00:46:44.890
+Maybe out there is 1000.,00:46:44.890,00:46:47.370
+"What is the probability that some
+coin will give you all 10 heads?",00:46:47.370,00:46:54.500
+Not difficult at all to compute.,00:46:54.500,00:46:56.510
+"And when you get the answer, the answer
+will be it's actually more",00:46:56.510,00:47:01.250
+likely than not.,00:47:01.250,00:47:02.500
+"So now it means that the 10 heads in
+this case are no indication at all of",00:47:06.020,00:47:13.500
+the real probability.,00:47:13.500,00:47:14.710
+That is the game we are playing.,00:47:14.710,00:47:16.050
+"Can I look at the sample and infer
+something about the real probability?",00:47:16.050,00:47:18.620
+No.,00:47:18.620,00:47:19.460
+"In this case, you will get 10
+heads, and the coin is fair.",00:47:19.460,00:47:23.570
+Why did this happen?,00:47:23.570,00:47:25.060
+"This happened because
+you tried too hard.",00:47:25.060,00:47:28.020
+Eventually what will happen is--,00:47:28.020,00:47:29.700
+Hoeffding applies to any one of them.,00:47:29.700,00:47:32.710
+"But there is a probability, let's
+say half a percent, that you",00:47:32.710,00:47:36.260
+will be off here.,00:47:36.260,00:47:37.160
+"Another half a percent that
+you will be off here.",00:47:37.160,00:47:39.830
+"If you do it often enough, and you are
+lucky enough that the half percents",00:47:39.830,00:47:42.770
+"are disjoint, you will end up with
+extremely high probability that",00:47:42.770,00:47:47.300
+"something bad will happen, somewhere.",00:47:47.300,00:47:50.130
+That's the key.,00:47:50.130,00:47:52.000
+"So let's translate this into
+the learning situation.",00:47:52.000,00:47:56.530
+Here are your coins.,00:47:56.530,00:47:57.780
+"And how do they correspond
+to the bins?",00:47:59.980,00:48:02.440
+"Well, it's a binary experiment, whether
+you are picking a red marble",00:48:02.440,00:48:05.950
+"or a green marble, or you are flipping
+a coin getting heads or tails.",00:48:05.950,00:48:09.610
+It's a binary situation.,00:48:09.610,00:48:11.000
+So there's a direct correspondence.,00:48:11.000,00:48:12.550
+"Just get the probability of heads being
+mu, which is the probability of",00:48:12.550,00:48:16.750
+"a red marble, corresponding to them.",00:48:16.750,00:48:18.860
+"So because the coins are fair,",00:48:18.860,00:48:20.880
+"actually all the bins in this case
+are half red, half green.",00:48:20.880,00:48:24.940
+"That's really bad news
+for a hypothesis.",00:48:24.940,00:48:26.780
+The hypothesis is completely random.,00:48:26.780,00:48:28.470
+"Half the time it agrees with
+the target function.",00:48:28.470,00:48:30.450
+Half the time it disagrees.,00:48:30.450,00:48:31.560
+No information at all.,00:48:31.560,00:48:33.560
+"Now you apply the learning paradigm we
+mentioned, and you say: let me",00:48:33.560,00:48:37.020
+"generate a sample from
+the first hypothesis.",00:48:37.020,00:48:41.020
+"I get this, I look at it,
+and I don't like that.",00:48:41.020,00:48:43.290
+It has some reds.,00:48:43.290,00:48:43.990
+"I want really a clean hypothesis
+that performs perfectly--",00:48:43.990,00:48:46.700
+all green.,00:48:46.700,00:48:47.700
+You move on.,00:48:48.350,00:48:49.960
+"And, OK.",00:48:49.960,00:48:51.490
+This one--,00:48:51.490,00:48:52.300
+"even, I don't know.",00:48:52.300,00:48:53.450
+This is even worse.,00:48:53.450,00:48:54.940
+You go on and on and on.,00:48:54.940,00:48:55.990
+"And eventually, lo and behold,
+I have all greens.",00:48:55.990,00:49:02.140
+Bingo.,00:49:02.140,00:49:03.030
+I have the perfect hypothesis.,00:49:03.030,00:49:04.570
+"I am going to report this to my
+customer, and if my customer is in",00:49:04.570,00:49:07.520
+"financial forecasting, we are going
+to beat the stock market and",00:49:07.520,00:49:10.400
+make a lot of money.,00:49:10.400,00:49:11.170
+"And you start thinking about the car you
+are going to buy, and all of that.",00:49:11.170,00:49:15.890
+"Well, is it bingo?",00:49:15.890,00:49:19.760
+"No, it isn't.",00:49:19.760,00:49:21.720
+And that is the problem.,00:49:21.720,00:49:24.190
+"So now, we have to find something
+that makes us deal with",00:49:24.190,00:49:29.350
+multiple bins properly.,00:49:29.350,00:49:31.670
+"Hoeffding Inequality-- if you have one
+experiment, it has a guarantee.",00:49:31.670,00:49:35.770
+"The guarantee gets terribly diluted as
+you go, and we want to know exactly",00:49:35.770,00:49:41.150
+how the dilution goes.,00:49:41.150,00:49:43.480
+So here is a simple solution.,00:49:43.480,00:49:46.550
+"This is a mathematical slide.
+I'll do it step-by-step.",00:49:46.550,00:49:49.280
+"There is absolutely nothing
+mysterious about it.",00:49:49.280,00:49:53.890
+"This is the quantity we've
+been talking about.",00:49:53.890,00:49:57.350
+"This is the probability
+of a bad event.",00:49:57.350,00:50:01.340
+"But in this case, you realize
+that I'm putting g.",00:50:01.340,00:50:03.800
+"Remember, g was our final hypothesis.",00:50:03.800,00:50:06.830
+"So this corresponds to a process where
+you had a bunch of h's, and you picked",00:50:06.830,00:50:11.260
+"one according to a criterion, that
+happens to be an in-sample criterion,",00:50:11.260,00:50:15.140
+"minimizing the error there, and
+then you report the g as the",00:50:15.140,00:50:18.700
+one that you chose.,00:50:18.700,00:50:20.090
+"And you would like to make a statement
+that the probability for the g you",00:50:20.090,00:50:23.897
+"chose-- the in-sample error-- happens to
+be close to the out-of-sample error.",00:50:23.897,00:50:29.220
+"So you'd like the probability of the
+deviation being bigger than your",00:50:29.220,00:50:32.260
+"tolerance to be, again, small.",00:50:32.260,00:50:35.040
+"All we need to do is find a Hoeffding
+counterpart to this, because",00:50:35.040,00:50:39.620
+now this fellow is loaded.,00:50:39.620,00:50:41.350
+"It's not just a fixed hypothesis
+and a fixed bin.",00:50:41.350,00:50:44.310
+"It actually corresponds to a large
+number of bins, and I am visiting the",00:50:44.310,00:50:48.240
+random samples in order to pick one.,00:50:48.240,00:50:50.060
+"So clearly the assumptions of Hoeffding
+don't apply-- that correspond",00:50:50.060,00:50:54.060
+to a single bin.,00:50:54.060,00:50:56.460
+"This probability is less
+than or equal to the",00:50:56.460,00:50:59.930
+probability of the following.,00:50:59.930,00:51:01.690
+I have M hypotheses--,00:51:01.690,00:51:03.890
+capital M hypotheses.,00:51:03.890,00:51:05.250
+"h_1, h_2, h_3, h_M.",00:51:05.250,00:51:08.380
+That's my entire learning model.,00:51:08.380,00:51:10.260
+"That's the hypothesis set that I have,
+finite as I said I would assume.",00:51:10.260,00:51:14.910
+"If you look at what is the probability
+that the hypothesis you",00:51:14.910,00:51:18.610
+"pick is bad? Well, this will be less than
+or equal to the probability that the",00:51:18.610,00:51:24.930
+"first hypothesis is bad, or the second
+hypothesis is bad, or, or, or the last",00:51:24.930,00:51:35.520
+hypothesis is bad.,00:51:35.520,00:51:37.620
+That is obvious.,00:51:37.620,00:51:39.580
+g is one of them.,00:51:39.580,00:51:41.800
+"If it's bad, one of them is bad.",00:51:41.800,00:51:44.680
+So less than or equal to that.,00:51:44.680,00:51:46.300
+"This is called the union
+bound in probability.",00:51:46.300,00:51:49.100
+"It's a very loose bound, in general,
+because it doesn't",00:51:49.100,00:51:51.950
+consider the overlap.,00:51:51.950,00:51:53.170
+"Remember when I told you that the half
+a percent here, half a percent here,",00:51:53.170,00:51:56.330
+half a percent here--,00:51:56.330,00:51:57.340
+"if you are very unlucky and these are
+non-overlapping, they add up.",00:51:57.340,00:52:02.260
+"The non-overlapping is the worst-case
+assumption, and it is the assumption",00:52:02.260,00:52:05.850
+used by the union bound.,00:52:05.850,00:52:07.670
+So you get this.,00:52:07.670,00:52:08.940
+"And the good news about this is that I
+have a handle on each term of them.",00:52:08.940,00:52:12.400
+The union bound is coming up.,00:52:12.400,00:52:13.660
+So I put the OR's.,00:52:13.660,00:52:14.770
+"And then I use the union bound to say that this
+is less than or equal to, and simply sum",00:52:14.770,00:52:20.720
+the individual probabilities.,00:52:20.720,00:52:22.890
+"So the half a percent plus half a percent
+plus half a percent--",00:52:22.890,00:52:26.600
+"this will be an upper bound
+on all of them.",00:52:26.600,00:52:28.710
+"The probability that one of them goes
+wrong, the probability that someone",00:52:28.710,00:52:31.870
+"gets all heads, and I add the
+probability for all of you, and that",00:52:31.870,00:52:35.400
+makes it a respectable probability.,00:52:35.400,00:52:37.730
+So this event here is implied.,00:52:37.730,00:52:40.940
+"Therefore, I have the implication because
+of the OR, and this one",00:52:40.940,00:52:44.990
+"because of the union bound, where I have
+the pessimistic assumption that I",00:52:44.990,00:52:50.110
+just need to add the probabilities.,00:52:50.110,00:52:52.200
+"Now, all of this-- again, we make
+simplistic assumptions, which is",00:52:52.200,00:52:56.510
+"really not simplistic as in trivially
+restricting, but rather the opposite.",00:52:56.510,00:53:01.380
+"We just don't want to make any
+assumptions that restrict the",00:53:01.380,00:53:03.760
+applicability of our result.,00:53:03.760,00:53:05.720
+So we took the worst case.,00:53:05.720,00:53:07.800
+It cannot get worse than that.,00:53:07.800,00:53:09.800
+"If you look at this, now
+I have good news for you.",00:53:09.800,00:53:12.320
+"Because each term here is
+a fixed hypothesis.",00:53:12.320,00:53:15.830
+I didn't choose anything.,00:53:15.830,00:53:17.240
+"Every one of them has a hypothesis
+that was declared ahead of time.",00:53:17.240,00:53:20.290
+Every one of them is a bin.,00:53:20.290,00:53:22.030
+"So if I look at a term by itself,
+Hoeffding applies to this, exactly the",00:53:22.030,00:53:26.960
+same way it applied before.,00:53:26.960,00:53:29.550
+"So this is a mathematical
+statement now.",00:53:29.550,00:53:31.330
+"I'm not looking at the
+bigger experiment.",00:53:31.330,00:53:33.090
+"I reduced the bigger experiment
+to a bunch of quantities.",00:53:33.090,00:53:35.550
+"Each of them corresponds to a simple
+experiment that we already solved.",00:53:35.550,00:53:39.860
+"So I can substitute for each of
+these by the bound that the",00:53:39.860,00:53:42.860
+Hoeffding gives me.,00:53:42.860,00:53:44.110
+"So what is the bound that
+the Hoeffding gives me?",00:53:47.280,00:53:49.560
+That's the one.,00:53:55.460,00:53:56.530
+"For every one of them, each of
+these guys was less than or",00:53:56.530,00:54:00.860
+equal to this quantity.,00:54:00.860,00:54:03.980
+One by one.,00:54:03.980,00:54:04.850
+All of them are obviously the same.,00:54:04.850,00:54:07.200
+"So each of them is smaller
+than this quantity.",00:54:07.200,00:54:08.820
+Each of them is smaller than this quantity.,00:54:08.820,00:54:10.470
+"Now I can be confident that the
+probability that I'm interested in,",00:54:10.470,00:54:16.140
+"which is the probability that
+the in-sample error",00:54:16.140,00:54:21.610
+"being close to the out-of-sample error--
+the closeness of them is bigger",00:54:21.610,00:54:25.140
+"than my tolerance, the bad event.",00:54:25.140,00:54:27.050
+"Under the genuine learning scenario-- you
+generate marbles from every bin,",00:54:27.050,00:54:33.340
+"and you look deliberately for a sample
+that happens to be all green or as",00:54:33.340,00:54:41.250
+"green as possible, and
+you pick this one.",00:54:41.250,00:54:43.560
+"And you want an assurance that
+whatever that might be, the",00:54:43.560,00:54:46.470
+"corresponding bin will genuinely
+be good out-of-sample.",00:54:46.470,00:54:49.390
+"That is what is captured
+by this probability.",00:54:49.390,00:54:51.590
+"That is still bounded by something,
+which also has that exponential in it,",00:54:51.590,00:54:55.790
+which is good.,00:54:55.790,00:54:56.680
+"But it has an added factor that will be
+a very bothersome factor, which is:",00:54:56.680,00:55:03.660
+I have M of them.,00:55:03.660,00:55:08.080
+"Now, this is the bad event.",00:55:08.080,00:55:10.250
+I'd like the probability to be small.,00:55:10.250,00:55:12.200
+"I don't like to magnify the right-hand
+side, because that is the probability",00:55:12.200,00:55:16.720
+of something bad happening.,00:55:16.720,00:55:19.210
+"Now, with M, you realize that",00:55:19.210,00:55:22.220
+"if you use 10 hypotheses, this
+probability is probably tight.",00:55:22.220,00:55:27.540
+"If you use a million hypotheses, we
+probably are already in trouble.",00:55:27.540,00:55:33.240
+"There is no guarantee, because now the
+million gets multiplied by what used",00:55:33.240,00:55:38.440
+"to be a respectable probability, which
+is 1 in 100,000, and now you can make",00:55:38.440,00:55:42.470
+"the statement that the probability
+that something bad happens",00:55:42.470,00:55:45.290
+is less than 10.,00:55:45.290,00:55:47.266
+[LAUGHING],00:55:47.266,00:55:47.670
+"Yeah, thank you very much.",00:55:47.670,00:55:50.260
+"We have to take a graduate
+course to learn that!",00:55:50.260,00:55:53.880
+Now you see what the problem is.,00:55:53.880,00:55:55.630
+"And the problem is extremely
+intuitive.",00:55:55.630,00:55:58.250
+"In that Q&amp;A session after the last
+lecture, we all got through the",00:55:58.250,00:56:03.230
+"discussion the assertion that if you
+have a more sophisticated model, the",00:56:03.230,00:56:08.130
+"chances are you will memorize in-sample,
+and you are not going to",00:56:08.130,00:56:11.780
+"really generalize well out-of-sample,
+because you have so many",00:56:11.780,00:56:14.600
+parameters to work with.,00:56:14.600,00:56:16.070
+"There are so many ways to look at that
+intuitively, and this is one of them.",00:56:16.070,00:56:20.820
+"If you have a very sophisticated model--
+M is huge, let alone infinite.",00:56:20.820,00:56:24.900
+That's later to come.,00:56:24.900,00:56:26.520
+"That's what the theory of
+generalization is about.",00:56:26.520,00:56:29.060
+"But if you pick a very sophisticated
+example with a large M, you lose the",00:56:29.060,00:56:34.340
+"link between the in-sample
+and the out-of-sample.",00:56:34.340,00:56:38.730
+So you look at here.,00:56:38.730,00:56:41.580
+"[LAUGHING], I didn't mean it this
+way, but let me go back just to show",00:56:41.580,00:56:46.370
+you what it is.,00:56:46.370,00:56:47.750
+"At least you know it's
+over, so that's good.",00:56:47.750,00:56:50.500
+"So this fellow is supposed
+to track this fellow.",00:56:50.500,00:56:54.220
+"The in-sample is supposed to
+track the out-of-sample.",00:56:54.220,00:56:57.290
+"The more sophisticated the model you
+use, the looser that in-sample will",00:56:57.290,00:57:02.900
+track the out-of-sample.,00:57:02.900,00:57:03.980
+"Because the probability of them
+deviating becomes bigger and bigger",00:57:03.980,00:57:06.940
+and bigger.,00:57:06.940,00:57:07.790
+"And that is exactly the
+intuition we have.",00:57:07.790,00:57:11.090
+"Now, surprise.",00:57:11.090,00:57:12.110
+"The next one is for the Q&amp;A. We will
+take a short break, and then we will",00:57:12.110,00:57:16.645
+go to the questions and answers.,00:57:16.645,00:57:17.895
+We are now in the Q&amp;A session.,00:57:21.980,00:57:24.760
+"And if anybody wants to ask a question,
+they can go to the",00:57:24.760,00:57:28.450
+"microphone and ask, and we can start
+with the online audience questions, if",00:57:28.450,00:57:32.840
+there are any.,00:57:32.840,00:57:34.090
+MODERATOR: The first question is,00:57:36.390,00:57:38.240
+"what happens when
+the Hoeffding Inequality",00:57:38.240,00:57:40.600
+"gives you something trivial,
+like less than 2?",00:57:40.600,00:57:43.390
+"PROFESSOR: Well, it means that
+either the resources of the examples",00:57:43.390,00:57:48.400
+"you have, the amount of data you have,
+is not sufficient to guarantee any",00:57:48.400,00:57:51.690
+"generalization, or--",00:57:51.690,00:57:54.400
+which is somewhat equivalent--,00:57:54.400,00:57:56.960
+that your tolerance is too stringent.,00:57:56.960,00:58:00.720
+"The situation is not
+really mysterious.",00:58:00.720,00:58:03.160
+"Let's say that you'd like to take
+a poll for the president.",00:58:03.160,00:58:08.420
+"And let's say that you ask
+five people at random.",00:58:08.420,00:58:12.870
+How can you interpret the result?,00:58:12.870,00:58:15.060
+Nothing.,00:58:15.060,00:58:16.420
+"You need a certain amount of respondents
+in order for the",00:58:16.420,00:58:20.650
+"right-hand side to start
+becoming interesting.",00:58:20.650,00:58:23.180
+"Other than that, it's
+completely trivial.",00:58:23.180,00:58:24.680
+"It's very likely that what you have seen
+in-sample doesn't correspond to",00:58:24.680,00:58:28.470
+anything out-of-sample.,00:58:28.470,00:58:29.720
+"MODERATOR: So in the case
+of the perceptron--",00:58:32.720,00:58:36.450
+"the question is would each set
+of w's be considered a new m?",00:58:36.450,00:58:42.970
+"PROFESSOR: The perceptron and, as",00:58:42.970,00:58:45.850
+"a matter of fact, every
+learning model of interest",00:58:45.850,00:58:49.490
+"that we're going to encounter, the
+number of hypotheses, M,",00:58:49.490,00:58:53.890
+happens to be infinite.,00:58:53.890,00:58:56.640
+"We were just talking about the
+right-hand side not being meaningful",00:58:56.640,00:58:59.490
+"because it's bigger than 1. If you take
+an infinite hypothesis set and",00:58:59.490,00:59:03.340
+"verbatim apply what I said, then you
+find that the probability is actually",00:59:03.340,00:59:07.640
+less than infinity.,00:59:07.640,00:59:10.210
+That's very important.,00:59:10.210,00:59:12.000
+"However, this is our first step.",00:59:12.000,00:59:14.670
+"There will be another step, where we deal
+with infinite hypothesis sets.",00:59:14.670,00:59:18.260
+"And we are going to be able to describe
+them with an abstract quantity",00:59:18.260,00:59:21.850
+"that happens to be finite, and that
+abstract quantity will be the one we",00:59:21.850,00:59:25.670
+"are going to use in the counterpart
+for the Hoeffding Inequality.",00:59:25.670,00:59:28.710
+"That's why there is mathematics
+that needs to be done.",00:59:28.710,00:59:32.110
+"Obviously, the perceptron has an infinite
+number of hypotheses because",00:59:32.110,00:59:39.650
+"you have real space, and here is your
+hypothesis, and you can perturb this",00:59:39.650,00:59:46.550
+continuously as you want.,00:59:46.550,00:59:47.730
+"Even just by doing this, you already
+have an infinite number of hypotheses",00:59:47.730,00:59:50.430
+without even exploring further.,00:59:50.430,00:59:53.820
+"MODERATOR: OK,
+and this is a popular one.",00:59:53.820,00:59:55.390
+"Could you go over again in slide 6, of
+the implication of nu equals mu and",00:59:55.400,01:00:00.240
+vice versa.,01:00:00.240,01:00:01.180
+PROFESSOR: Six.,01:00:01.180,01:00:01.610
+"It's a subtle point, and it's common
+between machine learning and",01:00:07.680,01:00:11.170
+statistics.,01:00:11.170,01:00:11.750
+What do you do in statistics?,01:00:11.750,01:00:13.370
+"What is the cause and effect for
+a probability and a sample?",01:00:13.370,01:00:16.540
+The probability results in a sample.,01:00:16.540,01:00:18.830
+"So if I know the probability, I can
+tell you exactly what is the",01:00:18.830,01:00:22.540
+"likelihood that you'll get one
+sample or another or another.",01:00:22.540,01:00:26.700
+"Now, what you do in statistics
+is the reverse of that.",01:00:26.700,01:00:29.520
+"You already have the sample, and you are
+trying to infer which probability",01:00:29.520,01:00:34.140
+gave rise to it.,01:00:34.140,01:00:35.810
+"So you are using the effect to
+decide the cause rather than",01:00:35.810,01:00:39.410
+the other way around.,01:00:39.410,01:00:41.510
+So the same situation here.,01:00:41.510,01:00:43.680
+The bin is the cause.,01:00:43.680,01:00:45.760
+"The frequency in the sample
+is the effect.",01:00:45.760,01:00:48.980
+"I can definitely tell you what the
+distribution is like in the sample,",01:00:48.980,01:00:53.260
+based on the bin.,01:00:53.260,01:00:55.380
+"The utility, in terms of learning,
+is that I look at the sample",01:00:55.380,01:00:58.780
+and infer the bin.,01:00:58.780,01:01:00.130
+"So I infer the cause based
+on the effect.",01:01:00.130,01:01:04.360
+"There's absolutely nothing
+terrible about that.",01:01:04.360,01:01:07.040
+"I just wanted to make the point clear,
+that when we write the Hoeffding",01:01:07.040,01:01:12.260
+"Inequality, which you can see here,
+we are talking about this event.",01:01:12.260,01:01:19.570
+"You should always remember that nu is
+the thing that plays around",01:01:19.570,01:01:24.090
+"and causes the probability to happen,
+and mu is a constant.",01:01:24.090,01:01:27.770
+"When we use it to predict that the
+out-of-sample will be the same as the in-",01:01:27.770,01:01:32.500
+"sample, we are really taking nu as
+fixed, because this is the in-",01:01:32.500,01:01:37.215
+sample we've got.,01:01:37.215,01:01:39.370
+"And then we are trying to interpret
+what mu gave rise to it.",01:01:39.370,01:01:42.530
+"And I'm just saying that, in this case,
+since the statement is of the",01:01:42.530,01:01:45.900
+"form that the difference between them,
+which is symmetric, is greater than",01:01:45.900,01:01:50.320
+"epsilon, then if you look at this as
+saying mu is there and I know that nu",01:01:50.320,01:01:56.640
+"will be approximately the same,
+you can also flip that.",01:01:56.640,01:02:00.120
+"And you can say, nu is here, and I
+know that mu that gave rise to it must",01:02:00.120,01:02:04.970
+be the same.,01:02:04.970,01:02:05.520
+That's the whole idea.,01:02:05.520,01:02:06.940
+"It's a logical thing rather
+than a mathematical thing.",01:02:06.940,01:02:10.640
+MODERATOR: OK.,01:02:10.640,01:02:11.120
+"Another conceptual question that is
+arising is that a more complicated",01:02:11.120,01:02:16.580
+"model corresponds to
+a larger number of h's.",01:02:16.580,01:02:19.800
+And some people are asking--,01:02:19.800,01:02:21.670
+they thought each h was a model.,01:02:21.670,01:02:24.080
+PROFESSOR: OK.,01:02:24.080,01:02:25.905
+Each h is a hypothesis.,01:02:25.905,01:02:28.200
+"A particular function, one of them you
+are going to pick, which is going to",01:02:28.200,01:02:31.630
+"be equal to g, and this is the g that
+you're going to report as your best",01:02:31.630,01:02:35.130
+guess as an approximation for f.,01:02:35.130,01:02:37.280
+"The model is the hypotheses that you're
+allowed to visit in order to",01:02:37.280,01:02:41.630
+choose one.,01:02:41.630,01:02:42.610
+"So that's the hypothesis
+set, which is H.",01:02:42.610,01:02:46.660
+"And again, but there is
+an interesting point.",01:02:46.660,01:02:48.490
+"I'm using the number of hypotheses as
+a measure for the complexity in the",01:02:48.490,01:02:52.850
+intuitive argument that I gave you.,01:02:52.850,01:02:55.106
+"It's not clear at all that the pure number
+corresponds to the complexity.",01:02:55.106,01:02:59.022
+"It's not clear that anything that has
+to do with the size, really, is the",01:02:59.022,01:03:02.190
+complexity.,01:03:02.190,01:03:02.610
+"Maybe the complexity has to do with
+the structure of individual",01:03:02.610,01:03:05.650
+hypotheses.,01:03:05.650,01:03:07.130
+And that's a very interesting point.,01:03:07.130,01:03:08.710
+"And that will be discussed at some
+point-- the complexity of individual",01:03:08.710,01:03:11.650
+"hypotheses versus the complexity of
+the model that captures all the",01:03:11.650,01:03:14.940
+hypotheses.,01:03:14.940,01:03:15.830
+"This will be a topic that we will
+discuss much later in the course.",01:03:15.830,01:03:19.760
+"MODERATOR: Some people are
+getting ahead.",01:03:19.760,01:03:21.700
+So how do you pick g?,01:03:21.710,01:03:23.834
+PROFESSOR: OK.,01:03:23.834,01:03:24.890
+"We have one way of picking g-- that
+already was established last time--",01:03:24.890,01:03:27.820
+"which is the perceptron
+learning algorithm.",01:03:27.820,01:03:30.540
+So your hypothesis set is H.,01:03:30.540,01:03:33.920
+Script H.,01:03:33.920,01:03:34.620
+"It has a bunch of h's, which are the
+different lines in the plane.",01:03:34.620,01:03:37.810
+"And you pick g by applying the PLA,
+the perceptron learning algorithm,",01:03:37.810,01:03:43.080
+"playing around with this boundary,
+according to the update rule, until it",01:03:43.080,01:03:46.720
+"classifies the inputs correctly,
+assuming they are linearly separable,",01:03:46.720,01:03:49.540
+"and the one you end up with
+is what is declared g.",01:03:49.540,01:03:53.160
+"So g is just a matter of notation,
+a name for whichever one we settle on,",01:03:53.160,01:03:56.890
+the final hypothesis.,01:03:56.890,01:03:58.590
+"How you pick g depends on what
+algorithm you use, and what",01:03:58.590,01:04:02.280
+hypothesis set you use.,01:04:02.280,01:04:03.630
+"So it depends on the learning model,
+and obviously on the data.",01:04:03.630,01:04:06.700
+MODERATOR: OK.,01:04:09.364,01:04:10.350
+This is a popular question.,01:04:10.350,01:04:12.310
+"So it says: how would you extend the
+equation to support an output that",01:04:12.310,01:04:16.930
+"is a valid range of responses
+and not a binary response?",01:04:16.930,01:04:20.946
+PROFESSOR: It can be done.,01:04:20.946,01:04:22.380
+"One of the things that I mentioned
+here is that this fellow, the",01:04:22.390,01:04:29.410
+"probability here, is uniform.",01:04:29.410,01:04:31.980
+"Now, let's say that you are not talking
+about a binary experiment.",01:04:31.980,01:04:36.260
+"Instead of taking the frequency of error
+versus the probability of error,",01:04:36.260,01:04:41.202
+"you take the expected value
+of something versus the",01:04:41.202,01:04:44.680
+sample average of it.,01:04:44.680,01:04:46.890
+"And they will be close to each other,
+and some, obviously technical,",01:04:46.890,01:04:51.490
+modification is needed to be here.,01:04:51.490,01:04:53.840
+"And basically, the set of laws of large
+numbers, from which this is one member,",01:04:53.840,01:05:00.920
+"has a bunch of members that actually
+have to do with expected value and",01:05:00.920,01:05:06.540
+"sample average, rather than just the
+specific case of probability and",01:05:06.540,01:05:10.800
+sample average.,01:05:10.800,01:05:12.360
+"If you take your function as being 1,
+0, and you take the expected value,",01:05:12.360,01:05:16.150
+"that will give you the sample as the
+sample average, and the probability as",01:05:16.150,01:05:20.830
+the expected value.,01:05:20.830,01:05:21.610
+So it's not a different animal.,01:05:21.610,01:05:23.530
+"It's just a special case that
+is easier to handle.",01:05:23.530,01:05:25.770
+"And in the other case, one of the things
+that matters is the variance of",01:05:25.770,01:05:29.080
+your variable.,01:05:29.080,01:05:30.750
+So it will affect the bounds.,01:05:30.750,01:05:32.650
+"Here, I'm choosing epsilon in general,
+because the variance of this variable",01:05:32.650,01:05:37.310
+is very limited.,01:05:37.310,01:05:39.740
+"Let's say that the probability
+is mu, so the variance is mu",01:05:39.740,01:05:42.760
+times 1 minus mu.,01:05:42.760,01:05:43.710
+"It goes from a certain value
+to a certain value.",01:05:43.710,01:05:45.900
+So it can be absorbed.,01:05:45.900,01:05:46.900
+It's bounded above and below.,01:05:46.900,01:05:48.470
+"And this is the reason why the
+right-hand side here can",01:05:48.470,01:05:50.370
+be uniformly done.,01:05:50.370,01:05:51.550
+"If you have something that has variance
+that can be huge or small,",01:05:51.550,01:05:54.550
+"then that will play a role in your
+choice of epsilon, such that",01:05:54.550,01:05:58.290
+this will be valid.,01:05:58.290,01:06:00.040
+So the short answer is: it can be done.,01:06:00.040,01:06:02.690
+"There is a technical modification, and
+the main aspect of the technical",01:06:02.690,01:06:05.810
+"modification, that needs to be taken into
+consideration, is the variance of",01:06:05.810,01:06:10.130
+the variable I'm talking about.,01:06:10.130,01:06:12.296
+MODERATOR: OK.,01:06:12.296,01:06:13.290
+There's also a common confusion.,01:06:13.290,01:06:14.750
+Why are there are multiple bins?,01:06:14.750,01:06:18.540
+PROFESSOR: OK.,01:06:18.540,01:06:19.015
+"The bin was only our conceptual
+tool to argue that learning is",01:06:19.015,01:06:24.990
+feasible in a probabilistic sense.,01:06:24.990,01:06:28.870
+"When we used a single bin, we had
+a correspondence with a hypothesis, and",01:06:28.870,01:06:33.570
+"it looked like we actually captured
+the essence of learning, until we",01:06:33.570,01:06:37.000
+"looked closer and we realized that, if
+you restrict yourself to one bin and",01:06:37.000,01:06:41.430
+"apply the Hoeffding Inequality directly
+to it, what you are really",01:06:41.430,01:06:44.650
+working with--,01:06:44.650,01:06:45.420
+"if you want to put it in
+terms of learning--",01:06:45.420,01:06:48.360
+"is that my hypothesis set
+has only one hypothesis.",01:06:48.360,01:06:52.870
+And that corresponds to the bin.,01:06:52.870,01:06:54.760
+So now I am picking it--,01:06:54.760,01:06:56.380
+which is my only choice.,01:06:56.380,01:06:57.630
+I don't have everything else.,01:06:57.630,01:06:58.720
+"And all I'm doing now is verifying that
+its in-sample performance will",01:06:58.720,01:07:03.100
+"correspond to the out-of-sample
+performance, and that is guaranteed by",01:07:03.100,01:07:05.930
+the plain-vanilla Hoeffding.,01:07:05.930,01:07:08.130
+"Now, if you have actual learning,
+then you have more than one",01:07:08.130,01:07:11.150
+hypothesis.,01:07:11.150,01:07:12.140
+"And we realize that the bin changes with
+the hypothesis, because whether",01:07:12.140,01:07:17.030
+"a marble is red or green depends on
+whether the hypothesis agrees or",01:07:17.030,01:07:20.490
+disagrees with your target function.,01:07:20.490,01:07:22.450
+"Different hypotheses will
+lead to different colors.",01:07:22.450,01:07:25.250
+"Therefore, you need multiple bins to
+represent multiple hypotheses, which",01:07:25.250,01:07:29.130
+"is the only situation that admits
+learning as we know it--",01:07:29.130,01:07:33.040
+"that I'm going to explore the hypotheses,
+based on their performance in-sample,",01:07:33.040,01:07:37.310
+"and pick the one that performs best,
+perhaps, in-sample, and hope that it",01:07:37.310,01:07:41.630
+will generalize well out-of-sample.,01:07:41.630,01:07:43.010
+MODERATOR: OK.,01:07:46.125,01:07:46.850
+Another confusion.,01:07:46.850,01:07:48.230
+"Can you resolve the relationship
+between the probability and the big H?",01:07:48.230,01:07:54.970
+so I'm not clear exactly what--,01:07:54.970,01:07:58.970
+PROFESSOR: We applied the-- ,01:07:58.970,01:08:00.660
+"there are a bunch of components
+in the learning",01:08:00.660,01:08:04.630
+"situation, so let me get the--",01:08:04.630,01:08:06.160
+"It's a big diagram, and it
+has lots of components.",01:08:08.150,01:08:11.490
+"So one big space or set is X, and
+another one is H. So if you",01:08:11.490,01:08:17.710
+look at here.,01:08:17.710,01:08:19.580
+This is hypothesis set H. It's a set.,01:08:19.580,01:08:21.569
+"OK, fine.",01:08:21.569,01:08:23.109
+"And also, if you look here, the target
+function is defined from X to Y, and",01:08:23.109,01:08:28.939
+"in this case, X is also a set.",01:08:28.939,01:08:32.330
+"The only invocation of probability that
+we needed to do, in order to get",01:08:32.330,01:08:37.779
+"the benefit of the probabilistic
+analysis in learning, was to put",01:08:37.779,01:08:42.020
+a probability distribution on X.,01:08:42.020,01:08:45.222
+"H, which is down there, is left
+as a fixed hypothesis set.",01:08:45.222,01:08:51.180
+"There is no question of
+a probability on it.",01:08:51.180,01:08:53.819
+"When we talk about the Bayesian
+approach, in the last lecture in",01:08:53.819,01:08:57.970
+"fact, there will be a question of
+putting a probability distribution",01:08:57.970,01:09:02.380
+"here in order to make the whole
+situation probabilistic.",01:09:02.380,01:09:04.990
+"But that is not the approach that is
+followed for the entire course, until",01:09:04.990,01:09:08.149
+"we discuss that specific
+approach at the end.",01:09:08.149,01:09:11.771
+Question.,01:09:11.771,01:09:12.729
+"STUDENT: What do we do when there
+are many possible hypotheses which",01:09:12.729,01:09:18.950
+will satisfy my criteria?,01:09:18.950,01:09:20.279
+"Like, in perceptron, for example.",01:09:20.279,01:09:22.120
+"I could have several hyperplanes which
+could be separating the set.",01:09:22.120,01:09:25.479
+So how do I pick the best--,01:09:25.479,01:09:27.240
+PROFESSOR: Correct.,01:09:27.240,01:09:27.749
+"Usually, with a pre-specified
+algorithm,",01:09:27.749,01:09:32.240
+you'll end up with something.,01:09:32.240,01:09:33.760
+"So the algorithm will
+choose it for you.",01:09:33.760,01:09:35.920
+"But your remark now is that,",01:09:35.920,01:09:37.990
+"given that there are many solutions
+that happen to have zero in-sample",01:09:37.990,01:09:42.350
+"error, there is really no distinction
+between them in terms of the out-of-",01:09:42.350,01:09:46.160
+sample performance.,01:09:46.160,01:09:47.060
+"I'm using the same hypothesis set,
+so M is the same.",01:09:47.060,01:09:49.990
+And the in-sample error is the same.,01:09:49.990,01:09:51.990
+"So my prediction for the out-of-sample
+error would be the same, as there's no",01:09:51.990,01:09:54.880
+distinction between them.,01:09:54.880,01:09:56.270
+"The good news is that the learning
+algorithm will solve this for you, because",01:09:56.270,01:09:58.860
+"it will give you one specific,
+the one it ended with.",01:09:58.860,01:10:01.560
+"But even within the ones that achieve
+zero error, there is a method,",01:10:01.560,01:10:07.230
+"that we'll talk about later on when we
+talk about support vector machines,",01:10:07.230,01:10:10.210
+"that prefers one particular solution
+as having a better chance of",01:10:10.210,01:10:13.880
+generalization.,01:10:13.880,01:10:14.700
+"Not clear at all given what I said
+so far, but I'm just telling you,",01:10:14.700,01:10:18.120
+"as an appetizer, there's something
+to be done in that regard.",01:10:18.120,01:10:23.086
+MODERATOR: OK.,01:10:23.086,01:10:24.946
+"A question is does the inequality
+hold for any g,",01:10:24.946,01:10:30.120
+even if g is not optimal?,01:10:30.120,01:10:31.370
+PROFESSOR: What about the g?,01:10:34.760,01:10:36.250
+"MODERATOR: Does it hold for any
+g, no matter how you pick g?",01:10:36.250,01:10:39.900
+PROFESSOR: Yeah.,01:10:39.900,01:10:40.260
+So the whole idea--,01:10:40.260,01:10:41.770
+"once you write the symbol g, you
+already are talking about any",01:10:41.770,01:10:45.230
+hypothesis.,01:10:45.230,01:10:45.960
+"Because by definition, g is the final
+hypothesis, and your algorithm is",01:10:45.960,01:10:50.490
+"allowed to pick any h from the
+hypothesis set and call it g.",01:10:50.490,01:10:55.970
+"Therefore, when I say g, don't
+look at a fixed hypothesis.",01:10:55.970,01:10:59.390
+"Look at the entire learning process that
+went through the H, the",01:10:59.390,01:11:03.060
+"set of hypotheses, according to the
+data and according to the learning",01:11:03.060,01:11:07.760
+"rule, and went through and ended up with
+one that is declared the right",01:11:07.760,01:11:12.050
+"one, and now we call this g.",01:11:12.050,01:11:14.990
+"So the answer is patently
+that g can be different.",01:11:14.990,01:11:18.780
+"Patently yes, just by the notation
+that I'm using.",01:11:18.780,01:11:21.430
+"MODERATOR: Also, some confusion.",01:11:24.190,01:11:26.450
+"With the perceptron algorithm
+or any linear algorithm--",01:11:26.450,01:11:30.210
+"there's a confusion that, at each
+step, there's a hypothesis, but--",01:11:30.210,01:11:36.080
+PROFESSOR: Correct.,01:11:36.080,01:11:36.460
+But these are hidden processes for us.,01:11:36.460,01:11:40.350
+"As far as analysis I mentioned,
+you get the data,",01:11:40.350,01:11:43.850
+"the algorithm does something magic, and
+ends up with a final hypothesis.",01:11:43.850,01:11:48.110
+"In the course of doing that, it will
+obviously be visiting lots of",01:11:48.110,01:11:50.900
+hypotheses.,01:11:50.900,01:11:51.710
+"So the abstraction of having just the
+samples sitting there, and eyeballing",01:11:51.710,01:11:55.780
+"them and picking the one that happens
+to be green, is an abstraction.",01:11:55.780,01:11:59.150
+"In reality, these guys happen in
+a space, and you are moving from one",01:11:59.150,01:12:03.700
+"hypothesis to another by
+moving some parameters.",01:12:03.700,01:12:06.530
+"And in the course of doing that,
+including in the perceptron learning",01:12:06.530,01:12:10.870
+"algorithm, you are moving from
+one hypothesis to another.",01:12:10.870,01:12:14.020
+"But I'm not accounting for that, because
+I haven't found my final",01:12:14.020,01:12:17.550
+hypothesis yet.,01:12:17.550,01:12:18.660
+"When you find the final hypothesis,
+you call it g.",01:12:18.660,01:12:21.340
+"On the other hand, because I use the
+union bound, I use the worst-case",01:12:21.340,01:12:25.030
+"scenario, the generalization bound
+applies to every single hypothesis you",01:12:25.030,01:12:29.570
+visited or you didn't visit.,01:12:29.570,01:12:32.270
+"Because what I did to get the bound, of
+deviation between in-sample and out-of-",01:12:32.270,01:12:36.010
+"sample, is that I consider that all the
+hypotheses simultaneously behave from",01:12:36.010,01:12:41.980
+"in-sample to out-of-sample, closely
+according to your epsilon criterion.",01:12:41.980,01:12:46.950
+"And that obviously guarantees that
+whichever one you end up",01:12:46.950,01:12:49.950
+with will be fine.,01:12:49.950,01:12:52.710
+"But obviously, it could be an overkill.",01:12:52.710,01:12:54.980
+"And among the positive side effects
+of that is that even the",01:12:54.980,01:12:59.790
+"intermediate values have
+good generalization--",01:12:59.790,01:13:01.790
+"not that we look at it or consider it,
+but just to answer the question.",01:13:01.790,01:13:07.050
+"MODERATOR: A question
+about the punchline.",01:13:07.050,01:13:09.580
+"They say that they don't understand
+exactly how the Hoeffding works--",01:13:09.580,01:13:15.620
+shows that learning is feasible.,01:13:15.620,01:13:18.360
+PROFESSOR: OK.,01:13:18.360,01:13:19.130
+"Hoeffding shows that verification
+is feasible.",01:13:19.130,01:13:23.350
+The presidential poll makes sense.,01:13:23.350,01:13:25.600
+"That, if you have a sample and you have
+one question to ask, and you see",01:13:25.600,01:13:30.320
+"how the question is answered in the
+sample, then there is a reason to",01:13:30.320,01:13:33.450
+"believe that the answer in the general
+population, or in the big bin, will be",01:13:33.450,01:13:37.230
+close to the answer you got in-sample.,01:13:37.230,01:13:39.900
+So that's the verification.,01:13:39.900,01:13:41.280
+"In order to move from verification to
+learning, you need to be able to make",01:13:41.280,01:13:45.780
+"that statement, simultaneously on
+a number of these guys, and that's why",01:13:45.780,01:13:50.040
+"you had the modified Hoeffding
+Inequality at the end,",01:13:50.040,01:13:55.030
+which is this one,01:13:55.030,01:13:55.960
+that has the red M in it.,01:13:55.960,01:13:58.280
+"This is no longer the plain-vanilla
+Hoeffding Inequality.",01:13:58.280,01:14:00.960
+We'll still call it Hoeffding.,01:14:00.960,01:14:02.420
+"But it basically deals with a situation
+where you have M of these",01:14:02.420,01:14:05.920
+"guys simultaneously, and you want to
+guarantee that all of them are",01:14:05.920,01:14:08.940
+behaving well.,01:14:08.940,01:14:10.110
+"Under those conditions, this is the
+probability that the guarantee can",01:14:10.110,01:14:13.090
+"give, and the probability, obviously,
+is looser than it used to be.",01:14:13.090,01:14:16.420
+"So the probability that bad thing
+happens when you have many",01:14:16.420,01:14:18.980
+"possibilities is bigger than the
+probability that bad things happen when",01:14:18.980,01:14:22.333
+you have one of them.,01:14:22.333,01:14:23.340
+"And this is the case where you added up
+as if they happen disjointly, as I",01:14:23.340,01:14:27.210
+mentioned before.,01:14:27.210,01:14:29.640
+"MODERATOR: Can it be said that the
+bin corresponds to the entire",01:14:29.640,01:14:32.560
+population in a--,01:14:32.560,01:14:34.600
+"PROFESSOR: The bin corresponds
+to the entire",01:14:34.600,01:14:37.980
+population before coloring.,01:14:37.980,01:14:40.110
+So remember the gray bin--,01:14:40.110,01:14:41.340
+I have it somewhere.,01:14:41.340,01:14:42.590
+"We had a viewgraph where the
+bin had gray marbles.",01:14:44.930,01:14:49.530
+"So this is my way of saying this
+is a generic input, and we",01:14:49.530,01:14:51.990
+call it X.,01:14:51.990,01:14:53.270
+"And this is indeed the input space in
+this case, or the general population.",01:14:53.270,01:14:57.950
+"Now, we start coloring it according
+to when you give me a hypothesis.",01:14:57.950,01:15:01.040
+"So now there's more in the process
+than just the input space.",01:15:01.040,01:15:06.470
+"But indeed, the bin can correspond to
+the general population, and the sample",01:15:06.470,01:15:10.145
+"will correspond to the people you polled
+over the phone, in the case of",01:15:10.145,01:15:12.750
+the presidential thing.,01:15:12.750,01:15:16.880
+"MODERATOR: Is there a relation between
+the Hoeffding Inequality and the",01:15:16.880,01:15:20.372
+p-values in statistics?,01:15:20.372,01:15:22.915
+PROFESSOR: Yes.,01:15:22.915,01:15:25.570
+"The area where we are trying to say that
+if I have a sample and I get",01:15:25.570,01:15:29.070
+"an estimate on the sample, the
+estimate is reliable.",01:15:29.070,01:15:31.840
+"The estimate is close to
+the out-of-sample.",01:15:31.840,01:15:33.810
+"The probability that you will deviate--
+is a huge body of work.",01:15:33.810,01:15:38.550
+"And the p-value in statistics
+is one approach.",01:15:38.550,01:15:40.660
+"And there are other laws of large
+numbers that come with it.",01:15:40.660,01:15:45.130
+"I don't want to venture
+too much into that.",01:15:45.130,01:15:48.250
+"I basically picked from that jungle of
+mathematics the single most useful",01:15:48.250,01:15:53.630
+"formula that will get me home when
+I talk about the theory of",01:15:53.630,01:15:56.960
+generalization.,01:15:56.960,01:15:57.960
+And I want to focus on it.,01:15:57.960,01:15:59.230
+"I want to understand it-- this specific
+formula-- perfectly, so when we",01:15:59.230,01:16:03.850
+"keep modifying it until we get to the
+VC dimension, things are clear.",01:16:03.850,01:16:07.080
+"And, obviously, if you get curious about
+the law of large numbers, and",01:16:07.080,01:16:10.750
+"different manifestations of in-sample
+being close to out-of-sample and",01:16:10.750,01:16:14.070
+"probabilities of error, that is a very
+fertile ground, and a very useful",01:16:14.070,01:16:17.730
+ground to study.,01:16:17.730,01:16:18.610
+"But it is not a core subject
+of the course.",01:16:18.610,01:16:23.360
+"The subject is only borrowing
+one piece as a utility",01:16:23.360,01:16:26.320
+to get what it wants.,01:16:26.320,01:16:28.830
+So that ends the questions here?,01:16:29.630,01:16:30.730
+"Let's call it a day, and
+we will see you next week.",01:16:30.730,01:16:32.690

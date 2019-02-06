@@ -1,0 +1,1671 @@
+text,start,stop
+&gt;&gt; DAVID MALAN: All right.,00:00:11.460,00:00:12.250
+Welcome back to CS50.,00:00:12.250,00:00:13.860
+This is the start of week 8.,00:00:13.860,00:00:16.190
+"And recall that problem set 5 ended
+with a little bit of a challenge.",00:00:16.190,00:00:21.320
+"So assuming you recovered all of your
+teaching Fellows and CA's photographs",00:00:21.320,00:00:25.210
+"in the card.raw file, you are eligible
+to now find all of those people, and",00:00:25.210,00:00:30.480
+"one lucky winner will walk home with one
+of these things, the leap motion",00:00:30.480,00:00:34.510
+"device that you can use for final
+projects, for instance.",00:00:34.510,00:00:37.450
+"&gt;&gt; This, every year, leads to
+a bit of creepiness.",00:00:37.450,00:00:39.860
+"And so what I thought I'd do is share
+with you some of the notes that have",00:00:39.860,00:00:43.480
+"gone back and forth over
+the staff list of late.",00:00:43.480,00:00:47.370
+"For instance, just last night, quote
+unquote, from one of the staff",00:00:47.370,00:00:51.110
+"members, ""I just had a student knock
+on my door to take a photo with me.",00:00:51.110,00:00:55.000
+"Stalkers, I tell you."" Started off
+fairly descriptive and then we moved",00:00:55.000,00:00:59.020
+"on to, an hour or so later, ""I had a
+student waiting for me after section",00:00:59.020,00:01:02.830
+"and he had all of our names and photos
+on some sheets of paper."" All right.",00:01:02.830,00:01:06.080
+"So organized, but not
+all that creepy yet.",00:01:06.080,00:01:09.230
+"&gt;&gt; Then, ""I was out of town this weekend,
+and when I got back, there was one in",00:01:09.230,00:01:12.520
+my,00:01:12.520,00:01:12.630
+"bedroom."" [LAUGHTER]",00:01:12.630,00:01:16.740
+"DAVID MALAN: Next quote from a staff
+member, ""a student came to my house at",00:01:16.740,00:01:20.410
+"Somerville at 4 AM this morning."" Next
+staff, ""I got to my hotel in San",00:01:20.410,00:01:25.330
+"Francisco and a student was waiting for
+me at the lobby with three DSLRs.""",00:01:25.330,00:01:30.016
+Type of camera.,00:01:30.016,00:01:31.510
+"""I'm not even on staff this semester,
+but a student broke into my house this",00:01:31.510,00:01:34.980
+"morning and recorded the whole thing
+with Google Glass."" And then lastly,",00:01:34.980,00:01:40.480
+"""at least 12 people were eagerly
+awaiting for me when I got out of my",00:01:40.480,00:01:43.650
+"limo, and then I",00:01:43.650,00:01:44.800
+"woke up."" All right.",00:01:44.800,00:01:46.970
+"So among the photographs, as you may
+recall, are this fellow here, who you",00:01:46.970,00:01:57.690
+"might know as Milo Banana, who lives
+with Lauren Carvalho, our head",00:01:57.690,00:02:01.850
+teaching Fellow.,00:02:01.850,00:02:02.905
+"Milo, Milo, come here boy.",00:02:02.905,00:02:05.170
+Milo.,00:02:05.170,00:02:06.320
+Milo.,00:02:06.320,00:02:08.650
+"Mind you, he's wearing Google Glass, so
+we'll show you all of this after.",00:02:08.650,00:02:12.230
+"So this is Milo if you would like to
+take a photograph with him afterward.",00:02:12.230,00:02:16.190
+"If you'd like to look out
+at the audience there.",00:02:16.190,00:02:18.240
+OK.,00:02:18.240,00:02:19.430
+That's good footage.,00:02:19.430,00:02:20.200
+"Well, Milo Banana.",00:02:20.200,00:02:22.556
+"Oh, don't do that.",00:02:22.556,00:02:23.941
+&gt;&gt; [LAUGHTER],00:02:23.941,00:02:29.020
+&gt;&gt; OK.,00:02:29.020,00:02:29.470
+"So a word then on what lies ahead,
+because as we begin to transition,",00:02:29.470,00:02:34.550
+"this week specifically, from C in a
+command line environment to PHP and",00:02:34.550,00:02:38.410
+"JavaScript and SQL and HTML and CSS in
+a web-based environment, we'll be",00:02:38.410,00:02:42.720
+"equipping you with all the
+more knowledge for",00:02:42.720,00:02:44.490
+potential final projects.,00:02:44.490,00:02:46.010
+"Toward that end, the course has a
+tradition of holding seminars which",00:02:46.010,00:02:49.240
+"are on tangential topics
+to the course.",00:02:49.240,00:02:50.950
+"Very much related to programming and to
+app development and so forth, but",00:02:50.950,00:02:54.330
+"not necessarily explored by
+the course's own syllabus.",00:02:54.330,00:02:57.010
+"&gt;&gt; So if you might be interested in one
+or more of this year's seminars,",00:02:57.010,00:03:00.250
+register at cs50.net/seminar.,00:03:00.250,00:03:02.530
+"There are older seminars
+at cs50.net/seminars.",00:03:02.530,00:03:06.170
+"And on the roster thus far for this year
+are Amazing Web Apps with Ruby on",00:03:06.170,00:03:10.620
+"Rails, which is an alternative
+language to PHP.",00:03:10.620,00:03:13.580
+Computational Linguistics.,00:03:13.580,00:03:14.900
+"Introduction to iOS, which is the
+platform that's used for iPhone and",00:03:14.900,00:03:18.710
+iPad development.,00:03:18.710,00:03:19.850
+"JavaScript for Web Apps, we'll cover
+that, but in this seminar, you'll go",00:03:19.850,00:03:22.890
+into more detail.,00:03:22.890,00:03:24.070
+"&gt;&gt; Leap Motion, so we'll actually have some
+of our friends from Leap Motion,",00:03:24.070,00:03:27.390
+"the company itself, join us.",00:03:27.390,00:03:29.160
+"Tomorrow, in fact, to provide
+a hands-on seminar, if",00:03:29.160,00:03:31.800
+of interest to you.,00:03:31.800,00:03:33.320
+"Meteor.js, an alternative technique for
+using JavaScript not in a browser,",00:03:33.320,00:03:38.770
+but on a server.,00:03:38.770,00:03:39.970
+"Node.js, which is very much
+in that vein as well.",00:03:39.970,00:03:42.110
+Sleek Android Design.,00:03:42.110,00:03:43.650
+"Android being a very popular alternative
+to iOS and Windows Phone",00:03:43.650,00:03:46.990
+and other mobile platforms.,00:03:46.990,00:03:48.790
+And Web Security Active Defense.,00:03:48.790,00:03:51.180
+"&gt;&gt; So in fact, if you would like
+to engage in this, let me",00:03:51.180,00:03:54.590
+make note of this.,00:03:54.590,00:03:55.840
+"We're very happy to say that
+our friends at Leap",00:03:55.840,00:03:57.790
+"Motion, which is a startup--",00:03:57.790,00:03:59.140
+"this device really just came
+out a few months ago--",00:03:59.140,00:04:01.300
+"has graciously donated 30 such devices
+to the class for as many students, if",00:04:01.300,00:04:05.960
+"you'd like to borrow the hardware
+towards semester's end and use it for",00:04:05.960,00:04:08.670
+an actual final project.,00:04:08.670,00:04:10.390
+They support a number of languages.,00:04:10.390,00:04:11.890
+"None of them C, none of them PHP, so
+realize one or more of these seminars",00:04:11.890,00:04:16.040
+might prove of interest.,00:04:16.040,00:04:16.899
+"And all of them will be filmed in
+the event that you are not able",00:04:16.899,00:04:19.730
+to attend in person.,00:04:19.730,00:04:21.380
+"The schedule be announced via
+email as we solidify rooms.",00:04:21.380,00:04:25.000
+"&gt;&gt; And lastly, if you go to
+projects.cs.50.net, this is a website",00:04:25.000,00:04:28.460
+"we maintain each year that we invite
+folks from the community, faculty,",00:04:28.460,00:04:31.450
+"departments, staff, and both
+in an outside of CS50 to",00:04:31.450,00:04:36.420
+propose project ideas.,00:04:36.420,00:04:37.730
+Things of interest to student groups.,00:04:37.730,00:04:39.050
+Things of interest to departments.,00:04:39.050,00:04:40.600
+"So do turn there if you're struggling
+with uncertainty as to what you",00:04:40.600,00:04:43.990
+yourself would like to tackle.,00:04:43.990,00:04:46.700
+"&gt;&gt; So last time we introduced an arguably
+more complex data structure than we'd",00:04:46.700,00:04:51.760
+seen in weeks past.,00:04:51.760,00:04:53.300
+"We'd been using arrays pretty
+happily as a useful if",00:04:53.300,00:04:56.550
+simplistic data structure.,00:04:56.550,00:04:58.160
+"Then we introduced these, which
+of course are linked lists.",00:04:58.160,00:05:00.570
+"And what was one of the motivations for
+introducing this data structure?",00:05:00.570,00:05:05.470
+Yeah?,00:05:05.470,00:05:06.930
+What's that?,00:05:06.930,00:05:07.250
+&gt;&gt; AUDIENCE: Dynamic size.,00:05:07.250,00:05:08.080
+&gt;&gt; DAVID MALAN: Dynamic size.,00:05:08.080,00:05:09.040
+"So whereas in array, you have to
+know its size in advance when",00:05:09.040,00:05:11.890
+you allocate it.,00:05:11.890,00:05:12.740
+"In linked list, you don't
+have to know that.",00:05:12.740,00:05:14.380
+"You can just malloc, or more generally,
+allocate an additional",00:05:14.380,00:05:17.610
+"node, so to speak, any time you
+want to insert more data.",00:05:17.610,00:05:20.720
+And node has no predetermined meaning.,00:05:20.720,00:05:22.670
+"It's just a generic term describing
+some kind of container that we're",00:05:22.670,00:05:25.580
+"using in our data structure to store
+some item of interest, which in this",00:05:25.580,00:05:29.610
+case happen to be integers.,00:05:29.610,00:05:31.750
+&gt;&gt; But there's always a tradeoff.,00:05:31.750,00:05:33.160
+"So we get dynamic sizes of the data
+structure, but what price do we pay?",00:05:33.160,00:05:38.070
+What's the downside of linked lists?,00:05:38.070,00:05:40.040
+Yeah?,00:05:40.040,00:05:41.006
+&gt;&gt; AUDIENCE: Requires more memory.,00:05:41.006,00:05:41.980
+"&gt;&gt; DAVID MALAN: It requires more
+memory, how exactly?",00:05:41.980,00:05:44.240
+&gt;&gt; AUDIENCE: [INAUDIBLE].,00:05:44.240,00:05:46.440
+&gt;&gt; DAVID MALAN: Exactly.,00:05:46.440,00:05:47.050
+"So now we have pointers taking up
+additional memory that we previously",00:05:47.050,00:05:50.460
+"didn't need, because the advantage
+of an array, of course, is that",00:05:50.460,00:05:53.040
+"everything's contiguous, back
+to back to back, which",00:05:53.040,00:05:54.860
+gives you random access.,00:05:54.860,00:05:56.380
+"Because just by using square bracket
+notation, or more technically pointer",00:05:56.380,00:06:00.710
+"arithmetic, very simple addition,
+can you access any",00:06:00.710,00:06:03.580
+elements in constant time.,00:06:03.580,00:06:05.700
+"And in fact, that's kind of hinting at
+another price that we're paying with a",00:06:05.700,00:06:08.975
+linked list.,00:06:08.975,00:06:09.760
+"&gt;&gt; What happens to the running time of
+something like Search, if I want to",00:06:09.760,00:06:13.890
+"find some value and inside
+of a linked list?",00:06:13.890,00:06:17.270
+What does my running time become?,00:06:17.270,00:06:20.290
+Big O of n.,00:06:20.290,00:06:21.560
+If it's sorted to?,00:06:21.560,00:06:24.060
+What if the data structure's sorted?,00:06:24.060,00:06:25.440
+"Can I do better than big
+O of n for searching?",00:06:25.440,00:06:28.640
+"No, because in the worst case it might
+very well be sorted, but the number",00:06:28.640,00:06:31.700
+you're looking for might be big.,00:06:31.700,00:06:32.950
+"It might be the number 100, which
+might happen to be all",00:06:32.950,00:06:35.370
+the way at the end.,00:06:35.370,00:06:36.410
+"And because you can only access a linked
+list in this implementation by",00:06:36.410,00:06:39.950
+"way of its first node, you're
+still kind of out of luck.",00:06:39.950,00:06:42.690
+"You have to traverse the whole thing
+from first to last in order to find",00:06:42.690,00:06:47.450
+that big value like 100.,00:06:47.450,00:06:49.150
+"Or to determine if it's
+not even there.",00:06:49.150,00:06:51.350
+"&gt;&gt; So we cannot do what algorithm in a data
+structure that looks like this?",00:06:51.350,00:06:55.960
+"We can't do binary search, because
+binary search required that we had",00:06:55.960,00:06:59.460
+random access.,00:06:59.460,00:07:00.740
+"We could just leap from location to
+location without having to follow",00:07:00.740,00:07:04.500
+"these bread crumbs in the form
+of all these pointers.",00:07:04.500,00:07:07.080
+"&gt;&gt; Now, how did we implement this?",00:07:07.080,00:07:08.300
+"Well, if we go to the screen here, if
+we can quickly reimplement this data",00:07:08.300,00:07:12.830
+structure--,00:07:12.830,00:07:13.440
+"my handwriting's not all that
+great here, but we'll try.",00:07:13.440,00:07:15.670
+"So typedef struct, and what did I
+want to call this thing up here?",00:07:15.670,00:07:22.030
+Node.,00:07:22.030,00:07:22.960
+So I'll get us started.,00:07:22.960,00:07:24.580
+"And now, what needs to be inside of
+the data structure for that singly",00:07:24.580,00:07:27.860
+linked list?,00:07:27.860,00:07:28.430
+How many fields?,00:07:28.430,00:07:29.950
+&gt;&gt; So two.,00:07:29.950,00:07:30.450
+One is pretty easy.,00:07:30.450,00:07:31.570
+So int n.,00:07:31.570,00:07:33.050
+"And we could call n anything we want,
+but it should be an int if we're",00:07:33.050,00:07:35.930
+implementing a linked list for ints.,00:07:35.930,00:07:37.660
+"And now what does the second
+field have to be?",00:07:37.660,00:07:41.920
+Struct node *.,00:07:41.920,00:07:43.460
+"So if I do struct node *, and then I
+can call this also whatever I want,",00:07:43.460,00:07:50.570
+"but just to be clear I'll call
+it next, as we've been doing.",00:07:50.570,00:07:53.510
+And then I'll close my curly braces.,00:07:53.510,00:07:55.270
+"&gt;&gt; And now, as last time,
+I put node down here.",00:07:55.270,00:08:00.700
+"But if I'm declaring this is as a
+node, why did I bother being so",00:08:00.700,00:08:03.830
+"verbose here in declaring struct
+node * next, as opposed",00:08:03.830,00:08:07.320
+to just node * next?,00:08:07.320,00:08:09.210
+Yeah?,00:08:09.210,00:08:09.904
+&gt;&gt; AUDIENCE: [INAUDIBLE].,00:08:09.904,00:08:12.810
+&gt;&gt; DAVID MALAN: Exactly.,00:08:12.810,00:08:14.050
+Exactly.,00:08:14.050,00:08:14.530
+"Because C really takes you literally and
+only sees the definition of node",00:08:14.530,00:08:18.320
+"way down here, you can't
+refer to it up here.",00:08:18.320,00:08:21.230
+"So we have this sort of preemptive
+declaration here, which is admittedly",00:08:21.230,00:08:24.760
+more verbose.,00:08:24.760,00:08:25.390
+"Struct node, that means
+we can now access it",00:08:25.390,00:08:27.810
+inside of the data structure.,00:08:27.810,00:08:29.760
+"&gt;&gt; And as an aside, because this is
+becoming a little more subjective now,",00:08:29.760,00:08:33.370
+"the star can technically go here,
+it can go here, it can",00:08:33.370,00:08:36.230
+even go in the middle.,00:08:36.230,00:08:37.179
+"We've adopted, in the style guide for
+the course, the convention of putting",00:08:37.179,00:08:39.890
+"the star right next to the data
+type, which in this case,",00:08:39.890,00:08:42.299
+would be struct node.,00:08:42.299,00:08:43.460
+"But realize in a lot of textbooks and
+online references, you might indeed",00:08:43.460,00:08:46.620
+see it on the other side.,00:08:46.620,00:08:48.450
+"But just realize that both will actually
+work and you should simply be",00:08:48.450,00:08:52.200
+consistent.,00:08:52.200,00:08:52.970
+&gt;&gt; All right.,00:08:52.970,00:08:53.580
+"So that was our declaration
+of struct node.",00:08:53.580,00:08:55.630
+"But then we started doing more
+sophisticated things.",00:08:55.630,00:08:59.430
+"For instance, we decided to introduce
+something like a hash table.",00:08:59.430,00:09:03.410
+"So here is a hash table of size n,
+indexed from 0 on the top left to n",00:09:03.410,00:09:08.160
+minus 1 on the bottom left.,00:09:08.160,00:09:09.690
+"This could be a hash
+table for anything.",00:09:09.690,00:09:11.640
+"But what kinds of things did we talk
+about using a hash table for?",00:09:11.640,00:09:15.340
+Storing what?,00:09:15.340,00:09:18.370
+&gt;&gt; Names.,00:09:18.370,00:09:18.800
+"We could do names like
+we did last time.",00:09:18.800,00:09:20.870
+"And really, you can store anything.",00:09:20.870,00:09:22.200
+"And we'll see this again in
+PHP and in JavaScript.",00:09:22.200,00:09:24.640
+"A hash table is a nice sort of Swiss
+Army knife that allows you to store",00:09:24.640,00:09:28.550
+"pretty much whatever you want inside of
+it by associating keys with values.",00:09:28.550,00:09:33.690
+Keys with values.,00:09:33.690,00:09:34.770
+"&gt;&gt; Now in this simple case, our
+keys are just numbers.",00:09:34.770,00:09:37.800
+"We're implementing a hash
+table as an array.",00:09:37.800,00:09:40.380
+"And so the keys are 0,
+1, 2, and so forth.",00:09:40.380,00:09:43.500
+"And so we, as humans, decided last
+week that you know what, if we're",00:09:43.500,00:09:47.200
+"going to store names, let's just
+arbitrarily, but pretty reasonably,",00:09:47.200,00:09:50.410
+"assume that Alice, an A name,
+will just be indexed into 0.",00:09:50.410,00:09:54.680
+"And Bob, a B name, will be indexed
+into 1, and so forth.",00:09:54.680,00:09:58.030
+"So we had a mapping between inputs,
+which are strings, and the hash",00:09:58.030,00:10:02.490
+"locations, which are numbers.",00:10:02.490,00:10:04.560
+"&gt;&gt; So that process is generally known as
+a hash function, and you can truly",00:10:04.560,00:10:07.740
+implement it in code.,00:10:07.740,00:10:09.130
+"If I wanted to implement a hash function
+that does exactly what we",00:10:09.130,00:10:12.080
+"just described from last time, I might
+declare a function that takes, as",00:10:12.080,00:10:17.070
+input for instance--,00:10:17.070,00:10:18.330
+"and let's do this on this
+screen over here.",00:10:18.330,00:10:22.190
+"If I wanted to implement a hash
+function, I might say",00:10:22.190,00:10:26.180
+something like this.,00:10:26.180,00:10:27.410
+&gt;&gt; It's going to return an int.,00:10:27.410,00:10:29.030
+"It's going to be called hash, and it's
+going to accept as an argument a",00:10:29.030,00:10:33.600
+"string, or we can be more proper now,
+and say char*, we'll call it s.",00:10:33.600,00:10:38.920
+"And then all this function has to do,
+ultimately, is return an int.",00:10:38.920,00:10:43.840
+"Now, how it does that might
+not be so clear.",00:10:43.840,00:10:45.990
+"I'm going to implement this without any
+form of error checking right now.",00:10:45.990,00:10:49.510
+"I'm just going to blindly say, return
+whatever is at s bracket 0, minus,",00:10:49.510,00:10:55.740
+"let's say, capital A semicolon.",00:10:55.740,00:10:58.850
+&gt;&gt; Totally broken.,00:10:58.850,00:10:59.960
+"It's not perfect because
+one, what if s is null?",00:10:59.960,00:11:02.620
+Bad things are going to happen.,00:11:02.620,00:11:04.000
+"Two, what if the first letter in this
+name is not a capital letter?",00:11:04.000,00:11:07.940
+"That's not going to turn
+out well either.",00:11:07.940,00:11:09.860
+"It might be a lowercase letter
+or not a letter at all.",00:11:09.860,00:11:11.970
+"So totally room for improvement here,
+but this is the basic idea.",00:11:11.970,00:11:15.520
+"&gt;&gt; What we described last week verbally as
+just a process of mapping Alice to",00:11:15.520,00:11:19.010
+"0 and Bob to 1 can be expressed
+certainly more formulaically as a C",00:11:19.010,00:11:23.360
+function here.,00:11:23.360,00:11:24.320
+"Called again hash, takes a string as
+input, and then somehow does something",00:11:24.320,00:11:28.630
+with that input to produce an output.,00:11:28.630,00:11:31.020
+"Not unlike our black box description
+that we've long done.",00:11:31.020,00:11:34.130
+"I don't know how this might be
+working underneath the hood.",00:11:34.130,00:11:36.550
+"&gt;&gt; For problem set 6, one of the challenges
+is for you to decide what",00:11:36.550,00:11:40.120
+will your hash function be?,00:11:40.120,00:11:41.920
+"What's going to be inside of that black
+box, and presumably, it'll be a",00:11:41.920,00:11:45.760
+"little more interesting than this, and
+definitely more prone to error",00:11:45.760,00:11:50.380
+"checking than this particular
+implementation.",00:11:50.380,00:11:53.180
+"&gt;&gt; But problems can arise, right?",00:11:53.180,00:11:54.580
+"If we have a data structure such as this
+one, what's one of the problems",00:11:54.580,00:11:57.760
+"you can run into over time as you insert
+more and more names into the",00:11:57.760,00:12:01.600
+hash table?,00:12:01.600,00:12:02.880
+"You get collisions, right?",00:12:02.880,00:12:04.630
+"What if you have Alice and Aaron,
+two people whose names happened",00:12:04.630,00:12:07.560
+to start with A?,00:12:07.560,00:12:08.190
+"That begs the question, where you
+put the second such A name?",00:12:08.190,00:12:11.660
+"&gt;&gt; Well, you might naively just put it
+where Bob belongs, but then Bob is",00:12:11.660,00:12:15.050
+"kind of screwed if you try to
+insert his name next and",00:12:15.050,00:12:17.300
+there's no room for him.,00:12:17.300,00:12:18.240
+"So you might put Bob where Charlie is,
+and you can imagine this very quickly",00:12:18.240,00:12:21.400
+devolving into a bit of a mess.,00:12:21.400,00:12:23.020
+"Something linear in the end, where you
+just have to search the whole thing",00:12:23.020,00:12:25.600
+"looking for Alice or Bob
+or Aaron or Charlie.",00:12:25.600,00:12:28.190
+"&gt;&gt; So instead we proposed, instead of just
+linearly probing for open spaces",00:12:28.190,00:12:33.230
+"and plopping the names there, we
+proposed a fancier approach.",00:12:33.230,00:12:36.450
+"A hash table implemented still with an
+array of indices, but the data type of",00:12:36.450,00:12:41.740
+those indices now were pointers.,00:12:41.740,00:12:44.500
+Pointers to what?,00:12:44.500,00:12:47.360
+Pointers to linked lists.,00:12:47.360,00:12:48.730
+"&gt;&gt; Because recall that a linked list is
+really just a pointer to a node, and",00:12:48.730,00:12:53.330
+"the node has a next field, and that node
+has a next field, and so forth.",00:12:53.330,00:12:57.110
+"So you can now think of this array on
+the left-hand side of a hash table as",00:12:57.110,00:13:00.690
+leading to a linked list.,00:13:00.690,00:13:01.820
+"The advantage of which is if you get a
+collision between Alice and Aaron,",00:13:01.820,00:13:07.000
+"what do you do with the
+second such person?",00:13:07.000,00:13:09.300
+"You just attach him or her to the
+end, or even the beginning",00:13:09.300,00:13:14.150
+of that linked list.,00:13:14.150,00:13:15.490
+"&gt;&gt; And actually, let's just noodle through
+that for just a second.",00:13:15.490,00:13:17.340
+Where would make the most sense?,00:13:17.340,00:13:18.640
+"If I insert Alice and she ends up at
+the first location, then I try to",00:13:18.640,00:13:22.060
+"insert Aaron's name, and there's
+obviously a collision, should I put",00:13:22.060,00:13:25.310
+"him at the beginning
+of the linked list?",00:13:25.310,00:13:27.400
+"That's at that first location,
+or at the end?",00:13:27.400,00:13:30.944
+&gt;&gt; AUDIENCE: [INAUDIBLE].,00:13:30.944,00:13:31.440
+&gt;&gt; DAVID MALAN: OK.,00:13:31.440,00:13:31.990
+I heard beginning.,00:13:31.990,00:13:32.490
+Why at the beginning?,00:13:32.490,00:13:33.903
+&gt;&gt; AUDIENCE: [INAUDIBLE].,00:13:33.903,00:13:34.750
+&gt;&gt; DAVID MALAN: OK.,00:13:34.750,00:13:34.940
+"It's alphabetical, so that's nice.",00:13:34.940,00:13:36.520
+That's a good property.,00:13:36.520,00:13:37.330
+It will save me some time potentially.,00:13:37.330,00:13:39.335
+"It won't let me do binary search, but I
+might at least be able to break out",00:13:39.335,00:13:43.290
+"of a loop if I realize, well, I'm way
+past were Aaron would be in this",00:13:43.290,00:13:47.340
+sorted linked list.,00:13:47.340,00:13:48.310
+"I don't have to waste my time looking
+all the way to the end.",00:13:48.310,00:13:50.360
+So that's reasonable.,00:13:50.360,00:13:51.530
+"Why else might you want to insert
+the colliding name at the",00:13:51.530,00:13:54.710
+beginning of the list?,00:13:54.710,00:13:56.660
+What's that?,00:13:56.660,00:13:57.397
+&gt;&gt; AUDIENCE: [INAUDIBLE].,00:13:57.397,00:13:58.680
+"&gt;&gt; DAVID MALAN: It could take a long time
+to get to the end of the list.",00:13:58.680,00:14:00.820
+"And in fact, longer and longer.",00:14:00.820,00:14:02.490
+"The more names you insert that
+start with A, the longer that",00:14:02.490,00:14:04.920
+chain is going to get.,00:14:04.920,00:14:06.280
+"The longer that linked
+list is going to get.",00:14:06.280,00:14:07.890
+"So you're really just
+wasting your time.",00:14:07.890,00:14:09.420
+"Maybe you're better off maintaining
+constant insertion time, big O of 1,",00:14:09.420,00:14:14.070
+"by always putting the colliding name at
+the beginning of the linked list,",00:14:14.070,00:14:18.470
+"and not worrying as much
+about sorting.",00:14:18.470,00:14:21.230
+&gt;&gt; What's the best answer?,00:14:21.230,00:14:22.600
+It's unclear.,00:14:22.600,00:14:23.320
+"It kind of depends on what the
+distribution is, what the pattern is",00:14:23.320,00:14:26.140
+of the names you are inserting.,00:14:26.140,00:14:27.850
+"It's not necessarily
+an obvious answer.",00:14:27.850,00:14:29.430
+"But here to, again, is
+a design opportunity.",00:14:29.430,00:14:33.100
+"&gt;&gt; So we then looked at this thing, which
+is really the other big opportunity",00:14:33.100,00:14:37.220
+for p-set 6.,00:14:37.220,00:14:38.180
+"And realize, if you haven't already,
+Zamyla dives into both of these, hash",00:14:38.180,00:14:41.770
+"tables and tries, in more detail.",00:14:41.770,00:14:43.260
+"And the video walkthrough is
+embedded in p-set spec.",00:14:43.260,00:14:45.630
+This was a trie--,00:14:45.630,00:14:46.590
+"T-R-I-E. And what was interesting about
+this was that the running time",00:14:46.590,00:14:51.670
+"of searching for a name, like Maxwell
+last time, was big O of what?",00:14:51.670,00:14:59.510
+What's that?,00:14:59.510,00:15:01.040
+&gt;&gt; AUDIENCE: The number of letters.,00:15:01.040,00:15:01.920
+&gt;&gt; DAVID MALAN: Number of letters.,00:15:01.920,00:15:02.550
+I heard two things.,00:15:02.550,00:15:03.210
+Number of letters and constant time.,00:15:03.210,00:15:04.630
+So let's go with that first.,00:15:04.630,00:15:05.540
+The number of letters.,00:15:05.540,00:15:06.410
+"Well, this data structure, recall, is
+like a tree, a family tree, each of",00:15:06.410,00:15:10.195
+whose nodes are made up of arrays.,00:15:10.195,00:15:12.860
+"And those arrays are pointers to
+other such nodes, or other such",00:15:12.860,00:15:16.300
+arrays in the tree.,00:15:16.300,00:15:17.670
+"&gt;&gt; So if we wanted to then determine
+whether Maxwell is in here, I might go",00:15:17.670,00:15:22.890
+"to the first array, at the very top of
+the tree, the so-called root, top of",00:15:22.890,00:15:26.890
+"the trie, and then follow the m pointer,
+then the a pointer, then x,",00:15:26.890,00:15:30.521
+"w, e, l, l.",00:15:30.521,00:15:31.710
+"And then when I see some special symbol,
+denoted here as a triangle.",00:15:31.710,00:15:34.910
+"In code you'll see we propose that you
+implemented as a bool, just saying yes",00:15:34.910,00:15:38.480
+"or no, a word stops here.",00:15:38.480,00:15:40.540
+"&gt;&gt; Well, once we've gone to M-A-X-W-E-L-L,
+feels like seven, maybe",00:15:40.540,00:15:45.270
+"eight if we go one past it, eight
+steps to find Maxwell.",00:15:45.270,00:15:48.910
+"Or let's call it K. But recall last
+time, I argued that if there's",00:15:48.910,00:15:53.050
+"realistically a maximum length on a
+word, like 40-some-odd characters, a",00:15:53.050,00:15:57.540
+"maximum length implies
+a constant value.",00:15:57.540,00:16:00.810
+"So really, yes, it's technically big O
+of 8 or 7, or really big O of K. But",00:16:00.810,00:16:05.770
+"if there's a finite cap on what
+K could be, it's a constant.",00:16:05.770,00:16:09.420
+"And so it's big O of 1 at
+the end of the day.",00:16:09.420,00:16:12.080
+&gt;&gt; Not in the real world.,00:16:12.080,00:16:13.040
+"Not when you actually start watching
+your clock as your program's running.",00:16:13.040,00:16:15.960
+"It's absolutely going to be a bit
+slower than truly constant",00:16:15.960,00:16:20.690
+time with one step.,00:16:20.690,00:16:21.840
+"It's going to be seven or eight steps,
+but still that's much, much better",00:16:21.840,00:16:25.540
+"than an algorithm like big O of n that
+depends on the size of what's in the",00:16:25.540,00:16:30.080
+data structure.,00:16:30.080,00:16:31.220
+"&gt;&gt; Notice the upside here is we can insert
+a million more names into this",00:16:31.220,00:16:34.970
+"data structure, but how many more steps
+is it going to take us to find",00:16:34.970,00:16:38.170
+Maxwell in that case?,00:16:38.170,00:16:40.480
+None.,00:16:40.480,00:16:40.780
+He's unaffected.,00:16:40.780,00:16:41.820
+"And to date, I don't think we've seen
+an example of a data structure or an",00:16:41.820,00:16:45.480
+"algorithm that was completely
+unaffected by external",00:16:45.480,00:16:48.560
+behaviors like that.,00:16:48.560,00:16:50.040
+But this can't be amazing.,00:16:50.040,00:16:51.160
+"This can't be the only solution
+for the p-set",00:16:51.160,00:16:52.900
+&gt;&gt; And it's not.,00:16:52.900,00:16:53.570
+"This is not necessarily the data
+structure you should gravitate to,",00:16:53.570,00:16:55.980
+"because like hash tables, tradeoff.",00:16:55.980,00:16:58.220
+What's the price you pay here?,00:16:58.220,00:17:00.500
+Memory.,00:17:00.500,00:17:00.940
+"I mean, this is an atrocious
+amount of memory.",00:17:00.940,00:17:02.890
+"And you can't quite see it here because
+the author of this picture",00:17:02.890,00:17:05.569
+"obviously truncated all of the arrays,
+and we're not seeing lots of A's and",00:17:05.569,00:17:09.420
+"B's and C's and Q's and Y's
+and Z's in these arrays.",00:17:09.420,00:17:12.700
+But they're there.,00:17:12.700,00:17:13.630
+"&gt;&gt; Each of these nodes is a whole array
+of some 26 or more bytes, each of",00:17:13.630,00:17:17.660
+which represents a letter.,00:17:17.660,00:17:19.170
+"27 in our case, so that we can support
+apostrophes in the problem set.",00:17:19.170,00:17:22.920
+"So this data structure is really,
+really dense and wide.",00:17:22.920,00:17:27.030
+"And that alone might end up slowing
+things down, or at least costing you a",00:17:27.030,00:17:30.880
+lot more space.,00:17:30.880,00:17:32.240
+"But again, we can draw
+comparisons here.",00:17:32.240,00:17:34.020
+"&gt;&gt; Recall a while back, we achieved much
+more exciting running time in sorting",00:17:34.020,00:17:39.190
+"when we use merge sort, but the price
+we paid to achieve n log n for merge",00:17:39.190,00:17:42.880
+"sort required that we spend
+more what resource?",00:17:42.880,00:17:46.930
+More space.,00:17:46.930,00:17:47.690
+"We needed a secondary array to
+copy people into, just like",00:17:47.690,00:17:50.530
+we did here on stage.,00:17:50.530,00:17:51.620
+"So again, no clear winners,
+but just subjective design",00:17:51.620,00:17:55.880
+decisions to be made.,00:17:55.880,00:17:57.710
+&gt;&gt; All right.,00:17:57.710,00:17:58.060
+So how about this?,00:17:58.060,00:17:59.130
+Anyone recognize which D-Hall?,00:17:59.130,00:18:02.050
+OK.,00:18:02.050,00:18:02.440
+So three of us do.,00:18:02.440,00:18:03.170
+Mather House.,00:18:03.170,00:18:03.750
+So this is for Mather's dining.,00:18:03.750,00:18:05.070
+"I'll bet all the dining halls have
+stacks of trays like this.",00:18:05.070,00:18:09.650
+"And this is actually representative
+of something we've",00:18:09.650,00:18:11.950
+obviously seen already.,00:18:11.950,00:18:13.050
+We called it literally a stack.,00:18:13.050,00:18:14.850
+"And the stack, in terms of your
+computer's memory, is where data goes",00:18:14.850,00:18:18.970
+while functions are being called.,00:18:18.970,00:18:20.460
+"&gt;&gt; For instance, what kinds of things go
+on the stack with respect to the",00:18:20.460,00:18:23.410
+"memory layout we've discussed
+in weeks past?",00:18:23.410,00:18:27.420
+What's that?,00:18:27.420,00:18:28.736
+&gt;&gt; AUDIENCE: Calls to functions.,00:18:28.736,00:18:29.670
+&gt;&gt; DAVID MALAN: I'm sorry.,00:18:29.670,00:18:30.260
+&gt;&gt; AUDIENCE: Calls to functions.,00:18:30.260,00:18:31.210
+"&gt;&gt; DAVID MALAN: Calls to functions, but
+specifically, what's inside of each of",00:18:31.210,00:18:33.590
+those frames?,00:18:33.590,00:18:35.340
+What kinds of things?,00:18:35.340,00:18:37.220
+Yeah.,00:18:37.220,00:18:37.460
+So local variables.,00:18:37.460,00:18:38.500
+"Anytime we needed some local storage,
+like an argument, or int I, or int",00:18:38.500,00:18:43.080
+"temp, or whatever the local
+variable is, we've been",00:18:43.080,00:18:45.940
+putting that on the stack.,00:18:45.940,00:18:47.210
+"And we call it a stack because
+of that layering idea.",00:18:47.210,00:18:49.610
+"Just kind of matches up with reality,
+the concept thereof.",00:18:49.610,00:18:52.940
+"&gt;&gt; But it turns out that a stack can also
+be seen as a data structure, an",00:18:52.940,00:18:56.650
+"alternative to an array, an alternative
+to a linked list.",00:18:56.650,00:19:00.110
+"Something conceptually more interesting
+that can still be",00:19:00.110,00:19:02.770
+"implemented using either of those
+things, but it's a different type of",00:19:02.770,00:19:06.030
+"data structure supporting, really,
+only two operations.",00:19:06.030,00:19:09.140
+"But you can add on fancier
+features than these.",00:19:09.140,00:19:11.000
+But these are the basics--,00:19:11.000,00:19:12.180
+push and pop.,00:19:12.180,00:19:13.510
+"&gt;&gt; And the idea with a stack is that if I
+have here, with or without Annenberg",00:19:13.510,00:19:19.240
+"knowing, a tray from next door
+with the number 9 on it.",00:19:19.240,00:19:22.880
+So just an int.,00:19:22.880,00:19:23.870
+"And I want to push this onto the data
+structure, which currently is empty.",00:19:23.870,00:19:26.990
+Consider this the bottom of the stack.,00:19:26.990,00:19:28.790
+"I would push this number 9 onto the
+stack, and now it's right there.",00:19:28.790,00:19:33.150
+"&gt;&gt; But the interesting thing about a stack
+is that if I now want to push",00:19:33.150,00:19:36.040
+"some other value, like 17, and I push
+this onto the stack, I'm going to do",00:19:36.040,00:19:40.210
+"the only intuitive thing, I'm just going
+to put it right where we humans",00:19:40.210,00:19:43.290
+"would be inclined to put it, on top.",00:19:43.290,00:19:45.180
+"But what's interesting now
+is, how do I get at 9?",00:19:45.180,00:19:48.850
+"You know, I don't without some effort.",00:19:48.850,00:19:50.670
+"&gt;&gt; So what's interesting about
+a stack is that by design,",00:19:50.670,00:19:54.070
+it's a LIFO data structure.,00:19:54.070,00:19:56.330
+"Silly way of describing
+last in, first out.",00:19:56.330,00:19:59.680
+"So the last number in
+at this time was 17.",00:19:59.680,00:20:03.280
+"So if I want to pop something off
+of the stack, it can only be 17.",00:20:03.280,00:20:07.540
+"So there's a mandatory order of
+operations here, where the last item",00:20:07.540,00:20:11.890
+in has to be the first one out.,00:20:11.890,00:20:14.260
+"Hence the acronym, LIFO.",00:20:14.260,00:20:16.440
+&gt;&gt; So why might this be useful?,00:20:16.440,00:20:19.160
+"Are their contexts in which you'd
+want a data structure like this?",00:20:19.160,00:20:22.690
+"Well, it's certainly been useful
+inside of a computer.",00:20:22.690,00:20:24.810
+"So operating systems clearly use this
+kind of data structure for stacks.",00:20:24.810,00:20:29.050
+"We'll also see the same idea
+when it comes to web pages.",00:20:29.050,00:20:32.800
+"So this week and next week and beyond,
+and as you start implementing web",00:20:32.800,00:20:35.890
+"pages in a language called HTML, you can
+actually use a data structure like",00:20:35.890,00:20:39.490
+"this to determine if the page
+is correctly formatted.",00:20:39.490,00:20:42.690
+"Because we'll see all web pages follow
+a sort of hierarchy, an indentation",00:20:42.690,00:20:47.170
+"that will, at the end of the day, be a
+tree structure underneath the hood.",00:20:47.170,00:20:52.030
+So more on that in just a bit.,00:20:52.030,00:20:53.620
+"&gt;&gt; But for now, let's propose for a
+moment, how could we go about",00:20:53.620,00:20:56.560
+representing what a stack is?,00:20:56.560,00:20:58.830
+"Let me propose that we implement
+a stack with code like this.",00:20:58.830,00:21:03.370
+"So a stack is going to have inside of it
+two things, an array, called trays,",00:21:03.370,00:21:07.990
+just to be consistent with the demo.,00:21:07.990,00:21:09.510
+"And each of the items in that array
+is going to be a type int.",00:21:09.510,00:21:12.660
+And capacity is presumably what?,00:21:12.660,00:21:14.740
+"Because I've not written the
+full definition here.",00:21:14.740,00:21:18.796
+"&gt;&gt; It's probably the maximum
+size of the array.",00:21:18.796,00:21:21.535
+"And it's probably declared as a sharp
+define at the top of the file, some",00:21:21.535,00:21:25.150
+"kind of constant as implied by
+the mere capitalization.",00:21:25.150,00:21:28.450
+"So somewhere capacity is defined
+as the maximum possible size.",00:21:28.450,00:21:32.250
+"Meanwhile, inside of the data structure
+known as a stack there will",00:21:32.250,00:21:35.590
+"be an integer just known
+simply as size.",00:21:35.590,00:21:38.630
+"&gt;&gt; So if I were to represent this now
+pictorially, let's suppose that this",00:21:38.630,00:21:43.400
+whole black box represents my stack.,00:21:43.400,00:21:48.070
+Inside of it is two variables.,00:21:48.070,00:21:50.070
+"So I'm going to draw the
+first one as size.",00:21:50.070,00:21:54.780
+"And the second one I'm going
+to draw as an array.",00:21:54.780,00:21:57.420
+"&gt;&gt; But just to keep things orderly,
+normally I would draw an array like",00:21:57.420,00:22:01.060
+"this, but it's kind of nice
+if we match reality, or",00:22:01.060,00:22:04.910
+match the mental model.,00:22:04.910,00:22:06.230
+"So let me instead draw the array
+vertically, which is just, again,",00:22:06.230,00:22:12.880
+artist's rendition.,00:22:12.880,00:22:13.840
+"Doesn't really matter what it
+is underneath the hood.",00:22:13.840,00:22:16.610
+"And we'll say that, by default,
+capacity is going to be three.",00:22:16.610,00:22:20.350
+"So this will be location 0, this
+will be location 1, this",00:22:20.350,00:22:23.480
+will be location 2.,00:22:23.480,00:22:25.740
+"&gt;&gt; If I bribe with a stress ball, would
+someone like to come up and run the",00:22:25.740,00:22:29.330
+board here for just a moment?,00:22:29.330,00:22:30.870
+"OK, saw your hand first.",00:22:30.870,00:22:31.960
+Come on up.,00:22:31.960,00:22:33.950
+All right.,00:22:33.950,00:22:36.500
+So I believe it is Steven.,00:22:36.500,00:22:38.760
+Come on up.,00:22:38.760,00:22:40.035
+All right.,00:22:40.035,00:22:40.770
+"&gt;&gt; But suppose now we rewind to the initial
+state of the world where I",00:22:40.770,00:22:46.760
+"have just declared a stack, and it's
+going to be of capacity three.",00:22:46.760,00:22:52.180
+But size has not yet been determined.,00:22:52.180,00:22:54.470
+Trays has not yet been determined.,00:22:54.470,00:22:56.100
+So a couple of questions first.,00:22:56.100,00:22:57.300
+"And let me give you mic so you can
+partake more actively in this.",00:22:57.300,00:23:01.310
+"&gt;&gt; So what is inside of size at this moment
+in time if all I have done is",00:23:01.310,00:23:05.190
+"declared a stack with
+one line of code?",00:23:05.190,00:23:09.340
+&gt;&gt; STEVEN: Not much.,00:23:09.340,00:23:10.100
+"&gt;&gt; DAVID MALAN: OK, not much.",00:23:10.100,00:23:12.080
+"Do we know what's inside of size,
+do we know what's inside",00:23:12.080,00:23:14.410
+of this array here?,00:23:14.410,00:23:16.330
+"&gt;&gt; STEVEN: Just random code, right?",00:23:16.330,00:23:18.630
+Just--,00:23:18.630,00:23:20.220
+"&gt;&gt; DAVID MALAN: Yeah, I'm going to
+call it code, but random--",00:23:20.220,00:23:23.230
+&gt;&gt; STEVEN: Things.,00:23:23.230,00:23:23.820
+&gt;&gt; DAVID MALAN: Things like random,00:23:23.820,00:23:28.290
+&gt;&gt; STEVEN: Bits.,00:23:28.290,00:23:28.870
+"&gt;&gt; DAVID MALAN: Bits, right?",00:23:28.870,00:23:29.530
+"So garbage values, right?",00:23:29.530,00:23:31.190
+So permutations of 0's and 1's.,00:23:31.190,00:23:33.470
+"Remnants of previous usages
+of this memory.",00:23:33.470,00:23:35.920
+"And we don't really know what the values
+are, so we typically draw them",00:23:35.920,00:23:38.150
+as question marks.,00:23:38.150,00:23:38.930
+"&gt;&gt; So the first thing we're presumably
+going to want to do here--",00:23:38.930,00:23:41.990
+"and let me give this field inside
+of there a name-- trays.",00:23:41.990,00:23:46.630
+"What should we presumably initialize
+size to if we want to",00:23:46.630,00:23:49.540
+start using this stack?,00:23:49.540,00:23:51.040
+&gt;&gt; STEVEN: Tray is sub 3.,00:23:51.040,00:23:53.070
+"&gt;&gt; DAVID MALAN: So, OK.",00:23:53.070,00:23:53.910
+"To be clear, capacity is declared
+elsewhere as three.",00:23:53.910,00:23:56.710
+"And that's what I've used
+to allocate the array.",00:23:56.710,00:23:58.570
+"Size is going to refer to how many
+trays are currently on the stack.",00:23:58.570,00:24:03.535
+&gt;&gt; STEVEN: Zero.,00:24:03.535,00:24:03.880
+&gt;&gt; DAVID MALAN: So it should be zero.,00:24:03.880,00:24:04.460
+"So go ahead, and with any finger,
+draw a zero in size.",00:24:04.460,00:24:07.760
+All right.,00:24:07.760,00:24:08.440
+"So now, what's inside of this
+here, we don't know.",00:24:08.440,00:24:10.920
+These are really just garbage values.,00:24:10.920,00:24:12.160
+"So we could draw question marks, but
+let's keep the board clean for now",00:24:12.160,00:24:14.800
+"because it doesn't matter
+what's there.",00:24:14.800,00:24:16.300
+"We don't need to initialize the array
+to anything, because if we know that",00:24:16.300,00:24:19.130
+"the size of the stack is zero, well, we
+shouldn't be looking at anything in",00:24:19.130,00:24:23.100
+"this array anyway at
+this point in time.",00:24:23.100,00:24:25.590
+"&gt;&gt; So now suppose that I push the
+number 9 onto the stack.",00:24:25.590,00:24:29.970
+"How should we update the data structure
+inside of this black box?",00:24:29.970,00:24:33.750
+What values need to change?,00:24:33.750,00:24:35.540
+&gt;&gt; STEVEN: Within--,00:24:35.540,00:24:36.200
+the size?,00:24:36.200,00:24:37.400
+&gt;&gt; DAVID MALAN: OK.,00:24:37.400,00:24:37.650
+Size should become what?,00:24:37.650,00:24:38.770
+&gt;&gt; STEVEN: Size would be one.,00:24:38.770,00:24:39.580
+&gt;&gt; DAVID MALAN: OK.,00:24:39.580,00:24:39.870
+So size should become one.,00:24:39.870,00:24:41.110
+So you can do this in a couple ways.,00:24:41.110,00:24:42.540
+"Let me give you, now your
+finger is an eraser.",00:24:42.540,00:24:46.920
+All right.,00:24:46.920,00:24:47.260
+Then now your finger is a brush.,00:24:47.260,00:24:49.960
+All right.,00:24:49.960,00:24:50.330
+"And now what else has to change,
+obviously, in the data structure?",00:24:50.330,00:24:52.820
+"&gt;&gt; STEVEN: We're going from
+bottom up to 9.",00:24:52.820,00:24:57.060
+&gt;&gt; DAVID MALAN: 9.,00:24:57.060,00:24:57.760
+"OK, Good.",00:24:57.760,00:24:58.420
+"So still doesn't matter what's at
+location one or two because they're",00:24:58.420,00:25:01.550
+"garbage values, but we shouldn't bother
+looking there because size is",00:25:01.550,00:25:04.520
+"telling us that only the first element
+is actually legitimate.",00:25:04.520,00:25:07.540
+So now I push 17 onto the list.,00:25:07.540,00:25:10.400
+What happens to this picture?,00:25:10.400,00:25:11.830
+&gt;&gt; STEVEN: So size is going to go to two.,00:25:11.830,00:25:14.720
+&gt;&gt; DAVID MALAN: OK.,00:25:14.720,00:25:15.300
+You're eraser--,00:25:15.300,00:25:16.070
+oops.,00:25:16.070,00:25:16.810
+You're an eraser.,00:25:16.810,00:25:18.026
+&gt;&gt; STEVEN: Eraser.,00:25:18.026,00:25:18.840
+&gt;&gt; DAVID MALAN: You're a brush.,00:25:18.840,00:25:19.720
+&gt;&gt; STEVEN: Brush.,00:25:19.720,00:25:20.560
+&gt;&gt; DAVID MALAN: OK.,00:25:20.560,00:25:20.920
+And what else?,00:25:20.920,00:25:21.600
+&gt;&gt; STEVEN: And then we--,00:25:21.600,00:25:22.600
+&gt;&gt; DAVID MALAN: We pushed 17.,00:25:22.600,00:25:22.915
+"&gt;&gt; STEVEN: We stick 17 on top, so--",00:25:22.915,00:25:24.760
+"&gt;&gt; DAVID MALAN: OK, good.",00:25:24.760,00:25:25.710
+&gt;&gt; STEVEN: --drop it down.,00:25:25.710,00:25:27.040
+&gt;&gt; DAVID MALAN: All right.,00:25:27.040,00:25:27.530
+It's getting easy.,00:25:27.530,00:25:27.940
+I'm not going to help you this time.,00:25:27.940,00:25:29.300
+Push 22.,00:25:29.300,00:25:30.510
+&gt;&gt; STEVEN: Done.,00:25:30.510,00:25:31.720
+Becoming an eraser.,00:25:31.720,00:25:34.870
+I'm becoming a brush.,00:25:34.870,00:25:37.340
+And then I am putting 22.,00:25:37.340,00:25:39.340
+&gt;&gt; DAVID MALAN: 22.,00:25:39.340,00:25:40.100
+Excellent.,00:25:40.100,00:25:40.620
+So one more time.,00:25:40.620,00:25:41.380
+"I'm now going to push
+onto the stack 26.",00:25:41.380,00:25:44.280
+&gt;&gt; STEVEN: Ooh.,00:25:44.280,00:25:46.350
+Oh gosh.,00:25:46.350,00:25:50.278
+You really caught me off guard.,00:25:50.278,00:25:52.520
+"&gt;&gt; DAVID MALAN: You didn't
+see this coming?",00:25:52.520,00:25:53.703
+&gt;&gt; STEVEN: I didn't see this coming.,00:25:53.703,00:25:55.930
+Could we re-initial capacity?,00:25:55.930,00:25:58.756
+&gt;&gt; DAVID MALAN: That's a good question.,00:25:58.756,00:25:59.790
+"So we've kind of painted ourselves
+in a corner here.",00:25:59.790,00:26:02.360
+"There really is no good out for Steven
+because we've allocated this array",00:26:02.360,00:26:06.740
+"statically, so to speak, inside
+of the data structure.",00:26:06.740,00:26:09.130
+"And we've essentially hard coded
+it to be of size three.",00:26:09.130,00:26:12.170
+So we can't really reallocate it.,00:26:12.170,00:26:14.170
+"&gt;&gt; We could if we went back in, we
+redefined trays to be a pointer that",00:26:14.170,00:26:20.020
+we then use malloc to hand memory to.,00:26:20.020,00:26:22.300
+"Because if we got the memory from
+the heap via malloc, we",00:26:22.300,00:26:25.050
+could then free it.,00:26:25.050,00:26:26.430
+"But before freeing it, we could
+reallocate a bigger chunk of memory,",00:26:26.430,00:26:29.630
+"update the pointer, and so forth.",00:26:29.630,00:26:31.330
+"But for now, this is really
+the best we can do.",00:26:31.330,00:26:33.500
+"Push and pop are presumably going
+to have to signal some error.",00:26:33.500,00:26:36.360
+"&gt;&gt; So for instance, our implementation
+of push could return a bool which",00:26:36.360,00:26:40.270
+"previously returned true, true, true.",00:26:40.270,00:26:42.390
+"But the fourth time, it's going to have
+to return false, for instance.",00:26:42.390,00:26:48.390
+All right.,00:26:48.390,00:26:48.540
+Very well done.,00:26:48.540,00:26:49.540
+Congratulations.,00:26:49.540,00:26:50.060
+You've earned your stress ball today.,00:26:50.060,00:26:52.160
+&gt;&gt; [APPLAUSE],00:26:52.160,00:26:53.110
+&gt;&gt; STEVEN: Thank you.,00:26:53.110,00:26:54.382
+&gt;&gt; DAVID MALAN: Thank you.,00:26:54.382,00:26:55.680
+"OK, so this seems to be not much
+of a step forward, right?",00:26:55.680,00:26:59.740
+We described this data structure.,00:26:59.740,00:27:01.410
+"It's been compelling, right?",00:27:01.410,00:27:02.320
+Operating systems like it.,00:27:02.320,00:27:03.200
+"Apparently the web can make use of this,
+and other applications still.",00:27:03.200,00:27:06.360
+"But what a stupid limitation that we're
+back to sort of week two limits",00:27:06.360,00:27:10.870
+where we have fixed size arrays.,00:27:10.870,00:27:12.880
+"&gt;&gt; So there are indeed a couple of
+ways we could solve this.",00:27:12.880,00:27:15.010
+"We could dynamically allocate the array,
+not by hard coding it as I've",00:27:15.010,00:27:18.750
+"done here, but instead re-declaring
+this, just to be clear, as",00:27:18.750,00:27:22.600
+something like this.,00:27:22.600,00:27:23.830
+"Int* trays, not deciding
+on a capacity yet.",00:27:23.830,00:27:29.040
+"But when I declare the stack elsewhere
+in my code, I could then call malloc,",00:27:29.040,00:27:35.460
+"get the address of a chunk of
+memory, and I could assign",00:27:35.460,00:27:38.250
+that address to trays.,00:27:38.250,00:27:39.980
+"&gt;&gt; And then, because it's just a chunk of
+memory, I could continue to use square",00:27:39.980,00:27:43.340
+bracket notation in the usual way.,00:27:43.340,00:27:45.450
+"Because again, there's sort of this
+functional equivalent of arrays and",00:27:45.450,00:27:49.020
+"chunks of memory that come
+back from malloc.",00:27:49.020,00:27:50.820
+"We can treat one as the other
+using pointer arithmetic or",00:27:50.820,00:27:53.090
+square bracket notation.,00:27:53.090,00:27:54.440
+So that's one approach.,00:27:54.440,00:27:55.660
+"&gt;&gt; But how else might we implement this
+same data structure, potentially?",00:27:55.660,00:28:00.120
+Right?,00:28:00.120,00:28:00.280
+"I feel like we just solved this
+problem like a week ago.",00:28:00.280,00:28:04.530
+"What was the solution to this problem
+that Steven ran into?",00:28:04.530,00:28:08.860
+"So linked lists, right.",00:28:08.860,00:28:10.370
+"&gt;&gt; If the problem is that we're painting
+ourselves into a corner by allocating",00:28:10.370,00:28:13.410
+"in advance too little memory that we
+then have to somehow deal with, well,",00:28:13.410,00:28:17.580
+"why not just avoid that
+issue altogether?",00:28:17.580,00:28:19.880
+"Why not just declare trays to be a
+pointer to a node, ergo a linked list,",00:28:19.880,00:28:26.170
+"and then simply allocate new nodes
+every time Steven needed to fit a",00:28:26.170,00:28:30.740
+number into the data structure.,00:28:30.740,00:28:32.400
+&gt;&gt; So the picture would have to change.,00:28:32.400,00:28:34.200
+"It's not going to be as clean and as
+simple as just an array of three ints.",00:28:34.200,00:28:38.220
+"Now it's going to be a pointer to a
+struct, and that struct is going to",00:28:38.220,00:28:42.970
+have an int and a next pointer.,00:28:42.970,00:28:44.830
+"It's going to lead via that pointer
+to another such struct to",00:28:44.830,00:28:47.670
+another such struct.,00:28:47.670,00:28:48.600
+"So the picture would actually
+get a bit messier.",00:28:48.600,00:28:50.560
+"And we'd have arrows tying
+everything together.",00:28:50.560,00:28:52.950
+"&gt;&gt; But that's fine, right, because
+we've seen how to do this.",00:28:52.950,00:28:55.280
+"And once you get comfortable
+implementing something like a linked",00:28:55.280,00:28:58.180
+"list, which you'll have to do if you
+choose to implement a hash table with",00:28:58.180,00:29:01.450
+"separate chaining for p-set 6, you can
+use it as a building block, or an",00:29:01.450,00:29:05.120
+"ingredient, or in Scratch speak, a
+procedure, something that you put, you",00:29:05.120,00:29:08.870
+"created your own puzzle piece
+that you can then reuse.",00:29:08.870,00:29:12.560
+"So tradeoffs, but potential solutions
+that we've actually seen before.",00:29:12.560,00:29:17.090
+"&gt;&gt; So quite often, you see this every
+year or two when Apple releases",00:29:17.090,00:29:20.560
+"something new, and all the crazy people
+line up outside of the Apple",00:29:20.560,00:29:23.060
+"store to buy their marginal
+upgrade on hardware.",00:29:23.060,00:29:27.050
+"I say this, it's OK, because
+I am one of those people.",00:29:27.050,00:29:30.420
+"So what kind of data structure
+might represent this reality?",00:29:30.420,00:29:35.140
+"&gt;&gt; Well, let's call it a queue, a line.",00:29:35.140,00:29:36.980
+"So British would call it typically a
+queue anyway, so it's a nice name.",00:29:36.980,00:29:40.270
+"And the two operations that a queue
+shall support we'll call a enqueue",00:29:40.270,00:29:44.960
+"operation and a dequeue operation,
+which are similar in",00:29:44.960,00:29:48.900
+spirit to push and pop.,00:29:48.900,00:29:50.120
+"It's just sort of different in
+convention, what we're calling these.",00:29:50.120,00:29:54.060
+"But to enqueue something means to add
+or insert it to the data structure.",00:29:54.060,00:29:57.680
+To dequeue means to remove it.,00:29:57.680,00:29:59.570
+"But whereas a stack was a LIFO data
+structure, a queue is a first in,",00:29:59.570,00:30:05.170
+first out data structure.,00:30:05.170,00:30:06.740
+"&gt;&gt; If you are the first person in line,
+you will be the first person to get",00:30:06.740,00:30:10.050
+out of line and buy your new device.,00:30:10.050,00:30:12.420
+"Imagine how upset these people would be
+if Apple instead used a stack, for",00:30:12.420,00:30:18.070
+"instance, to implement the picking
+up of your new toy.",00:30:18.070,00:30:21.250
+"So queues make sense, certainly, and
+we can think of all sorts of",00:30:21.250,00:30:24.310
+"applications, presumably, for queues,
+especially when you want fairness.",00:30:24.310,00:30:27.480
+"So how might we implement these
+as a data structure?",00:30:27.480,00:30:30.040
+"&gt;&gt; Well, I propose that we might
+need to do it this way.",00:30:30.040,00:30:33.680
+So I'm going to now have numbers.,00:30:33.680,00:30:35.225
+"So we'll keep it simple and not
+necessarily talk in terms of trays.",00:30:35.225,00:30:38.190
+Just numbers that people of gotten.,00:30:38.190,00:30:40.220
+"Capacity is going to, again, fix the
+total number of people that can be in",00:30:40.220,00:30:43.760
+"this line, as three or
+whatever other value.",00:30:43.760,00:30:46.900
+"&gt;&gt; But I propose that I need to keep track
+not only of the size of the",00:30:46.900,00:30:50.760
+"queue, how many things are in it.",00:30:50.760,00:30:52.370
+"So size is the current size, capacity
+is the maximum size.",00:30:52.370,00:30:56.310
+"Just again, nomenclature
+by convention.",00:30:56.310,00:30:58.540
+"Why do I need an additional int inside
+of a queue to keep track of who's in",00:30:58.540,00:31:03.680
+front of the line?,00:31:03.680,00:31:05.365
+Why do I need to do that in this case?,00:31:07.930,00:31:10.910
+"&gt;&gt; Well, how is this picture
+going to change?",00:31:14.750,00:31:16.190
+"I can probably reuse most
+of this picture.",00:31:16.190,00:31:19.280
+Let me go ahead and erase what's here.,00:31:19.280,00:31:21.480
+"We'll give this a slightly
+different name up here.",00:31:21.480,00:31:24.580
+"Let's get rid of the 17, let's get rid
+of the 9, let's get rid of the 3.",00:31:24.580,00:31:28.930
+And let's add one other thing.,00:31:28.930,00:31:30.410
+"I propose that I need to keep track of
+the front of the list, which is just",00:31:30.410,00:31:34.710
+going to be an int as well.,00:31:34.710,00:31:35.570
+And we're going to keep it simple.,00:31:35.570,00:31:36.550
+No linked list for now.,00:31:36.550,00:31:37.740
+"&gt;&gt; We'll admit that we're going to
+bump up against this limit.",00:31:37.740,00:31:40.900
+"But what do I want to see
+happen this time?",00:31:40.900,00:31:43.720
+"So suppose I go ahead and the first
+person comes up in line, and",00:31:43.720,00:31:47.240
+it's the number 9.,00:31:47.240,00:31:48.560
+We do have stress balls.,00:31:48.560,00:31:49.680
+"Can I steal, say, two or three people?",00:31:49.680,00:31:51.330
+"One, two, three?",00:31:51.330,00:31:52.690
+Come on up.,00:31:52.690,00:31:53.120
+"Right from the front, because
+we'll make this one quick.",00:31:53.120,00:31:56.022
+"&gt;&gt; Each of you is now going to be
+a fan boy in line at Apple.",00:31:56.022,00:31:59.415
+"You will not be receiving Apple hardware
+at the end of this though.",00:32:03.970,00:32:06.210
+All right.,00:32:06.210,00:32:06.500
+"So you're number 9, you're
+number 17, number 22.",00:32:06.500,00:32:09.430
+"These are arbitrary numbers, like
+student IDs or whatnot.",00:32:09.430,00:32:12.130
+"And in just a moment, let's begin
+to start adding things.",00:32:12.130,00:32:14.550
+And I'll run the board here this time.,00:32:14.550,00:32:16.000
+"&gt;&gt; So in this case, I've initialized
+the front to be--",00:32:16.000,00:32:19.570
+"I actually don't really care what the
+front is, because the size is zero.",00:32:19.570,00:32:22.380
+"So this might as well just
+be a question mark.",00:32:22.380,00:32:24.480
+These are all question marks.,00:32:24.480,00:32:26.170
+"So now we'll begin to actually see some
+people lining up at the store.",00:32:26.170,00:32:29.880
+"&gt;&gt; So if number 9, you're the first one
+there at 5 AM, go ahead and line up,",00:32:29.880,00:32:33.320
+or the night before.,00:32:33.320,00:32:34.210
+OK.,00:32:34.210,00:32:34.580
+So now 9 is here.,00:32:34.580,00:32:35.940
+So 9 is in the front of the list.,00:32:35.940,00:32:37.940
+"So I'm going to go ahead and update
+the size of this current data",00:32:37.940,00:32:41.440
+"structure to not be 0 anymore,
+but to be 1.",00:32:41.440,00:32:44.740
+"I'm going to put 9 at the
+front of the list.",00:32:44.740,00:32:47.630
+"Let me go ahead and toggle the screen
+so we can see past us here.",00:32:47.630,00:32:51.020
+"&gt;&gt; And now what do I want
+to put at front?",00:32:51.020,00:32:53.220
+"I'm going to keep track that the
+front of the queue right now",00:32:53.220,00:32:56.240
+is at location 0.,00:32:56.240,00:32:58.570
+Because what is next going to happen?,00:32:58.570,00:33:00.510
+"Well, suppose now I enqueue
+17 as well.",00:33:00.510,00:33:03.000
+So hop in line there.,00:33:03.000,00:33:04.510
+"And again, the sort of door to the
+store is going to be here.",00:33:04.510,00:33:07.060
+So now I've added 17.,00:33:07.060,00:33:08.700
+"And even though these guys are blocking
+the screen, that's OK,",00:33:08.700,00:33:10.810
+because we can see it up here.,00:33:10.810,00:33:12.300
+Sorry.,00:33:12.300,00:33:12.910
+&gt;&gt; AUDIENCE: We can move--,00:33:12.910,00:33:13.810
+"&gt;&gt; DAVID MALAN: No, that's OK.",00:33:13.810,00:33:14.660
+It's huge up there.,00:33:14.660,00:33:16.000
+So 17 is now inside of the queue.,00:33:16.000,00:33:18.580
+"I need to update which
+fields now though?",00:33:18.580,00:33:21.332
+"OK, definitely size.",00:33:21.332,00:33:23.210
+And how about front?,00:33:23.210,00:33:26.430
+"OK, no.",00:33:26.430,00:33:27.040
+"Front should not change, because
+unlike a stack, we",00:33:27.040,00:33:30.200
+want to maintain fairness.,00:33:30.200,00:33:31.370
+"So if 9 came in first, we want 9
+to be the first out of the line",00:33:31.370,00:33:35.150
+and into the store.,00:33:35.150,00:33:36.420
+"&gt;&gt; In fact, let's see that.",00:33:36.420,00:33:37.220
+"Before we insert 22, let's
+go ahead and dequeue 9.",00:33:37.220,00:33:42.235
+What's your name again?,00:33:42.235,00:33:42.970
+&gt;&gt; AUDIENCE: Jake.,00:33:42.970,00:33:43.680
+"&gt;&gt; DAVID MALAN: Jake is going
+to be dequeued now.",00:33:43.680,00:33:45.440
+So you get to walk into the store.,00:33:45.440,00:33:48.050
+"And pretend that the store
+is over there.",00:33:48.050,00:33:49.880
+So now what needs-- dit-dit-dit!,00:33:49.880,00:33:51.970
+What needs to happen now?,00:33:51.970,00:33:53.400
+Design decision.,00:33:53.400,00:33:54.490
+"So not a bad instinct, but--
+what's your name again?",00:33:54.490,00:33:56.825
+&gt;&gt; AUDIENCE: David.,00:33:56.825,00:33:57.090
+&gt;&gt; DAVID MALAN: David.,00:33:57.090,00:33:57.500
+So what did David do?,00:33:57.500,00:33:58.810
+"He was trying to sort of fix the data
+structure and move from his location",00:33:58.810,00:34:02.590
+into Jake's former location.,00:34:02.590,00:34:04.100
+"And that's fine if we're willing
+to accept that as an",00:34:04.100,00:34:06.740
+implementation detail.,00:34:06.740,00:34:08.199
+"But first, let's update the data
+structure before we do that.",00:34:08.199,00:34:11.100
+"Because I'm not liking the idea of all
+the people shifting in this line.",00:34:11.100,00:34:14.139
+"&gt;&gt; It's no big deal if David does it with
+one step, but again, think back to",00:34:14.139,00:34:17.360
+"when we've had eight volunteers on the
+stage and we've done like insertion",00:34:17.360,00:34:20.360
+"sort, where we had to start
+moving everyone around.",00:34:20.360,00:34:22.600
+"That got expensive, right?",00:34:22.600,00:34:23.790
+"That makes me cringe about big O
+of n, big O of n squared again.",00:34:23.790,00:34:28.330
+"It's not feeling like
+an ideal outcome.",00:34:28.330,00:34:30.650
+&gt;&gt; So let's just update this.,00:34:30.650,00:34:32.080
+"So the size of the queue
+is no longer 2.",00:34:32.080,00:34:35.120
+It's now simply 1.,00:34:35.120,00:34:37.090
+"But I can now update something
+I didn't update before, the",00:34:37.090,00:34:40.360
+front of the list.,00:34:40.360,00:34:41.130
+"I could just say, is that location 1?",00:34:41.130,00:34:45.420
+"So now we have garbage value here,
+garbage value here, and David in the",00:34:45.420,00:34:49.770
+middle of this garbage.,00:34:49.770,00:34:51.469
+"But the data structure
+is still intact.",00:34:51.469,00:34:54.980
+"&gt;&gt; And in fact, I don't even need to
+change Jake's former number",00:34:54.980,00:34:58.540
+"9, because who cares.",00:34:58.540,00:35:00.460
+"I have enough information now in the
+size that I know there's one person in",00:35:00.460,00:35:04.470
+this queue.,00:35:04.470,00:35:05.030
+"And I know that that person
+is at location 1, not 0.",00:35:05.030,00:35:08.340
+I'm not counting.,00:35:08.340,00:35:09.760
+So 1 as well.,00:35:09.760,00:35:11.300
+So the data structure's still OK.,00:35:11.300,00:35:13.410
+"&gt;&gt; Well, what happens next?",00:35:13.410,00:35:14.330
+Let's enqueue--,00:35:14.330,00:35:15.010
+what's your name?,00:35:15.010,00:35:15.370
+&gt;&gt; AUDIENCE: Callen.,00:35:15.370,00:35:16.160
+&gt;&gt; DAVID MALAN: Callen.,00:35:16.160,00:35:16.580
+"Let's enqueue a Callen, and
+22 is now in the queue.",00:35:16.580,00:35:20.770
+So now what has to change here?,00:35:20.770,00:35:22.300
+"Front is not going to
+change, obviously.",00:35:22.300,00:35:24.380
+Size is going to change to be 2 again.,00:35:24.380,00:35:27.160
+"And 22 ends up here, 9 is still present,
+but it's effectively a",00:35:27.160,00:35:31.590
+garbage value now.,00:35:31.590,00:35:32.600
+It's just a remnant of Jake past.,00:35:32.600,00:35:35.910
+"&gt;&gt; So now what happens if
+I dequeue David?",00:35:35.910,00:35:39.200
+"One last operation, dequeue David.",00:35:39.200,00:35:41.560
+"We could shift, but I propose let's
+do as little work as possible.",00:35:41.560,00:35:46.070
+"Now my data structure goes
+back in size from 2 to 1.",00:35:46.070,00:35:50.280
+"But the front of the queue
+now becomes 2.",00:35:50.280,00:35:53.730
+"I don't need to change these numbers
+just yet, because they're",00:35:53.730,00:35:56.640
+just garbage values.,00:35:56.640,00:35:58.230
+&gt;&gt; But now what happens?,00:35:58.230,00:35:59.720
+"Suppose I enqueue myself, 26?",00:35:59.720,00:36:03.280
+I feel like I belong over here.,00:36:03.280,00:36:05.890
+So I'm being enqueued.,00:36:05.890,00:36:06.890
+So I kind of belong here.,00:36:06.890,00:36:08.760
+"And even though you don't quite
+appreciate this visually on the stage,",00:36:08.760,00:36:11.300
+"because we have plenty of room, I should
+not be standing here, why?",00:36:11.300,00:36:15.075
+&gt;&gt; AUDIENCE: You're out of bounds.,00:36:15.075,00:36:16.290
+&gt;&gt; DAVID MALAN: Right.,00:36:16.290,00:36:16.370
+I'm out of bounds.,00:36:16.370,00:36:16.940
+"I've indexed beyond the
+bounds of this array.",00:36:16.940,00:36:19.330
+"I really should be in one of the
+three possible locations.",00:36:19.330,00:36:23.420
+"Now, where's most natural to go?",00:36:23.420,00:36:25.150
+"I propose we leveraged
+a week one trick.",00:36:25.150,00:36:27.760
+"The mod operator, percentage.",00:36:27.760,00:36:30.150
+"Because I'm technically standing at
+location 3, but I do 3 mod capacity,",00:36:30.150,00:36:36.850
+"so 3, a percent sign, 3--",00:36:36.850,00:36:40.250
+capacity's 3.,00:36:40.250,00:36:40.970
+What's that?,00:36:40.970,00:36:41.720
+"What's the remainder when
+you divide 3 by 3?",00:36:41.720,00:36:43.700
+0.,00:36:43.700,00:36:44.070
+"&gt;&gt; So that puts me were Jake was,
+which is actually good.",00:36:44.070,00:36:48.140
+"So now the implementation
+of this thing's going to",00:36:48.140,00:36:50.370
+be a bit of a headache.,00:36:50.370,00:36:51.250
+"It's really just one line
+of headache, of code.",00:36:51.250,00:36:53.740
+"But at least now there's garbage
+value here, but there's two",00:36:53.740,00:36:56.580
+legitimate ints here.,00:36:56.580,00:36:57.910
+"And I claim that now we have done
+exactly what we need to do so long as",00:36:57.910,00:37:04.160
+"we change what Jake's
+value was to be 26.",00:37:04.160,00:37:08.600
+"&gt;&gt; We now have enough information still
+to maintain the integrity",00:37:08.600,00:37:12.110
+of this data structure.,00:37:12.110,00:37:13.060
+"We're still kind of out of luck when we
+want to insert four or more total",00:37:13.060,00:37:17.160
+"elements, but I can at least make pretty
+efficient use of this constant",00:37:17.160,00:37:20.740
+"time, in fact.",00:37:20.740,00:37:21.740
+"I don't have to worry about shifting
+everyone, as David's inclination was.",00:37:21.740,00:37:27.150
+"&gt;&gt; Any questions on stacks,
+or this queue?",00:37:27.150,00:37:30.816
+"&gt;&gt; AUDIENCE: Is the reason why
+you need size so you know",00:37:30.816,00:37:32.184
+where to have a person?,00:37:32.184,00:37:34.010
+&gt;&gt; DAVID MALAN: Exactly.,00:37:34.010,00:37:34.770
+"I need to know the size of the array
+because I need to know exactly how",00:37:34.770,00:37:38.230
+"many of these values are legitimate,
+and so that I can find where to put",00:37:38.230,00:37:41.940
+the next person.,00:37:41.940,00:37:42.800
+Exactly.,00:37:42.800,00:37:43.300
+The size is--,00:37:43.300,00:37:44.580
+"actually, we didn't update this yet.",00:37:44.580,00:37:46.360
+I added myself at 26.,00:37:46.360,00:37:48.380
+"The size is now, not 1, but 2.",00:37:48.380,00:37:51.760
+"So now this indeed helps me find the
+head of the list, which is not 0, not",00:37:51.760,00:37:57.780
+"1, but is 2.",00:37:57.780,00:37:59.250
+"The front of the list
+is indeed number 22.",00:37:59.250,00:38:01.665
+"Because he came in first, so he should
+be allowed into the store before me,",00:38:01.665,00:38:05.120
+"even though visually I'm standing
+closer to the store.",00:38:05.120,00:38:08.780
+&gt;&gt; All right?,00:38:08.780,00:38:09.220
+"A round of applause for these guys
+and we'll let them out of there.",00:38:09.220,00:38:12.410
+&gt;&gt; [APPLAUSE],00:38:12.410,00:38:17.090
+"&gt;&gt; DAVID MALAN: I could let
+you keep the tray.",00:38:17.090,00:38:18.150
+"We could see what happens if
+you want, but maybe not.",00:38:18.150,00:38:20.760
+All right.,00:38:20.760,00:38:21.590
+So what now does that leave us?,00:38:21.590,00:38:25.380
+"Well, let me propose that there's a
+few other data structures we could",00:38:25.380,00:38:28.900
+"start adding to our tool kit that will
+actually be quite, quite relevant as",00:38:28.900,00:38:33.810
+we dive into web stuff.,00:38:33.810,00:38:35.270
+"Which again, has some kind of connection
+to trees in the form of",00:38:35.270,00:38:38.150
+"something called DOM, document
+object model.",00:38:38.150,00:38:40.550
+"But we'll see more of
+that before long.",00:38:40.550,00:38:42.370
+"&gt;&gt; Let me propose definitionally that we
+call tree now what you might know as",00:38:42.370,00:38:46.260
+"more of a family tree, where you
+have some ancestor at the",00:38:46.260,00:38:48.820
+roots of the tree.,00:38:48.820,00:38:49.790
+"A patriarchal or a matriarch at
+the very top of the tree.",00:38:49.790,00:38:54.480
+"Without their spouse, in this case.",00:38:54.480,00:38:56.700
+"But we now have what we'll call
+children, which are nodes that hang",00:38:56.700,00:39:00.940
+"off the left child or the right child,
+arrows as depicted here.",00:39:00.940,00:39:05.480
+"&gt;&gt; In other words, in a tree data structure
+in computer, a tree has zero",00:39:05.480,00:39:10.490
+or more nodes.,00:39:10.490,00:39:11.480
+"If it has at least one node,
+that's called the root.",00:39:11.480,00:39:13.500
+"It's the things visually that
+we draw at the top.",00:39:13.500,00:39:15.700
+"And that node, like any other node, can
+have zero, one, or two, or three,",00:39:15.700,00:39:20.280
+"or however many children the
+data structure supports.",00:39:20.280,00:39:23.600
+"In this case, the root, storing the
+value one, has two children, 2 and 3,",00:39:23.600,00:39:29.150
+"so we generally call 2 the left
+child and 3 the right child.",00:39:29.150,00:39:33.020
+"&gt;&gt; And then when we get down to 5, 6, and
+7, 6 might be called the middle child.",00:39:33.020,00:39:36.940
+"If you have four children,
+it gets confusing.",00:39:36.940,00:39:38.940
+"So we stop using that kind
+of shortcut verbally.",00:39:38.940,00:39:42.260
+But it's really just a family tree.,00:39:42.260,00:39:44.580
+"And the leaves here are the nodes that
+themselves have no children.",00:39:44.580,00:39:48.880
+They hang off the bottom of the tree.,00:39:48.880,00:39:52.540
+"&gt;&gt; So how might we implement a tree that
+has just two children maximally?",00:39:52.540,00:39:56.940
+We'll call it a binary tree.,00:39:56.940,00:39:58.410
+"Bi again meaning two, in this
+case, like with binary.",00:39:58.410,00:40:00.960
+"And so it can have zero, one,
+or two children maximally.",00:40:00.960,00:40:04.830
+"&gt;&gt; I'll propose that we implement the node
+for that structure with an int n,",00:40:04.830,00:40:08.650
+"and then two pointers, one called
+left, one called right.",00:40:08.650,00:40:11.910
+"But those are just nice
+arbitrary conventions.",00:40:11.910,00:40:14.830
+"And what's nice now, especially if you
+kind of struggled conceptually with",00:40:14.830,00:40:18.170
+"recursion, or thought that it wasn't
+really a solution to anything,",00:40:18.170,00:40:21.300
+"especially if you could
+run out of memory.",00:40:21.300,00:40:23.120
+"Now that we're talking about data
+structures and algorithms that allow",00:40:23.120,00:40:26.600
+"us to traverse and manipulate them,
+turns out that recursion comes back in",00:40:26.600,00:40:31.030
+"a much more compelling
+if not beautiful way.",00:40:31.030,00:40:34.240
+"&gt;&gt; So this I propose is the implementation
+of a Search function.",00:40:34.240,00:40:38.670
+Given two inputs--,00:40:38.670,00:40:39.870
+so think of this as a black box.,00:40:39.870,00:40:41.570
+"Given two inputs, n, an int, and a
+pointer to a tree, a pointer to a",00:40:41.570,00:40:46.560
+"node, or really the root of a tree, I
+claim that this function can return",00:40:46.560,00:40:50.020
+"true or false, that value n
+is inside of this tree.",00:40:50.020,00:40:53.530
+&gt;&gt; What's inside of this black box?,00:40:53.530,00:40:55.210
+"Well, four branches.",00:40:55.210,00:40:57.440
+The first just checks.,00:40:57.440,00:40:58.385
+"If tree is null, just return false.",00:40:58.385,00:41:00.490
+"If there's no node, there's no n,
+there's no number, just return false.",00:41:00.490,00:41:04.580
+"If though, n, the value you're looking
+for, is less than tree arrow n, and",00:41:04.580,00:41:12.330
+"just to be clear, what does it mean when
+I write tree and then the arrow",00:41:12.330,00:41:15.180
+"notation, n?",00:41:15.180,00:41:18.150
+Exactly.,00:41:18.150,00:41:18.690
+"It means dereference that
+pointer called tree.",00:41:18.690,00:41:21.970
+"Go there, and then get inside of that
+node and get its field called n.",00:41:21.970,00:41:26.750
+"And then compare the actual n that was
+passed into Search against it.",00:41:26.750,00:41:30.810
+"&gt;&gt; So if n is less than, the n value
+in the tree node itself, well,",00:41:30.810,00:41:35.390
+what does that mean?,00:41:35.390,00:41:36.720
+That means nothing at first glance.,00:41:36.720,00:41:40.690
+Right?,00:41:40.690,00:41:40.900
+"Just like when you have an array of
+values, you might like to apply binary",00:41:40.900,00:41:45.560
+"search as a form of divide
+and conquer.",00:41:45.560,00:41:48.290
+"But what assumption did we need to make
+for binary search to work at all",00:41:48.290,00:41:51.790
+"in the phone book and
+earlier examples?",00:41:51.790,00:41:54.510
+&gt;&gt; How to be sorted.,00:41:54.510,00:41:55.530
+"So let's refine the definition of tree
+here not to be just a tree, which can",00:41:55.530,00:41:59.490
+have any number of children.,00:41:59.490,00:42:00.880
+"Not just a binary tree, which can
+have 0, 1, or 2 maximally.",00:42:00.880,00:42:04.700
+"But as a binary search tree, or BST,
+which is just a fancy way of saying a",00:42:04.700,00:42:09.700
+"binary tree such that every node's
+left child, if present, is",00:42:09.700,00:42:15.430
+less than the node.,00:42:15.430,00:42:16.830
+"And every node's right child,
+if present, is greater",00:42:16.830,00:42:20.170
+than the node itself.,00:42:20.170,00:42:21.740
+"&gt;&gt; So in other words, if you were to draw
+the tree out, all of the numbers are",00:42:21.740,00:42:25.200
+"carefully balanced like this so that if
+you have 55 as the root, 33 can go",00:42:25.200,00:42:30.620
+to its left because it's less than 55.,00:42:30.620,00:42:33.090
+"77 can go to its right because
+it's greater than 55.",00:42:33.090,00:42:36.430
+"But now notice, the same definition,
+it's a recursive definition verbally ,",00:42:36.430,00:42:40.750
+has to apply for 33.,00:42:40.750,00:42:42.600
+"33's left child must be less than it,
+and 33's right child, 44, must be",00:42:42.600,00:42:47.610
+larger than it.,00:42:47.610,00:42:48.580
+"&gt;&gt; So this is a binary search tree, and
+I propose, using a little bit of",00:42:48.580,00:42:51.670
+"recursion, we can now find n.",00:42:51.670,00:42:53.910
+"So if n is less than the value n that's
+current node, I'm going to go",00:42:53.910,00:42:59.160
+"ahead and punt, so to speak, and just
+return whatever the answer is of",00:42:59.160,00:43:04.090
+"searching for n on the
+tree's left child.",00:43:04.090,00:43:08.470
+"Notice again, this function just
+expects a node star, a",00:43:08.470,00:43:11.370
+pointer to a node.,00:43:11.370,00:43:12.780
+"So surely I can just do tree
+arrow left, which will lead",00:43:12.780,00:43:17.360
+me to another node.,00:43:17.360,00:43:18.400
+But what is that node?,00:43:18.400,00:43:19.480
+"&gt;&gt; Well, according to this declaration,
+left is just a pointer, so that just",00:43:19.480,00:43:22.820
+"means I'm passing to the search function
+a different pointer, namely",00:43:22.820,00:43:27.090
+"the one that represents
+my left child's tree.",00:43:27.090,00:43:30.750
+"So in this case, the pointer to 33, if
+this is our sample input Meanwhile, if",00:43:30.750,00:43:36.040
+"n is greater than the value n at the
+current node in the tree, then I'm",00:43:36.040,00:43:40.740
+"going to go ahead and punt in the other
+direction and just say, I don't",00:43:40.740,00:43:43.370
+"know if this value n is in the tree,
+but I know if it is, it's down my",00:43:43.370,00:43:47.280
+"right branch, so to speak.",00:43:47.280,00:43:49.090
+"So let me call recursively search,
+passing an n again, but passing in a",00:43:49.090,00:43:53.120
+pointer to my right child.,00:43:53.120,00:43:54.580
+"&gt;&gt; In other words, if I'm currently at 55
+and I'm looking for 99, I know that 99",00:43:54.580,00:44:00.020
+"is greater than 55, so just like I tore
+the phone book weeks ago and we",00:44:00.020,00:44:04.270
+"went right, similarly are we
+going to go right here.",00:44:04.270,00:44:07.140
+"And I don't know if it's at my right
+child, and it's not, 77 is there, but",00:44:07.140,00:44:11.960
+I know it's in that direction.,00:44:11.960,00:44:13.210
+"So I call search on my right child,
+77, and let search figure out from",00:44:13.210,00:44:18.770
+"there if 99 in this arbitrary
+example is actually there.",00:44:18.770,00:44:24.950
+"&gt;&gt; Else, what's the final case?",00:44:24.950,00:44:26.900
+If tree is null is one case.,00:44:26.900,00:44:28.620
+"If n is less than the current node's
+value is another case.",00:44:28.620,00:44:31.890
+"If n is greater than the current
+node's value is a third case.",00:44:31.890,00:44:35.120
+What's the fourth and final case?,00:44:35.120,00:44:38.250
+"I think we're out of cases, right?",00:44:38.250,00:44:39.480
+"It must be that n is in the
+current node that I'm on.",00:44:39.480,00:44:44.690
+"&gt;&gt; So if I'm searching for 55 at this point
+in the story, that branch of the",00:44:44.690,00:44:49.640
+tree would return true.,00:44:49.640,00:44:51.780
+"So what's interesting here is that we
+actually, unlike weeks past, we kind",00:44:51.780,00:44:55.380
+of have two base cases.,00:44:55.380,00:44:56.740
+"And they don't have to
+be all at the top.",00:44:56.740,00:44:58.300
+"The top is a base case because if the
+tree is null, there's nothing to do.",00:44:58.300,00:45:01.390
+"Just return a hard coded
+value of false.",00:45:01.390,00:45:03.410
+"&gt;&gt; The bottom branch is sort of the
+default, whereby if we've checked for",00:45:03.410,00:45:07.400
+"null, we've checked if it should be
+left, but it shouldn't be, we've",00:45:07.400,00:45:11.550
+"checked if it should be right, but it
+shouldn't be, clearly it has to be",00:45:11.550,00:45:14.640
+right where we are.,00:45:14.640,00:45:15.870
+That's a base case.,00:45:15.870,00:45:16.780
+"So there's two recursive cases
+sandwiched there in the middle.",00:45:16.780,00:45:19.920
+"But I could have written
+this in any order.",00:45:19.920,00:45:21.630
+"I just thought it kind of felt natural
+to first check for a possible error,",00:45:21.630,00:45:24.520
+"then check left, then check right, then
+assume that you're at the node",00:45:24.520,00:45:28.340
+you're actually looking for.,00:45:28.340,00:45:30.630
+&gt;&gt; So why might this be useful?,00:45:30.630,00:45:36.240
+So it turns out--,00:45:36.240,00:45:37.910
+"and let me jump to a teaser
+here that's in the web.",00:45:37.910,00:45:42.110
+"We're going to start using not a
+programming language at first, but a",00:45:42.110,00:45:44.920
+markup language.,00:45:44.920,00:45:46.030
+"A markup language being one that's
+similar in spirit to programming",00:45:46.030,00:45:48.740
+"language, but it doesn't give you the
+ability to express yourself logically.",00:45:48.740,00:45:51.715
+"It only gives you the ability to
+express yourself structurally.",00:45:51.715,00:45:55.070
+"&gt;&gt; Where do you want to put something
+on the page, the web page?",00:45:55.070,00:45:57.960
+What color do you want to make it?,00:45:57.960,00:45:59.200
+What font size do you want to make it?,00:45:59.200,00:46:00.950
+"What words do you actually
+want on the web page?",00:46:00.950,00:46:02.970
+So that's a markup language.,00:46:02.970,00:46:04.060
+"But then we'll very quickly introduce
+JavaScript, which is a full-fledged",00:46:04.060,00:46:07.690
+programming language.,00:46:07.690,00:46:08.560
+"Very similar syntactically in appearance
+to C, but it'll have some",00:46:08.560,00:46:12.530
+"nice, more powerful, more
+user friendly features.",00:46:12.530,00:46:15.200
+"&gt;&gt; And one of the frustrations at this
+point in the semester is that we'll",00:46:15.200,00:46:18.050
+"soon implement speller in far fewer
+lines of code using other languages",00:46:18.050,00:46:22.065
+"than C itself allows, but for reason's
+we'll soon understand.",00:46:22.065,00:46:25.580
+This will be the first such web page.,00:46:25.580,00:46:27.750
+"It will be completely underwhelming,
+the first one we make.",00:46:27.750,00:46:30.120
+"It will simply say, hello world.",00:46:30.120,00:46:31.400
+"But if you've never seen it
+before, this is HTML,",00:46:31.400,00:46:34.010
+HyperText Markup Language.,00:46:34.010,00:46:35.670
+"&gt;&gt; If you go to a certain menu option in
+most any browser, on any web page on",00:46:35.670,00:46:39.310
+"the internet, you can see the HTML
+that some people wrote to",00:46:39.310,00:46:43.160
+create that web page.,00:46:43.160,00:46:44.400
+"And it probably doesn't look as
+brief or as neat as this.",00:46:44.400,00:46:47.850
+"But it will follow the pattern of these
+open brackets and slashes and",00:46:47.850,00:46:51.400
+letters and potentially numbers.,00:46:51.400,00:46:53.660
+"&gt;&gt; I thought I'd give you a teaser
+of what you'll be able to do",00:46:53.660,00:46:56.770
+after taking CS50.,00:46:56.770,00:46:57.950
+"Let me go to cs.harvard.edu/rob,
+our own Rob Bowden's homepage.",00:46:57.950,00:47:02.620
+He made this for us.,00:47:02.620,00:47:06.080
+So you'll soon be able to do that.,00:47:06.080,00:47:07.490
+"And also, what you heard
+this morning--",00:47:07.490,00:47:10.660
+what you heard this morning--,00:47:10.660,00:47:12.480
+&gt;&gt; [HAMSTER DANCE MUSIC],00:47:12.480,00:47:13.780
+&gt;&gt; --you'll be able to make this.,00:47:13.780,00:47:15.702
+That awaits us on Wednesday.,00:47:15.702,00:47:16.790
+We will see you then.,00:47:16.790,00:47:17.791
+&gt;&gt; [HAMSTER DANCE MUSIC],00:47:17.791,00:47:22.950
+DAVID MALAN: At the next CS50--,00:47:22.950,00:47:24.300

@@ -1,0 +1,2381 @@
+text,start,stop
+"ANNOUNCER: The following program
+is brought to you by Caltech.",00:00:00.290,00:00:03.275
+YASER ABU-MOSTAFA: Welcome back.,00:00:15.069,00:00:18.390
+"Last time, we talked about validation,
+which is a very important technique in",00:00:18.390,00:00:21.850
+"machine learning for estimating the
+out-of-sample performance.",00:00:21.850,00:00:26.350
+"And the idea is that we start from
+the data set that is given to",00:00:26.350,00:00:30.440
+"us, that has N points.",00:00:30.440,00:00:32.310
+"We set aside K points for validation,
+for just estimation, and",00:00:32.310,00:00:37.690
+"we train with the remaining points, N
+minus K. Because we are training with",00:00:37.690,00:00:42.280
+"a subset, we end up with a hypothesis
+that we are going to label g minus,",00:00:42.280,00:00:46.240
+"instead of g. And it is on this g minus,
+that we are going to get",00:00:46.240,00:00:50.840
+"an estimate of the out-of-sample
+performance by the validation error.",00:00:50.840,00:00:55.590
+"And then there is a leap of faith, when
+we put back all the examples in the",00:00:55.590,00:00:59.920
+"pot in order to come up with the best
+possible hypothesis-- to work with the",00:00:59.920,00:01:04.129
+most training examples.,00:01:04.129,00:01:06.020
+"We are going to get g, and we are using
+the validation error we had on",00:01:06.020,00:01:10.020
+"the reduced hypothesis, if you will,
+to estimate the out-of-sample",00:01:10.020,00:01:13.980
+"performance on the hypothesis
+we are actually delivering.",00:01:13.980,00:01:17.400
+"And there is a question of how
+accurate an estimate this",00:01:17.400,00:01:20.590
+would be for E_out.,00:01:20.590,00:01:21.950
+"And we found out that K cannot be too
+small, and cannot be too big, in order",00:01:21.950,00:01:26.812
+for this estimate to be reliable.,00:01:26.812,00:01:28.470
+"And we ended up with a rule of thumb
+of about 20% of the data set go to",00:01:28.470,00:01:33.790
+"validation. That will give you
+a reasonable estimate.",00:01:33.790,00:01:37.500
+Now this was an unbiased estimate.,00:01:37.500,00:01:39.210
+So we get an E_out.,00:01:39.210,00:01:40.170
+"We can get better than E_out or worse
+than E_out in general, as far as",00:01:40.170,00:01:45.120
+"E_val estimating the performance
+of g minus.",00:01:45.120,00:01:48.690
+"On the other hand, once you use the
+validation error for model selection,",00:01:48.690,00:01:52.090
+"which is the main utility for
+validation, you end up with a little",00:01:52.090,00:01:55.450
+"bit of an optimistic bias, because you
+chose a model that performs well on",00:01:55.450,00:01:59.210
+that validation error.,00:01:59.210,00:02:00.470
+"Therefore, the validation error is not
+going to necessarily be an unbiased",00:02:00.470,00:02:04.260
+estimate of the out-of-sample error.,00:02:04.260,00:02:05.980
+"It will have a slight positive,
+or optimistic, bias.",00:02:05.980,00:02:10.229
+"And we showed an experiment where, using
+very few examples in this case,",00:02:10.229,00:02:16.660
+in order to exaggerate the effect.,00:02:16.660,00:02:18.420
+"We can see the impact of-- the blue
+curve is the validation error,",00:02:18.420,00:02:22.470
+"and the red curve is the out-of-sample
+error on the same hypothesis, just to",00:02:22.470,00:02:26.910
+pin down the bias.,00:02:26.910,00:02:29.160
+"And we realize that, as we increase
+the number of examples,",00:02:29.160,00:02:32.050
+the bias goes down.,00:02:32.050,00:02:32.920
+"The difference between the
+two curves goes down.",00:02:32.920,00:02:35.560
+"And indeed, if you have a reasonable-size
+validation set, you can afford to",00:02:35.560,00:02:39.040
+"estimate a couple of parameters for
+sure, without contaminating",00:02:39.040,00:02:42.220
+the data too much.,00:02:42.220,00:02:43.270
+"So you can assume that the measurement
+you're getting from the validation set",00:02:43.270,00:02:46.950
+is a reliable estimate.,00:02:46.950,00:02:49.530
+"Then, because the number of examples
+turned out to be an issue, we",00:02:49.530,00:02:54.140
+"introduced the cross-validation, which
+is, by and large, the method of",00:02:54.140,00:02:58.280
+"validation you're going to be using
+in a practical situation.",00:02:58.280,00:03:00.750
+"Because it gets you the
+best of both worlds.",00:03:00.750,00:03:03.440
+"So in this case, we--",00:03:03.440,00:03:05.670
+"illustrating a case where we have
+10-fold cross-validation.",00:03:05.670,00:03:07.680
+"So you divide the data
+set into 10 parts.",00:03:07.680,00:03:11.350
+"You train on nine, and validate
+on the tenth, and keep that",00:03:11.350,00:03:14.870
+estimate of the error.,00:03:14.870,00:03:16.160
+"And you keep repeating as you
+choose the validation subset",00:03:16.160,00:03:19.260
+to be one of those.,00:03:19.260,00:03:20.390
+So you have 10 runs.,00:03:20.390,00:03:21.720
+"And each of them gives you an estimate
+on a small number of examples, 1/10 of",00:03:21.720,00:03:25.530
+the examples.,00:03:25.530,00:03:26.400
+"And then by the time you average all of
+these estimates, that will give you",00:03:26.400,00:03:30.130
+"a general estimate of what the out-of-sample
+error would be on 9/10 of the",00:03:30.130,00:03:34.965
+"data, in spite of the fact that they
+are different 9/10 each time.",00:03:34.965,00:03:38.770
+"And in that case, the advantage of it
+is that the 9/10 is very close to 1,",00:03:38.770,00:03:43.610
+"so the estimate you are
+getting is very close.",00:03:43.610,00:03:46.610
+"And furthermore, the number of examples
+taken into consideration in",00:03:46.610,00:03:50.040
+"getting an estimate of the validation
+error is really N. You got",00:03:50.040,00:03:53.040
+"all of them, albeit in different runs.",00:03:53.040,00:03:55.290
+"So this is really the way to go
+in cross-validation.",00:03:55.290,00:03:58.750
+"And invariably, in any learning
+situation, you will need to choose",00:03:58.750,00:04:02.530
+"a model, a parameter, something--
+to make a decision.",00:04:02.530,00:04:06.080
+"And validation is the method of choice
+in that case, in order to make that.",00:04:06.080,00:04:10.440
+OK.,00:04:10.440,00:04:11.360
+"So we move on to today's lecture, which
+is Support Vector Machines.",00:04:11.360,00:04:15.880
+"Support vector machines are arguably
+the most successful classification",00:04:15.880,00:04:20.790
+method in machine learning.,00:04:20.790,00:04:22.930
+"And they are very nice, because
+there is a principled",00:04:22.930,00:04:26.170
+derivation for the method.,00:04:26.170,00:04:27.930
+"There is a very nice optimization
+package that you can use in order to",00:04:27.930,00:04:32.610
+get the solution.,00:04:32.610,00:04:33.830
+"And the solution also has a very
+intuitive interpretation.",00:04:33.830,00:04:36.940
+"So it's a very, very neat piece
+of work for machine learning.",00:04:36.940,00:04:42.360
+So the outline will be the following.,00:04:42.360,00:04:44.440
+"We are going to introduce the notion
+of the margin, which is the main",00:04:44.440,00:04:47.500
+notion in support vector machines.,00:04:47.500,00:04:49.040
+"And we'll ask a question of maximizing
+the margin-- getting the",00:04:49.040,00:04:52.410
+best possible margin.,00:04:52.410,00:04:54.200
+"And after formulating the problem, we
+are going to go and get the solution.",00:04:54.200,00:04:57.460
+"And we're going to do
+that analytically.",00:04:57.460,00:04:59.480
+"It will be a constrained
+optimization problem.",00:04:59.480,00:05:01.450
+"And we faced one before in
+regularization, where we gave",00:05:01.450,00:05:04.640
+"a geometrical solution, if you will.",00:05:04.640,00:05:07.540
+"This time we are going to do it
+analytically, because the formulation",00:05:07.540,00:05:10.950
+"is simply too complicated to have
+an intuitive geometric solution for.",00:05:10.950,00:05:15.300
+"And finally, we are going to expand from
+the linear case to the nonlinear",00:05:15.300,00:05:19.450
+"case in the usual way, thus expanding
+all of the machinery to a case where",00:05:19.450,00:05:23.650
+"you can deal with nonlinear surfaces,
+instead of just a line in a separable",00:05:23.650,00:05:29.240
+"case, which is the main case
+we are going to handle.",00:05:29.240,00:05:32.010
+"So now let's talk about
+linear separation.",00:05:33.720,00:05:36.000
+"Let's say I have a linearly
+separable data set.",00:05:36.000,00:05:39.280
+"Just take four, for example.",00:05:42.040,00:05:43.560
+"There are lines that will separate
+the red from the blue.",00:05:43.560,00:05:47.310
+"Now, when you apply perceptron,
+you will get a line.",00:05:47.310,00:05:50.000
+"When you apply any algorithm, you will
+get a line, and separate-- you get 0",00:05:50.000,00:05:52.880
+training error.,00:05:52.880,00:05:53.510
+And everything is fine.,00:05:53.510,00:05:55.170
+"And now there is a curious point
+when you ask yourself: I can",00:05:55.170,00:05:58.950
+get different lines.,00:05:58.950,00:06:01.400
+"Is there any advantage of choosing
+one of the lines over the other?",00:06:01.400,00:06:05.890
+"That is the new addition
+to the problem.",00:06:05.890,00:06:08.140
+So let's look at it.,00:06:08.660,00:06:10.110
+Here is a line.,00:06:10.110,00:06:11.850
+"So I chose this line to
+separate the two.",00:06:11.850,00:06:14.870
+"You may not think that this
+is the best line.",00:06:14.870,00:06:16.970
+"And we'll try to take our intuition
+and understand why this is",00:06:16.970,00:06:22.440
+not the best line.,00:06:22.440,00:06:24.310
+"So I'm going to think of a margin,
+that is, if this line moves",00:06:24.310,00:06:28.470
+"a little bit, when is it
+going to cross over?",00:06:28.470,00:06:31.170
+"When is it going to start
+making an error?",00:06:31.170,00:06:32.930
+"So in this case, let's put it as
+a yellow region around it.",00:06:32.930,00:06:36.160
+That's the margin you have.,00:06:36.160,00:06:37.460
+"So if you choose this line, this
+is the margin of error.",00:06:37.460,00:06:41.210
+Sort of informal notion.,00:06:41.210,00:06:43.800
+Now you can look at this line.,00:06:43.800,00:06:48.790
+"And it does seem to have
+a better margin.",00:06:48.790,00:06:52.648
+"And you can now look at the problem
+closely and say: let me try to get the",00:06:53.090,00:06:55.790
+best possible margin.,00:06:55.790,00:06:56.680
+"And then you get this line, which has
+this margin, that is exactly right for",00:06:56.680,00:07:02.760
+the blue and red points.,00:07:02.760,00:07:04.235
+"Now, let us ask ourselves
+the following question.",00:07:06.900,00:07:09.890
+"Which is the best line
+for classification?",00:07:12.470,00:07:16.380
+"As far as the in-sample error is
+concerned, all of them give",00:07:16.380,00:07:19.220
+in-sample error 0.,00:07:19.220,00:07:21.420
+"As far as generalization questions are
+concerned, as far as our previous",00:07:21.420,00:07:25.140
+"analysis has done, all of them
+are dealing with linear",00:07:25.140,00:07:28.485
+model with four points.,00:07:28.485,00:07:30.570
+"So generalization, as an estimate,
+will be the same.",00:07:30.570,00:07:34.240
+"Nonetheless, I think you will agree with
+me that if you had your choice,",00:07:34.240,00:07:38.570
+you will choose the fat margin.,00:07:38.570,00:07:41.520
+Somehow it's intuitive.,00:07:42.790,00:07:45.010
+So let's ask two questions.,00:07:45.010,00:07:48.510
+"The first one is: why is
+a bigger margin better?",00:07:48.510,00:07:53.180
+Second one.,00:07:54.510,00:07:55.840
+"If we are convinced that a bigger
+margin is better, then you ask",00:07:55.840,00:08:01.470
+"yourself: can I solve for w
+that maximizes the margin?",00:08:01.470,00:08:07.520
+"Now it is quite intuitive that the
+bigger margin is better, because think",00:08:07.520,00:08:12.250
+"of a process that is generating
+the data.",00:08:12.250,00:08:14.760
+"And let's say that there
+is noise in it.",00:08:14.760,00:08:17.670
+"If you have the bigger margin, the
+chances are the new point will still",00:08:17.670,00:08:22.010
+be on correct side of the line.,00:08:22.010,00:08:24.540
+"Whereas, if I use this one, there's
+a chance that the next red point will be",00:08:25.190,00:08:28.810
+"here, and it will be misclassified.",00:08:28.810,00:08:31.310
+"Again, I'm not giving any proofs.",00:08:31.310,00:08:33.370
+I'm just giving you an intuition here.,00:08:33.370,00:08:34.659
+"So it stands to logic that indeed,
+the bigger margin is better.",00:08:35.390,00:08:38.700
+"And now we're going to argue that the
+bigger margin is better for a reason",00:08:38.700,00:08:42.870
+"that relates to our VC
+analysis before.",00:08:42.870,00:08:45.920
+"So anybody remember the growth
+function from ages ago?",00:08:48.250,00:08:52.310
+What was that?,00:08:52.780,00:08:54.010
+"So we take the dichotomies of the
+line on points in the plane.",00:08:54.010,00:09:02.040
+"And let's say, we take three points.",00:09:02.040,00:09:05.050
+"So on three points, you can get all
+possible dichotomies by a line.",00:09:05.050,00:09:09.440
+The blue versus not-blue region.,00:09:09.440,00:09:12.330
+"And you can see that by varying where
+the line is, I can get all possible 2",00:09:12.330,00:09:16.322
+to the 3 equals 8 dichotomies here.,00:09:16.322,00:09:19.380
+"So you know that the growth
+function is big.",00:09:19.380,00:09:21.560
+"And we know that the growth function
+being big is bad news for",00:09:21.560,00:09:24.170
+generalization.,00:09:24.170,00:09:25.040
+That was our take-home lesson.,00:09:25.040,00:09:28.340
+"So now let's see if this is
+affected by the margin.",00:09:28.340,00:09:32.090
+"So now we are taking dichotomies, not only
+the line, but also requiring that the",00:09:33.830,00:09:38.210
+dichotomies have a fat margin.,00:09:38.210,00:09:39.810
+"Let's look at dichotomies,
+and their margin.",00:09:39.810,00:09:42.720
+"Now in this case, I'm putting
+the same three points.",00:09:45.680,00:09:48.600
+"And I'm putting a line that has the
+biggest possible margin for the",00:09:48.600,00:09:53.910
+constellation of points I have.,00:09:53.910,00:09:56.200
+"So you can see here. I put
+it. It sandwiched them.",00:09:56.200,00:10:00.130
+"Every time, it touches all the points.",00:10:00.130,00:10:01.820
+"It cannot extend any further because
+it will get beyond the points.",00:10:01.820,00:10:07.760
+"And when you look at it, this
+is a thin margin for",00:10:07.760,00:10:10.960
+this particular dichotomy.,00:10:10.960,00:10:12.740
+This is an intermediate one.,00:10:12.740,00:10:13.830
+This is a fat one.,00:10:13.830,00:10:14.690
+"And this is a hugely fat one,
+but that's the constant one.",00:10:14.690,00:10:17.490
+That's not a big deal.,00:10:17.490,00:10:20.070
+"Now let's say that I told you that you
+are allowed to use a classifier, but",00:10:20.070,00:10:25.520
+"you have to have at least that
+margin for me to accept it.",00:10:25.520,00:10:29.690
+"So now I'm requiring the margin
+to be at least something.",00:10:29.690,00:10:32.920
+"All of a sudden, these guys that used to
+be legitimate dichotomies using my",00:10:32.920,00:10:37.920
+"model, are no longer allowed.",00:10:37.920,00:10:41.060
+"So effectively by requiring the margin
+to be at least something, I'm putting",00:10:41.060,00:10:45.340
+a restriction on the growth function.,00:10:45.340,00:10:48.420
+"Fat margins imply fewer
+dichotomies possible.",00:10:48.420,00:10:52.560
+"And therefore, if we manage to separate
+the points with a fat",00:10:52.560,00:10:56.740
+"dichotomy, we can say that fat
+dichotomies have a smaller VC",00:10:56.740,00:11:00.860
+"dimension, smaller growth function than
+if I didn't restrict them at all.",00:11:00.860,00:11:05.040
+"And, although this is all informal, we
+will come at the end of the lecture to",00:11:05.740,00:11:09.810
+"a result that estimates the out-of-
+sample error based on the margin.",00:11:09.810,00:11:13.760
+"And we will find out that indeed, when
+you have a bigger margin, you will be",00:11:13.760,00:11:17.690
+"able to achieve better out-of-sample
+performance.",00:11:17.690,00:11:20.240
+"So now that I completely and irrevocably
+convinced you that the fat",00:11:21.080,00:11:25.200
+"margins are good, let us
+try to solve for them.",00:11:25.200,00:11:29.270
+"That is, find the w that not only
+classifies the points correctly, but",00:11:29.270,00:11:34.350
+"achieves so with the biggest
+possible margin.",00:11:34.350,00:11:37.780
+So how are we going to do that?,00:11:39.870,00:11:41.650
+"Well the margin is just the distance
+from the plane to a point.",00:11:41.650,00:11:46.580
+"So I'm going to take from the data set
+the point x_n, which happens to be the",00:11:46.580,00:11:50.220
+"nearest data point to the line, that we
+have used in the previous example.",00:11:50.220,00:11:54.830
+"And the line is given by the
+linear equation-- equals 0.",00:11:54.830,00:11:58.410
+"And since we're going to use a higher
+dimensional thing, I'm not going to",00:11:58.410,00:12:01.390
+refer to it as a line.,00:12:01.390,00:12:02.270
+I'm going to refer to it as a plane--,00:12:02.270,00:12:03.880
+"hyperplane really-- but
+just plane for short.",00:12:03.880,00:12:05.980
+"So we're talking about d-dimensional
+space and a hyperplane that",00:12:05.980,00:12:08.760
+separates the points.,00:12:08.760,00:12:10.710
+So we would like to estimate that.,00:12:11.000,00:12:13.670
+"And we ask ourselves: if I give you w
+and the x's, can you plug them into",00:12:13.670,00:12:18.800
+"a formula and give me the distance
+between that plane, that is described",00:12:18.800,00:12:22.000
+"by w, and the point x_n?",00:12:22.000,00:12:24.850
+"I'm now taking the nearest point,
+because then that distance will be",00:12:24.850,00:12:27.900
+the margin that I'm talking about.,00:12:27.900,00:12:29.710
+"Now there are two preliminary
+technicalities that I'm going to",00:12:31.390,00:12:34.210
+invoke here.,00:12:34.210,00:12:34.860
+"And they will simplify the
+analysis later on.",00:12:34.860,00:12:37.970
+So here is the first one.,00:12:37.970,00:12:40.370
+"The first one is to normalize
+w. What do I mean by that?",00:12:40.370,00:12:45.320
+"For all the points in the data set,
+near and far, when you take w",00:12:45.320,00:12:50.280
+"transposed times x_n, you will get
+a number that is different from 0.",00:12:50.280,00:12:55.550
+"And indeed, it will agree with the
+label y_n, because the points are",00:12:56.170,00:12:59.220
+linearly separable.,00:12:59.220,00:13:00.060
+"So I can take the absolute value of this,
+and claim that it's greater than",00:13:00.060,00:13:02.840
+0 for every point.,00:13:02.840,00:13:05.070
+"Now I would like to relate w to the
+margin, or to the distance.",00:13:05.070,00:13:10.060
+"But I realize that here, there is a minor
+technicality that is annoying.",00:13:10.060,00:13:14.540
+"Let's say that I multiply the
+vector w by a million.",00:13:14.540,00:13:17.645
+"Does the plane that I'm
+talking about change?",00:13:20.420,00:13:25.110
+No.,00:13:25.110,00:13:25.920
+This is the equation of it.,00:13:25.920,00:13:27.060
+"I can multiply by any positive number,
+and I get the same plane.",00:13:27.060,00:13:31.460
+"So the consequence of that is that any
+formula that takes w and produces the",00:13:31.460,00:13:35.670
+"margin will have to have, built
+in it, scale invariance.",00:13:35.670,00:13:38.890
+"We'll be dividing by something that
+takes out that factor that does not",00:13:38.890,00:13:42.720
+affect which plane I'm talking about.,00:13:42.720,00:13:45.200
+"So I'm going to do it now, in order
+to simplify the analysis later.",00:13:45.200,00:13:49.270
+"I'm going to consider all
+representations of the same plane.",00:13:49.270,00:13:53.330
+"And I'm going to pick one where this is
+normalized, by requiring that for",00:13:53.330,00:13:58.100
+"the minimum point, this fellow is 1.",00:13:58.100,00:14:01.040
+I can always do that.,00:14:01.040,00:14:01.940
+"I can scale w up and down until
+I get the closest one to have",00:14:01.940,00:14:05.360
+this equal to 1.,00:14:05.360,00:14:06.580
+"There's obviously no
+loss in generality.",00:14:07.070,00:14:08.630
+"Because in this case, this is a plane.",00:14:08.630,00:14:11.220
+"And I have not missed any
+planes by doing that.",00:14:11.220,00:14:15.130
+"Now the quantity w x_n which is
+the signal, as we talked about it, is",00:14:15.130,00:14:19.450
+a pretty interesting thing.,00:14:19.450,00:14:20.510
+So let's look at it.,00:14:20.510,00:14:22.030
+I have the plane.,00:14:22.030,00:14:23.290
+So the plane has the signal equals 0.,00:14:23.290,00:14:25.930
+And it doesn't touch any points.,00:14:25.930,00:14:27.110
+The points are linearly separable.,00:14:27.110,00:14:29.070
+"Now when you get the signal
+to be positive, you are",00:14:29.070,00:14:31.180
+moving in one direction.,00:14:31.180,00:14:32.700
+You hit the closest point.,00:14:32.700,00:14:34.330
+"And then you hit more points, the
+interior points, so to speak.",00:14:34.330,00:14:37.620
+"And when you go in the other direction
+and it's negative, you hit the other",00:14:37.620,00:14:40.490
+"points, the nearest point on the
+negative side, and then the interior",00:14:40.490,00:14:43.640
+points which are further out.,00:14:43.640,00:14:45.560
+"So indeed that signal actually relates
+to the distance, but it's not the",00:14:46.300,00:14:49.810
+Euclidean distance.,00:14:49.810,00:14:50.630
+"It just has an order of the points,
+according to which is nearest",00:14:50.630,00:14:53.810
+and which is furthest.,00:14:53.810,00:14:55.850
+"But what I'd like to do, I would
+like to actually get",00:14:55.850,00:14:57.560
+the Euclidean distance.,00:14:57.560,00:14:58.610
+"Because I'm not comparing the
+performance of this plane",00:14:58.610,00:15:00.860
+on different points.,00:15:00.860,00:15:02.340
+"I'm comparing the performance of
+different planes on the same point.",00:15:02.340,00:15:06.010
+So I have to have the same yardstick.,00:15:06.010,00:15:07.770
+"And the yardstick I'm going to
+use is the Euclidean distance.",00:15:07.770,00:15:12.040
+"So I'm going to take this
+as a constraint.",00:15:12.620,00:15:14.390
+"And when I solve for it, I will find out
+that the problem I'm now solving for is",00:15:14.390,00:15:18.970
+much easier to solve.,00:15:18.970,00:15:20.080
+And then I can get the plane.,00:15:20.080,00:15:21.350
+"And the plane will be general
+under this normalization.",00:15:21.350,00:15:24.680
+The second one is pure technicality.,00:15:24.680,00:15:27.130
+"Remember that we had x being in
+Euclidean space R to the d.",00:15:27.130,00:15:32.282
+"And then we added this artificial
+coordinate x_0 in order to take care of",00:15:32.282,00:15:37.600
+"w_0 that was the threshold, if you
+think of it as comparing with",00:15:37.600,00:15:42.020
+"a number, or a bias if you think
+of it as adding a number.",00:15:42.020,00:15:45.270
+"And that was convenient just to have
+the nice vector and matrix",00:15:45.270,00:15:48.810
+representation and so on.,00:15:48.810,00:15:50.780
+"Now it turns out that, when you solve for
+the margin, the w_1 up to w_d will",00:15:50.780,00:15:56.650
+"play a completely different role
+from the role w_0 is playing.",00:15:56.650,00:16:00.940
+"So it is no longer convenient to
+have them as the same vector.",00:16:00.940,00:16:04.610
+"So for the analysis of support vector
+machines, we're going to pull w_0 out.",00:16:04.610,00:16:09.700
+"So the vector w now is the
+old vector w_1 up to w_d.",00:16:09.700,00:16:15.280
+And you take out w_0.,00:16:16.100,00:16:18.800
+"And in order not to confuse it and call
+it w, because it has a different",00:16:18.800,00:16:22.350
+"role, we are going to call
+it here b, for bias.",00:16:22.350,00:16:26.330
+OK?,00:16:26.330,00:16:27.280
+"So now the equation for the plane is w,
+our new w, times x plus b equals 0.",00:16:27.280,00:16:34.960
+And there is no x_0.,00:16:35.710,00:16:37.900
+"x_0 used to be multiplied
+by b, also known as w_0.",00:16:37.900,00:16:43.490
+"So every w you will see in this
+lecture will belong to this",00:16:43.490,00:16:48.190
+convention.,00:16:48.190,00:16:49.230
+"And now if you can look at this-- this
+will be w transposed x_n plus b.",00:16:49.230,00:16:54.760
+Absolute value equals 1.,00:16:54.760,00:16:56.570
+"And the plane will be w transposed
+x plus b equals 0.",00:16:56.570,00:16:59.950
+"Just a convention that will make
+our math much more friendly.",00:17:00.580,00:17:03.920
+"So these are the technicalities that
+I wanted to get out of the way.",00:17:04.339,00:17:07.150
+"Now, big box, because it's
+an important thing.",00:17:08.010,00:17:12.380
+It will stay with us.,00:17:12.380,00:17:13.160
+"And then we go for computing
+the distance.",00:17:13.160,00:17:16.390
+"So now, we would like to get
+the distance between x_n--",00:17:16.390,00:17:21.130
+"we took x_n to be the nearest point,",00:17:21.130,00:17:23.069
+"and therefore the distance
+will be the margin.",00:17:23.069,00:17:24.950
+"And we want to get the distance
+from the plane.",00:17:24.950,00:17:26.750
+"So let's look at the geometry
+of the situation.",00:17:26.750,00:17:28.342
+"I have this as the equation
+for the plane.",00:17:31.830,00:17:35.100
+"And I have the conditions
+that I talked about.",00:17:35.100,00:17:40.210
+This is the geometry.,00:17:40.210,00:17:41.080
+I have a plane.,00:17:41.080,00:17:42.810
+And I have a point x_n.,00:17:42.810,00:17:44.360
+And I'd like to estimate the distance.,00:17:44.360,00:17:47.610
+First statement.,00:17:47.610,00:17:50.520
+"The vector w is perpendicular
+to the plane.",00:17:50.520,00:17:56.050
+"That should be easy enough if you have
+seen any geometry before, but it's not",00:17:56.050,00:17:59.480
+very difficult to argue.,00:17:59.480,00:18:01.180
+"But remember now that the vector
+w is in the X space.",00:18:01.180,00:18:03.730
+"I'm not talking about
+the weight space.",00:18:03.730,00:18:05.120
+"I'm talking about w as you plug in
+the values and you get a vector.",00:18:05.120,00:18:09.290
+"And I'm looking at that vector
+in the input space X.",00:18:09.290,00:18:12.110
+"And I'm saying it's perpendicular
+to the plane.",00:18:12.110,00:18:14.530
+Why is that?,00:18:14.530,00:18:16.120
+"Because let's say that you
+pick any two points--",00:18:16.120,00:18:19.650
+"call them x dash and x double
+dash-- on the plane proper.",00:18:19.650,00:18:23.140
+So they are lying there.,00:18:23.410,00:18:25.870
+What do I know about these two points?,00:18:26.660,00:18:28.430
+"Well, they are on the plane, so
+they had better satisfy the",00:18:28.430,00:18:31.420
+equation of the plane.,00:18:31.420,00:18:33.340
+Right?,00:18:33.340,00:18:34.260
+"So I can conclude that it must be that,
+when I plug in x dash in that equation,",00:18:34.260,00:18:38.210
+I will get 0.,00:18:38.210,00:18:39.290
+"And when I plug in x double
+dash, I will get 0.",00:18:39.290,00:18:43.310
+Conclusion:,00:18:43.310,00:18:44.245
+"If I take the difference between these
+two equations, I will get w",00:18:44.245,00:18:48.870
+"transposed times x dash minus
+x double dash, equals 0.",00:18:48.870,00:18:52.040
+"And now you can see that
+good old b dropped out.",00:18:52.040,00:18:55.400
+"And this is the reason why it has
+a different treatment here.",00:18:55.400,00:18:58.190
+The other guys actually mattered.,00:18:58.190,00:18:59.540
+But the b plays a different role.,00:18:59.540,00:19:01.600
+"So when you see an equation like
+that, your conclusion is what?",00:19:02.710,00:19:05.150
+"Your conclusion is that w, as a vector,
+must be orthogonal to x dash minus x",00:19:05.150,00:19:11.820
+"double dash, as a vector.",00:19:11.820,00:19:13.500
+"So when you look at the plane, here is
+the vector x dash minus x double dash.",00:19:13.500,00:19:17.500
+Let me magnify it.,00:19:17.500,00:19:18.750
+"And this must be orthogonal
+to the vector w.",00:19:22.010,00:19:25.824
+"So the interesting thing is that we
+didn't make any restrictions on x dash",00:19:29.020,00:19:35.890
+and x double dash.,00:19:35.890,00:19:36.530
+"These could be any two points
+on the plane, right?",00:19:36.530,00:19:40.020
+"So now the conclusion is that w, which is
+the same w-- the vector w that defines",00:19:40.020,00:19:44.330
+"the plane, is orthogonal to
+every vector on the plane.",00:19:44.330,00:19:49.410
+Right?,00:19:49.410,00:19:50.060
+"Therefore, it is orthogonal
+to the plane.",00:19:50.060,00:19:52.380
+So we got that much.,00:19:53.230,00:19:54.180
+"We know that now w has
+an interpretation.",00:19:54.180,00:19:57.200
+Now we can get the distance.,00:19:58.490,00:20:00.190
+"Once you know they are orthogonal
+to the plane, you",00:20:00.190,00:20:01.660
+probably can get the distance.,00:20:01.660,00:20:02.590
+Because what do we have?,00:20:02.590,00:20:04.410
+"The distance between x_n and the plane,
+and we put them here, is what?",00:20:04.410,00:20:10.540
+Can be computed as follows.,00:20:10.540,00:20:12.360
+"Pick any point, one point,
+on the plane.",00:20:12.360,00:20:14.480
+We just call it generic x.,00:20:14.480,00:20:16.858
+"And then you take the projection of the
+vector going from here to here.",00:20:18.250,00:20:25.470
+"You project it on the direction which
+is orthogonal to the plane.",00:20:25.470,00:20:29.350
+And that will be your distance.,00:20:29.350,00:20:31.540
+Right?,00:20:31.540,00:20:32.320
+"So we just need to put the mathematics
+that goes with that.",00:20:32.320,00:20:34.860
+So here's the vector.,00:20:35.730,00:20:37.540
+"And here is the other vector, which we
+know that is orthogonal to the plane.",00:20:37.540,00:20:41.490
+"Now if you project this fellow on this
+direction, that length will give you",00:20:41.490,00:20:47.220
+the distance.,00:20:47.220,00:20:49.120
+"Now in order to get the projection,
+what do you do?",00:20:51.030,00:20:53.030
+"You get the unit vector
+in the direction.",00:20:53.030,00:20:54.490
+"So you take w, which is this vector--
+could be of any length-- and you",00:20:54.490,00:20:59.560
+normalize it by its norm.,00:20:59.560,00:21:01.360
+"And you get a unit vector under
+which the projection would be",00:21:01.360,00:21:05.380
+simply a dot product.,00:21:05.380,00:21:07.100
+"So now the w hat is a shorter w,
+if the norm of w happens to be",00:21:07.100,00:21:11.250
+bigger than 1.,00:21:11.250,00:21:12.320
+And what you get--,00:21:12.320,00:21:14.120
+"you get the distance being
+simply the inner product.",00:21:14.120,00:21:16.030
+"You take the unit vector, dot that.",00:21:16.030,00:21:17.930
+And that is your distance.,00:21:17.930,00:21:19.570
+Except for one minor issue.,00:21:19.570,00:21:21.600
+"This could be positive or negative
+depending on whether w is facing x or",00:21:21.600,00:21:25.020
+"facing the other direction so in order
+to get the distance proper, you",00:21:25.020,00:21:28.180
+need the absolute value.,00:21:28.180,00:21:30.110
+So we have a solution for it.,00:21:30.110,00:21:32.080
+Now we can write the distance as--,00:21:33.470,00:21:35.150
+this is the formula.,00:21:38.140,00:21:39.630
+Now I multiply it by w hat.,00:21:39.630,00:21:41.740
+I know what the formula for w hat is.,00:21:41.740,00:21:43.300
+I write it down.,00:21:43.300,00:21:44.430
+And now I have it in this form.,00:21:44.430,00:21:47.040
+"Now this can be simplified if I add
+the missing term, plus b minus b.",00:21:47.040,00:21:53.440
+Why is that?,00:21:53.440,00:21:55.260
+"Can someone tell me what is w^T x plus
+b, which is this quantity being",00:21:55.260,00:21:59.440
+subtracted here?,00:21:59.440,00:22:01.600
+"This is the value of the equation of
+the plane, for a point on the plane.",00:22:01.600,00:22:06.590
+So this will happen to be 0.,00:22:06.590,00:22:09.210
+"How about this quantity, w^T x_n
+plus b, for my point x_n.",00:22:09.210,00:22:13.560
+"Well, that was the quantity
+that we insisted on being 1.",00:22:14.690,00:22:19.120
+"Remember when we normalized the w,
+because w's could go up and down.",00:22:19.120,00:22:22.350
+"And we scaled them such that the
+absolute value of this quantity is 1.",00:22:22.350,00:22:26.690
+"So all of a sudden, this
+thing is just 1.",00:22:26.690,00:22:30.430
+"And you end up with the formula for the
+distance, given that normalization,",00:22:30.430,00:22:34.640
+being simply 1 over the norm.,00:22:34.640,00:22:37.220
+That's a pretty easy thing to do.,00:22:37.220,00:22:39.700
+"So if you take the plane and insist on
+a canonical representation of w by",00:22:39.700,00:22:45.000
+"making this part 1 for the nearest
+point, then your margin will simply be",00:22:45.000,00:22:51.180
+1 over the norm of w you used.,00:22:51.180,00:22:54.210
+"This I can use, in order now to choose
+what combination of w's will give me",00:22:54.210,00:22:58.100
+"the best possible margin,
+which is the next one.",00:22:58.100,00:23:01.490
+So let's now formulate the problem.,00:23:01.490,00:23:03.270
+"Here is the optimization
+problem that resulted.",00:23:03.270,00:23:07.500
+We are maximizing the margin.,00:23:07.500,00:23:09.430
+"The margin happens to
+be 1 over the norm.",00:23:09.430,00:23:11.090
+So that is what we are maximizing.,00:23:11.090,00:23:13.810
+Subject to what?,00:23:13.810,00:23:16.840
+"Subject to the fact that for the nearest
+point, which happens to have",00:23:16.840,00:23:22.050
+"the smallest value of those guys-- so
+the minimum over all points in the",00:23:22.050,00:23:25.480
+"training set. I took the quantity here
+and scaled w up or down in order to",00:23:25.480,00:23:31.300
+make that quantity 1.,00:23:31.300,00:23:32.690
+So I take this as a constraint.,00:23:32.690,00:23:34.470
+"When you constrain yourself this way,
+then you are maximizing 1 over w.",00:23:34.470,00:23:39.430
+And that is what you get.,00:23:39.430,00:23:41.040
+So what do we do with this?,00:23:43.210,00:23:45.450
+"Well, this is not a friendly
+optimization problem.",00:23:45.450,00:23:48.880
+"Because if the constraints have
+a minimum in them, that's bad news.",00:23:48.880,00:23:52.610
+"Minimum is not a nice
+function to have.",00:23:52.610,00:23:56.760
+"So what we are going to do now, we are
+going to try to find an equivalent",00:23:56.760,00:24:00.560
+problem that is more friendly.,00:24:00.560,00:24:02.570
+"Completely equivalent, by very
+simple observations.",00:24:02.570,00:24:04.850
+"So the first observation is that I
+want to get rid of the minimum.",00:24:04.850,00:24:07.050
+That's my biggest concern.,00:24:07.050,00:24:08.690
+So the first thing I notice that--,00:24:08.690,00:24:10.100
+not to mention the absolute value.,00:24:10.100,00:24:11.970
+"So the absolute value of this
+happens to be",00:24:11.970,00:24:14.750
+equal to this fellow.,00:24:14.750,00:24:17.970
+Why is that?,00:24:17.970,00:24:19.400
+"Well, every point is
+classified correctly.",00:24:19.400,00:24:22.480
+"I'm only considering the points that
+separate the data sets correctly.",00:24:22.480,00:24:26.870
+"And I'm choosing between them, for the
+one that maximizes the margin.",00:24:26.870,00:24:30.000
+"Because they are classifying the points
+correctly, it has to be that",00:24:30.000,00:24:32.890
+the signal agrees with the label.,00:24:32.890,00:24:35.680
+"Therefore when you multiply, the label is
+just +1 or -1, and therefore it takes",00:24:35.680,00:24:39.430
+care of the absolute value part.,00:24:39.430,00:24:41.130
+"So now I can use this instead
+of the absolute value.",00:24:41.130,00:24:43.850
+"I still haven't gotten
+rid of the minimum.",00:24:43.850,00:24:46.650
+"And I don't particularly like dividing
+1 over the norm, which has a square",00:24:46.650,00:24:50.280
+root in it.,00:24:50.280,00:24:51.300
+But that is very easily handled.,00:24:51.300,00:24:53.150
+"Instead of maximizing 1 over the norm,
+I'm going to minimize this friendly",00:24:53.150,00:24:58.150
+"quantity, quadratic one.",00:24:58.150,00:25:00.230
+I'm minimizing now.,00:25:00.230,00:25:01.170
+"So I'm maximizing 1 over,
+minimizing that.",00:25:01.170,00:25:02.980
+Everybody sees that it's equivalent.,00:25:02.980,00:25:04.770
+So now we can see.,00:25:05.430,00:25:06.640
+"Does anybody see quadratic programming
+coming up in the horizon?",00:25:07.040,00:25:09.960
+There's our quadratic formula.,00:25:10.350,00:25:11.800
+"The only thing I need to do is just have
+the constraints being friendly",00:25:12.560,00:25:14.950
+"constraints, not a minimum
+and absolute value.",00:25:14.950,00:25:16.680
+"Just inequality constraints
+that are linear in nature.",00:25:16.680,00:25:19.770
+"And I claim that you can do this by
+simply taking subject to these.",00:25:20.390,00:25:25.320
+"So this doesn't bother me, because I
+already established that it deals with",00:25:25.550,00:25:28.390
+the absolute value.,00:25:28.390,00:25:29.490
+"But here, I'm taking greater than
+or equal to 1 for all points.",00:25:29.490,00:25:34.750
+"I can see that if the minimum
+is 1, then this is true.",00:25:36.090,00:25:40.300
+"But it is conceivable that I do this
+optimization, and I end up with a quantity",00:25:40.300,00:25:44.290
+"for which all of these guys happen
+to be strictly greater than 1.",00:25:44.290,00:25:47.970
+"That is a feasible point, according
+to the constraints.",00:25:47.970,00:25:50.870
+"And if this by any chance gives me the
+minimum, then that is the minimum I'm",00:25:50.870,00:25:54.220
+going to get.,00:25:54.220,00:25:54.920
+"And the problem with that is that this
+is a different statement from the",00:25:54.920,00:25:57.330
+statement I made here.,00:25:57.330,00:25:58.610
+That's the only difference.,00:25:58.610,00:25:59.600
+"Well, is it possible that the minimum
+will be achieved at a point where this",00:26:00.600,00:26:04.290
+is greater than 1 for all of them?,00:26:04.290,00:26:07.960
+"A simple observation tells you: no,
+this is impossible.",00:26:07.960,00:26:10.240
+"Because let's say that you
+got that solution.",00:26:10.240,00:26:12.130
+"You tell me: this is the minimum I
+can get for w transposed w, right?",00:26:12.130,00:26:15.780
+"And I got it for values where this
+is strictly greater than 1.",00:26:15.780,00:26:19.480
+"Then what I'm going to do, I'm going
+to ask you: give me your solution.",00:26:19.480,00:26:22.370
+"And I'm going to give you
+a better solution.",00:26:22.370,00:26:24.440
+What am I going to do?,00:26:24.440,00:26:25.850
+"I'm going to scale w and b
+proportionately down until",00:26:25.850,00:26:30.650
+they touch the 1.,00:26:30.650,00:26:31.860
+"You have a slack, right?",00:26:31.860,00:26:33.600
+"So I can just pull all of them, just
+slightly, until one of them touches 1.",00:26:33.600,00:26:38.240
+"Now under those conditions, definitely,
+if the original",00:26:39.140,00:26:41.610
+"constraints were satisfied, the new
+constraints will be satisfied.",00:26:41.610,00:26:44.980
+All of them are just proportional.,00:26:44.980,00:26:46.300
+"I can pull out the factor, which
+is a positive factor.",00:26:46.300,00:26:49.200
+"And indeed, if this is the case, this
+will be the case for the other one.",00:26:49.200,00:26:53.180
+"And the point is that the w I got is
+smaller than yours because I scaled",00:26:53.180,00:26:56.910
+"them down, right?",00:26:56.910,00:26:58.750
+"So it must be that my solution
+is better than yours.",00:26:58.750,00:27:01.480
+Conclusion:,00:27:01.480,00:27:02.360
+"When you solve this, the w that you will
+get necessarily satisfies these",00:27:02.360,00:27:07.320
+"with at least one of those
+guys with equality.",00:27:07.320,00:27:09.630
+Which means that the minimum is 1.,00:27:09.630,00:27:11.250
+"And therefore, this problem is
+equivalent to this problem.",00:27:11.250,00:27:14.920
+This is really very nice.,00:27:14.920,00:27:16.420
+"So we started from a concept, and geometry,
+and simplification, and now",00:27:16.420,00:27:19.610
+"we end up with this very friendly
+statement that we are going to solve.",00:27:19.610,00:27:23.320
+"And when you solve it, you're going to
+get the separating plane with the best",00:27:23.320,00:27:28.100
+possible margin.,00:27:28.100,00:27:29.550
+So let's look at the solution.,00:27:31.350,00:27:33.340
+"Formally speaking, let's put it in
+a constrained optimization question.",00:27:33.340,00:27:38.200
+"The constrained optimization here-- you
+minimize this objective function",00:27:38.200,00:27:42.360
+subject to these constraints.,00:27:42.360,00:27:44.840
+We have seen those.,00:27:44.840,00:27:46.000
+"And the domain you're working on,
+w happens to be in the Euclidean",00:27:46.000,00:27:50.630
+space R to the d.,00:27:50.630,00:27:52.160
+"b happens to be a scalar, belongs
+to the real numbers.",00:27:52.160,00:27:54.680
+That is the statement.,00:27:54.680,00:27:56.770
+"Now when you have a constrained
+optimization-- we have a bunch of",00:27:56.770,00:27:59.790
+constraints here.,00:27:59.790,00:28:01.020
+"And we will need to go an analytic
+route in order to solve it.",00:28:01.020,00:28:04.410
+Geometry won't help us very much.,00:28:04.410,00:28:07.200
+"So what we're going to do here, we are
+going to ask ourselves: oh, constrained",00:28:07.200,00:28:10.740
+optimization.,00:28:10.740,00:28:11.410
+I heard of Lagrange.,00:28:11.410,00:28:13.140
+"You form a Lagrangian, and then all of
+a sudden the constrained become",00:28:13.140,00:28:16.350
+"unconstrained, and you solve it, and
+you get the multipliers lambda.",00:28:16.350,00:28:19.770
+"Lambda is pretty much what we got
+in regularization before.",00:28:19.770,00:28:22.300
+We did it geometrically.,00:28:22.300,00:28:23.140
+"We didn't do it explicitly
+with Lagrange.",00:28:23.140,00:28:24.790
+But that's what you get.,00:28:24.790,00:28:26.540
+"Now the problem here is that the
+constraints you have are inequality",00:28:26.540,00:28:29.910
+"constraints, not equality constraints.",00:28:29.910,00:28:32.050
+"That changes the game a little
+bit, but just a little bit.",00:28:32.050,00:28:34.840
+"Because what people did is simply look
+at these and realize that there is",00:28:34.840,00:28:39.260
+a slack here.,00:28:39.260,00:28:40.710
+"If I call the slack s squared,
+I can make this equality.",00:28:40.710,00:28:45.110
+"And then I can solve the old Lagrangian,
+with equality.",00:28:45.110,00:28:47.730
+"I can comment on that in the
+Q&amp;A session, because",00:28:48.300,00:28:50.600
+it's a very nice approach.,00:28:50.600,00:28:52.750
+"And that approach was derived
+independently by two sets of people,",00:28:52.750,00:28:56.510
+"Karush, which is the first K, and
+Kuhn-Tucker, which is the KT.",00:28:56.510,00:29:00.040
+"And the Lagrangian under the inequality
+constraint is referred to as KKT.",00:29:00.040,00:29:05.480
+"So now, let us try to solve this.",00:29:05.940,00:29:08.800
+"And I'd like, before I actually go
+through the mathematics of it, to",00:29:08.800,00:29:11.770
+"remind you that we actually saw this
+before in the constrained optimization",00:29:11.770,00:29:16.910
+"we solved before under inequality constraints,
+which was regularization.",00:29:16.910,00:29:20.740
+"And it is good to look at that picture,
+because it will put the analysis here",00:29:21.490,00:29:25.730
+in perspective.,00:29:25.730,00:29:26.900
+"So in that case, you don't
+have to go through the details.",00:29:27.470,00:29:29.580
+We were minimizing something--,00:29:29.580,00:29:30.730
+"you don't have to worry about the
+formula exactly-- under a constraint.",00:29:30.730,00:29:34.140
+"And the constraint is an inequality
+constraint that resulted in weight",00:29:34.140,00:29:36.325
+"decay, if you remember.",00:29:36.325,00:29:38.160
+"And we had a picture
+that went with it.",00:29:38.160,00:29:40.840
+"And what we did was, we looked
+at the picture and found",00:29:40.840,00:29:44.650
+a condition for the solution.,00:29:44.650,00:29:46.570
+"And the condition for the solution
+showed that the gradient of your",00:29:47.380,00:29:52.520
+"objective function, of the thing you are
+trying to minimize, becomes",00:29:52.520,00:29:56.760
+"something that is related to
+the constraint itself.",00:29:56.760,00:29:58.965
+In this case: normal.,00:29:58.965,00:30:01.300
+"The most important aspect to realize is
+that, when you solve the constrained",00:30:01.300,00:30:04.430
+"problem here, the end result was
+that the gradient is not 0.",00:30:04.430,00:30:08.775
+"It would have been 0 if the
+problem was unconstrained.",00:30:08.775,00:30:11.170
+"If I asked you to minimize this, you
+just go for gradient equals 0, and solve.",00:30:11.170,00:30:14.860
+"So now, because of the constraint, the
+constraint kicks in, and you have the",00:30:14.860,00:30:18.930
+"gradient being something related
+to the constraint.",00:30:18.930,00:30:21.320
+"And that's what will happen
+exactly when we have the",00:30:21.320,00:30:23.580
+Lagrangian in this case.,00:30:23.580,00:30:25.670
+But one of the benefits of having--,00:30:25.670,00:30:27.220
+of reminding you,00:30:27.220,00:30:27.840
+"of the regularization is that there's
+a conceptual dichotomy,",00:30:27.840,00:30:32.160
+"no pun intended, between the
+regularization and the SVM.",00:30:32.160,00:30:38.160
+"SVM is what we're doing here,
+maximizing the margin, and",00:30:38.160,00:30:40.560
+regularization.,00:30:40.560,00:30:41.630
+"So let's look at both cases and ask
+ourselves: what are we optimizing, and",00:30:41.630,00:30:45.690
+what is the constraint?,00:30:45.690,00:30:48.290
+"If you remember in regularization,
+we already have the equation.",00:30:48.290,00:30:50.520
+"What we are minimizing is
+the in-sample error.",00:30:50.520,00:30:52.810
+"So we are optimizing E_in, under the
+constraints that are related to w",00:30:53.120,00:30:58.500
+"transposed w, the size of the weights.",00:30:58.500,00:31:00.620
+That was weight decay.,00:31:00.620,00:31:02.520
+"If you look at the equation we just
+found out in order to maximize the",00:31:02.520,00:31:05.340
+"margin, what we are actually optimizing
+is w transposed w.",00:31:05.340,00:31:10.720
+"That is what you're trying
+to minimize.",00:31:10.720,00:31:12.960
+Right?,00:31:12.960,00:31:14.010
+"And your constraint is that you're
+getting all the points right.",00:31:14.010,00:31:16.610
+So your constraint is that E_in is 0.,00:31:16.610,00:31:19.630
+So it's the other way around.,00:31:19.630,00:31:21.150
+"But again, because both of them will
+blend in the Lagrangian, and you will",00:31:21.150,00:31:24.590
+"end up doing something that is
+a compromise, it's conceptually not",00:31:24.590,00:31:30.820
+"a big shock that we are reversing roles
+here, and minimizing what is in our",00:31:30.820,00:31:34.930
+"mind a constraint, and constraining
+what is in our mind an objective",00:31:34.930,00:31:39.370
+function to be minimized.,00:31:39.370,00:31:41.040
+Back to the formulation.,00:31:41.600,00:31:43.310
+"So now, let's look at the
+Lagrange formulation.",00:31:43.310,00:31:45.630
+"And I would like you to pay
+attention to this slide.",00:31:46.060,00:31:48.510
+"Because once you get the formulation,
+we're not going to do much beyond",00:31:48.510,00:31:53.270
+"getting a clean version of the
+Lagrangian, and then passing it on to",00:31:53.270,00:31:57.190
+"a package of quadratic programming
+to give us a solution.",00:31:57.190,00:32:01.020
+"But at least, arriving
+there is important.",00:32:01.020,00:32:03.850
+So let's look at it.,00:32:03.850,00:32:05.450
+We are minimizing--,00:32:05.450,00:32:08.260
+"this is our objective function--
+subject to",00:32:08.260,00:32:11.860
+constraints of this form.,00:32:11.860,00:32:14.150
+"First step, take the inequality
+constraints and put",00:32:14.150,00:32:18.470
+them in the 0 form.,00:32:18.470,00:32:20.710
+So what do I mean by that?,00:32:20.710,00:32:22.150
+"Instead of saying that's greater or
+equal to 1, you put it as minus 1, and",00:32:22.150,00:32:26.690
+"then require that this is greater
+than or equal to 0.",00:32:26.690,00:32:30.700
+"And now you see, it got multiplied
+by a Lagrange multiplier.",00:32:31.980,00:32:35.980
+"So think of this, since this should be
+greater than 0, this is the slack.",00:32:36.470,00:32:41.140
+"So the Lagrange multipliers get
+multiplied by the slack.",00:32:41.140,00:32:44.500
+And then you add them up.,00:32:44.500,00:32:47.500
+And they become part of the objective.,00:32:47.500,00:32:49.780
+"And they come out as a minus, simply
+because the inequalities here are in",00:32:49.780,00:32:55.510
+the direction greater than or equal to.,00:32:55.510,00:32:57.820
+That's what goes with the minus here.,00:32:57.820,00:32:59.560
+I'm not proving any of that.,00:32:59.560,00:33:01.340
+"I'm just motivating for you that this
+formula makes sense, but there's",00:33:01.340,00:33:05.940
+"mathematics that actually
+pins it down exactly.",00:33:05.940,00:33:08.880
+And you're minimizing this.,00:33:08.880,00:33:10.180
+So now let's give it a name.,00:33:10.180,00:33:12.220
+It's a Lagrangian.,00:33:12.220,00:33:13.830
+"It is dependent on the variables
+that I used to minimize with",00:33:13.830,00:33:16.640
+"respect to, w and b.",00:33:16.640,00:33:18.300
+"And now I have a bunch of new variables
+which are the Lagrange",00:33:18.300,00:33:20.960
+"multipliers, the vector alpha, which
+is called lambda in other cases.",00:33:20.960,00:33:25.770
+"Here it's standard, alpha.",00:33:25.770,00:33:27.220
+And there are N of them.,00:33:27.220,00:33:28.900
+"There's a Lagrange multiplier
+for every point in the set.",00:33:28.900,00:33:32.320
+"We are minimizing this
+with respect to what?",00:33:33.820,00:33:37.100
+With respect to w and b.,00:33:37.100,00:33:38.820
+So that was the original thing.,00:33:38.820,00:33:40.300
+"The interesting part, which you should
+pay attention to, is that you're",00:33:40.300,00:33:44.480
+"actually maximizing with
+respect to alpha.",00:33:44.480,00:33:47.110
+"Again, I'm not making a mathematical
+proof that this method holds.",00:33:47.110,00:33:53.730
+But this is what you do.,00:33:53.730,00:33:55.120
+"And it's interesting because when we
+had equality, we didn't worry about",00:33:55.120,00:34:00.320
+maximization versus minimization.,00:34:00.320,00:34:01.820
+"Because all you did, you get
+the gradient equals 0.",00:34:01.820,00:34:04.100
+"So that applies for both
+maximum and minimum.",00:34:04.100,00:34:05.910
+"So we didn't necessarily
+pay attention to it.",00:34:05.910,00:34:08.150
+"Here you have to pay attention to it,
+because you are maximizing with",00:34:08.150,00:34:10.767
+"respect to alphas, but the alphas
+have to be non-negative.",00:34:10.767,00:34:13.800
+"Once you restrict the domain, you can't
+just get the gradient to be 0, because",00:34:14.580,00:34:18.190
+the function--,00:34:18.190,00:34:18.790
+"if the function was all over and this
+way, you get the minimum.",00:34:18.790,00:34:21.730
+And minimum has gradient 0.,00:34:21.730,00:34:23.080
+"But if I tell you to stop here, the
+function could be going this way.",00:34:23.719,00:34:29.670
+"And this is the point you're
+going to pick.",00:34:29.670,00:34:31.449
+"And the gradient here
+is definitely not 0.",00:34:31.449,00:34:33.690
+"So the question of maximizing versus
+minimizing, you need to",00:34:34.500,00:34:38.020
+pay attention here.,00:34:38.020,00:34:38.469
+"We are not going to pay too much
+attention to it, because we'll just",00:34:38.469,00:34:41.320
+"tell the quadratic programming
+guy, please maximize.",00:34:41.320,00:34:43.489
+And it will give us the solution.,00:34:43.489,00:34:44.699
+"But that is the problem
+we are solving.",00:34:44.699,00:34:47.239
+"So now we do at least
+the unconstrained part.",00:34:47.239,00:34:50.440
+"With respect to w and b, you
+are just minimizing this.",00:34:50.440,00:34:53.820
+So let's do it.,00:34:54.300,00:34:55.409
+"We're going to take the gradient
+of the Lagrangian with respect to w.",00:34:55.409,00:34:59.100
+"So I'm getting partial by partial
+for every weight that appears.",00:34:59.100,00:35:04.510
+And I get the equation here.,00:35:04.510,00:35:08.530
+How do I get that?,00:35:08.530,00:35:09.220
+I can differentiate.,00:35:09.420,00:35:10.023
+So I'm going to differentiate this.,00:35:10.023,00:35:11.660
+I get a w.,00:35:11.660,00:35:12.810
+The squared goes with the half.,00:35:12.810,00:35:14.660
+"When I get this, I ask myself: what
+is the coefficient of w?",00:35:14.660,00:35:18.280
+"I get alpha, y_n, and x_n.",00:35:18.280,00:35:21.160
+Right?,00:35:21.160,00:35:21.950
+"That one gets multiplied by w for
+every n equals 1 to N.",00:35:21.950,00:35:25.580
+So I get that.,00:35:25.580,00:35:27.040
+"And I have a minus sign
+here, that comes here.",00:35:27.040,00:35:29.400
+Everything else drops out.,00:35:29.400,00:35:31.210
+So this is the formula.,00:35:31.210,00:35:32.520
+And what do I want the gradient to be?,00:35:32.970,00:35:34.740
+I want it to be the vector 0.,00:35:34.740,00:35:37.270
+So that's a condition.,00:35:37.860,00:35:39.250
+What is the other one?,00:35:39.250,00:35:40.700
+"I now get the derivative with
+respect to b. b is a scalar.",00:35:40.700,00:35:44.240
+That's the remaining parameter.,00:35:44.240,00:35:48.690
+"And when I look at it,
+can we do this?",00:35:49.430,00:35:52.510
+What gets multiplied by b?,00:35:52.510,00:35:55.440
+Oh I guess it's just the alphas.,00:35:55.440,00:35:56.775
+Everything else drops out.,00:35:56.775,00:35:59.250
+"So-- oh, not just alphas!",00:35:59.250,00:36:01.740
+It's y_n.,00:36:01.740,00:36:03.170
+"So here's the b. It gets multiplied
+by y_n and alpha.",00:36:03.900,00:36:08.030
+And that's what I get.,00:36:08.030,00:36:10.590
+"And you get this to be equal
+to the scalar 0.",00:36:10.590,00:36:13.850
+"So optimizing this with respect to
+w and b resulted in these two",00:36:13.850,00:36:17.630
+conditions.,00:36:17.630,00:36:18.720
+"Now what I'm going to do, I'm going
+to go back and substitute with",00:36:18.720,00:36:22.740
+"these conditions in the original
+Lagrangian, such that the maximization",00:36:22.740,00:36:27.070
+with respect to alpha--,00:36:27.070,00:36:27.960
+"which is the tricky part, because alpha
+has a range-- will become",00:36:27.960,00:36:32.070
+free of w and b.,00:36:32.070,00:36:33.640
+"And that formulation is referred to as
+the dual formulation of the problem.",00:36:34.200,00:36:39.480
+So let's substitute.,00:36:39.480,00:36:42.510
+"Here are what I got from
+the last slide.",00:36:42.510,00:36:46.600
+"This one I got from the gradient
+with respect to w equals 0.",00:36:46.600,00:36:51.590
+So w has to be this.,00:36:51.590,00:36:53.150
+"And this one from the partial
+by partial b, equals 0.",00:36:53.150,00:36:57.720
+I get those.,00:36:57.720,00:36:58.610
+"And now I'm going to substitute
+them in the Lagrangian.",00:36:58.610,00:37:01.730
+And the Lagrangian has that form.,00:37:01.730,00:37:04.230
+"Now let's do this carefully, because
+things drop out nicely.",00:37:04.850,00:37:07.940
+"And I get a very nice formula at the
+end, which is function of alpha only.",00:37:07.940,00:37:11.390
+So this equals--,00:37:12.360,00:37:15.940
+"first part, I get the summation
+of the Lagrange multipliers.",00:37:15.940,00:37:19.730
+Where did I get that?,00:37:19.730,00:37:21.075
+"I got that because I
+have -1 here.",00:37:21.075,00:37:23.860
+"It gets multiplied by alpha_n
+for all of those.",00:37:23.860,00:37:26.200
+"Canceled with this minus, so
+I get summation over that.",00:37:26.200,00:37:29.140
+So this part I got.,00:37:29.510,00:37:30.560
+"So let me kill the part
+that I already used.",00:37:30.560,00:37:32.390
+So I kill the -1.,00:37:32.390,00:37:35.000
+So that part I got.,00:37:35.000,00:37:36.350
+Next.,00:37:36.350,00:37:37.910
+"I look at this and say: I have
++b here, right?",00:37:37.910,00:37:41.530
+"So when I take +b, it gets
+multiplied by y_n alpha_n, summed up",00:37:41.530,00:37:45.970
+"from n equals 1 to N. Now, I look at
+this and say: oh, the",00:37:45.970,00:37:51.760
+"summation of alpha_n y n from n
+equals 1 to N is 0.",00:37:51.760,00:37:56.140
+"So the guys that get multiplied
+by b, will get to 0.",00:37:56.140,00:38:01.220
+"And therefore, I can kill +b.",00:38:01.220,00:38:04.171
+"Now when I have it down to this,
+it's very easy to see.",00:38:07.740,00:38:11.010
+"Because you look at the form for w, when
+you have w transposed w, you are going",00:38:11.010,00:38:16.690
+to get a quadratic version of this.,00:38:16.690,00:38:18.260
+"You get some double summation,
+alpha alpha y y x x, right?",00:38:18.260,00:38:23.310
+"With the proper name of the dummy
+variable, to get it right.",00:38:23.310,00:38:27.450
+"And when you have here, well, you have
+already alpha_n y_n and x n, and now",00:38:28.320,00:38:33.290
+"when you substitute w by this, you're
+going to get exactly the same thing.",00:38:33.290,00:38:36.610
+"You're going to get another alpha,
+another y, another x.",00:38:36.610,00:38:39.770
+"So this will be exactly the same as
+this, except that this one has",00:38:39.770,00:38:43.280
+"a factor half, this has
+a factor -1.",00:38:43.280,00:38:46.410
+So you add them up.,00:38:46.410,00:38:47.170
+And you end up with this.,00:38:47.170,00:38:51.080
+"So we look at this: what
+happened to w?",00:38:52.340,00:38:54.600
+What happened to b?,00:38:54.600,00:38:55.360
+All gone.,00:38:56.010,00:38:56.650
+"We are now just function of
+the Lagrange multipliers.",00:38:56.650,00:38:58.960
+"And therefore, we can call
+this L of alpha.",00:38:58.960,00:39:03.470
+"Now this is a very nice quantity to
+have, because this is a very simple",00:39:04.710,00:39:09.840
+quadratic form in the vector alpha.,00:39:09.840,00:39:12.300
+Alpha here appears as a linear guy.,00:39:12.300,00:39:14.360
+Here appears as a quadratic guy.,00:39:14.360,00:39:15.780
+That's all.,00:39:15.780,00:39:16.760
+Now I need to put the constraints.,00:39:16.760,00:39:19.830
+I put back the things I took out.,00:39:19.830,00:39:21.990
+"And let's look at the maximization
+with respect to alpha, subject to",00:39:21.990,00:39:27.190
+non-negative ones.,00:39:27.190,00:39:27.980
+This is a KKT condition.,00:39:27.980,00:39:29.460
+"I have to look for solutions
+under these conditions.",00:39:29.460,00:39:32.390
+"And I also have to consider the
+conditions that I inherited from the",00:39:32.390,00:39:36.940
+first stage.,00:39:36.940,00:39:37.950
+"So I have to satisfy this, and I
+have to satisfy this, for the",00:39:37.950,00:39:42.010
+solution to be valid.,00:39:42.010,00:39:43.210
+"So this one is a constraint over the
+alphas, and therefore I have to take",00:39:43.210,00:39:47.710
+it as a constraint here.,00:39:47.710,00:39:49.910
+"But I don't have to take the constraint
+here, because that is vacuous as far",00:39:49.910,00:39:53.650
+as alphas are concerned.,00:39:53.650,00:39:55.100
+"This does no constraint over
+alphas whatsoever.",00:39:55.100,00:39:58.070
+You do your thing.,00:39:58.070,00:39:59.190
+You come up with alphas.,00:39:59.190,00:40:00.420
+"And you call whatever that formula
+is, the resulting w.",00:40:00.420,00:40:03.870
+"Since w doesn't appear in
+optimization, I don't",00:40:03.870,00:40:06.170
+worry about it at all.,00:40:06.170,00:40:07.630
+So I end up with this thing.,00:40:07.630,00:40:09.440
+"Now if I didn't have those annoying
+constraints, I would be",00:40:09.440,00:40:13.510
+basically done.,00:40:13.510,00:40:14.500
+"Because I look at this,
+that's pretty easy.",00:40:14.500,00:40:16.650
+"I can express one of the alphas in
+terms of the rest of the alphas.",00:40:16.650,00:40:20.025
+Right?,00:40:20.025,00:40:20.360
+Factor it out.,00:40:20.360,00:40:21.720
+Substitute for that alpha here.,00:40:22.330,00:40:24.470
+"And all of a sudden, I have a purely
+unconstrained optimization for",00:40:24.470,00:40:27.210
+a quadratic one.,00:40:27.210,00:40:28.000
+I solve it.,00:40:28.000,00:40:28.720
+"I get something, maybe a pseudo inverse
+or something, and I'm done.",00:40:28.720,00:40:32.650
+"But I cannot do that simply because
+I'm restricted to those choices.",00:40:32.650,00:40:35.880
+"And therefore, I have to work with
+a constrained optimization, albeit a very",00:40:35.880,00:40:40.050
+minor constrained optimization.,00:40:40.050,00:40:41.960
+Now let's look at the solution.,00:40:44.380,00:40:45.540
+"The solution goes with quadratic
+programming.",00:40:45.540,00:40:48.470
+"So the purpose of the slide here is
+to translate the objective and the",00:40:48.980,00:40:53.800
+"constraints we had into the coefficients
+that you're going to pass",00:40:53.800,00:40:57.680
+"on to a package called quadratic
+programming.",00:40:57.680,00:41:00.570
+So this is a practical slide.,00:41:00.570,00:41:02.140
+"First, what we are doing is maximizing
+with respect to alpha this quantity",00:41:04.250,00:41:08.970
+"that we found, subject to
+a bunch of constraints.",00:41:08.970,00:41:12.490
+"Quadratic programming packages come
+usually with minimization.",00:41:12.490,00:41:15.110
+"So we need to translate this
+into minimization.",00:41:15.110,00:41:17.220
+How are going to do that?,00:41:17.600,00:41:18.790
+"We're just going to get
+the minus of that.",00:41:18.790,00:41:20.260
+So this would become this minus that.,00:41:20.260,00:41:22.160
+So let's do that.,00:41:22.160,00:41:23.906
+"We got the minus, minimum of this.",00:41:23.906,00:41:26.800
+So now it's ready to go.,00:41:27.140,00:41:28.880
+"Now the next step will
+be pretty scary.",00:41:28.880,00:41:30.740
+"Because what I'm going to do, I'm going
+to expand this, isolating the",00:41:30.740,00:41:34.900
+coefficients from the alphas.,00:41:34.900,00:41:36.080
+The alphas are the parameters.,00:41:36.080,00:41:37.080
+"You're not passing alphas to
+the quadratic programming.",00:41:37.080,00:41:40.400
+"Quadratic programming works
+with a vector of variables",00:41:40.400,00:41:42.730
+that you called alpha.,00:41:42.730,00:41:44.000
+"What you are passing are the
+coefficients of your particular",00:41:44.000,00:41:46.990
+"problems that are decided by these
+numbers, that the quadratic",00:41:46.990,00:41:50.830
+"programming will take, and then will
+be able to give you the alphas that",00:41:50.830,00:41:54.510
+would minimize this quantity.,00:41:54.510,00:41:56.730
+So this is what it looks like.,00:41:56.730,00:41:58.230
+"I have a quadratic term,
+alpha transposed alpha.",00:42:01.680,00:42:04.380
+"And these are the coefficients
+in the double summation.",00:42:04.380,00:42:06.970
+"These are numbers that you read
+off your training data.",00:42:07.520,00:42:11.420
+You give me x_1 and y_1.,00:42:11.420,00:42:13.150
+"I'm going to compute these numbers
+for all of these combinations.",00:42:13.150,00:42:15.475
+And I end up with a matrix.,00:42:15.475,00:42:17.250
+"That matrix gets passed to
+quadratic programming.",00:42:17.250,00:42:20.170
+"And quadratic programming asks you for
+the quadratic term, and asks you for",00:42:20.430,00:42:23.370
+the linear term.,00:42:23.370,00:42:24.530
+"Where the linear term, just to be
+formal, happens to be, since we are",00:42:24.530,00:42:27.500
+"just taking minus alpha, it's -1 transposed
+alpha, which is the sum of",00:42:27.500,00:42:32.460
+those guys.,00:42:32.460,00:42:33.230
+"So this is the bunch of linear
+coefficients that you pass.",00:42:33.230,00:42:36.660
+And then the constraints--,00:42:37.990,00:42:39.330
+"you put the constraints again
+in the same way, subject to.",00:42:39.330,00:42:41.700
+"So there's a part which asks
+you for constraints.",00:42:41.700,00:42:43.580
+"And here again, the constraints-- you
+care about the coefficients of the",00:42:43.580,00:42:46.560
+constraints.,00:42:46.560,00:42:46.845
+"So this is a linear equality
+constraint.",00:42:46.845,00:42:49.330
+"So we are going to pass the y
+transposed, which are the coefficients",00:42:49.330,00:42:51.727
+"here, as a vector.",00:42:51.727,00:42:53.430
+"And it will ask you for, finally, the
+range of alphas that you need.",00:42:54.170,00:42:57.880
+"And the range of alphas that you need
+happens to be between 0, so that would",00:42:57.880,00:43:01.570
+"be the vector 0-- would
+be your lower bound.",00:43:01.570,00:43:03.650
+Infinity will be your upper bound.,00:43:03.650,00:43:05.650
+So you read off this slide.,00:43:06.550,00:43:08.020
+"You give it to the quadratic
+programming.",00:43:08.020,00:43:09.620
+"And the quadratic programming
+gives you back an alpha.",00:43:09.620,00:43:12.670
+"And if you're completely discouraged by
+this, let me remind you that all of",00:43:12.670,00:43:16.110
+"this is just to give you what
+to pass to the package.",00:43:16.110,00:43:19.820
+This actually looks exactly like this.,00:43:19.820,00:43:23.940
+That's all you're doing.,00:43:23.940,00:43:26.040
+"A very simple quadratic function,
+with a linear term.",00:43:26.040,00:43:29.570
+"You're minimizing it, subject to linear
+equality constraint, plus a bunch of",00:43:29.570,00:43:34.450
+range constraints.,00:43:34.450,00:43:36.740
+"And when you expand it, in terms of
+numbers, this is what you get.",00:43:36.740,00:43:39.650
+And that's what we're going to use.,00:43:39.650,00:43:40.970
+So now we are done.,00:43:42.030,00:43:42.960
+We have done the analysis.,00:43:42.960,00:43:43.900
+We knew what to optimize.,00:43:43.900,00:43:45.150
+"It fit one of the standard
+optimization tools.",00:43:45.150,00:43:47.330
+"It happens to be convex function in
+this case, so that the quadratic",00:43:47.330,00:43:50.450
+programming will be very successful.,00:43:50.450,00:43:52.110
+"And then we pass it, and
+we get a number back.",00:43:52.620,00:43:54.780
+"Just a word of warning
+before we go there.",00:43:55.190,00:43:57.170
+You look at the size of this matrix.,00:43:59.240,00:44:00.900
+And it's N by N. Right?,00:44:00.900,00:44:04.620
+"So the dimension of the matrix depends
+on the number of examples.",00:44:04.620,00:44:09.280
+"Well, if you have a hundred
+examples, no sweat.",00:44:09.280,00:44:11.160
+"If you have 1000 examples, no sweat.",00:44:11.160,00:44:13.370
+"If you have a million examples,
+this is really trouble.",00:44:13.370,00:44:16.110
+Because this is really a dense matrix.,00:44:16.410,00:44:20.060
+"These numbers could come
+up with anything.",00:44:20.060,00:44:21.450
+So all the entries matter.,00:44:21.450,00:44:22.700
+"And if you end up with a huge matrix,
+quadratic programming will have",00:44:23.900,00:44:28.410
+pretty hard time finding the solution.,00:44:28.410,00:44:30.480
+"To the level where there are tons of
+heuristics to solve this problem when",00:44:30.480,00:44:34.600
+the number of examples is big.,00:44:34.600,00:44:36.180
+"It's a practical consideration, but
+it's an important consideration.",00:44:36.180,00:44:39.250
+"But basically, if you're working with
+problems-- the typical machine",00:44:39.850,00:44:44.330
+"learning problem, where you have, let's
+say not more than 10,000, then",00:44:44.330,00:44:50.480
+it's not formidable.,00:44:50.480,00:44:51.180
+"10,000 is flirting with danger,
+but that's what it is.",00:44:51.710,00:44:54.210
+"So pay attention to the fact that, in
+spite of the fact that there's",00:44:54.730,00:44:57.650
+"a standard way of solving it, and the
+fact that it's convex, so it's",00:44:57.650,00:45:00.250
+"friendly, it is not that easy when you
+get a huge number of examples.",00:45:00.250,00:45:03.540
+"And people have hierarchical methods
+and whatnot, in order to",00:45:03.540,00:45:05.840
+deal with that case.,00:45:05.840,00:45:07.020
+So let's say we succeeded.,00:45:07.910,00:45:09.250
+"We gave the matrix and the vectors
+to quadratic programming.",00:45:09.250,00:45:13.460
+Back comes what?,00:45:13.460,00:45:16.540
+Back comes alpha.,00:45:16.540,00:45:18.260
+This is your solution.,00:45:18.260,00:45:19.560
+"So now we want to take this solution,
+and solve our original problem.",00:45:20.220,00:45:23.350
+"What is w, what is b, what is the
+surface, what is the margin?",00:45:23.900,00:45:27.830
+"You answer the questions that
+all of this formalization",00:45:27.830,00:45:30.900
+was meant to tackle.,00:45:30.900,00:45:32.610
+So the solution is vector of alphas.,00:45:34.060,00:45:37.860
+"And the first thing is that it is very
+easy to get the w because, luckily,",00:45:37.860,00:45:41.810
+"the formula for w being this was one of
+the constraints we got from solving",00:45:41.810,00:45:47.220
+the original one.,00:45:47.220,00:45:47.850
+"When we got the gradient with respect to
+w, we found out this is the thing.",00:45:47.850,00:45:50.765
+"So you get the alphas, you plug them
+in, and then you'll get the w.",00:45:51.030,00:45:55.386
+"So you get the vector
+of weights you want.",00:45:55.386,00:45:57.950
+"Now I would like to tell you a condition
+which is very important.",00:46:00.410,00:46:04.330
+"And it will be the key to defining
+support vectors in this case, which is",00:46:04.330,00:46:07.110
+"another KKT condition that will
+be satisfied at the minimum,",00:46:07.110,00:46:10.580
+which is the following.,00:46:10.580,00:46:12.320
+Quadratic programming hands you alpha.,00:46:12.320,00:46:13.610
+"Let's say that-- alpha is the same length
+as the number of examples--",00:46:13.610,00:46:16.660
+let's say you have 1000 examples.,00:46:16.660,00:46:17.800
+So it gives you a vector of 1000 guys.,00:46:17.800,00:46:20.305
+"You look at the vector,
+and to your surprise--",00:46:20.305,00:46:23.270
+"you don't know yet whether it's pleasant
+or unpleasant surprise--",00:46:23.270,00:46:26.270
+a whole bunch of the alphas are just 0.,00:46:26.270,00:46:30.370
+"The alphas are restricted
+to be non-negative.",00:46:30.370,00:46:31.870
+"They all have to be greater
+than or equal to 0.",00:46:31.870,00:46:33.760
+"If you find any one of them negative,
+then you say quadratic programming",00:46:33.760,00:46:36.360
+made a mistake.,00:46:36.360,00:46:36.940
+But it won't make a mistake.,00:46:37.120,00:46:38.220
+"It will give you numbers
+that are non-negative.",00:46:38.220,00:46:40.380
+"But the remarkable part, out of the
+1000, more than 900 are 0's.",00:46:40.380,00:46:46.370
+So you say: something is wrong?,00:46:46.370,00:46:48.170
+"Is there a bug in my
+thing or something?",00:46:48.170,00:46:50.250
+No.,00:46:50.250,00:46:50.740
+Because of the following.,00:46:50.740,00:46:53.820
+The following condition holds.,00:46:53.820,00:46:55.996
+It looks like a big condition.,00:46:55.996,00:46:57.430
+But let's read it.,00:46:57.430,00:46:59.480
+This is the constraint in the 0 form.,00:46:59.480,00:47:01.580
+So this is greater than or equal to 1.,00:47:01.580,00:47:04.260
+"So minus 1 would be greater
+than or equal to 0.",00:47:04.260,00:47:06.220
+This is what we called the slack.,00:47:06.220,00:47:09.290
+"So the condition that is guaranteed to
+be satisfied, for the point you're",00:47:09.290,00:47:12.770
+"going to get, is that either the slack is
+0, or the Lagrange multiplier is 0.",00:47:12.770,00:47:20.470
+"The product of them will
+definitely be 0.",00:47:20.470,00:47:23.670
+"So if there's a positive slack, which
+means that you are talking about",00:47:23.670,00:47:27.690
+an interior point.,00:47:27.690,00:47:28.880
+"Remember that I have a plane,
+and I have a margin.",00:47:28.880,00:47:32.990
+"And the margin touches
+on the nearest point.",00:47:32.990,00:47:34.940
+And that is what defines the margin.,00:47:34.940,00:47:36.780
+"Then there are interior points, where
+the slack is bigger than 1.",00:47:36.780,00:47:40.770
+"At those points, the
+slack is exactly 1.",00:47:40.770,00:47:43.110
+"No, not the slack.",00:47:43.110,00:47:44.760
+The slack is 0.,00:47:44.760,00:47:46.010
+The value is 1.,00:47:46.010,00:47:47.660
+"The other ones, the slack
+will be positive.",00:47:47.660,00:47:49.740
+"So for all the interior points, you're
+guaranteed that the corresponding",00:47:49.740,00:47:55.040
+Lagrange multiplier will be 0.,00:47:55.040,00:47:58.100
+OK?,00:47:58.100,00:47:59.350
+"I claim that we saw this before, again
+in the regularization case.",00:48:01.180,00:48:05.920
+Remember this fellow?,00:48:05.920,00:48:08.910
+"We had a constraint which is to
+be within the red circle.",00:48:08.910,00:48:12.370
+"And we're trying to optimize a function
+that has equi-potentials",00:48:12.370,00:48:14.725
+around this.,00:48:14.725,00:48:15.630
+So this is the absolute minimum.,00:48:15.630,00:48:17.130
+And it grows and grows and grows.,00:48:17.130,00:48:18.980
+"And because we are in the constraint,
+we couldn't get the absolute minimum",00:48:18.980,00:48:21.440
+when we went there.,00:48:21.440,00:48:23.930
+"When we had the constraint being
+vacuous, that is, the constraint",00:48:23.930,00:48:27.570
+"doesn't really constrain us, and the
+absolute optimal is inside, we ended",00:48:27.570,00:48:31.780
+"up with no need for regularization,
+if you remember?",00:48:31.780,00:48:35.080
+"And the lambda for regularization
+in that case was 0.",00:48:35.080,00:48:38.560
+"That is the case, where you have
+an interior point, and the",00:48:39.170,00:48:43.500
+multiplier is 0.,00:48:43.500,00:48:45.580
+"And then when you got a genuine guy that
+you have to actually compromise,",00:48:45.580,00:48:49.770
+"you ended up with a condition that
+requires lambda to be positive.",00:48:49.770,00:48:52.950
+"So these are the guys where
+the constraint is active.",00:48:53.620,00:48:57.240
+"And therefore you get a positive lambda,
+while this guy is by itself 0.",00:48:57.240,00:49:02.330
+"So now we come to an interesting
+definition.",00:49:03.170,00:49:07.910
+"So alpha is largely 0's,
+interior points.",00:49:08.170,00:49:11.930
+"The most important points in the game
+are the points that actually define",00:49:11.930,00:49:15.670
+the plane and the margin.,00:49:15.670,00:49:17.690
+"And these are the ones for which
+alpha_n's are positive.",00:49:17.690,00:49:20.790
+And these are called support vectors.,00:49:21.870,00:49:27.140
+So I have N points.,00:49:27.140,00:49:29.390
+"And I classify them, and I
+got the maximum margin.",00:49:29.390,00:49:31.670
+"And because it's a maximum margin, it
+touched on some of the +1 and some",00:49:31.670,00:49:35.140
+of the -1 points.,00:49:35.140,00:49:36.660
+"Those points support the
+plane, so to speak.",00:49:36.660,00:49:39.870
+And they're called support vectors.,00:49:39.870,00:49:41.340
+"And the other guys are
+interior points.",00:49:41.340,00:49:44.070
+"And the mathematics of it tells us that
+we can identify those, because we",00:49:44.070,00:49:48.410
+"can go for lambdas that happen to be
+positive, the alphas in this case.",00:49:48.410,00:49:52.850
+"And the alpha greater than 0 will
+identify a support vector.",00:49:52.850,00:49:57.050
+"Again, when I put a box, it's
+an important thing.",00:50:01.210,00:50:03.110
+So this is an important notion.,00:50:03.110,00:50:04.540
+So let's talk about support vectors.,00:50:05.170,00:50:08.970
+"I have a bunch of points
+here to classify.",00:50:08.970,00:50:11.830
+And I go through the entire machinery.,00:50:11.830,00:50:13.820
+I formulate the problem.,00:50:13.820,00:50:15.320
+I get the matrix.,00:50:15.320,00:50:16.310
+I pass it to quadratic programming.,00:50:16.310,00:50:17.540
+I get the alpha back.,00:50:17.540,00:50:18.710
+I compute the w.,00:50:18.710,00:50:19.520
+All of the above.,00:50:19.520,00:50:20.840
+And this is what I get.,00:50:20.840,00:50:23.310
+"So where are the support
+vectors this picture?",00:50:24.660,00:50:27.410
+"They are the closest ones
+to the plane, where the",00:50:32.270,00:50:34.410
+margin region touched.,00:50:34.410,00:50:36.830
+And they happen to be these three.,00:50:36.830,00:50:39.760
+"This one, this one, this one.",00:50:39.760,00:50:41.550
+"So all of these guys that are here, and
+all of these guys are here will just",00:50:41.550,00:50:45.300
+contribute nothing to the solution.,00:50:45.300,00:50:46.620
+"They will get alpha equals
+0 in this case.",00:50:46.620,00:50:49.160
+"And the support vectors achieve
+the margin exactly.",00:50:52.070,00:50:55.150
+They are the critical points.,00:50:55.150,00:50:56.430
+The other guys--,00:50:57.540,00:50:59.460
+"their margin, if you will,
+is bigger or much bigger.",00:50:59.460,00:51:02.350
+"And for the support vectors, you
+satisfy this with equal 1.",00:51:04.870,00:51:08.330
+So all of this is fine.,00:51:08.330,00:51:10.070
+"Now, we used to compute w in terms of
+the summation of alpha_n y_n x_n.",00:51:10.930,00:51:15.960
+"Because we said that this is the
+quantity we got, when we got the",00:51:15.960,00:51:18.810
+gradient with respect to w equals 0.,00:51:18.810,00:51:21.360
+So this is one of the equations.,00:51:21.360,00:51:22.360
+"And this is our way to get the alphas
+back, which is the currency we get",00:51:22.360,00:51:25.640
+"back from quadratic programming, and
+plug it in, in order to get the w.",00:51:25.640,00:51:29.450
+"This goes from n equals 1 to N.
+Now that I notice that many of the",00:51:29.450,00:51:34.180
+"alphas are 0, and alpha is only positive
+for support vectors, then I",00:51:34.180,00:51:39.730
+"can say that I can sum this up over
+only the support vectors.",00:51:39.730,00:51:43.913
+It looks like a minor technicality.,00:51:43.913,00:51:46.230
+"So the other terms happen to
+be 0, so you excluded them.",00:51:46.230,00:51:49.400
+"You just made the notation
+more clumsy in this case.",00:51:49.400,00:51:53.030
+But there's a very important point.,00:51:53.030,00:51:55.100
+"Think of alphas now as the
+parameters of your model.",00:51:55.100,00:51:58.400
+"When they're 0s, they don't count.",00:51:59.010,00:52:00.850
+"Just expect almost all
+of them to be 0.",00:52:00.850,00:52:02.810
+"What counts is the actual values of
+the parameters that will be some",00:52:02.810,00:52:05.990
+number bigger than 0.,00:52:05.990,00:52:07.610
+"So now, your weight vector--",00:52:08.290,00:52:11.100
+"it's a d-dimensional vector-- is
+expressed in terms of the constants",00:52:13.730,00:52:18.960
+"which are your data set, x_n
+and their label.",00:52:18.960,00:52:21.870
+"Plus few parameters, hopefully few
+parameters, which is just the number",00:52:21.870,00:52:25.490
+of support vectors.,00:52:25.490,00:52:26.320
+"So you have three support
+vectors, then this--",00:52:26.320,00:52:29.150
+"let's say you're working at
+20-dimensional space.",00:52:29.150,00:52:31.070
+So I'm looking at 20-dimensional space.,00:52:31.070,00:52:32.580
+I'm getting a weight.,00:52:32.580,00:52:33.500
+"Well, it's 20-dimensional
+space in disguise.",00:52:33.500,00:52:36.350
+"Because of the constraint you put, you
+got something that is effectively",00:52:36.350,00:52:39.910
+three-dimensional.,00:52:39.910,00:52:41.680
+"And now you can realize
+why there might be",00:52:42.490,00:52:46.370
+a generalization dividend here.,00:52:46.370,00:52:48.150
+"Because I end up with fewer parameters
+than the express parameters that are",00:52:48.150,00:52:52.170
+in the value I get.,00:52:52.170,00:52:54.380
+"So, we can also--",00:52:55.170,00:52:57.600
+now that we have it-- solve for the b.,00:52:57.600,00:53:00.880
+"Because you want w and b-- b is the bias,
+or corresponding to the threshold term,",00:53:00.880,00:53:05.785
+if you will.,00:53:05.785,00:53:06.420
+And it's very easy to do.,00:53:06.420,00:53:07.850
+"Because all you need to do is take any
+support vector, any one of them, and",00:53:07.850,00:53:11.940
+"for any of them you know that
+this equation holds.",00:53:11.940,00:53:14.740
+"You already solved for w, by that.",00:53:14.740,00:53:17.290
+So you plug this in.,00:53:17.290,00:53:18.670
+"And the only unknown in this
+equation would be b.",00:53:18.670,00:53:21.580
+"And as a check for you, take any
+support vector and plug it in.",00:53:21.580,00:53:24.270
+"And you have to find the
+same b coming out.",00:53:24.270,00:53:26.240
+"That was your check that everything
+in the math went through.",00:53:26.240,00:53:31.490
+"You take any of them,
+and you solve for b.",00:53:31.490,00:53:33.220
+"And now you have w and b, and you are ready
+with the classification line or",00:53:33.220,00:53:38.230
+hyperplane that you have.,00:53:38.230,00:53:41.640
+"Now let me close with the nonlinear
+transforms, which will be a very short",00:53:41.640,00:53:46.650
+"presentation that has
+an enormous impact.",00:53:46.650,00:53:49.780
+"We are talking about
+a linear boundary.",00:53:49.780,00:53:53.310
+"And we are talking about linearly
+separable case, at",00:53:53.310,00:53:55.800
+least in this lecture.,00:53:55.800,00:53:56.660
+"In the next lecture, I'm going to
+go to the non-separable case.",00:53:56.660,00:54:00.080
+"But a non-separable case could be
+handled here in the same way we",00:54:00.080,00:54:03.320
+"handled non-separable case
+with the perceptrons.",00:54:03.320,00:54:05.880
+"Instead of working in the X space,
+we went to the Z space.",00:54:05.880,00:54:09.850
+"And I'd like to see what happens to the
+problem of support vector machines,",00:54:09.850,00:54:13.860
+"as we stated it and solved it, when
+you actually move to the higher",00:54:13.860,00:54:18.200
+dimensional space.,00:54:18.200,00:54:19.350
+"Is the problem becoming
+more difficult?",00:54:19.350,00:54:20.950
+Does it hold?,00:54:20.950,00:54:21.650
+Et cetera.,00:54:21.650,00:54:22.260
+So let's look at it.,00:54:22.260,00:54:24.570
+"So we're going to work
+with z instead of x.",00:54:24.570,00:54:26.920
+"And we're going to work in the Z space
+instead of the X space.",00:54:26.920,00:54:31.460
+So let's first put what we are doing.,00:54:31.460,00:54:34.330
+"Analytically, after doing all of the
+stuff, and I even forgot what the",00:54:34.330,00:54:37.390
+"details are, all I care about is that:
+would you please maximize this with",00:54:37.390,00:54:42.350
+"respect to alpha, subject to a couple
+of sets of constraints.",00:54:42.350,00:54:45.850
+So you look at here.,00:54:46.600,00:54:47.520
+"And you can see, when I transform
+from x to z, nothing",00:54:47.520,00:54:51.630
+happens to the y's.,00:54:51.630,00:54:53.100
+The labels are the same.,00:54:53.100,00:54:54.460
+"And these are the guys that probably
+will be changed, because now",00:54:54.460,00:54:56.940
+I'm working in a new space.,00:54:56.940,00:54:58.040
+"So I'm putting them in
+a different color.",00:54:58.040,00:54:59.780
+"So if I work in the X space, that's
+what I'm working with.",00:54:59.780,00:55:02.400
+"And these are the guys that I'm going
+to multiply in order to get the",00:55:02.400,00:55:04.810
+"matrix that I pass on to
+quadratic programming.",00:55:04.810,00:55:07.390
+"Now let's take the usual
+nonlinear transform.",00:55:08.400,00:55:12.720
+So this is your X space.,00:55:12.720,00:55:14.570
+"And in X space, I give you this data.",00:55:14.570,00:55:16.210
+"Well, this data is not separable, not
+linearly separable, and definitely not",00:55:16.210,00:55:20.410
+nearly linearly separable.,00:55:20.410,00:55:21.890
+"This is the case where you need
+a nonlinear transformation.",00:55:21.890,00:55:24.440
+"And we did this nonlinear
+transformation before.",00:55:24.440,00:55:26.260
+"Let's say you take just
+x1 squared and x2 squared.",00:55:26.260,00:55:30.230
+"And then you get this, and this
+one is linearly separable.",00:55:30.230,00:55:33.190
+"So all you're doing now is
+working in the Z space.",00:55:33.190,00:55:35.280
+"And instead of getting just a generic
+separator, you're getting the best",00:55:35.280,00:55:38.760
+"separator, according to SVM, and then
+mapping it back, hoping that it will",00:55:38.760,00:55:42.750
+"have dividends in terms
+of the generalization.",00:55:42.750,00:55:44.860
+So you look at this.,00:55:45.660,00:55:47.070
+I'm moving from X to Z.,00:55:47.070,00:55:48.910
+"So when I go back to here,
+what do you do?",00:55:48.910,00:55:51.130
+"All you need to do is replace
+the x's with z's.",00:55:51.130,00:55:56.000
+"And then you forget that there
+was ever an X space.",00:55:56.000,00:55:59.370
+I have vector z.,00:56:00.040,00:56:01.360
+"I do the inner product in order
+to get these numbers.",00:56:01.360,00:56:04.220
+"These numbers I'm going to pass
+on to quadratic programming.",00:56:04.220,00:56:06.720
+"And when I get the solution back, I have
+the separating plane or line in",00:56:06.720,00:56:10.800
+the Z space.,00:56:10.800,00:56:11.720
+"And then when I want to know what
+the surface is in the X",00:56:11.720,00:56:13.890
+"space, I map it back.",00:56:13.890,00:56:15.160
+I get the pre-image of it.,00:56:15.160,00:56:16.140
+And that's what I get.,00:56:16.140,00:56:18.430
+"The most important aspect to observe
+here is that-- OK, the",00:56:18.430,00:56:22.490
+solution is easy.,00:56:22.490,00:56:24.330
+"Let's say I move from two-dimensional
+to two-dimensional here.",00:56:24.330,00:56:27.930
+Nothing happened.,00:56:27.930,00:56:29.410
+"Let's say I move from two-dimensional
+to a million-dimensional.",00:56:29.410,00:56:33.250
+"Let's see how much more difficult
+the problem became.",00:56:33.250,00:56:37.890
+What do I do?,00:56:37.890,00:56:38.600
+"Now I have a million-dimensional vector,
+inner product with a million",00:56:38.600,00:56:43.390
+dimensional vector.,00:56:43.390,00:56:44.840
+That doesn't faze me at all.,00:56:44.840,00:56:46.280
+Just an inner product.,00:56:46.280,00:56:47.130
+I get a number.,00:56:47.130,00:56:48.650
+"But when I'm done, how many
+alphas do I have?",00:56:48.650,00:56:53.350
+"This is the dimensionality of the
+problem that I'm passing to quadratic",00:56:53.350,00:56:56.150
+programming.,00:56:56.150,00:56:57.680
+Exactly the same thing.,00:56:57.680,00:56:59.080
+It's the number of data points.,00:56:59.080,00:57:01.850
+"Has nothing to do with the
+dimensionality of the space you're",00:57:01.850,00:57:04.660
+working in.,00:57:04.660,00:57:06.530
+"So you can go to an enormous space,
+without paying the price for it in",00:57:06.530,00:57:10.770
+"terms of the optimization
+you're going to do.",00:57:10.770,00:57:13.320
+"You're going to get
+a plane in that space.",00:57:13.320,00:57:14.930
+"You can't even imagine, because
+it's million-dimensional.",00:57:14.930,00:57:17.300
+It has a margin.,00:57:17.300,00:57:19.680
+"The margin will look very
+interesting in this case.",00:57:19.680,00:57:21.700
+"And supposedly it has good
+generalization property.",00:57:21.700,00:57:24.700
+And then you map it back here.,00:57:24.700,00:57:26.330
+"But the difficulty of solving
+the problem is identical.",00:57:26.330,00:57:29.450
+"The only thing that is different is
+just getting those coefficients.",00:57:29.450,00:57:33.170
+You'll be multiplying longer vectors.,00:57:33.170,00:57:34.850
+But that is the least of our concerns.,00:57:34.850,00:57:37.440
+"The other one is that you're going
+to get the full matrix of this.",00:57:37.440,00:57:39.790
+"And quadratic programming will have
+to manipulate the matrix.",00:57:39.790,00:57:42.500
+And that's where the price is paid.,00:57:42.500,00:57:44.470
+"So that price is constant, as long
+as you give it this number.",00:57:44.470,00:57:47.570
+"It doesn't care whether it was inner
+product of 2 by 2, or inner product of",00:57:47.570,00:57:50.650
+a million by million.,00:57:50.650,00:57:51.640
+it will just hand you the alphas.,00:57:51.640,00:57:52.910
+"And then you interpret the alphas in
+the space that you created it from.",00:57:52.910,00:57:56.660
+So the w will belong to the Z space.,00:57:57.290,00:57:59.840
+"Now let's look at, if I do the nonlinear
+transformation, do I have",00:58:01.900,00:58:05.090
+support vectors?,00:58:05.090,00:58:05.900
+"Yes, you have support vectors
+for sure in the Z space.",00:58:05.900,00:58:08.670
+"Because you're working exclusively in
+the Z space, you get the plane there.",00:58:08.670,00:58:11.290
+You get the margin.,00:58:11.290,00:58:12.250
+The margin will touch some points.,00:58:12.250,00:58:13.460
+"These are your support vectors
+by definition.",00:58:13.460,00:58:15.380
+"And you can identify them even without
+looking geometrically at the Z space,",00:58:15.380,00:58:18.460
+because what are the support vectors?,00:58:18.460,00:58:20.410
+"Oh, I look at the alphas I get.",00:58:20.410,00:58:22.220
+"And the alphas that are positive, these
+correspond to support vectors.",00:58:22.220,00:58:26.300
+"So without even imagining what the Z
+space is like, I can identify which",00:58:26.300,00:58:29.680
+"guys happen to have the critical margin
+in the Z space, just by looking",00:58:29.680,00:58:33.870
+at the alphas.,00:58:33.870,00:58:35.050
+"So support vectors live in the space
+you are doing the process in, in this",00:58:37.160,00:58:41.760
+"case, the Z space.",00:58:41.760,00:58:43.010
+"In the X space, there is
+an interpretation.",00:58:44.830,00:58:47.610
+So let's look at the X space here.,00:58:47.610,00:58:49.850
+"If I have these guys, not linearly
+separable, and you decided to go to",00:58:49.850,00:58:55.680
+a high-dimensional Z space.,00:58:55.680,00:58:56.970
+I'm not going to tell you what.,00:58:56.970,00:58:59.110
+"And you solved the support
+vector machine.",00:58:59.110,00:59:01.500
+You got the alphas.,00:59:01.500,00:59:02.510
+"You got the line, or the hyperplane
+in that space.",00:59:02.510,00:59:04.780
+"And then you are putting the boundary
+here that corresponds to this guy.",00:59:04.780,00:59:08.310
+"And this is what the boundary
+looks like.",00:59:08.540,00:59:11.720
+"Now, we have alarm bells--",00:59:12.920,00:59:14.550
+"overfitting, overfitting!",00:59:14.550,00:59:15.930
+"Whenever you see something like
+that, you say wait.",00:59:15.930,00:59:18.400
+"That's the big advantage you
+get out of support vectors.",00:59:18.400,00:59:21.370
+So I get this surface.,00:59:21.370,00:59:22.310
+"This surface is simply what the line in the
+Z space with the best margin got.",00:59:22.780,00:59:27.310
+That's all.,00:59:27.310,00:59:28.670
+"So if I look at what the support vectors
+are in the Z space, they",00:59:28.670,00:59:31.850
+happen to correspond to points here.,00:59:31.850,00:59:33.180
+They are just data points.,00:59:33.180,00:59:34.110
+Right?,00:59:34.110,00:59:34.630
+"So let me identify them here, as
+pre-images of support vectors.",00:59:35.260,00:59:39.940
+"People will say they are
+support vectors.",00:59:39.940,00:59:42.520
+"But you need to be careful,
+because the formal",00:59:42.520,00:59:44.970
+definition is in the Z space.,00:59:44.970,00:59:46.590
+So they may look like this.,00:59:46.590,00:59:48.230
+So let's look at it.,00:59:48.230,00:59:49.310
+This is one.,00:59:49.310,00:59:50.280
+This is another.,00:59:50.280,00:59:50.960
+This is another.,00:59:50.960,00:59:51.620
+This is another.,00:59:51.620,00:59:52.490
+And usually they are when you turn.,00:59:52.490,00:59:55.350
+"You would think that in the Z space,
+this is being sandwiched.",00:59:55.890,00:59:58.580
+So this is what it's likely to be.,00:59:58.830,01:00:01.600
+"Now the interesting aspect here is that
+if this is true, then one, two,",01:00:01.600,01:00:05.880
+"three, four--",01:00:05.880,01:00:06.610
+I have only four support vectors.,01:00:06.610,01:00:09.370
+"So I have only four parameters, really,
+expressing w in the Z space.",01:00:09.370,01:00:13.880
+Because that's what we did.,01:00:13.880,01:00:14.670
+"We said that w equals summation, over
+the support vectors, of the alphas.",01:00:14.670,01:00:18.850
+"Now that is remarkable, because I just
+went to a million-dimensional space.",01:00:18.850,01:00:22.740
+w is a million-dimensional vector.,01:00:22.740,01:00:25.620
+"And when I did the solution,
+and if I get four--",01:00:25.620,01:00:28.850
+"only four, which is very lucky
+if you are using a million",01:00:28.850,01:00:31.000
+"dimensional, but just
+for illustration.",01:00:31.000,01:00:32.590
+"If I get four support vectors, then
+effectively, in spite of the fact that",01:00:32.590,01:00:36.840
+"I used the glory of the million-dimensional
+space, I actually have",01:00:36.840,01:00:41.010
+four parameters.,01:00:41.010,01:00:42.670
+"And the generalization behavior will
+go with the four parameters.",01:00:42.670,01:00:46.160
+"So this looks like a sophisticated
+surface, but it's a sophisticated",01:00:46.160,01:00:49.890
+surface in disguise.,01:00:49.890,01:00:51.310
+"It was so carefully chosen that--
+there are lots of snakes that can",01:00:51.310,01:00:55.180
+"go around and mess up
+the generalization.",01:00:55.180,01:00:57.450
+This one will be the best of them.,01:00:57.450,01:00:59.160
+"And you have a handle on how good the
+generalization is, just by counting the",01:00:59.160,01:01:02.370
+number of support vectors.,01:01:02.370,01:01:03.970
+And that will get us--,01:01:03.970,01:01:07.740
+"Yeah, this is a good point
+I forgot to mention.",01:01:07.740,01:01:10.180
+"So the distance between the support
+vectors and the surface here are not",01:01:10.180,01:01:15.510
+the margin.,01:01:15.510,01:01:16.210
+"The margins are in the linear
+space, et cetera.",01:01:16.700,01:01:19.190
+"They're likely, these guys, to
+be close to the surface.",01:01:19.750,01:01:22.540
+But the distance wouldn't be the same.,01:01:22.540,01:01:24.470
+"And there are perhaps other points that
+look like they should be support",01:01:24.470,01:01:27.390
+"vectors, and they aren't.",01:01:27.390,01:01:28.360
+"What makes them support vectors or
+not is that they achieve the",01:01:28.360,01:01:30.790
+margin in the Z space.,01:01:30.790,01:01:32.890
+"This is just an illustrative
+version of it.",01:01:32.890,01:01:35.290
+"And now we come to the generalization
+result that makes this fly.",01:01:36.730,01:01:40.320
+And here is the deal.,01:01:40.320,01:01:42.440
+"Generalization result: E out is less
+than or equal to something.",01:01:42.440,01:01:44.550
+So you're doing classification.,01:01:44.550,01:01:46.530
+"And you are using the classification
+error, the binary error.",01:01:46.530,01:01:49.190
+"So this is the probability of error in
+classifying an out-of-sample point.",01:01:49.190,01:01:52.210
+"The statement here is very
+much what you expect.",01:01:53.070,01:01:58.710
+"You have the number of support vectors,
+which happens to be the number of",01:01:58.710,01:02:01.490
+"effective parameters-- the
+alphas that survived.",01:02:01.490,01:02:04.160
+This is your guy.,01:02:04.640,01:02:05.800
+"You divide it by N, well, N
+minus 1 in this case.",01:02:05.800,01:02:08.530
+"And that will give you
+an upper bound on E_out.",01:02:08.530,01:02:12.000
+"Now I wish this was exactly
+the result.",01:02:12.000,01:02:14.720
+The result is very close to this.,01:02:14.720,01:02:15.970
+"In order to get the correct result, you
+need to run several versions and",01:02:15.970,01:02:20.750
+"get an average in order
+to guarantee this.",01:02:20.750,01:02:23.030
+"So the real result has to do with
+expected values of those guys.",01:02:23.030,01:02:27.010
+"So for several runs,
+the expected value.",01:02:27.010,01:02:29.540
+"But if the expected value lives up to
+its name, and you expect the expected",01:02:29.540,01:02:33.780
+"value, then in that case, the E_out you
+will get in a particular situation",01:02:33.780,01:02:37.850
+"will be bounded above by this, which
+is a very familiar type of a bound,",01:02:37.850,01:02:44.250
+"number of parameters, degrees of
+freedom, VC dimension, dot dot dot,",01:02:44.250,01:02:47.880
+divided by the number of examples.,01:02:47.880,01:02:49.410
+We have seen this before.,01:02:49.410,01:02:50.710
+"And again, the most important aspect
+is that, pretty much like quadratic",01:02:50.710,01:02:54.630
+"programming didn't worry about
+the nature of the Z space.",01:02:54.630,01:02:57.260
+Could be million-dimensional.,01:02:57.260,01:02:58.640
+"And that didn't figure out in the
+computational difficulty.",01:02:58.640,01:03:02.000
+"It doesn't figure out in the
+generalization difficulty.",01:03:02.000,01:03:05.270
+"You didn't ask me about the
+million-dimensional space.",01:03:05.270,01:03:07.880
+"You asked me, after you were done with
+this entire machinery, how many",01:03:07.880,01:03:11.940
+support vectors did you get?,01:03:11.940,01:03:14.200
+"If you have 1000 data points, and you
+get 10 support vectors, you're in",01:03:14.200,01:03:18.730
+"pretty good shape regardless of
+the dimensionality of the",01:03:18.730,01:03:21.710
+space that you visited.,01:03:21.710,01:03:23.720
+"Because, then, 10 over 1000-- that's
+a pretty good bound on E_out.",01:03:24.480,01:03:28.520
+"On the other hand, it doesn't say that
+now I can go to any dimensional space",01:03:28.520,01:03:31.340
+and things would be fine.,01:03:31.340,01:03:32.620
+"Because you still are dependent on
+the number of support vectors.",01:03:32.620,01:03:36.080
+"If you go through this machinery, and
+then the number of support vectors out",01:03:36.080,01:03:39.715
+"of 1000 is 500, you know
+you are in trouble.",01:03:39.715,01:03:42.710
+"And trouble is understood in this
+case, because that snake will be",01:03:42.710,01:03:45.590
+really a snake--,01:03:45.590,01:03:46.530
+"going around every point, going
+around every point.",01:03:46.530,01:03:48.980
+"So just trying to fit the data
+hopelessly, getting so many support",01:03:48.980,01:03:51.990
+"vectors that the generalization
+question now becomes useless.",01:03:51.990,01:03:56.140
+"But this is the main theoretical result
+that makes people use support",01:03:56.620,01:04:01.000
+"vectors, and support vectors with
+the nonlinear transformation.",01:04:01.000,01:04:04.400
+"You don't pay for the computation of
+going to the higher dimension.",01:04:04.400,01:04:07.900
+"And you don't get to pay for the
+generalization that goes with that.",01:04:07.900,01:04:12.800
+"And then when we go to kernel methods,
+which is a modification of this next",01:04:12.800,01:04:16.580
+"time, you're not even going to pay for
+the simple computational price of",01:04:16.580,01:04:20.900
+getting the inner product.,01:04:20.900,01:04:22.200
+"Remember when I told you take an inner
+product between a million-vector and",01:04:22.200,01:04:24.730
+"itself, and that was minor,
+even if it's minor, we're",01:04:24.730,01:04:28.010
+going to get away without it.,01:04:28.010,01:04:29.930
+"And when we get away without it, we will
+be able to do something rather",01:04:30.550,01:04:33.300
+interesting.,01:04:33.300,01:04:34.700
+"The Z space we're going to visit-- we
+are now going to take Z spaces that",01:04:34.700,01:04:39.190
+happen to be infinite-dimensional.,01:04:39.190,01:04:43.720
+"Something completely unthought
+of when we dealt with",01:04:43.720,01:04:48.470
+generalization in the old way.,01:04:48.470,01:04:50.970
+"Because obviously, in an infinite-dimensional
+space, I'm not going to be",01:04:50.970,01:04:53.950
+"able to actually computationally
+get the inner product.",01:04:53.950,01:04:56.250
+Thank you.,01:04:56.250,01:04:56.890
+So there has to be another way.,01:04:57.530,01:04:59.030
+And the other way will be the kernel.,01:04:59.030,01:05:00.790
+"But that will open another set of
+possibilities of working in a set of",01:05:01.370,01:05:04.630
+"spaces we never imagined touching, and
+still getting not only the computation",01:05:04.630,01:05:09.340
+"being the same, but also the
+generalization being dependent on",01:05:09.340,01:05:12.070
+"something that we can measure, which
+is the number of support vectors.",01:05:12.070,01:05:16.670
+"I will stop here and take questions
+after a short break.",01:05:16.940,01:05:19.610
+Let's start the Q&amp;A.,01:05:26.670,01:05:28.970
+MODERATOR: OK.,01:05:28.970,01:05:29.610
+"Can you please first explain
+again why you can normalize w",01:05:29.610,01:05:36.290
+transposed x plus b to be 1.,01:05:36.290,01:05:38.445
+PROFESSOR: OK.,01:05:38.445,01:05:39.695
+"We would like to solve for
+the margin given w.",01:05:44.990,01:05:51.010
+"That has dependency on the combination
+of w's you get, which is like the",01:05:51.010,01:05:55.200
+angle that is the relevant one.,01:05:55.200,01:05:57.800
+"And also w has an inherent
+scale in it.",01:05:57.800,01:06:02.100
+"So the problem is that the scale has
+nothing to do with which plane you're",01:06:02.100,01:06:05.180
+talking about.,01:06:05.180,01:06:05.850
+"When I take w, the full w and b, and
+take 10 times that, they look like",01:06:05.850,01:06:12.550
+"different vectors as far as the analysis
+is concerned, but they are talking",01:06:12.550,01:06:15.740
+about the same plane.,01:06:15.740,01:06:17.380
+"So if I'm going to solve without the
+normalization, I will get a solution.",01:06:17.380,01:06:21.300
+"But the solution, whatever I'm
+optimizing, will invariably have in",01:06:21.300,01:06:25.350
+"its denominator something that takes
+out the scale, so that the thing is",01:06:25.350,01:06:29.990
+scale-invariant.,01:06:29.990,01:06:30.730
+I cannot possibly solve.,01:06:30.730,01:06:32.160
+"And it will tell me that w has to be
+this, when in fact any positive",01:06:32.160,01:06:36.840
+"multiple of it will serve
+the same plane.",01:06:36.840,01:06:39.820
+"So all I'm doing myself is simplifying
+my life in the optimization.",01:06:39.820,01:06:43.610
+"I want the optimization to be
+as simple as possible.",01:06:43.610,01:06:45.870
+"I don't want it to be something
+over something.",01:06:45.870,01:06:48.320
+"Because then I will have trouble
+actually getting the solution.",01:06:48.680,01:06:52.110
+"Therefore, I started by putting
+a condition that does not result in loss",01:06:52.110,01:06:56.620
+of generality.,01:06:56.620,01:06:57.730
+"Because if I restrict myself
+to w's, not to planes--",01:06:57.730,01:07:03.060
+all planes are admitted.,01:07:03.060,01:07:04.550
+"But every plane is represented
+by an infinite number of w's.",01:07:04.550,01:07:07.840
+"And I'm picking one particular w
+to represent them that happens",01:07:07.840,01:07:11.010
+to have that form.,01:07:11.010,01:07:12.080
+"When I do that and put it as
+a constraint, what I end up with, the",01:07:12.080,01:07:15.800
+"thing that I'm optimizing happens to
+be a friendly guy that goes with",01:07:15.800,01:07:19.480
+"quadratic programming and
+I get the solution.",01:07:19.480,01:07:21.190
+"I could definitely have started
+by not putting this condition.",01:07:21.190,01:07:24.130
+"Except that I would run into
+mathematical trouble later on.",01:07:24.130,01:07:26.665
+That's all there is to it.,01:07:26.665,01:07:27.760
+"Similarly, I could have left w0.",01:07:27.760,01:07:29.860
+"And then all of a sudden, every time I
+put something, I only tell you: take",01:07:29.860,01:07:33.450
+"the norm of the first d guys, or w_1 up
+to w_d, and forget the first one.",01:07:33.450,01:07:38.610
+"So all of this was just pure technical
+preparation that does not alter the",01:07:38.610,01:07:42.690
+"problem at all, that makes the
+solution friendly later on.",01:07:42.690,01:07:46.376
+MODERATOR: Many people are curious.,01:07:49.214,01:07:50.770
+"What happens when the points
+are not linearly separable?",01:07:50.780,01:07:54.270
+PROFESSOR: There are two cases.,01:07:54.270,01:07:56.660
+"One of them: they are horribly not
+linearly separable, like that.",01:07:56.670,01:08:01.350
+"And in this case, you
+go to a nonlinear",01:08:01.350,01:08:02.960
+"transformation, as we have seen.",01:08:02.960,01:08:04.860
+"And then there is a slightly
+not linearly separable,",01:08:04.860,01:08:07.610
+as we've seen before.,01:08:07.610,01:08:08.950
+"And in that case, you will see that the
+method I described today is called",01:08:08.950,01:08:13.500
+hard-margin SVM.,01:08:13.500,01:08:15.800
+"Hard-margin because the margin
+is satisfied strictly.",01:08:15.800,01:08:18.670
+"And then you're going to get another
+version of it, which is called soft",01:08:18.670,01:08:21.370
+"margin, that allows for few errors
+and penalizes for them.",01:08:21.370,01:08:25.000
+And that will be covered next.,01:08:25.000,01:08:27.310
+"But basically, it's very much in
+parallel with the perceptron.",01:08:27.660,01:08:32.050
+Perceptron means linearly separable.,01:08:32.050,01:08:33.979
+"If there are few, then
+you apply something.",01:08:33.979,01:08:36.189
+"Let's say like the pocket
+in that case.",01:08:36.189,01:08:38.050
+"But if it's terribly not linearly
+separable, then you go to a nonlinear",01:08:38.050,01:08:42.220
+transformation.,01:08:42.220,01:08:43.000
+"And nonlinear transformation here is very
+attractive because of the particular",01:08:43.000,01:08:47.010
+positive properties that we discussed.,01:08:47.010,01:08:48.670
+"But in general, you actually use
+a nonlinear transformation together with",01:08:48.670,01:08:53.275
+"the soft version, because you don't want
+the snake to go out of its way",01:08:53.275,01:08:57.399
+just to take care of an outlier.,01:08:57.399,01:08:59.170
+"So we are better off just making
+an error on the outlier, and making the",01:08:59.359,01:09:03.410
+snake a little bit less wiggly.,01:09:03.410,01:09:05.680
+"And we will talk about that
+when we get the details.",01:09:05.680,01:09:08.380
+"MODERATOR: Could you explain once again
+why in this case, just the number of",01:09:11.572,01:09:15.830
+"support vectors gives an approximation
+of the VC dimension, while in other",01:09:15.830,01:09:21.029
+cases the transform--,01:09:21.029,01:09:22.630
+"PROFESSOR: The explanation
+I gave was intuitive.",01:09:22.630,01:09:24.939
+It's not a proof.,01:09:24.939,01:09:25.640
+"There is a proof for these terms
+that I didn't even touch on.",01:09:25.640,01:09:29.490
+And the idea is the following.,01:09:30.200,01:09:32.189
+"We have come to the conclusion that the
+number of parameters, independent",01:09:32.189,01:09:37.000
+"parameters or effective parameters, is
+the VC dimension in many cases.",01:09:37.000,01:09:41.210
+"So to the extent that you can actually
+accept that as a rule of thumb, then",01:09:41.210,01:09:45.540
+"you look at the alphas. I have as
+many alphas as data points.",01:09:45.540,01:09:51.260
+"So if these were actually my parameters,
+I'd be in deep trouble.",01:09:51.260,01:09:53.920
+"Because I have as many parameters as
+points, so I'm basically memorizing",01:09:53.920,01:09:57.450
+the points.,01:09:57.450,01:09:59.320
+"But the particulars of the problem
+result in the fact that, in almost all",01:09:59.320,01:10:03.100
+"the cases, the vast majority of the
+parameters will be identically 0.",01:10:03.100,01:10:08.110
+"So in spite of the fact that they were
+open to be non-zero, the fact that the",01:10:08.110,01:10:11.380
+"expectation is that almost all of them
+will be 0, makes it more or less that the",01:10:11.380,01:10:15.400
+"effective number of parameters are the
+ones that end up being non-zero.",01:10:15.400,01:10:18.630
+"Again, this is not an accurate
+statement, but it's",01:10:18.630,01:10:22.840
+a very reasonable statement.,01:10:22.840,01:10:24.300
+"So the number of non-zero parameters,
+which corresponds to the VC",01:10:24.300,01:10:28.350
+"dimension, also happens to be the
+number of the support vectors by",01:10:28.350,01:10:30.900
+definition.,01:10:30.900,01:10:31.640
+"Because support vectors are the ones
+that correspond to the non-zero",01:10:31.640,01:10:36.060
+Lagrange multipliers.,01:10:36.060,01:10:37.580
+"And therefore, we get a rule, which
+either counts the number of support",01:10:37.580,01:10:41.440
+"vectors or the number of surviving
+parameters, if you will.",01:10:41.440,01:10:44.050
+"And this is the rule that we had at
+the end, that I said that I didn't",01:10:44.050,01:10:47.270
+"prove, but actually gives
+you a bound on E_out.",01:10:47.270,01:10:51.268
+"MODERATOR: Is there any advantage in
+considering the margin, but using",01:10:51.268,01:10:55.680
+a different norm?,01:10:55.680,01:10:57.500
+"PROFESSOR: So there
+are variations of this.",01:10:57.500,01:10:59.320
+"And indeed, some of the aggregation
+methods, like boosting, has",01:10:59.320,01:11:02.130
+a margin of its own.,01:11:02.130,01:11:03.490
+And then you can compare that.,01:11:03.490,01:11:05.010
+"It's really the question of the
+ease of solving the problem.",01:11:05.010,01:11:10.130
+"And if you have a reason for
+using one norm or another,",01:11:10.130,01:11:14.630
+for a practical problem.,01:11:14.630,01:11:15.640
+"For example, if I see that loss goes
+with squared, or loss goes with the",01:11:15.640,01:11:20.280
+"absolute value or whatever, and then I
+design my margin accordingly, then we",01:11:20.280,01:11:25.650
+"go back to the idea of a principled
+error measure, in",01:11:25.650,01:11:29.270
+this case margin measure.,01:11:29.270,01:11:30.710
+"On the other hand, in most of the cases,
+there is really no preference.",01:11:31.330,01:11:34.350
+"And it is the analytic considerations
+that makes me choose",01:11:34.350,01:11:38.690
+one margin or another.,01:11:38.690,01:11:40.100
+"But different measures for the margin,
+with 1-norm, 2-norm, and other",01:11:40.100,01:11:45.370
+"things, have been applied.",01:11:45.370,01:11:46.970
+"And there is really no compelling reason
+to prefer one over the other in",01:11:46.970,01:11:50.990
+terms of performance.,01:11:50.990,01:11:52.120
+"So it really is the analytic
+properties that",01:11:52.120,01:11:54.970
+usually dictate the choice.,01:11:54.970,01:11:57.482
+"MODERATOR: Is there any pruning method
+that can maybe get rid of some of the",01:11:57.482,01:12:03.830
+"support vectors, or not really?",01:12:03.830,01:12:07.310
+"PROFESSOR: So you're not happy
+with even reducing it to support vectors?",01:12:07.310,01:12:10.590
+"You want to get rid of some of them.
+Well--",01:12:10.590,01:12:15.600
+"Offhand, I cannot think of a method
+that I can directly translate",01:12:15.600,01:12:19.030
+"into-- as if it's getting rid of
+some of the support vectors.",01:12:19.030,01:12:21.670
+"What happens for computational reasons
+is that when you solve a problem that",01:12:21.670,01:12:26.230
+"is huge in data set, you
+cannot solve it all.",01:12:26.230,01:12:28.710
+"So sometimes what happens is that
+you take subsets, and you",01:12:28.710,01:12:31.860
+get the support vectors.,01:12:31.860,01:12:33.150
+"And then you take the support vectors as
+a union and get the support vectors",01:12:33.150,01:12:36.215
+"of the support vectors,
+and stuff like that.",01:12:36.215,01:12:38.330
+"So these are really computational
+considerations.",01:12:38.330,01:12:40.590
+"But basically, the support vectors are
+there to support the separating plane.",01:12:40.590,01:12:46.650
+"So if you let one of them
+go, the thing will fall!",01:12:47.200,01:12:51.320
+"Obviously, I'm half-joking only.",01:12:51.320,01:12:53.530
+"But because really, they are the ones
+that dictate the margin, so their",01:12:53.530,01:12:57.320
+"existence really tells you
+that the margin is valid.",01:12:57.320,01:12:59.840
+And that's really why they are there.,01:12:59.840,01:13:04.135
+"MODERATOR: Some people are worried that
+a noisy data set would completely ruin",01:13:04.135,01:13:11.180
+the performance of the SVM.,01:13:11.180,01:13:13.150
+So how does it deal with this?,01:13:13.150,01:13:15.370
+"PROFESSOR: It will ruin as much
+as it will ruin any other method.",01:13:15.370,01:13:17.920
+"It's not particularly susceptible
+to noise.",01:13:17.920,01:13:19.680
+"Except obviously when you have noise,
+the chances of getting a cleanly",01:13:19.680,01:13:22.760
+linearly separable data is not there.,01:13:22.760,01:13:25.330
+"And therefore, you're using
+the other methods.",01:13:25.330,01:13:27.530
+"And if you're using strictly
+nonlinear transformation, but with",01:13:27.530,01:13:32.600
+"hard margin, then I can see
+the point of ruining.",01:13:32.600,01:13:34.840
+"Because now the snake is
+going around noise.",01:13:34.840,01:13:37.080
+"And obviously that's not good, because
+you're fitting the noise.",01:13:37.080,01:13:39.480
+"But in those cases, and in almost all of
+the cases, you use the soft version of",01:13:39.480,01:13:43.270
+"this, which is remarkably similar.",01:13:43.270,01:13:45.150
+It's different assumptions.,01:13:45.150,01:13:46.410
+"But the solution is remarkably
+similar.",01:13:46.410,01:13:48.530
+"And therefore in that case, you will be
+as vulnerable or not vulnerable to",01:13:48.530,01:13:52.120
+"noise as you would by
+using other methods.",01:13:52.120,01:13:54.560
+"MODERATOR: All right. I think
+that's it.",01:13:58.230,01:13:59.950
+PROFESSOR: Very good.,01:13:59.960,01:14:01.060
+We will see you next week.,01:14:01.070,01:14:02.440

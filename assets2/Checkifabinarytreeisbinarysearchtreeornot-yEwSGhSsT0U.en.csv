@@ -1,0 +1,495 @@
+text,start,stop
+"In this lesson, we're going to solve a
+simple problem on binary tree",00:00:00.609,00:00:03.879
+"which is also a famous programming
+interview question,",00:00:03.879,00:00:07.090
+and the problem is given a binary tree,00:00:07.090,00:00:10.350
+"we need to check if the binary tree is a
+binary search tree",00:00:10.350,00:00:14.640
+"are not. As we know a binary tree is a
+tree",00:00:14.640,00:00:18.550
+"in which each node can have atmost two
+children.",00:00:18.550,00:00:22.410
+"All these trees that I have drawn here are
+binary trees,",00:00:22.410,00:00:25.880
+"but not all of them are binary search
+trees. Binary search tree,",00:00:25.880,00:00:30.500
+"as we know is a binary tree in which for
+each node",00:00:30.500,00:00:33.809
+"value of all the nodes in left subtree
+is lesser",00:00:33.809,00:00:37.300
+"and if you want to allow duplicates we
+can say lesser or",00:00:37.300,00:00:40.309
+"equal and value of all the nodes in
+right subtree",00:00:40.309,00:00:43.620
+"is greater. We can define binary search
+tree as",00:00:43.620,00:00:46.969
+"a recursive structure like this. Elements in
+left subtree must be lesser or equal",00:00:46.969,00:00:52.749
+"and elements in right subtree must be
+greater and this should be true for all",00:00:52.749,00:00:56.859
+"nodes and not just a root node,",00:00:56.859,00:00:58.649
+"so left and right subtrees should
+themselves also be binary search trees.",00:00:58.649,00:01:03.429
+"Of these binary trees that I'm showing
+here,",00:01:03.429,00:01:07.480
+A and C are binary search trees but B,00:01:07.480,00:01:11.550
+"and D are not. In B for the root node
+with value 10,",00:01:11.550,00:01:15.910
+"we have 11 in its left subtree which
+is greater than 10",00:01:15.910,00:01:19.720
+"and in a binary tree for any node all
+values in its",00:01:19.720,00:01:23.700
+"left subtree must be lesser. In D we are good
+for the root node.",00:01:23.700,00:01:27.990
+"The value in root node is 5 and we
+have",00:01:27.990,00:01:31.140
+"1 in left subtree which is lesser and
+we have 8, 9 and 12",00:01:31.140,00:01:35.020
+"in right subtree which are greater. So we are
+good for the root node",00:01:35.020,00:01:39.230
+"but for this node with value 8, we have
+9",00:01:39.230,00:01:43.110
+"in its left. So this tree is not a
+binary search tree.",00:01:43.110,00:01:46.760
+"So how should we go about solving this
+problem. Basically,",00:01:46.760,00:01:50.100
+"I want to write a function that should
+take pointer or reference to root",00:01:50.100,00:01:54.570
+"node of a binary tree as argument and
+function should return true",00:01:54.570,00:01:58.979
+"if the binary tree is BST, false otherwise.",00:01:58.979,00:02:02.159
+"This is how my method signature look
+like in C++.",00:02:02.159,00:02:05.570
+"In C, we do not have boolean types so",00:02:05.570,00:02:09.009
+return type here can be int. We can return,00:02:09.009,00:02:12.189
+1 for true and 0 of false.,00:02:12.189,00:02:15.730
+I'll also write the definition of node here.,00:02:15.730,00:02:18.849
+"For a binary tree node would be
+structure",00:02:18.849,00:02:22.099
+"with 3 fields, 1 to store data and 2",00:02:22.099,00:02:25.859
+"to store addresses of left and right
+children. In my definition of node here,",00:02:25.859,00:02:29.950
+data type is integer,00:02:29.950,00:02:31.400
+"and we have 2 pointers to node to store
+addresses of",00:02:31.400,00:02:35.349
+"left and right children. Okay coming back
+to the problem",00:02:35.349,00:02:39.189
+"there are multiple approaches and we're
+going to talk about",00:02:39.189,00:02:42.420
+"all of them. The first approach that I'm
+going to talk about",00:02:42.420,00:02:45.480
+"is easy to think of but it's not so
+efficient",00:02:45.480,00:02:48.859
+"but let's discuss it anyway. We are saying
+that for a binary tree to be called",00:02:48.859,00:02:54.840
+"binary search tree,",00:02:54.840,00:02:55.959
+"it should have recursive  structure like
+this. For the root node",00:02:55.959,00:03:00.060
+"all the elements in left subtree must be
+lesser or equal",00:03:00.060,00:03:03.510
+"and all the elements in right subtree
+must be greater, and left and right",00:03:03.510,00:03:07.840
+subtrees,00:03:07.840,00:03:08.709
+"should themselves also be binary search
+trees. So let's just check for all of this.",00:03:08.709,00:03:14.029
+"I'm going to write a function named
+IsSubtreeLesser",00:03:14.029,00:03:17.639
+"that will take address of root node
+of a binary tree",00:03:17.639,00:03:21.700
+or subtree and and integer value,00:03:21.700,00:03:24.719
+"as argument and this function will return
+true if",00:03:24.719,00:03:28.650
+"all the elements in the subtree are lesser
+so than this value",00:03:28.650,00:03:32.230
+"and similarly I'll write another function
+named IsSubtreeGreater",00:03:32.230,00:03:36.279
+"that will return true if all the
+elements in a subtree",00:03:36.279,00:03:39.689
+are greater than the given value. I had just,00:03:39.689,00:03:43.219
+"declared this functions. I'll write body of
+these functions later.",00:03:43.219,00:03:46.469
+"Let's come back to this function 
+IsBinarySearchTree.",00:03:46.469,00:03:49.659
+"In this function, I am going to say that if
+all elements in left subtree are",00:03:49.659,00:03:54.029
+"lesser and I'll verify this by making
+a call to IsSubtreeLesser function",00:03:54.029,00:03:58.669
+passing it,00:03:58.669,00:03:59.379
+"address of left child of my current
+root.",00:03:59.379,00:04:02.709
+"Left child would be the root of current
+subtree and the data in root.",00:04:02.709,00:04:07.109
+"This function will return true
+if all the elements in left subtree",00:04:07.109,00:04:12.189
+"would be lesser than the data in root.
+Now the next thing that I want to check",00:04:12.189,00:04:16.290
+for is,00:04:16.290,00:04:17.750
+"if elements in right subtree are greater
+than the data in root or not.",00:04:17.750,00:04:22.610
+"These two conditions are not sufficient.
+We also need to check if left",00:04:22.610,00:04:26.420
+"and right subtrees are binary search
+trees are not.",00:04:26.420,00:04:29.510
+"So I'll add two more conditions here
+have made a recursive call to",00:04:29.510,00:04:33.780
+"IsBinarySearchTree function passing it address
+of left child",00:04:33.780,00:04:37.250
+"and I have made another call passing
+address of right child",00:04:37.250,00:04:40.500
+"and if all these four function call
+IsSubtreeLesser, IsSubtreeGreater",00:04:40.500,00:04:45.780
+"and IsBinarySearchTree for left and
+right subtrees",00:04:45.780,00:04:49.580
+"return true if all these four checks
+pass then",00:04:49.580,00:04:53.600
+"our tree is a binary search tree. We can 
+return true",00:04:53.600,00:04:57.550
+"else we need to return false. There is
+only one thing that the a missing in",00:04:57.550,00:05:01.750
+this function now.,00:05:01.750,00:05:03.080
+"We are missing the base case. If the route is null
+that is",00:05:03.080,00:05:06.630
+"if the tree or subtree is empty, we can
+return true.",00:05:06.630,00:05:10.540
+"This is the base case for our recursion
+where we should stop.",00:05:10.540,00:05:14.400
+"With this much of code IsBinarySearchTree 
+function is complete",00:05:14.400,00:05:18.300
+"but let's also write IsSubtreeLesser and
+ItsSubtreeGreater",00:05:18.300,00:05:21.440
+"functions because they are also part
+of our logic.",00:05:21.440,00:05:25.330
+"This function has to be a generic function
+that should check",00:05:25.330,00:05:28.530
+"if all the elements in a given tree are
+lesser than",00:05:28.530,00:05:32.370
+"a given value or not. We will have
+to traverse the complete",00:05:32.370,00:05:36.340
+"tree or subtree and see value in all
+nodes and compare",00:05:36.340,00:05:40.790
+"these values against this given integer.
+I'll first handle the base case in",00:05:40.790,00:05:45.270
+this function.,00:05:45.270,00:05:46.310
+"If the tree is empty, we can return true
+else we need to check if the data in",00:05:46.310,00:05:50.710
+root,00:05:50.710,00:05:51.310
+"is less than or equal to the given value
+and we also need to recursively check if",00:05:51.310,00:05:56.110
+"left and right subtrees of the current
+root have",00:05:56.110,00:05:59.430
+"lesser value or not. So I'm adding two
+more conditions here.",00:05:59.430,00:06:03.740
+"I'm making two recursive calls one for the
+left subtree and",00:06:03.740,00:06:07.850
+"another for the right subtree. If all these
+three conditions are true",00:06:07.850,00:06:12.370
+"then we are good else we can return
+false. IsSubtreeGreater function will",00:06:12.370,00:06:16.550
+be very similar.,00:06:16.550,00:06:17.840
+"Instead of writing these two functions
+IsSubtreeLesser",00:06:17.840,00:06:20.920
+"and IsSubtreeGreater, we could
+also do something like this.",00:06:20.920,00:06:25.860
+We could find the maximum left subtree,00:06:25.860,00:06:29.070
+"and compared it with the data in root,
+if maximum of a subtree is lesser",00:06:29.070,00:06:34.300
+"then all the elements a lesser and
+similarly if the minimum of",00:06:34.300,00:06:38.110
+"a subtree is greater all the elements had
+greater.",00:06:38.110,00:06:41.590
+"For the right subtree, we could find a
+minimum. So instead of writing these two",00:06:41.590,00:06:45.430
+functions IsSubtreeLesser,00:06:45.430,00:06:47.010
+"and IsSubtreeGreater, we could write
+something like find max",00:06:47.010,00:06:50.810
+and find min and this would also fit.,00:06:50.810,00:06:53.810
+"So this is a solution using one of the
+approaches.",00:06:53.810,00:06:56.950
+"Let's quickly run this code on an example
+binary tree and see how it will execute.",00:06:56.950,00:07:01.940
+"I have drawn a very simple binary tree
+here which actually is a binary search",00:07:01.940,00:07:05.960
+tree.,00:07:05.960,00:07:07.380
+"let's assume some addresses for these
+nodes the tree.",00:07:07.380,00:07:10.410
+"Let's say the root node is that address
+200 and",00:07:10.410,00:07:13.860
+"I'll assume some random addresses for
+other nodes as well.",00:07:13.860,00:07:19.280
+"To check if this binary tree is a binary
+search tree or not,",00:07:19.280,00:07:23.120
+"we will make a call to 
+IsBinarySearchTree function.",00:07:23.120,00:07:27.220
+"I'm writing IBST here as Shortcut for
+IsBinarySearchTree",00:07:27.220,00:07:31.740
+"because I'm short of space here. So I'll
+make a call to this function",00:07:31.740,00:07:35.590
+"maybe from the main function passing
+addressed 200,",00:07:35.590,00:07:39.810
+"address of the root node. For
+this function call",00:07:39.810,00:07:42.850
+"address in this local variable address
+collected in this local variable root",00:07:42.850,00:07:47.330
+will be 200. Root is not null.,00:07:47.330,00:07:50.639
+Null is only a macro for address 0.,00:07:50.639,00:07:53.660
+"For this call root is not null, so we
+will not return true at this line.",00:07:53.660,00:07:58.210
+"We will go to the next if. Now here, we
+will make a call to",00:07:58.210,00:08:02.250
+"IsSubtreeLesser function. Arguments
+passed will be address",00:08:02.250,00:08:06.530
+of left child which is 150 and,00:08:06.530,00:08:09.540
+7 the data in node at 200.,00:08:09.540,00:08:12.940
+"Execution of the calling function will pause
+and",00:08:12.940,00:08:16.230
+"will resume only after the called
+function returns.",00:08:16.230,00:08:19.500
+"Now in this call to IsSubtreeLesser,
+root is not null so",00:08:19.500,00:08:23.520
+"we will not return true at first line.
+We will go to the next",00:08:23.520,00:08:27.050
+if. Now here the first condition is if,00:08:27.050,00:08:30.060
+data in root this time,00:08:30.060,00:08:33.200
+"is 150 because on this call is for this
+left subtree",00:08:33.200,00:08:38.169
+"and for this left subtree address of
+root is 150.",00:08:38.169,00:08:41.919
+Data in root is 4 which is lesser than,00:08:41.919,00:08:46.279
+"7, so the first condition is true and we
+can go to the second condition which is",00:08:46.279,00:08:51.029
+a recursive call.,00:08:51.029,00:08:52.900
+"This call will pause and we will go
+to the next call.",00:08:52.900,00:08:56.670
+Here once again the data in node,00:08:56.670,00:09:00.230
+"at 180, 1 is lesser than 7",00:09:00.230,00:09:03.410
+"so first condition is true and we will
+make",00:09:03.410,00:09:07.029
+"recursive call. Left subtree for node at
+180",00:09:07.029,00:09:10.710
+is null. There is no left child so,00:09:10.710,00:09:13.820
+"we will return at first line. Root is null
+this time.",00:09:13.820,00:09:17.120
+"This particular call will simply to return
+true. Now in this previous call when",00:09:17.120,00:09:20.900
+"root is 180,",00:09:20.900,00:09:22.010
+"second condition for if is also true.
+So",00:09:22.010,00:09:25.140
+"we will make another call for right
+subtree. Once again address passed",00:09:25.140,00:09:29.000
+"will be 0 and we will simply return
+true and now for this call",00:09:29.000,00:09:33.290
+"IsSubtreeLesser 187, all three conditions
+are true.",00:09:33.290,00:09:38.050
+"So this guy can also return true and now
+ISL 150,7 will resume.",00:09:38.050,00:09:43.330
+"Now this guy will make a recursive
+call for the right subtree",00:09:43.330,00:09:47.550
+"and this guy after everything will also
+return true.",00:09:47.550,00:09:51.000
+"Now for this call because all 3
+conditions in the if statement are true,",00:09:51.000,00:09:56.029
+"this guy will also return true and now
+IsBinarySearchTree function will",00:09:56.029,00:10:00.610
+resume.,00:10:00.610,00:10:02.010
+"For this call we have evaluated the
+first condition",00:10:02.010,00:10:05.190
+"we have got true now this guy will make
+another call",00:10:05.190,00:10:08.480
+"to IsSubtreeGreater, passing address of
+right child and value 7.",00:10:08.480,00:10:14.529
+"This guy after everything will return
+true and now we will have 2 recursive",00:10:14.529,00:10:19.220
+"calls,",00:10:19.220,00:10:20.460
+"to check if left and right subtree are
+binary search trees on not.",00:10:20.460,00:10:24.310
+"We will first have a call for the left
+subtree.",00:10:24.310,00:10:28.720
+"The execution will go on like this but I
+want you to see something.",00:10:28.720,00:10:32.029
+"Each call to binary search tree
+function,",00:10:32.029,00:10:35.029
+"we are comparing the data in root with
+all the elements in left subtree and",00:10:35.029,00:10:39.889
+then all the elements in right subtree.,00:10:39.889,00:10:41.920
+"This example tree could be really large
+then in that case",00:10:41.920,00:10:46.190
+"in the first call IsBinarySearchTree
+for this complete tree,",00:10:46.190,00:10:50.680
+"we would recursively traverse this
+whole left subtree",00:10:50.680,00:10:54.139
+"to see whether all the values in this
+subtree",00:10:54.139,00:10:57.399
+"are less than 7 or not and then we
+will traverse all nodes in this right subtree",00:10:57.399,00:11:02.139
+"to see if values have greater than 7
+or not and then",00:11:02.139,00:11:05.889
+"in next call IsBinarySearchTree,
+when we would be validating with this",00:11:05.889,00:11:10.319
+particular subtree is BST or not.,00:11:10.319,00:11:12.449
+"We would recursively traverse this
+subtree if values are lesser than 4",00:11:12.449,00:11:17.050
+or not,00:11:17.050,00:11:17.550
+"and this subtree to see if value so greater
+than 4 or not.",00:11:17.550,00:11:21.389
+"So all in all during this whole process
+there will be a lot of traversal.",00:11:21.389,00:11:25.490
+"Data in nodes will be read and
+compared multiple times.",00:11:25.490,00:11:29.259
+"If you can see all nodes in this
+particular subtree",00:11:29.259,00:11:33.019
+"will be traversed once in call to
+IsBinarySearchTree for 200.",00:11:33.019,00:11:37.769
+"When we will compare value in these
+nodes with 7",00:11:37.769,00:11:41.579
+"and then these nodes will once again be
+traversed",00:11:41.579,00:11:45.310
+"in call to IsBinarySearchTree for
+150 when",00:11:45.310,00:11:48.709
+"they will be compared with 4. They will
+be traversed in call to",00:11:48.709,00:11:53.920
+IsSubtreeLesser.,00:11:53.920,00:11:54.540
+"All in all these two functions
+IsSubtreeLesser",00:11:54.540,00:11:57.670
+"and IsSubtreeGreater very expensive.
+For each node, we are looking at all nodes in",00:11:57.670,00:12:02.680
+its subtrees.,00:12:02.680,00:12:03.750
+"There is an efficient solution in which
+we do not need to compare",00:12:03.750,00:12:07.220
+"data in a node with data in all nodes 
+in its",00:12:07.220,00:12:10.449
+"subtrees and let's see what the solution
+is.",00:12:10.449,00:12:13.589
+"What we can do is we can define a
+permissible",00:12:13.589,00:12:16.720
+"range for each node and data in that node
+must be in that range",00:12:16.720,00:12:21.339
+"we can start at the root node with a
+range",00:12:21.339,00:12:24.480
+"-infinity to infinity, because for
+the root node",00:12:24.480,00:12:27.949
+"there is no upper and lower limit and
+now as we are traversing we can set a range",00:12:27.949,00:12:33.040
+for other nodes.,00:12:33.040,00:12:34.130
+"When we are going left, we need to reset
+the upper bound",00:12:34.130,00:12:37.540
+"so for this node at 150, data has to
+be between",00:12:37.540,00:12:41.990
+"-infinity and seven. Data in left
+child cannot be greater than data in",00:12:41.990,00:12:46.880
+root.,00:12:46.880,00:12:47.430
+"If we're going right, we need to set the
+lower bound",00:12:47.430,00:12:50.630
+"for this node at 300 range would be 7 to
+infinity.",00:12:50.630,00:12:55.130
+"7 is not included in the range. Data has
+to be strictly greater than 7.",00:12:55.130,00:13:00.189
+"For this node at 180, the range will
+be -infinity to 4.",00:13:00.189,00:13:04.899
+"For this node with value 6 lower bond will
+be 4 and upperbound would be 7.",00:13:04.899,00:13:10.529
+"Now my code will go like this. My
+function IsBinarySearchTree will take",00:13:10.529,00:13:15.600
+"two more arguements,",00:13:15.600,00:13:16.880
+"an integer to mark lower bound or
+min value",00:13:16.880,00:13:20.240
+"and another integer to mark the upper
+bound or max value",00:13:20.240,00:13:23.569
+"and now instead of checking whether all
+the elements in left subtree are lesser than",00:13:23.569,00:13:27.899
+the data in root,00:13:27.899,00:13:28.939
+"and all the elements in right subtree
+are greater than the date in root or not.",00:13:28.939,00:13:33.089
+"We will simply check whetheer data in root
+is",00:13:33.089,00:13:36.149
+"in this range or not. So I'll get rid of
+these two function call ",00:13:36.149,00:13:40.600
+IsSubtreeGreater,00:13:40.600,00:13:41.050
+"and IsSubtreeGreater which are really  
+expensive and I'll",00:13:41.050,00:13:44.889
+"add these two conditions. Data in root
+must be greater than min value",00:13:44.889,00:13:49.110
+"and data in root must be less than max
+value. These two checks will take",00:13:49.110,00:13:53.300
+constant time.,00:13:53.300,00:13:54.350
+"IsSubtreeLesser and IsSubtreeGreater
+functions were not taking",00:13:54.350,00:13:57.949
+constant time.,00:13:57.949,00:13:58.819
+"Running time for them was proportional
+to number of nodes in the subtree.",00:13:58.819,00:14:02.760
+"Okay now these two recursive calls
+should also have two more arguements.",00:14:02.760,00:14:07.559
+"For the left child lower bound will not
+change,",00:14:07.559,00:14:10.699
+"upper bound will be to data in current
+node and for the right child, upper",00:14:10.699,00:14:15.370
+bound will not change,00:14:15.370,00:14:16.529
+"and lower bond will be data in current
+node. This recursion looks good to me. We",00:14:16.529,00:14:21.930
+already have to base case written.,00:14:21.930,00:14:23.699
+"The only thing is that the Caller of this
+IsBinarySearchTree function",00:14:23.699,00:14:28.139
+"may only want to pass the address of root
+node so what we can do is instead of",00:14:28.139,00:14:32.889
+"naming this function IsBinarySearchTree.
+We can name this function",00:14:32.889,00:14:36.439
+"as a utility function like 
+IsBstUtil",00:14:36.439,00:14:40.630
+"and we can have another function name
+IsBinarySearchTree",00:14:40.630,00:14:44.189
+"in which we can take only to address of
+root node and this function can call",00:14:44.189,00:14:49.630
+"IsBstUtil to function passing address
+of root.",00:14:49.630,00:14:53.110
+"Minimum possible value in integer
+variable for -infinity",00:14:53.110,00:14:56.730
+"and maximum possible value in integer
+valuable for",00:14:56.730,00:15:00.390
+"+infinity INT_MIN and INT_MAX
+here are macros",00:15:00.390,00:15:04.600
+"for a minimum and maximum possible
+values in Int.",00:15:04.600,00:15:07.880
+"So this is a solution using second
+approach which is quite efficient.",00:15:07.880,00:15:12.110
+"In this recursion will go to each node
+once and at each node we will take",00:15:12.110,00:15:16.170
+constant time,00:15:16.170,00:15:17.149
+"to see whether the data at node is in a
+defined range or not",00:15:17.149,00:15:21.429
+"and time complexity would be O(N)
+where N is number of nodes in the",00:15:21.429,00:15:25.049
+binary tree.,00:15:25.049,00:15:26.569
+"For the previous algorithm, time
+complexity was O(N^2).",00:15:26.569,00:15:30.790
+"One more thing, in this code I have not
+handled",00:15:30.790,00:15:33.929
+"the case that Binary search tree can
+have duplicates.",00:15:33.929,00:15:37.829
+"I am saying that elements in left subtree
+must be strictly lesser and elements in",00:15:37.829,00:15:42.140
+right subtree,00:15:42.140,00:15:43.049
+"must be strictly greater. I leave it for
+you to see how you will",00:15:43.049,00:15:46.519
+"allow duplicates. There is another
+solution to this problem.",00:15:46.519,00:15:50.529
+"You can perform in order traversal of
+binary tree",00:15:50.529,00:15:54.040
+"and if the tree is binary search tree
+you would read the data in",00:15:54.040,00:15:57.939
+sorted order. In-order traversal of a,00:15:57.939,00:16:01.399
+"binary search tree gives a sorted list. You can
+do some hack",00:16:01.399,00:16:05.120
+"while performing in order traversal and
+check if you're getting the elements in",00:16:05.120,00:16:08.589
+sorted order or not.,00:16:08.589,00:16:10.019
+"During the whole traversal you only need
+to keep track of",00:16:10.019,00:16:13.250
+"previously read node and at any time
+data in a node that you're reading",00:16:13.250,00:16:17.720
+"must be greater than the data in previously read
+node.",00:16:17.720,00:16:20.790
+"Try implementing this solution, it will be
+interesting. Okay I'll stop here now.",00:16:20.790,00:16:24.839
+"In cominng lessons, We will discuss some
+more problems on Binary tree. ",00:16:24.839,00:16:28.429
+Thanks for watching.,00:16:28.429,00:16:29.110

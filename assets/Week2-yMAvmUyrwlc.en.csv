@@ -1,0 +1,1737 @@
+text,start,stop
+&gt;&gt; [MUSIC PLAYING],00:00:00.000,00:00:10.920
+"&gt;&gt; DAVID J MALAN: All right,
+welcome back to CS50.",00:00:10.920,00:00:14.680
+This is the start of week two.,00:00:14.680,00:00:16.500
+"A word from one of our
+friends on campus--",00:00:16.500,00:00:18.940
+"if you are interested, possibly, either
+now or in some future term",00:00:18.940,00:00:22.620
+"even, once more comfortable, teaching
+middle school students a little",00:00:22.620,00:00:25.670
+"something about computer science,
+do head to that URL.",00:00:25.670,00:00:27.680
+"They are in particular need right now of
+teachers, particularly if you have",00:00:27.680,00:00:32.360
+had some exposure to computer science.,00:00:32.360,00:00:34.700
+"&gt;&gt; So recall that last time, we introduced
+a few data types in C, and",00:00:34.700,00:00:38.060
+"you may have started to get your
+hands dirty with these thus far",00:00:38.060,00:00:40.590
+in problem set one.,00:00:40.590,00:00:41.940
+And we had a char.,00:00:41.940,00:00:43.230
+"So in somewhat technical terms, what
+is a char as you know it today?",00:00:43.230,00:00:49.100
+"&gt;&gt; So it's a character, but let's
+be more precise now.",00:00:49.100,00:00:51.050
+"What do we mean by character
+or individual char?",00:00:51.050,00:00:53.735
+A non-numerical character--,00:00:56.700,00:00:59.500
+so not necessarily.,00:00:59.500,00:01:00.670
+"It turns out that even numbers, even
+punctuation and letters are",00:01:00.670,00:01:04.580
+"represented with this data
+type known as a char.",00:01:04.580,00:01:06.980
+So it's not necessarily alphabetical.,00:01:06.980,00:01:09.440
+Yeah?,00:01:09.440,00:01:11.100
+&gt;&gt; So it's an ASCII character.,00:01:11.100,00:01:12.275
+"So if you think back to week zero, when
+we had our byte of volunteers",00:01:12.275,00:01:15.510
+"come up and either hold their hands up
+or not all, they represented bits.",00:01:15.510,00:01:19.150
+"But collectively as a group of eight,
+they represented a byte.",00:01:19.150,00:01:22.450
+"And we introduced the notion of ASCII
+at that lecture, which simply is a",00:01:22.450,00:01:26.030
+mapping between numbers and letters.,00:01:26.030,00:01:28.170
+"And ASCII uses, as those humans
+implied, eight bits",00:01:28.170,00:01:32.010
+to represent a character.,00:01:32.010,00:01:33.660
+"&gt;&gt; So accordingly, if eight bits can
+each take on one of two values--",00:01:33.660,00:01:36.890
+zero or one--,00:01:36.890,00:01:38.010
+"that means there were two possibilities
+for this person--",00:01:38.010,00:01:40.280
+zero or one--,00:01:40.280,00:01:41.230
+"two for this person, two for this
+person, two for this one.",00:01:41.230,00:01:44.070
+"So a total of two times two times
+two times two times two--",00:01:44.070,00:01:47.450
+so two the eighth in total.,00:01:47.450,00:01:49.700
+"So there's a total number of characters
+256 possible that you can",00:01:49.700,00:01:54.320
+represent with eight bits.,00:01:54.320,00:01:55.750
+"&gt;&gt; Now, those of you who speak Asian
+languages might know that there's more",00:01:55.750,00:01:59.210
+"characters in the world than just
+As and Bs and Cs and Ds.",00:01:59.210,00:02:02.620
+"And indeed, ASCII does not suffice for
+a lot of languages of the world.",00:02:02.620,00:02:06.130
+But more on that another time.,00:02:06.130,00:02:07.760
+"For now, know that in C if you want
+to represent a letter, a piece of",00:02:07.760,00:02:11.240
+"punctuation, or just something character
+in nature, we use a char.",00:02:11.240,00:02:15.780
+And it's one byte or eight bits.,00:02:15.780,00:02:18.240
+&gt;&gt; How about an int?,00:02:18.240,00:02:19.690
+"Well, an int is an integer.",00:02:19.690,00:02:20.780
+"How many bits, if you recall,
+was an integer typically?",00:02:20.780,00:02:23.175
+Anyone recall?,00:02:25.930,00:02:27.512
+So it's typically 32.,00:02:27.512,00:02:29.600
+"It actually depends on the computer
+that you're using.",00:02:29.600,00:02:32.120
+"But in the appliance, and in a lot of
+computers, it's 32 bits or four",00:02:32.120,00:02:35.770
+bytes-- eight times four.,00:02:35.770,00:02:37.140
+"And ints are just used for storing
+numbers, either negative,",00:02:37.140,00:02:39.790
+"positive, or zero.",00:02:39.790,00:02:41.610
+"&gt;&gt; And if you've got 32 bits and you only
+care about positive numbers, can",00:02:41.610,00:02:45.250
+"anyone ballpark how many possible
+integers a computer can represent from",00:02:45.250,00:02:48.960
+zero on up?,00:02:48.960,00:02:51.820
+"So it would be two to the 32, which
+is roughly four billion.",00:02:51.820,00:02:56.130
+"So these powers of two are going to be
+recurring themes in computer science.",00:02:56.130,00:02:59.720
+"As we'll see, they're quite convenient
+to work with even if it's not quite",00:02:59.720,00:03:03.930
+easy to do the math in one's head.,00:03:03.930,00:03:05.790
+&gt;&gt; So we'll say roughly four billion.,00:03:05.790,00:03:07.000
+"Now, a long long--",00:03:07.000,00:03:08.620
+you can kind of guess.,00:03:08.620,00:03:09.770
+It's longer than an int.,00:03:09.770,00:03:10.480
+How many bits?,00:03:10.480,00:03:12.440
+So 64 bits or eight bytes.,00:03:12.440,00:03:14.250
+"This just means you can represent even
+bigger numbers, bigger positive or",00:03:14.250,00:03:17.480
+bigger negative numbers.,00:03:17.480,00:03:19.160
+&gt;&gt; And how about float?,00:03:19.160,00:03:20.060
+"That's a floating point
+value of 32 bits.",00:03:20.060,00:03:22.260
+"This is just a real number, something
+with a decimal point.",00:03:22.260,00:03:25.180
+"But if you instead need more places
+after the decimal point or you want to",00:03:25.180,00:03:30.100
+"represent a bigger number with some
+fraction after it, you can use a",00:03:30.100,00:03:33.720
+"double, which is 64 bits.",00:03:33.720,00:03:36.260
+"&gt;&gt; But there's an interesting
+takeaway here.",00:03:36.260,00:03:38.240
+"So if ints are limited by 32 bits and
+even long longs are limited by 64",00:03:38.240,00:03:42.890
+"bits, that sort of begs the question,
+what if you actually want to count",00:03:42.890,00:03:46.180
+higher than 4 billion for an int?,00:03:46.180,00:03:48.790
+"Well, you just use a long long.",00:03:48.790,00:03:50.330
+"But what if you want to count higher
+than two to the 64th, give or take?",00:03:50.330,00:03:54.200
+"&gt;&gt; Now, that's a huge number.",00:03:54.200,00:03:55.810
+"But eventually, you might actually
+care about these kinds of values,",00:03:55.810,00:03:59.250
+"especially if you are using a database
+and starting to collect lots and lots",00:03:59.250,00:04:03.070
+"and lots of data and assigning unique
+numbers to each piece of that data.",00:04:03.070,00:04:06.190
+So we kind of have a problem.,00:04:06.190,00:04:07.430
+"And similarly, with floating point
+values-- floats or doubles--",00:04:07.430,00:04:10.700
+"if you've only got a finite number of
+bits, how many total numbers could you",00:04:10.700,00:04:14.290
+possibly represent?,00:04:14.290,00:04:16.980
+"&gt;&gt; Well, it's less clear when you
+involve a decimal point.",00:04:16.980,00:04:19.540
+But it's surely finite.,00:04:19.540,00:04:20.899
+"If you have a finite number of bits,
+a finite number of humans, a finite",00:04:20.899,00:04:24.390
+"number of light bulbs, surely you can
+only represent a finite number of",00:04:24.390,00:04:27.350
+floating point values.,00:04:27.350,00:04:28.510
+"But how many real numbers
+are their in the world?",00:04:28.510,00:04:33.170
+There's an infinite.,00:04:33.170,00:04:33.680
+"So that's kind of a problem because we
+don't have an infinite amount of",00:04:33.680,00:04:37.280
+memory or RAM inside of our computers.,00:04:37.280,00:04:39.970
+So some challenging things can happen.,00:04:39.970,00:04:41.780
+"&gt;&gt; So let's go ahead and try
+to express this here.",00:04:41.780,00:04:43.900
+Let me go ahead and open up gedit.,00:04:43.900,00:04:46.240
+"I'm going to go ahead and save a file
+called ""floats0.c"" just to be",00:04:46.240,00:04:50.360
+"consistent with an example that is
+available online, if you would like.",00:04:50.360,00:04:54.630
+"And I'm going to go ahead and
+define it as follows--",00:04:54.630,00:04:58.080
+"I'm going to go ahead and say, int
+main void, as we often do.",00:04:58.080,00:05:01.540
+"&gt;&gt; And then in this program, I'm going to
+declare myself a float, so a 32-bit",00:05:01.540,00:05:07.190
+"variable called f, arbitrarily.",00:05:07.190,00:05:09.700
+"And then I'm going to store in it
+I don't know, one tenth, so 0.1.",00:05:09.700,00:05:13.910
+"So I'm going to express that as one
+divided by 10, which is perfectly",00:05:13.910,00:05:16.590
+legitimate in C.,00:05:16.590,00:05:17.790
+"&gt;&gt; And then on the second line, I simply
+want to print out that value.",00:05:17.790,00:05:20.460
+"So recall that we can use
+the familiar printf.",00:05:20.460,00:05:22.950
+We don't want to use %i for an int.,00:05:22.950,00:05:25.420
+We want to use %f for a float.,00:05:25.420,00:05:28.360
+"And then I'm going to do backslash n,
+close quote, comma, f, semicolon.",00:05:28.360,00:05:33.080
+&gt;&gt; So here's my program.,00:05:33.080,00:05:34.400
+There's already one bug.,00:05:34.400,00:05:35.820
+"Does someone for whom this clicked
+already want to point at least",00:05:35.820,00:05:38.640
+one bug I've made?,00:05:38.640,00:05:40.220
+Yeah?,00:05:40.220,00:05:42.470
+Yeah.,00:05:42.470,00:05:42.800
+"I forgot ""#include "" at the
+top, they symptom of which if I try to",00:05:42.800,00:05:47.860
+"compile this is going to be that the
+compiler is going to yell at me,",00:05:47.860,00:05:50.490
+"saying undefined symbol or
+something to that effect.",00:05:50.490,00:05:52.770
+"It doesn't understand something
+like printf.",00:05:52.770,00:05:55.360
+"&gt;&gt; So I'm going to do ""#include
+"", save the file.",00:05:55.360,00:05:59.380
+And now it's in better shape.,00:05:59.380,00:06:00.400
+"But I'm also going to point
+out one new detail today.",00:06:00.400,00:06:02.690
+"In addition to specifying place
+holders like %f %i %s, you can",00:06:02.690,00:06:08.620
+"sometimes influence the behavior
+of that placeholder.",00:06:08.620,00:06:12.320
+"For instance, in the case of a floating
+point value, if I only want",00:06:12.320,00:06:15.540
+"to display one decimal place after the
+period, I can actually do 0.1f.",00:06:15.540,00:06:22.200
+"So in other words, I separate the f and
+the percent sign with 0.1, just",00:06:22.200,00:06:26.830
+"telling printf, you might have a whole
+bunch of numbers after the decimal",00:06:26.830,00:06:30.200
+point for me.,00:06:30.200,00:06:30.930
+But I only want to see one of them.,00:06:30.930,00:06:32.870
+"&gt;&gt; So I'm going to go ahead now and save
+this program, go into my terminal",00:06:32.870,00:06:36.280
+"window, and I'm going to go ahead
+and type make float 0, enter.",00:06:36.280,00:06:41.870
+"I see that somewhat cryptic line that
+will begin to make more sense as we",00:06:41.870,00:06:44.930
+tease it apart this week and next.,00:06:44.930,00:06:46.900
+"Now I'm going to go ahead
+and run float zero.",00:06:46.900,00:06:50.480
+"And, damn.",00:06:50.480,00:06:52.020
+"&gt;&gt; So there's another bug
+here for some reason.",00:06:52.020,00:06:54.880
+"I'm pretty sure that one tenth, or
+one divided by 10, is not 0.0.",00:06:54.880,00:07:02.490
+"Maybe I'm just not looking
+at enough digits.",00:07:02.490,00:07:04.590
+"So why don't I say two .2 to see two
+decimal places instead of just one.",00:07:04.590,00:07:08.580
+"Let me go back to my terminal window
+here and hit up a couple of times to",00:07:08.580,00:07:11.810
+see my history.,00:07:11.810,00:07:12.840
+"Do make float zero again,
+and then up again.",00:07:12.840,00:07:15.910
+And now enter.,00:07:15.910,00:07:17.730
+&gt;&gt; And now I'm pretty sure this is wrong.,00:07:17.730,00:07:20.000
+"And I could do three and four, and I'm
+probably going to keep seeing zeros.",00:07:20.000,00:07:23.030
+So where is the bug?,00:07:23.030,00:07:24.880
+One divided by 10 should be 0.1.,00:07:24.880,00:07:27.910
+"Someone want to take a stab at what
+the fundamental issue is?",00:07:27.910,00:07:30.310
+Yeah?,00:07:30.310,00:07:32.400
+They're both integers.,00:07:32.400,00:07:33.420
+So what?,00:07:33.420,00:07:33.920
+"So with one divided by 10, that's
+what I do in arithmetic.",00:07:33.920,00:07:37.820
+And I get 0.1.,00:07:37.820,00:07:41.185
+&gt;&gt; Yeah.,00:07:41.185,00:07:41.660
+And so it is indeed that issue.,00:07:41.660,00:07:43.240
+"When you take an integer in a computer
+and you divide it by another integer,",00:07:43.240,00:07:46.700
+"the computer by default is going to
+assume that you want an integer.",00:07:46.700,00:07:50.430
+"The problem though, of course, is
+that 0.1 is not an integer.",00:07:50.430,00:07:54.620
+It's a real number.,00:07:54.620,00:07:55.680
+"And so what the computer does by
+default is it just throws away",00:07:55.680,00:07:59.610
+everything after the decimal point.,00:07:59.610,00:08:01.070
+It doesn't round down or up per se.,00:08:01.070,00:08:03.380
+"It just throws away everything
+after the decimal point.",00:08:03.380,00:08:06.480
+And now that makes sense.,00:08:06.480,00:08:07.430
+"Because now we're clearly
+left with zero.",00:08:07.430,00:08:09.740
+&gt;&gt; But wait a minute.,00:08:09.740,00:08:10.250
+I'm not seeing an int zero.,00:08:10.250,00:08:11.840
+I'm actually seeing 0.00.,00:08:11.840,00:08:14.910
+So how do I reconcile this now?,00:08:14.910,00:08:16.340
+"If one divided by 10 is zero, but I'm
+seeing 0.00, where is it getting",00:08:16.340,00:08:22.850
+converted back to a real number?,00:08:22.850,00:08:24.250
+Yeah.,00:08:24.250,00:08:25.500
+Exactly.,00:08:29.850,00:08:30.630
+"&gt;&gt; So up here in line five, when I actually
+store that 0.1, which is then",00:08:30.630,00:08:35.600
+"truncated to zero, inside of a float,
+that's effectively equivalent to",00:08:35.600,00:08:39.549
+"storing it not as an int but,
+indeed, as a float.",00:08:39.549,00:08:42.100
+"Moreover, I'm then using printf to
+explicitly print that number to two",00:08:42.100,00:08:46.540
+"decimal places even though there
+might not actually be any.",00:08:46.540,00:08:49.740
+"&gt;&gt; So this kind of sucks, right?",00:08:49.740,00:08:51.020
+"Apparently you can't do math,
+at least at this level of",00:08:51.020,00:08:53.640
+"precision, in a computer.",00:08:53.640,00:08:55.600
+But surely there's a solution.,00:08:55.600,00:08:56.930
+"What's the simplest fix we could maybe
+do, even just intuitively here to",00:08:56.930,00:09:00.410
+solve this?,00:09:00.410,00:09:01.130
+Yeah?,00:09:01.130,00:09:02.380
+Turn the integers into--,00:09:04.700,00:09:06.574
+yeah.,00:09:06.574,00:09:06.976
+"Even if I'm not quite sure what's
+really going on here, if it",00:09:06.976,00:09:10.420
+"fundamentally has to do with these both
+being ints, well, why don't I",00:09:10.420,00:09:13.440
+"make that 10.0, making this
+1.0, resave the file.",00:09:13.440,00:09:18.230
+"Let me go back down to the
+bottom and recompile.",00:09:18.230,00:09:20.990
+Let me now rerun.,00:09:20.990,00:09:23.030
+And there--,00:09:23.030,00:09:23.420
+"now, I've got my one tenth
+represented as 0.10.",00:09:23.420,00:09:27.690
+&gt;&gt; All right.,00:09:27.690,00:09:28.420
+So that's not bad.,00:09:28.420,00:09:29.220
+"And let me point out one other way
+we could have solved this.",00:09:29.220,00:09:31.730
+"Let me actually roll back in time
+to when we had this as one",00:09:31.730,00:09:35.580
+tenth a moment ago.,00:09:35.580,00:09:36.680
+"And let me go ahead and resave this file
+as a different file name, just to",00:09:36.680,00:09:40.800
+have a little checkpoint.,00:09:40.800,00:09:41.750
+So that was version one.,00:09:41.750,00:09:43.450
+"And now let me go ahead and
+do one more version.",00:09:43.450,00:09:45.520
+"We'll call this version
+two zero indexed.",00:09:45.520,00:09:48.540
+"&gt;&gt; And I'm going to instead do
+this-- you know what?",00:09:48.540,00:09:51.280
+Adding dot zero works in this case.,00:09:51.280,00:09:54.400
+But suppose one were a variable.,00:09:54.400,00:09:56.060
+Supposed 10 were a variable.,00:09:56.060,00:09:57.680
+"In other words, suppose that I couldn't
+just hard-code .0 at the end",00:09:57.680,00:10:00.680
+of this arithmetic expression.,00:10:00.680,00:10:02.340
+"Well, I can actually do something
+in parentheses called casting.",00:10:02.340,00:10:05.820
+"I can cast that integer 10 to a float,
+and I can cast that integer one to a",00:10:05.820,00:10:11.920
+"float, as well.",00:10:11.920,00:10:12.800
+"Then the math that's going to be done
+is effectively 1.0 divided by 10.0,",00:10:12.800,00:10:17.190
+"the result of which goes
+in f as before.",00:10:17.190,00:10:19.250
+"So if I recompile this as make floats
+2, and now floats 2, I get the same",00:10:19.250,00:10:26.130
+"answer, as well.",00:10:26.130,00:10:27.020
+"&gt;&gt; So this is a fairly contrived example,
+to solve this problem",00:10:27.020,00:10:29.640
+by introducing casting.,00:10:29.640,00:10:31.400
+"But in general, casting's going to be
+a powerful thing, particularly for",00:10:31.400,00:10:34.410
+"problem set two in a week's time, when
+you want to convert one data type to",00:10:34.410,00:10:38.180
+"another that at the end of the day
+are represented in the same way.",00:10:38.180,00:10:41.800
+"At the end of the day, every single
+thing we've talked about thus far is",00:10:41.800,00:10:44.970
+just ints underneath the hood.,00:10:44.970,00:10:46.710
+"Or if that's too low-level for
+you, they're just numbers",00:10:46.710,00:10:48.950
+underneath the hood.,00:10:48.950,00:10:49.750
+"Even characters, again, recall
+from week zero, are numbers",00:10:49.750,00:10:52.850
+underneath the hood.,00:10:52.850,00:10:53.990
+"&gt;&gt; Which is to say, we can convert between
+different types of numbers if",00:10:53.990,00:10:57.240
+they're just bits.,00:10:57.240,00:10:58.060
+"We can convert between numbers
+and letters if they're just",00:10:58.060,00:11:01.020
+"bits, and vice versa.",00:11:01.020,00:11:02.580
+"And casting in this way is a mechanism
+in programming that lets you forcibly",00:11:02.580,00:11:07.170
+change one data type to another.,00:11:07.170,00:11:10.970
+"Unfortunately, this isn't as
+straightforward as I might have liked.",00:11:10.970,00:11:14.570
+"&gt;&gt; I'm going to go back into floats
+1, which was the simpler, more",00:11:14.570,00:11:19.220
+"straightforward one with
+.0 added on to each.",00:11:19.220,00:11:22.830
+"And just as a quick refresher,
+let me go ahead and recompile",00:11:22.830,00:11:25.260
+"this, make floats 2--",00:11:25.260,00:11:27.670
+"sorry, this is make floats 1.",00:11:27.670,00:11:30.300
+And now let's run floats 1.,00:11:30.300,00:11:32.050
+"And in the bottom, notice
+that I indeed get 0.1.",00:11:32.050,00:11:34.810
+"So, problem solved.",00:11:34.810,00:11:36.165
+&gt;&gt; But not yet.,00:11:36.165,00:11:37.280
+"I'm now going to get a little curious,
+and I'm going to go back into my",00:11:37.280,00:11:40.000
+"printf statement and
+say, you know what?",00:11:40.000,00:11:41.620
+"I'd like to confirm that this
+is really one tenth.",00:11:41.620,00:11:44.090
+"And I'm going to want to see this
+to, say, five decimal places.",00:11:44.090,00:11:47.890
+It's not a problem.,00:11:47.890,00:11:48.570
+"I change the two to a five,
+I recompile with make.",00:11:48.570,00:11:52.020
+I rerun it as floats 1.,00:11:52.020,00:11:53.770
+Looking pretty good.,00:11:53.770,00:11:54.990
+"My sanity checks might end there, but
+I'm getting a little more adventurous.",00:11:54.990,00:11:58.570
+I'm going to change 0.5 to 0.10.,00:11:58.570,00:12:00.330
+"I want to see 10 digits after
+the decimal place.",00:12:00.330,00:12:03.440
+"&gt;&gt; And I'm going to go ahead and recompile
+this and rerun floats 1.",00:12:03.440,00:12:09.060
+"I kind of regret having tested this
+further because my math is not so",00:12:09.060,00:12:13.060
+"correct anymore, it seems.",00:12:13.060,00:12:14.320
+"But wait a minute, maybe
+that's just a fluke.",00:12:14.320,00:12:15.630
+"Maybe the computer is acting
+a little bit strange.",00:12:15.630,00:12:17.810
+"Let me go ahead and do 20 decimal points
+and reassure myself that I know",00:12:17.810,00:12:21.810
+how to do math.,00:12:21.810,00:12:22.540
+I know how to program.,00:12:22.540,00:12:23.460
+"Make floats 1, recompile, and damn it.",00:12:23.460,00:12:26.960
+"That is really, really getting
+far from the mark.",00:12:26.960,00:12:31.110
+&gt;&gt; So what's going on here?,00:12:31.110,00:12:32.490
+"Intuitively, based on our assumptions
+earlier about the size of data types,",00:12:32.490,00:12:36.050
+"what must be happening here
+underneath the hood?",00:12:36.050,00:12:38.040
+Yeah?,00:12:38.040,00:12:39.290
+Exactly.,00:12:43.000,00:12:43.590
+"If you want this much precision, and
+that's a heck of a lot of precision--",00:12:43.590,00:12:46.480
+20 numbers after the decimal point.,00:12:46.480,00:12:48.770
+"You can't possibly represent an
+arbitrary number unless you have an",00:12:48.770,00:12:51.990
+arbitrary number of bits.,00:12:51.990,00:12:52.930
+But we don't.,00:12:52.930,00:12:54.190
+"For a float, we only have 32 bits.",00:12:54.190,00:12:57.200
+"&gt;&gt; So if 32 bits can only be permuted in a
+way-- just like our humans on, stage",00:12:57.200,00:13:02.260
+"hands up or down-- in a finite number of
+ways, there's only a finite number",00:13:02.260,00:13:05.780
+"of real numbers you can represent
+with those bits.",00:13:05.780,00:13:08.640
+"And so the computer eventually
+is going to have to",00:13:08.640,00:13:10.500
+start cutting corners.,00:13:10.500,00:13:11.730
+"The computer can hide those details
+from us for a little bit of time.",00:13:11.730,00:13:15.500
+"But if we start poking at the numbers
+and looking farther and farther at the",00:13:15.500,00:13:18.880
+"trailing numbers in the whole number,
+then we start to see that it's",00:13:18.880,00:13:23.220
+"actually approximating the
+idea of one tenth.",00:13:23.220,00:13:26.480
+"&gt;&gt; And so it turns out, tragically, there's
+an infinite number of numbers",00:13:26.480,00:13:29.860
+"we cannot represent precisely in a
+computer, at least with a finite",00:13:29.860,00:13:35.060
+"number of bits, a finite
+amount of RAM.",00:13:35.060,00:13:38.030
+"Now unfortunately, this sometimes
+has real-world consequences.",00:13:38.030,00:13:41.210
+"If people don't quite appreciate this
+or sort of take for granted the fact",00:13:41.210,00:13:45.980
+"that their computer will just do what
+they tell it to do and don't",00:13:45.980,00:13:48.310
+"understand these underlying
+representation details--",00:13:48.310,00:13:51.430
+"which, frankly, in some languages are
+hidden from the user, unlike in C--",00:13:51.430,00:13:55.290
+some bad things can happen.,00:13:55.290,00:13:56.500
+"&gt;&gt; And what I thought we'd do
+is take a step back.",00:13:56.500,00:13:58.650
+"And this is about an
+eight-minute video.",00:13:58.650,00:14:00.420
+"It aired a few years ago, and it gives
+insights into actually what can go",00:14:00.420,00:14:04.200
+"wrong when you under-appreciate these
+kinds of details in the very all-too",00:14:04.200,00:14:09.290
+real world.,00:14:09.290,00:14:10.080
+"If we could dim the lights
+for a few minutes.",00:14:10.080,00:14:12.965
+&gt;&gt; SPEAKER 1: We now return to engineering,00:14:12.965,00:14:14.360
+disasters on Modern Marvels.,00:14:14.360,00:14:17.160
+&gt;&gt; Computers--,00:14:17.160,00:14:18.680
+"we've all come to accept the
+often frustrating problems",00:14:18.680,00:14:21.340
+that go with them.,00:14:21.340,00:14:23.170
+"Bugs, viruses, and software glitches
+are small prices to pay for the",00:14:23.170,00:14:27.570
+convenience.,00:14:27.570,00:14:28.960
+"But in high-tech and high-speed
+military and space program",00:14:28.960,00:14:32.040
+"applications, the smallest problem
+can be magnified into disaster.",00:14:32.040,00:14:38.650
+"&gt;&gt; On June 4, 1996, scientists prepared to
+launch an unmanned Ariane 5 rocket.",00:14:38.650,00:14:44.480
+"It was carrying scientific satellites
+designed to establish precisely how",00:14:44.480,00:14:48.700
+"the Earth's magnetic field interacts
+with solar winds.",00:14:48.700,00:14:53.250
+"The rocket was built for the European
+Space Agency and lifted off from its",00:14:53.250,00:14:57.540
+"facility on the coast
+of French Guiana.",00:14:57.540,00:14:59.906
+"&gt;&gt; JACK GANSSLE: At about 37 seconds into
+the flight, they first noticed",00:14:59.906,00:15:03.660
+something was going wrong.,00:15:03.660,00:15:04.910
+"The nozzles were swiveling in
+a way they really shouldn't.",00:15:04.910,00:15:08.130
+"Around 40 seconds into the flight,
+clearly the vehicle was in trouble.",00:15:08.130,00:15:12.380
+"And that's when they made a
+decision to destroy it.",00:15:12.380,00:15:14.400
+"The range safety officer, with
+tremendous guts, pressed the button,",00:15:14.400,00:15:18.520
+"blew up the rocket before it could
+become a hazard to public safety.",00:15:18.520,00:15:23.900
+"&gt;&gt; SPEAKER 1: This was the maiden voyage
+of the Ariane 5, and its destruction",00:15:23.900,00:15:27.810
+"took place because of a flaw embedded
+in the rocket's software.",00:15:27.810,00:15:32.020
+"&gt;&gt; JACK GANSSLE: The problem on the Ariane
+was that there was a number",00:15:32.020,00:15:33.980
+that required 64 bits to express.,00:15:33.980,00:15:36.390
+"And they wanted to convert
+to a 16-bit number.",00:15:36.390,00:15:39.420
+"They assumed that the number was never
+going to be very big, that most of",00:15:39.420,00:15:43.130
+"those digits in the 64-bit
+number were zeros.",00:15:43.130,00:15:46.810
+They were wrong.,00:15:46.810,00:15:48.270
+"&gt;&gt; SPEAKER 1: The inability of one software
+program to accept the kind of",00:15:48.270,00:15:51.380
+"number generated by another was
+at the root of the failure.",00:15:51.380,00:15:55.350
+"Software development had become a very
+costly part of new technology.",00:15:55.350,00:15:59.970
+"The Ariane 4 rocket had been very
+successful, so much of the software",00:15:59.970,00:16:03.980
+"created for it was also
+used in the Ariane 5.",00:16:03.980,00:16:07.480
+"&gt;&gt; PHILIP COYLE: The basic problem was
+that the Ariane 5 was faster,",00:16:07.480,00:16:11.980
+accelerated faster.,00:16:11.980,00:16:13.720
+"And the software hadn't
+accounted for that.",00:16:13.720,00:16:17.250
+"&gt;&gt; SPEAKER 1: The destruction of the rocket
+was a huge financial disaster,",00:16:17.250,00:16:20.770
+all due to a minute software error.,00:16:20.770,00:16:24.200
+"But this wasn't the first time data
+conversion problems had plagued modern",00:16:24.200,00:16:27.820
+rocket technology.,00:16:27.820,00:16:30.620
+"&gt;&gt; JACK GANSSLE: In 1991, with the start
+of the first Gulf War, the Patriot",00:16:30.620,00:16:34.480
+"missile experienced a similar kind
+of a number conversion problem.",00:16:34.480,00:16:38.610
+"As a result, 28 American soldiers were
+killed and about 100 others wounded",00:16:38.610,00:16:44.910
+"when the Patriot, which was supposed
+to protect against incoming Scuds,",00:16:44.910,00:16:48.600
+failed to fire a missile.,00:16:48.600,00:16:51.630
+"&gt;&gt; SPEAKER 1: When Iraq invaded Kuwait and
+America launched Desert Storm in",00:16:51.630,00:16:55.110
+"early 1991, Patriot missile batteries
+were deployed to protect Saudi Arabia",00:16:55.110,00:17:00.570
+"and Israel from Iraqi Scud
+missile attacks.",00:17:00.570,00:17:04.760
+"The Patriot is a US medium-range
+surface-to-air system manufactured by",00:17:04.760,00:17:09.720
+the Raytheon company.,00:17:09.720,00:17:11.569
+"&gt;&gt; THEODORE POSTOL: The size of the Patriot
+interceptor itself is roughly",00:17:11.569,00:17:16.410
+20-feet long.,00:17:16.410,00:17:17.710
+And it weighs about 2000 pounds.,00:17:17.710,00:17:20.800
+And it carries a warhead of about--,00:17:20.800,00:17:22.940
+I think it's roughly 150 pounds.,00:17:22.940,00:17:24.905
+"And the warhead itself is a
+high explosive which has",00:17:24.905,00:17:31.030
+fragments around it.,00:17:31.030,00:17:33.270
+"The casing of the warhead is designed
+to act like buckshot.",00:17:33.270,00:17:37.490
+"&gt;&gt; SPEAKER 1: The missiles are carried four
+per container and are transported",00:17:37.490,00:17:40.720
+by a semi trailer.,00:17:40.720,00:17:43.050
+"&gt;&gt; PHILIP COYLE: The Patriot anti-missile
+system goes back at",00:17:43.050,00:17:47.490
+least 20 years now.,00:17:47.490,00:17:50.710
+"It was originally designed as
+an air defense missile to",00:17:50.710,00:17:54.350
+shoot down enemy airplanes.,00:17:54.350,00:17:56.190
+"In the first Gulf War, when that war
+came along, the Army wanted to use it",00:17:56.190,00:18:02.490
+"to shoot down Scuds, not airplanes.",00:18:02.490,00:18:05.535
+"The Iraqi air force was not
+so much of a problem.",00:18:05.535,00:18:09.310
+But the Army was worried about Scuds.,00:18:09.310,00:18:12.450
+"And so they tried to upgrade
+the Patriot.",00:18:12.450,00:18:15.950
+"&gt;&gt; SPEAKER 1: Intercepting an enemy missile
+traveling at mach five was",00:18:15.950,00:18:18.750
+going to be challenging enough.,00:18:18.750,00:18:20.890
+"But when the Patriot was rushed into
+service, the Army was not aware of an",00:18:20.890,00:18:25.590
+"Iraqi modification that made their
+Scuds nearly impossible to hit.",00:18:25.590,00:18:31.710
+"&gt;&gt; THEODORE POSTOL: What happened
+is the Scuds that were",00:18:31.710,00:18:35.240
+coming in were unstable.,00:18:35.240,00:18:36.570
+They were wobbling.,00:18:36.570,00:18:37.532
+"The reason for this was the Iraqis, in
+order to get 600 kilometers out of a",00:18:37.532,00:18:43.220
+"300-kilometer-range missile, took
+weight out of the front warhead.",00:18:43.220,00:18:47.530
+They made the warhead lighter.,00:18:47.530,00:18:49.290
+"So now the Patriot's trying
+to come at the Scud.",00:18:49.290,00:18:53.110
+"And most of the time, the overwhelming
+majority of the time, it would just",00:18:53.110,00:18:56.470
+fly by the Scud.,00:18:56.470,00:18:58.730
+"&gt;&gt; SPEAKER 1: Once the Patriot system
+operators realized the Patriot missed",00:18:58.730,00:19:01.760
+"its target, they detonated the Patriots
+warhead to avoid possible",00:19:01.760,00:19:06.690
+"casualties if it was allowed
+to fall to the ground.",00:19:06.690,00:19:10.300
+"&gt;&gt; THEODORE POSTOL: That was what most
+people saw as big fireballs in the sky",00:19:10.300,00:19:14.540
+"and misunderstood as intercepts
+of Scud warheads.",00:19:14.540,00:19:20.350
+"&gt;&gt; SPEAKER 1: Although in the night skies
+Patriots appeared to be successfully",00:19:20.350,00:19:23.320
+"destroying Scuds, at Dhahran there
+could be no mistake about its",00:19:23.320,00:19:27.530
+performance.,00:19:27.530,00:19:29.140
+"There, the Patriot's radar system lost
+track of an incoming Scud and never",00:19:29.140,00:19:34.180
+launched due to a software flaw.,00:19:34.180,00:19:36.380
+"&gt;&gt; It was the Israelis who first discovered
+that the longer the system",00:19:39.890,00:19:42.700
+"was on, the greater the time discrepancy
+became due to a clock",00:19:42.700,00:19:48.020
+embedded in the system's computer.,00:19:48.020,00:19:50.470
+"&gt;&gt; JACK GANSSLE: About two weeks before the
+tragedy in Dhahran, the Israelis",00:19:50.470,00:19:54.640
+"reported to the Defense Department
+that the system was losing time.",00:19:54.640,00:19:58.440
+"After about eight hours of running,
+they noticed that the system is",00:19:58.440,00:20:01.280
+becoming noticeably less accurate.,00:20:01.280,00:20:03.530
+"The Defense Department responded by
+telling all of the Patriot batteries",00:20:03.530,00:20:07.710
+"to not leave the systems
+on for a long time.",00:20:07.710,00:20:10.500
+They never said what a long time was.,00:20:10.500,00:20:12.430
+Eight hours?,00:20:12.430,00:20:13.330
+10 hours?,00:20:13.330,00:20:13.810
+"1,000 hours?",00:20:13.810,00:20:14.990
+Nobody knew.,00:20:14.990,00:20:17.150
+"&gt;&gt; SPEAKER 1: The Patriot battery stationed
+at the barracks at Dhahran",00:20:17.150,00:20:20.220
+"and its flawed internal clock had been
+on over 100 hours on the night of",00:20:20.220,00:20:24.660
+February 25th.,00:20:24.660,00:20:27.470
+"&gt;&gt; JACK GANSSLE: It tracked time to an
+accuracy of about a tenth of a second.",00:20:27.470,00:20:31.770
+"Now, a tenth of a second is an
+interesting number because it can't be",00:20:31.770,00:20:34.480
+"expressed in binary exactly, which means
+it can't be expressed exactly in",00:20:34.480,00:20:39.940
+any modern digital computer.,00:20:39.940,00:20:42.500
+"It's hard to believe, but
+use this as an example.",00:20:42.500,00:20:46.920
+Let's take the number one third.,00:20:46.920,00:20:49.000
+"One third cannot be expressed
+in decimal exactly.",00:20:49.000,00:20:53.150
+"One third is 0.333 going
+on for infinity.",00:20:53.150,00:20:57.500
+"There's no way to do that with
+absolute accuracy in decimal.",00:20:57.500,00:21:02.270
+"That's exactly the same kind of problem
+that happened in the Patriot.",00:21:02.270,00:21:05.370
+"The longer the system ran, the
+worst the time error became.",00:21:05.370,00:21:09.880
+"&gt;&gt; SPEAKER 1: After 100 hours of operation,
+the error in time was only",00:21:09.880,00:21:13.840
+about one third of a second.,00:21:13.840,00:21:16.140
+"But in terms of targeting a missile
+traveling at mach five, it resulted in",00:21:16.140,00:21:20.800
+a tracking error of over 600 meters.,00:21:20.800,00:21:24.410
+"It would be a fatal error for
+the soldiers at Dhahran.",00:21:24.410,00:21:27.670
+"&gt;&gt; THEODORE POSTOL: What happened is a
+Scud launch was detected by early",00:21:27.670,00:21:33.450
+warning satellites.,00:21:33.450,00:21:34.280
+"And they knew that the Scud was coming
+in their general direction.",00:21:34.280,00:21:38.550
+They didn't know where it was coming.,00:21:38.550,00:21:41.000
+"&gt;&gt; SPEAKER 1: It was now up to the radar
+component of the Patriot system",00:21:41.000,00:21:43.900
+"defending Dhahran to locate and keep
+track of the incoming enemy missile.",00:21:43.900,00:21:48.910
+"&gt;&gt; JACK GANSSLE: The radar
+was very smart.",00:21:48.910,00:21:50.580
+"It would actually track the position of
+the Scud and then predict where it",00:21:50.580,00:21:53.770
+"probably would be the next time
+the radar sent a pulse out.",00:21:53.770,00:21:57.160
+That was called the range gate.,00:21:57.160,00:21:58.870
+"&gt;&gt; THEODORE POSTOL: Then once the Patriot
+decides enough time has passed to go",00:21:58.870,00:22:04.020
+"back and check the next location for
+this detected object, it goes back.",00:22:04.020,00:22:09.420
+"So when it went back to the wrong
+place, it then sees no object.",00:22:09.420,00:22:14.450
+"And it decides that there was no object,
+it was a false detection, and",00:22:14.450,00:22:18.200
+drops the track.,00:22:18.200,00:22:19.680
+"&gt;&gt; SPEAKER 1: The incoming Scud disappeared
+from the radar screen, and",00:22:19.680,00:22:22.970
+"seconds later it slammed
+into the barracks.",00:22:22.970,00:22:26.050
+"The Scud killed 28 and was the last one
+fired during the first Gulf War.",00:22:26.050,00:22:31.950
+"Tragically, the updated software arrived
+at Dhahran the following day.",00:22:31.950,00:22:37.700
+"The software flaw had been fixed,
+closing one chapter in the troubled",00:22:37.700,00:22:41.800
+history of the Patriot missile.,00:22:41.800,00:22:43.690
+"&gt;&gt; Patriot is actually an acronym
+for Phased Array TRacking",00:22:46.780,00:22:50.710
+Intercept Of Target.,00:22:50.710,00:22:51.960
+"&gt;&gt; DAVID J MALAN: All right, so a
+sobering example, to be sure.",00:22:54.650,00:23:00.840
+"And fortunately, these lower level
+bugs are not something that we'll",00:23:00.840,00:23:03.430
+"typically have to appreciate, certainly
+not with some of our",00:23:03.430,00:23:06.220
+earliest of programs.,00:23:06.220,00:23:07.360
+"Rather, most of the bugs you'll
+encounter will be logical in nature,",00:23:07.360,00:23:10.450
+"syntactic in nature whereby the
+code just doesn't work right.",00:23:10.450,00:23:12.900
+And you know it pretty fast.,00:23:12.900,00:23:14.140
+"&gt;&gt; But particularly when we get to the
+end of the semester, it's going to",00:23:14.140,00:23:16.850
+"become more and more of a possibility to
+really think hard about the design",00:23:16.850,00:23:20.620
+"of your programs and the underlying
+representation",00:23:20.620,00:23:22.960
+"there, too, of the data.",00:23:22.960,00:23:24.520
+"For instance, we'll introduce MySQL,
+which is a popular database engine",00:23:24.520,00:23:28.010
+"that you can use with websites to
+store data on the back end.",00:23:28.010,00:23:30.850
+"And you'll have to start to decide at
+the end of the semester not only what",00:23:30.850,00:23:34.630
+"types of data along these lines to use
+but exactly how many bits to use,",00:23:34.630,00:23:38.790
+"whether or not you want to store dates
+as dates and times as times, and also",00:23:38.790,00:23:42.740
+"things like how big do you want the
+unique IDs to be for, say, the users",00:23:42.740,00:23:46.890
+in your database.,00:23:46.890,00:23:47.680
+"&gt;&gt; In fact, if some of you have had
+Facebook accounts for quite some time,",00:23:47.680,00:23:51.210
+"and you know how to get access
+to your User ID--",00:23:51.210,00:23:53.680
+"which sometimes shows up in your
+profile's URL unless you've chosen a",00:23:53.680,00:23:57.930
+"nickname for the URL, or if you've
+used Facebook's Graph API, the",00:23:57.930,00:24:02.070
+"publicly available API by which you
+can ask Facebook for raw data--",00:24:02.070,00:24:05.510
+you can see what your numeric ID is.,00:24:05.510,00:24:07.580
+"And some years ago, Facebook essentially
+had to change from using",00:24:07.580,00:24:10.880
+"the equivalent of ints to using long
+long because over time as users come",00:24:10.880,00:24:15.980
+"and go and create lots of accounts and
+fake accounts, even they very easily",00:24:15.980,00:24:19.780
+"were able to exhaust something like a 4
+billion possible value like an int.",00:24:19.780,00:24:24.630
+"&gt;&gt; So more on those kinds of issues
+down the road, as well.",00:24:24.630,00:24:28.340
+"All right, so that was casting.",00:24:28.340,00:24:30.750
+That was imprecision.,00:24:30.750,00:24:31.670
+A couple of quick announcements.,00:24:31.670,00:24:32.730
+"So sections formally begin this coming
+Sunday, Monday, Tuesday.",00:24:32.730,00:24:35.710
+"You'll hear via email later this week
+as to your section assignment.",00:24:35.710,00:24:39.080
+"And you'll also here at that point how
+to change your section if your",00:24:39.080,00:24:42.570
+"schedule has now changed or your
+comfort level has now changed.",00:24:42.570,00:24:45.660
+"Meanwhile P-set one and hacker one are
+due this Thursday with the option to",00:24:45.660,00:24:49.380
+"extend that deadline per the
+specifications to Friday",00:24:49.380,00:24:52.450
+in a typical way.,00:24:52.450,00:24:53.830
+"&gt;&gt; Realize that included with the problem
+set specifications are instructions on",00:24:53.830,00:24:57.500
+"how to use the CS50 appliance, make,
+as well as some CS50 specific tools",00:24:57.500,00:25:02.770
+"like style 50, which can provide you
+with feedback dynamically on the",00:25:02.770,00:25:06.540
+"quality of your code style and also
+check 50, which can provide you with",00:25:06.540,00:25:10.230
+"dynamic feedback as to your
+code's correctness.",00:25:10.230,00:25:13.160
+"Forgive that we're still ironing
+out a few kinks with check 50.",00:25:13.160,00:25:16.850
+"A few of your classmates who did start
+around four AM on Friday night when",00:25:16.850,00:25:21.490
+"the spec went up have noticed since then
+a few bugs that we are working",00:25:21.490,00:25:25.130
+"through, and apologies for anyone who
+has experienced undue frustrations.",00:25:25.130,00:25:29.010
+The fault is mine.,00:25:29.010,00:25:30.340
+"But we'll follow up on the CS50
+discuss when that is resolved.",00:25:30.340,00:25:34.080
+&gt;&gt; So a word on scores themselves.,00:25:34.080,00:25:35.700
+"So it'll be a week or two before you
+start to get feedback on problem sets",00:25:35.700,00:25:38.990
+"because you don't yet have
+a teaching fellow.",00:25:38.990,00:25:40.640
+"And even then, we will start to evaluate
+the C problem sets before we",00:25:40.640,00:25:44.510
+"go back and evaluate scratch so
+that you get more relevant",00:25:44.510,00:25:46.970
+feedback more quickly.,00:25:46.970,00:25:48.150
+"But in general per the syllabus, CS50
+problem sets are evaluated along the",00:25:48.150,00:25:51.870
+following four axes--,00:25:51.870,00:25:53.580
+"scope, correctness, design, and style.",00:25:53.580,00:25:55.760
+"&gt;&gt; Scope is going to be a number typically
+between zero and five that",00:25:55.760,00:25:59.210
+"captures how much of the
+piece that you bit off.",00:25:59.210,00:26:01.830
+"Typically, you want this to be five.",00:26:01.830,00:26:03.750
+You at least tried everything.,00:26:03.750,00:26:05.300
+"And notice it's a multiplicative factor
+so that doing only part of the",00:26:05.300,00:26:09.330
+problem set is not the best strategy.,00:26:09.330,00:26:12.520
+"&gt;&gt; Meanwhile, more obvious is the
+importance of correctness--",00:26:12.520,00:26:15.610
+"just is your program correct with
+respect to the specification?",00:26:15.610,00:26:18.620
+"This is weighted deliberately more
+heavily than the other two axes by a",00:26:18.620,00:26:21.510
+"factor of three because we recognize
+that typically you're going to spend a",00:26:21.510,00:26:24.450
+"lot more time chasing down some bugs,
+getting your code to work, then you",00:26:24.450,00:26:28.600
+"are indenting it and choosing
+appropriate variable names and the",00:26:28.600,00:26:31.540
+"like, which is on the other end
+of the spectrum of style.",00:26:31.540,00:26:33.800
+"&gt;&gt; That's not to say style is not
+important, and we'll preach it over",00:26:33.800,00:26:36.160
+time both in lectures and in sections.,00:26:36.160,00:26:37.920
+"Style refers to the aesthetics
+of your code.",00:26:37.920,00:26:40.520
+"Have you chosen well-named variables
+that are short but somewhat",00:26:40.520,00:26:43.980
+descriptive?,00:26:43.980,00:26:44.680
+"Is your code indented as you've seen in
+lecture and in a manner consistent",00:26:44.680,00:26:47.840
+with style 50?,00:26:47.840,00:26:49.070
+"&gt;&gt; Lastly is design right
+there in the middle.",00:26:49.070,00:26:51.220
+"Design is the harder one to put a
+finger on because it's much more",00:26:51.220,00:26:54.090
+subjective.,00:26:54.090,00:26:55.000
+"But it's perhaps the most important of
+the three axes in terms of pedagogical",00:26:55.000,00:26:58.610
+"value over time and that this will be
+the teaching fellow's opportunity to",00:26:58.610,00:27:02.050
+provide you with qualitative feedback.,00:27:02.050,00:27:04.110
+"Indeed, in CS50 even though we do have
+these formulas and scores, at the end",00:27:04.110,00:27:08.100
+"of the day these are very deliberately
+very small buckets-- point values",00:27:08.100,00:27:11.350
+"between zero and three
+and zero and five.",00:27:11.350,00:27:13.460
+"We don't try to draw very coarse lines
+between problem sets or between",00:27:13.460,00:27:17.800
+"students but rather focus as much as
+we can on qualitative, longhand",00:27:17.800,00:27:21.490
+"feedback, either typed or verbal from
+your particular teaching fellow,",00:27:21.490,00:27:25.490
+you'll get to know quite well.,00:27:25.490,00:27:27.050
+"&gt;&gt; But in general, those are the weights
+that the various axes will have.",00:27:27.050,00:27:32.340
+"Meanwhile, too, it's worth keeping in
+mind that you should not assume that a",00:27:32.340,00:27:35.480
+"three out of five is a 60% and
+therefore roughly failing.",00:27:35.480,00:27:38.870
+"Three is deliberately meant to be
+sort of middle of the road good.",00:27:38.870,00:27:41.410
+"If you're getting threes at the
+beginning of the semester, that's",00:27:41.410,00:27:43.480
+"indeed meant to be a good
+place to begin.",00:27:43.480,00:27:46.340
+"If you're getting twos, fairs, there's
+definitely some work to pay a little",00:27:46.340,00:27:50.510
+"more attention, to take advantage
+of sections and office hours.",00:27:50.510,00:27:53.250
+"&gt;&gt; If you're getting fours
+and fives, great.",00:27:53.250,00:27:54.590
+"But really, we hope to see trajectories
+among students-- very",00:27:54.590,00:27:57.430
+"individualized per student, but starting
+the semester here in sort of",00:27:57.430,00:28:00.575
+"the two to the three range but ending
+up here in the four to five range.",00:28:00.575,00:28:04.100
+That's what we're really looking for.,00:28:04.100,00:28:05.440
+"And we do keep in mind the delta that
+you exhibit between week zero and week",00:28:05.440,00:28:09.590
+12 when I'm doing grades.,00:28:09.590,00:28:12.170
+"It doesn't matter to us absolutely how
+you fair at the beginning if your",00:28:12.170,00:28:16.380
+"trajectory is indeed
+upward and strong.",00:28:16.380,00:28:19.330
+"&gt;&gt; Academic honesty-- so let me put on my
+more serious voice for just a moment.",00:28:19.330,00:28:24.000
+"So this course has the distinction of
+sending more students than any other",00:28:24.000,00:28:28.510
+"in history to the ad board, I believe.",00:28:28.510,00:28:30.950
+"We have sort of lost count at this
+point of how often this happens.",00:28:30.950,00:28:34.220
+"And that's not because students in 50
+are any more dishonest than their",00:28:34.220,00:28:37.090
+classmates elsewhere.,00:28:37.090,00:28:38.690
+"But realize, too, that we are very good
+at detecting this sort of thing.",00:28:38.690,00:28:42.800
+"&gt;&gt; And that is the advantage that a
+computer science class has in that we",00:28:42.800,00:28:45.920
+"can and we do compare all students
+problem sets pair-wise against every",00:28:45.920,00:28:49.110
+"other, not only this year
+but all prior years.",00:28:49.110,00:28:51.470
+"We have the ability, like students in
+the class, to Google and to find code",00:28:51.470,00:28:55.080
+"on sites like github and
+discussion forums.",00:28:55.080,00:28:57.440
+"There are absolutely solutions to CS50's
+p-sets floating around there.",00:28:57.440,00:29:00.840
+"But if you can find them,
+we can find them.",00:29:00.840,00:29:02.710
+"And all of this is very much automated
+and easy and sad for us to find.",00:29:02.710,00:29:07.130
+"&gt;&gt; But I want to emphasize, too, that the
+course's academic honesty policy is",00:29:07.130,00:29:10.990
+"very much meant to be very much
+the opposite of that spirit.",00:29:10.990,00:29:13.960
+"Indeed, this year we've rephrased things
+in the syllabus to be this, dot",00:29:13.960,00:29:17.506
+"dot dot, with more detail
+in the syllabus.",00:29:17.506,00:29:19.790
+"But the overarching theme in the course
+really is to be reasonable.",00:29:19.790,00:29:22.860
+"We recognize that there is a significant
+amount of pedagogical",00:29:22.860,00:29:26.160
+"value in collaborating, to some extent,
+with classmates, whereby you",00:29:26.160,00:29:30.550
+"two or you three or you more are
+standing at a white board",00:29:30.550,00:29:33.700
+"whiteboarding, so to
+speak, your ideas--",00:29:33.700,00:29:35.670
+"writing out pseudocode in pictures,
+diagramming what should Mario be if",00:29:35.670,00:29:39.480
+"you were to write it first
+in pseudocode.",00:29:39.480,00:29:41.350
+What should the greedy algorithm--,00:29:41.350,00:29:43.240
+"how should it behave per
+problem sets one?",00:29:43.240,00:29:46.100
+"&gt;&gt; And so realize that behavior
+that we encourage is very",00:29:46.100,00:29:50.440
+much along those lines.,00:29:50.440,00:29:51.470
+"And in the syllabus, you'll see a
+whole bunch of bullets under a",00:29:51.470,00:29:53.890
+"reasonable category and a not reasonable
+category that helps us help",00:29:53.890,00:29:57.740
+"you wrap your mind around where
+we do draw that line.",00:29:57.740,00:30:00.740
+"And in general, a decent rule of thumb
+is that if you are struggling to solve",00:30:00.740,00:30:04.340
+"some bug and your friend or classmate
+is sitting next to you, it is",00:30:04.340,00:30:07.990
+"reasonable for you to show him or her
+your code and say, hey, can you help",00:30:07.990,00:30:11.530
+me figure out what's going wrong here?,00:30:11.530,00:30:13.700
+"&gt;&gt; We don't typically embrace
+the opposite side.",00:30:13.700,00:30:17.110
+"It is not a correct response for your
+friend or classmate here to say, oh,",00:30:17.110,00:30:20.730
+"just look at mine and figure
+it out from that.",00:30:20.730,00:30:22.510
+That is sort of unreasonable.,00:30:22.510,00:30:24.400
+"But having someone else, another brain,
+another pair of eyes look at",00:30:24.400,00:30:27.750
+"your screen or look at your code
+and say, are you sure you want",00:30:27.750,00:30:31.620
+to have a loop here?,00:30:31.620,00:30:32.760
+"Or are you sure you want
+that semicolon here?",00:30:32.760,00:30:34.800
+"Or oh, that error message means this.",00:30:34.800,00:30:37.090
+"Those are very reasonable and
+encouraged behaviors.",00:30:37.090,00:30:39.580
+"&gt;&gt; The cases to which I was alluding to
+earlier boil down to when students are",00:30:39.580,00:30:44.010
+"late at night making poor judgment
+decisions and emailing their code to",00:30:44.010,00:30:47.350
+"someone else or just saying,
+here, it's in Dropbox or",00:30:47.350,00:30:50.130
+Googling late at night.,00:30:50.130,00:30:51.610
+"And so I would encourage and beg of you,
+if you do have those inevitable",00:30:51.610,00:30:54.880
+"moments of stress, you're bumping up
+against the deadline, you have no late",00:30:54.880,00:30:58.450
+"day since it's already Friday at that
+point, email the course's heads or",00:30:58.450,00:31:01.490
+myself directly.,00:31:01.490,00:31:02.330
+"Say, listen, I'm at my
+breaking point here.",00:31:02.330,00:31:04.790
+"Let's have a conversation
+and figure it out.",00:31:04.790,00:31:06.660
+"Resorting to the web or some other not
+reasonable behavior is never the",00:31:06.660,00:31:10.400
+"solution, and too many of your
+classmates are no longer here on",00:31:10.400,00:31:13.070
+campus because of that poor judgment.,00:31:13.070,00:31:15.150
+But it's very easy to skirt that line.,00:31:15.150,00:31:17.840
+"&gt;&gt; And here is a little picture to cheer
+you up from Reddit so that now",00:31:17.840,00:31:22.950
+everything will be OK.,00:31:22.950,00:31:25.720
+"&gt;&gt; So a quick recap, then,
+of where we left off.",00:31:25.720,00:31:30.210
+"So last week, recall that we introduce
+conditions, not in Scratch",00:31:30.210,00:31:33.690
+but in C this time.,00:31:33.690,00:31:34.880
+"And there was some new syntax but
+really no new ideas per se.",00:31:34.880,00:31:38.300
+"We had Boolean expressions that we could
+or together with two vertical",00:31:38.300,00:31:42.630
+"bars or and together with two
+ampersands, saying that both the left",00:31:42.630,00:31:46.490
+"and the right must be true
+for this to execute.",00:31:46.490,00:31:49.990
+"Then we had switches, which we looked
+at briefly, but I propose are really",00:31:49.990,00:31:53.150
+"just different syntax for achieving the
+same kind of goal if you know in",00:31:53.150,00:31:56.830
+"advance what your cases
+are going to be.",00:31:56.830,00:31:59.270
+&gt;&gt; We looked at loops.,00:31:59.270,00:32:00.160
+"A for loop is maybe the most common,
+or at least the one that people",00:32:00.160,00:32:03.340
+typically reach for instinctively.,00:32:03.340,00:32:05.330
+"Even though it looks a little cryptic,
+you'll see many, many examples of this",00:32:05.330,00:32:08.240
+"before long, as you have
+already late last week.",00:32:08.240,00:32:11.590
+"While loops can similarly
+achieve the same thing.",00:32:11.590,00:32:14.280
+"But if you want to do any incrementation
+or updating of",00:32:14.280,00:32:17.550
+"variable's values, you have to
+do it more manually than the",00:32:17.550,00:32:20.230
+for loop before allows.,00:32:20.230,00:32:22.440
+"And then there's the do-while loop,
+which allows us to do something at",00:32:22.440,00:32:25.310
+"least once while something
+else is true.",00:32:25.310,00:32:28.460
+"And this is particularly good for
+programs or for games where you want",00:32:28.460,00:32:31.550
+"to prompt the user for something
+at least once.",00:32:31.550,00:32:33.810
+"And then if he or she doesn't cooperate,
+you might want to do it",00:32:33.810,00:32:37.110
+again and again.,00:32:37.110,00:32:38.420
+"&gt;&gt; With variables, meanwhile, we had lines
+of code like this, which could",00:32:38.420,00:32:41.270
+be two lines.,00:32:41.270,00:32:41.950
+"You could declare an int called
+counter, semicolon.",00:32:41.950,00:32:44.830
+"Or you can just declare and
+define it, so to speak.",00:32:44.830,00:32:47.660
+Give it a value at the same time.,00:32:47.660,00:32:49.950
+"&gt;&gt; And then lastly, we talked
+about functions.",00:32:49.950,00:32:51.890
+"And this was a nice example in
+the sense that it illustrates",00:32:51.890,00:32:54.270
+two types of functions.,00:32:54.270,00:32:55.840
+"One is GetString(), which, again,
+gets a string from the user.",00:32:55.840,00:32:59.030
+"But GetString() is kind of interesting,
+so far as we've used it,",00:32:59.030,00:33:02.040
+"because we've always used it with
+something on the left-hand side of an",00:33:02.040,00:33:05.620
+equal sign.,00:33:05.620,00:33:06.600
+"That is to say that GetString()
+returns a value.",00:33:06.600,00:33:09.830
+"It returns, of course, a string.",00:33:09.830,00:33:11.970
+"And then on the left-hand side, we're
+simply saving that string inside of a",00:33:11.970,00:33:15.130
+variable called name.,00:33:15.130,00:33:16.580
+"&gt;&gt; This is different, in a sense, from
+printf because printf, at least in our",00:33:16.580,00:33:21.100
+"usage here, does not return anything.",00:33:21.100,00:33:23.540
+"As an aside, it does return something.",00:33:23.540,00:33:24.960
+We just don't care what it is.,00:33:24.960,00:33:26.380
+"But it does have what's
+called a side effect.",00:33:26.380,00:33:29.090
+"And what is that side effect in every
+case we've seen thus far?",00:33:29.090,00:33:31.840
+What does printf do?,00:33:31.840,00:33:34.720
+"It prints something to the screen,
+displays text or numbers or something",00:33:34.720,00:33:37.780
+on the screen.,00:33:37.780,00:33:38.380
+"And that's just considered a side effect
+because it's not really handing",00:33:38.380,00:33:41.170
+it back to me.,00:33:41.170,00:33:41.900
+"It's not an answer inside of
+a black box that I can then",00:33:41.900,00:33:44.770
+reach into and grab.,00:33:44.770,00:33:46.130
+"It's just doing it on its own, much
+like Colton was plugged into this",00:33:46.130,00:33:49.160
+"black box last week, and he somehow
+magically was drawing on the board",00:33:49.160,00:33:52.560
+without me actually involved.,00:33:52.560,00:33:54.500
+That would be a side effect.,00:33:54.500,00:33:55.560
+"But if I actually had to reach back in
+here and say, oh, here is the string",00:33:55.560,00:33:59.100
+"from the user, that would
+be a return value.",00:33:59.100,00:34:02.040
+"&gt;&gt; And thus far we've only used functions
+that other people have written.",00:34:02.040,00:34:05.650
+"But we can actually do these
+kinds of things ourselves.",00:34:05.650,00:34:09.219
+"So I'm going to go into the
+CS50 appliance again.",00:34:09.219,00:34:12.730
+"Let me close the tab that we
+had open a moment ago.",00:34:12.730,00:34:16.020
+"And let me go ahead and
+create a new file.",00:34:16.020,00:34:18.530
+"And I'm going to go ahead and
+call this one positive.c.",00:34:18.530,00:34:22.400
+"So I want to do something with
+positive numbers here.",00:34:22.400,00:34:24.770
+So I'm going to go ahead and do int--,00:34:24.770,00:34:27.219
+sorry--,00:34:27.219,00:34:28.000
+#include .,00:34:28.000,00:34:31.840
+"Let's not make that same
+mistake as before.",00:34:31.840,00:34:34.280
+"Int main (void), open curly
+brace, closed curly brace.",00:34:34.280,00:34:40.020
+&gt;&gt; And now I want to do the following.,00:34:40.020,00:34:41.639
+"I want to write a program that
+insists that the user gives",00:34:41.639,00:34:44.600
+me a positive integer.,00:34:44.600,00:34:46.770
+"So there is no GetPositiveInt function
+in the CS50 library.",00:34:46.770,00:34:50.969
+There's only GetInt().,00:34:50.969,00:34:52.610
+"But that's OK because I have the
+constructs with which I can impose a",00:34:52.610,00:34:55.790
+little more constraint on that value.,00:34:55.790,00:34:59.360
+I could do something like this.,00:34:59.360,00:35:00.990
+&gt;&gt; So int n--,00:35:00.990,00:35:02.780
+"and if you're typing along, just realize
+I'm going to go back and",00:35:02.780,00:35:04.920
+change some things in a moment--,00:35:04.920,00:35:06.430
+so int n equals GetInt().,00:35:06.430,00:35:09.960
+"And that's going to put
+an int inside of n.",00:35:09.960,00:35:11.780
+And let me be a more descriptive.,00:35:11.780,00:35:13.830
+"Let me say something like I demand that
+you give me a positive integer.",00:35:13.830,00:35:23.270
+&gt;&gt; All right.,00:35:23.270,00:35:23.550
+So just a little bit of instructions.,00:35:23.550,00:35:25.250
+And now what can I do?,00:35:25.250,00:35:26.270
+"Well, I already know from my simple
+conditions or branches, just like I",00:35:26.270,00:35:29.840
+"had in Scratch, I could say something
+like if n is less than or equal to",00:35:29.840,00:35:36.100
+"zero, then I want to do something
+like, that is not positive.",00:35:36.100,00:35:44.460
+And then I could do--,00:35:44.460,00:35:45.560
+"OK, but I really want to get that int.",00:35:45.560,00:35:47.310
+"So I could go up here and I could kind
+of copy this and indent this.",00:35:47.310,00:35:52.020
+"And then, OK.",00:35:52.020,00:35:52.570
+"So if n is less than or
+equal to zero do this.",00:35:52.570,00:35:56.990
+"&gt;&gt; Now, what if the user
+doesn't cooperate?",00:35:56.990,00:35:58.900
+"Well, then I'm going to
+borrow this here.",00:35:58.900,00:36:01.560
+"And then I go in here
+and here and here.",00:36:01.560,00:36:03.130
+"So this is clearly not
+the solution, right?",00:36:03.130,00:36:06.420
+Because there's no end in sight.,00:36:06.420,00:36:07.810
+"If I want to demand that the user gives
+me a positive integer, I can",00:36:07.810,00:36:13.100
+actually get the int.,00:36:13.100,00:36:14.150
+I can then check for that int.,00:36:14.150,00:36:15.620
+"But then I want to check it again and
+check it again and check it again.",00:36:15.620,00:36:18.570
+"So obviously, what's the better
+construct to be using here?",00:36:18.570,00:36:21.680
+"All right, so some kind of loop.",00:36:21.680,00:36:22.840
+"&gt;&gt; So I'm going to get rid
+of almost all of this.",00:36:22.840,00:36:25.430
+"And I want to get this
+int at least once.",00:36:25.430,00:36:27.320
+So I'm going to say do--,00:36:27.320,00:36:28.890
+"and I'll come back to the
+while in just a moment--",00:36:28.890,00:36:32.110
+"now, do what?",00:36:32.110,00:36:33.050
+I'm going to do int n gets GetInt().,00:36:33.050,00:36:35.860
+OK.,00:36:35.860,00:36:36.080
+So that's pretty good.,00:36:36.080,00:36:37.250
+"And now how often do
+I want to do this?",00:36:37.250,00:36:39.750
+"&gt;&gt; Let me put the printf inside of the loop
+so I can demand again and again,",00:36:39.750,00:36:45.770
+if need be.,00:36:45.770,00:36:46.740
+"And what do I want this
+while condition to do?",00:36:46.740,00:36:49.720
+"I want to keep doing this
+while what is the case?",00:36:49.720,00:36:53.870
+Yeah.,00:36:53.870,00:36:54.125
+N is less than or equal to zero.,00:36:54.125,00:36:55.390
+"So already, we've significantly
+cleaned this code up.",00:36:55.390,00:36:58.180
+"We've borrowed a very simple construct--
+the do-while loop.",00:36:58.180,00:37:00.700
+"I've stolen just the important lines
+of code that I started copying and",00:37:00.700,00:37:04.690
+"pasting, which was not wise.",00:37:04.690,00:37:05.960
+"And so now I'm going to actually paste
+it in here and just do it once.",00:37:05.960,00:37:09.790
+"&gt;&gt; And now what do I want to do at
+the very end of this program?",00:37:09.790,00:37:12.990
+"I'll just say something simple
+like, thanks for the-- and",00:37:12.990,00:37:16.810
+I'll do %i for int--,00:37:16.810,00:37:18.980
+"backslash n, comma, and then
+plug in n, semicolon.",00:37:18.980,00:37:23.270
+&gt;&gt; All right.,00:37:23.270,00:37:23.910
+"So let's see what happens now
+when I run this program.",00:37:23.910,00:37:27.290
+"I'm going to go ahead and
+do make positive.",00:37:27.290,00:37:30.600
+Damn.,00:37:30.600,00:37:30.880
+A few errors.,00:37:30.880,00:37:31.600
+So let me scroll back up to the first.,00:37:31.600,00:37:32.960
+Don't work through them backwards.,00:37:32.960,00:37:34.020
+"Work through them from top down
+lest they cascade and only",00:37:34.020,00:37:37.000
+one thing be wrong.,00:37:37.000,00:37:38.630
+"Implicit declaration of
+function GetInt().",00:37:38.630,00:37:42.532
+Yeah.,00:37:42.532,00:37:43.020
+So it wasn't enough.,00:37:43.020,00:37:44.420
+"I kind of made the same mistake but
+a little different this time.",00:37:44.420,00:37:46.760
+"I need to not only include stdio.h but
+also cs50.h, which includes the",00:37:46.760,00:37:51.940
+"so-called declarations of get int, which
+teach the appliance, or teaches",00:37:51.940,00:37:56.770
+C what GetInt() is.,00:37:56.770,00:37:58.760
+&gt;&gt; So let me resave.,00:37:58.760,00:37:59.550
+"I'm going to ignore the other errors
+because I'm going to hope that they're",00:37:59.550,00:38:02.040
+"somehow related to the error
+I already fixed.",00:38:02.040,00:38:05.210
+"So let me go ahead and recompile
+with make positive, Enter.",00:38:05.210,00:38:08.710
+Damn.,00:38:08.710,00:38:09.020
+"Three errors, still.",00:38:09.020,00:38:09.985
+Let me scroll up to the first.,00:38:09.985,00:38:12.650
+Unused variable n.,00:38:12.650,00:38:14.320
+We've not seen this before.,00:38:14.320,00:38:15.850
+"And this, too, is a little cryptic.",00:38:15.850,00:38:17.200
+This is the output of the compiler.,00:38:17.200,00:38:18.850
+"And what that highlighted line
+there-- positive.c:9:13--",00:38:18.850,00:38:23.610
+"is saying, it's saying on line nine of
+positive.c, at the 13th character,",00:38:23.610,00:38:28.960
+"13th column, you made this mistake.",00:38:28.960,00:38:31.510
+"&gt;&gt; And in particular, it's telling
+me unused variable n.",00:38:31.510,00:38:34.230
+So let's see--,00:38:34.230,00:38:35.790
+line nine.,00:38:35.790,00:38:37.150
+"I'm using n in the sense that
+I'm giving it a value.",00:38:37.150,00:38:40.430
+"But what the compiler doesn't like is
+that I'm not seemingly using it.",00:38:40.430,00:38:44.200
+"But wait a minute, I am using it.",00:38:44.200,00:38:45.560
+"In line 11, I'm using it here.",00:38:45.560,00:38:48.170
+"But if I scroll down further
+at positive.c:11--",00:38:48.170,00:38:52.430
+"so at line 11, character 12, the
+compiler's telling me, use of",00:38:52.430,00:38:56.230
+undeclared identifier n.,00:38:56.230,00:38:58.670
+"&gt;&gt; So undeclared means I have
+not specified it as a",00:38:58.670,00:39:02.760
+variable with a data type.,00:39:02.760,00:39:04.970
+But wait a minute.,00:39:04.970,00:39:05.500
+I did exactly that in line nine.,00:39:05.500,00:39:09.150
+So someone is really confused here.,00:39:09.150,00:39:11.100
+"It's either me or the compiler because
+in line nine, again, I'm declaring an",00:39:11.100,00:39:14.900
+"int n, and I'm assigning it the
+return value of GetInt().",00:39:14.900,00:39:18.650
+"Then I'm using that variable n in line
+11 and checking if its value is less",00:39:18.650,00:39:22.930
+than or equal to zero.,00:39:22.930,00:39:24.050
+"But this apparently is
+bad and broken why?",00:39:24.050,00:39:27.430
+Say it again?,00:39:30.630,00:39:32.490
+"&gt;&gt; Ah, I have to declare n before
+entering the loop.",00:39:32.490,00:39:35.690
+But why?,00:39:35.690,00:39:36.370
+"I mean, we just proposed a bit ago that
+it's fine to declare variables",00:39:36.370,00:39:39.830
+"all on one line and then
+assign them some value.",00:39:39.830,00:39:43.600
+"A global variable-- let's come back
+to that idea in just a moment.",00:39:43.600,00:39:46.790
+"Why do you want me to put
+it outside of the loop?",00:39:46.790,00:39:48.690
+It is.,00:40:03.170,00:40:03.830
+Exactly.,00:40:03.830,00:40:06.780
+"&gt;&gt; So, albeit, somewhat counterintuitive,
+let me summarize.",00:40:06.780,00:40:09.610
+"When you declare n inside
+of the do block there--",00:40:09.610,00:40:13.510
+"specifically inside of
+those curly braces--",00:40:13.510,00:40:16.320
+"that variable n has what's
+called a scope--",00:40:16.320,00:40:19.210
+"unrelated to our scoring system in the
+course-- but has a scope that's",00:40:19.210,00:40:23.210
+limited to those curly braces.,00:40:23.210,00:40:25.190
+"In other words, typically if you declare
+a variable inside a set of",00:40:25.190,00:40:28.460
+"curly braces, that variable only exists
+inside of those curly braces.",00:40:28.460,00:40:33.370
+"So by that logic alone, even though
+I've declared n in line nine, it",00:40:33.370,00:40:37.320
+"essentially disappears from scope,
+disappears from memory, so to speak,",00:40:37.320,00:40:41.910
+by the time I hit line 11.,00:40:41.910,00:40:43.370
+"Because line 11, unfortunately, is
+outside of those curly braces.",00:40:43.370,00:40:47.370
+"&gt;&gt; So I unfortunately can't fix this by
+going back to what I did it before.",00:40:47.370,00:40:51.540
+You might at first do this.,00:40:51.540,00:40:53.370
+"But what are you now not
+doing cyclically?",00:40:53.370,00:40:56.370
+"You're obviously not getting
+the int cyclically.",00:40:56.370,00:40:58.260
+"So we can leave the GetInt(), and we
+should leave the GetInt() inside the",00:40:58.260,00:41:01.320
+"loop because that's what we want to
+pester the user for again and again.",00:41:01.320,00:41:04.420
+"But it does suffice to go
+up to line, say, six.",00:41:04.420,00:41:08.660
+"Int n, semicolon.",00:41:08.660,00:41:10.150
+"Don't give it a value yet because
+you don't need to just yet.",00:41:10.150,00:41:12.990
+"&gt;&gt; But now down here, notice-- this
+would be a very easy mistake.",00:41:12.990,00:41:16.220
+"I don't want to shadow my previous
+declaration of n.",00:41:16.220,00:41:19.440
+"I want to use the n that
+actually exists.",00:41:19.440,00:41:22.830
+"And so now in line 10,
+I assign n a value.",00:41:22.830,00:41:25.780
+"But in line six, I declare n.",00:41:25.780,00:41:28.580
+"And so can I or can I not
+use it in line 12 now?",00:41:28.580,00:41:32.940
+"I can because between which curly
+braces is n declared now?",00:41:32.940,00:41:37.120
+The one up here on line five.,00:41:37.120,00:41:38.770
+To one here on line 14.,00:41:38.770,00:41:40.330
+"So if I now zoom out, save this file, go
+back into and run make positive, it",00:41:40.330,00:41:49.770
+compiled this time.,00:41:49.770,00:41:50.820
+So that's already progress.,00:41:50.820,00:41:51.940
+"Slash. ./positive, Enter.",00:41:51.940,00:41:53.640
+"&gt;&gt; I demand that you give me
+a positive integer.",00:41:53.640,00:41:56.060
+Negative 1.,00:41:56.060,00:41:57.750
+Negative 2.,00:41:57.750,00:41:59.020
+Negative 3.,00:41:59.020,00:42:00.680
+Zero.,00:42:00.680,00:42:01.760
+One.,00:42:01.760,00:42:03.000
+"And thanks for the one is
+what's now printed.",00:42:03.000,00:42:05.130
+"&gt;&gt; Let me try something else,
+out of curiosity.",00:42:05.130,00:42:07.400
+I'm being told to input an integer.,00:42:07.400,00:42:09.600
+But what if I instead type in lamb?,00:42:09.600,00:42:12.870
+So you now see a different prompt--,00:42:12.870,00:42:14.460
+retry.,00:42:14.460,00:42:15.350
+"But nowhere in my code
+did I write retry.",00:42:15.350,00:42:17.670
+"So where, presumably, is this retry
+prompt coming from, would you say?",00:42:17.670,00:42:22.320
+"Yeah, from GetInt() itself.",00:42:22.320,00:42:23.540
+"So one of the things CS50's staff does
+for you, at least in these first few",00:42:23.540,00:42:26.650
+"weeks, is we have written some amount
+of error checking to ensure that if",00:42:26.650,00:42:30.400
+"you call GetInt(), you will at least
+get back an int from the user.",00:42:30.400,00:42:34.260
+You won't get a string.,00:42:34.260,00:42:35.460
+You won't get a char.,00:42:35.460,00:42:36.440
+"You won't get something
+else altogether.",00:42:36.440,00:42:39.660
+You'll get an int.,00:42:39.660,00:42:40.510
+"&gt;&gt; Now, it might not be positive.",00:42:40.510,00:42:41.890
+It might not be negative.,00:42:41.890,00:42:42.770
+We make no guarantees around that.,00:42:42.770,00:42:44.550
+"But we will pester the user to retry,
+retry, retry until he or she actually",00:42:44.550,00:42:48.960
+cooperates.,00:42:48.960,00:42:49.810
+"Similarly, if I do 1.23,
+that is not an int.",00:42:49.810,00:42:53.085
+"But if I do type in, say, 50, that
+gives me a value that I wanted.",00:42:53.085,00:42:58.400
+&gt;&gt; All right.,00:42:58.400,00:42:59.050
+So not bad.,00:42:59.050,00:43:01.380
+Any questions on what we've just done?,00:43:01.380,00:43:04.780
+"The key takeaway being, to be clear, not
+so much the loop, which we've seen",00:43:04.780,00:43:07.930
+"before even though we haven't really
+used it, but the issue of scope, where",00:43:07.930,00:43:10.880
+"variables can only be can only be used
+within some specified scope.",00:43:10.880,00:43:17.045
+"&gt;&gt; All right, let me address the suggestion
+you made earlier, that of a",00:43:17.045,00:43:19.830
+global variable.,00:43:19.830,00:43:20.860
+"As an aside, it turns out that another
+solution to this problem, but",00:43:20.860,00:43:24.880
+"typically an incorrect solution or
+a poorly designed solution, is to",00:43:24.880,00:43:28.880
+"declare your variable as what's
+called a global variable.",00:43:28.880,00:43:31.670
+"Now I'm kind of violating my definition
+of scope because there are",00:43:31.670,00:43:34.610
+"no curly braces at the very top
+and the very bottom of a file.",00:43:34.610,00:43:37.680
+"But the implication of that
+is that now in line four,",00:43:37.680,00:43:40.190
+n is a global variable.,00:43:40.190,00:43:41.710
+"And as the name implies, it's
+just accessible everywhere.",00:43:41.710,00:43:44.460
+&gt;&gt; Scratch actually has these.,00:43:44.460,00:43:45.790
+"If you used a variable, you might recall
+you had to choose if it's for",00:43:45.790,00:43:48.650
+this sprite or for all sprites.,00:43:48.650,00:43:50.780
+"Well, all sprites is just the clearer
+way of saying global.",00:43:50.780,00:43:54.270
+Yeah?,00:43:54.270,00:43:55.520
+"Ah, really good question.",00:44:09.690,00:44:10.990
+"&gt;&gt; So recall that in the very first version
+of my code, when I incorrectly",00:44:10.990,00:44:14.310
+declared and defined n in line nine--,00:44:14.310,00:44:17.700
+"I declared it as a variable
+and I gave it a value with",00:44:17.700,00:44:19.980
+the assignment operator--,00:44:19.980,00:44:21.160
+this gave me two errors.,00:44:21.160,00:44:22.520
+"One, the fact that n wasn't used,
+and two, that in line 11",00:44:22.520,00:44:26.560
+it just wasn't declared.,00:44:26.560,00:44:27.770
+"So the first one I didn't
+address at the time.",00:44:27.770,00:44:31.120
+"It is not strictly an error to declare
+a variable but not use it.",00:44:31.120,00:44:35.130
+"But one of the things we've done in
+the CS50 appliance, deliberately,",00:44:35.130,00:44:38.540
+"pedagogically, is we've cranked up the
+expectations of the compiler to make",00:44:38.540,00:44:43.340
+"sure that you're doing things not just
+correctly but really correctly.",00:44:43.340,00:44:46.970
+"&gt;&gt; Because if you're declaring a variable
+like n and never using it, or using it",00:44:46.970,00:44:51.520
+"correctly, then what
+is it doing there?",00:44:51.520,00:44:53.700
+It truly serves no purpose.,00:44:53.700,00:44:55.650
+"And it's very easy over time, if you
+don't configure your own computer in",00:44:55.650,00:44:58.980
+"this way, to just have code that has
+little remnants here, remnants there.",00:44:58.980,00:45:01.960
+"And then months later you look back and
+you're like, why is this line of",00:45:01.960,00:45:04.390
+code there?,00:45:04.390,00:45:05.060
+"And if there's no good reason, it
+doesn't benefit you or your colleagues",00:45:05.060,00:45:07.940
+"down the road to have to
+stumble over it then.",00:45:07.940,00:45:10.650
+"&gt;&gt; As an aside, where is
+that coming from?",00:45:10.650,00:45:12.540
+"Well, recall that every time we compile
+program, all of this stuff is",00:45:12.540,00:45:16.410
+being printed.,00:45:16.410,00:45:17.380
+So we'll come back to this.,00:45:17.380,00:45:18.350
+"But again, make is a utility that
+automates the process of compiling by",00:45:18.350,00:45:22.230
+"running the actual compiler
+called clang.",00:45:22.230,00:45:24.830
+"This thing, we'll eventually see, has
+to do with debugging with a special",00:45:24.830,00:45:27.650
+program called the debugger.,00:45:27.650,00:45:29.060
+"This has to do with optimizing the
+code-- more on that in future.",00:45:29.060,00:45:32.150
+Std=c99--,00:45:32.150,00:45:33.620
+"this just means use the 1999 version of
+C. C's been around even longer than",00:45:33.620,00:45:37.870
+"that, but they made some nice
+changes 10 plus years ago.",00:45:37.870,00:45:40.830
+&gt;&gt; And here's the relevant ones.,00:45:40.830,00:45:42.690
+"We are saying make anything that
+previously would have been a warning",00:45:42.690,00:45:45.880
+"an error preventing the student
+from compiling.",00:45:45.880,00:45:48.560
+"And wall means do that for a
+whole bunch of things, not",00:45:48.560,00:45:51.400
+just related to variables.,00:45:51.400,00:45:53.060
+"And then let me scroll to
+the end of this line.",00:45:53.060,00:45:54.700
+"And this, too, we'll eventually
+come back to.",00:45:54.700,00:45:56.430
+"This is obviously the name of
+the file I'm compiling.",00:45:56.430,00:45:59.040
+"This recalls the name of the file
+I'm outputting as the name",00:45:59.040,00:46:02.160
+of my runnable program.,00:46:02.160,00:46:04.070
+"This -lcs50 just means use the CS50
+library, and any zeros and ones that",00:46:04.070,00:46:08.970
+"the staff wrote and compiled earlier
+this year, integrate",00:46:08.970,00:46:12.390
+them into my program.,00:46:12.390,00:46:13.490
+&gt;&gt; And anyone know what -lm is?,00:46:13.490,00:46:16.130
+"It's the math library, which is
+just there even if you're",00:46:16.130,00:46:18.150
+not doing any math.,00:46:18.150,00:46:19.320
+"It's just automatically provided
+to us by make.",00:46:19.320,00:46:22.620
+"&gt;&gt; Well, let me do one other example
+here by opening up a new file.",00:46:22.620,00:46:26.540
+And let me save this one as string.c.,00:46:26.540,00:46:30.560
+"It turns out that as we talk about data
+types today, there's even more",00:46:30.560,00:46:37.980
+"going on underneath the hood
+than we've seen thus far.",00:46:37.980,00:46:40.630
+So let me quickly do a quick program.,00:46:40.630,00:46:42.290
+Include stdio.h.,00:46:42.290,00:46:44.510
+And I'll save that.,00:46:44.510,00:46:45.730
+"And you know, let me not make the
+same mistake again and again.",00:46:45.730,00:46:48.110
+Include cs50.h.,00:46:48.110,00:46:50.540
+"And let me go ahead now
+and do int main(void).",00:46:50.540,00:46:54.870
+"&gt;&gt; And now I simply want to do a program
+that does this-- declare a string",00:46:54.870,00:46:58.790
+"called s and get a string
+from the user.",00:46:58.790,00:47:03.610
+"And let me do a little
+instructions here--",00:47:03.610,00:47:05.820
+"please give me a string-- so
+the user knows what to do.",00:47:05.820,00:47:09.960
+"And then down here below this,
+I want to do the following--",00:47:09.960,00:47:13.190
+for int i gets zero.,00:47:13.190,00:47:16.060
+"Again, computer scientists typically
+start counting at zero, but we could",00:47:16.060,00:47:18.580
+make that one if we really wanted.,00:47:18.580,00:47:20.340
+"Now I'm going to do i is less
+than the string length of s.",00:47:20.340,00:47:27.240
+So strlen--,00:47:27.240,00:47:28.430
+S-T-R-L-E-N--,00:47:28.430,00:47:29.510
+"again, it's concise because it's easier
+to type, even though it's a",00:47:29.510,00:47:31.650
+little cryptic.,00:47:31.650,00:47:32.590
+"&gt;&gt; That is a function we've not used
+before but literally does that--",00:47:32.590,00:47:35.290
+"return to me a number that represents
+the length of the string",00:47:35.290,00:47:37.810
+that the user typed.,00:47:37.810,00:47:38.690
+"If they typed in hello, it would return
+five because there's five",00:47:38.690,00:47:41.740
+letters in hello.,00:47:41.740,00:47:42.890
+"Then, on each iteration of
+this loop, i plus plus.",00:47:42.890,00:47:45.390
+"So again, a standard construct even if
+you're not quite too comfortable or",00:47:45.390,00:47:49.170
+familiar with it yet.,00:47:49.170,00:47:50.420
+"&gt;&gt; But now on each iteration of this loop,
+notice what I'm going to do.",00:47:50.420,00:47:53.220
+"I want to go ahead and print
+out a single character--",00:47:53.220,00:47:56.690
+so %c backslash n on a new line.,00:47:56.690,00:47:59.940
+"And then, you know what I want to do?",00:47:59.940,00:48:00.990
+"Whatever the word is that the user types
+in, like hello, I want to print",00:48:00.990,00:48:05.090
+"H-E-L-L-O, one character per line.",00:48:05.090,00:48:09.530
+"In other words, I want to get at the
+individual characters in a string,",00:48:09.530,00:48:13.080
+"whereby up until now a string has just
+been a sequence of characters.",00:48:13.080,00:48:16.770
+"&gt;&gt; And it turns out I can do s, bracket,
+i, close bracket, close",00:48:16.770,00:48:21.690
+"parenthesis, semicolon.",00:48:21.690,00:48:23.580
+And I do have to do one more thing.,00:48:23.580,00:48:25.640
+"It's in a file called string.h
+that strlen is declared.",00:48:25.640,00:48:30.570
+"So if I want to use that function,
+I need to tell the compiler,",00:48:30.570,00:48:33.190
+expect to use it.,00:48:33.190,00:48:34.450
+"Now let me go ahead and make
+the program called string.",00:48:34.450,00:48:37.040
+"Dot, slash, string.",00:48:37.040,00:48:39.150
+&gt;&gt; Please give me a string.,00:48:39.150,00:48:40.130
+I'll go ahead and type it.,00:48:40.130,00:48:40.900
+"Hello, in all caps, Enter.",00:48:40.900,00:48:43.040
+"And now notice I've printed this
+one character after the other.",00:48:43.040,00:48:47.390
+"So the new detail here is that a string,
+at the end of the day, can be",00:48:47.390,00:48:51.450
+"accessed by way of its individual
+characters by introducing the square",00:48:51.450,00:48:54.810
+bracket notation.,00:48:54.810,00:48:55.840
+"And that's because a string underneath
+the hood is indeed a sequence of",00:48:55.840,00:48:59.090
+characters.,00:48:59.090,00:48:59.810
+"But what's neat about them is
+in your computer's RAM--",00:48:59.810,00:49:02.010
+"Mac, PC, whatever it is-- they're
+literally back to back to back--",00:49:02.010,00:49:05.300
+H-E-L-L-O--,00:49:05.300,00:49:06.225
+"at individual, adjacent
+bytes in memory.",00:49:06.225,00:49:09.920
+"&gt;&gt; So if you want to get at the eighth such
+byte, which in this loop would be",00:49:09.920,00:49:13.210
+"bracket zero, bracket one, bracket two,
+bracket three, bracket four--",00:49:13.210,00:49:16.900
+that's zero indexed up until five--,00:49:16.900,00:49:18.890
+"that will print out H-E-L-L-O
+on its own line.",00:49:18.890,00:49:23.330
+"&gt;&gt; Now, as a teaser, let me show you the
+sorts of things you'll eventually be",00:49:23.330,00:49:26.320
+"able to understand, at least
+with some close looking.",00:49:26.320,00:49:31.950
+"For one, what we included in today's
+examples, if you'd like, is actually",00:49:31.950,00:49:35.610
+"one of the very first jailbreaks
+for the iPhone.",00:49:35.610,00:49:38.300
+"Jailbreaking means cracking the phone
+so you can actually use it on a",00:49:38.300,00:49:40.800
+"different carrier or install
+your own software.",00:49:40.800,00:49:43.380
+"And you'll notice this looks completely
+cryptic, most likely.",00:49:43.380,00:49:45.660
+But look at this.,00:49:45.660,00:49:46.520
+"The iPhone was apparently cracked with
+a for loop, an if condition, an else",00:49:46.520,00:49:50.420
+"condition, a bunch of functions
+we've not seen.",00:49:50.420,00:49:52.580
+"&gt;&gt; And again, you won't at
+first glance probably",00:49:52.580,00:49:54.230
+understand how this is working.,00:49:54.230,00:49:55.620
+"But everything that we sort of take
+for granted in our modern lives",00:49:55.620,00:49:58.940
+"actually tends to reduce even to some
+of these fundamentals we've been",00:49:58.940,00:50:02.040
+looking at.,00:50:02.040,00:50:02.820
+"Let me go ahead and open one
+other program, holloway.c.",00:50:02.820,00:50:06.680
+"So this, too, is something you
+shouldn't really know.",00:50:06.680,00:50:08.970
+"Even none of the staff or I could
+probably figure this out by looking at",00:50:08.970,00:50:12.440
+"it because this was someone's code
+that was submitted to what's",00:50:12.440,00:50:15.450
+"historically known as an obfuscated C
+contest, where you write a program",00:50:15.450,00:50:19.630
+"that compiles and runs but is so damn
+cryptic no human can understand what",00:50:19.630,00:50:24.670
+"it's going to do until
+they actually run it.",00:50:24.670,00:50:27.530
+"&gt;&gt; So indeed, if you look at this
+code, I see a switch.",00:50:27.530,00:50:29.940
+I see main.,00:50:29.940,00:50:30.870
+"I see these square brackets implying
+some kind of an array.",00:50:30.870,00:50:33.800
+"Does anyone want to guess what
+this program actually",00:50:33.800,00:50:35.970
+does if I run Holloway?,00:50:35.970,00:50:37.220
+Yes.,00:50:39.940,00:50:40.750
+OK.,00:50:40.750,00:50:43.050
+Well done.,00:50:43.050,00:50:44.690
+"So only the staff and I cannot figure
+out what these things do.",00:50:44.690,00:50:48.090
+"&gt;&gt; And now lastly, let me go ahead
+and open up one other program.",00:50:48.090,00:50:51.670
+This one--,00:50:51.670,00:50:53.440
+"again, we'll make the source code
+available online-- this one's just",00:50:53.440,00:50:55.550
+kind of pretty to look at.,00:50:55.550,00:50:57.480
+"All they did is hit the
+space bar quite a bit.",00:50:57.480,00:50:59.750
+But this is real code.,00:50:59.750,00:51:01.320
+"So if you think that's pretty, if we
+actually run this at the prompt,",00:51:01.320,00:51:04.790
+"eventually you'll see how we
+might do things like this.",00:51:04.790,00:51:08.970
+"&gt;&gt; So we'll leave you on that note
+and see you on Wednesday.",00:51:08.970,00:51:14.008
+&gt;&gt; [MUSIC PLAYING],00:51:14.008,00:51:18.440
+"&gt;&gt; SPEAKER 2: At the next CS50,
+the TFs stage a mutiny.",00:51:18.440,00:51:23.380
+&gt;&gt; SPEAKER 3: There he is.,00:51:23.380,00:51:24.112
+Get him!,00:51:24.112,00:51:25.362
+&gt;&gt; [MUSIC PLAYING],00:51:29.912,00:51:32.074

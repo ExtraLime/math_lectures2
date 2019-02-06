@@ -1,0 +1,427 @@
+text,start,stop
+"In our previous lesson, we introduced you
+to",00:00:00.640,00:00:03.169
+"Queue data structure. We talked about Queue
+as Abstract Data Type",00:00:03.169,00:00:07.680
+"or ADT. As we know when we talk about
+data structure as Abstract Data Type,",00:00:07.680,00:00:12.950
+"we define it as a mathematical or
+logical model.",00:00:12.950,00:00:16.880
+"We define only the features or
+operations available with the data",00:00:16.880,00:00:20.600
+"structure,",00:00:20.600,00:00:21.060
+"and do not go into implementation
+details.",00:00:21.060,00:00:24.250
+"In this lesson, we are going to discuss
+possible implementation of a Queue.",00:00:24.250,00:00:28.340
+"I will do a quick recap of what we have
+discussed so far.",00:00:28.340,00:00:32.070
+"A Queue is a list of collection with
+this",00:00:32.070,00:00:35.520
+"restriction with this constraint, that
+insertion can be performed at",00:00:35.520,00:00:39.960
+"one end, that we call rear of Queue",00:00:39.960,00:00:43.040
+or tail of Queue and Deletion,00:00:43.040,00:00:46.220
+"can be performed at other end that we
+call the front of Queue",00:00:46.220,00:00:49.800
+"or the head of Queue. An insertion 
+in Queue ",00:00:49.800,00:00:54.160
+is called enqueue operation. A deletion is called,00:00:54.160,00:00:57.340
+"dequeue operation. I have defined Queue ADT
+with these Four operations that have written here,",00:00:57.340,00:01:02.890
+"in an actual implementation all these
+operations will be functions, ",00:01:02.890,00:01:06.920
+"front operation should simply return the
+element at front of Queue",00:01:06.920,00:01:11.479
+"should not remove any element from the
+Queue,",00:01:11.479,00:01:14.490
+"Isempty should simply check whether Queue is
+empty or not",00:01:14.490,00:01:18.130
+"and all these operations must take constant
+time.",00:01:18.130,00:01:21.209
+"Enqueue, dequeue or looking at element at front,",00:01:21.209,00:01:24.749
+"the time taken for any of these
+operations must not depend",00:01:24.749,00:01:28.399
+"upon a variable like number of elements
+in Queue",00:01:28.399,00:01:31.819
+"or in other words, and complexity of all
+these",00:01:31.819,00:01:35.560
+operations must be O(1).,00:01:35.560,00:01:38.740
+"Okay! So let's get started, we are saying
+that",00:01:38.740,00:01:42.090
+"a Queue is a special kind of list, in
+which",00:01:42.090,00:01:45.209
+"elements can be inserted or removed one
+at a time",00:01:45.209,00:01:49.340
+and insertion and removal happen at,00:01:49.340,00:01:52.389
+"different ends of the Queue. We can insert
+an element at ",00:01:52.389,00:01:56.399
+"one end and we can remove an element
+from the other end,",00:01:56.399,00:02:00.049
+"just the way we did it for stack. We can
+add these constraints or extra",00:02:00.049,00:02:04.619
+properties of Queue,00:02:04.619,00:02:05.909
+"to some implementation of a list and
+create",00:02:05.909,00:02:09.250
+"a Queue. They're two popular
+implementations of Queue,",00:02:09.250,00:02:12.510
+"we can have an array based
+implementation and we can have linked",00:02:12.510,00:02:16.650
+list based implementation.,00:02:16.650,00:02:18.280
+"Let's first discuss array-based
+implementation.",00:02:18.280,00:02:22.140
+"Let's say we want to create a Queue of
+integers.",00:02:22.140,00:02:25.260
+What we can do is we can first create an,00:02:25.260,00:02:28.320
+"array of integers. I have created an array
+of 10 integers here. ",00:02:28.320,00:02:32.300
+"I have named this array A, now what
+I'm going to do is, I'm going to use this",00:02:32.300,00:02:37.070
+"array to store my Queue, what I'm going to
+say is that",00:02:37.070,00:02:41.080
+"at any point, some part after array
+starting an index",00:02:41.080,00:02:45.630
+"marked as front, till an index",00:02:45.630,00:02:49.120
+marked as rear will be my Queue.,00:02:49.120,00:02:52.580
+"In this array I'm showing front of the
+Queue toward left and",00:02:52.580,00:02:56.360
+"the rear towards right.
+In earlier examples I was showing",00:02:56.360,00:03:00.450
+front towards right and rear towards left.,00:03:00.450,00:03:03.690
+"Doesn't really matter, any side can be
+front and any side can be",00:03:03.690,00:03:08.490
+"rear, it's just that an element must
+always be",00:03:08.490,00:03:12.180
+"added from rear side and must always
+be removed",00:03:12.180,00:03:16.610
+from front. So if at any stage,00:03:16.610,00:03:19.770
+"a segment of the array from an index
+marked as front",00:03:19.770,00:03:23.640
+till an index marked as rear is my Queue,00:03:23.640,00:03:27.210
+"and rest of the positions in the 
+array are free space,",00:03:27.210,00:03:31.180
+that can be used to expand the Queue.,00:03:31.180,00:03:34.400
+"To insert an element to enqueue, we can
+increment rear,",00:03:34.400,00:03:38.610
+"so we will add a new cell in the Queue
+towards",00:03:38.610,00:03:41.750
+"rear end and in this cell, we can write
+the new value",00:03:41.750,00:03:45.370
+"element to be inserted can come to this
+position.",00:03:45.370,00:03:48.740
+"I fill in some values here at these
+positions.",00:03:48.740,00:03:52.560
+So we have these integers in the Queue and,00:03:52.560,00:03:55.600
+"let's say we want to insert number 5. To
+insert we will increment rear",00:03:55.600,00:04:01.110
+"ofcourse there should be an available
+cell in the right,",00:04:01.110,00:04:04.120
+"an available empty cell in the right and
+now we can write",00:04:04.120,00:04:07.819
+"value 5 here. After insertion new rear index
+is ",00:04:07.819,00:04:12.430
+"7, and value at index 7 is",00:04:12.430,00:04:15.430
+"5. Now dequeue means we must remove an
+element from front of Queue.",00:04:15.430,00:04:20.909
+"In this example, here a dequeue operation
+should remove number 2 from the Queue",00:04:20.909,00:04:25.800
+"to dequeue, we can simply increment front",00:04:25.800,00:04:29.150
+"because at any point only the cells
+starting front",00:04:29.150,00:04:32.919
+"till rear are part of my Queue.
+By incrementing front I have discarded",00:04:32.919,00:04:37.949
+"index 2 from the Queue and we do not
+care what value lies in a cell,",00:04:37.949,00:04:42.810
+"that is not part of the Queue, when
+we will include",00:04:42.810,00:04:45.969
+"cell in the Queue we will overwrite
+the value in that cell",00:04:45.969,00:04:49.729
+"anyway. So just incrementing front is
+good enough",00:04:49.729,00:04:53.599
+"for dequeue operation. Let's quickly write
+pseudocode for",00:04:53.599,00:04:57.400
+"whatever we have discussed so far. In my
+code I will have 2",00:04:57.400,00:05:01.210
+"variables named front and rear, and
+initially",00:05:01.210,00:05:04.779
+I'll set them both as -1. Let's say for,00:05:04.779,00:05:08.159
+and empty Queue both front and rear,00:05:08.159,00:05:11.430
+"will be -1. To check whether Queue is empty
+or not",00:05:11.430,00:05:15.759
+"we can simply check the value of front
+and rear",00:05:15.759,00:05:19.289
+"and if they're both -1 we can say that
+ Queue is empty.",00:05:19.289,00:05:23.840
+"I just wrote isempty function here. -1
+is not",00:05:23.840,00:05:27.749
+"a valid index. For an empty Queue there
+will be no front and",00:05:27.749,00:05:31.749
+"rear. In our implementation we are saying that
+we will represent",00:05:31.749,00:05:35.460
+empty state of Queue by setting both front,00:05:35.460,00:05:38.539
+and rear as -1.,00:05:38.539,00:05:42.090
+"Now let's write the enqueue function.
+Enqueue will take",00:05:42.090,00:05:45.300
+"integer x as argument, there will be a
+couple of conditions in enqueue.",00:05:45.300,00:05:50.240
+"If rear is already equal to maximum
+index",00:05:50.240,00:05:53.349
+"available in array A, We cannot insert
+or enqueue an element",00:05:53.349,00:05:58.629
+in such scenario we can return and exit.,00:05:58.629,00:06:02.309
+"I would rather use a function named 
+isfull to",00:06:02.309,00:06:05.629
+"determine whether Queue is full or not.
+If Queue is already full, we can't do much we",00:06:05.629,00:06:10.150
+"should simply exit,",00:06:10.150,00:06:11.999
+else if Queue is empty we can add,00:06:11.999,00:06:15.169
+"cell to the Queue, we can add cell",00:06:15.169,00:06:18.319
+"at index 0 in the Queue, and now the
+we can set value at index",00:06:18.319,00:06:23.800
+"rear as x. In all other cases,
+we can",00:06:23.800,00:06:27.999
+"first increment rear, and",00:06:27.999,00:06:31.189
+then we can fill-in value X at index rear.,00:06:31.189,00:06:34.689
+"I can get a statement a[rear] = X
+outside these two conditional statements",00:06:34.689,00:06:40.020
+"because it's common to them, so this is
+my enqueue function.",00:06:40.020,00:06:44.819
+"In the example array that I'm showing
+here let's enqueue some integers.",00:06:44.819,00:06:48.449
+"I'll make calls to enqueue function and
+show you the simulation.",00:06:48.449,00:06:52.569
+"In the figure here, let's say first I
+want to insert number 2",00:06:52.569,00:06:56.270
+"in the Queue, I'm making a call to
+enqueue function passing",00:06:56.270,00:06:59.360
+"number 2 as argument. The Queue is empty, so",00:06:59.360,00:07:03.639
+we will set both front and rear as 0.,00:07:03.639,00:07:07.240
+"Now we will come to this statement, we
+will write value 2 at index 0.",00:07:07.240,00:07:12.110
+"So this is Queue after one enqueue
+operation, front and",00:07:12.110,00:07:15.629
+"rear of the Queue is same. Let's make
+another call to enqueue,",00:07:15.629,00:07:19.589
+"this time I want to insert number 5.
+this time Queue is not empty,",00:07:19.589,00:07:23.969
+"so rear will be incremented. We have
+added",00:07:23.969,00:07:27.289
+"a cell to the Queue by incrementing
+rear and now we will write the value",00:07:27.289,00:07:31.389
+5 at the new rear index.,00:07:31.389,00:07:34.029
+"Let's enqueue 1 more number. I have 
+enqueued 7.",00:07:34.029,00:07:38.690
+"Let's not write dequeue operation. There will be
+couple of cases in dequeue.",00:07:38.690,00:07:42.669
+"If the Queue is already empty, we cannot
+remove an element",00:07:42.669,00:07:46.780
+"In this case we can simply print or throw
+an error,",00:07:46.780,00:07:49.960
+"and return or exit. There will be one more
+special case,",00:07:49.960,00:07:54.680
+"if the Queue has only one element. 
+In this case,",00:07:54.680,00:07:58.389
+"front and rear will not be -1 but they
+will both be",00:07:58.389,00:08:02.310
+"equal, because we are already checking
+for -1 case in",00:08:02.310,00:08:06.199
+"isempty function in the previous if. In
+this else if we can simply",00:08:06.199,00:08:10.490
+"check whether front is equal to rear
+or not, if this is the case",00:08:10.490,00:08:14.530
+"a dequeue will make the Queue empty, and to mark to
+ Queue as",00:08:14.530,00:08:18.569
+"empty, we need to set both front
+and rear",00:08:18.569,00:08:21.699
+"as -1. This is what we had said, that we
+will",00:08:21.699,00:08:24.900
+"would represent and empty Queue by
+marking both",00:08:24.900,00:08:28.069
+"front and rear as -1. In default or
+normal scenario,",00:08:28.069,00:08:32.450
+"we will simply increment front, we
+should really be careful",00:08:32.450,00:08:36.729
+"about corner cases in any implementation,",00:08:36.729,00:08:40.029
+"that's fair most of the Bugs come. Okay,
+so this finally is my dequeue function.",00:08:40.029,00:08:46.130
+"In this example here at this stage, let's
+say be want to perform",00:08:46.130,00:08:49.370
+"a dequeue, Queue is not empty and we do not have
+only one element in the Queue.",00:08:49.370,00:08:54.320
+"So people simply increment front,
+before incrementing we could set the",00:08:54.320,00:08:58.880
+value in this cell,00:08:58.880,00:09:00.040
+"at index 0 as something, but the
+value in a cell that is not part of Queue",00:09:00.040,00:09:05.190
+anymore,00:09:05.190,00:09:06.020
+"doesn't really matter. At this stage it
+doesn't really matter what we have at",00:09:06.020,00:09:10.170
+index 0 or index,00:09:10.170,00:09:11.680
+"3 or any other index apart the
+segment between front and rear.",00:09:11.680,00:09:16.790
+"When we will add a cell in the Queue, we will
+overwrite the value in that cell anyway.",00:09:16.790,00:09:21.550
+"Let's now perform some more enqueues
+and dequeues.",00:09:21.550,00:09:24.620
+I'm enqueuing 3 and then I'm enqueuing,00:09:24.620,00:09:27.940
+"1, with each enqueue we are
+incrementing rear.",00:09:27.940,00:09:31.530
+"I just performed some more enqueue here. Now
+let's the perform a dequeue.",00:09:31.530,00:09:36.800
+"If I'll perform one more enqueue here, rear",00:09:36.800,00:09:40.030
+"will be equal to the maximum index available
+in the array. Let's",00:09:40.030,00:09:43.590
+"enqueue one more now at this stage, we cannot",00:09:43.590,00:09:46.690
+"enqueue an element anymore because we cannot
+increment rear.",00:09:46.690,00:09:50.620
+"Enqueue operation will fail now. 
+There are two unused",00:09:50.620,00:09:54.830
+"cells right now but with whatever
+logic we have written,",00:09:54.830,00:09:58.290
+"we cannot use these two cells that are
+in the left of front",00:09:58.290,00:10:02.220
+"in fact this is a real problem. As we
+will dequeue more and more,",00:10:02.220,00:10:06.530
+"all the cells left of front index will
+never be used again they will simply be",00:10:06.530,00:10:11.370
+wasted.,00:10:11.370,00:10:12.080
+"Can we do something to use these cells? Well,",00:10:12.080,00:10:16.080
+"we can use the concept of a Circular
+array. Circlular array is an idea that we",00:10:16.080,00:10:20.760
+use in a lot of scenarios.,00:10:20.760,00:10:22.360
+"The idea is very simple, as we
+traverse an array",00:10:22.360,00:10:25.830
+"we can imagine that there is no end in
+the array, from 0 we can go to 1, from",00:10:25.830,00:10:30.650
+"1, we can go to",00:10:30.650,00:10:31.700
+"2, and finally then we will reach the
+last index in the array.",00:10:31.700,00:10:36.210
+"Like in this example, when we are at index 9",00:10:36.210,00:10:39.370
+"the next index for me is index 0. We
+can imagine this array",00:10:39.370,00:10:43.550
+"something like this, remember this is
+only a logical way of looking at the",00:10:43.550,00:10:47.600
+array.,00:10:47.600,00:10:48.040
+"An circular interpretation of array, if I'm
+pointing to a position and my current",00:10:48.040,00:10:52.590
+position is,00:10:52.590,00:10:53.300
+"i then the next position or next index
+will not simply be i + 1,",00:10:53.300,00:10:58.260
+"it will be i + 1 Modulo the
+number of",00:10:58.260,00:11:01.390
+"elements in array or the size of array.
+Let's say,",00:11:01.390,00:11:04.480
+"N is the number of elements in array,
+then the next position will be",00:11:04.480,00:11:08.290
+"i + 1 Modulo N. The modulo
+operation will get us",00:11:08.290,00:11:12.700
+the remainder upon dividing by N for,00:11:12.700,00:11:15.850
+"any i other than N - 1. This modulo
+operational will not have any effect,",00:11:15.850,00:11:20.810
+"but for i = N - 1 next position will
+be",00:11:20.810,00:11:25.000
+"N module N which will be equal to 0.
+When you divide the number by",00:11:25.000,00:11:29.400
+"itself,",00:11:29.400,00:11:30.280
+"the remainder is 0. Previous
+position in circular interpretation of",00:11:30.280,00:11:34.900
+"array,",00:11:34.900,00:11:35.430
+will be I + (N - 1) modulo N.,00:11:35.430,00:11:38.890
+"We could simply say I-1 modulo N,
+just to make sure this expression inside",00:11:38.890,00:11:43.670
+"the parenthesis is always positive,",00:11:43.670,00:11:45.880
+"I'm adding N here. Give this some thought.
+You should be able to get why it should",00:11:45.880,00:11:50.420
+be,00:11:50.420,00:11:50.760
+"(i + (N - 1)) modulo N. Now
+with this interpretation of array,",00:11:50.760,00:11:54.850
+we can,00:11:54.850,00:11:55.460
+increment rear in an enqueue operation,00:11:55.460,00:11:58.470
+"as long as there is any unused cell in
+the array.",00:11:58.470,00:12:01.850
+"I'm going to modify functions in my
+pseudo code now.",00:12:01.850,00:12:04.910
+"Isempty will remain the same we are
+still saying that, for an empty Queue",00:12:04.910,00:12:09.280
+front and rear will be -1.,00:12:09.280,00:12:11.250
+"Let's scroll down and come to enqueue. Now, in
+circular interpretation I will call my",00:12:11.250,00:12:16.410
+"Queue full, when the position next to
+rear",00:12:16.410,00:12:19.580
+"in circular interpretation that we will
+calculate as",00:12:19.580,00:12:23.170
+"(rear + 1) modulo N, will be equal
+to",00:12:23.170,00:12:26.530
+"front, so we will have a situation like this.
+Right now,",00:12:26.530,00:12:30.400
+"the next position to rear in circular
+interpretation",00:12:30.400,00:12:34.220
+"is front. So there is no unused cell.
+The complete",00:12:34.220,00:12:38.050
+"array is exhausted. Nothing will change in
+this condition.",00:12:38.050,00:12:41.400
+"If Queue is empty, we can simply set
+front and rear as 0.",00:12:41.400,00:12:45.100
+"In the last else condition, we will
+increment rear",00:12:45.100,00:12:49.130
+"like this, we will say 
+rear = (rear+1) modulo N",00:12:49.130,00:12:53.750
+"where N is number of elements in the array.
+With this much change, my enqueue function is",00:12:53.750,00:12:59.030
+good.,00:12:59.030,00:12:59.430
+"Now let's make a call to enqueue and insert
+something",00:12:59.430,00:13:02.690
+"in this array here, I want to insert
+number 15.",00:13:02.690,00:13:06.490
+"We will come to this last else condition,
+Rear right now is 9, so this",00:13:06.490,00:13:11.089
+expression,00:13:11.089,00:13:12.110
+"will be (9 + 1) modular N, N is 10
+here",00:13:12.110,00:13:15.560
+the size of this array A is 10 here.,00:13:15.560,00:13:19.200
+"This will evaluate to 0, now my new rear",00:13:19.200,00:13:22.720
+is 0. I'll write number 15 here.,00:13:22.720,00:13:26.209
+"Let's now see what we need to do in dequeue
+function.",00:13:26.209,00:13:29.329
+"Nothing will change in the first two
+conditions, if Queue is already empty",00:13:29.329,00:13:34.030
+"or if there is only one element in the
+Queue, we will handle these cases",00:13:34.030,00:13:38.350
+"in same manner in the final else when we are
+incrementing front,",00:13:38.350,00:13:43.050
+"we need to increment it in a circular
+manner so we will say ",00:13:43.050,00:13:46.770
+fornt = (front + 1) modulo N,00:13:46.770,00:13:49.839
+"where N is the number of elements in the array, 
+total number of elements in the array, or size",00:13:49.839,00:13:53.959
+of array.,00:13:53.959,00:13:55.240
+"Now let's perform a dequeue, we will come to
+this condition front right now",00:13:55.240,00:14:00.120
+"is 2 so this will be (2 + 1)
+modulo 10,",00:14:00.120,00:14:04.030
+one more cell is available to us now.,00:14:04.030,00:14:08.110
+"This much is the core of our
+implementation. Front operation will be",00:14:08.110,00:14:11.910
+"really straightforward, we simply need to
+return the element at front index.",00:14:11.910,00:14:16.350
+"Here also, we first need to check whether the
+Queue is",00:14:16.350,00:14:19.519
+"empty or not, we should return a[front] only
+when",00:14:19.519,00:14:23.769
+"front is not equal to -1. All these
+operations all these functions that have",00:14:23.769,00:14:27.860
+written here will take constant,00:14:27.860,00:14:29.970
+"time, there complexity will be O(1). We
+are performing simple arithmetic and",00:14:29.970,00:14:34.880
+"assignments in the functions,",00:14:34.880,00:14:36.560
+"and not doing anything costly like
+running the loop,",00:14:36.560,00:14:40.430
+"so time taken will  not depend upon size
+of Queue or some other variable.",00:14:40.430,00:14:44.740
+"I leave this here it should not be very
+difficult converting this pseudo code",00:14:44.740,00:14:49.390
+to a,00:14:49.390,00:14:50.240
+"running program in a language of your
+choice, If you want to see my code",00:14:50.240,00:14:54.170
+"you can check the description of this
+video for a link. Thanks for watching.",00:14:54.170,00:14:57.760

@@ -1,0 +1,2063 @@
+text,start,stop
+"The following
+content is provided",00:00:00.060,00:00:01.780
+"under a Creative
+Commons license.",00:00:01.780,00:00:04.019
+"Your support will help MIT
+OpenCourseWare continue",00:00:04.019,00:00:06.870
+"to offer high-quality
+educational resources for free.",00:00:06.870,00:00:10.730
+"To make a donation or
+view additional materials",00:00:10.730,00:00:13.330
+"from hundreds of MIT courses,
+visit MIT OpenCourseWare",00:00:13.330,00:00:17.217
+at ocw.mit.edu.,00:00:17.217,00:00:17.842
+"PROFESSOR: Let's
+say that I tell you",00:00:29.960,00:00:31.640
+"that I'm interested in a gas
+that has some temperature.",00:00:31.640,00:00:37.870
+"I specify, let's
+say, temperature.",00:00:37.870,00:00:39.910
+"Pressure is room
+temperature, room pressure.",00:00:39.910,00:00:42.560
+"And I tell you how
+many particles I have.",00:00:42.560,00:00:45.560
+"So that's [INAUDIBLE] for
+you what the macro state is.",00:00:45.560,00:00:50.870
+"And I want to then see what the
+corresponding micro state is.",00:00:50.870,00:00:55.690
+"So I take one of these
+boxes, whereas this is a box",00:00:55.690,00:01:01.010
+"that I draw in three dimensions,
+I can make a correspondence",00:01:01.010,00:01:05.290
+"and draw this is 6N-dimensional
+coordinate space, which",00:01:05.290,00:01:09.060
+would be hard for me to draw.,00:01:09.060,00:01:10.960
+"But basically, a space
+of six n dimensions.",00:01:10.960,00:01:13.850
+"I figure out where the
+position, and the particles,",00:01:13.850,00:01:17.030
+and the momenta are.,00:01:17.030,00:01:18.590
+"And I sort of find that there
+is a corresponding micro state",00:01:18.590,00:01:22.270
+"that corresponds to
+this macro state.",00:01:22.270,00:01:25.270
+"OK, that's fine.",00:01:25.270,00:01:26.180
+I made the correspondence.,00:01:26.180,00:01:28.500
+"But the thing is that I can
+imagine lots and lots of boxes",00:01:28.500,00:01:37.410
+"that have exactly the same
+macroscopic properties.",00:01:37.410,00:01:40.910
+"That is, I can imagine
+putting here side by side",00:01:40.910,00:01:45.660
+a huge number of these boxes.,00:01:45.660,00:01:48.460
+"All of them are described
+by exactly the same volume,",00:01:48.460,00:01:53.230
+"pressure, temperature,
+for example.",00:01:53.230,00:01:55.600
+The same macro state.,00:01:55.600,00:01:57.760
+"But for each one of them, when
+I go and find the macro state,",00:01:57.760,00:02:02.260
+"I find that it is
+something else.",00:02:02.260,00:02:04.090
+"So I will be having
+different micro states.",00:02:06.880,00:02:12.210
+"So this correspondence
+is certainly",00:02:12.210,00:02:15.390
+"something where
+there should be many,",00:02:15.390,00:02:17.980
+"many points here that correspond
+to the same thermodynamic",00:02:17.980,00:02:25.160
+representation.,00:02:25.160,00:02:27.510
+"So faced with that,
+maybe it makes sense",00:02:27.510,00:02:31.330
+"to follow Gibbs and
+define an ensemble.",00:02:31.330,00:02:35.610
+"So what we say is,
+we are interested",00:02:40.250,00:02:42.950
+in some particular macro state.,00:02:42.950,00:02:46.140
+"We know that they correspond
+to many, many, many",00:02:46.140,00:02:49.170
+"different potential
+micro states.",00:02:49.170,00:02:52.070
+"Let's try to make a map of
+as many micro states that",00:02:52.070,00:02:57.380
+"correspond to the
+same macro state.",00:02:57.380,00:03:00.190
+"So consider n copies of
+the same macro state.",00:03:00.190,00:03:13.620
+"And this would correspond
+to n different points",00:03:13.620,00:03:17.370
+"that I put in this
+6N-dimensional phase space.",00:03:17.370,00:03:21.820
+"And what I can do is I can
+define an ensemble density.",00:03:21.820,00:03:24.940
+"I go to a particular
+point in this space.",00:03:33.440,00:03:40.160
+"So let's say I pick some
+point that corresponds",00:03:40.160,00:03:44.230
+to some set of p's and q's here.,00:03:44.230,00:03:46.510
+"And what I do is
+I draw a box that",00:03:52.370,00:03:55.007
+"is 6N-dimensional
+around this point.",00:03:55.007,00:04:01.890
+"And I define a density
+in the vicinity",00:04:01.890,00:04:06.100
+"of that point, as follows.",00:04:06.100,00:04:08.455
+"Actually, yeah.",00:04:12.520,00:04:16.880
+"What I will do is I will
+count how many of these points",00:04:16.880,00:04:23.280
+"that correspond to micro
+states fall within this box.",00:04:23.280,00:04:33.200
+"So at the end is the number
+of mu points in this box.",00:04:33.200,00:04:45.165
+"And what I do is I divide
+by the total number.",00:04:49.010,00:04:56.900
+"I expect that the result
+will be proportional",00:04:56.900,00:05:00.220
+to the volume of the box.,00:05:00.220,00:05:02.220
+"So if I make the box
+bigger, I will have more.",00:05:02.220,00:05:05.650
+"So I divide by the
+volume of the box.",00:05:05.650,00:05:09.950
+"So this is, let's call d
+gamma is the volume of box.",00:05:09.950,00:05:14.280
+"Of course, I have
+to do this in order",00:05:19.280,00:05:22.190
+"to get a nice result by
+taking the limit where",00:05:22.190,00:05:27.430
+"the number of members of the
+ensemble becomes quite large.",00:05:27.430,00:05:32.330
+"And then presumably, this will
+give me a well-behaved density.",00:05:32.330,00:05:37.830
+"In this limit, I guess I want
+to also have the size of the box",00:05:37.830,00:05:41.870
+go to 0.,00:05:41.870,00:05:44.650
+OK?,00:05:44.650,00:05:47.600
+"Now, clearly, with
+the definitions",00:05:47.600,00:05:50.370
+"that I have made, if
+I were to integrate",00:05:50.370,00:05:54.090
+"this quantity against the
+volume d gamma, what I would get",00:05:54.090,00:06:05.290
+"is the integral dN over N.
+N is, of course, a constant.",00:06:05.290,00:06:09.990
+"And the integral of dN
+is the total number.",00:06:09.990,00:06:12.850
+So this is 1.,00:06:12.850,00:06:15.490
+"So we find that this quantity
+rho that I have constructed",00:06:15.490,00:06:19.410
+satisfies two properties.,00:06:19.410,00:06:21.180
+"Certainly, it is
+positive, because I'm",00:06:21.180,00:06:23.020
+counting the number of points.,00:06:23.020,00:06:24.720
+"Secondly, it's normalized to 1.",00:06:24.720,00:06:27.030
+"So this is a nice
+probability density.",00:06:27.030,00:06:29.970
+"So this ensemble density is a
+probability density function",00:06:29.970,00:06:37.250
+"in this phase space
+that I have defined.",00:06:37.250,00:06:41.040
+OK?,00:06:41.040,00:06:43.490
+All right.,00:06:43.490,00:06:44.620
+"So once I have a
+probability, then I",00:06:44.620,00:06:48.850
+"can calculate various
+things according",00:06:48.850,00:06:52.230
+"to the rules of probability
+that we defined before.",00:06:52.230,00:06:55.260
+"So for example, I can
+define an ensemble average.",00:06:55.260,00:06:59.185
+"Maybe I'm interested
+in the kinetic energy",00:07:03.000,00:07:05.560
+of the particles of the gas.,00:07:05.560,00:07:08.320
+"So there is a function
+O that depends",00:07:08.320,00:07:12.090
+"on the sum of all
+of the p squareds.",00:07:12.090,00:07:15.260
+"In general, I have some function
+of O that depends on p and q.",00:07:15.260,00:07:20.570
+"And what I defined the ensemble
+average would be the average",00:07:20.570,00:07:25.350
+"that I would calculate
+with this probability.",00:07:25.350,00:07:28.010
+"Because I go over all of
+the points in phase space.",00:07:28.010,00:07:31.690
+"And let me again emphasize
+that what I call d gamma",00:07:31.690,00:07:34.900
+"then really is the
+product over all points.",00:07:34.900,00:07:41.230
+"For each point, I have to
+make a volume in both momentum",00:07:41.230,00:07:46.290
+and in coordinate.,00:07:46.290,00:07:48.090
+"It's a 6N-dimensional
+volume element.",00:07:48.090,00:07:51.650
+"I have to multiply
+the probability, which",00:07:51.650,00:07:55.380
+"is a function of p and
+q against this O, which",00:07:55.380,00:07:59.980
+is another function of p and q.,00:07:59.980,00:08:04.310
+Yes?,00:08:04.310,00:08:05.241
+"AUDIENCE: Is the
+division by M necessary",00:08:05.241,00:08:07.696
+"to make it into a
+probability density?",00:08:07.696,00:08:09.958
+PROFESSOR: Yes.,00:08:09.958,00:08:10.583
+"AUDIENCE: Otherwise, you
+would still have a density.",00:08:10.583,00:08:13.544
+PROFESSOR: Yeah.,00:08:13.544,00:08:14.210
+"When I would integrate then,
+I would get the total number.",00:08:14.210,00:08:18.210
+"But the total
+number is up to me,",00:08:18.210,00:08:20.380
+"how many members of
+the ensemble I took,",00:08:20.380,00:08:22.650
+"it's not a very
+well-defined quantity.",00:08:22.650,00:08:25.250
+It's an arbitrary quantity.,00:08:25.250,00:08:26.710
+"If I set it to become very
+large and divide by it,",00:08:26.710,00:08:29.940
+"then I will get something
+that is nicely a probability.",00:08:29.940,00:08:33.100
+"And we've developed
+all of these tools",00:08:33.100,00:08:35.590
+for dealing with probabilities.,00:08:35.590,00:08:37.299
+"So that would go to waste
+if I don't divide by.",00:08:37.299,00:08:40.982
+Yes?,00:08:40.982,00:08:41.944
+AUDIENCE: Question.,00:08:41.944,00:08:42.906
+"When you say that
+you have set numbers,",00:08:42.906,00:08:45.792
+"do you assume that you have
+any more informations than just",00:08:45.792,00:08:49.250
+"the microscopic
+variables GP and--",00:08:49.250,00:08:52.070
+PROFESSOR: No.,00:08:52.070,00:08:53.390
+"AUDIENCE: So how can we put a
+micro state in correspondence",00:08:53.390,00:08:57.735
+"with a macro state if
+there is-- on the-- like,",00:08:57.735,00:09:00.310
+with a few variables?,00:09:00.310,00:09:01.920
+"And do you need
+to-- from-- there's",00:09:01.920,00:09:04.930
+"like five variables,
+defined down",00:09:04.930,00:09:07.057
+"to 22 variables for
+all the particles?",00:09:07.057,00:09:09.655
+"PROFESSOR: So that's
+what I was saying.",00:09:09.655,00:09:11.280
+"It is not a one-to-one
+correspondence.",00:09:11.280,00:09:13.792
+"That is, once I specify
+temperature, pressure,",00:09:13.792,00:09:19.100
+and the number of particles.,00:09:19.100,00:09:21.080
+OK?,00:09:21.080,00:09:21.580
+Yes?,00:09:24.075,00:09:24.575
+"AUDIENCE: My question is, if
+you generate identical macro",00:09:24.575,00:09:27.535
+"states, and create--
+which macro states--",00:09:27.535,00:09:33.004
+PROFESSOR: Yes.,00:09:33.004,00:09:34.828
+"AUDIENCE: Depending on
+some kind of a rule on how",00:09:34.828,00:09:37.820
+"you make this
+correspondence, you",00:09:37.820,00:09:39.261
+"can get different
+ensemble densities, right?",00:09:39.261,00:09:42.870
+PROFESSOR: No.,00:09:42.870,00:09:44.270
+"That is, if I, in principle
+and theoretically,",00:09:44.270,00:09:48.551
+"go over the entirety of all
+possible macroscopic boxes",00:09:48.551,00:09:54.180
+"that have these
+properties, I will",00:09:54.180,00:09:57.125
+"be putting infinite
+number of points in this.",00:09:57.125,00:10:00.200
+"And I will get some
+kind of a density.",00:10:00.200,00:10:02.950
+"AUDIENCE: What if you, say,
+generate infinite number",00:10:02.950,00:10:06.540
+"of points, but all in
+the case when, like,",00:10:06.540,00:10:10.560
+"all molecules of gas are
+in right half of the box?",00:10:10.560,00:10:13.960
+PROFESSOR: OK.,00:10:13.960,00:10:15.282
+"Is that a thermodynamically
+equilibrium state?",00:10:15.282,00:10:17.602
+"AUDIENCE: Did you
+mention it needed to be?",00:10:17.602,00:10:19.352
+PROFESSOR: Yes.,00:10:19.352,00:10:20.990
+"I said that-- I'm
+talking about things",00:10:20.990,00:10:23.500
+"that can be described
+macroscopically.",00:10:23.500,00:10:27.186
+"Now, the thing
+that you mentioned",00:10:27.186,00:10:28.560
+"is actually something that
+I would like to work with,",00:10:28.560,00:10:32.300
+"because ultimately,
+my goal is not only",00:10:32.300,00:10:36.450
+"to describe equilibrium, but
+how to reach equilibrium.",00:10:36.450,00:10:40.540
+"That is, I would like precisely
+to answer the question, what",00:10:40.540,00:10:45.520
+"happens if you start in a
+situation where all of the gas",00:10:45.520,00:10:49.670
+"is initially in one
+half of the room?",00:10:49.670,00:10:53.650
+"And as long as there
+is a partition,",00:10:53.650,00:10:55.920
+"that's a well-defined
+macroscopic state.",00:10:55.920,00:10:59.170
+And then I remove the partition.,00:10:59.170,00:11:01.930
+"And suddenly, it is a
+non-equilibrium state.",00:11:01.930,00:11:05.050
+"And presumably, over time,
+this gas will occupy that.",00:11:05.050,00:11:10.620
+"So there is a physical process
+that we know happens in nature.",00:11:10.620,00:11:16.200
+"And what I would
+like eventually to do",00:11:16.200,00:11:19.030
+"is to also describe
+that physical process.",00:11:19.030,00:11:22.660
+"So what I will do
+is I will start",00:11:22.660,00:11:24.690
+"with the initial
+configuration with everybody",00:11:24.690,00:11:28.300
+in the half space.,00:11:28.300,00:11:30.400
+"And I will calculate
+the ensemble",00:11:30.400,00:11:33.360
+that corresponds to that.,00:11:33.360,00:11:35.400
+And that's unique.,00:11:35.400,00:11:37.270
+Then I remove the partition.,00:11:37.270,00:11:39.670
+"Then each member of the ensemble
+will follow some trajectory",00:11:39.670,00:11:44.690
+"as it occupies eventually
+the entire box.",00:11:44.690,00:11:48.010
+"And we would like to follow
+how that evolution takes place",00:11:48.010,00:11:52.020
+"and hopefully show that
+you will always have,",00:11:52.020,00:11:55.720
+"eventually, at the end of
+the day, the gas occupying",00:11:55.720,00:11:59.060
+the system uniform.,00:11:59.060,00:12:02.080
+"AUDIENCE: Yeah,
+but just would it",00:12:02.080,00:12:04.080
+"be more correct to generate
+many, many different micro",00:12:04.080,00:12:08.195
+"states as the macro states
+which correspond to them?",00:12:08.195,00:12:12.908
+And how many different--,00:12:12.908,00:12:15.350
+"PROFESSOR: What rule do
+you use for generating",00:12:15.350,00:12:17.702
+"many, many micro states?",00:12:17.702,00:12:21.040
+"AUDIENCE: Like, all uniformly
+arbitrary perturbations",00:12:21.040,00:12:26.050
+"of particles always to
+put them in phase space.",00:12:26.050,00:12:30.610
+"And look to-- like, how
+many different micro states",00:12:30.610,00:12:39.020
+"give rise to the
+same macro state?",00:12:39.020,00:12:40.562
+"PROFESSOR: Oh, but you
+are already then talking",00:12:40.562,00:12:42.520
+about the macro state?,00:12:42.520,00:12:45.018
+"AUDIENCE: A portion--
+which description",00:12:45.018,00:12:48.120
+"do you use as the first one
+to generate the second one?",00:12:48.120,00:12:51.720
+"So in your point of view,
+let's do-- [INAUDIBLE]",00:12:51.720,00:12:55.967
+"to macro states, and
+go to micro state.",00:12:55.967,00:12:59.320
+But can you reverse?,00:12:59.320,00:13:00.980
+PROFESSOR: OK.,00:13:03.765,00:13:04.650
+"I know that the way that
+I'm presenting things",00:13:04.650,00:13:09.360
+"will lead ultimately to a useful
+description of this procedure.",00:13:09.360,00:13:14.980
+"You are welcome
+to try to come up",00:13:14.980,00:13:16.720
+with a different prescription.,00:13:16.720,00:13:18.710
+"But the thing that I want
+to ensure that you agree",00:13:18.710,00:13:22.430
+"is that the procedure
+that I'm describing here",00:13:22.430,00:13:26.710
+has no logical inconsistencies.,00:13:26.710,00:13:30.120
+I want to convince you of that.,00:13:30.120,00:13:32.450
+"I am not saying that this
+is necessarily the only one.",00:13:32.450,00:13:35.420
+"As far as I know,
+this is the only one",00:13:35.420,00:13:37.350
+that people have worked with.,00:13:37.350,00:13:38.640
+"But maybe somebody can come up
+with a different prescription.",00:13:38.640,00:13:43.770
+So maybe there is another one.,00:13:43.770,00:13:45.710
+Maybe you can work on it.,00:13:45.710,00:13:47.430
+"But I want you
+to, at this point,",00:13:47.430,00:13:49.050
+"be convinced that this is
+a well-defined procedure.",00:13:49.050,00:13:51.440
+OK?,00:13:56.180,00:13:58.550
+"AUDIENCE: But because it's
+a well-defined procedure,",00:13:58.550,00:14:01.646
+"if you did exist
+on another planet",00:14:01.646,00:14:03.986
+"or in some universe where
+the physics were different,",00:14:03.986,00:14:07.024
+"the point is, you can use this.",00:14:07.024,00:14:08.619
+"But can't you use this
+for information in general",00:14:08.619,00:14:10.660
+"when you want to-- like, if
+you have-- the only requirement",00:14:10.660,00:14:14.220
+"is that at a fine
+scale, you have",00:14:14.220,00:14:18.370
+"a consistent way of describing
+things; and at a large scale,",00:14:18.370,00:14:21.640
+"you have a way of making
+sense of generalizing.",00:14:21.640,00:14:25.092
+PROFESSOR: Right.,00:14:25.092,00:14:25.800
+"AUDIENCE: So it's sort
+of like a compression",00:14:25.800,00:14:28.070
+"of data, or I use [INAUDIBLE].",00:14:28.070,00:14:31.420
+PROFESSOR: Yeah.,00:14:31.420,00:14:33.200
+"Except that part of this was
+starting with some physics",00:14:33.200,00:14:38.040
+that we know.,00:14:38.040,00:14:39.550
+"So indeed, if you were
+in a different universe--",00:14:39.550,00:14:42.980
+"and later on in the course, we
+will be in a different universe",00:14:42.980,00:14:46.013
+"where the rules are
+not classical or",00:14:46.013,00:14:47.512
+quantum-mechanical.,00:14:47.512,00:14:48.303
+"And you have to throw
+away this description",00:14:50.289,00:14:52.080
+of what a micro state is.,00:14:52.080,00:14:53.850
+"And you can still go through
+the entire procedure.",00:14:53.850,00:14:57.150
+"But I want to do is to
+follow these set of equations",00:14:57.150,00:15:00.250
+"of motion and this
+description of micro state,",00:15:00.250,00:15:02.610
+and see where it leads us.,00:15:02.610,00:15:04.600
+"And for the gas in this room, it
+is a perfectly good description",00:15:04.600,00:15:08.220
+of what's happened.,00:15:08.220,00:15:10.170
+Yes?,00:15:10.170,00:15:10.670
+"AUDIENCE: Maybe a
+simpler question.",00:15:10.670,00:15:12.542
+"Is big rho defined
+only in spaces",00:15:12.542,00:15:15.023
+where there are micro states?,00:15:15.023,00:15:17.327
+"Like, is there anywhere where
+there isn't a micro state?",00:15:17.327,00:15:19.660
+"PROFESSOR: Yes, of course.",00:15:19.660,00:15:20.890
+"So if I have--
+thinking about a box,",00:15:20.890,00:15:23.420
+"and if I ask what
+is rho out here,",00:15:23.420,00:15:28.100
+"I would say the
+answer is rho is 0.",00:15:28.100,00:15:30.180
+"But if you like, you can
+say rho is defined only",00:15:30.180,00:15:33.270
+within this space of the box.,00:15:33.270,00:15:35.170
+"So the description
+of the macro state",00:15:35.170,00:15:38.090
+"which has something
+to do with the box,",00:15:38.090,00:15:39.980
+"over which I am
+considering, will also",00:15:39.980,00:15:42.010
+limit what I can describe.,00:15:42.010,00:15:45.280
+Yes.,00:15:45.280,00:15:47.290
+"And certainly, as far as if I
+were to change p with velocity,",00:15:47.290,00:15:54.320
+"let's say, then you
+would say, a space",00:15:54.320,00:15:56.800
+"where V is greater than speed
+of light is not possible.",00:15:56.800,00:16:00.580
+That's the point.,00:16:00.580,00:16:02.150
+"So your rules of physics
+will also define implicitly",00:16:02.150,00:16:06.580
+"the domain over
+which this is there.",00:16:06.580,00:16:10.270
+"But that's all
+part of mechanics.",00:16:10.270,00:16:12.590
+"So I'm going to assume that
+the mechanics part of it",00:16:12.590,00:16:14.980
+is you are comfortable.,00:16:14.980,00:16:16.110
+Yes?,00:16:16.110,00:16:17.452
+"AUDIENCE: In your definition
+of the ensemble average,",00:16:17.452,00:16:20.060
+"are you integrating over all
+6N dimensions of phase space?",00:16:20.060,00:16:23.790
+PROFESSOR: Yes.,00:16:23.790,00:16:24.530
+"AUDIENCE: So why would your
+average depend on p and q?",00:16:24.530,00:16:29.530
+If you integrate?,00:16:32.480,00:16:33.300
+"PROFESSOR: The average is
+of a function of p and q.",00:16:33.300,00:16:36.600
+"So in the same sense
+that, let's say,",00:16:36.600,00:16:38.650
+"I have a particle of
+gas that is moving on,",00:16:38.650,00:16:41.520
+"and I can write the
+symbol, p squared over 2m,",00:16:41.520,00:16:45.070
+what is this average?,00:16:45.070,00:16:47.100
+"The answer will be KT
+over 2, for example.",00:16:47.100,00:16:49.890
+It will not depend on p.,00:16:49.890,00:16:51.380
+"But the quantity that I'm
+averaging inside the triangle",00:16:51.380,00:16:56.530
+is a function of p and q.,00:16:56.530,00:16:58.580
+Yes?,00:17:01.144,00:17:01.644
+"AUDIENCE: So if it's an
+integration, or basically",00:17:01.644,00:17:03.685
+the--?,00:17:03.685,00:17:04.579
+"PROFESSOR: The physical
+limit of the problem.",00:17:04.579,00:17:06.970
+AUDIENCE: Given a macro state?,00:17:06.970,00:17:10.281
+PROFESSOR: Yes.,00:17:10.281,00:17:13.130
+"So typically, we
+will be integrating q",00:17:13.130,00:17:16.430
+"over the volume of a box,
+and p from minus infinity",00:17:16.430,00:17:20.619
+"to infinity,
+because classically,",00:17:20.619,00:17:22.740
+"without relativity,
+this is a lot.",00:17:22.740,00:17:26.814
+Yes?,00:17:26.814,00:17:27.314
+AUDIENCE: Sorry.,00:17:27.314,00:17:28.103
+"So why is the [INAUDIBLE] from
+one end for every particle,",00:17:28.103,00:17:36.007
+"instead of just
+scattering space,",00:17:36.007,00:17:37.983
+would you have a [INAUDIBLE]?,00:17:37.983,00:17:40.453
+Or is that the same thing?,00:17:40.453,00:17:42.923
+"PROFESSOR: I am not sure
+I understand the question.",00:17:42.923,00:17:45.630
+"So if I want to, let's say,
+find out just one particle that",00:17:45.630,00:17:50.560
+"is somewhere in this box, so
+there is a probability that it",00:17:50.560,00:17:55.600
+"is here, there is a
+probability that it is there,",00:17:55.600,00:17:58.180
+"there is a probability
+that it is there.",00:17:58.180,00:18:00.930
+"The integral of that probability
+over the volume of the room",00:18:00.930,00:18:06.070
+is one.,00:18:06.070,00:18:06.850
+So how do I do that?,00:18:06.850,00:18:08.150
+"I have to do an integral
+over dx, dy, dz, probability",00:18:08.150,00:18:12.640
+"as a function of x, y, and z.",00:18:12.640,00:18:14.690
+Now I just repeat that 6N times.,00:18:14.690,00:18:16.590
+OK?,00:18:20.890,00:18:21.390
+All right.,00:18:25.390,00:18:26.020
+So that's the description.,00:18:28.990,00:18:31.440
+"But the first question
+to sort of consider",00:18:31.440,00:18:35.660
+"is, what is equilibrium
+in this perspective?",00:18:35.660,00:18:44.940
+"Now, we can even be
+generous, although it's",00:18:55.730,00:19:00.100
+"a very questionable thing,
+to say that, really,",00:19:00.100,00:19:04.370
+"when I sort of talk about the
+kinetic energy of the gas,",00:19:04.370,00:19:08.320
+"maybe I can replace that
+by this ensemble average.",00:19:08.320,00:19:14.230
+"Now, if I'm in
+equilibrium, the results",00:19:14.230,00:19:17.240
+"should not depend as
+a function of time.",00:19:17.240,00:19:20.640
+"So I expect that if
+I'm calculating things",00:19:20.640,00:19:24.020
+"in equilibrium, the result
+of equations such as this",00:19:24.020,00:19:28.530
+"should not depend on time,
+which is actually a problem.",00:19:28.530,00:19:33.200
+"Because we know that if I take
+a picture of all of these things",00:19:33.200,00:19:39.740
+"that I am constructing
+my ensemble with",00:19:39.740,00:19:42.440
+"and this picture is at
+time t, at time t plus dt,",00:19:42.440,00:19:48.670
+"all of the particles
+have moved around.",00:19:48.670,00:19:51.420
+"And so the point that was
+here, the next instant of time",00:19:51.420,00:19:56.150
+is going to be somewhere else.,00:19:56.150,00:19:58.020
+"This is going to
+be somewhere else.",00:19:58.020,00:19:59.670
+"Each one of these is flowing
+around as a function of time.",00:19:59.670,00:20:04.392
+OK?,00:20:04.392,00:20:05.770
+"So the picture that I
+would like you to imagine",00:20:05.770,00:20:08.175
+"is you have a box, and there's
+a huge number of bees or flies",00:20:08.175,00:20:12.260
+"or whatever your
+preferred insect",00:20:12.260,00:20:14.615
+"is, are just moving around.",00:20:14.615,00:20:17.010
+OK?,00:20:17.010,00:20:18.860
+"Now, you can sort of then
+take pictures of this cluster.",00:20:18.860,00:20:22.610
+"And it's changing potentially
+as a function of time.",00:20:22.610,00:20:25.535
+"And therefore, this
+density should potentially",00:20:25.535,00:20:28.490
+change as a function of time.,00:20:28.490,00:20:30.090
+"And then this answer could
+potentially depend on time.",00:20:33.510,00:20:38.590
+"So let's figure out how
+is this density changing",00:20:38.590,00:20:42.540
+as a function of time.,00:20:42.540,00:20:44.762
+"And hope that ultimately,
+we can construct a solution",00:20:44.762,00:20:49.100
+"for the equation that
+governs the change in density",00:20:49.100,00:20:52.970
+"as a function of time that
+is in fact invariant in time.",00:20:52.970,00:20:58.700
+"It is going back to my
+flies or bees or whatever,",00:20:58.700,00:21:02.040
+"you can imagine a
+circumstance in which",00:21:02.040,00:21:04.330
+"the bees are constantly
+moving around.",00:21:04.330,00:21:07.710
+"Each individual bee is now
+here, then somewhere else.",00:21:07.710,00:21:12.020
+"But all of your pictures have
+the same density of bees,",00:21:12.020,00:21:15.810
+"because for every bee
+that left the box,",00:21:15.810,00:21:18.160
+"there was another bee
+that came in its place.",00:21:18.160,00:21:21.220
+"So one can imagine
+a kind of situation",00:21:21.220,00:21:24.290
+"where all of these
+points are moving around,",00:21:24.290,00:21:26.300
+"yet the density
+is left invariant.",00:21:26.300,00:21:29.730
+"And in order to find whether
+such a density is possible,",00:21:29.730,00:21:33.030
+"we have to first know
+what is the equation that",00:21:33.030,00:21:36.010
+"governs the evolution
+of that density.",00:21:36.010,00:21:38.494
+"And that is given by the
+Liouville's equation.",00:21:38.494,00:21:40.410
+"So this governs evolution
+of rho with time.",00:21:50.180,00:22:01.420
+OK.,00:22:01.420,00:22:01.920
+"So let's kind of blow off the
+picture that we had over there.",00:22:07.430,00:22:12.060
+"Previously, they're all
+of these coordinates.",00:22:12.060,00:22:15.310
+"There is some point
+in coordinate space",00:22:15.310,00:22:20.260
+that I am looking at.,00:22:20.260,00:22:22.140
+"Let's say that the point
+that I am looking at is here.",00:22:22.140,00:22:26.560
+"And I have constructed
+a box around it",00:22:26.560,00:22:30.480
+"like this in the
+6N-dimensional space.",00:22:30.480,00:22:35.510
+"But just to be precise, I will
+be looking at some particular",00:22:35.510,00:22:39.540
+"coordinate q alpha and the
+conjugate momentum p alpha.",00:22:39.540,00:22:45.280
+"So this is my original
+point corresponds to, say,",00:22:45.280,00:22:48.820
+"some specific version
+of q alpha p alpha.",00:22:48.820,00:22:53.620
+"And that I have, in
+this pair of dimensions,",00:22:53.620,00:22:59.260
+"created a box that
+in this direction",00:22:59.260,00:23:02.570
+"has size dq alpha, in this
+direction has size dp alpha.",00:23:02.570,00:23:09.110
+OK?,00:23:09.110,00:23:11.420
+"And this is the picture
+that I have at some time t.",00:23:11.420,00:23:17.602
+OK?,00:23:17.602,00:23:18.640
+"Then I look at an instant of
+time that is slightly later.",00:23:18.640,00:23:24.030
+"So I go to a time
+that is t plus dt.",00:23:24.030,00:23:29.360
+"I find that the point that
+I had initially over here",00:23:29.360,00:23:33.430
+"as the center of this
+box has moved around",00:23:33.430,00:23:37.350
+"to some other
+location that I will",00:23:37.350,00:23:39.890
+"call q alpha prime,
+p alpha prime.",00:23:39.890,00:23:42.610
+"If you ask me what is q alpha
+prime and p alpha prime,",00:23:45.560,00:23:48.700
+"I say, OK, I know
+that, because I",00:23:48.700,00:23:50.330
+know with equations of motion.,00:23:50.330,00:23:51.990
+"If I was running
+this on a computer,",00:23:51.990,00:23:54.220
+"I would say that q alpha prime
+is q alpha plus the velocity",00:23:54.220,00:24:03.090
+"q alpha dot dt, plus
+order of dt squared,",00:24:03.090,00:24:09.730
+"which hopefully, I will choose
+a sufficient and small time",00:24:09.730,00:24:12.480
+interval I can ignore.,00:24:12.480,00:24:14.876
+"And similarly, p
+alpha prime would",00:24:14.876,00:24:19.580
+"be p alpha plus p alpha
+dot dt order of dt squared.",00:24:19.580,00:24:26.460
+OK?,00:24:29.446,00:24:29.946
+"So any point that was in
+this box will also move.",00:24:35.440,00:24:39.885
+"And presumably,
+close-by points will",00:24:39.885,00:24:42.015
+be moving to close-by points.,00:24:42.015,00:24:45.140
+"And overall, anything
+that was originally",00:24:45.140,00:24:47.200
+"in this square actually
+projected from a larger",00:24:47.200,00:24:52.210
+"dimensional cube will be part
+of a slightly distorted entity",00:24:52.210,00:24:57.830
+here.,00:24:57.830,00:24:58.330
+"So everything that was
+here is now somewhere here.",00:24:58.330,00:25:03.421
+OK?,00:25:03.421,00:25:06.410
+"I can ask, well, how wide is
+this new distance that I have?",00:25:06.410,00:25:14.850
+"So originally, the two
+endpoints of the square",00:25:14.850,00:25:19.120
+were a distance dq alpha apart.,00:25:19.120,00:25:22.020
+"Now they're going to be a
+distance dq alpha prime apart.",00:25:22.020,00:25:26.430
+What is dq alpha prime?,00:25:26.430,00:25:28.740
+"I claim that dq alpha prime
+is whatever I had originally,",00:25:28.740,00:25:40.220
+"but then the two N's
+are moving at slightly",00:25:40.220,00:25:43.930
+"different velocities,
+because the velocity depends",00:25:43.930,00:25:48.080
+on where you are in phase space.,00:25:48.080,00:25:50.700
+"And so the difference in
+velocity between these two",00:25:50.700,00:25:53.590
+"points is really the derivative
+of the velocity with respect",00:25:53.590,00:26:01.900
+"to the separation that I have
+between those two points, which",00:26:01.900,00:26:06.880
+is dq times dq alpha.,00:26:06.880,00:26:10.715
+"And this is how
+much I would have",00:26:13.950,00:26:16.490
+expanded plus higher order.,00:26:16.490,00:26:18.910
+"And I can apply the same thing
+in the momentum direction.",00:26:21.694,00:26:25.010
+"The new vertical
+separation dp alpha prime",00:26:28.330,00:26:40.860
+"is different from what
+it was originally,",00:26:40.860,00:26:44.230
+"because the two
+endpoints got stretched.",00:26:44.230,00:26:47.710
+"The reason they
+got stretched was",00:26:47.710,00:26:49.330
+"because their velocities
+were different.",00:26:49.330,00:26:53.210
+"And their difference
+is just the derivative",00:26:53.210,00:26:55.270
+"of velocity with
+respect to separation",00:26:55.270,00:26:57.640
+times their small separation.,00:26:57.640,00:26:59.800
+"And if I make
+everything small, I",00:26:59.800,00:27:02.650
+"can, in principle, write
+higher order terms.",00:27:02.650,00:27:05.092
+"But I don't have to
+worry about that.",00:27:05.092,00:27:06.633
+OK?,00:27:13.378,00:27:13.878
+"So I can ask, what is the area
+of this slightly distorted",00:27:16.790,00:27:24.940
+square?,00:27:24.940,00:27:26.440
+"As long as the dt is
+sufficiently small,",00:27:26.440,00:27:30.680
+"all of the distortions, et
+cetera, will be small enough.",00:27:30.680,00:27:34.010
+"And you can convince
+yourself of this.",00:27:34.010,00:27:37.930
+"And what you will find
+is that the product",00:27:37.930,00:27:41.530
+"of dq alpha prime,
+dp alpha prime,",00:27:41.530,00:27:46.250
+"if I were to multiply
+these things,",00:27:46.250,00:27:48.580
+"you can see that dq
+alpha and dp alpha",00:27:48.580,00:27:51.340
+is common to the two of them.,00:27:51.340,00:27:53.125
+"So I have dq alpha, dp alpha.",00:27:53.125,00:27:57.200
+"From multiplying these
+two terms, I will get one.",00:27:57.200,00:28:01.620
+"And then I will get two
+terms that are order of dt,",00:28:01.620,00:28:06.610
+"that I will get from dq alpha
+dot with respect to dq alpha,",00:28:06.610,00:28:15.682
+"plus dp alpha dot with
+respect to dp alpha.",00:28:15.682,00:28:19.750
+"And then there will be terms
+that are order of dt squared",00:28:19.750,00:28:23.900
+"and higher order
+types of things.",00:28:23.900,00:28:25.562
+OK?,00:28:28.640,00:28:29.140
+"So the distortion in the
+area of this particle,",00:28:32.090,00:28:38.680
+"or cross section, is
+governed by something",00:28:38.680,00:28:44.410
+that is proportional to dt.,00:28:44.410,00:28:46.680
+"And dq alpha dot over dq alpha
+plus dp alpha dot dp alpha.",00:28:46.680,00:28:53.170
+"But I have formally here for
+what P i dot and qi dot are.",00:28:53.170,00:29:02.060
+"So this is the dot notation
+for the time derivative",00:29:02.060,00:29:06.460
+"other than the one that
+I was using before.",00:29:06.460,00:29:08.580
+"So q alpha dot, what
+do I have for it?",00:29:08.580,00:29:11.435
+It is dh by dp alpha.,00:29:11.435,00:29:14.490
+"So this is d by dq alpha
+of the H by dp alpha.",00:29:14.490,00:29:20.205
+"Whereas p alpha dot, from which
+I have to evaluate d by dp",00:29:22.880,00:29:28.620
+"alpha, p alpha dot is
+minus dH by dq alpha.",00:29:28.620,00:29:35.780
+So what do I have?,00:29:35.780,00:29:37.620
+"I have two second derivatives
+that appear with opposite sign",00:29:37.620,00:29:43.360
+and hence cancel each other out.,00:29:43.360,00:29:45.285
+OK?,00:29:49.085,00:29:50.520
+"So essentially, what we find
+is that the volume element",00:29:50.520,00:29:57.190
+is preserved under this process.,00:29:57.190,00:30:01.590
+"And I can apply this to
+all of my directions.",00:30:01.590,00:30:05.970
+"And hence, conclude that
+the initial volume that",00:30:11.240,00:30:18.050
+"was surrounding my point
+is going to be preserved.",00:30:18.050,00:30:24.039
+OK?,00:30:24.039,00:30:24.538
+"So what that means is that these
+classical equations of motion,",00:30:27.820,00:30:34.200
+"the Hamiltonian equations, for
+this description of micro state",00:30:34.200,00:30:40.030
+"that involves the
+coordinates and momenta",00:30:40.030,00:30:43.410
+"have this nice property
+that they preserve volume",00:30:43.410,00:30:47.330
+"of phase space as
+they move around.",00:30:47.330,00:30:50.071
+Yes?,00:30:50.071,00:30:50.570
+"AUDIENCE: If the Hamiltonian has
+expontential time dependence,",00:30:50.570,00:30:53.741
+that doesn't work anymore.,00:30:53.741,00:30:55.100
+PROFESSOR: No.,00:30:55.100,00:30:55.710
+"So that's why I did not
+put that over there.",00:30:55.710,00:30:58.459
+Yes.,00:30:58.459,00:30:58.959
+"And actually, this is
+sometimes referred to",00:31:06.070,00:31:10.840
+"as being something like
+an incompressible fluid.",00:31:10.840,00:31:14.980
+"Because if you kind of deliver
+hydrodynamics for something",00:31:24.770,00:31:31.680
+"like water if you regard
+it as incompressible,",00:31:31.680,00:31:34.910
+"the velocity field
+has the condition",00:31:34.910,00:31:37.810
+"that the divergence
+of the velocity is 0.",00:31:37.810,00:31:42.050
+"Here, we are looking at a
+6N-dimensional mention velocity",00:31:42.050,00:31:46.440
+"field that is composed of q
+alpha dot and p alpha dot.",00:31:46.440,00:31:51.790
+"And this being 0 is
+really the same thing",00:31:51.790,00:31:55.170
+"as the divergence in this
+6N-dimensional space is 0.",00:31:55.170,00:32:00.190
+"And that's a property of
+the Hamiltonian dynamics",00:32:00.190,00:32:04.230
+that one has.,00:32:04.230,00:32:04.960
+Yes?,00:32:07.540,00:32:08.040
+"AUDIENCE: Could
+you briefly go over",00:32:08.040,00:32:09.960
+"why you have to divide
+by the separation",00:32:09.960,00:32:15.240
+"when you expand the times
+between the displacement?",00:32:15.240,00:32:20.126
+"PROFESSOR: Why do I have to
+multiply by the separation?",00:32:20.126,00:32:23.620
+AUDIENCE: Divide by.,00:32:23.620,00:32:24.991
+PROFESSOR: Where do I divide?,00:32:24.991,00:32:28.280
+AUDIENCE: dq alpha by--,00:32:28.280,00:32:30.420
+"PROFESSOR: Oh, this.",00:32:30.420,00:32:32.180
+"Why do I have to
+take a derivative.",00:32:32.180,00:32:35.804
+So I have two points here.,00:32:35.804,00:32:39.740
+"All of my points
+are moving in time.",00:32:39.740,00:32:43.060
+"So if these things were
+moving with uniform velocity,",00:32:43.060,00:32:47.200
+"one second later, this
+would have moved here,",00:32:47.200,00:32:50.360
+"this would have moved
+the same distance,",00:32:50.360,00:32:52.620
+"so that the separation
+between them",00:32:52.620,00:32:54.470
+"would have been
+maintained if they",00:32:54.470,00:32:56.640
+"were moving with
+the same velocity.",00:32:56.640,00:32:59.070
+"So if you are following
+somebody and you",00:32:59.070,00:33:00.935
+"are moving with the
+same velocity as them,",00:33:00.935,00:33:03.650
+"thus, your separation
+does not change.",00:33:03.650,00:33:06.210
+"But if one of you is going
+faster than the other one,",00:33:06.210,00:33:11.500
+"then the difference
+in velocity will",00:33:11.500,00:33:14.750
+determine how you separate.,00:33:14.750,00:33:17.400
+"And what is the
+difference in velocity?",00:33:17.400,00:33:20.390
+"The difference in velocity
+depends, in this case,",00:33:20.390,00:33:23.200
+to how far apart the points are.,00:33:23.200,00:33:26.210
+"So the difference between
+velocity here and velocity",00:33:26.210,00:33:29.300
+"here is the
+derivative of velocity",00:33:29.300,00:33:32.530
+"as a function of
+this coordinate.",00:33:32.530,00:33:34.900
+"Derivative of velocity as a
+function of that coordinate",00:33:34.900,00:33:38.560
+multiplied by the separation.,00:33:38.560,00:33:40.145
+OK?,00:33:50.520,00:33:52.530
+"So what does this
+incompressibility condition",00:33:52.530,00:33:54.960
+mean?,00:33:54.960,00:33:56.250
+"It means that however many
+points I had over here,",00:33:56.250,00:34:01.310
+"they end up in a box that has
+exactly the same volume, which",00:34:01.310,00:34:06.990
+"means that the density is going
+to be the same around here",00:34:06.990,00:34:13.040
+and around this new point.,00:34:13.040,00:34:16.050
+"So essentially, what we have is
+that the rho at the new point,",00:34:16.050,00:34:25.420
+"p prime, q prime, and
+time, t, plus dt, is",00:34:25.420,00:34:32.630
+"the same thing as the rho at
+the old point, p, q, at time, t.",00:34:32.630,00:34:41.670
+"Again, this is the
+incompressibility condition.",00:34:41.670,00:34:46.310
+Now we do mathematics.,00:34:46.310,00:34:47.234
+So let's write it again.,00:34:51.690,00:34:53.510
+"So I've said, in other
+words, that rho p, q, t",00:34:53.510,00:34:59.380
+"is the same as the
+rho at the new point.",00:34:59.380,00:35:02.510
+"What's the momentum
+at the new point?",00:35:02.510,00:35:05.270
+It is p plus.,00:35:05.270,00:35:10.180
+"For each component, it is
+p alpha plus p alpha dot.",00:35:10.180,00:35:16.330
+"Let's put it this
+way. p plus p dot",00:35:16.330,00:35:19.810
+"dt, q plus q dot
+dt, and t plus dt.",00:35:19.810,00:35:30.118
+"That is, if I look at
+the new location compared",00:35:30.118,00:35:35.440
+"to the old location, the time
+changed, the position changed,",00:35:35.440,00:35:40.040
+the momentum changed.,00:35:40.040,00:35:42.870
+"They all changed--
+in each arguments",00:35:42.870,00:35:45.810
+"changed infinitesimally
+by an amount that",00:35:45.810,00:35:47.880
+is proportional to dt.,00:35:47.880,00:35:50.660
+"And so what I can do is I
+can expand this function",00:35:50.660,00:35:54.320
+to order of dt.,00:35:54.320,00:35:56.320
+"So I have rho at
+the original point.",00:35:56.320,00:36:01.390
+So this is all mathematics.,00:36:01.390,00:36:03.590
+"I just look at
+variation with respect",00:36:03.590,00:36:06.310
+to each one of these arguments.,00:36:06.310,00:36:07.930
+"So I have a sum
+over alpha, p alpha",00:36:07.930,00:36:12.470
+"dot d rho by dp
+alpha plus q alpha",00:36:12.470,00:36:20.910
+"dot d rho by dq alpha plus
+the explicit derivative,",00:36:20.910,00:36:28.720
+d rho by dt.,00:36:28.720,00:36:30.400
+"This entirety is going
+to be multiplied by dt.",00:36:30.400,00:36:35.050
+"And then, in principle,
+the expansion",00:36:35.050,00:36:37.760
+would have higher order terms.,00:36:37.760,00:36:39.574
+OK?,00:36:43.350,00:36:45.260
+"Now, of course, the
+first term vanishes.",00:36:45.260,00:36:48.242
+It is the same on both times.,00:36:48.242,00:36:51.050
+"So the thing that I
+will have to set to 0",00:36:51.050,00:36:53.780
+is this entity over here.,00:36:53.780,00:36:55.510
+"Now, quite generally, if
+you have a function of p,",00:36:58.270,00:37:05.785
+"q, and t, you evaluate
+it at the old point",00:37:05.785,00:37:11.710
+"and then evaluate
+at the new point.",00:37:11.710,00:37:14.860
+"One can define what is
+called a total derivative.",00:37:14.860,00:37:21.110
+"And just like here,
+the total derivative",00:37:21.110,00:37:24.640
+"will come from variations
+of all of these arguments.",00:37:24.640,00:37:28.000
+"We'll have a partial
+derivative with respect",00:37:28.000,00:37:30.470
+"to time and partial
+derivatives with respect",00:37:30.470,00:37:33.970
+to any of the other arguments.,00:37:33.970,00:37:35.395
+"So I wrote this to sort
+of make a distinction",00:37:46.940,00:37:50.320
+"between the symbol
+that is commonly used,",00:37:50.320,00:37:53.950
+"sometimes d by dt, which is
+straight, sometimes Df by Dt.",00:37:53.950,00:37:58.360
+"And this is either
+a total derivative",00:38:02.620,00:38:09.120
+or a streamline derivative.,00:38:09.120,00:38:13.470
+"That is, you are
+taking derivatives",00:38:13.470,00:38:16.580
+"as you are moving
+along with the flow.",00:38:16.580,00:38:20.560
+"And that is to be distinguished
+from these partial derivatives,",00:38:20.560,00:38:25.860
+"which is really sitting
+at some point in space",00:38:25.860,00:38:29.650
+"and following how, from one
+time instant to another time",00:38:29.650,00:38:33.360
+"instant, let's say
+the density changes.",00:38:33.360,00:38:36.930
+"So Df by Dt with
+a partial really",00:38:36.930,00:38:40.190
+means sit at the same point.,00:38:40.190,00:38:43.240
+"Whereas this big Df by Dt
+means, go along with the flow",00:38:43.240,00:38:48.060
+and look at the changes.,00:38:48.060,00:38:50.880
+"Now, what we have established
+here is that for the density,",00:38:50.880,00:38:56.955
+"the density has some
+special character because",00:38:56.955,00:38:59.990
+"of this Liouville's theorem,
+that the streamlined derivative",00:38:59.990,00:39:03.125
+is 0.,00:39:03.125,00:39:04.500
+"So what we have is
+that d rho by dt is 0.",00:39:04.500,00:39:09.330
+"And this d rho by dt
+I can also write down",00:39:11.990,00:39:16.530
+"as d rho by dt plus sum
+over all 6N directions, d",00:39:16.530,00:39:25.445
+rho by dp alpha.,00:39:25.445,00:39:28.550
+"But then I substitute for
+p alpha dot from here.",00:39:28.550,00:39:34.870
+p dot is minus dH by dq.,00:39:34.870,00:39:36.880
+"And then I add d
+rho by dq alpha.",00:39:44.010,00:39:49.460
+q alpha dot is dH by dp r.,00:39:49.460,00:39:52.740
+OK?,00:39:56.556,00:39:57.056
+"So then I can take this
+combination with the minus sign",00:40:01.120,00:40:07.110
+"to the other side and
+write it as d rho by dt",00:40:07.110,00:40:14.520
+"is something that I will
+call the Poisson bracket of H",00:40:14.520,00:40:20.780
+"and rho, where,
+quite generally, if I",00:40:20.780,00:40:27.680
+"have two functions
+in phase space",00:40:27.680,00:40:31.480
+"that is defending on B and
+q, this scalary derivative",00:40:31.480,00:40:36.530
+"the Poisson bracket is
+defined as the sum over all 6N",00:40:36.530,00:40:42.700
+possible variation.,00:40:42.700,00:40:44.710
+"The first one with respect to
+q, the second one with respect",00:40:44.710,00:40:49.740
+to p.,00:40:49.740,00:40:51.100
+"And then the whole thing
+with the opposite sign.",00:40:51.100,00:40:55.190
+"dA, dP, dB, dq.",00:40:55.190,00:40:58.950
+So this is the Poisson bracket.,00:41:03.270,00:41:04.895
+"And again, from
+the definition, you",00:41:10.450,00:41:12.110
+"should be able to
+see immediately",00:41:12.110,00:41:14.540
+"that Poisson bracket
+of A and B is",00:41:14.540,00:41:16.870
+"minus the Poisson
+bracket of B and A. OK?",00:41:16.870,00:41:24.279
+"Again, we ask the question
+that in general, I",00:42:01.440,00:42:06.290
+"can construct in principle
+a rho of p, q, let's say,",00:42:06.290,00:42:14.410
+for an equilibrium ensemble.,00:42:14.410,00:42:16.280
+"But then I did something,
+like I removed a partition",00:42:16.280,00:42:20.780
+"in the middle of the gas,
+and the gas is expanding.",00:42:20.780,00:42:23.940
+"And then presumably, this
+becomes a function of time.",00:42:23.940,00:42:28.980
+"And since I know exactly how
+each one of the particles,",00:42:28.980,00:42:33.810
+"and hence each one
+of the micro states",00:42:33.810,00:42:35.680
+"is evolving as a
+function of time,",00:42:35.680,00:42:37.740
+"I should be able to tell how
+this density in phase space",00:42:37.740,00:42:41.200
+is changing.,00:42:41.200,00:42:42.430
+"So this perspective is,
+again, this perspective",00:42:42.430,00:42:46.970
+"of looking at all of these
+bees that are buzzing around",00:42:46.970,00:42:50.100
+"in this 6N-dimensional space,
+and asking the question, if I",00:42:50.100,00:42:54.190
+"look at the particular point in
+this 6N-dimensional space, what",00:42:54.190,00:42:58.350
+is the density of bees?,00:42:58.350,00:43:00.600
+"And the answer is
+that it is given",00:43:00.600,00:43:03.890
+"by the Poisson bracket
+of the Hamiltonian",00:43:03.890,00:43:08.820
+"that governs the evolution
+of each micro state",00:43:08.820,00:43:11.709
+and the density function.,00:43:11.709,00:43:12.750
+All right.,00:43:20.940,00:43:21.470
+So what does it mean?,00:43:21.470,00:43:23.880
+What can we do with this?,00:43:23.880,00:43:25.320
+"Let's play around with it and
+look at some consequences.",00:43:29.520,00:43:32.170
+"But before that, does
+anybody have any questions?",00:43:37.870,00:43:43.402
+OK.,00:43:43.402,00:43:44.840
+All right.,00:43:44.840,00:43:45.340
+"We had something
+that I just erased.",00:43:49.350,00:43:51.300
+"That is, if I have a
+function of p and q,",00:43:51.300,00:43:55.730
+"let's say it's not
+a function of time.",00:43:55.730,00:43:58.210
+"Let's say it's the kinetic
+energy for this system where,",00:43:58.210,00:44:01.360
+"at t equals to 0, I
+remove the partition,",00:44:01.360,00:44:04.290
+and the particles are expanding.,00:44:04.290,00:44:06.280
+"And let's say the other
+place you have a potential,",00:44:06.280,00:44:08.462
+"so your kinetic energy on
+average is going to change.",00:44:08.462,00:44:11.600
+"You want to know what's
+happening to that.",00:44:11.600,00:44:14.380
+"So you calculate at
+each instant of time",00:44:14.380,00:44:17.980
+"an ensemble average
+of the kinetic energy",00:44:17.980,00:44:21.380
+"or any other quantity that
+is interesting to you.",00:44:21.380,00:44:24.340
+"And your prescription for
+calculating an ensemble average",00:44:24.340,00:44:29.460
+"is that you integrate against
+the density the function",00:44:29.460,00:44:36.440
+"that you are
+proposing to look at.",00:44:36.440,00:44:42.260
+"Now, in principle,
+we said that there",00:44:42.260,00:44:45.580
+"could be situations where
+this is dependent on time,",00:44:45.580,00:44:48.620
+"in which case, your average
+will also depend on time.",00:44:48.620,00:44:53.040
+"And maybe you want to know how
+this time dependence occurs.",00:44:53.040,00:44:57.130
+"How does the kinetic
+energy of a gas that",00:44:57.130,00:44:59.720
+"is expanding into some
+potential change on average?",00:44:59.720,00:45:04.100
+OK.,00:45:04.100,00:45:04.600
+So let's take a look.,00:45:04.600,00:45:05.810
+"This is a function of
+time, because, as we said,",00:45:05.810,00:45:07.990
+these go inside the average.,00:45:07.990,00:45:09.220
+"So really, the only explicit
+variable that we have here",00:45:09.220,00:45:12.710
+is time.,00:45:12.710,00:45:13.680
+"And you can ask,
+what is the time",00:45:13.680,00:45:15.430
+dependence of this quantity?,00:45:15.430,00:45:16.765
+OK?,00:45:22.000,00:45:24.480
+"So the time dependence is
+obtained by doing this,",00:45:24.480,00:45:35.380
+"because essentially, you
+would be adding things",00:45:35.380,00:45:39.950
+"at different points in p, q.",00:45:39.950,00:45:43.210
+"And at each point, there
+is a time dependence.",00:45:43.210,00:45:45.830
+"And you take the derivative
+in time with respect",00:45:45.830,00:45:49.290
+"to the contribution
+of that point.",00:45:49.290,00:45:51.860
+So we get something like this.,00:45:51.860,00:45:54.940
+"Now you say, OK, I know
+what d rho by dt is.",00:45:54.940,00:45:58.420
+"So this is my integration
+over all of the phase space.",00:45:58.420,00:46:05.080
+"d rho by dt is this Poisson
+bracket of H and rho.",00:46:05.080,00:46:09.400
+And then I have O. OK?,00:46:09.400,00:46:14.400
+Let's write this explicitly.,00:46:14.400,00:46:16.930
+"This is an integral
+over a whole bunch",00:46:16.930,00:46:19.340
+of coordinates and momenta.,00:46:19.340,00:46:20.530
+"There is, for the
+Poisson bracket,",00:46:26.340,00:46:30.725
+a sum over derivatives.,00:46:30.725,00:46:32.690
+"So I have a sum over
+alpha-- dH by dq alpha,",00:46:32.690,00:46:39.390
+"d rho by dp alpha minus dH by
+dp alpha, d rho by dq alpha.",00:46:39.390,00:46:48.030
+"And that Poisson
+bracket in its entirety",00:46:48.030,00:46:50.970
+"then gets multiplied by this
+function of phase space.",00:46:50.970,00:46:57.210
+OK.,00:46:57.210,00:47:00.080
+"Now, one of the
+mathematical manipulations",00:47:00.080,00:47:04.475
+"that we will do a
+lot in this class.",00:47:04.475,00:47:07.760
+"And that's why I do this
+particular step, although it's",00:47:07.760,00:47:11.160
+"not really necessary to
+the logical progression",00:47:11.160,00:47:13.795
+"that I'm following,
+is to remind you",00:47:13.795,00:47:17.470
+"how you would do an integration
+by parts when you're",00:47:17.470,00:47:21.260
+faced with something like this.,00:47:21.260,00:47:23.290
+"An integration by
+parts is applicable",00:47:23.290,00:47:26.700
+"when you have variables that you
+are integrating that are also",00:47:26.700,00:47:31.660
+appearing as derivatives.,00:47:31.660,00:47:35.340
+"And whenever you are
+integrating Poisson brackets,",00:47:35.340,00:47:39.740
+"you will have derivatives
+for the Poisson bracket.",00:47:39.740,00:47:43.130
+"And the integration
+would allow you",00:47:43.130,00:47:45.360
+to use integration by parts.,00:47:45.360,00:47:48.530
+"And in particular,
+what I would like to do",00:47:48.530,00:47:52.130
+"is to remove the derivative
+that acts on the densities.",00:47:52.130,00:47:55.510
+"So I'm going to
+essentially rewrite that as",00:47:58.060,00:48:05.730
+"minus an integral
+that involves-- again.",00:48:05.730,00:48:11.090
+"I don't want to keep
+rewriting that thing.",00:48:11.090,00:48:14.190
+"I want to basically take
+the density out and then",00:48:14.190,00:48:20.340
+"have the derivative, which is
+this d by dp in the first term",00:48:20.340,00:48:24.070
+"and d by dq in the second
+term, act on everything else.",00:48:24.070,00:48:28.790
+"So in the first case, d
+by dp alpha will act on O",00:48:28.790,00:48:36.890
+and dH by dq alpha.,00:48:36.890,00:48:38.540
+"And in the second case, d
+by dq alpha will act on O",00:48:41.150,00:48:48.260
+and dH by dp alpha.,00:48:48.260,00:48:49.691
+"Again, there is a sum over
+alpha that is implicit.",00:48:53.459,00:48:57.000
+OK?,00:48:59.916,00:49:01.380
+"Again, there is a minus sign.",00:49:01.380,00:49:03.080
+"So every time you do this
+procedure, there is this.",00:49:03.080,00:49:07.230
+"But every time, you also have
+to worry about surface terms.",00:49:07.230,00:49:11.000
+"So on the surface,
+you would potentially",00:49:11.000,00:49:14.050
+"have to evaluate things that
+involve rho, O, and these d",00:49:14.050,00:49:19.850
+by d derivatives.,00:49:19.850,00:49:21.305
+"But let's say we are
+integrating over momentum",00:49:25.020,00:49:28.290
+from minus infinity to infinity.,00:49:28.290,00:49:30.650
+"Then the density evaluated at
+infinity momenta would be 0.",00:49:30.650,00:49:35.240
+"So practicality, in all
+cases that I can think of,",00:49:35.240,00:49:38.760
+"you don't have to worry
+about the boundary terms.",00:49:38.760,00:49:43.280
+"So then when you look
+at these kinds of terms,",00:49:43.280,00:49:47.200
+"this d by dp alpha
+can either act on O.",00:49:47.200,00:49:51.380
+"So I will get dO by dp
+alpha, dH by dq alpha.",00:49:51.380,00:49:58.000
+Or it can act on dH by d alpha.,00:49:58.000,00:50:03.070
+"So I will get plus O d2
+H, dp alpha dq alpha.",00:50:03.070,00:50:08.530
+"And similarly, in
+this term, either I",00:50:08.530,00:50:11.950
+"will have dO by dq alpha, dH by
+dp alpha, or O d2 H, dq alpha",00:50:11.950,00:50:20.720
+dp alpha.,00:50:20.720,00:50:23.740
+"Once more, the second
+derivative terms",00:50:23.740,00:50:25.770
+"of the Hamiltonian, the
+order is not important.",00:50:25.770,00:50:31.620
+"And what is left
+here is this set",00:50:31.620,00:50:34.600
+"of objects, which is none
+other than the Poisson bracket.",00:50:34.600,00:50:39.590
+"So I can rewrite the whole thing
+as d by dt of the expectation",00:50:39.590,00:50:44.440
+"value of this quantity,
+which potentially",00:50:44.440,00:50:47.630
+"is a function of time
+because of the time",00:50:47.630,00:50:49.860
+"dependence of my density
+is the same thing",00:50:49.860,00:50:53.410
+"as minus an integration over
+the entire phase space of rho",00:50:53.410,00:51:00.090
+"against this entity,
+which is none",00:51:00.090,00:51:03.170
+"other than the Poisson
+bracket of H with O.",00:51:03.170,00:51:09.200
+"And this integration over
+density of this entire space",00:51:09.200,00:51:13.830
+"is just our definition
+of the expectation value.",00:51:13.830,00:51:17.710
+"So we get that the time
+derivative of any quantity",00:51:17.710,00:51:27.650
+"is related to the average
+of its Poisson bracket",00:51:27.650,00:51:32.370
+"with the Hamiltonian, which
+is the quantity that is really",00:51:32.370,00:51:36.110
+governing time dependences.,00:51:36.110,00:51:37.437
+Yes?,00:51:40.913,00:51:41.413
+"AUDIENCE: Could
+you explain again",00:51:41.413,00:51:43.350
+"why the time derivative
+when N is the integral,",00:51:43.350,00:51:46.420
+"it's rho as a
+partial derivative?",00:51:46.420,00:51:48.688
+PROFESSOR: OK.,00:51:48.688,00:51:50.140
+"So suppose I'm doing a
+two-dimensional integral",00:51:50.140,00:51:53.190
+over p and q.,00:51:53.190,00:51:56.060
+"So I have some contribution
+from each point in this p and q.",00:51:56.060,00:52:01.010
+"And so my integral
+is an integral dpdq,",00:52:01.010,00:52:05.220
+"something evaluated
+at each point in p,",00:52:05.220,00:52:08.770
+"q that could potentially
+depend on time.",00:52:08.770,00:52:12.420
+Imagine that I discretize this.,00:52:12.420,00:52:14.600
+"So I really-- if you
+are more comfortable,",00:52:14.600,00:52:17.230
+"you can think of this
+as a limit of a sum.",00:52:17.230,00:52:20.310
+So this is my integral.,00:52:20.310,00:52:23.170
+"If I'm interested in the time
+dependence of this quantity--",00:52:23.170,00:52:26.800
+"and I really depends
+only on time,",00:52:26.800,00:52:29.130
+"because I integrated
+over p and q.",00:52:29.130,00:52:32.290
+"So if I'm interested
+in something",00:52:32.290,00:52:34.970
+"that is a sum of
+various terms, each term",00:52:34.970,00:52:38.990
+is a function of time.,00:52:38.990,00:52:41.760
+"Where do I put the
+time dependence?",00:52:41.760,00:52:43.880
+"For each term in this sum, I
+look at how it depends on time.",00:52:43.880,00:52:49.990
+"I don't care on its points
+to the left and to the right.",00:52:49.990,00:52:53.805
+OK?,00:52:59.030,00:52:59.990
+"Because the big D by Dt involves
+moving with the streamline.",00:52:59.990,00:53:04.420
+"I'm not doing any moving
+with the streamline.",00:53:04.420,00:53:07.050
+"I'm looking at each point in
+this two-dimensional space.",00:53:07.050,00:53:12.350
+"Each point gives a
+contribution at that point",00:53:12.350,00:53:15.730
+that is time-dependent.,00:53:15.730,00:53:17.380
+"And I take the derivative with
+respect to time at that point.",00:53:17.380,00:53:20.580
+Yes?,00:53:23.200,00:53:23.720
+"AUDIENCE: Couldn't you say
+that you have function O",00:53:23.720,00:53:27.672
+"as just some
+function of p and q,",00:53:27.672,00:53:30.636
+"and its time derivative
+would be Poisson bracket?",00:53:30.636,00:53:34.457
+PROFESSOR: Yes.,00:53:34.457,00:53:35.082
+"AUDIENCE: And does the
+average of the time derivative",00:53:35.082,00:53:37.291
+"would be the average
+of Poisson bracket,",00:53:37.291,00:53:38.957
+"and you don't have to
+go through all the--",00:53:38.957,00:53:40.826
+PROFESSOR: No.,00:53:40.826,00:53:41.570
+"But you can see the
+sign doesn't work.",00:53:41.570,00:53:43.280
+AUDIENCE: How come?,00:53:45.942,00:53:47.304
+"PROFESSOR: [LAUGHS]
+Because of all",00:53:47.304,00:53:48.720
+"of these manipulations,
+et cetera.",00:53:48.720,00:53:50.390
+"So the statement that you
+made is manifestly incorrect.",00:53:50.390,00:53:54.030
+"You can't say that the time
+dependence of this thing",00:53:54.030,00:53:58.190
+"is the-- whatever you
+were saying. [LAUGHS]",00:53:58.190,00:54:03.366
+AUDIENCE: [INAUDIBLE].,00:54:03.866,00:54:06.794
+PROFESSOR: OK.,00:54:06.794,00:54:07.510
+Let's see what you are saying.,00:54:07.510,00:54:08.760
+"AUDIENCE: So
+Poisson bracket only",00:54:08.760,00:54:11.090
+"counts for in place
+for averages, right?",00:54:11.090,00:54:14.402
+PROFESSOR: OK.,00:54:14.402,00:54:15.360
+So what do we have here?,00:54:15.360,00:54:17.560
+"We have that dp by dt is the
+Poisson bracket of H and rho.",00:54:17.560,00:54:25.630
+OK?,00:54:25.630,00:54:26.630
+"And we have that O is an
+integral of rho O. Now,",00:54:26.630,00:54:33.730
+"from where do you conclude
+from this set of results",00:54:33.730,00:54:37.460
+"that d O by dt is the
+average of a Poisson bracket",00:54:37.460,00:54:44.900
+"that involves O
+and H, irrespective",00:54:44.900,00:54:47.390
+of what we do with the sign?,00:54:47.390,00:54:48.670
+"AUDIENCE: Or if you look not
+at the average failure of O",00:54:48.670,00:54:53.230
+"but at the value of O
+and point, and take-- I",00:54:53.230,00:54:57.745
+"guess it would be
+streamline derivative of it.",00:54:57.745,00:55:01.050
+"So that's assuming that you're
+just like assigning value of O",00:55:01.050,00:55:07.214
+"to each point, and making
+power changes with time",00:55:07.214,00:55:10.570
+"as this point moves
+across the phase space.",00:55:10.570,00:55:13.076
+PROFESSOR: OK.,00:55:13.076,00:55:13.810
+"But you still have to do some
+bit of derivatives, et cetera,",00:55:13.810,00:55:20.230
+because--,00:55:20.230,00:55:21.652
+"AUDIENCE: But if you know
+that the volume of the",00:55:21.652,00:55:24.520
+"in phase space is
+conserved, then we basically",00:55:24.520,00:55:28.756
+"don't care much
+that the function",00:55:28.756,00:55:30.980
+"O is any much different
+from probability density.",00:55:30.980,00:55:34.340
+PROFESSOR: OK.,00:55:34.340,00:55:35.080
+"If I understand correctly,
+this is what you are saying.",00:55:35.080,00:55:38.070
+"Is that for each
+representative point,",00:55:38.070,00:55:41.150
+"I have an O alpha, which
+is a function of time.",00:55:41.150,00:55:46.190
+"And then you want to say
+that the average of O",00:55:46.190,00:55:51.880
+"is the same thing as the sum
+over alpha of O alpha of t's",00:55:51.880,00:55:57.370
+"divided by N,
+something like this.",00:55:57.370,00:55:59.690
+AUDIENCE: Eh.,00:55:59.690,00:56:02.150
+"Uh, I want to first calculate
+what does time derivative of O?",00:56:02.150,00:56:08.020
+"O remains in a function
+of time and q and p.",00:56:08.020,00:56:12.406
+So I can calculate--,00:56:12.406,00:56:13.390
+PROFESSOR: Yes.,00:56:13.390,00:56:14.380
+So this O alpha is a function of,00:56:14.380,00:56:20.834
+AUDIENCE: So if I said--,00:56:20.834,00:56:22.176
+PROFESSOR: Yes.,00:56:22.176,00:56:22.800
+OK.,00:56:22.800,00:56:23.140
+Fine.,00:56:23.140,00:56:23.640
+"AUDIENCE: O is a function
+of q and p and t,",00:56:23.640,00:56:27.292
+"and I take a streamline
+derivative of it.",00:56:27.292,00:56:29.890
+So filter it with respect to t.,00:56:29.890,00:56:31.616
+"And then I average that
+thing over phase space.",00:56:31.616,00:56:37.500
+"And then I should get
+the same version--",00:56:37.500,00:56:39.994
+PROFESSOR: You should.,00:56:39.994,00:56:40.910
+AUDIENCE: --perfectly.,00:56:40.910,00:56:42.185
+But--,00:56:42.185,00:56:43.035
+"PROFESSOR: Very quickly,
+I don't think so.",00:56:43.035,00:56:46.890
+"Because you are already
+explaining things a bit",00:56:46.890,00:56:49.150
+"longer than I think I went
+through my derivation.",00:56:49.150,00:56:51.455
+But that's fine. [LAUGHS],00:56:51.455,00:56:54.096
+AUDIENCE: Is there any special--,00:56:55.004,00:56:57.290
+"PROFESSOR: But I
+agree in spirit, yes.",00:56:57.290,00:56:59.600
+"That each one of these will
+go along its streamline,",00:56:59.600,00:57:02.920
+"and you can calculate the
+change for each one of them.",00:57:02.920,00:57:06.280
+"And then you have to do an
+average of this variety.",00:57:06.280,00:57:08.810
+Yes.,00:57:08.810,00:57:09.705
+"AUDIENCE: [INAUDIBLE] when
+you talk about time derivative",00:57:09.705,00:57:15.254
+"of probability density, it's
+Poisson bracket of H and rho.",00:57:15.254,00:57:19.300
+"But when you talk about
+time derivative of average,",00:57:19.300,00:57:23.156
+you have to add the minus sign.,00:57:23.156,00:57:27.330
+"PROFESSOR: And if you
+do this correctly here,",00:57:27.330,00:57:29.840
+you should get the same result.,00:57:29.840,00:57:31.134
+"AUDIENCE: Oh, OK.",00:57:33.858,00:57:34.766
+PROFESSOR: Yes.,00:57:34.766,00:57:35.945
+"AUDIENCE: Well, along
+that line, though,",00:57:35.945,00:57:39.005
+"are you using the fact
+that phase space volume is",00:57:39.005,00:57:43.455
+"incompressible to then
+argue that the total time",00:57:43.455,00:57:47.074
+"derivative of the
+ensemble average",00:57:47.074,00:57:49.900
+"is the same as the ensemble
+average of the total time",00:57:49.900,00:57:54.045
+"derivative of O, or not?",00:57:54.045,00:57:56.520
+"PROFESSOR: Could
+you repeat that?",00:58:08.326,00:58:09.700
+"Mathematically,
+you want me to show",00:58:09.700,00:58:11.810
+"that the time derivative
+of what quantity?",00:58:11.810,00:58:16.875
+AUDIENCE: Of the average of O.,00:58:16.875,00:58:19.515
+"PROFESSOR: Of the
+average of O. Yes.",00:58:19.515,00:58:21.970
+"AUDIENCE: Is it in any
+way related to the average",00:58:21.970,00:58:24.370
+of dO over dt?,00:58:24.370,00:58:27.065
+"PROFESSOR: No, it's not.",00:58:27.065,00:58:29.520
+"Because O-- I mean, so
+what do you mean by that?",00:58:29.520,00:58:34.660
+"You have to be careful, because
+the way that I'm defining this",00:58:34.660,00:58:37.850
+"here, O is a
+function of p and q.",00:58:37.850,00:58:41.640
+"And what you want to do
+is to write something",00:58:41.640,00:58:46.250
+"that is a sum over all
+representative points, divided",00:58:46.250,00:58:56.990
+"by the total number, some
+kind of an average like this.",00:58:56.990,00:59:00.780
+"And then I can define
+a time derivative here.",00:59:00.780,00:59:04.114
+Is that what you are--,00:59:04.114,00:59:05.030
+"AUDIENCE: Well, I
+mean, I was thinking",00:59:05.030,00:59:06.710
+"that even if you start out with
+your observable being defined",00:59:06.710,00:59:10.230
+"for every point in phase
+space, then if you were to,",00:59:10.230,00:59:14.080
+"before doing any
+ensemble averaging,",00:59:14.080,00:59:16.150
+"if you were to take the total
+time derivative of that,",00:59:16.150,00:59:19.970
+"then you would be accounted for
+p dot and q dot as well, right?",00:59:19.970,00:59:25.030
+"And then if you were
+to take the ensemble",00:59:25.030,00:59:26.960
+"average of that
+quantity, could you",00:59:26.960,00:59:29.710
+"arrive at the same
+result for that?",00:59:29.710,00:59:31.420
+"PROFESSOR: I'm pretty sure that
+if you do things consistently,",00:59:31.420,00:59:34.570
+yes.,00:59:34.570,00:59:35.320
+"That is, what we have
+done is essentially",00:59:35.320,00:59:37.230
+"we started with a collection
+of trajectories in phase space",00:59:37.230,00:59:41.830
+"and recast the result in
+terms of density and variables",00:59:41.830,00:59:45.235
+"that are defined only as
+positions in phase space.",00:59:45.235,00:59:49.950
+"The two descriptions
+completely are equivalent.",00:59:49.950,00:59:53.200
+"And as long as one
+doesn't make a mistake,",00:59:53.200,00:59:55.810
+one can get one or the other.,00:59:55.810,00:59:58.022
+"This is actually a kind
+of a well-known thing",00:59:58.022,01:00:01.635
+"in hydrodynamics, because
+typically, you write down,",01:00:01.635,01:00:05.490
+"in hydrodynamics, equations
+for density and velocity",01:00:05.490,01:00:09.070
+at each point in phase space.,01:00:09.070,01:00:11.850
+"But there is an
+alternative description",01:00:11.850,01:00:14.220
+"which we can say that there's
+essentially particles that are",01:00:14.220,01:00:18.400
+flowing.,01:00:18.400,01:00:19.700
+"And particle that was
+here at this location",01:00:19.700,01:00:22.800
+"is now somewhere else
+at some later time.",01:00:22.800,01:00:25.860
+And people have tried hard.,01:00:25.860,01:00:28.820
+"And there is a
+consistent definition",01:00:28.820,01:00:30.570
+"of hydrodynamics that follows
+the second perspective.",01:00:30.570,01:00:34.620
+"But I haven't seen it
+as being practical.",01:00:34.620,01:00:37.700
+"So I'm sure that everything
+that you guys say is correct.",01:00:37.700,01:00:41.440
+"But from the experience of
+what I know in hydrodynamics,",01:00:41.440,01:00:45.250
+"I think this is the more
+practical description",01:00:45.250,01:00:47.450
+that people have been using.,01:00:47.450,01:00:49.090
+OK?,01:00:53.170,01:00:56.060
+So where were we?,01:00:56.060,01:00:58.810
+OK.,01:00:58.810,01:00:59.310
+So back to our buzzing bees.,01:01:01.920,01:01:05.810
+"We now have a way
+of looking at how",01:01:09.960,01:01:13.240
+"densities and various quantities
+that you can calculate,",01:01:13.240,01:01:17.070
+"like ensemble averages, are
+changing as a function of time.",01:01:17.070,01:01:22.670
+"But the question
+that I had before",01:01:22.670,01:01:24.145
+"is, what about equilibrium?",01:01:24.145,01:01:25.270
+"Because the thermodynamic
+definition of equilibrium,",01:01:31.700,01:01:35.170
+"and my whole ensemble idea,
+was that essentially, I",01:01:35.170,01:01:38.550
+"have all of these
+boxes and pressure,",01:01:38.550,01:01:41.920
+"volume, everything
+that I can think of,",01:01:41.920,01:01:44.120
+"as long as I'm not
+doing something that's",01:01:44.120,01:01:46.510
+"like opening the box, is
+perfectly independent of time.",01:01:46.510,01:01:52.230
+"So how can I ensure that
+various things that I calculate",01:01:52.230,01:01:56.260
+are independent of time?,01:01:56.260,01:01:58.170
+"Clearly, I can do that by having
+this density not really depend",01:01:58.170,01:02:03.640
+on time.,01:02:03.640,01:02:05.950
+OK?,01:02:05.950,01:02:07.830
+"Now, of course, each
+representative point",01:02:07.830,01:02:10.180
+is moving around.,01:02:10.180,01:02:11.370
+"Each micro state
+is moving around.",01:02:11.370,01:02:13.210
+Each bee is moving around.,01:02:13.210,01:02:14.710
+"But I want the density that is
+characteristic of equilibrium",01:02:14.710,01:02:21.100
+"be something that does
+not change in time.",01:02:21.100,01:02:23.340
+It's 0.,01:02:26.030,01:02:26.560
+"And so if I posit that this
+particular function of p and q",01:02:29.220,01:02:34.830
+"is something that is not
+changing as a function of time,",01:02:34.830,01:02:38.150
+"I have to require that
+the Poisson bracket",01:02:38.150,01:02:40.900
+"of that function of p and
+q with the Hamiltonian,",01:02:40.900,01:02:44.310
+"which is another function
+of p and q, is 0.",01:02:44.310,01:02:48.435
+OK?,01:02:48.435,01:02:49.330
+"So in principle,
+I have to go back",01:02:49.330,01:02:52.290
+"to this equation over here,
+which is a partial differential",01:02:52.290,01:02:57.000
+"equation in 6N-dimensional
+space and solve with equal to 0.",01:02:57.000,01:03:03.190
+"Of course, rather than doing
+that, we will guess the answer.",01:03:03.190,01:03:06.640
+"And the guess is clear from
+here, because all I need to do",01:03:06.640,01:03:12.390
+"is to make rho equilibrium
+depend on coordinates in phase",01:03:12.390,01:03:18.500
+"space through some functional
+dependence on Hamiltonian,",01:03:18.500,01:03:24.210
+"which depends on the
+coordinates in phase space.",01:03:24.210,01:03:28.354
+OK?,01:03:28.354,01:03:29.820
+Why does this work?,01:03:29.820,01:03:31.730
+"Because then when I take the
+Poisson bracket of, let's",01:03:31.730,01:03:36.580
+"say, this function of H with
+H, what do I have to do?",01:03:36.580,01:03:45.640
+"I have to do a sum over
+alpha d rho with respect",01:03:45.640,01:03:50.590
+"to, let's say-- actually,
+let's write it in this way.",01:03:50.590,01:03:55.510
+"I will have the dH by
+dp alpha from here.",01:03:55.510,01:04:02.850
+"I have to multiply
+by d rho by dq alpha.",01:04:02.850,01:04:06.770
+"But rho is a function
+of only H. So I",01:04:06.770,01:04:10.510
+"have to take a derivative of rho
+with respect to its argument H.",01:04:10.510,01:04:14.500
+And I'll call that rho prime.,01:04:14.500,01:04:16.270
+"And then the derivative
+of the argument,",01:04:16.270,01:04:18.610
+"which is H, with
+respect to q alpha.",01:04:18.610,01:04:22.090
+That would be the first term.,01:04:22.090,01:04:24.580
+"The next term would be, with
+the minus sign, from the H here,",01:04:24.580,01:04:29.755
+"dH by dq alpha, the derivative
+of rho with respect to p alpha.",01:04:29.755,01:04:37.520
+"But rho only depends on H, so I
+will get the derivative of rho",01:04:37.520,01:04:42.460
+"with respect to
+its one argument.",01:04:42.460,01:04:44.650
+"The derivative of that argument
+with respect to p alpha.",01:04:44.650,01:04:49.610
+OK?,01:04:49.610,01:04:51.410
+"So you can see that up to
+the order of the terms that",01:04:51.410,01:04:54.470
+"are multiplying here, this is 0.",01:04:54.470,01:04:59.020
+OK?,01:04:59.020,01:05:02.020
+"So any function I choose of H,
+in principle, satisfies this.",01:05:02.020,01:05:10.650
+"And this is what we
+will use consistently",01:05:10.650,01:05:14.710
+"all the time in
+statistical mechanics,",01:05:14.710,01:05:17.680
+"in depending on the
+ensemble that we have.",01:05:17.680,01:05:20.560
+"Like you probably
+know that when we",01:05:20.560,01:05:22.275
+"are in the micro
+canonical ensemble,",01:05:22.275,01:05:25.000
+"we look at-- in the
+micro canonical ensemble,",01:05:25.000,01:05:28.110
+we'd say what the energy is.,01:05:28.110,01:05:31.630
+"And then we say
+that the density is",01:05:31.630,01:05:35.620
+"a delta function--
+essentially zero.",01:05:35.620,01:05:41.100
+"Except places, it's
+the surface that",01:05:41.100,01:05:44.820
+"corresponds to having
+the right energy.",01:05:44.820,01:05:47.410
+"So you sort of
+construct in phase space",01:05:47.410,01:05:50.160
+"the surface that has
+the right energy.",01:05:50.160,01:05:53.100
+"So it's a function
+of these four.",01:05:53.100,01:05:56.889
+So this is the micro canonical.,01:05:56.889,01:05:58.180
+"When you are in the
+canonical, I use",01:06:00.790,01:06:02.750
+"a rho this is proportional
+to e to the minus beta H",01:06:02.750,01:06:05.822
+and other functional features.,01:06:05.822,01:06:07.610
+"So it's, again, the same idea.",01:06:07.610,01:06:10.175
+OK?,01:06:13.140,01:06:13.640
+"That's almost but
+not entirely true,",01:06:21.570,01:06:25.910
+"because sometimes there are
+also other conserved quantities.",01:06:25.910,01:06:29.894
+"Let's say that, for example, we
+have a collection of particles",01:06:39.640,01:06:43.620
+"in space in a cavity that
+has the shape of a sphere.",01:06:43.620,01:06:48.100
+"Because of the symmetry
+of the problem,",01:06:48.100,01:06:50.740
+"angular momentum is going
+to be a conserved quantity.",01:06:50.740,01:06:56.300
+"Angular momentum
+you can also write",01:06:56.300,01:06:58.570
+"as some complicated
+function of p and q.",01:06:58.570,01:07:02.030
+"For example, p cross q summed
+over all of the particles.",01:07:02.030,01:07:05.340
+"But it could be some
+other conserved quantity.",01:07:05.340,01:07:10.130
+"So what does this
+conservation law mean?",01:07:10.130,01:07:13.680
+"It means that if you
+evaluate L for some time,",01:07:13.680,01:07:20.410
+"it is going to be the
+same L for the coordinates",01:07:20.410,01:07:23.920
+and momenta at some other time.,01:07:23.920,01:07:26.010
+"Or in other words,
+dL by dt, which",01:07:26.010,01:07:29.700
+"you obtained by summing
+over all coordinates dL",01:07:29.700,01:07:34.470
+"by dp alpha, p alpha dot, plus
+dL by dq alpha q alpha dot.",01:07:34.470,01:07:44.370
+"Essentially, taking
+time derivatives",01:07:44.370,01:07:46.440
+of all of the arguments.,01:07:46.440,01:07:48.150
+"And I did not put any
+explicit time dependence here.",01:07:48.150,01:07:51.780
+"And this is again sum
+over alpha dL by dp alpha.",01:07:51.780,01:07:57.440
+"p alpha dot is minus
+dH by dq alpha.",01:07:57.440,01:08:04.670
+"And dL by dq alpha, q alpha
+dot is dH by dp alpha.",01:08:04.670,01:08:14.570
+"So you are seeing that
+this is the same thing",01:08:14.570,01:08:17.834
+"as the Poisson
+bracket of L and H.",01:08:17.834,01:08:24.540
+"So essentially, conserved
+quantities which",01:08:24.540,01:08:29.830
+"are essentially functions
+of coordinates and momenta",01:08:29.830,01:08:33.990
+"that you calculate that don't
+change as a function of time",01:08:33.990,01:08:37.680
+"are also quantities
+that have zero Poisson",01:08:37.680,01:08:40.420
+brackets with the Hamiltonian.,01:08:40.420,01:08:43.700
+"So if I have a
+conserved quantity,",01:08:43.700,01:08:47.569
+"then I have a more
+general solution.",01:08:47.569,01:08:49.414
+"To my d rho by dt
+equals to 0 requirement.",01:08:55.890,01:09:02.140
+"I could make a rho
+equilibrium which",01:09:02.140,01:09:05.410
+"is a function of H of p and q,
+as well as, say, L of p and q.",01:09:05.410,01:09:10.563
+"And when you go through the
+Poisson bracket process,",01:09:14.649,01:09:20.979
+"you will either be
+taking derivatives",01:09:20.979,01:09:34.120
+"with respect to the
+first argument here.",01:09:34.120,01:09:37.870
+"So you would get rho prime with
+respect to the first argument.",01:09:37.870,01:09:43.319
+"And then you would get the
+Poisson bracket of H and H.",01:09:43.319,01:09:47.859
+"Or you would be getting
+derivatives with respect",01:09:47.859,01:09:50.810
+to the second argument.,01:09:50.810,01:09:53.819
+"And then you would be getting
+the Poisson bracket of L and H.",01:09:53.819,01:09:59.280
+And both of them are 0.,01:09:59.280,01:10:01.540
+"By definition, L is
+a conserved quantity.",01:10:01.540,01:10:04.850
+"So any solution that's a
+function of Hamiltonian,",01:10:04.850,01:10:10.440
+"the energy of the
+system is conserved",01:10:10.440,01:10:12.340
+"as a function of
+time, as well as",01:10:12.340,01:10:14.570
+"any other conserved quantities,
+such as angular momentum,",01:10:14.570,01:10:18.190
+"et cetera, is certainly
+a valid thing.",01:10:18.190,01:10:22.200
+"So indeed, when I drew here, in
+the micro canonical ensemble,",01:10:22.200,01:10:28.680
+"a surface that corresponds
+to a constant energy,",01:10:28.680,01:10:33.020
+"well, if I am in a
+spherical cavity,",01:10:33.020,01:10:36.450
+"only part of that
+surface that corresponds",01:10:36.450,01:10:39.270
+"to the right angular momentum
+is going to be accessible.",01:10:39.270,01:10:43.490
+"So essentially, what I know
+is that if I have conserved",01:10:43.490,01:10:48.870
+"quantities, my trajectories
+will explore the subspace",01:10:48.870,01:10:55.050
+"that is consistent with
+those conservation laws.",01:10:55.050,01:10:59.070
+"And this statement here is that
+ultimately, those spaces that",01:10:59.070,01:11:05.720
+"correspond to the
+appropriate conservation law",01:11:05.720,01:11:09.720
+are equally populated.,01:11:09.720,01:11:11.750
+Rho is constant around.,01:11:11.750,01:11:15.400
+"So in some sense, we started
+with the definition of rho",01:11:15.400,01:11:20.960
+"by putting these points
+around and calculating",01:11:20.960,01:11:24.460
+"probability that way, which
+was my objective definition",01:11:24.460,01:11:28.410
+of probability.,01:11:28.410,01:11:30.100
+"And through this
+Liouville theorem,",01:11:30.100,01:11:32.320
+"we have arrived
+at something that",01:11:32.320,01:11:33.920
+"is more consistent with
+the subjective assignment",01:11:33.920,01:11:38.770
+of probability.,01:11:38.770,01:11:40.040
+"That is, the only
+thing that I know,",01:11:40.040,01:11:42.790
+"forgetting about
+the dynamics, is",01:11:42.790,01:11:44.360
+"that there are some
+conserved quantities,",01:11:44.360,01:11:46.240
+"such as H, angular
+momentum, et cetera.",01:11:46.240,01:11:49.060
+"And I say that any point in
+phase space that does not",01:11:49.060,01:11:51.990
+"violate those constants in this,
+say, micro canonical ensemble",01:11:51.990,01:11:56.600
+would be equally populated.,01:11:56.600,01:11:58.520
+There was a question somewhere.,01:11:58.520,01:12:00.860
+Yes?,01:12:00.860,01:12:02.314
+"AUDIENCE: So I almost feel like
+the statement that the rho has",01:12:02.314,01:12:11.324
+"to not change in time is too
+strong, because if you go over",01:12:11.324,01:12:15.967
+"to the equation that
+says the rate of change",01:12:15.967,01:12:20.458
+"is observable is equal
+to the integral that",01:12:20.458,01:12:24.574
+"was with a Poisson
+bracket of rho and H, then",01:12:24.574,01:12:28.795
+"it means that for
+any observable,",01:12:28.795,01:12:30.450
+"it's constant in time, right?",01:12:30.450,01:12:33.138
+PROFESSOR: Yes.,01:12:33.138,01:12:34.040
+"AUDIENCE: So rho of q means
+any observable we can think of,",01:12:34.040,01:12:38.330
+"its function of p
+and q is constant?",01:12:38.330,01:12:40.232
+PROFESSOR: Yep.,01:12:40.232,01:12:42.640
+Yep.,01:12:42.640,01:12:43.370
+"Because-- and that's
+the best thing that we",01:12:43.370,01:12:49.720
+"can think of in terms
+of-- because if there",01:12:49.720,01:12:53.730
+"is some observable that
+is time-dependent--",01:12:53.730,01:12:56.660
+"let's say 99 observables
+are time-independent,",01:12:56.660,01:12:59.655
+"but one is time-dependent,
+and you can measure that,",01:12:59.655,01:13:03.830
+"would you say your
+system is in equilibrium?",01:13:03.830,01:13:06.140
+Probably not.,01:13:06.140,01:13:07.104
+OK?,01:13:11.856,01:13:12.356
+"AUDIENCE: It seemed
+like the same method",01:13:12.356,01:13:14.022
+"that you did to show that
+the density is a function of",01:13:14.022,01:13:17.155
+"[INAUDIBLE], or
+[INAUDIBLE] that it's",01:13:17.155,01:13:20.850
+"the function of any observable
+that's a function of q.",01:13:20.850,01:13:27.860
+Right?,01:13:27.860,01:13:28.360
+PROFESSOR: Observables?,01:13:28.360,01:13:29.500
+No.,01:13:29.500,01:13:30.530
+"I mean, here, if
+this answer is 0,",01:13:30.530,01:13:36.000
+"it states something about
+this quantity averaged.",01:13:36.000,01:13:39.580
+"So if this quantity does not
+change as a function of time,",01:13:39.580,01:13:43.720
+"it is not a statement
+that H and 0 is 0.",01:13:43.720,01:13:48.410
+"A statement that H and O is 0
+is different from its ensemble",01:13:48.410,01:13:52.700
+average being 0.,01:13:52.700,01:13:55.330
+"What you can show-- and I think
+I have a problem set for that--",01:13:55.330,01:13:59.450
+"is that if this statement
+is correct for every O",01:13:59.450,01:14:04.280
+"that the average
+is 0, then your rho",01:14:04.280,01:14:08.870
+"has to satisfy
+this theorem equals",01:14:08.870,01:14:11.940
+"to-- Poisson bracket of
+rho and H is equal to 0.",01:14:11.940,01:14:15.992
+OK.,01:14:23.860,01:14:24.420
+"So now the big question
+is the following.",01:14:24.420,01:14:28.030
+"We arrived that the way of
+thinking about equilibrium",01:14:28.030,01:14:31.390
+"in a system of
+particles and things",01:14:31.390,01:14:34.610
+"that are this many-to-one
+mapping, et cetera, in terms",01:14:34.610,01:14:38.000
+"of the densities-- we arrived
+that the definition of what",01:14:38.000,01:14:42.030
+"the density is going
+to be in equilibrium.",01:14:42.030,01:14:44.990
+"But the thermodynamic statement
+is much, much more severe.",01:14:44.990,01:14:49.730
+"The statement, again,
+is that if I have a box",01:14:49.730,01:14:52.770
+"and I open the door
+of the box, the gas",01:14:52.770,01:14:56.320
+"expands to fill the empty space
+or the other part of the box.",01:14:56.320,01:15:01.300
+And it will do so all the time.,01:15:01.300,01:15:04.850
+"Yet the equations of motion
+that we have over here",01:15:04.850,01:15:07.790
+are time reversal invariant.,01:15:07.790,01:15:10.090
+"And we did not manage
+to remove that.",01:15:10.090,01:15:12.710
+"We can show that this
+Liouville equation, et cetera,",01:15:12.710,01:15:15.920
+is also time reversal invariant.,01:15:15.920,01:15:19.030
+"So for every case,
+if you succeed",01:15:19.030,01:15:21.340
+"to show that there is a density
+that is in half of the box",01:15:21.340,01:15:24.340
+"and it expands to
+fill the entire box,",01:15:24.340,01:15:27.610
+"there will be a density that
+presumably goes the other way.",01:15:27.610,01:15:30.940
+"Because that will be also a
+solution of this equation.",01:15:30.940,01:15:34.760
+"So when we sort of go back
+from the statement of what",01:15:34.760,01:15:39.430
+"is the equilibrium
+solution and ask,",01:15:39.430,01:15:42.670
+"do I know that I will eventually
+reach this equilibrium",01:15:42.670,01:15:46.720
+"solution as a function of
+time, we have not shown that.",01:15:46.720,01:15:50.210
+"And we will attempt
+to do so next time.",01:15:50.210,01:15:55.040

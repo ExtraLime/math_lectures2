@@ -1,0 +1,2099 @@
+text,start,stop
+"The following content is
+provided under a Creative",00:00:00.540,00:00:02.990
+Commons license.,00:00:02.990,00:00:04.500
+"Your support will help
+MIT OpenCourseWare",00:00:04.500,00:00:06.840
+"continue to offer high quality
+educational resources for free.",00:00:06.840,00:00:11.210
+"To make a donation, or
+view additional materials",00:00:11.210,00:00:13.820
+"from hundreds of MIT courses,
+visit MIT OpenCourseWare",00:00:13.820,00:00:17.716
+at ocw.mit.edu.,00:00:17.716,00:00:18.341
+"PROFESSOR: So
+welcome to this week.",00:00:23.310,00:00:26.490
+"We are going to talk
+about number theory.",00:00:26.490,00:00:28.980
+"Actually, before I
+forget, there are",00:00:28.980,00:00:30.560
+some handouts at the very back.,00:00:30.560,00:00:32.450
+"Please raise you hand if you
+don't have any, then one of us",00:00:32.450,00:00:35.670
+"can actually come
+over and hand you",00:00:35.670,00:00:37.802
+"out this sheet, which
+contain some facts",00:00:37.802,00:00:41.070
+about the visibility.,00:00:41.070,00:00:43.900
+Thanks a lot.,00:00:43.900,00:00:45.824
+"And we will be using these
+throughout the lecture.",00:00:45.824,00:00:50.780
+"So today we're going to
+talk about number theory.",00:00:50.780,00:00:53.330
+"And this is a really different
+way of thinking, actually.",00:00:53.330,00:00:56.420
+"But we will use
+the same concepts",00:00:56.420,00:00:58.170
+"as you have learned before,
+like induction, and invariance,",00:00:58.170,00:01:01.280
+"stuff like that, to
+prove whole theorems.",00:01:01.280,00:01:04.179
+So what is number theory?,00:01:04.179,00:01:05.220
+"Well, first of all,
+it's a very old science.",00:01:09.070,00:01:12.050
+"One of the oldest
+mathematical disciplines.",00:01:12.050,00:01:14.940
+"And only recently
+it actually got",00:01:14.940,00:01:19.340
+"to have some more
+practical applications.",00:01:19.340,00:01:21.480
+So what this number theory--,00:01:21.480,00:01:23.450
+"it's actually the
+study of the integers.",00:01:23.450,00:01:28.200
+And what are the integers?,00:01:31.580,00:01:33.160
+"Well, these are the numbers
+0, 1, 2 3, and so on.",00:01:33.160,00:01:38.950
+So number theory got--,00:01:38.950,00:01:41.260
+"Oh, there's some more over here.",00:01:41.260,00:01:44.430
+Another handout over there.,00:01:44.430,00:01:45.555
+"So number theory got used
+actually in cryptography",00:01:48.530,00:01:53.870
+only about 40 years ago.,00:01:53.870,00:01:56.890
+"And at the end of
+the second lecture,",00:01:56.890,00:01:59.880
+"we will be talking about this
+application into cryptography.",00:01:59.880,00:02:03.150
+"There are many application
+in cryptography.",00:02:03.150,00:02:05.970
+"But we'll be talking
+about one of them",00:02:05.970,00:02:07.700
+"to show you how useful
+this actually is.",00:02:07.700,00:02:10.500
+"Now cryptography is the study
+and practice of hiding numbers.",00:02:10.500,00:02:16.110
+"So you can imagine
+how important that is.",00:02:16.110,00:02:19.230
+"We have like medical
+data that we need",00:02:19.230,00:02:23.090
+to store outside in the cloud.,00:02:23.090,00:02:25.360
+Right?,00:02:25.360,00:02:25.860
+"So, gee.",00:02:25.860,00:02:27.500
+Do we really want that?,00:02:27.500,00:02:29.490
+"We actually want to
+hide our information.",00:02:29.490,00:02:33.200
+"We do not want
+others who are not",00:02:33.200,00:02:35.680
+"allowed to see my private
+information to see it.",00:02:35.680,00:02:39.030
+"So this art of
+hiding information",00:02:39.030,00:02:40.850
+"is extremely important,
+especially nowadays.",00:02:40.850,00:02:44.080
+"And number theory actually
+will help us with this.",00:02:44.080,00:02:47.020
+"So number theory is something,
+you'll be very surprised,",00:02:47.020,00:02:52.530
+that can be used to save--,00:02:52.530,00:02:56.680
+oops.,00:02:56.680,00:02:57.520
+I have to put this on.,00:02:57.520,00:03:00.110
+"To save New York City in the
+Die Hard number 3, I believe.",00:03:00.110,00:03:04.550
+So let me start up again.,00:03:04.550,00:03:05.960
+So let's see where it plays.,00:03:16.339,00:03:17.505
+Maybe not.,00:03:20.780,00:03:22.265
+[VIDEO PLAYBACK],00:03:22.265,00:03:25.240
+"-Yeah, go ahead and grab it.",00:03:25.240,00:03:27.193
+-You're the cop.,00:03:27.193,00:03:28.140
+"-Simon said you're supposed
+to be helping with this.",00:03:28.140,00:03:30.306
+-I'm helping.,00:03:30.306,00:03:30.930
+"-Well, when you going
+to start helping?",00:03:30.930,00:03:32.350
+-After you get the bomb.,00:03:32.350,00:03:33.349
+Careful.,00:03:51.740,00:03:53.220
+-You be careful.,00:03:53.220,00:03:54.000
+-Don't open it.,00:03:54.000,00:03:55.040
+-What?,00:03:55.040,00:03:56.100
+I got to open it.,00:03:56.100,00:03:57.539
+And it's going to be all right.,00:03:57.539,00:03:58.830
+[BEEPING],00:04:08.790,00:04:10.284
+[ELECTRONIC CHIRPING],00:04:10.284,00:04:11.778
+Shit.,00:04:11.778,00:04:13.190
+-Shit!,00:04:13.190,00:04:13.690
+I told you not to open it.,00:04:13.690,00:04:15.421
+[PHONE RINGING],00:04:15.421,00:04:16.834
+[PHONE RINGING],00:04:16.834,00:04:18.718
+"-I thought you'd
+see the message.",00:04:19.660,00:04:22.215
+"It has a proximity circuit,
+so please don't run.",00:04:22.215,00:04:25.380
+"-Yeah, I got it.",00:04:25.380,00:04:26.142
+We're not going to run.,00:04:26.142,00:04:27.100
+How do we turn this thing off?,00:04:27.100,00:04:28.908
+"-On the front there
+should be two jugs.",00:04:28.908,00:04:30.830
+Do you see them?,00:04:30.830,00:04:32.270
+"A give gallon, and
+a three gallon.",00:04:32.270,00:04:34.850
+"Fill on of the jugs with
+exactly four gallons of water",00:04:34.850,00:04:38.510
+"and place it on the scale,
+and the timer will stop.",00:04:38.510,00:04:41.880
+You must be precise.,00:04:41.880,00:04:43.970
+"One ounce or lower less
+will result in demolition.",00:04:43.970,00:04:46.920
+"If you're still alive in five
+minutes, we'll speak again.",00:04:46.920,00:04:49.405
+-Wait!,00:04:49.405,00:04:49.905
+Wait a sec.,00:04:49.905,00:04:50.730
+I don't get it.,00:04:54.410,00:04:55.390
+You get it?,00:04:55.390,00:04:55.930
+-No.,00:04:55.930,00:04:56.429
+-Get the jugs.,00:04:59.067,00:04:59.650
+"Obviously, we can't fill
+the three gallon jug will",00:05:02.407,00:05:04.490
+"four gallons of water, right?",00:05:04.490,00:05:06.096
+-Obviously.,00:05:06.096,00:05:06.690
+-I know.,00:05:06.690,00:05:07.190
+There we go.,00:05:07.190,00:05:08.610
+"We fill the three gallon jug
+exactly to the top, right?",00:05:08.610,00:05:11.210
+-Uh-huh.,00:05:11.210,00:05:11.710
+-OK.,00:05:11.710,00:05:12.210
+"Now we pour that three gallons
+into the five gallon jugs,",00:05:12.210,00:05:14.760
+"giving us exactly 3 gallons
+in the five gallon jug, right?",00:05:14.760,00:05:17.180
+-Right.,00:05:17.180,00:05:17.680
+Then what?,00:05:17.680,00:05:18.640
+"-Now, we take the
+three gallon jug,",00:05:18.640,00:05:20.799
+fill it a third of the way up--,00:05:20.799,00:05:22.090
+"-No, no.",00:05:22.090,00:05:22.190
+He said be precise.,00:05:22.190,00:05:23.190
+Exactly four gallons.,00:05:23.190,00:05:23.830
+"-Every cop in 50 miles
+is running his ass off,",00:05:23.830,00:05:25.746
+"and I'm out here playing
+kids games in a park.",00:05:25.746,00:05:27.970
+-Hey.,00:05:27.970,00:05:29.950
+"You want to focus on
+the problem at hand?",00:05:29.950,00:05:31.820
+[END PLAYBACK],00:05:31.820,00:05:32.740
+[LAUGHING],00:05:32.740,00:05:35.040
+PROFESSOR: All right.,00:05:35.040,00:05:36.370
+"You can imagine what we are
+going to do right here, right?",00:05:36.370,00:05:39.690
+So.,00:05:39.690,00:05:42.510
+"You can imagine what's
+below this table is a bomb.",00:05:42.510,00:05:45.594
+[LAUGHING],00:05:45.594,00:05:47.910
+You guys have to save 6042.,00:05:47.910,00:05:49.610
+[LAUGHING],00:05:49.610,00:05:50.940
+So we have the fountain here.,00:05:50.940,00:05:52.890
+"Each tennis ball is
+one gallon of water.",00:05:52.890,00:05:55.030
+"We have a big jug, five
+gallons and three gallons.",00:05:55.030,00:05:58.050
+"So you all got to
+help me out here.",00:05:58.050,00:06:00.040
+"So who has an idea
+of what we can do?",00:06:00.040,00:06:02.380
+So.,00:06:02.380,00:06:02.880
+AUDIENCE: [INAUDIBLE],00:06:05.720,00:06:07.196
+PROFESSOR: All right.,00:06:07.196,00:06:08.680
+Let's first do that.,00:06:08.680,00:06:09.690
+Fill up the three gallons.,00:06:09.690,00:06:11.180
+"AUDIENCE: And pout
+it into the five.",00:06:11.180,00:06:12.680
+"PROFESSOR: Let's
+pour it into five.",00:06:12.680,00:06:16.170
+Maybe someone else can--,00:06:16.170,00:06:17.880
+can continue.,00:06:17.880,00:06:19.010
+Over there.,00:06:19.010,00:06:20.700
+"AUDIENCE: If we
+do the same again,",00:06:20.700,00:06:22.450
+"we'll end up with just one
+gallon in the three gallon.",00:06:22.450,00:06:26.000
+PROFESSOR: Uh-huh.,00:06:26.000,00:06:26.750
+"So, let's do that.",00:06:26.750,00:06:28.405
+"Because that's true, right.",00:06:28.405,00:06:29.530
+"You can only fill it
+up to five gallons.",00:06:29.530,00:06:32.010
+"So only, at more,
+two gallons can add",00:06:32.010,00:06:34.030
+"to this, exactly two gallons.",00:06:34.030,00:06:36.190
+And one gallon is left.,00:06:36.190,00:06:37.780
+"All right, next one.",00:06:37.780,00:06:38.877
+You?,00:06:38.877,00:06:39.377
+Would you like to--,00:06:39.377,00:06:40.168
+AUDIENCE: Take out the five.,00:06:40.168,00:06:41.335
+PROFESSOR: Take out the five.,00:06:41.335,00:06:42.542
+All right.,00:06:42.542,00:06:43.120
+And then what?,00:06:47.300,00:06:48.424
+"AUDIENCE: Pour the
+one over there.",00:06:48.424,00:06:49.840
+"PROFESSOR: Pour
+the one over here?",00:06:49.840,00:06:51.256
+AUDIENCE: [INAUDIBLE],00:06:55.142,00:06:56.769
+"AUDIENCE: Then fill
+the three gallon,",00:06:56.769,00:06:58.310
+and put it into the five.,00:06:58.310,00:07:00.042
+PROFESSOR: All right.,00:07:00.042,00:07:01.399
+That's great.,00:07:01.399,00:07:01.940
+And I fill it up right here.,00:07:01.940,00:07:03.380
+Fantastic.,00:07:03.380,00:07:04.720
+"So we actually have
+four gallons here.",00:07:04.720,00:07:07.690
+"And luckily, they are safe.",00:07:07.690,00:07:08.870
+Right?,00:07:08.870,00:07:09.370
+"So you say, thank god.",00:07:09.370,00:07:10.730
+6042,00:07:10.730,00:07:13.354
+So we can continue.,00:07:13.354,00:07:14.145
+"So this is actually
+pretty amazing, though.",00:07:17.400,00:07:20.230
+"How can we get four gallon
+out of three gallon jug,",00:07:20.230,00:07:22.770
+and a five gallon jug?,00:07:22.770,00:07:23.750
+"And that's what we are
+going to talk about in more",00:07:23.750,00:07:26.370
+"generality, actually.",00:07:26.370,00:07:28.190
+"And if you would just change
+it a little bit, right?",00:07:28.190,00:07:32.250
+"Then things would get more
+difficult. For example,",00:07:32.250,00:07:36.060
+"if you would change the five
+gallon jug into a six gallon",00:07:36.060,00:07:40.850
+"jug, can we still
+get four gallons?",00:07:40.850,00:07:44.320
+No.,00:07:44.320,00:07:44.820
+Why not?,00:07:44.820,00:07:45.319
+AUDIENCE: [INAUDIBLE],00:07:47.695,00:07:49.690
+"PROFESSOR: Everything has
+to be multiples of three.",00:07:49.690,00:07:51.826
+That's exactly right.,00:07:51.826,00:07:54.410
+This is a multiple of 3.,00:07:54.410,00:07:55.510
+1 times 3.,00:07:55.510,00:07:56.190
+This is 2 times 3.,00:07:56.190,00:07:57.280
+"So if I do combinations
+with those,",00:07:57.280,00:07:59.770
+"like pouring one into the
+other completely, or emptying,",00:07:59.770,00:08:03.440
+"of filling up, we
+always will have",00:08:03.440,00:08:05.350
+"a multiple of three gallons in
+either one of those, or both.",00:08:05.350,00:08:10.160
+"So we can never
+have four gallons.",00:08:10.160,00:08:12.630
+"So this is something
+that we would like",00:08:12.630,00:08:15.540
+to analyze a little bit more.,00:08:15.540,00:08:16.960
+"And to do that, we're
+going to first a all",00:08:16.960,00:08:20.420
+start with a definition.,00:08:20.420,00:08:22.080
+"Actually you can put up
+the screen over here.",00:08:22.080,00:08:25.080
+So let me take that out.,00:08:28.480,00:08:29.930
+"Can someone up there
+pull up the screen?",00:08:33.840,00:08:37.610
+Maybe not?,00:08:37.610,00:08:38.520
+Maybe later.,00:08:38.520,00:08:40.190
+All right.,00:08:40.190,00:08:40.840
+So let's go with a definition.,00:08:40.840,00:08:42.524
+"We say n denote by m and a bar,
+and a, we mean m defines a.",00:08:48.150,00:08:59.340
+And how do you define this?,00:08:59.340,00:09:00.920
+"Well, we say that n
+divides a, if and only",00:09:00.920,00:09:04.910
+"if there exists an
+integer k, such that a can",00:09:04.910,00:09:11.260
+"be written as some multiple
+m, mainly k times m.",00:09:11.260,00:09:18.100
+"So if you look at
+this definition",00:09:18.100,00:09:21.980
+"we, for example, have
+that 3 divides 6,",00:09:21.980,00:09:25.100
+like what we just discussed.,00:09:25.100,00:09:27.645
+"There's something
+interesting going on.",00:09:27.645,00:09:29.270
+Suppose a is equal to 0.,00:09:29.270,00:09:33.160
+"Well, any integer will
+define a, will define 0.",00:09:33.160,00:09:38.030
+Why is that?,00:09:38.030,00:09:39.030
+"Because I can't take
+k to be equal to 0,",00:09:39.030,00:09:42.090
+"so this is equal to 0
+times any integer m.",00:09:42.090,00:09:45.190
+So m defines 0 for all integers.,00:09:45.190,00:09:48.910
+"So this is kind of
+the exception, right?",00:09:48.910,00:09:51.440
+"And we are going to use
+this to set up a theorem,",00:09:51.440,00:09:56.840
+"and analyze this whole
+situation over here.",00:09:56.840,00:10:02.090
+"Now in order to do that, we
+will need to sort of define",00:10:02.090,00:10:08.310
+what we can do with all this.,00:10:08.310,00:10:09.790
+So there are states.,00:10:09.790,00:10:12.710
+We will define a state machine.,00:10:12.710,00:10:14.940
+"We will see what kind
+of possible transitions",00:10:14.940,00:10:18.060
+we can have.,00:10:18.060,00:10:19.230
+"And once we have modeled
+all this very precisely,",00:10:19.230,00:10:22.120
+we can start proofing stuff.,00:10:22.120,00:10:25.520
+"Now let me first of all write
+out what our assumptions are.",00:10:25.520,00:10:30.970
+"So suppose we have
+an a gallon jug.",00:10:30.970,00:10:36.980
+"So in our case, a equals 3.",00:10:40.110,00:10:44.500
+And we have also b gallon jug.,00:10:44.500,00:10:46.480
+"And in our case,
+b equals 5, right?",00:10:50.140,00:10:53.740
+"And we issue that
+a is at most b.",00:10:53.740,00:10:58.180
+"That is sort of the situation
+that we are working with.",00:10:58.180,00:11:01.169
+"And he would like
+to prove a theorem.",00:11:01.169,00:11:02.710
+"Exactly what we notice over
+here, that three defines both.",00:11:05.220,00:11:08.330
+"The three gallon jug,
+and the six gallon jug,",00:11:08.330,00:11:10.580
+"we would like to prove
+something like this.",00:11:10.580,00:11:13.740
+"If m defines a, and
+also m defines be,",00:11:13.740,00:11:20.270
+"well, then m should
+define any results",00:11:20.270,00:11:26.720
+"that I can get with the pouring,
+and emptying and filling",00:11:26.720,00:11:32.670
+those jugs.,00:11:32.670,00:11:34.042
+"So this is the theorem,
+if you'd like to prove.",00:11:34.042,00:11:36.000
+"And we can only do that
+if you start to have",00:11:36.000,00:11:38.080
+a proper model for this.,00:11:38.080,00:11:40.380
+So let's go for that.,00:11:40.380,00:11:43.020
+And--,00:11:43.020,00:11:44.060
+"And, well, the state machine
+that we're going to use here",00:11:47.490,00:11:52.570
+looks like this.,00:11:52.570,00:11:53.380
+"First of all, the
+states that we have",00:12:00.570,00:12:05.060
+"are the number of gallons
+that are in these two jugs.",00:12:05.060,00:12:08.750
+"So we will denote
+those by pairs.",00:12:08.750,00:12:10.575
+"Pairs x, comma y.",00:12:13.810,00:12:16.700
+"And x denotes the number of
+gallons in the a gallon jug.",00:12:16.700,00:12:24.020
+"The number of gallons m m that
+we abbreviate as by the a jug,",00:12:26.640,00:12:33.560
+"and y is the number of
+gallons in the b jug.",00:12:33.560,00:12:41.970
+So these are the states.,00:12:41.970,00:12:43.960
+"And the start state it
+exactly as it is right there.",00:12:43.960,00:12:49.760
+"We have nothing in
+either of the jugs.",00:12:49.760,00:12:51.717
+"So that's the pair 0, comma 0.",00:12:55.300,00:12:57.980
+"So now we start to build up
+some mathematics here, right?",00:12:57.980,00:13:00.590
+"So we express the state
+of this whole situation",00:13:00.590,00:13:04.380
+by a pair of number.,00:13:04.380,00:13:05.980
+"Now we need to find out
+what they can do with it.",00:13:05.980,00:13:08.877
+So what are the transitions?,00:13:08.877,00:13:10.043
+"The transitions are,
+as we have seen, right?",00:13:18.480,00:13:20.650
+"We can just fill
+one of the jugs.",00:13:20.650,00:13:22.830
+We can empty those.,00:13:22.830,00:13:23.881
+"And the other
+possibility is that we",00:13:23.881,00:13:25.380
+"can pour one jug over into the
+other one as much as we can.",00:13:25.380,00:13:29.020
+So let's write all of those out.,00:13:29.020,00:13:30.590
+We can do emptying.,00:13:34.320,00:13:36.010
+"Well, how does that
+change the state?",00:13:36.010,00:13:38.080
+"If we have x gallons
+in this jug, and y--",00:13:40.820,00:13:44.850
+"and y gallons in that one,
+we can transition this into,",00:13:44.850,00:13:48.670
+"for example, emptying
+the a gallon jug.",00:13:48.670,00:13:51.420
+So be y of 0.,00:13:51.420,00:13:53.540
+Or we can empty the b jug.,00:13:53.540,00:14:00.262
+"Well, filling is
+something similar.",00:14:00.262,00:14:01.720
+"But now we are actually pouring
+more water from the fountain,",00:14:05.710,00:14:10.860
+essentially.,00:14:10.860,00:14:11.430
+Right?,00:14:11.430,00:14:11.930
+All those tennis balls here.,00:14:11.930,00:14:13.930
+"And we can fill up say the
+a gallon up to a gallons,",00:14:13.930,00:14:20.430
+and leave the b jug as it is.,00:14:20.430,00:14:23.410
+"Or w we can fill up the b gallon
+jug, and leave the a gallon jug",00:14:23.410,00:14:30.410
+as it is.,00:14:30.410,00:14:32.520
+"So these are these
+two transitions.",00:14:32.520,00:14:34.670
+And the pouring of one--,00:14:34.670,00:14:39.025
+"of one jug into the
+other is actually",00:14:39.025,00:14:41.370
+a little bit more complex.,00:14:41.370,00:14:42.570
+So let's have a look.,00:14:42.570,00:14:43.850
+So how does pouring work?,00:14:47.370,00:14:49.770
+"Well, suppose we
+start with x and y.",00:14:49.770,00:14:55.000
+So let's have a look here.,00:14:55.000,00:14:57.562
+"Um, I don't know.",00:14:57.562,00:14:58.270
+"Suppose we have 2 balls in
+here, and 2 balls in here.",00:14:58.270,00:15:02.450
+"Well, in that case, I can say
+pour all of these over in here.",00:15:02.450,00:15:06.400
+Right?,00:15:06.400,00:15:07.670
+So that's easy.,00:15:07.670,00:15:08.930
+"But there's also another
+possibility, better",00:15:08.930,00:15:11.920
+"when I pour all of
+these over in here.",00:15:11.920,00:15:13.840
+"But hey, I can
+only put in 1 ball,",00:15:13.840,00:15:16.340
+"because it's only
+a three gallon jug.",00:15:16.340,00:15:19.000
+So I'm left with only 1.,00:15:19.000,00:15:22.170
+A gallon in this jug.,00:15:22.170,00:15:25.410
+So these are two--,00:15:25.410,00:15:27.110
+"these are two situations
+that we need to explain.",00:15:27.110,00:15:30.080
+"So let's first do the first
+example that I just did.",00:15:30.080,00:15:34.400
+"I pour everything over
+into the other jug.",00:15:34.400,00:15:37.210
+"So we have 0 gallons
+left in here,",00:15:37.210,00:15:41.440
+"and x plus y gallons
+left in the other jug.",00:15:41.440,00:15:45.800
+"And this can happen if there's
+sufficient space, right?",00:15:45.800,00:15:50.160
+"So this can only happen
+if x plus y is at most b.",00:15:50.160,00:15:55.320
+"Which is the capacity
+of this b gallon jug.",00:15:55.320,00:15:59.530
+"Now if that's not
+the case, then I",00:15:59.530,00:16:01.170
+"can pour in just a little
+bit, like just say 1 ball.",00:16:01.170,00:16:04.680
+"Like just one of
+these can go in here.",00:16:04.680,00:16:08.480
+So that's the other case.,00:16:08.480,00:16:10.090
+"So x, y we'll actually go to--",00:16:10.090,00:16:16.450
+"well, let's just
+see how this works.",00:16:16.450,00:16:19.580
+"How many gallons are left in
+this b gallon jug to fill up?",00:16:19.580,00:16:25.260
+"Well, we have b minus
+y gallons left, right?",00:16:25.260,00:16:28.600
+Space left.,00:16:28.600,00:16:30.080
+"So we can take b minus y
+gallons out of this one",00:16:30.080,00:16:33.790
+to fill up this one.,00:16:33.790,00:16:35.410
+So let's do it.,00:16:35.410,00:16:37.170
+"We take b minus y
+gets out of the a jug,",00:16:37.170,00:16:42.580
+"and put it all in here, and it
+makes it completely filled up.",00:16:42.580,00:16:46.300
+So we have b gallons over here.,00:16:46.300,00:16:48.800
+"So this is really equal to
+x plus y minus b, comma b.",00:16:48.800,00:16:56.350
+And this only is possible if--,00:16:56.350,00:17:01.200
+"if you are essentially in
+the complimentary case.",00:17:01.200,00:17:05.119
+"So we have that x
+plus y is at least b,",00:17:05.119,00:17:12.980
+"such that there is enough
+gallons in the a jug",00:17:12.980,00:17:19.720
+"to be poured over to
+fill up the b jug.",00:17:19.720,00:17:22.460
+"So these are the
+two kinds of cases.",00:17:22.460,00:17:24.430
+"And, of course,
+by symmetry we can",00:17:24.430,00:17:26.180
+"do also the pouring from the
+other jug into the first.",00:17:26.180,00:17:29.830
+"So let's write all
+those out, as well.",00:17:29.830,00:17:32.650
+"So x, y can actually go
+to x plus y, comma 0.",00:17:32.650,00:17:38.530
+"I pour everything
+from here to there.",00:17:38.530,00:17:41.750
+"And this only holds if
+x plus y is at most a.",00:17:41.750,00:17:47.435
+"The other possibility is
+where, exactly as in this case,",00:17:54.970,00:17:59.720
+"we can only pour a minus
+x gallons over from y",00:17:59.720,00:18:06.170
+into this particular jug.,00:18:06.170,00:18:08.220
+"And then this one is
+completely filled up.",00:18:08.220,00:18:10.300
+"And then I have a few
+gallons left over here.",00:18:10.300,00:18:12.740
+So how does that look?,00:18:12.740,00:18:14.910
+"Well, we completely fill
+this up to its capacity.",00:18:14.910,00:18:21.460
+"And what is left
+this is y minus--",00:18:21.460,00:18:24.210
+"how much did we have
+to pour in here?",00:18:24.210,00:18:26.990
+"Well, that's a minus x.",00:18:26.990,00:18:31.180
+"And we again have
+a similar formula.",00:18:31.180,00:18:34.920
+"But it now looks a
+little bit different.",00:18:34.920,00:18:36.870
+X plus y minus a.,00:18:36.870,00:18:38.720
+"And this is only for the case
+where x plus y is at least a.",00:18:38.720,00:18:45.060
+OK.,00:18:47.891,00:18:48.390
+So these are all the cases.,00:18:48.390,00:18:50.050
+"So maybe there are some
+questions about this.",00:18:50.050,00:18:52.990
+"Is this clear, that we have
+these different possibilities?",00:18:52.990,00:18:56.940
+"Like when we look at
+these jugs we can either",00:18:56.940,00:18:59.090
+"empty them, filling them up.",00:18:59.090,00:19:00.840
+"Or we can pour say
+only 1 ball over up",00:19:00.840,00:19:04.260
+"to the full capacity
+of this jug.",00:19:04.260,00:19:05.940
+"Or we can just pour everything
+over into, say, this jug.",00:19:05.940,00:19:09.660
+"So those are the different cases
+that are now fully described",00:19:09.660,00:19:12.660
+by this state machine.,00:19:12.660,00:19:14.380
+"So now we can start to prove
+this theorem over here.",00:19:14.380,00:19:18.100
+So how do we go ahead?,00:19:18.100,00:19:20.410
+"How are we going to use what
+you've learned like induction,",00:19:20.410,00:19:24.100
+and invariance?,00:19:24.100,00:19:25.660
+So let's do it.,00:19:25.660,00:19:27.880
+"But before,
+actually, we do this,",00:19:27.880,00:19:30.470
+"let's take this
+example that we had",00:19:30.470,00:19:34.940
+"and see how we can describe all
+the transitions that we just",00:19:34.940,00:19:39.088
+"did, as far as I remember them.",00:19:39.088,00:19:41.920
+"So we have that a
+equals 3, b equals 5.",00:19:41.920,00:19:45.850
+Right?,00:19:45.850,00:19:47.320
+We start with empty jugs.,00:19:47.320,00:19:51.760
+"We need to filled up the
+five gallon jug, right?",00:19:51.760,00:19:54.980
+"Then we started pouring
+the five gallon jug as much",00:19:59.060,00:20:03.330
+"as we could into the
+three gallon jug.",00:20:03.330,00:20:05.240
+So it's one of those rules.,00:20:05.240,00:20:07.100
+We've got 3 into 2.,00:20:07.100,00:20:09.860
+"Then we emptied the
+three gallon jug.",00:20:09.860,00:20:13.080
+We got 0 and 2.,00:20:13.080,00:20:14.330
+Then we did--,00:20:16.940,00:20:18.730
+What did we did next?,00:20:18.730,00:20:20.070
+"Oh yeah, we poured
+everything into this one.",00:20:20.070,00:20:24.750
+"So we have 2, 0
+as the next state.",00:20:24.750,00:20:28.890
+"We filled up-- actually I
+forgot exactly what we did next.",00:20:28.890,00:20:35.550
+"But I think we filled
+up the five gallon jug.",00:20:35.550,00:20:40.790
+"And then we simply
+poured over as much",00:20:40.790,00:20:43.170
+"as he could from
+the five gallon jug.",00:20:43.170,00:20:45.400
+"And we got 3 and
+4, and here we are.",00:20:45.400,00:20:49.040
+We got 4 gallons.,00:20:49.040,00:20:51.440
+"So what we just did is fully
+describe this state machine.",00:20:51.440,00:20:55.265
+"So let's not try to
+prove this theorem.",00:20:55.265,00:20:56.890
+"So as I said, we're
+going to use induction.",00:21:02.769,00:21:04.560
+"So you always would
+like to write this out",00:21:09.660,00:21:13.840
+if you solve your problems.,00:21:13.840,00:21:15.085
+What are we going to assume?,00:21:17.880,00:21:19.810
+"Well, we assume actually
+that m defines a,",00:21:19.810,00:21:25.170
+and m defines also b.,00:21:25.170,00:21:27.919
+"That's the assumption
+of the theorem,",00:21:27.919,00:21:29.460
+"and now we need to prove that
+defies any result that you can",00:21:29.460,00:21:32.880
+achieve in this state machine.,00:21:32.880,00:21:36.340
+"So what's the invariance
+that we are thinking about?",00:21:36.340,00:21:39.560
+Invariance is going to be--,00:21:43.090,00:21:44.600
+Oops.,00:21:47.401,00:21:47.900
+It's a predicate.,00:21:50.890,00:21:53.530
+"And it says something
+like, if the state xy--",00:21:53.530,00:22:00.000
+"if this is the state
+after n transitions--",00:22:00.000,00:22:03.605
+"Then we would like to conclude
+that m the fights both x,",00:22:14.300,00:22:20.900
+and m defines y.,00:22:20.900,00:22:23.220
+So this is our--,00:22:23.220,00:22:25.910
+our invariance.,00:22:25.910,00:22:27.150
+"And we like to use this
+to prove our theorem.",00:22:27.150,00:22:29.690
+"So how do we start
+usually, right?",00:22:29.690,00:22:31.280
+So we always start with--,00:22:31.280,00:22:33.250
+with a base state.,00:22:33.250,00:22:34.500
+Great.,00:22:34.500,00:22:35.690
+So let's do it.,00:22:35.690,00:22:36.880
+The base case is--,00:22:40.690,00:22:43.660
+"well, we start with the all
+0s, like the empty jugs.",00:22:43.660,00:22:49.400
+"It's-- well, and we also--",00:22:49.400,00:22:52.390
+"have paid a little
+bit of extra attention",00:22:52.390,00:22:54.160
+"to what we mean by
+division over here.",00:22:54.160,00:22:56.120
+"We said that all integers
+actually divide 0.",00:22:56.120,00:23:00.400
+"So in particular,
+m. m divides 0.",00:23:00.400,00:23:02.790
+"m, 0.",00:23:02.790,00:23:04.450
+"So the very initial
+state, 0 comma 0,",00:23:04.450,00:23:07.790
+"is indeed complying to
+is particular invariant.",00:23:07.790,00:23:13.760
+So let's write it out.,00:23:13.760,00:23:16.070
+"So we have the
+initial state 0, 0.",00:23:16.070,00:23:19.000
+We know that m divides 0.,00:23:19.000,00:23:21.360
+"And therefore, we
+know that p 0 is true.",00:23:21.360,00:23:27.060
+So that's great.,00:23:27.060,00:23:28.920
+So the inductive step.,00:23:28.920,00:23:31.380
+"How do we start the
+inductive step--",00:23:31.380,00:23:33.380
+step all the time?,00:23:33.380,00:23:34.720
+"And we will assume,
+actually, p of n, right?",00:23:38.720,00:23:42.420
+So lets assume that.,00:23:42.420,00:23:45.230
+"And now we would like to
+prove p, and then n plus 1.",00:23:45.230,00:23:51.310
+So what do we really want to do?,00:23:51.310,00:23:53.620
+"We want to say, well, we know
+that we reached a certain state",00:23:53.620,00:23:57.910
+"x comma y, for which m
+divides x, and m divides y.",00:23:57.910,00:24:03.810
+"Now we would like to show
+that if we transition",00:24:03.810,00:24:06.370
+"to a next state, we again have
+that same property, that m",00:24:06.370,00:24:10.050
+"divides the number of gallons
+in both jugs once more.",00:24:10.050,00:24:14.820
+And then we can con--,00:24:14.820,00:24:16.200
+"can conclude p, n plus 1.",00:24:16.200,00:24:17.700
+So that's how we always proceed.,00:24:17.700,00:24:21.020
+"So let's see where
+we can write it out",00:24:21.020,00:24:22.900
+in a bit more formal way.,00:24:22.900,00:24:24.330
+OK.,00:24:29.121,00:24:29.620
+So how do we go ahead?,00:24:29.620,00:24:33.270
+"Suppose that x, y is the
+state after n transitions.",00:24:33.270,00:24:45.175
+"Well, what can we conclude?",00:24:50.350,00:24:53.150
+"Well, we have the predicate
+pn, the invariant.",00:24:53.150,00:24:57.160
+"So we know that n divides
+x, and n divides y.",00:24:57.160,00:25:06.390
+"And we concluded that
+because pn is true.",00:25:06.390,00:25:08.780
+So after another transition--,00:25:13.320,00:25:14.900
+"what happens after
+another transition?",00:25:14.900,00:25:17.580
+"So we can conclude
+that the jugs are",00:25:17.580,00:25:25.280
+"filled by the different
+types of numbers",00:25:25.280,00:25:30.625
+"that we see here this
+is state machine.",00:25:30.625,00:25:32.840
+So let's write them out.,00:25:32.840,00:25:34.660
+"So after another transition,
+um, each of the jugs",00:25:34.660,00:25:44.060
+is actually filled--,00:25:44.060,00:25:45.890
+"Um, are filled with--",00:25:45.890,00:25:52.840
+"well, either if I've emptied
+it, say a 0, 0 gallons, a, b, x",00:25:52.840,00:26:01.360
+and y.,00:26:01.360,00:26:01.990
+I see appearing over here.,00:26:01.990,00:26:04.060
+"And I also notice
+that I see x plus y.",00:26:04.060,00:26:06.810
+"And x plus y, minus b.",00:26:06.810,00:26:08.330
+"And x plus y, minus a.",00:26:08.330,00:26:09.980
+"Those are all the
+different number",00:26:09.980,00:26:11.740
+of gallons that can be in jug.,00:26:11.740,00:26:13.040
+"Yes, please?",00:26:13.040,00:26:14.161
+AUDIENCE: [INAUDIBLE],00:26:14.161,00:26:15.604
+PROFESSOR: In our example--,00:26:18.490,00:26:19.680
+"Yeah, that's a good question.",00:26:19.680,00:26:20.888
+"So in our example
+problems of 3 and 5,",00:26:20.888,00:26:23.450
+"it turns out that
+the only number that",00:26:23.450,00:26:26.480
+"divides 5 both the three gallon
+jug, and the five gallon jugs",00:26:26.480,00:26:29.765
+is actually one.,00:26:29.765,00:26:31.390
+"So in our example, we
+would have that m equals 1.",00:26:31.390,00:26:35.790
+"So over here we have
+that only 1 divides a,",00:26:35.790,00:26:44.330
+as well as 1 divides b.,00:26:44.330,00:26:47.030
+So m equals 1 in our case.,00:26:47.030,00:26:49.800
+"But for example, in the three
+gallon jug, and the six gallon",00:26:49.800,00:26:53.240
+jug--,00:26:53.240,00:26:53.770
+Right?,00:26:53.770,00:26:54.650
+"We have that m equals 3, like
+3 divides 3, And 3 divides 6.",00:26:54.650,00:27:01.320
+"So those are the two cases that
+you sort of look at right now.",00:27:01.320,00:27:04.630
+"But you put into a much
+more general setting, right,",00:27:04.630,00:27:06.870
+"we are distracted away
+from the actual numbers.",00:27:06.870,00:27:09.270
+"And use a and b as
+representations.",00:27:09.270,00:27:13.355
+Are any other questions?,00:27:15.950,00:27:19.130
+"So after another
+transition, each of the jugs",00:27:19.130,00:27:22.790
+"are filled with, well,
+either 0 gallons, if we",00:27:22.790,00:27:25.890
+have a completely emptied them.,00:27:25.890,00:27:28.120
+"Or we have filled the first
+a gallon jug, or it can be b.",00:27:28.120,00:27:33.170
+We also noticed that it can be--,00:27:33.170,00:27:36.040
+"it can be of x, of course.",00:27:36.040,00:27:37.650
+"It can be y, because that's
+the state that we are in.",00:27:37.650,00:27:41.610
+"And we can have x plus y, minus
+a, which appears over here.",00:27:41.610,00:27:47.950
+"And x plus y, minus b.",00:27:47.950,00:27:49.570
+"So these are all the
+different number--",00:27:53.770,00:27:55.550
+possible number of gallons.,00:27:58.175,00:27:59.300
+The x plus y.,00:28:02.262,00:28:04.280
+That's also present.,00:28:04.280,00:28:06.520
+Is that true?,00:28:06.520,00:28:08.473
+Yeah.,00:28:08.473,00:28:08.973
+That's right. x plus y.,00:28:08.973,00:28:10.370
+So we also have x plus y.,00:28:10.370,00:28:13.280
+"Actually, it's good
+to check that again.",00:28:13.280,00:28:14.980
+"So we have 0, x, y, a, b.",00:28:14.980,00:28:18.340
+Got those.,00:28:18.340,00:28:19.280
+"X plus y, and x plus y, minus
+p, and x plus y minus b.",00:28:19.280,00:28:24.090
+Yeah.,00:28:24.090,00:28:26.090
+So now we can start using our--,00:28:26.090,00:28:29.860
+our assumptions.,00:28:29.860,00:28:32.120
+So what our they?,00:28:32.120,00:28:33.600
+"We have that in order
+to prove this-- right?",00:28:33.600,00:28:36.980
+"At the top over here, we assume
+that m divides, and m divides",00:28:36.980,00:28:40.980
+b.,00:28:40.980,00:28:42.420
+"So we know that first of
+all, m divides 0, of course.",00:28:42.420,00:28:46.900
+But we know that m divides a.,00:28:46.900,00:28:49.460
+We know that m divides b.,00:28:49.460,00:28:52.000
+"We have concluded
+that m divides x.",00:28:52.000,00:28:54.970
+And also m divides y.,00:28:54.970,00:28:56.370
+"So if you now use some
+facts about divisibility",00:28:58.980,00:29:02.790
+"on your handout, which
+we will not prove now.",00:29:02.790,00:29:05.770
+"But I think most of them will be
+on your problem set, actually.",00:29:05.770,00:29:10.520
+"We can conclude that also linear
+combination of a, b x and y",00:29:10.520,00:29:16.270
+will be divisible by m.,00:29:16.270,00:29:18.660
+"In particular, m
+will divide x plus y.",00:29:18.660,00:29:21.850
+"m will divide x plus y minus
+a, and also x plus y, minus b.",00:29:21.850,00:29:26.400
+"So we will conclude
+that m actually",00:29:26.400,00:29:34.040
+divides any possible results.,00:29:34.040,00:29:37.960
+So divides any of the above.,00:29:37.960,00:29:41.680
+And now we're done.,00:29:41.680,00:29:44.380
+Why is that?,00:29:44.380,00:29:45.120
+"Because we have shown now that
+after the next transition--",00:29:45.120,00:29:48.510
+"after we have reached
+x, y after n steps,",00:29:48.510,00:29:52.870
+"then in our n plus 1-th step,
+all that you can achieve",00:29:52.870,00:29:58.980
+is divisible by m.,00:29:58.980,00:30:01.180
+"So that's exactly
+the invariance.",00:30:01.180,00:30:03.810
+"So we conclude that
+p, n plus 1 is true.",00:30:03.810,00:30:08.620
+And so now we're done.,00:30:08.620,00:30:09.600
+"Are any questions
+about this proof?",00:30:12.230,00:30:14.900
+"So this is like the
+standard technique",00:30:14.900,00:30:16.540
+"that we tried to use all
+the time here in this class.",00:30:16.540,00:30:20.200
+"We will use it in all
+the other areas, as well.",00:30:20.200,00:30:22.850
+"In graph theory, in particular.",00:30:22.850,00:30:26.440
+"And especially in number
+theory, will also use it,",00:30:26.440,00:30:30.430
+especially in this class.,00:30:30.430,00:30:33.220
+OK.,00:30:33.220,00:30:33.720
+So let's apply this to theorem.,00:30:33.720,00:30:36.660
+"Let's I think about
+this movie that we saw,",00:30:39.870,00:30:43.790
+this Die Hard number 3.,00:30:43.790,00:30:46.150
+Die Hard number 4 came out.,00:30:46.150,00:30:48.120
+"And then the cast got
+stuck in Die Hard number 5.",00:30:48.120,00:30:51.890
+"There's was a problem,
+because the rumors",00:30:51.890,00:30:55.730
+"were that in Die Hard number 5,
+they had like a 33 gallon jug.",00:30:55.730,00:31:01.810
+That's a lot.,00:31:01.810,00:31:02.760
+And a 55 gallon jug.,00:31:02.760,00:31:05.680
+"So Bruce has in
+training his muscles,",00:31:05.680,00:31:13.252
+"because you can imagine
+those are pretty heavy.",00:31:13.252,00:31:15.210
+"So if you want the pour one
+into the other, my goodness.",00:31:15.210,00:31:17.560
+"So-- but the question is, is
+he training the right muscles?",00:31:17.560,00:31:22.810
+"So can we apply this theorem
+now, and showed that--",00:31:22.810,00:31:27.450
+"Oh, I should to tell
+you what is the problem.",00:31:27.450,00:31:31.100
+"Well, again, he has to
+get say 4 gallons out",00:31:31.100,00:31:35.980
+of this-- out of these two jugs.,00:31:35.980,00:31:39.750
+So is that possible?,00:31:39.750,00:31:42.260
+It's not.,00:31:42.260,00:31:42.760
+I see someone shaking his head.,00:31:42.760,00:31:44.280
+Do you want to explain why?,00:31:44.280,00:31:48.030
+"AUDIENCE: A and b are
+both divisible by 11.",00:31:48.030,00:31:50.874
+PROFESSOR: Yeah.,00:31:50.874,00:31:51.540
+"AUDIENCE: So any other
+configuration will also",00:31:51.540,00:31:54.640
+have to be divisible by 11.,00:31:54.640,00:31:56.360
+And 4 is not divisible by 11.,00:31:56.360,00:31:58.590
+PROFESSOR: Exactly.,00:31:58.590,00:31:59.810
+"4 is not divisible by 11, so
+the whole cast got blown up",00:31:59.810,00:32:02.540
+in Die Hard number 5.,00:32:02.540,00:32:04.310
+"And so we have no Die
+Hard number 6, as well.",00:32:04.310,00:32:08.510
+"OK, so-- so now
+all of this stuff",00:32:08.510,00:32:13.520
+"actually helps us to define
+a new concept, as well.",00:32:13.520,00:32:17.860
+So let's do that.,00:32:17.860,00:32:20.580
+I'll put it up here.,00:32:20.580,00:32:21.485
+"We will use the
+terminology GCD of a and b",00:32:29.630,00:32:42.770
+"as being the greatest
+common divisor of a and b.",00:32:42.770,00:32:59.530
+"So, for example, if we
+are looking at a equals 3,",00:32:59.530,00:33:04.380
+"and b equals 5, well
+then the GCD of 3 and 5",00:33:04.380,00:33:11.030
+is actually equal to 1.,00:33:11.030,00:33:13.360
+"There's no other larger integer
+that divides both 3 and 5.",00:33:13.360,00:33:20.450
+"In other examples are, for
+example, if we have the GCD of",00:33:20.450,00:33:25.250
+say 52 and 44.,00:33:25.250,00:33:29.410
+"Well, what's this equal to?",00:33:29.410,00:33:31.550
+"Well, this actually
+is 4 times 13.",00:33:31.550,00:33:35.630
+This is 4 times 11.,00:33:35.630,00:33:38.170
+"So 4 divides both this,
+and both this one.",00:33:38.170,00:33:41.350
+"But nothing larger can
+divide both of those.",00:33:41.350,00:33:44.220
+"So we have that
+this is equal to 4.",00:33:44.220,00:33:45.940
+"We will have a
+separate definition",00:33:49.330,00:33:52.110
+"that talks about this
+very special case where",00:33:52.110,00:33:54.650
+two numbers--,00:33:54.650,00:33:56.270
+"if you look at their
+greatest common divisor--",00:33:56.270,00:33:59.630
+"when that greatest common
+divisor is equal to 1,",00:33:59.630,00:34:02.445
+"we actually define
+those two numbers",00:34:02.445,00:34:04.240
+"to be relatively
+prime to one another.",00:34:04.240,00:34:08.310
+So let's put that out over here.,00:34:08.310,00:34:10.979
+So that's another definition.,00:34:20.550,00:34:23.630
+"We say that a and
+b are relatively",00:34:23.630,00:34:28.929
+"prime if the greatest common
+divisor is actually equal to 1.",00:34:28.929,00:34:39.610
+"Now today we will not really
+use his definition so much,",00:34:42.840,00:34:45.810
+"but it's actually
+very important.",00:34:45.810,00:34:47.510
+"And we'll come back
+to this next lecture.",00:34:47.510,00:34:49.714
+"So if we now look at this
+particular thing them",00:34:53.520,00:34:56.600
+"over here, can we see a
+nice corollary of this?",00:34:56.600,00:35:02.490
+"Like a result, if you
+think about this greatest",00:35:02.490,00:35:04.460
+common divisor.,00:35:04.460,00:35:06.160
+"Well, the greatest
+common divisor off a an b",00:35:06.160,00:35:09.200
+divides both a and b.,00:35:09.200,00:35:11.670
+"So the greatest common
+divisor of a and b",00:35:11.670,00:35:14.080
+"will divide any result that
+we can generate by playing",00:35:14.080,00:35:18.930
+this game with the jugs.,00:35:18.930,00:35:20.650
+"So the corollary here is
+that the GCD of a and b",00:35:20.650,00:35:28.060
+divides any result.,00:35:28.060,00:35:31.751
+"OK, so that's really cool.",00:35:34.440,00:35:37.200
+"So this already tells us
+quite a bit about this game",00:35:37.200,00:35:40.950
+that we have here.,00:35:40.950,00:35:42.590
+"So now what we would
+like to do is to find out",00:35:42.590,00:35:46.830
+what exactly we can be reached?,00:35:46.830,00:35:49.050
+"We have a property that
+we have shown here.",00:35:49.050,00:35:51.760
+But what else can we do here?,00:35:51.760,00:35:55.300
+"Now it turns out that
+you can say much more,",00:35:55.300,00:35:58.640
+"and we would like to prove the
+following theorem to make--",00:35:58.640,00:36:03.330
+"to analyze this whole
+thing much better.",00:36:03.330,00:36:05.920
+"I don't think I need the
+state machine anymore.",00:36:05.920,00:36:09.400
+So let's take that off.,00:36:09.400,00:36:10.709
+"The theorem that we
+would like to prove",00:36:19.810,00:36:21.580
+"is that any linear
+combination of the-- let's",00:36:21.580,00:36:29.022
+"change this into
+the 3 and 5 again.",00:36:29.022,00:36:32.210
+"Any linear combination
+of 3 and 5,",00:36:32.210,00:36:35.180
+"I can make with these 3
+and the 5 a gallon jug.",00:36:35.180,00:36:41.280
+So let's write it out.,00:36:41.280,00:36:42.660
+"So any linear
+combination l, which",00:36:42.660,00:36:55.680
+"we writes as some integer s
+times a, plus some integer",00:36:55.680,00:37:01.330
+t times b.,00:37:01.330,00:37:02.360
+"So any linear combination
+of a and b, with--",00:37:05.170,00:37:14.717
+"well, of course, the
+number of gallons",00:37:14.717,00:37:16.300
+should fit the largest the jug.,00:37:16.300,00:37:19.850
+"So with 0 is, at most l.",00:37:19.850,00:37:25.430
+Is it mostly can be reached.,00:37:25.430,00:37:27.620
+"So this theorem we
+would like to prove now.",00:37:34.520,00:37:37.920
+"And in order to
+do that, we would",00:37:37.920,00:37:39.610
+"like to already think about
+some kind of a property",00:37:39.610,00:37:44.260
+that we have.,00:37:44.260,00:37:45.250
+"So when we talk about linear
+combinations, the s and the t",00:37:45.250,00:37:49.090
+"can be negative, or positive.",00:37:49.090,00:37:50.820
+We really don't care.,00:37:50.820,00:37:51.760
+"So for example, we could
+have like, I don't know,",00:37:51.760,00:37:56.560
+minus 2 times--,00:37:56.560,00:37:58.070
+"so for example, 4 is equal
+to minus 2, times 3, plus--",00:37:58.070,00:38:05.130
+"actually, is that true?",00:38:05.130,00:38:06.140
+Yeah.,00:38:06.140,00:38:06.820
+"Plus 2, times 5.",00:38:06.820,00:38:10.590
+"So here we have s to be equal
+to minus 2, and t is equal to 2.",00:38:10.590,00:38:18.710
+"And of course, a is
+equal to 3, right?",00:38:18.710,00:38:20.430
+And be is equal to 5.,00:38:20.430,00:38:23.210
+"So 4 is a linear
+combination of these two.",00:38:23.210,00:38:27.160
+"And according to the theorem,
+we can create that number",00:38:27.160,00:38:31.070
+of gallons in this jug.,00:38:31.070,00:38:33.280
+"And we already saw
+that, because we did it.",00:38:33.280,00:38:36.480
+"But for our theorem,
+in order to prove this,",00:38:36.480,00:38:40.430
+"we really would like
+s to be positive.",00:38:40.430,00:38:43.020
+So how can we do that?,00:38:43.020,00:38:45.390
+"If anybody has an
+indea what we could do?",00:38:45.390,00:38:48.150
+"AUDIENCE: Let's assume
+that b is greater than m.",00:38:48.150,00:38:51.224
+PROFESSOR: Yeah.,00:38:51.224,00:38:51.890
+"We have still that a
+is supposed to be--",00:38:51.890,00:38:54.240
+"We will assume that
+throughout the whole lecture.",00:38:54.240,00:38:57.821
+Thanks.,00:38:57.821,00:38:58.320
+"So in order to prove
+this, we really",00:39:00.731,00:39:02.230
+"would like to have
+s to be positive.",00:39:02.230,00:39:04.110
+"So let's just play
+around a little bit",00:39:04.110,00:39:05.867
+"with linear combinations
+to get a little bit",00:39:05.867,00:39:07.700
+of feeling for that.,00:39:07.700,00:39:09.280
+"How could we write
+4 differently,",00:39:09.280,00:39:11.510
+"as a linear
+combination of 3 and 5,",00:39:11.510,00:39:14.150
+"such that we have actually
+a positive number over here?",00:39:14.150,00:39:19.150
+"Does anybody see
+another way to see that?",00:39:19.150,00:39:23.895
+AUDIENCE: [INAUDIBLE],00:39:23.895,00:39:25.937
+"PROFESSOR: Yeah, that's true.",00:39:25.937,00:39:27.145
+"3 times 3, minus--",00:39:27.145,00:39:29.940
+minus 5.,00:39:29.940,00:39:31.270
+So-- and how did we do that?,00:39:31.270,00:39:33.460
+"Well, we can just say
+5 times 3 to this one,",00:39:33.460,00:39:38.580
+"and then subtract the same
+again, minus 3 times 5,",00:39:38.580,00:39:42.090
+over here.,00:39:42.090,00:39:43.320
+"And if he adds those
+things together,",00:39:43.320,00:39:46.170
+"he will see 5 minus 2, is
+3 times 3, as you said.",00:39:46.170,00:39:50.870
+"And we have minus 3 plus 2
+is actually minus 1 times 5.",00:39:50.870,00:39:55.580
+"And this will be a different
+linear combination of 4.",00:39:55.580,00:39:58.900
+"So what we can do here, we can
+sort of play around and make",00:39:58.900,00:40:02.930
+"this s over here, which we now
+say call s prime, is positive.",00:40:02.930,00:40:07.260
+"Actually, it's larger than 0.",00:40:10.200,00:40:11.640
+"So let's start the
+proof for this theorem.",00:40:17.340,00:40:22.960
+"It's pretty amazing
+to me, actually,",00:40:22.960,00:40:27.595
+"that you can do so
+much a game like this,",00:40:27.595,00:40:31.470
+and see so much happening.,00:40:31.470,00:40:35.020
+"So let's figure
+out how this works.",00:40:35.020,00:40:40.651
+OK.,00:40:40.651,00:40:41.150
+"So let's first formalize this
+particular trick over here.",00:40:45.300,00:40:51.850
+And how do we go ahead with it?,00:40:51.850,00:40:54.030
+"Ah, well, notice
+that we can rewrite",00:40:54.030,00:40:59.990
+"L, which is equal to s
+times a, plus t times b.",00:40:59.990,00:41:05.780
+"s, you know, we can just add
+a multiple of b over here.",00:41:05.780,00:41:13.130
+"n times b, say m times a.",00:41:13.130,00:41:16.880
+"And we can subtract the
+same amount over here,",00:41:16.880,00:41:22.140
+"minus n times a, times b.",00:41:22.140,00:41:24.370
+"So do you see what
+I did over here?",00:41:24.370,00:41:26.530
+"I have added n times b, times a,
+and subtracted n, times a times",00:41:26.530,00:41:30.570
+b.,00:41:30.570,00:41:32.760
+"And we did something similar
+over here, not exactly",00:41:32.760,00:41:35.140
+the same.,00:41:35.140,00:41:35.750
+But that's what we did.,00:41:35.750,00:41:37.990
+"And you can imagine
+that we can choose m,",00:41:37.990,00:41:42.390
+"such that s plus n times
+b will be larger than 0.",00:41:42.390,00:41:45.970
+We can do that.,00:41:45.970,00:41:47.030
+"So essentially this proved to
+us that there exists an x prime,",00:41:47.030,00:41:53.450
+"and also the t
+prime, such that L",00:41:53.450,00:41:57.050
+"can be rewritten as
+a linear combination,",00:41:57.050,00:41:59.610
+"s prime, times a,
+plus t prime, times b.",00:41:59.610,00:42:04.600
+"But now with you extra
+property, that s prime",00:42:04.600,00:42:08.710
+is actually positive.,00:42:08.710,00:42:13.010
+"Now this is really
+important, because we're",00:42:13.010,00:42:15.690
+"going to create an
+algorithm of playing",00:42:15.690,00:42:18.840
+"with those jugs that can
+achieve this particular linear",00:42:18.840,00:42:22.410
+combination.,00:42:22.410,00:42:23.280
+"And that's how we're going
+to prove this theorem.",00:42:23.280,00:42:26.700
+"So let's assume that 0 is
+less than L, is less than b.",00:42:26.700,00:42:36.215
+"I know that we, in
+the theorem, we also",00:42:36.215,00:42:39.690
+"consider the case is L
+equals 0, and L equals b.",00:42:39.690,00:42:42.472
+"But those are obvious, right?",00:42:42.472,00:42:43.680
+"You could either empty
+the jugs, or just",00:42:43.680,00:42:46.020
+fill up with the bigger one.,00:42:46.020,00:42:49.130
+"So we will consider
+just this case.",00:42:49.130,00:42:51.260
+All right.,00:42:54.580,00:42:55.080
+"So what's the algorithm
+going to do for us?",00:42:55.080,00:42:57.243
+"The algorithm is going to
+repeatedly fill and pour",00:43:03.159,00:43:12.740
+our jugs in a very special way.,00:43:12.740,00:43:16.160
+"And miraculously we
+will be able to get",00:43:16.160,00:43:20.470
+"the desired linear
+combination every single time.",00:43:20.470,00:43:23.520
+"And of course, we're going
+to use induction again",00:43:26.229,00:43:28.270
+to prove this property.,00:43:28.270,00:43:30.611
+OK.,00:43:30.611,00:43:31.110
+So how does the algorithm work?,00:43:31.110,00:43:33.330
+"Well, to obtain L gallons
+we're going to repeat",00:43:33.330,00:43:45.980
+"s prime times, which is the
+number that we have over here.",00:43:45.980,00:43:50.047
+"The following algorithm--
+we first of all,",00:43:53.320,00:44:00.260
+we will fill the a jug.,00:44:00.260,00:44:02.160
+This one.,00:44:06.800,00:44:08.609
+"After we have done
+this, we are going",00:44:08.609,00:44:10.150
+to pour this into the b jug.,00:44:10.150,00:44:12.380
+So how do we go ahead?,00:44:12.380,00:44:15.090
+We pour- oops.,00:44:15.090,00:44:18.470
+This into the b jug.,00:44:18.470,00:44:19.615
+"And when this b jug becomes
+full, we are going pour it out.",00:44:23.450,00:44:28.960
+So let's write it out.,00:44:28.960,00:44:31.040
+"So when it becomes full, it
+will actually empty it out.",00:44:31.040,00:44:45.080
+"And we will continue pouring
+the a jug into the b jug.",00:44:49.080,00:44:53.610
+So we'll continue this process.,00:44:53.610,00:44:56.060
+"So let's take an example
+to see how that works.",00:45:00.120,00:45:04.060
+"So we keep on doing this until
+the a jug is actually empty.",00:45:04.060,00:45:10.680
+So let's take an example.,00:45:13.920,00:45:15.070
+So let's see.,00:45:18.436,00:45:20.890
+Let's do that over here.,00:45:20.890,00:45:22.555
+"Actually we can do
+the tennis balls, too.",00:45:26.560,00:45:29.960
+Let's do that first.,00:45:29.960,00:45:32.100
+See how that works.,00:45:32.100,00:45:34.810
+"So essentially, in
+order to get 4 gallons,",00:45:34.810,00:45:41.510
+"we just fill up the
+three gallon jug.",00:45:41.510,00:45:45.100
+We empty it all in here.,00:45:45.100,00:45:47.230
+We fill it up again.,00:45:49.780,00:45:51.670
+You pour in as much as we can.,00:45:51.670,00:45:54.110
+That's-- that's it.,00:45:54.110,00:45:56.480
+We have to empty this one.,00:45:56.480,00:45:58.501
+Oops.,00:45:58.501,00:45:59.000
+We have to keep on pouring.,00:46:01.760,00:46:04.040
+Put this in here.,00:46:04.040,00:46:05.740
+"Fill this one up, and then pour
+over into the five gallon jug.",00:46:05.740,00:46:12.900
+"And now we've got 4
+gallons over here.",00:46:12.900,00:46:15.640
+So what did we do?,00:46:15.640,00:46:17.160
+So let's write it out.,00:46:17.160,00:46:19.490
+"So for our special linear
+combination over here,",00:46:19.490,00:46:23.180
+"we have that 4 equals 3,
+times 3, minus 1, times 5.",00:46:23.180,00:46:29.040
+"So we need to repeat
+this process three times.",00:46:29.040,00:46:33.620
+So let's do that.,00:46:33.620,00:46:35.740
+"In our first loop we
+will do the following.",00:46:35.740,00:46:42.150
+"We start with the start
+state, the pair 0, 0.",00:46:42.150,00:46:47.490
+"We're going to fill up the
+very first jug all the way up",00:46:47.490,00:46:50.720
+"to its capacity, 3.",00:46:50.720,00:46:52.950
+"And we put it all
+over into the b jug.",00:46:52.950,00:46:57.860
+What happens in the second loop?,00:46:57.860,00:46:59.414
+"The second loop, we
+again fill up the a jug.",00:47:04.850,00:47:09.200
+"So we have-- we start at 0, 3.",00:47:09.200,00:47:13.320
+We fill it up.,00:47:13.320,00:47:15.730
+"We get 3, 3, the pair 3, 3.",00:47:15.730,00:47:18.430
+"We pour everything in
+here, as much as we can.",00:47:18.430,00:47:22.330
+"That give us 1, 5.",00:47:22.330,00:47:24.320
+"Only 2 gallons are poured
+into the bigger gallon.",00:47:24.320,00:47:29.180
+"We empty the bigger
+gallon, the bigger jug.",00:47:29.180,00:47:32.230
+"We get 1, 0.",00:47:32.230,00:47:34.940
+"And we keep on pouring,
+and you get 0, 1.",00:47:34.940,00:47:39.110
+So now in the third loop--,00:47:39.110,00:47:41.070
+"and that's where we
+should get the 4 gallons.",00:47:41.070,00:47:43.276
+"We start off with 0,1.",00:47:47.110,00:47:51.440
+"Um, we fill up the a jug.",00:47:51.440,00:47:57.150
+"We pour everything over into
+the bigger jug, and we get 0, 4.",00:47:57.150,00:48:03.910
+And that's the end result.,00:48:03.910,00:48:06.210
+"So this algorithm seems to work
+for this particular example.",00:48:06.210,00:48:09.970
+"Of course we would like to prove
+it for the general situation.",00:48:09.970,00:48:13.489
+So how do we do it?,00:48:13.489,00:48:14.280
+"Well, we're going to just
+to analyze the algorithm",00:48:16.800,00:48:22.780
+in the following way.,00:48:22.780,00:48:23.660
+"We can notice that
+in this algorithm,",00:48:27.000,00:48:32.530
+"we fill up s prime
+times the a jug,",00:48:32.530,00:48:36.020
+"and we essentially pour
+everything out into the b jugs,",00:48:36.020,00:48:42.420
+"and we sometimes
+empty the b jug.",00:48:42.420,00:48:45.660
+"So let's try to think
+about this a little bit,",00:48:45.660,00:48:48.170
+"and see how we could
+try to formalize this.",00:48:48.170,00:48:51.030
+So let's write it out.,00:48:51.030,00:48:52.160
+"We have filled the a
+gallon jug s prime times.",00:48:54.700,00:49:02.720
+"We also know that the
+b jug has been emptied",00:49:05.360,00:49:09.500
+a certain number of times.,00:49:09.500,00:49:10.880
+So let's-- let's just assume--,00:49:10.880,00:49:15.510
+"suppose that the b jug is
+actually emptied, say, u times.",00:49:15.510,00:49:24.375
+I do not know how many times.,00:49:30.700,00:49:32.800
+"But I say, well, let's
+assume it's u times,",00:49:32.800,00:49:34.900
+"and try to figure
+out whether we can",00:49:34.900,00:49:37.340
+find some algebraic expression.,00:49:37.340,00:49:40.470
+"So at the very end
+of the algorithm,",00:49:40.470,00:49:44.690
+let r be what is in the b jug.,00:49:44.690,00:49:48.270
+"So let r be the remainder,
+in the b gallon jug.",00:49:48.270,00:49:58.235
+So now we can continue.,00:50:03.500,00:50:06.220
+"We know if r is what left
+in the b gallon jug, well,",00:50:06.220,00:50:09.940
+"we know already
+some property of it.",00:50:09.940,00:50:13.780
+"Actually, let's put
+that on the next board.",00:50:13.780,00:50:17.040
+"We know that 0 is at
+most r, and at most b,",00:50:17.040,00:50:22.580
+"because that's what's left
+in the b gallon jug, right?",00:50:22.580,00:50:25.170
+So we know these bounds.,00:50:25.170,00:50:27.740
+"We have assumed that 0 is
+less than L, is less than b,",00:50:27.740,00:50:33.700
+which we put over there.,00:50:33.700,00:50:36.620
+"We know that r must
+be equal to what",00:50:36.620,00:50:40.650
+"kind of linear combination
+of s prime, and u?",00:50:40.650,00:50:46.720
+"So-- Well, we have been
+filling of s prime times.",00:50:46.720,00:50:52.240
+"So this is what we added in
+water to the whole system,",00:50:52.240,00:50:57.020
+"you can say, s prime times a.",00:50:57.020,00:50:59.660
+And we poured out water.,00:50:59.660,00:51:02.060
+"Well, we did that u times
+from the b gallon jug.",00:51:02.060,00:51:06.890
+"So we poured out
+u times b gallons.",00:51:06.890,00:51:09.830
+"So this is the remainder that
+this left in this bigger jug,",00:51:09.830,00:51:13.520
+right?,00:51:13.520,00:51:14.910
+"So are there any
+questions about this?",00:51:14.910,00:51:17.940
+So-- OK.,00:51:17.940,00:51:22.150
+"So we also know that
+L is equal to s prime,",00:51:22.150,00:51:27.470
+"times a, plus t prime, times b.",00:51:27.470,00:51:31.220
+"And this is the
+linear combination",00:51:31.220,00:51:33.500
+"that we would try
+to prove of, that it",00:51:33.500,00:51:36.820
+is left at the very end.,00:51:36.820,00:51:39.240
+"So what we want to show
+is that r equals L.",00:51:39.240,00:51:42.440
+So how do we do that now?,00:51:42.440,00:51:44.290
+"How are we going to show
+that r can be expressed",00:51:44.290,00:51:51.110
+"in L, in a special way.",00:51:51.110,00:51:52.770
+So let's have a look.,00:51:52.770,00:51:53.710
+"So these are all
+tricks in the sense",00:51:53.710,00:51:58.150
+"that I'm giving you
+this proof, but how do",00:51:58.150,00:52:01.000
+you come up with this yourself?,00:52:01.000,00:52:03.340
+"Sometimes you play a lot
+with these kinds of things,",00:52:03.340,00:52:05.990
+"and you get a feeling
+of what kind of--",00:52:05.990,00:52:11.070
+"sort of pattern exists,
+and what kind of intuition",00:52:11.070,00:52:16.080
+"you need in order to write
+down a proof like this.",00:52:16.080,00:52:19.070
+So let's rewrite this.,00:52:19.070,00:52:22.910
+I'm going add t prime times b.,00:52:22.910,00:52:26.030
+"And I'm going to
+subtract it again.",00:52:26.030,00:52:27.570
+"So I have s prime times
+a, plus t prime times b.",00:52:30.530,00:52:34.650
+"I subtract it again, and I
+still have this amount left open",00:52:34.650,00:52:38.240
+here.,00:52:38.240,00:52:39.820
+So what is this equal to?,00:52:39.820,00:52:41.755
+"Well this part is equal to L.
+So this is equal to minus--",00:52:41.755,00:52:48.840
+"and I have a multiple
+of b, which is t prime,",00:52:48.840,00:52:52.140
+plus u times b.,00:52:52.140,00:52:53.708
+Hm.,00:52:56.636,00:52:59.072
+Now this is very interesting.,00:52:59.072,00:53:00.280
+"Does anybody see how
+we could continue here?",00:53:00.280,00:53:02.760
+"So we have r expressed as
+L, minus a multiple of b.",00:53:02.760,00:53:08.260
+"And I also know that
+L is in this range.",00:53:08.260,00:53:10.630
+"I also know that r
+is in this range.",00:53:10.630,00:53:13.489
+"So that's kind of
+interesting, right?",00:53:13.489,00:53:15.030
+So how can that be?,00:53:15.030,00:53:18.730
+What should be the case here?,00:53:18.730,00:53:20.560
+"Does anybody see what kind
+of property t prime plus u",00:53:20.560,00:53:25.660
+"must have in order
+to make that happen?",00:53:25.660,00:53:30.490
+So let's have a look here.,00:53:30.490,00:53:31.960
+We have L. It's in this range.,00:53:31.960,00:53:35.300
+So let's just draw an axis.,00:53:35.300,00:53:37.720
+"So at 0, we have b.",00:53:37.720,00:53:40.340
+"And somehow in this
+range, we have L. Now",00:53:40.340,00:53:48.300
+"if I subtract like actually
+b, or something more than b,",00:53:48.300,00:53:53.590
+or I add more than b.,00:53:53.590,00:53:55.470
+"I will jump out of this range,
+and I go somewhere over here,",00:53:55.470,00:53:59.010
+or I go somewhere over there.,00:53:59.010,00:54:01.510
+Right?,00:54:01.510,00:54:02.160
+"So if I said suppose
+L is over here,",00:54:02.160,00:54:06.050
+"then L minus b would be over
+here, which would be negative.",00:54:06.050,00:54:09.960
+"Or if I add b, it
+will be over here,",00:54:09.960,00:54:12.900
+which would be more than b.,00:54:12.900,00:54:15.670
+"Now we know that this is equal
+to r, but r is in this range.",00:54:15.670,00:54:20.120
+So that's not really possible.,00:54:20.120,00:54:21.810
+So let's write it out.,00:54:21.810,00:54:23.780
+"So if t prime plus
+u is unequal to 0,",00:54:23.780,00:54:29.370
+"so we're actually
+really subtract",00:54:29.370,00:54:31.420
+or add a multiple of b.,00:54:31.420,00:54:36.300
+"Then I know that r is
+either smaller than 0,",00:54:36.300,00:54:41.770
+or r is larger than b.,00:54:41.770,00:54:45.110
+"Now we know that
+cannot be the case,",00:54:45.110,00:54:46.910
+"so we can conclude that
+t prime plus u equals 0.",00:54:46.910,00:54:51.600
+"Now that implies that
+t prime equals minus u,",00:54:51.600,00:54:58.520
+"or maybe other way around,
+because that's easier",00:54:58.520,00:55:01.040
+to see what's happening.,00:55:01.040,00:55:02.200
+So u equals minus t prime.,00:55:02.200,00:55:06.300
+"If you plug that
+in here, well, we",00:55:06.300,00:55:09.720
+get exactly the same expression.,00:55:09.720,00:55:11.510
+You see?,00:55:11.510,00:55:12.590
+"Minus, minus t prime is
+equal to plus t prime.",00:55:12.590,00:55:16.640
+"And we get the exact
+same linear combination.",00:55:16.640,00:55:18.560
+So we conclude that r equals L.,00:55:18.560,00:55:21.910
+And now we're done.,00:55:21.910,00:55:23.370
+Why is that?,00:55:23.370,00:55:24.420
+"Well, we have shown that the
+very last number of gallons",00:55:24.420,00:55:29.034
+"that is left after
+this procedure,",00:55:29.034,00:55:30.450
+"after this algorithm,
+is actually",00:55:30.450,00:55:32.670
+"exactly equal to the
+linear combination",00:55:32.670,00:55:35.090
+that we wanted to achieve.,00:55:35.090,00:55:36.630
+"So now we got the
+proof for this theorem",00:55:36.630,00:55:39.550
+"that tells us that any linear
+combination is actually--",00:55:39.550,00:55:49.260
+"of a and b can
+actually be reached",00:55:49.260,00:55:51.920
+"by pouring gallons
+over and back,",00:55:51.920,00:55:54.250
+"and emptying and
+filling those jugs.",00:55:54.250,00:55:56.980
+All right let's continue.,00:55:56.980,00:55:59.170
+"So there was a question over
+here that I would like to--",00:55:59.170,00:56:01.707
+that I would like to address.,00:56:01.707,00:56:02.915
+"So maybe I did not make
+so clear what the s prime,",00:56:05.990,00:56:10.600
+and the t prime is over here.,00:56:10.600,00:56:12.900
+"And in this proof,
+we started off",00:56:12.900,00:56:16.222
+with this linear combination.,00:56:16.222,00:56:17.430
+"I would like to
+have an algorithm",00:56:17.430,00:56:20.270
+"of pouring that creates L
+gallons in say the bigger jug.",00:56:20.270,00:56:25.990
+"So in order to do that,
+I want to find, say,",00:56:25.990,00:56:30.870
+"a linear combination that
+makes this L such that this",00:56:30.870,00:56:35.040
+s prime is an integer--,00:56:35.040,00:56:37.110
+positive integer.,00:56:37.110,00:56:38.160
+"Why do I want to have
+a positive integer?",00:56:38.160,00:56:40.900
+"Because in this algorithm,
+I'm going to repeat something",00:56:40.900,00:56:44.420
+s prime times.,00:56:44.420,00:56:45.190
+"If s prime is negative,
+I cannot do it, right?",00:56:45.190,00:56:47.670
+"So s prime has to be
+a positive integer.",00:56:47.670,00:56:50.710
+"In order to create such
+a positive integer,",00:56:50.710,00:56:55.200
+"I can just add like
+1,000 times b times,",00:56:55.200,00:56:59.450
+"and subtract 1,000
+times a times b.",00:56:59.450,00:57:03.160
+"That's OK I could
+just add a lot.",00:57:03.160,00:57:06.080
+"And if I add enough, I can
+make s plus n times b positive.",00:57:06.080,00:57:11.220
+"Even if s is, say, minus 100,
+well, if I add 1,000 times 5,",00:57:11.220,00:57:17.620
+I will get a positive number.,00:57:17.620,00:57:19.770
+"So that's sort of
+the reason this proof",00:57:19.770,00:57:22.520
+"that we want to rewrite
+the linear combination",00:57:22.520,00:57:25.310
+"to a new one, such that
+s prime is positive.",00:57:25.310,00:57:29.040
+"And if we have s prime
+positive, then we",00:57:29.040,00:57:31.800
+"can actually talk
+about this algorithm,",00:57:31.800,00:57:34.070
+"because we can only repeat
+something s prime times,",00:57:34.070,00:57:37.890
+"if s prime is say 1, or 2,
+or 3, or something positive.",00:57:37.890,00:57:41.435
+All right.,00:57:44.970,00:57:46.330
+"So let's-- I'll talk
+about say the next part.",00:57:46.330,00:57:51.470
+So we have gone--,00:57:51.470,00:57:53.560
+We have proved two theorems.,00:57:53.560,00:57:56.480
+"But in the end we would like
+to have a characterization",00:57:56.480,00:58:01.529
+of the greatest common divisor.,00:58:01.529,00:58:02.820
+That's the goal of this lecture.,00:58:02.820,00:58:05.410
+So let's do it.,00:58:05.410,00:58:07.250
+Um.,00:58:07.250,00:58:10.000
+"In order to do this,
+let's first of all",00:58:10.000,00:58:14.750
+"look at our five gallon,
+and three gallon example.",00:58:14.750,00:58:18.290
+"We know that the greatest
+common divisor is equal to 1.",00:58:18.290,00:58:22.830
+"We know that 1 can be rewritten
+as a linear combination, as 2",00:58:22.830,00:58:30.740
+"times 3, minus 1 times 5.",00:58:30.740,00:58:35.960
+"So that means that according
+to the theorem that we",00:58:35.960,00:58:38.530
+"have up here, we can
+actually make exactly 1",00:58:38.530,00:58:44.120
+gallon in one of these jugs.,00:58:44.120,00:58:48.140
+"So that means that we can also
+have any multiple of those.",00:58:48.140,00:58:51.770
+So we can reach any multiple 1.,00:58:51.770,00:58:54.970
+That's very special.,00:58:54.970,00:58:56.180
+"So this particular case,
+we know that any multiple",00:58:56.180,00:58:59.730
+"of 1, any number of
+gallons can be reached.",00:58:59.730,00:59:03.100
+"So can we sort of
+generalize this a little bit",00:59:03.100,00:59:06.270
+"by using the greatest
+common divisor?",00:59:06.270,00:59:08.050
+"So the greatest common
+divisor 3 and 5 is equal to 1.",00:59:08.050,00:59:11.680
+"And we have shown that the
+greatest common divisor defies",00:59:11.680,00:59:16.700
+"any result. Can we
+say something more?",00:59:16.700,00:59:19.000
+"Can we say that the
+greatest common divisor",00:59:19.000,00:59:21.840
+"can be maybe written
+as a linear combination",00:59:21.840,00:59:25.040
+of this type over there?,00:59:25.040,00:59:26.830
+"And that's how we are
+going to proceed now.",00:59:26.830,00:59:30.610
+"So let's set talk about the
+very special algorithm which",00:59:30.610,00:59:40.300
+is called Euclid's algorithm.,00:59:40.300,00:59:43.240
+"And I think in the book it's
+also called The Pulverizer.",00:59:43.240,00:59:47.410
+"And you will have
+a problem on this",00:59:47.410,00:59:50.940
+"just to see how that works,
+and to really understand it.",00:59:50.940,00:59:55.660
+"So let's explain
+what we want here.",00:59:55.660,00:59:59.100
+"So first of all, we know
+that for any b and a,",00:59:59.100,01:00:05.390
+"there exists a unique
+quotient and remainder r.",01:00:05.390,01:00:08.580
+So let's write it out.,01:00:08.580,01:00:11.740
+"There exists unique q, which
+we will call the quotient.",01:00:11.740,01:00:20.110
+And r.,01:00:25.280,01:00:26.720
+We call this the remainder.,01:00:26.720,01:00:27.845
+"Such that b equals
+q times a, plus r.",01:00:33.280,01:00:44.670
+"With the property that 0 is
+at least r, and at most a.",01:00:44.670,01:00:54.380
+"So we're not going to
+prove this statement.",01:00:54.380,01:00:58.630
+"It's actually like
+a theorem, right?",01:00:58.630,01:01:00.160
+"But let's just
+assume it for now.",01:01:00.160,01:01:02.387
+"And in the book you
+can read about it.",01:01:02.387,01:01:03.970
+"We're going to use this to prove
+the following lemma that we",01:01:07.805,01:01:13.110
+"will need to give
+a characterization",01:01:13.110,01:01:15.030
+"of the greatest common divisor,
+as a linear combination",01:01:15.030,01:01:18.090
+of integers.,01:01:18.090,01:01:20.235
+"Oh, before I forget, you
+will denote this remainder",01:01:23.280,01:01:28.040
+"as rem of b, a.",01:01:28.040,01:01:34.400
+"And this is the notation
+that we use in this lecture.",01:01:34.400,01:01:38.930
+So what's the lemma?,01:01:38.930,01:01:40.090
+"The lemma is that the greatest
+common divisor of a and b,",01:01:40.090,01:01:46.730
+"is equal to the greatest common
+divisor of the remainder of b",01:01:46.730,01:01:52.790
+and a.,01:01:52.790,01:01:53.441
+With a.,01:01:56.090,01:01:56.590
+So what did we do?,01:01:56.590,01:01:58.420
+"Let's give an example
+to see how this works.",01:01:58.420,01:02:02.810
+"For example, let's take--",01:02:02.810,01:02:06.230
+"actually let's do it
+on this white board.",01:02:06.230,01:02:08.405
+"So, let's see.",01:02:14.678,01:02:16.175
+"For example, let's
+see whether we",01:02:19.666,01:02:21.040
+"can use this to calculate the
+greatest common divisor 105,",01:02:21.040,01:02:27.590
+and 224.,01:02:27.590,01:02:28.940
+So how can we go ahead?,01:02:31.260,01:02:33.250
+"Well, according
+to this lemma, we",01:02:33.250,01:02:38.000
+"can rewrite this as the
+greatest common divisor",01:02:38.000,01:02:41.430
+"of first the remainder of
+224, after dividing out",01:02:41.430,01:02:49.720
+"as many multiples
+of 105 as possible.",01:02:49.720,01:02:54.680
+And 105.,01:02:54.680,01:02:55.180
+"So what are we
+going to use here?",01:02:58.000,01:03:01.640
+"We're going to use that 224 is
+actually equal to 2 times 105,",01:03:01.640,01:03:09.370
+plus 14.,01:03:09.370,01:03:10.803
+So we had the GCD of 14 and 105.,01:03:14.070,01:03:18.340
+Now why can I do this?,01:03:18.340,01:03:20.490
+"Well, I'm essentially just
+subtracting like 2 times 135",01:03:20.490,01:03:28.540
+from 224.,01:03:28.540,01:03:30.850
+"Well, the greatest
+common divisor",01:03:30.850,01:03:32.320
+"that divides 105 and
+224 also divides 105,",01:03:32.320,01:03:40.050
+"and a linear
+combination of 105, 224.",01:03:40.050,01:03:43.700
+"That's essentially
+what we are using.",01:03:43.700,01:03:46.430
+"And that's actually
+stated in this lemma,",01:03:46.430,01:03:49.370
+"and that's what we
+would like to prove.",01:03:49.370,01:03:52.840
+"So let's continue
+with this process,",01:03:52.840,01:03:55.370
+and do the same trick once more.,01:03:55.370,01:03:58.330
+"So we can say that we can
+rewrite this as the greatest",01:03:58.330,01:04:03.900
+"common divisor of, well,
+the remainder of 105",01:04:03.900,01:04:14.660
+"after taking out this many
+multiples of 14 as possible,",01:04:14.660,01:04:20.150
+and 14.,01:04:20.150,01:04:22.580
+"So what are we going
+to use over here?",01:04:22.580,01:04:25.720
+"We are going to use that 105
+is equal to 7 times 14, plus 7.",01:04:25.720,01:04:34.200
+"So this is the greatest
+common divisor of 7, and 14.",01:04:34.200,01:04:40.580
+"Now if you just
+continue this process,",01:04:40.580,01:04:45.550
+"we can see that this is equal
+to the greatest common divisor,",01:04:45.550,01:04:49.230
+"again, of the
+remainder of now 14,",01:04:49.230,01:04:53.760
+"after dividing out as many
+multiples of 7 with 7.",01:04:53.760,01:05:00.090
+"Now this is equal to 0, 7.",01:05:00.090,01:05:05.630
+Why is that?,01:05:05.630,01:05:06.180
+"Because 14 is equal
+to 2 times 7, plus 0.",01:05:06.180,01:05:14.630
+"So 0 is the remainder
+after dividing out",01:05:14.630,01:05:18.940
+"7 as many possible
+times as possible.",01:05:18.940,01:05:21.510
+OK.,01:05:21.510,01:05:22.010
+"So we have the greatest
+common divisor of 0, and 7.",01:05:22.010,01:05:25.180
+"What's the largest integer
+that can divide both 0 and 7?",01:05:25.180,01:05:28.950
+"Well, any integer can divide 0.",01:05:28.950,01:05:32.590
+"So we know that
+this is equal to 7.",01:05:32.590,01:05:36.280
+"So essentially, what
+we have done here,",01:05:36.280,01:05:38.590
+"we have repeatedly used
+this particular lemma",01:05:38.590,01:05:42.600
+"to compute in the end, the
+greatest common divisor of 105",01:05:42.600,01:05:49.360
+and 224.,01:05:49.360,01:05:51.290
+And we have been very methodol--,01:05:51.290,01:05:54.690
+we have used a specific method.,01:05:54.690,01:05:57.030
+"We used the lemma,
+and we worked it out.",01:05:57.030,01:06:01.490
+"We used the lemma
+again, and we just",01:06:01.490,01:06:04.120
+plugged in the actual numbers.,01:06:04.120,01:06:05.880
+Used to lemma again.,01:06:05.880,01:06:06.860
+"Plugged in the actual
+numbers, and so on.",01:06:06.860,01:06:09.860
+"And this is what is
+called Euclid's algorithm.",01:06:09.860,01:06:14.020
+"And in the book it's also
+called The Pulverizer.",01:06:14.020,01:06:16.910
+"And there's, I think,
+a few other names.",01:06:16.910,01:06:20.270
+But I like this one.,01:06:20.270,01:06:23.190
+"So this is an example
+of Euclid's algorithm.",01:06:23.190,01:06:29.010
+"So now let's have
+to look whether we",01:06:29.010,01:06:31.370
+"can have prove this particular
+lemma, and actually I will--",01:06:31.370,01:06:41.910
+Yep.,01:06:41.910,01:06:42.970
+We're going to prove this lemma.,01:06:42.970,01:06:44.930
+OK.,01:06:55.240,01:06:56.030
+So how do we do the proof?,01:06:56.030,01:07:01.190
+"Well, first before we
+know that if- yeah.",01:07:01.190,01:07:05.640
+"Well, how do we do this?",01:07:05.640,01:07:06.840
+"You would like to prove that
+if the great-- well, if n",01:07:06.840,01:07:10.350
+"divides a and b, in
+particular, the greatest",01:07:10.350,01:07:13.380
+common divisor divides a and b.,01:07:13.380,01:07:17.360
+"We would like to show
+that it's dividing also",01:07:17.360,01:07:21.910
+"the remainder of b, after
+dividing out a, and a itself.",01:07:21.910,01:07:27.890
+"If you can show
+that, then we know",01:07:27.890,01:07:30.200
+"that the greatest common
+divisor of this thing",01:07:30.200,01:07:33.330
+"is at least what
+we have over here.",01:07:33.330,01:07:35.740
+So I said a lot right now.,01:07:35.740,01:07:37.370
+"So let's try to write
+it out a little bit.",01:07:37.370,01:07:40.210
+"So suppose that m
+is any divisor of a.",01:07:40.210,01:07:44.860
+"And at the same time,
+m also divides b.",01:07:44.860,01:07:48.205
+"Well, then I know
+that m also divides",01:07:51.690,01:07:57.920
+"b minus, say, the quotient, q
+that we had over here, times a.",01:07:57.920,01:08:04.520
+"And-- and this is actually equal
+to the remainder of b and a.",01:08:04.520,01:08:11.250
+"Now we also note
+that m divides a.",01:08:11.250,01:08:14.950
+So what did we show here?,01:08:14.950,01:08:16.210
+"We showed that if m divides,
+and m divides b, then m",01:08:16.210,01:08:22.439
+"also divides the
+remainder of b and a.",01:08:22.439,01:08:25.649
+And n divides a.,01:08:25.649,01:08:27.700
+So what does is prove?,01:08:27.700,01:08:29.790
+"Well, it proves
+that, in particular,",01:08:29.790,01:08:32.370
+"the greatest common divisor
+over here divides this one.",01:08:32.370,01:08:36.470
+That's interesting.,01:08:36.470,01:08:37.859
+"That essentially means that
+we have shown this inequality.",01:08:37.859,01:08:42.930
+"Because if this
+one divides this,",01:08:42.930,01:08:49.180
+"well, that means that
+this number over here",01:08:49.180,01:08:51.970
+"must be at least what
+we have over here.",01:08:51.970,01:08:55.569
+OK.,01:08:55.569,01:08:56.399
+So let's continue.,01:08:56.399,01:08:58.400
+We consider two cases.,01:09:07.620,01:09:09.080
+"If the remainder of b and
+a is unequal to 0, well,",01:09:09.080,01:09:14.439
+what can we say now?,01:09:14.439,01:09:17.600
+"We can say that if I
+know that m divides",01:09:17.600,01:09:21.859
+"this remainder of b and a, which
+can be rewritten as b minus q,",01:09:21.859,01:09:27.569
+times a.,01:09:27.569,01:09:29.819
+And I also note that--,01:09:29.819,01:09:32.390
+"if I also know that n
+divides a, then this actually",01:09:32.390,01:09:38.520
+"implies the reverse of this
+statement, that n divides a,",01:09:38.520,01:09:43.120
+and divides b.,01:09:43.120,01:09:45.290
+Now why is that?,01:09:45.290,01:09:46.910
+"Well, we're actually
+using the fact",01:09:46.910,01:09:49.439
+"that if n divides b, minus
+q, times a, and m divides a,",01:09:49.439,01:09:53.960
+"then m also defies any linear
+combination of these two.",01:09:53.960,01:09:57.680
+"In particular, this plus
+q, times a, which is b.",01:09:57.680,01:10:04.620
+m divides b.,01:10:04.620,01:10:05.710
+"So maybe I'm going a little
+bit fast here, I notice.",01:10:05.710,01:10:10.780
+"This all also has to do with
+all the lecture handouts.",01:10:10.780,01:10:15.000
+"You see a few facts
+on the divisibility.",01:10:15.000,01:10:17.650
+"And in particular, item number
+three that talks about the fact",01:10:17.650,01:10:23.380
+that I'm using here.,01:10:23.380,01:10:24.380
+"If a divides b on your handout,
+and a divides c, then I",01:10:24.380,01:10:28.610
+"know that a divides any
+linear combination of b and c.",01:10:28.610,01:10:33.800
+"So that's essentially what
+I'm using here repeatedly.",01:10:33.800,01:10:36.255
+OK,01:10:39.090,01:10:41.250
+So let's look at the other case.,01:10:43.610,01:10:48.930
+"If the remainder is equal
+to 0, well, then I actually",01:10:48.930,01:10:54.620
+"know that b minus q,
+times a is equal to 0.",01:10:54.620,01:11:00.540
+"Well, if I know that
+m divides a, well,",01:11:00.540,01:11:07.780
+"then since 0 equals b minus q,
+times a, I know that b equals",01:11:07.780,01:11:16.380
+"q, times a.",01:11:16.380,01:11:17.450
+"So if m divides a, I also
+now that m divides b.",01:11:17.450,01:11:21.260
+So this is one argument.,01:11:23.920,01:11:25.570
+This is another one.,01:11:25.570,01:11:27.240
+And this was--,01:11:27.240,01:11:28.775
+"These are the three
+arguments that",01:11:28.775,01:11:30.610
+"now show that anything
+that divides these two also",01:11:30.610,01:11:35.970
+divides a and b.,01:11:35.970,01:11:37.439
+"So now we have the
+reverse argument, right?",01:11:37.439,01:11:39.230
+"So this greatest common
+divisor divides this one here,",01:11:39.230,01:11:43.590
+and this one.,01:11:43.590,01:11:45.340
+"And we just proved that
+it divides a and b,",01:11:45.340,01:11:49.002
+"and so it must
+divides the greatest",01:11:49.002,01:11:50.460
+common divisor of a and b.,01:11:50.460,01:11:51.940
+"So now we have shown
+the other inequality,",01:11:51.940,01:11:55.030
+and this proves equality.,01:11:55.030,01:11:56.190
+"So you should definitely look
+this up in your lecture notes.",01:11:56.190,01:11:59.160
+"So now we can finally prove
+this beautiful theorem",01:12:02.110,01:12:05.790
+"a that will help us to
+characterize the-- actually,",01:12:05.790,01:12:12.895
+let me put this over here.,01:12:12.895,01:12:14.360
+"So the final theorem
+that we prove here",01:12:21.600,01:12:24.600
+"is that the greatest
+common divisor of a and b",01:12:24.600,01:12:30.630
+"is actually a linear
+combination of a and b.",01:12:30.630,01:12:38.280
+"So we're going to use this
+algorithm that you have",01:12:40.910,01:12:43.280
+"over here, Euclid's algorithm.",01:12:43.280,01:12:47.460
+"And we are going to do a
+proof, again, by induction.",01:12:47.460,01:12:53.860
+And we use an invariance.,01:12:53.860,01:12:55.470
+"So we use a similar kind
+of strategy, of course.",01:12:55.470,01:13:03.360
+"The invariance that we
+are going to use says--",01:13:03.360,01:13:09.105
+"well, if Euclid's algorithm
+reaches the greatest",01:13:12.230,01:13:26.050
+common divisor of x and y--,01:13:26.050,01:13:29.140
+"so for example, it's reach, say,
+7 or 14, and 105, for example.",01:13:29.140,01:13:36.350
+"Then, say, after n steps
+then both x and y are",01:13:36.350,01:13:47.790
+linear combinations of a and b.,01:13:47.790,01:13:51.950
+"So then x and y are linear
+combinations of a and b.",01:13:51.950,01:14:04.370
+"And at the same
+time, we also know",01:14:04.370,01:14:07.020
+"that the greatest common
+divisor of a and b",01:14:07.020,01:14:10.270
+"is equal to the greatest
+common divisor of x and y.",01:14:10.270,01:14:15.020
+So this is my invariance.,01:14:15.020,01:14:17.390
+"And the way I will go ahead is
+to simply do what you do always",01:14:17.390,01:14:24.540
+in these situations.,01:14:24.540,01:14:25.650
+So we start with the base case.,01:14:25.650,01:14:28.210
+"And we can immediately see that
+after 0 steps in the Euclidean",01:14:28.210,01:14:33.220
+"algorithm, I've done
+absolutely nothing.",01:14:33.220,01:14:35.530
+"So obviously after
+0 steps, x equals a.",01:14:35.530,01:14:42.890
+y equals b.,01:14:42.890,01:14:44.200
+"So of course, they are linear
+combinations of a and b.",01:14:44.200,01:14:48.060
+"And this equality
+holds, as well.",01:14:48.060,01:14:51.440
+So for the base case--,01:14:51.440,01:14:52.680
+"So after 0 steps, we immediately
+know that p 0 is true.",01:14:58.130,01:15:04.790
+"Now for the inductive step, we
+have to do a little bit more.",01:15:04.790,01:15:08.690
+"As usual, right?",01:15:17.780,01:15:19.025
+We always assume p n.,01:15:19.025,01:15:24.410
+"And now we would like
+to prove p n plus 1.",01:15:24.410,01:15:27.320
+So how do we do this?,01:15:27.320,01:15:29.572
+"Well, we notice that
+there exists a q such",01:15:29.572,01:15:41.510
+"that the remainder of y and x
+is equal to y minus q, times x.",01:15:41.510,01:15:49.730
+So we assume p n.,01:15:49.730,01:15:51.270
+"We have reached
+some state, x, y.",01:15:51.270,01:15:54.470
+"We know that the remainder
+of y, x equals y minus q,",01:15:54.470,01:15:57.910
+"times x, for some quotient q.",01:15:57.910,01:16:02.830
+"We know that y is a linear
+combination of a and b,",01:16:02.830,01:16:06.610
+"and x is, as well.",01:16:06.610,01:16:08.610
+"So that means that this
+one is actually also",01:16:08.610,01:16:12.530
+a linear combination of a and b.,01:16:12.530,01:16:18.860
+"So now when we look at this
+, algorithm we can see that--",01:16:18.860,01:16:25.257
+"that if you look at
+the remainder that",01:16:25.257,01:16:26.840
+"appears in here, that's still a
+linear combination of a and b.",01:16:26.840,01:16:30.850
+"So after a extra step, we
+notice that what we have reached",01:16:30.850,01:16:35.420
+"are still in
+combinations of a and b.",01:16:35.420,01:16:38.170
+"And of course, the
+lemme has showed--",01:16:38.170,01:16:40.890
+"has shown us that what
+we reach is still equal--",01:16:40.890,01:16:46.270
+"the greatest common
+divisor is still",01:16:46.270,01:16:47.770
+"equal to what we originally
+started out with.",01:16:47.770,01:16:51.320
+So this proves p of n plus 1.,01:16:51.320,01:16:54.300
+"So n-- let's finish
+this particular proof.",01:16:58.800,01:17:03.380
+"So for the very last
+step, if you now",01:17:03.380,01:17:07.004
+look at this particular--,01:17:07.004,01:17:08.045
+"so if you look at the very end,
+we notice that in every step",01:17:12.600,01:17:16.770
+"the remainder is getting
+smaller, and smaller,",01:17:16.770,01:17:19.750
+and smaller.,01:17:19.750,01:17:20.260
+Right?,01:17:20.260,01:17:22.250
+"And you can use a similar
+kind of proof technique",01:17:22.250,01:17:24.700
+"to show that after a
+finite number of steps,",01:17:24.700,01:17:28.510
+"we will reach a GDP of 0, y.",01:17:28.510,01:17:33.190
+Something like this.,01:17:33.190,01:17:35.200
+"So in the very last step
+of Euclid's algorithm",01:17:35.200,01:17:41.030
+"we achieve something
+off this form.",01:17:41.030,01:17:44.890
+"We now use our
+predicate over here,",01:17:44.890,01:17:49.220
+"and say that y is a linear
+combination of a and b,",01:17:49.220,01:17:53.890
+"but the greatest
+common divisor of 0, y",01:17:53.890,01:17:57.020
+"is also equal to the original
+greatest common divisor",01:17:57.020,01:17:59.900
+that we want to characterize.,01:17:59.900,01:18:01.860
+"So now we have
+proved the theorem",01:18:01.860,01:18:05.760
+"that says that the greatest
+common divisor of a and b",01:18:05.760,01:18:08.110
+"is actually a
+linear combination.",01:18:08.110,01:18:11.830
+"So now we're going to
+combine all those three",01:18:11.830,01:18:13.840
+theorems in one go.,01:18:13.840,01:18:16.969
+"And that will show
+us the final result,",01:18:16.969,01:18:25.580
+"which is that the theorem that
+the greatest common divisor",01:18:25.580,01:18:35.230
+"of a and b is
+actually the smallest",01:18:35.230,01:18:42.010
+"positive linear
+combination of a and b.",01:18:42.010,01:18:54.000
+"So we're going to combine
+all of these together.",01:18:54.000,01:18:56.840
+"We know that the greatest common
+divisor divides any result.",01:18:56.840,01:19:01.970
+"The theorem up there says
+that any linear combination",01:19:01.970,01:19:05.160
+can be reached.,01:19:05.160,01:19:07.160
+And also just showed--,01:19:07.160,01:19:08.949
+"have shown that the
+greatest common divisor",01:19:08.949,01:19:10.740
+"is a linear
+combination of a and b.",01:19:10.740,01:19:13.890
+"So we can combine those
+three to get this theorem.",01:19:13.890,01:19:17.450
+So how do we do it?,01:19:17.450,01:19:19.120
+"Well, let's just look
+0 all the way up to b.",01:19:19.120,01:19:25.620
+"Suppose these are all
+the results that we",01:19:25.620,01:19:29.770
+can reach in our problem.,01:19:29.770,01:19:32.530
+"We know that the greatest common
+divisor divides all of those.",01:19:32.530,01:19:38.160
+"At the same time, it's
+also linear combination",01:19:38.160,01:19:41.390
+that's over here.,01:19:41.390,01:19:42.160
+"Since it's a linear combination,
+it can also be reached, right?",01:19:42.160,01:19:45.860
+By the theorem that we have.,01:19:45.860,01:19:47.840
+"So suppose that this is the
+greatest common divisor.",01:19:47.840,01:19:51.099
+"But we also know that the
+greatest common divisor",01:19:51.099,01:19:53.140
+"is dividing all of these points
+here that can be reached.",01:19:53.140,01:19:57.760
+"So therefore, it must
+be the smallest one.",01:19:57.760,01:20:01.420
+"And I will leave you
+with some homework",01:20:01.420,01:20:04.050
+"to think about this
+very carefully.",01:20:04.050,01:20:06.210
+"And you can show for
+yourself that you can now",01:20:06.210,01:20:09.220
+"combine those three
+arguments together, and see",01:20:09.220,01:20:12.660
+"that the greatest common divisor
+must be the smallest positive",01:20:12.660,01:20:15.630
+linear combination.,01:20:15.630,01:20:18.420
+"So, I will see next Thursday.",01:20:18.420,01:20:21.770

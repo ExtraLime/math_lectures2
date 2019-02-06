@@ -1,0 +1,429 @@
+text,start,stop
+"In our previous lesson, we saw how we can
+implement queue",00:00:00.459,00:00:03.489
+"using arrays. Now, In this lesson we'll
+see how we can implement queue",00:00:03.489,00:00:08.130
+"using linked list. Queue as we know from our
+previous discussions is a structure",00:00:08.130,00:00:13.470
+"in which whatever goes in first comes out
+first.",00:00:13.470,00:00:16.880
+"Queue data strucuture is a list or
+collection with this",00:00:16.880,00:00:20.160
+"restriction that insertion can be
+performed at one end",00:00:20.160,00:00:24.029
+"and deletion can be performed at other
+end.",00:00:24.029,00:00:27.169
+"These are typical operations that we
+defined with Queue.",00:00:27.169,00:00:30.429
+"An insertion is called enqueue
+operation and",00:00:30.429,00:00:33.710
+"a deletion is called dequeue. Front operation
+front function",00:00:33.710,00:00:38.250
+"should simply return the element at
+front of list and isempty",00:00:38.250,00:00:42.190
+"should check whether queue is empty or
+not",00:00:42.190,00:00:45.430
+"and all these operations must a constant
+time. There time complexity should be",00:00:45.430,00:00:49.770
+"O(1). When we were implementing
+queue",00:00:49.770,00:00:53.040
+"with arrays, we used the idea of 
+circular array to implement Queue.",00:00:53.040,00:00:57.550
+"Then in this case we have a limitation.
+The limitation is that",00:00:57.550,00:01:01.330
+"arary will always have a fixed size and
+once all the positions in the array are",00:01:01.330,00:01:06.530
+taken,00:01:06.530,00:01:07.320
+"once study is exhausted, we have two
+options we can either deny insertion",00:01:07.320,00:01:12.530
+"so we can say that the queue is full and
+we cannot insert anything now,",00:01:12.530,00:01:17.520
+"or what we can do is we can create a new
+larger array",00:01:17.520,00:01:20.869
+"and copy elements from previous array
+to the new larger array,",00:01:20.869,00:01:25.229
+"which will be a costly process. We can
+avoid this problem if",00:01:25.229,00:01:29.619
+people use linked list to implement Queue.,00:01:29.619,00:01:33.920
+"Please note that this represantaion
+of circular array that i'm showing here",00:01:33.920,00:01:37.780
+"is only a logical way of looking at
+array. We can show this array",00:01:37.780,00:01:42.030
+"like this also. As i was saying in an array
+implementation, we will have this question",00:01:42.030,00:01:47.100
+"what if array gets filled and we need to
+take care of this.",00:01:47.100,00:01:50.760
+"We can either say queue is full, or we can
+create a new larger array and",00:01:50.760,00:01:55.260
+"copy elements from previous filled
+array into new larger array.",00:01:55.260,00:01:58.930
+"The time taken for this copy operation
+will be proportional to number of",00:01:58.930,00:02:02.790
+"elements in filled array, or in other words
+we can say that the time complexity of",00:02:02.790,00:02:07.360
+this copy operation will be,00:02:07.360,00:02:09.220
+"O(N). There is another problem the array
+implementation.",00:02:09.220,00:02:12.970
+"We can have a large enough array and Queue
+may not be using most of it.",00:02:12.970,00:02:17.600
+"Like right now, in this array
+90% of memory",00:02:17.600,00:02:21.210
+"is unused. Memory is an important
+resource and",00:02:21.210,00:02:24.670
+"we should always avoid blocking memory
+unnecessarily. It's not that some amount",00:02:24.670,00:02:28.800
+of unused memory will be real problem,00:02:28.800,00:02:31.110
+"in a modern-day machine. It's just that
+while designing solutions and",00:02:31.110,00:02:35.970
+"algorithms,",00:02:35.970,00:02:36.470
+"we should analyze and understand these
+implications.",00:02:36.470,00:02:39.540
+"Let's now see how good we will be with
+are linked list implementation.",00:02:39.540,00:02:44.030
+"I have drawn logical view of a linked
+list of integers here.",00:02:44.030,00:02:47.540
+"Coming back to basic definition of Queue.
+As we know,",00:02:47.540,00:02:51.120
+"a queue is list or collection with
+this constraint with this property,",00:02:51.120,00:02:55.160
+that an element must always be inserted,00:02:55.160,00:02:58.470
+"from one side of the queue that we
+call the rear of",00:02:58.470,00:03:01.610
+"queue and an element must always be
+removed",00:03:01.610,00:03:05.190
+"from the other side that we call the
+front of Queue.",00:03:05.190,00:03:08.330
+"It's really easy to enforce this
+property in a linked list.",00:03:08.330,00:03:12.400
+"A linked list as we know is a
+collection of",00:03:12.400,00:03:16.540
+"entities that we call nodes, and this nodes
+are stored at non-contiguous locations",00:03:16.540,00:03:22.709
+in memory.,00:03:22.709,00:03:23.340
+"Each node contains two fields, one to 
+store data and another to store",00:03:23.340,00:03:27.770
+"address of the next node or
+reference to the next node.",00:03:27.770,00:03:31.430
+"Let's assume that nodes in this figure
+are at addresses 100 200 300 respectively.",00:03:31.430,00:03:37.450
+"I have also filled in the address fields.
+The identity of linked list",00:03:37.450,00:03:42.030
+"that we always keep with us, is address
+of the head node.",00:03:42.030,00:03:45.790
+"We often named a pointer or reference
+variable at which store this address",00:03:45.790,00:03:49.829
+"head. Okay so now we are saying that we
+want to use linked list",00:03:49.829,00:03:54.459
+"to implement queue. These are the typical
+operations that we define with",00:03:54.459,00:03:58.260
+"a Queue. We can use a linked list like a
+queue.",00:03:58.260,00:04:01.260
+"We can pick one side for insertion or
+enqueue operation.",00:04:01.260,00:04:05.440
+"So node in the linked list must
+always be inserted from this side.",00:04:05.440,00:04:09.870
+"The other side will then be used for dequeue.
+So if we are picking head side for enqueue",00:04:09.870,00:04:15.170
+"operation,",00:04:15.170,00:04:15.850
+"a dequeue must always happen from Tail, if
+they are picking",00:04:15.850,00:04:19.680
+"tail for equeue operation then dequeue
+must always happen",00:04:19.680,00:04:23.070
+"from head. Whatever side we're picking
+for whatever operation",00:04:23.070,00:04:26.900
+"we need to be taking care of one
+requirement and",00:04:26.900,00:04:30.460
+"then the requirement is that, these operations
+must a constant time,",00:04:30.460,00:04:33.710
+"or in other words that there time
+complexity must be",00:04:33.710,00:04:37.200
+"O(1). As we know from our
+previous lessons the cost of insertion",00:04:37.200,00:04:41.770
+or removal from head side is,00:04:41.770,00:04:45.090
+"O(1), but the cost of insertion",00:04:45.090,00:04:48.900
+or removal from tail side is,00:04:48.900,00:04:52.000
+"O(N). So here's the deal, In a normal
+implementation of linked list",00:04:52.000,00:04:57.370
+"if we will insert at one side and
+remove from other side",00:04:57.370,00:05:01.340
+"then one of these operations enqueue or dequeue ,",00:05:01.340,00:05:04.560
+"depending on how we are picking the
+side, will cost us",00:05:04.560,00:05:08.160
+"O(N),but the requirement that we
+have this that",00:05:08.160,00:05:12.210
+"both these operations must take constant
+time. So we definitely need to do",00:05:12.210,00:05:16.560
+something.,00:05:16.560,00:05:17.240
+"To make sure that both enqueue and dequeue
+operations take constant time,",00:05:17.240,00:05:21.620
+let's call the side front and this side,00:05:21.620,00:05:24.730
+"rear. So I want to enqueue a node from
+this side and I want a dequeue from",00:05:24.730,00:05:29.430
+this side.,00:05:29.430,00:05:30.180
+We a good for dequeue operation because,00:05:30.180,00:05:33.340
+"removal from front will take constant
+time, but insertion or enqueue operation",00:05:33.340,00:05:38.220
+"will be O(N). Let's first see why
+insertion at tail will be costly",00:05:38.220,00:05:43.570
+"and then maybe we can try to do
+something. To insert at",00:05:43.570,00:05:47.360
+"rear end what we will have to do is, first
+we will have to create a node.",00:05:47.360,00:05:50.890
+"We have a new node here. Let's say I've
+got this node at address",00:05:50.890,00:05:54.260
+350 and integer that i want to enqueue,00:05:54.260,00:05:58.190
+"is 7. The address part of this node
+can be set",00:05:58.190,00:06:01.500
+"as null. Now what we need to do is we
+need to build this link.",00:06:01.500,00:06:06.070
+"We need to set the address part of the
+last node as address of",00:06:06.070,00:06:10.310
+"this newly created node, and to do so
+we first need to have a pointer",00:06:10.310,00:06:15.200
+"pointing to this last node storing the
+address of this last node.",00:06:15.200,00:06:19.240
+"In a linked list the only identity that
+we always keep with us is address of the",00:06:19.240,00:06:23.620
+head node.,00:06:23.620,00:06:24.510
+"To get appointed to any other node, we need
+to start at head.",00:06:24.510,00:06:28.670
+"So we will first create a pointer Temp and
+we will initially set it",00:06:28.670,00:06:33.610
+"to head, and Now in one step we can move",00:06:33.610,00:06:37.220
+"this pointer variable to the next of
+whatever node it is pointing to its",00:06:37.220,00:06:40.990
+pointing to.,00:06:40.990,00:06:41.950
+"We use a statement like temp=temp-&gt;next 
+to move to the next node.",00:06:41.950,00:06:46.310
+"So from first node we will go to the
+second node and then from second",00:06:46.310,00:06:50.290
+"we will go to the third node. In this
+example, third node is the",00:06:50.290,00:06:53.640
+"rear node,",00:06:53.640,00:06:54.550
+"and now using this pointer temp we can
+write the address part of this node and",00:06:54.550,00:06:59.370
+build,00:06:59.370,00:06:59.880
+this link.,00:06:59.880,00:07:03.510
+"This whole traversal that we are
+having to get a pointer from",00:07:03.510,00:07:06.980
+"head to tail is what's taking all the
+time.",00:07:06.980,00:07:10.260
+"What we can do is we can avoid this whole
+traversal. We can have pointer",00:07:10.260,00:07:14.530
+variable,00:07:14.530,00:07:14.990
+"just like head that should all the store
+the address of",00:07:14.990,00:07:18.150
+rear node. I can call this variable tail,00:07:18.150,00:07:21.510
+"or the rear. Let's call this rear and
+let's call this variable that is storing",00:07:21.510,00:07:26.580
+the address of head node,00:07:26.580,00:07:28.050
+Front. In any insertion or removal,00:07:28.050,00:07:31.900
+"and we will have to update both front
+and rear now.",00:07:31.900,00:07:35.070
+"But now when we will enqueue. Let's say I've
+got",00:07:35.070,00:07:38.330
+"node at address 450 and I
+want to insert this",00:07:38.330,00:07:42.150
+"node at rear end. Now using the rear pointer
+we can",00:07:42.150,00:07:46.220
+"update to address field here. So we are
+building this link",00:07:46.220,00:07:50.140
+"and now we can update rear. We will only
+have to modify some",00:07:50.140,00:07:54.810
+"address fields and time taken for
+enqueue operation",00:07:54.810,00:07:58.550
+"will not depend upon number of nodes in the
+linked list.",00:07:58.550,00:08:01.960
+"So now with this design, both to enqueue
+and dequeue operations",00:08:01.960,00:08:05.780
+"will be constant time operations. The time
+complexity",00:08:05.780,00:08:08.980
+"for both will be O(1). Let's quickly
+see how real code ",00:08:08.980,00:08:13.550
+"in C will  look like for this design. I have
+declared node as",00:08:13.550,00:08:17.770
+"a structure with two fields, one to
+store data and another to store address",00:08:17.770,00:08:22.330
+of next node,00:08:22.330,00:08:23.540
+"and now instead of declaring a pointer
+variable",00:08:23.540,00:08:26.670
+"named head, a pointer to node named head",00:08:26.670,00:08:29.700
+"I am declaring two pointers, a pointer to
+node",00:08:29.700,00:08:32.979
+"named front and another pointer to node
+named rear",00:08:32.979,00:08:36.219
+"and initially I'm setting them both as
+null. Let's say i'm defining these two variable in",00:08:36.219,00:08:41.200
+"global scope,",00:08:41.200,00:08:42.390
+"so they will be accessible to all
+functions. My enqueue function will take an",00:08:42.390,00:08:47.090
+integer,00:08:47.090,00:08:47.790
+"as argument. In this function, i'll first
+create a node.",00:08:47.790,00:08:51.400
+I'll use malloc in C or a new operator in C++,00:08:51.400,00:08:55.130
+"to create a node in what we call dynamic
+memory. I'm pointing to the newly created",00:08:55.130,00:08:59.060
+node using this variable,00:08:59.060,00:09:00.930
+"which is pointed to node named temp.
+Now we can have two cases in insertion",00:09:00.930,00:09:05.760
+or enqueue operation.,00:09:05.760,00:09:07.090
+"If there is no element in the queue, if
+the queue is empty",00:09:07.090,00:09:10.500
+"in this case both front and rear be
+null. We will simply",00:09:10.500,00:09:14.540
+"set both front and rear as address of
+this new node",00:09:14.540,00:09:18.780
+being pointed to by temp and we will,00:09:18.780,00:09:22.210
+"return or exit else we already
+have pointer to rear node,",00:09:22.210,00:09:26.339
+"we will first set the address part of
+current rear",00:09:26.339,00:09:29.520
+"as the address of this newly created
+node and then we will modify the address and",00:09:29.520,00:09:34.050
+rear variable,00:09:34.050,00:09:34.890
+"to make it point to this newly created
+node.",00:09:34.890,00:09:38.810
+"While writing all of this I'm assuming that
+you are ready know how to implement a",00:09:38.810,00:09:42.390
+linked list.,00:09:42.390,00:09:43.190
+"If you want to refresh your concepts, you
+can check earlier lessons in the series",00:09:43.190,00:09:47.580
+"or you can check the description of
+this video for a link to lesson on",00:09:47.580,00:09:52.200
+"linked list implementation in C or C++.
+This code will be further the clear",00:09:52.200,00:09:56.540
+"if I'll show things moving in
+a simulation.",00:09:56.540,00:09:59.610
+"Let's say, initially we have an empty queue
+so both front and rear",00:09:59.610,00:10:03.640
+will be null. Null is only a macro for,00:10:03.640,00:10:06.660
+"address Zero. At this stage let's say we are
+making a call to enqueue function",00:10:06.660,00:10:11.130
+"passing it number 2. Now let's go through the
+enqueue function and see what will happen.",00:10:11.130,00:10:15.620
+"First we will create a node. Data part
+of this node will be set as",00:10:15.620,00:10:20.150
+"2 and address part initially will be set
+as null.",00:10:20.150,00:10:23.290
+"Let's say we got this node at address temp
+at address 100, so a variable name",00:10:23.290,00:10:28.460
+temp is storing this address.,00:10:28.460,00:10:31.610
+"This variable is pointing to the this node.
+Right now front and rear are both",00:10:31.610,00:10:35.850
+"null, so",00:10:35.850,00:10:36.830
+"we will go inside is if condition and
+simply set",00:10:36.830,00:10:40.400
+"both front and rear as 100. When the
+function will finish execution",00:10:40.400,00:10:45.690
+"temp which is a local variable will be
+cleared from the memory.",00:10:45.690,00:10:49.750
+"After setting both front and rear as
+address of this newly created node we are",00:10:49.750,00:10:54.330
+returning.,00:10:54.330,00:10:56.079
+"So this is how the queue will look like
+after first enqueue.",00:10:56.079,00:10:59.239
+"Let's say we're making another call to
+enqueue function at this stage",00:10:59.239,00:11:02.850
+"passing number 4 as argument. Once again a
+new node will be created.",00:11:02.850,00:11:07.139
+"Let's say I got the new node at
+address 200. This time queue",00:11:07.139,00:11:11.110
+"is not empty so in this function we will
+first go to this statement",00:11:11.110,00:11:14.529
+"rear-&gt;next=temp, so they
+will set the next part of this",00:11:14.529,00:11:19.119
+"node at address 100 as the address of
+the newly created node",00:11:19.119,00:11:23.319
+"which is 200 so we will build
+this link, and now they will store the",00:11:23.319,00:11:27.389
+address of the new rear node,00:11:27.389,00:11:29.420
+"in this variable named rear. So this is
+how my queue will look like after the",00:11:29.420,00:11:34.209
+second enqueue,00:11:34.209,00:11:35.139
+Let's do one more enqueue. Let's enqueue 6.,00:11:35.139,00:11:38.160
+"Let's say we got our new node this time
+at address",00:11:38.160,00:11:41.319
+"300. So this is how our queue will look
+like",00:11:41.319,00:11:44.519
+"Okay! Let's now write dequeue function. In dequeue
+function,",00:11:44.519,00:11:48.529
+"I'll first create a temporary pointer to
+node in which",00:11:48.529,00:11:51.860
+"i'll store the address of the current head
+or current front",00:11:51.860,00:11:54.879
+"Let's say for this example at this stage,
+I'm making a call to dequeue function.",00:11:54.879,00:11:59.199
+We will have couple of cases in dequeue also.,00:11:59.199,00:12:02.429
+"The queue could be empty so in this case we
+can",00:12:02.429,00:12:05.730
+"print an error message and return. In
+case of empty queue",00:12:05.730,00:12:10.129
+front and rear will both be equal to null. ,00:12:10.129,00:12:13.350
+"We can check one of these and we will be good. In the
+case when front and rear will be",00:12:13.350,00:12:17.379
+"equal. We will simply set both front and
+rear",00:12:17.379,00:12:20.699
+"as null. In all other cases we can simply
+make",00:12:20.699,00:12:23.970
+front point to the next node. So,00:12:23.970,00:12:27.480
+"we will simply do a 
+front=front-&gt;next",00:12:27.480,00:12:30.559
+"but why have the used this temporary
+pointer to node",00:12:30.559,00:12:34.119
+"why have I declare this temporary pointer
+to node in this code.",00:12:34.119,00:12:37.360
+"Well simply incrementing front will not
+be good enough.",00:12:37.360,00:12:40.610
+"In this example i am calling dequeue. I'm
+first",00:12:40.610,00:12:44.049
+"creating temp. let's walk through whatever
+code i have written so far so",00:12:44.049,00:12:48.220
+"in the first line i am creating temp and
+then because queue",00:12:48.220,00:12:51.439
+"it's not empty and there are more than
+one element in the queue.",00:12:51.439,00:12:54.439
+"I am setting front as address of the next
+node",00:12:54.439,00:12:57.799
+"so my queue is good now. All the links
+are",00:12:57.799,00:13:00.879
+"appropriately modified but this node which
+was front",00:13:00.879,00:13:04.199
+"previously is still in the memory.
+Anything",00:13:04.199,00:13:07.369
+"in dynamic memory has to be explicitly
+freed.",00:13:07.369,00:13:10.769
+"To free this node we will
+use free function",00:13:10.769,00:13:14.419
+"and to this free function we should be
+passing address of the node, and that's",00:13:14.419,00:13:18.499
+why,00:13:18.499,00:13:18.869
+"we had created temp. With this free the
+node will be",00:13:18.869,00:13:22.100
+wiped off from memory.,00:13:22.100,00:13:25.130
+"These are enqueue and dequeue operations for you
+and if you can see there are simple",00:13:25.130,00:13:29.140
+statements in these functions.,00:13:29.140,00:13:30.930
+"There are no loops so these functions
+will take constant time.",00:13:30.930,00:13:34.820
+"The time complexity will be O(1).
+In the beginning of this lesson we",00:13:34.820,00:13:39.060
+had also discussed some limitations with,00:13:39.060,00:13:41.420
+"array implementation like what if array gets
+filled",00:13:41.420,00:13:44.740
+"and that of unused memory. We do not have
+these limitations in a linked list",00:13:44.740,00:13:49.430
+implementation.,00:13:49.430,00:13:50.510
+"We're using some extra memory to store
+address of",00:13:50.510,00:13:53.710
+"next node but apart from that there is
+know what a major disadvantage",00:13:53.710,00:13:58.140
+"I'll stop here now. You can write rest of the
+functions like",00:13:58.140,00:14:01.740
+"front function, to look at the element at
+front or isempty function to check",00:14:01.740,00:14:06.050
+whether,00:14:06.050,00:14:06.590
+"queue is empty or not yourself. If you
+want to get",00:14:06.590,00:14:10.140
+"my source code then you can check the
+description of this video for",00:14:10.140,00:14:13.560
+link. So thanks for watching.,00:14:13.560,00:14:15.270

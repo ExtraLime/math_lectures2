@@ -1,0 +1,449 @@
+text,start,stop
+"In our previous lesson, we saw how we can
+implement",00:00:00.590,00:00:03.510
+"a stack, these are two popular
+implementations of stack",00:00:03.510,00:00:07.120
+"one using arrays and another using
+linked list.",00:00:07.120,00:00:10.580
+"A warrior should not just possess a
+weapon",00:00:10.580,00:00:13.969
+he must also know when and how to use it.,00:00:13.969,00:00:16.980
+"As programmers we must know in what all
+scenarios we can use a particular data",00:00:16.980,00:00:22.800
+structure.,00:00:22.800,00:00:23.420
+"In this lesson, I'm going to talk about
+one simple use case of stack.",00:00:23.420,00:00:27.689
+"A stack can be used to reverse
+a list or collection,",00:00:27.689,00:00:31.869
+"or simply to traverse a list or
+collection",00:00:31.869,00:00:35.480
+in reverse order. I'm going to talk about,00:00:35.480,00:00:38.989
+two problems. Reversal of string and,00:00:38.989,00:00:42.629
+"reversal of linked list and I'm going to
+solve",00:00:42.629,00:00:46.570
+"both these problems using stack. Let's
+first discuss",00:00:46.570,00:00:51.300
+"reversal of string, I have a string in
+the form of",00:00:51.300,00:00:54.780
+"a character array here, I have this string
+""HELLO"".",00:00:54.780,00:00:58.579
+A string is a sequence of characters.,00:00:58.579,00:01:01.620
+This is a C-style string. In C,00:01:01.620,00:01:05.180
+"a string must be terminated with a null
+character, so this last character is a",00:01:05.180,00:01:09.159
+null character.,00:01:09.159,00:01:10.240
+"Reversal means characters in the array
+should be",00:01:10.240,00:01:13.460
+"rearranged like what i'm showing here
+in the right.",00:01:13.460,00:01:16.540
+"null character is used only to mark the
+end of string,",00:01:16.540,00:01:20.750
+it is not part of string. Okay,00:01:20.750,00:01:23.830
+"there are couple of efficient ways in
+which we can reverse a string.",00:01:23.830,00:01:27.299
+"Let's first discuss how we can solve
+this problem using",00:01:27.299,00:01:30.490
+"a stack and then we will see how
+efficient it is.",00:01:30.490,00:01:33.960
+"What we can do is we can create a
+stack of characters,",00:01:33.960,00:01:37.990
+"I'm showing logical representation of a
+stack here",00:01:37.990,00:01:41.350
+"this is a stack of characters and right
+now it's empty",00:01:41.350,00:01:44.829
+"and now what we can do is we can
+traverse the characters",00:01:44.829,00:01:48.259
+"in the string from left to right and
+start pushing them onto the stack.",00:01:48.259,00:01:53.509
+"So first 'H' goes into the stack then
+the next character this",00:01:53.509,00:01:57.880
+'E' then 'L' then we have another 'L',00:01:57.880,00:02:02.159
+and then the last character is 'O'. Once all,00:02:02.159,00:02:06.450
+"all the characters in the string
+have gone into the stack",00:02:06.450,00:02:09.530
+we can once again start at the 0th index.,00:02:09.530,00:02:12.770
+"Now we need to write the topmost
+character",00:02:12.770,00:02:16.230
+"in the stack, at this index we can get
+the top most character by calling",00:02:16.230,00:02:21.489
+"top operation and now we can perform a
+pop",00:02:21.489,00:02:24.640
+"and now we can go to the next index
+fill in whatever is at top of stack",00:02:24.640,00:02:29.750
+"and perform a pop again. We can go on
+doing this",00:02:29.750,00:02:33.950
+"until stack is not empty, so all the
+positions",00:02:33.950,00:02:38.250
+"in the character array will be overwritten.
+So finally we have reversed a",00:02:38.250,00:02:43.319
+string here.,00:02:43.319,00:02:44.060
+"In a stack whatever goes in last comes
+out first.",00:02:44.060,00:02:48.050
+So if we will push a bunch of items onto,00:02:48.050,00:02:51.200
+"a stack and once all items have pushed
+if we will start popping",00:02:51.200,00:02:55.769
+"we will get the items in reverse order.
+First item pushed onto the stack",00:02:55.769,00:03:00.519
+will come out last. Let's quickly right,00:03:00.519,00:03:03.989
+"code for this logic. I'm going to write
+C++ here.",00:03:03.989,00:03:07.890
+"Things will be pretty similar in other
+languages, so it doesn't really matter.",00:03:07.890,00:03:11.720
+"what I'm going to do in my code is am
+going to create a",00:03:11.720,00:03:14.890
+"character array to store a string and then
+I will ask",00:03:14.890,00:03:18.870
+"user to input a string, once I input
+the string",00:03:18.870,00:03:23.019
+"I would make a call to a function named
+Reverse passing",00:03:23.019,00:03:26.790
+it the array and length of string,00:03:26.790,00:03:30.709
+"that I will get by making a call to
+string length function(strlen in C) and finally",00:03:30.709,00:03:34.549
+I'm printing the reversed,00:03:34.549,00:03:36.010
+"string. Now I need to write the reverse
+function.",00:03:36.010,00:03:39.379
+"In reverse function I want to use a
+stack,",00:03:39.379,00:03:42.569
+"a stack of characters, we have already
+seen how we can implement stack.",00:03:42.569,00:03:47.739
+"In C++, we can create a class
+named stack",00:03:47.739,00:03:51.440
+that would have an array of characters,00:03:51.440,00:03:54.939
+"and an integer variable named top to
+mark",00:03:54.939,00:03:58.099
+the top of stack in array and,00:03:58.099,00:04:01.099
+"these variables can be private and we
+can work up on the stack using these",00:04:01.099,00:04:05.629
+public functions.,00:04:05.629,00:04:06.909
+"In Reverse() function we can simply create
+an object of stack",00:04:06.909,00:04:11.069
+"and use it. This class can be an array
+based implementation of stack or",00:04:11.069,00:04:16.720
+linked list based implementation of stack,00:04:16.720,00:04:19.299
+"it doesn't really matter, in C++
+and many other languages",00:04:19.299,00:04:23.729
+"language libraries also give us
+implementation of stack",00:04:23.729,00:04:27.180
+"in this program I'm not going to write
+my own stack",00:04:27.180,00:04:30.500
+"I'm going to use stack from what we call
+standard template library in C++.",00:04:30.500,00:04:36.750
+"I will have to use this includes
+statement #include&lt;stack&gt;",00:04:36.750,00:04:40.720
+"and now I have a stack class
+available to me",00:04:40.720,00:04:44.380
+"to create an object of this class I need
+to write stack",00:04:44.380,00:04:48.000
+"and within angular brackets datatype
+for which we want",00:04:48.000,00:04:52.180
+"a stack, then after space name or 
+identifier",00:04:52.180,00:04:57.000
+"with this one statement here I have
+created a stack of characters.",00:04:57.000,00:05:00.979
+"Let's now write the core logic this n in
+the signature of reverse function is",00:05:00.979,00:05:05.280
+number of characters in string,00:05:05.280,00:05:07.970
+this array as we know array,00:05:07.970,00:05:11.050
+"in C or C++ is always passed
+by deference",00:05:11.050,00:05:14.789
+"through a pointer, this C followed by
+brackets is only",00:05:14.789,00:05:18.199
+an alternate syntax for *C.,00:05:18.199,00:05:22.590
+"It's interpreted like this by the
+compiler. Okay so now what I'm going to",00:05:22.590,00:05:26.630
+do is I'm going to run,00:05:26.630,00:05:27.780
+a loop starting 0 till n-1.,00:05:27.780,00:05:32.470
+"So I will traverse the string from left
+to right and as I traverse the string I",00:05:32.470,00:05:37.169
+will push,00:05:37.169,00:05:38.360
+the character onto stack by calling,00:05:38.360,00:05:41.910
+"push function I will use a statement
+like this",00:05:41.910,00:05:45.789
+"once push is done and do another loop
+for pop.",00:05:45.789,00:05:49.539
+"I will run a loop with this variable i
+starting",00:05:49.539,00:05:53.750
+"at 0 and going till  n-1 and I will first
+set",00:05:53.750,00:05:58.680
+C[i] as top of stack and then,00:05:58.680,00:06:02.240
+I will perform a pop operation.,00:06:02.240,00:06:05.449
+"If you want to know more about functions
+available with stack in",00:06:05.449,00:06:08.970
+"STL like their signatures and how to use
+them, you can check the description of",00:06:08.970,00:06:13.750
+this video for some resources.,00:06:13.750,00:06:15.930
+"This is all I need to do in my reverse()
+function. Let's run discord and see what",00:06:15.930,00:06:20.110
+happens.,00:06:20.110,00:06:21.310
+"I need to enter a string. Lets enter
+""HELLO"".",00:06:21.310,00:06:25.210
+"this is what I get as output which seems
+to be correct",00:06:25.210,00:06:28.509
+"let's run this again and this time I
+want to enter mycodeschool",00:06:28.509,00:06:33.069
+"this looks alright to so we seem to be
+good",00:06:33.069,00:06:36.250
+"so this function is solving my problem
+of reversal.",00:06:36.250,00:06:39.400
+"Let's now see how efficient it is let's
+analyze its time complexity",00:06:39.400,00:06:44.410
+"we know that all operations on stack
+take constant time",00:06:44.410,00:06:48.590
+"so all these statements within loop,
+inside loop,",00:06:48.590,00:06:52.620
+"will take constant time. The first loop is
+running n times",00:06:52.620,00:06:56.500
+"and then the second look is also running
+n times,",00:06:56.500,00:06:59.630
+"first look will execute in O(n)
+and the second loop will also execute in",00:06:59.630,00:07:04.280
+O(n).,00:07:04.280,00:07:05.099
+"The loops are not nested they are one
+after another",00:07:05.099,00:07:09.069
+"so in such scenario complexity of the
+whole function",00:07:09.069,00:07:13.069
+will also be O(n).,00:07:13.069,00:07:16.560
+"Time complexity is O(n) but
+we are using some extra memory here for",00:07:16.560,00:07:21.349
+stack.,00:07:21.349,00:07:22.400
+"we are pushing all the characters in the
+string on to",00:07:22.400,00:07:25.669
+"stack, the extra space taken in stack
+will be proportional",00:07:25.669,00:07:30.120
+"to number of characters in the string,
+will be proportional to",00:07:30.120,00:07:34.220
+"n. So we can say that space complexity of
+this function",00:07:34.220,00:07:38.470
+"is also O(n), in simple words",00:07:38.470,00:07:42.199
+"extra space taken is directly
+proportional to n.",00:07:42.199,00:07:45.800
+"There are  efficient ways to reverse a
+string without using extra space.",00:07:45.800,00:07:50.410
+"The most efficient way probably would be
+to use",00:07:50.410,00:07:53.800
+just two variables to mark,00:07:53.800,00:07:56.800
+"the start and end index in the string
+initially,",00:07:56.800,00:08:01.340
+"let's say I am using variables i and j,
+initially i for this example is 0 and j",00:08:01.340,00:08:06.139
+is 4.,00:08:06.139,00:08:07.539
+"While i is less than j we can swipe the
+characters at these positions.",00:08:07.539,00:08:13.259
+"And once we have swapped, we can
+increment i and decrement",00:08:13.259,00:08:17.509
+"j , if i is less than j , we can swap again",00:08:17.509,00:08:21.199
+and once again increment i and decrement j.,00:08:21.199,00:08:24.360
+"Now I is not less than j,i is equal to j.
+At this stage",00:08:24.360,00:08:28.110
+we can stop swapping and we're done.,00:08:28.110,00:08:31.580
+"This algorithm has space complexity O(n),
+we are using constant",00:08:31.580,00:08:36.219
+"extra memory here. Time complexity of
+this approach",00:08:36.219,00:08:40.330
+"once again is O(n). We will do
+n/2",00:08:40.330,00:08:44.000
+"swaps, so time taken will be
+proportional to n.",00:08:44.000,00:08:47.240
+"Definitely because of space complexity
+this approach is better",00:08:47.240,00:08:51.209
+"than our stack approach sometimes when
+we know that",00:08:51.209,00:08:55.089
+"our input will be very small and time and
+space is not much of concern,",00:08:55.089,00:08:59.910
+"we use a particular algorithm for
+ease of implementation.",00:08:59.910,00:09:03.470
+"for it's being intuitive, it's
+clearly not the case when we're using",00:09:03.470,00:09:07.490
+stack to reverse a string,00:09:07.490,00:09:09.580
+"but for this other problem, reversal of
+linked list",00:09:09.580,00:09:13.240
+"that we have said we will discuss using a
+stack gives us",00:09:13.240,00:09:16.560
+"are neat and intuitive solution. I have
+drawn a linked list of integers here.",00:09:16.560,00:09:21.860
+"As we knew linked list are collections of
+entities as we call nodes.",00:09:21.860,00:09:26.570
+"Each node contains two fields, one to
+store data and other to store",00:09:26.570,00:09:32.269
+"address of next node. I have assumed
+that these nodes",00:09:32.269,00:09:36.010
+"in this example here are at address is
+100, 150, 250 and 300",00:09:36.010,00:09:41.070
+"respectively. Identity of a linked list
+is address of the head node.",00:09:41.070,00:09:45.760
+"we typically stored this address in a
+variable named head.",00:09:45.760,00:09:50.600
+"In an array, it takes constant time to
+access any element",00:09:50.600,00:09:54.420
+"so whether it's the first element or
+last element",00:09:54.420,00:09:57.480
+"it takes constant time to access it, it
+is so because array is stored as one",00:09:57.480,00:10:02.029
+contiguous block of memory,00:10:02.029,00:10:04.079
+"so if we know the starting address of
+the array,",00:10:04.079,00:10:07.320
+"let's say the starting address of this
+RS 400 and size of each element in the",00:10:07.320,00:10:11.519
+"array,",00:10:11.519,00:10:12.260
+"character takes one bite so for this
+example each element is one byte",00:10:12.260,00:10:16.660
+"then we can calculate address of any
+element.",00:10:16.660,00:10:20.010
+So we know that 84 is at 400+4,00:10:20.010,00:10:24.130
+or 404 but in a linked list,00:10:24.130,00:10:27.620
+"nodes are stored at disjoint
+locations in memory,",00:10:27.620,00:10:31.410
+"to access any nor do we have to start at
+the head node,",00:10:31.410,00:10:35.230
+"so we can do something as simple as
+having 2 pointers at start and",00:10:35.230,00:10:40.140
+"end and accessing the elements. We have
+already seen in this series,",00:10:40.140,00:10:45.040
+"two possible approaches that can be used
+to reverse a linked list.",00:10:45.040,00:10:48.899
+"one was an iterative solution where we
+go on reversing",00:10:48.899,00:10:52.110
+links as we traverse the list,00:10:52.110,00:10:55.160
+"using some temporary variables, another
+solution was using",00:10:55.160,00:10:59.200
+"recursion. The time complexity of
+iterative solution is O(n).",00:10:59.200,00:11:03.620
+Space complexity is O(n).,00:11:03.620,00:11:06.700
+"In recursive solution we do not
+create",00:11:06.700,00:11:10.470
+"a stack explicitly but recursive
+uses the stack in computer's memory",00:11:10.470,00:11:16.230
+that is used to execute function calls,00:11:16.230,00:11:19.790
+"in such a case we say that we are using
+implicit stack.",00:11:19.790,00:11:24.490
+"stack is not being created explicitly but
+still we are using",00:11:24.490,00:11:28.490
+"an implicit stack. I will come back to
+this and explain in detail.",00:11:28.490,00:11:33.170
+"The time complexity of recursive
+solution once again is O(n).",00:11:33.170,00:11:36.399
+but the space complexity is O(n),00:11:36.399,00:11:40.390
+this time. Space complexity is also O(n).,00:11:40.390,00:11:45.220
+"Now let's see how the can use an
+explicit stack to solve this problem.",00:11:45.220,00:11:50.760
+"Once again I have drawn logical
+representation of stack here,",00:11:50.760,00:11:54.490
+"right now the stack is empty. In a
+program this will be",00:11:54.490,00:11:58.070
+a stack of type pointer to Node.,00:11:58.070,00:12:01.480
+"What I'm going to do now is I'm going to
+traverse this linked list",00:12:01.480,00:12:05.320
+using a temporary pointer to Node.,00:12:05.320,00:12:08.769
+"The temporary variable will initially
+point to head.",00:12:08.769,00:12:11.990
+"When we will go to a particular node we will
+push the address of that ",00:12:11.990,00:12:15.450
+node onto the stack.,00:12:15.450,00:12:18.570
+"so first 100 will go to stack and now we will
+move to the next",00:12:18.570,00:12:23.490
+"Node, now 150 will go in stack",00:12:23.490,00:12:26.670
+and now we will go to 250,00:12:26.670,00:12:30.630
+and then to the last node at,00:12:30.630,00:12:34.079
+"300. They are showing addresses here in the
+stack but basically the objects",00:12:34.079,00:12:39.790
+that we are pushing are pointers to Node,00:12:39.790,00:12:43.990
+or in other words references to nodes.,00:12:43.990,00:12:47.510
+if Node is defined like this in C++,00:12:47.510,00:12:51.810
+"we will have to use these statements to
+traverse linked list and push",00:12:51.810,00:12:56.470
+all the references.,00:12:56.470,00:12:58.310
+"Let's say head is a pointer to Node
+which I'm assuming is a global variable",00:12:58.310,00:13:02.899
+that will store the address of head node.,00:13:02.899,00:13:06.329
+"I'm using a temporary variable that is
+pointed to Node, initially am starting",00:13:06.329,00:13:09.829
+"the address of head node in this
+temporary variable",00:13:09.829,00:13:12.769
+and then I'm running a loop and,00:13:12.769,00:13:15.769
+"I'm traversing the linked list and as
+I'm traversing",00:13:15.769,00:13:19.290
+"I'm pushing the reference on to stack
+once all the references are pushed onto",00:13:19.290,00:13:24.110
+"stack,",00:13:24.110,00:13:25.149
+"we can start popping them and as we
+will pop them, we will get",00:13:25.149,00:13:28.540
+references to Nodes,00:13:28.540,00:13:30.540
+"in reverse order, it would be like going
+through the list in",00:13:30.540,00:13:34.589
+"reverse order. While traversing the list
+in reverse order we can build",00:13:34.589,00:13:39.680
+"the reverse links. The first thing that'll
+do is i'll take",00:13:39.680,00:13:42.769
+"a temporary variable that will be
+pointer to Node",00:13:42.769,00:13:46.000
+and store the address of address at,00:13:46.000,00:13:49.190
+the top of stack which right now is 300,00:13:49.190,00:13:53.649
+"now I will set head as this address, so
+head now becomes 300",00:13:53.649,00:13:58.459
+"and then I will pop. I'm running you
+through this example here",00:13:58.459,00:14:03.230
+"as I'm writing code, head and temp right
+now are both",00:14:03.230,00:14:06.800
+300 and now I would run a loop,00:14:06.800,00:14:10.050
+"like this, like what I have written here.
+while stack is not",00:14:10.050,00:14:14.000
+"empty this function empty() returns true if
+stack is empty.",00:14:14.000,00:14:18.790
+"I'm using stack from standard template
+library in C++,",00:14:18.790,00:14:22.670
+"so while stack is not empty I'm going to
+say that set temp-&gt;next",00:14:22.670,00:14:26.040
+as address at top of stack.,00:14:26.040,00:14:30.389
+"Basically I'm using this pointer to
+Node temp",00:14:30.389,00:14:33.690
+"to dereference and set this
+particular address field",00:14:33.690,00:14:38.579
+"right now top is 250 so I'm building
+this",00:14:38.579,00:14:42.149
+reverse link next statement is a pop(),00:14:42.149,00:14:46.070
+and in the next statement am saying temp = temp-&gt;next,00:14:46.070,00:14:50.829
+"which means temp will now point to this node
+at 250",00:14:50.829,00:14:54.760
+"stack is not empty so loop will execute
+again.",00:14:54.760,00:14:58.110
+we are writing address here now,00:14:58.110,00:15:01.660
+then we should pop and then move to,00:15:01.660,00:15:05.230
+150 using this statement temp = temp-&gt;next.,00:15:05.230,00:15:08.889
+"now we are building this link popping
+and then",00:15:08.889,00:15:12.920
+oops this should have been 150 and,00:15:12.920,00:15:16.240
+"with the next temp =temp-&gt;next
+we're going",00:15:16.240,00:15:19.750
+"here, even though we have built this
+link by setting this field here",00:15:19.750,00:15:25.680
+"this node is still pointing to this guy
+because the stack is empty now we will",00:15:25.680,00:15:30.060
+"exit the loop,after the loop,",00:15:30.060,00:15:32.670
+"after exit from the loop, I have written
+one more  line temp-&gt;next = NULL.",00:15:32.670,00:15:37.540
+"so I'm setting the last, link part of",00:15:37.540,00:15:41.180
+last node in reversed list as NULL,00:15:41.180,00:15:45.820
+"finally this is my reverse function I
+have assumed that head",00:15:45.820,00:15:49.279
+"is a global variable and it's a
+pointer to Node",00:15:49.279,00:15:52.630
+"if you want a complete source code you
+can check the description of this video",00:15:52.630,00:15:56.529
+for,00:15:56.529,00:15:56.830
+"a link. Using the stack in this case is
+making a life easier",00:15:56.830,00:16:00.709
+"reversing a linked list is still a
+complex problem,",00:16:00.709,00:16:04.279
+"try to just print the elements of
+linked list in reverse order.",00:16:04.279,00:16:08.540
+"if you will use our stack it will be
+really easy.",00:16:08.540,00:16:11.550
+"I will stop here for this lesson, if you
+know,  if you want to know what I",00:16:11.550,00:16:15.470
+meant by,00:16:15.470,00:16:16.050
+"implicit stack you can once again
+checked the description of this video",00:16:16.050,00:16:19.589
+for some resources,00:16:19.589,00:16:20.820
+"so this is it for this lesson thanks for
+watching.",00:16:20.820,00:16:23.850

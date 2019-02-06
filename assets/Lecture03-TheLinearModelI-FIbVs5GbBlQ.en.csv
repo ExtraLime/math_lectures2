@@ -1,0 +1,2516 @@
+text,start,stop
+"ANNOUNCER: The following program
+is brought to you by Caltech.",00:00:02.860,00:00:06.440
+YASER ABU-MOSTAFA: Welcome back.,00:00:18.740,00:00:21.010
+"Last time, we discussed the
+feasibility of learning.",00:00:21.010,00:00:25.390
+"And we realized that learning is
+indeed feasible, but only in",00:00:25.390,00:00:30.100
+a probabilistic sense.,00:00:30.100,00:00:32.189
+"And we modeled that probabilistic sense
+in terms of a bin that has",00:00:32.189,00:00:38.240
+an out-of-sample performance.,00:00:38.240,00:00:39.830
+"We already mapped that to the
+out-of-sample performance.",00:00:39.830,00:00:42.010
+The performance we don't know.,00:00:42.010,00:00:43.950
+"And in order to be able to tell what E_out
+of h is-- h is the hypothesis that",00:00:43.950,00:00:50.000
+corresponds to that particular bin--,00:00:50.000,00:00:52.050
+we look at the in-sample.,00:00:52.050,00:00:53.960
+"And we realize that the in-sample tracks
+the out-of-sample well through",00:00:53.960,00:00:57.930
+"the mathematical relationship which is
+the Hoeffding Inequality, that tells",00:00:57.930,00:01:01.950
+"us that the probability that E_in
+deviates from E_out by more than our",00:01:01.950,00:01:07.260
+specified tolerance is a small number.,00:01:07.260,00:01:10.010
+"And that small number is a negative
+exponential in N.",00:01:10.010,00:01:13.880
+"So the bigger the sample, the
+more reliable that E_in",00:01:13.880,00:01:17.990
+will track E_out well.,00:01:17.990,00:01:20.580
+That was the basic building block.,00:01:20.580,00:01:22.510
+"But then we realized that this
+applies to a single bin.",00:01:22.510,00:01:26.050
+"And a single bin corresponds
+to a single hypothesis.",00:01:26.050,00:01:30.000
+"So now we go for a case where we
+have a full model, h_1 up to h_M.",00:01:30.000,00:01:34.710
+"And we take the simple case of
+a finite hypothesis set.",00:01:34.710,00:01:38.310
+"And we ask ourselves, what
+would apply in this case?",00:01:38.310,00:01:41.660
+"We realized that the problem with having
+multiple hypotheses is that the",00:01:41.660,00:01:44.970
+"probability of something bad
+happening could accumulate.",00:01:44.970,00:01:49.040
+"Because if there is a 0.5% chance that
+the first hypothesis is bad,",00:01:49.040,00:01:53.460
+"in the sense of bad generalization,",00:01:53.460,00:01:55.490
+"and 0.5% for the second one, we could
+be so unlucky as to have these 0.5%",00:01:55.490,00:02:00.420
+"accumulate, and end up with a significant
+probability that one of",00:02:00.420,00:02:04.190
+the hypotheses will be bad.,00:02:04.190,00:02:05.940
+"And when one of the hypotheses will be
+bad, if we are further unlucky, and",00:02:05.940,00:02:09.490
+"this is the hypothesis we pick as our
+final hypothesis, then E_in will not",00:02:09.490,00:02:14.330
+"track E_out for the hypothesis
+we pick.",00:02:14.330,00:02:17.580
+"So we need to accommodate the case where
+we have multiple hypotheses.",00:02:17.580,00:02:20.980
+And the argument was extremely simple.,00:02:20.980,00:02:23.670
+"g is our notation for the
+final hypothesis.",00:02:23.670,00:02:27.360
+"It is one of these guys that
+the algorithm will choose.",00:02:27.360,00:02:31.130
+"Well, the probability that E_in doesn't
+track E_out will obviously be",00:02:31.130,00:02:39.500
+"included in the fact that E_in for h_1
+doesn't track the out-of-sample for",00:02:39.500,00:02:46.340
+"that one, or E_in for h_2 doesn't track,
+or E_in of h_M doesn't track.",00:02:46.340,00:02:52.200
+The reason is very simple.,00:02:52.200,00:02:53.260
+g is one of the guys.,00:02:53.260,00:02:54.760
+"If something bad happens with g, it must
+happen with one of these guys at",00:02:54.760,00:02:59.280
+"least, the one that was picked.",00:02:59.280,00:03:01.350
+"So we can always say that this implies
+these things, which is this or this or",00:03:01.350,00:03:07.010
+this or this or this.,00:03:07.010,00:03:08.540
+"And after that, we apply a very simple
+mathematical rule, which",00:03:08.540,00:03:12.310
+is the union bound.,00:03:12.310,00:03:13.650
+"The probability of an event or another
+event or another event is at most the",00:03:13.650,00:03:19.450
+sum of the probabilities.,00:03:19.450,00:03:21.320
+"That rule applies regardless of the
+correlation between these events,",00:03:21.320,00:03:25.800
+because it takes the worst-case scenario.,00:03:25.800,00:03:27.880
+"If all the bad events happen
+disjointly, then you add up the",00:03:27.880,00:03:31.360
+probabilities.,00:03:31.360,00:03:32.280
+"If there is some correlation,
+and they overlap, you will",00:03:32.280,00:03:34.580
+get a smaller number.,00:03:34.580,00:03:35.860
+"In all of the cases, the probability of
+this big event will be less than or",00:03:35.860,00:03:40.570
+"equal to the sum of the individual
+probabilities.",00:03:40.570,00:03:43.040
+"And this is useful because in the coin
+flipping case, which started this",00:03:43.040,00:03:46.580
+"argument, the events are independent.",00:03:46.580,00:03:49.230
+"In the case of the hypotheses of
+a model, the events may not be",00:03:49.230,00:03:52.690
+"independent, because we
+have the same sample.",00:03:52.690,00:03:54.910
+"And we are only changing
+the hypotheses.",00:03:54.910,00:03:57.050
+"So it could be that the deviation here
+is related to the deviation here.",00:03:57.050,00:04:01.260
+But the union bound doesn't care.,00:04:01.260,00:04:03.050
+"Regardless of such correlations, you
+will be able to get a bound on the",00:04:03.050,00:04:06.300
+probability of this event.,00:04:06.300,00:04:07.820
+"And therefore, you will be able to bound
+the probability that you care",00:04:07.820,00:04:10.930
+"about, which has to do with the
+generalization, to the individual",00:04:10.930,00:04:16.399
+Hoeffding applied to each of those.,00:04:16.399,00:04:18.290
+"And since you have M of them,
+you have an added M factor.",00:04:18.290,00:04:23.180
+"So the final answer is that the
+probability of something bad happening",00:04:23.180,00:04:27.570
+"after learning is less than or equal to
+this quantity, which is a helpful",00:04:27.570,00:04:32.940
+"small quantity, times M. And we realize
+that now we have a problem",00:04:32.940,00:04:38.230
+"because if you use a bigger hypothesis
+set, M will be bigger.",00:04:38.230,00:04:42.720
+"And therefore, the right-hand side here
+will become bigger and bigger",00:04:42.720,00:04:46.180
+"when you add the M. And therefore, at
+some point, it will even become",00:04:46.180,00:04:49.210
+meaningless.,00:04:49.210,00:04:50.180
+"And we are not even worried yet about
+M being infinity, which will",00:04:50.180,00:04:54.750
+"be true for many hypothesis sets,
+in which case, this is totally",00:04:54.750,00:04:57.410
+meaningless.,00:04:57.410,00:04:58.340
+"However, we weren't establishing
+the final result in learning.",00:04:58.340,00:05:02.150
+"We were establishing the principle
+that, through learning, you can",00:05:02.150,00:05:06.150
+generalize.,00:05:06.150,00:05:07.310
+And we have established that.,00:05:07.310,00:05:09.340
+"It will take us a couple of weeks to
+get from that to the ability to say",00:05:09.340,00:05:13.530
+"that a general learning model, an infinite
+one, will generalize. And we will",00:05:13.530,00:05:17.590
+get the bound on generalization.,00:05:17.590,00:05:19.100
+"That's what the theory of generalization
+will address.",00:05:19.100,00:05:23.120
+So today the subject is linear models.,00:05:23.920,00:05:28.500
+"And as I mentioned at the beginning,
+this is out of sequence.",00:05:28.500,00:05:32.080
+"If I was following the logical sequence,
+I would go immediately to",00:05:32.080,00:05:34.800
+"the theory and take M, which takes care
+of the finite case,",00:05:34.800,00:05:39.510
+"and then generalize it to
+the more general case.",00:05:39.510,00:05:42.330
+"However, as I mentioned, I decided to
+give you something concrete and",00:05:42.330,00:05:45.960
+practical to work with early on.,00:05:45.960,00:05:48.180
+"And then we will go back to
+the theory after that.",00:05:48.180,00:05:51.120
+"The linear model is one of the most
+important models in machine learning.",00:05:51.120,00:05:57.900
+"And what we are going to
+do in this lecture,",00:05:57.900,00:06:02.340
+"we're going to start with a practical
+data set that we are going to use over",00:06:02.340,00:06:06.460
+and over in this class.,00:06:06.460,00:06:08.610
+"And then, if you remember the perceptron
+that we introduced in the",00:06:08.610,00:06:12.100
+"first lecture, the perceptron
+is a linear model.",00:06:12.100,00:06:15.350
+"So here is the sequence
+of the lecture.",00:06:15.350,00:06:18.380
+"We are going to take the perceptron and
+generalize it to non-separable data.",00:06:18.380,00:06:24.150
+"That's a relief, because we already
+admitted that separable",00:06:24.150,00:06:26.620
+data is very rare.,00:06:26.620,00:06:27.880
+"And we would like to see what
+will happen when we have",00:06:27.880,00:06:29.700
+non-separable data.,00:06:29.700,00:06:31.850
+"Then, we are going to generalize this
+further to the case where the target",00:06:31.850,00:06:36.600
+"function is not a binary classification
+function, but a real-valued function.",00:06:36.600,00:06:41.900
+"That also is a very important
+generalization.",00:06:41.920,00:06:44.110
+"And linear regression, as you will
+see, is one of the most important",00:06:44.110,00:06:47.110
+"techniques that is applied mostly in
+statistics and economics, and also in",00:06:47.110,00:06:51.280
+machine learning.,00:06:51.280,00:06:53.200
+"Finally, as if we didn't do enough
+generalization already, we are going",00:06:53.200,00:06:57.130
+"to take this and generalize
+it to a nonlinear case.",00:06:57.130,00:07:00.970
+"All in a day's work,
+all in one lecture.",00:07:00.970,00:07:03.730
+It's a pretty simple model.,00:07:03.730,00:07:05.480
+"And at the end of the lecture, you will
+be able to actually deal with",00:07:05.480,00:07:08.290
+very general situations.,00:07:08.290,00:07:10.260
+"And you may ask yourself, why am I
+calling the lecture Linear Model when",00:07:10.260,00:07:13.870
+"I'm going to talk about nonlinear
+transformation?",00:07:13.870,00:07:16.360
+"Well, you'll realize that nonlinear
+transformation remains within the",00:07:16.360,00:07:19.850
+realm of linear models.,00:07:19.850,00:07:21.270
+That's not obvious.,00:07:21.270,00:07:22.290
+We will see how that materializes.,00:07:22.290,00:07:24.140
+So that's the plan.,00:07:24.140,00:07:27.210
+"Now, let's look at a real data set that
+we are going to use, and will be",00:07:27.210,00:07:30.510
+"available to you to try
+different ideas on.",00:07:30.510,00:07:33.620
+"And it's very important to try
+your ideas on real data.",00:07:33.620,00:07:37.290
+"Regardless of how sure you are when
+you have a toy data set that",00:07:37.290,00:07:42.380
+"you generate, you should always go for
+real data sets and see how the system",00:07:42.380,00:07:47.440
+"that you thought of performs
+in reality.",00:07:47.440,00:07:50.860
+So here is the data set.,00:07:50.860,00:07:52.930
+"It comes from ZIP codes
+in the postal office.",00:07:52.930,00:07:55.170
+So people write the ZIP code.,00:07:55.170,00:07:56.500
+"And you extract individual characters,
+individual digits.",00:07:56.500,00:07:59.600
+"And you would like to take the image,
+which happens to be 16 by 16 gray",00:07:59.600,00:08:04.050
+"level pixels, and be able to decipher
+what is the number in it.",00:08:04.050,00:08:09.360
+"Well, that looks easy except that
+people write digits in so many",00:08:09.360,00:08:13.220
+different ways.,00:08:13.220,00:08:14.280
+"And if you look at it, there will
+be some cases like this fellow.",00:08:14.280,00:08:17.310
+Is this a 1 or a 7?,00:08:17.310,00:08:20.430
+Is this a 0 or an 8?,00:08:20.430,00:08:23.110
+"So you can see that there
+is a problem.",00:08:23.110,00:08:25.140
+"And indeed, if you get a human operator
+to actually read these things",00:08:25.140,00:08:28.520
+"and classify them, they will probably
+be making an error of about 2.5%.",00:08:28.520,00:08:33.650
+"And we would like to see if machine
+learning can at least equal that,",00:08:33.650,00:08:37.230
+"which means that we can automate the
+process, or maybe beat that.",00:08:37.230,00:08:41.350
+"So this is a data set that we
+are going to work with.",00:08:41.350,00:08:43.919
+"Let's look at it a little bit more
+closely to see how we input it to",00:08:43.919,00:08:48.120
+our algorithm.,00:08:48.120,00:08:49.300
+"We have one algorithm so far, which is
+the perceptron learning algorithm. We",00:08:49.300,00:08:52.205
+are going to try on this.,00:08:52.205,00:08:53.840
+"And then we are going to generalize
+it a little bit.",00:08:53.840,00:08:56.380
+"The first item is the question
+of input representation.",00:08:57.170,00:09:00.980
+What do I mean?,00:09:00.980,00:09:03.130
+"This is your input, the raw
+input, if you will.",00:09:03.520,00:09:07.920
+Now this is 16 pixels by 16 pixels.,00:09:07.920,00:09:12.870
+"So there are 256 real numbers
+in that input.",00:09:12.870,00:09:19.290
+"If you look at the raw input x, this
+would be x_1, x_2, x_3, dot, dot,",00:09:19.290,00:09:26.700
+"dot, dot, and x_256.",00:09:26.700,00:09:30.480
+"That's a very long input to encode
+such a simple object.",00:09:30.480,00:09:35.460
+And we add our mandatory x_0.,00:09:35.460,00:09:39.130
+"Remember, in linear models, we have
+this constant coordinate,",00:09:39.130,00:09:42.410
+"x_0 equals 1, we add in order to
+take care of the threshold.",00:09:42.410,00:09:45.660
+"So this will always be in the
+background whether we",00:09:45.660,00:09:47.700
+mention it or not.,00:09:47.700,00:09:49.250
+"If you take this raw input and try
+the perceptron directly on it, you",00:09:49.250,00:09:54.490
+"realize that the linear model in this
+case, which has a bunch of parameters,",00:09:54.490,00:09:57.710
+has really just too many parameters.,00:09:57.710,00:10:01.070
+It has 257 parameters.,00:10:01.070,00:10:04.200
+"If you are working in
+a 257th-dimensional space,",00:10:04.200,00:10:07.920
+that is a huge space.,00:10:07.920,00:10:09.770
+"And the poor algorithm is trying to
+simultaneously determine the values of",00:10:09.770,00:10:13.870
+all of these w's based on your set.,00:10:13.870,00:10:18.000
+"So the idea of input representation is
+to simplify the algorithm's life.",00:10:18.000,00:10:24.010
+We know something about the problem.,00:10:24.010,00:10:25.870
+"We know that it's not really
+the individual pixels",00:10:25.870,00:10:28.390
+that matter.,00:10:28.390,00:10:29.400
+"You can probably extract some features
+from the input, and then give those to",00:10:29.400,00:10:33.810
+"the learning algorithm and let
+the learning algorithm",00:10:33.810,00:10:35.870
+figure out the pattern.,00:10:35.870,00:10:37.400
+So this gives us the idea of features.,00:10:38.010,00:10:39.590
+What are features?,00:10:39.590,00:10:41.110
+"Well, you extract the
+useful information.",00:10:41.110,00:10:43.720
+"And as a suggestion, very simple one,
+let's say that in this particular",00:10:43.720,00:10:48.350
+"case, instead of giving the raw input
+with all of the pixel values, you",00:10:48.350,00:10:52.370
+"extract some descriptors of
+what the image is like.",00:10:52.370,00:10:56.590
+"For instance, you look at this.",00:10:56.590,00:10:58.430
+"Depending on whether this is the digital
+8 or the digit 1, et cetera,",00:10:58.430,00:11:02.550
+"there is a question of the intensity,
+average intensity.",00:11:02.550,00:11:05.790
+1 doesn't have too many black pixels.,00:11:05.790,00:11:08.130
+8 has a lot.,00:11:08.130,00:11:09.650
+5 has some.,00:11:09.650,00:11:10.700
+"So if you simply add up the intensity
+of all the pixels, you",00:11:10.700,00:11:14.920
+"probably will get a number that
+is related to the identity.",00:11:14.920,00:11:17.420
+"It doesn't uniquely determine
+it, but it's related.",00:11:17.420,00:11:20.190
+"It's a higher-level representation
+of the raw information",00:11:20.190,00:11:23.290
+there. Same as symmetry--,00:11:23.290,00:11:25.740
+"if you think of the digit
+1, 1 will be symmetric.",00:11:25.740,00:11:28.440
+"If you flip it upside down, or you flip
+it right and left, you will get",00:11:28.440,00:11:32.010
+"something that overlaps
+significantly with it.",00:11:32.010,00:11:34.880
+"So you can also define a symmetry
+measure, which means that you take the",00:11:34.880,00:11:38.710
+"symmetric difference between something
+and its flipped versions, and you see",00:11:38.710,00:11:42.730
+what you get.,00:11:42.730,00:11:43.920
+"If something is symmetric, things will
+cancel because it's symmetric.",00:11:43.920,00:11:48.610
+You'll get a very small value.,00:11:48.610,00:11:50.010
+"And if something is not symmetric, let's
+say like the 5, you will get",00:11:50.010,00:11:53.340
+"lots of values in the symmetric
+difference.",00:11:53.340,00:11:57.200
+"And you will get a high
+value for that.",00:11:57.200,00:11:59.130
+"So what you are measuring
+is the anti-symmetry.",00:11:59.130,00:12:01.350
+"You take the negative of that,
+and you get the symmetry.",00:12:01.350,00:12:03.950
+"So you get another guy,
+which is the symmetry.",00:12:03.950,00:12:05.880
+"So now, x_1 is the intensity variable,",00:12:05.880,00:12:09.240
+x_2 is the symmetry variable.,00:12:09.240,00:12:12.280
+"Now admittedly, you have lost
+information in that process.",00:12:12.280,00:12:16.460
+"But the chances are you lost as much
+irrelevant information as relevant",00:12:16.460,00:12:20.640
+information.,00:12:20.640,00:12:21.630
+"So this is a pretty good representation
+of the input, as far as",00:12:21.630,00:12:24.260
+the learning algorithm is concerned.,00:12:24.260,00:12:25.950
+"And you went from 257 dimensional
+to 3 dimensional.",00:12:25.950,00:12:30.550
+That's a pretty good situation.,00:12:30.550,00:12:32.140
+"And you probably realize that having
+257 parameters is bad news for",00:12:32.140,00:12:37.510
+"generalization, if you extrapolate
+from what we said.",00:12:37.510,00:12:40.530
+Having 3 is a much better situation.,00:12:40.530,00:12:42.550
+"So this is what we are
+going to work with.",00:12:42.550,00:12:46.680
+"When you take the linear model
+in this case, you just",00:12:46.680,00:12:49.190
+"have w_0, w_1, and w_2.",00:12:49.190,00:12:51.520
+"And that's what the perceptron algorithm,
+for example, needs to use--",00:12:51.520,00:12:57.550
+to determine.,00:12:57.550,00:12:58.540
+"Now let's look at the illustration
+of these features.",00:12:59.120,00:13:03.990
+You have these as your inputs.,00:13:03.990,00:13:07.010
+"And x_1 is the intensity,",00:13:07.010,00:13:09.290
+x_2 is the symmetry.,00:13:09.290,00:13:10.430
+What do they look like?,00:13:10.430,00:13:12.980
+They look like this.,00:13:12.980,00:13:14.490
+This is a scatter diagram.,00:13:14.490,00:13:17.060
+Every point here is a data point.,00:13:17.060,00:13:19.080
+"It's one of the digits, one
+of the images you have.",00:13:19.080,00:13:21.680
+"And I'm taking the simple case of just
+distinguishing the 1's from the 5's.",00:13:21.680,00:13:26.640
+"So I'm only taking digits
+that are 1's or 5's.",00:13:26.640,00:13:29.130
+"And you can always take other
+digits versus each other, and",00:13:29.130,00:13:33.660
+then combine the decision.,00:13:33.660,00:13:34.880
+"If you can solve this unit problem,
+you can generalize it",00:13:34.880,00:13:38.620
+to the other problem.,00:13:38.620,00:13:40.530
+"So when you put all the 1's and all the
+5's in a scatter diagram, you realize",00:13:40.530,00:13:45.040
+"for example that the intensity on the
+5's is usually more than the",00:13:45.040,00:13:51.010
+intensity on the 1's.,00:13:51.010,00:13:53.600
+"There are more pixels occupied
+by the 5's than the 1's.",00:13:53.600,00:13:56.380
+"This is the coordinate
+which is the intensity.",00:13:56.380,00:13:58.880
+"And indeed, the red guys, which happen
+to be the 5's, are tilted",00:13:58.880,00:14:02.300
+"a little bit more to the right,
+corresponding to the intensity.",00:14:02.300,00:14:05.480
+"If you look at the other coordinate,
+which is symmetry, the 1 is often more",00:14:05.480,00:14:09.100
+symmetric than the 5.,00:14:09.100,00:14:10.650
+"Therefore, the guys that happen to be
+the 1's, that are the blue, tend to be",00:14:10.650,00:14:14.890
+higher on the vertical coordinate.,00:14:14.890,00:14:17.660
+"And just by these two coordinates, you
+already see that this is almost",00:14:17.660,00:14:21.450
+linearly separable.,00:14:21.450,00:14:22.590
+"Not quite, but it's separable enough
+that if you pass a boundary",00:14:22.590,00:14:26.980
+"here, you will be getting
+most of them right.",00:14:26.980,00:14:30.000
+"Now you realize that it's impossible
+really to ask to get all of them right",00:14:30.000,00:14:33.280
+"because, believe it or not, this fellow
+is a 5, at least meant to be a 5 by",00:14:33.280,00:14:37.410
+the guy who wrote it.,00:14:37.410,00:14:39.550
+"So we have to accept the fact that
+there will be stuff that",00:14:39.550,00:14:42.060
+is completely undoable.,00:14:42.060,00:14:44.270
+And we will accept an error.,00:14:44.270,00:14:45.570
+It's not a zero error.,00:14:45.570,00:14:46.480
+"But hopefully, it's a small error.",00:14:46.480,00:14:48.930
+"So this is what the features
+look like.",00:14:48.930,00:14:53.050
+"Now what does the perceptron
+learning algorithm do?",00:14:53.050,00:14:58.480
+"What it does is this complicated figure,
+which takes the evolution of",00:14:58.480,00:15:03.950
+"E_in and E_out as a function
+of iteration.",00:15:03.950,00:15:07.490
+"When you apply the perceptron learning
+algorithm, you apply it only to E_in.",00:15:07.490,00:15:11.970
+E_in is the only value you have.,00:15:11.970,00:15:14.020
+E_out is sitting out there.,00:15:14.020,00:15:15.060
+We don't know what it is.,00:15:15.060,00:15:16.200
+We just hope that E_in tracks it well.,00:15:16.200,00:15:19.680
+Let's look at the figure.,00:15:19.680,00:15:22.700
+These are the iteration numbers.,00:15:22.700,00:15:24.180
+"So this is the first misclassified
+example.",00:15:24.180,00:15:26.720
+"You go and apply the perceptron learning
+algorithm again, again, again",00:15:26.720,00:15:30.930
+for 1000 times.,00:15:30.930,00:15:32.520
+"As you do that, E_in, which is the
+green curve, will go down and",00:15:32.520,00:15:37.860
+sometimes will go up.,00:15:37.860,00:15:39.220
+"We realize that the perceptron learning
+algorithm takes care of one",00:15:39.220,00:15:43.630
+"point at a time, and therefore may mess
+up other points while it's taking care",00:15:43.630,00:15:47.290
+of a point.,00:15:47.290,00:15:48.010
+"So in general, it can go up or down.",00:15:48.010,00:15:52.020
+"But the bad news here is that the
+data is not linearly separable.",00:15:52.020,00:15:55.490
+"And we made the remark that the
+perceptron learning algorithm behaves",00:15:55.490,00:15:58.180
+"very badly when the data is
+not linearly separable.",00:15:58.180,00:16:01.020
+"It can go from something pretty
+good to something pretty",00:16:01.020,00:16:04.160
+"bad, in just one iteration.",00:16:04.160,00:16:06.830
+"So this is a very typical behavior of
+the perceptron learning algorithm.",00:16:06.830,00:16:11.120
+"Because the data is not linearly
+separable, the perceptron learning",00:16:11.120,00:16:15.030
+algorithm will never converge.,00:16:15.030,00:16:16.330
+So what do we do?,00:16:16.330,00:16:17.320
+"We force it to terminate
+at iteration 1000.",00:16:17.320,00:16:20.700
+"That is, we stop at 1000 and take
+whatever weight vector we have.",00:16:20.700,00:16:23.820
+"And we call this g, the final
+hypothesis of the",00:16:23.820,00:16:27.100
+perceptron learning algorithm.,00:16:27.100,00:16:28.570
+"Now we obviously look at this, and we
+say, if I only took this guy.",00:16:29.390,00:16:32.370
+This is a better guy than the other.,00:16:32.370,00:16:33.880
+"But you know, you're just applying
+the algorithm and cutting it off.",00:16:33.880,00:16:37.870
+"Now, one of the things you observe
+from here, I plotted E_out.",00:16:37.870,00:16:41.140
+"You're not going to be able to plot E_out
+in a real problem that you deal",00:16:41.140,00:16:45.710
+"with, if E_out is really
+an unknown function.",00:16:45.710,00:16:48.830
+"You may be able to estimate it using
+some test examples.",00:16:48.830,00:16:51.780
+"But all you need to know here is that
+E_out is drawn here for illustration,",00:16:51.780,00:16:57.240
+"just to tell you what is happening
+in reality as you work on",00:16:57.240,00:17:01.470
+the in-sample error.,00:17:01.470,00:17:02.830
+"And in this case, you find that E_out
+actually tracks the E_in pretty well.",00:17:02.830,00:17:07.560
+There is a difference.,00:17:07.560,00:17:08.420
+"So if we go from here to here,
+that's our epsilon.",00:17:08.420,00:17:11.470
+It's a big epsilon.,00:17:11.470,00:17:12.510
+"But the good news is
+that it tracks it.",00:17:12.510,00:17:14.099
+"When this goes down, this goes down.",00:17:14.099,00:17:15.680
+"When this goes up, this goes up.",00:17:15.680,00:17:17.560
+"So if you make your decision based on E_in,
+the decision based on E_out will",00:17:17.560,00:17:21.660
+also be good.,00:17:21.660,00:17:22.750
+That's good for generalization.,00:17:22.750,00:17:24.410
+"And that is one of the advantages of
+something as simple as the perceptron",00:17:24.410,00:17:27.609
+learning algorithm.,00:17:27.609,00:17:28.630
+It doesn't have too many parameters.,00:17:28.630,00:17:30.480
+"And because of our efforts in getting
+only three features, it has even three",00:17:30.480,00:17:34.560
+parameters now.,00:17:34.560,00:17:35.600
+"So the chances are that it will generalize
+well, which it does.",00:17:35.600,00:17:39.130
+"Now what does the final
+boundary look like?",00:17:40.060,00:17:43.160
+"This is only the illustration here,",00:17:47.500,00:17:49.240
+it's just-- this is the evolution.,00:17:49.240,00:17:50.980
+"Eventually, you end up
+with a hypothesis.",00:17:50.980,00:17:52.560
+"The hypothesis would separate the points
+in the scatter diagram you saw.",00:17:52.560,00:17:56.120
+So what does it look like?,00:17:56.120,00:17:58.210
+"Well, it looks like this.",00:17:58.210,00:18:01.240
+This is your boundary.,00:18:02.180,00:18:03.570
+"This is the final hypothesis, that
+corresponds to the hypothesis you got",00:18:03.570,00:18:07.590
+at the final iteration.,00:18:07.590,00:18:09.840
+"Well, it's OK, but definitely
+not good.",00:18:09.840,00:18:12.930
+It's too deep into the blue region.,00:18:12.930,00:18:15.220
+"You would have been better
+off doing this.",00:18:15.220,00:18:18.040
+"And the chances are maybe earlier
+guys that had better in-sample",00:18:18.040,00:18:21.000
+error will do that.,00:18:21.000,00:18:22.280
+"But that's what you have to
+live with, if you apply the",00:18:22.280,00:18:24.370
+perceptron learning algorithm.,00:18:24.370,00:18:26.690
+"So now we go and try to modify the
+perceptron learning algorithm in",00:18:26.690,00:18:30.520
+"a very simple way, that is the simplest
+modification you can ever imagine.",00:18:30.520,00:18:34.580
+So let's see what happens.,00:18:34.580,00:18:36.630
+"This is what that PLA did, right?",00:18:36.630,00:18:39.620
+"And when we looked at it, we said:
+if we only could keep this value.",00:18:39.620,00:18:43.730
+"Well, this value is not a mystery.",00:18:43.730,00:18:45.200
+It happened in your algorithm.,00:18:45.200,00:18:46.920
+You can measure it explicitly.,00:18:46.920,00:18:48.800
+It's an in-sample error.,00:18:48.800,00:18:50.740
+"And you know that it's better than
+the value you ended up with.",00:18:50.740,00:18:54.490
+"So in spite of the fact that you're
+doing these iterations according to",00:18:54.490,00:18:57.350
+"the prescribed perceptron learning
+algorithm rule-- modify the weights",00:18:57.350,00:19:01.040
+"according to one misclassified point--
+you can keep track of the total",00:19:01.040,00:19:05.430
+"in-sample error of the intermediate
+hypothesis you got.",00:19:05.430,00:19:09.960
+Right?,00:19:09.960,00:19:11.410
+"And only keep the guy that happens
+to be the best throughout.",00:19:11.410,00:19:15.320
+"So you're going to continue
+as if it's really the",00:19:15.320,00:19:18.750
+perceptron learning algorithm.,00:19:18.750,00:19:20.250
+"But when you are at the end, you keep
+this guy and report it as the final",00:19:20.250,00:19:24.800
+hypothesis.,00:19:24.800,00:19:25.840
+What an ingenious idea!,00:19:25.840,00:19:28.130
+"Now the reason the algorithm is called
+the pocket algorithm is because the",00:19:28.130,00:19:30.660
+"whole idea is to put the best solution
+so far in your pocket.",00:19:30.660,00:19:36.450
+"And when you get a better one, you take
+the better one, put it in your",00:19:36.450,00:19:39.460
+"pocket, and throw the old one.",00:19:39.460,00:19:41.000
+"And when you are done, report
+the guy in your pocket.",00:19:41.000,00:19:43.930
+We can do that.,00:19:44.580,00:19:45.580
+"What does this diagram look like,
+when you are looking",00:19:45.580,00:19:48.510
+at the pocket algorithm?,00:19:48.510,00:19:49.760
+Much better.,00:19:52.230,00:19:53.540
+"You can look at these values, and
+it is the best value so far.",00:19:53.540,00:19:57.350
+"Here, we went down.",00:19:57.350,00:20:00.010
+"And here, we indeed went down.",00:20:00.010,00:20:02.300
+"Here, we went up.",00:20:02.300,00:20:04.620
+You see this green thing?,00:20:04.620,00:20:06.540
+"Here, we didn't, because the good guy is
+in our pocket and that's what we're",00:20:06.540,00:20:10.100
+reporting the value for.,00:20:10.100,00:20:12.470
+"And we continued with it
+until we dropped again.",00:20:12.470,00:20:15.980
+And we dropped again.,00:20:15.980,00:20:17.170
+"And we never changed that, because
+there was never a better",00:20:17.170,00:20:20.330
+guy than this guy.,00:20:20.330,00:20:21.560
+"So when we come to iteration
+1000, we have this fellow.",00:20:21.560,00:20:25.140
+"Now when you do that, you can use
+perceptron learning algorithm with",00:20:26.180,00:20:30.380
+"non-separable data, terminate it by
+force at some iteration, and report the",00:20:30.380,00:20:35.890
+pocket value.,00:20:35.890,00:20:36.720
+"And that will be your
+pocket algorithm.",00:20:36.720,00:20:39.760
+"And if you look at the classification
+boundary, PLA versus pocket, this is",00:20:39.760,00:20:44.240
+"what we had with the perceptron
+learning algorithm.",00:20:44.240,00:20:46.390
+"We complained a little bit that it's
+too deep in the blue region.",00:20:46.390,00:20:49.350
+"And when you look at the other guy,
+which is the pocket algorithm, it",00:20:49.350,00:20:53.320
+looks better.,00:20:53.320,00:20:54.600
+"It actually does what we
+thought it would do.",00:20:54.600,00:20:56.550
+It separates them better.,00:20:56.550,00:20:58.690
+"Still, obviously, it cannot
+separate them perfectly.",00:20:58.690,00:21:01.270
+"Nothing can, because they are
+not linearly separable.",00:21:01.270,00:21:04.910
+"On the other hand, this is
+a good hypothesis to report.",00:21:04.910,00:21:08.510
+"So with this very simple algorithm,
+you can actually deal with general",00:21:09.230,00:21:13.240
+"inseparable data, but inseparable
+data in the sense that",00:21:13.240,00:21:16.720
+it's basically separable.,00:21:16.720,00:21:18.920
+"However, it really is--",00:21:18.920,00:21:22.320
+"this guy is bad, and this guy is bad.",00:21:22.320,00:21:24.560
+There's nothing we can do about them.,00:21:24.560,00:21:25.630
+"But there are few, so we will
+just settle for this.",00:21:25.630,00:21:27.990
+"We'll see that there are other cases
+of inseparable data that is truly",00:21:27.990,00:21:31.480
+"inseparable, in which we have to do
+something a little bit more drastic.",00:21:31.480,00:21:36.490
+"So that's as far as the classification
+is concerned.",00:21:36.490,00:21:39.790
+Now we go to linear regression.,00:21:39.790,00:21:42.660
+"The word regression simply
+means real-valued output.",00:21:42.660,00:21:48.970
+"There is absolutely no other
+connotation to it.",00:21:48.970,00:21:51.150
+"It's a glorified way of saying
+my output is real-valued.",00:21:51.150,00:21:54.320
+"And it comes from earlier
+work in statistics.",00:21:54.320,00:21:56.860
+"And there's so much work on it that
+people could not get rid of that term.",00:21:56.860,00:22:00.680
+And it is now the standard term.,00:22:00.680,00:22:02.130
+"Whenever you have a real-valued
+function, you call it",00:22:02.130,00:22:03.840
+a regression problem.,00:22:03.840,00:22:06.300
+"So that's, with that, out of the way.",00:22:06.300,00:22:08.080
+"Now, linear regression is
+used incredibly often in",00:22:08.080,00:22:11.440
+statistics and economics.,00:22:11.440,00:22:13.150
+"Every time you say: are these
+variables related to that variable,",00:22:13.150,00:22:16.970
+"the first thing that comes to
+mind is linear regression.",00:22:16.970,00:22:19.740
+Let me give an example.,00:22:19.740,00:22:21.350
+"Let's say that you would like to relate
+your performance in different",00:22:21.350,00:22:24.710
+"types of courses, to your
+future earnings.",00:22:24.710,00:22:29.420
+This is what you do.,00:22:29.420,00:22:30.780
+You look at--,00:22:30.780,00:22:31.830
+here are the courses I took.,00:22:31.830,00:22:32.650
+"Here is the math, science, engineering,
+humanities, physical",00:22:32.650,00:22:38.180
+"education, other.",00:22:38.180,00:22:41.240
+And you get your GPA in each of them.,00:22:41.240,00:22:43.180
+"So here, I got 3.5",00:22:43.180,00:22:44.650
+"Here, I got 3.8",00:22:44.650,00:22:45.170
+"Here, I got 3.2",00:22:45.170,00:22:47.520
+"Here, I got 2.8",00:22:47.520,00:22:48.580
+2.8?,00:22:48.580,00:22:49.060
+"No, no.",00:22:49.060,00:22:49.300
+That doesn't happen at Caltech!,00:22:49.300,00:22:50.570
+"You go for the other one, et cetera.",00:22:50.830,00:22:52.420
+"So you just have the GPA's for the
+different groups of courses.",00:22:52.420,00:22:55.880
+"Now, you say-- someone graduates.",00:22:57.640,00:23:01.150
+"I'm going to look 10 years
+after graduation, and see",00:23:01.150,00:23:03.830
+their annual income.,00:23:03.830,00:23:06.510
+"So the inputs are the GPA's in the
+courses at the time they graduated.",00:23:06.510,00:23:10.540
+"The output is how much money they
+make per year 10 years away from",00:23:10.540,00:23:14.220
+graduation.,00:23:14.220,00:23:15.790
+"Now you ask yourself: how do these
+things affect the output?",00:23:15.790,00:23:19.970
+"So apply linear regression, as you will
+see it in detail, and you finally",00:23:19.970,00:23:23.940
+"find  maybe the math and sciences
+are more important.",00:23:23.940,00:23:28.130
+Or maybe all of that is an illusion.,00:23:28.130,00:23:29.940
+"It was actually the humanities
+that are important.",00:23:29.940,00:23:31.920
+You don't know.,00:23:31.920,00:23:32.870
+"You will see the data, and the data
+will tell you what affects what.",00:23:32.870,00:23:37.030
+"And any other situation like that,
+people simply resort to linear",00:23:37.030,00:23:40.490
+regression.,00:23:40.490,00:23:41.910
+"So in order to build it up, we are going
+to use the credit example again,",00:23:41.910,00:23:46.420
+"in order to be able to contrast it with
+the classification problem we",00:23:46.420,00:23:49.220
+have seen before.,00:23:49.220,00:23:50.330
+What do we have?,00:23:50.330,00:23:51.906
+We have in the classification--,00:23:51.906,00:23:54.230
+"we have the credit approval,
+yes or no.",00:23:54.230,00:23:56.380
+"That's a classification function, binary
+function, which says the output",00:23:56.380,00:24:00.190
+is +1 or -1.,00:24:00.190,00:24:02.370
+"In the case of regression, we will
+have real-valued function.",00:24:02.370,00:24:06.220
+"And the interpretation in this case is
+that you're trying to predict the",00:24:06.220,00:24:09.610
+proper credit line for a customer.,00:24:09.610,00:24:12.900
+The customer applies.,00:24:12.900,00:24:14.010
+"And it's not a question of approving
+the credit or not.",00:24:14.010,00:24:16.560
+"Do you give them credit limit of $800
+or $1,200 or $30,000 or what,",00:24:16.560,00:24:22.180
+depending on their input?,00:24:22.180,00:24:24.590
+So this is a real-valued function.,00:24:24.590,00:24:26.010
+And we are going to apply regression.,00:24:26.010,00:24:28.670
+Now you take the input.,00:24:30.290,00:24:31.990
+"This is the same input as we had before,
+data from the applicant that",00:24:31.990,00:24:35.930
+"are related to the credit behavior,
+so the age, the salary.",00:24:35.930,00:24:40.710
+"I suspect that the salary will figure
+very significantly now when you're",00:24:40.710,00:24:44.830
+"trying to tell the credit line, because
+if someone is making 30,000 a year,",00:24:44.830,00:24:49.950
+"you probably are not going to give
+them a credit line of 200,000.",00:24:49.950,00:24:53.520
+"So you can see that this will
+probably be affected.",00:24:53.520,00:24:55.670
+"And there are other guys that merely
+have to do with the",00:24:55.670,00:24:59.060
+stability of the person.,00:24:59.060,00:25:00.160
+Years in residence.,00:25:00.160,00:25:01.150
+"If the person has been in the same
+residence for 10 years, they are",00:25:01.150,00:25:04.190
+unlikely to skip town.,00:25:04.190,00:25:05.720
+"On the other hand, if they have been
+there for only one month, well, you",00:25:05.720,00:25:08.230
+don't know-- that type of thing.,00:25:08.230,00:25:09.810
+So you have these variables.,00:25:09.810,00:25:10.830
+You encode them as the input x.,00:25:10.830,00:25:12.590
+"And then your output in this case, which
+is the linear regression output,",00:25:12.590,00:25:16.600
+"is a hypothesis form which takes
+this particular form.",00:25:16.600,00:25:22.780
+"Let's spend some time with
+it to understand it.",00:25:22.780,00:25:25.890
+"First, it's regression because
+the output is real.",00:25:25.890,00:25:31.050
+"It's linear regression because the form,
+in terms of the input, is linear.",00:25:31.050,00:25:37.790
+"Now, we have seen this before.",00:25:39.300,00:25:41.330
+We sum up from basically 1 to d.,00:25:41.330,00:25:44.310
+"These are the genuine inputs,
+the weighted version",00:25:44.310,00:25:47.540
+of the input variables.,00:25:47.540,00:25:49.620
+"And then we add the mandatory x_0, which
+is 1, which takes care of the",00:25:49.620,00:25:54.140
+"threshold, which is w_0.",00:25:54.140,00:25:55.430
+"This is the form we have seen before,
+except that when we saw it",00:25:55.430,00:25:58.720
+"before, we took this as a signal that
+we only care about its sign.",00:25:58.720,00:26:03.110
+"If it's plus, we approve credit.",00:26:03.110,00:26:04.550
+"If it's minus, we don't
+approve credit.",00:26:04.550,00:26:06.610
+"And we treated it as a credit
+score, per se, when you",00:26:06.610,00:26:10.220
+take out the threshold.,00:26:10.220,00:26:11.520
+"Now in this case, this is the output.",00:26:12.880,00:26:15.780
+We don't threshold it.,00:26:15.780,00:26:17.310
+We don't say it's +1 or -1.,00:26:17.310,00:26:19.160
+There is w_0 in.,00:26:19.160,00:26:20.430
+"But we don't take it as
++1 or -1.",00:26:20.430,00:26:22.940
+We take it as a real number.,00:26:22.940,00:26:24.330
+"And this is the dollar amount
+we are going to give you as",00:26:24.330,00:26:26.820
+a credit line.,00:26:26.820,00:26:28.000
+"Now the signal here will play
+a very important role in",00:26:29.080,00:26:34.010
+all the linear algorithms.,00:26:34.010,00:26:35.060
+"This is what makes the
+algorithm linear.",00:26:35.060,00:26:37.670
+"And whether you leave it alone as in
+linear regression, you take a hard",00:26:37.670,00:26:40.720
+"threshold as in classification or, as we
+will see later, you can take a soft",00:26:40.720,00:26:44.530
+"threshold, and you get a probability
+and all of that--",00:26:44.530,00:26:46.580
+"All of these are considered
+linear models.",00:26:46.580,00:26:48.610
+"And the algorithm depends on this
+particular part, which is the signal",00:26:48.610,00:26:52.320
+being linear.,00:26:52.320,00:26:53.900
+"We also took the trouble to
+put it in vector form.",00:26:53.900,00:26:56.520
+"And the vector form will simplify the
+calculus that we do in this lecture in",00:26:56.520,00:26:59.840
+"order to derive the linear
+regression algorithm.",00:26:59.840,00:27:02.910
+"But you can always-- if you hate
+the vector form, you can",00:27:02.910,00:27:05.890
+always go back to this.,00:27:05.890,00:27:07.060
+"There is nothing mysterious
+about this.",00:27:07.060,00:27:08.695
+"This simply has a bunch of parameters,
+w_0, w_1, up to w_d.",00:27:08.695,00:27:13.030
+"And if I'm trying to minimize something,
+you can minimize it with",00:27:13.030,00:27:15.860
+"respect to scalar variables, which
+applies very primitive calculus.",00:27:15.860,00:27:20.110
+"But we obviously will do it in the
+shorthand version, which is the",00:27:20.110,00:27:24.250
+"vector or the matrix form, in order to
+be able to get the derivation in",00:27:24.250,00:27:29.210
+an easier way.,00:27:29.210,00:27:30.580
+So that's the problem.,00:27:31.220,00:27:32.680
+What is the data set in this case?,00:27:32.680,00:27:35.230
+"Well, it's historical data, but it's
+a different set of historical data.",00:27:35.230,00:27:39.270
+"The credit line is decided
+by different officers.",00:27:39.270,00:27:41.560
+"Someone sits down and evaluates your
+application and decides that this",00:27:41.560,00:27:44.760
+"person gets 1000 limit, this person
+gets 5000 limit, and whatnot.",00:27:44.760,00:27:48.850
+"All we are trying to do in this
+particular example is to replicate",00:27:48.850,00:27:52.440
+what they're doing.,00:27:52.440,00:27:53.610
+"We don't want the credit
+officer to do that.",00:27:53.610,00:27:56.640
+"The credit officers sometimes are
+inconsistent from one another.",00:27:56.640,00:27:59.110
+They may have a good day or a bad day.,00:27:59.110,00:28:00.710
+"So we'd like to figure out what pattern
+they collectively have in",00:28:00.710,00:28:04.320
+"deciding the credit, and have
+an automated system decide that.",00:28:04.320,00:28:07.450
+"That's what the linear regression
+system will do for us.",00:28:07.450,00:28:11.240
+"The historical data here are again
+examples from previous customers.",00:28:11.240,00:28:17.380
+"And the previous customers--
+this is x_1, and this is y_1.",00:28:17.380,00:28:21.370
+"So this is the application
+that the customer gave.",00:28:21.370,00:28:23.820
+"And this is the credit line
+that was given to them.",00:28:23.820,00:28:26.560
+"No tracking of credit behavior, we're
+just trying to replicate what the",00:28:26.560,00:28:29.350
+experts do in this case.,00:28:29.350,00:28:31.990
+"And then you realize that each of these
+y's is actually a real number,",00:28:31.990,00:28:37.020
+"which is the credit line that
+is given to customer x_n.",00:28:37.020,00:28:40.560
+"And that real number will likely
+be a positive integer.",00:28:40.560,00:28:42.940
+It's a credit line.,00:28:42.940,00:28:43.333
+It's a dollar amount.,00:28:43.333,00:28:46.420
+"And what we are doing is trying
+to replicate that.",00:28:46.770,00:28:49.320
+That's the statement of the problem.,00:28:49.320,00:28:52.090
+So what does linear regression do?,00:28:52.090,00:28:54.660
+"First, we have to measure the error.",00:28:54.660,00:28:57.250
+"We didn't talk about that in
+the case of classification,",00:28:57.250,00:28:59.570
+because it was so simple.,00:28:59.570,00:29:00.730
+"Here, it's a little bit less simple.",00:29:00.730,00:29:04.330
+"And then, we'll be able to discuss
+the error function for",00:29:04.330,00:29:07.460
+classification as well.,00:29:07.460,00:29:08.860
+What do we mean by that?,00:29:08.860,00:29:10.260
+"You will have an algorithm that tries
+to find the optimal weights.",00:29:11.130,00:29:15.240
+"These are the weights you're
+going to have.",00:29:15.240,00:29:18.300
+"These weights are going to determine
+what hypothesis you get.",00:29:18.300,00:29:23.980
+"Some hypotheses will
+approximate f well.",00:29:23.980,00:29:26.400
+Some hypotheses will not.,00:29:26.400,00:29:28.260
+"We would like to quantify that, to give
+a guidance to the algorithm in order",00:29:28.260,00:29:32.520
+"to move from one hypothesis
+to another.",00:29:32.520,00:29:34.670
+So we will define an error measure.,00:29:34.670,00:29:36.910
+"And the algorithm will try to minimize
+the error measure by moving from one",00:29:36.910,00:29:40.640
+hypothesis to the next.,00:29:40.640,00:29:41.890
+"If you take linear regression, the
+standard error function used there is",00:29:44.350,00:29:49.640
+the squared error.,00:29:49.640,00:29:50.810
+Let me write it down.,00:29:50.810,00:29:52.480
+"Well, if you had a classification, there
+is only a simple agreement on",00:29:52.480,00:29:57.210
+a particular example.,00:29:57.210,00:29:58.200
+"You either got it right
+or got it wrong.",00:29:58.200,00:30:00.670
+There is nothing else.,00:30:00.670,00:30:02.550
+"Therefore, in that case, we
+just defined binary error.",00:30:02.550,00:30:04.950
+Did you get it right or wrong?,00:30:04.950,00:30:06.250
+"And we found the frequency
+of getting it right.",00:30:06.250,00:30:08.320
+And we got the E_in and E_out.,00:30:08.320,00:30:10.940
+"Here, you are estimating
+a credit line.",00:30:10.940,00:30:13.410
+"So if the guy gets 1000, and you tell
+them 900, that's not too bad.",00:30:13.410,00:30:17.340
+"If the guy gets 1000, and you
+tell them 5000, that's bad.",00:30:17.340,00:30:20.350
+"So you need to measure how
+bad the situation is.",00:30:20.350,00:30:22.640
+"And you define an error measure,
+and you define it by the",00:30:22.640,00:30:24.720
+simple squared error.,00:30:24.720,00:30:27.400
+"Now, squared error doesn't have
+an inherent merit here.",00:30:27.400,00:30:30.580
+"It just happens to be the standard
+error function used with linear",00:30:30.580,00:30:33.410
+regression.,00:30:33.410,00:30:33.900
+"And its merit really is the simplicity
+in the analytic solution that we are",00:30:33.900,00:30:38.050
+going to get.,00:30:38.050,00:30:38.980
+"But when we discuss error measures in
+the next lecture, we will go back to",00:30:38.980,00:30:42.850
+"the principle, does error
+measure matter?",00:30:42.850,00:30:46.800
+Why?,00:30:46.800,00:30:47.330
+How do we choose it?,00:30:47.330,00:30:47.960
+Et cetera.,00:30:47.960,00:30:48.470
+"This will be answered in
+a principled way next time.",00:30:48.470,00:30:51.420
+"But for this time, let's take this
+as a standard error measure we",00:30:51.420,00:30:54.065
+are going to use.,00:30:54.065,00:30:55.400
+"When you look at the in-sample error,
+you use the error measure.",00:30:56.820,00:31:01.540
+"On the particular example n,
+n from 1 to N. For each",00:31:01.540,00:31:06.650
+"example, this is the contribution
+of the error.",00:31:06.650,00:31:09.460
+"Each of these is affected by the
+same w, because h depends on w.",00:31:09.460,00:31:13.420
+"So as you change w, this value will
+change for every example.",00:31:13.420,00:31:17.330
+And this is the error in that example.,00:31:17.330,00:31:18.860
+"And if you want to get all the in-sample
+error, you simply take the",00:31:18.860,00:31:22.520
+average of those.,00:31:22.520,00:31:24.290
+"That will give me a snapshot
+of how my hypothesis is",00:31:24.910,00:31:28.060
+doing on the data set.,00:31:28.060,00:31:30.020
+"And now, we are going to ask our
+algorithm to take this error and",00:31:30.020,00:31:35.490
+minimize it.,00:31:35.490,00:31:36.940
+"Let's actually just look at what
+happens as an illustration.",00:31:36.940,00:31:42.820
+"This is the simplest case
+for linear regression.",00:31:42.820,00:31:45.020
+"The input is one-dimensional. I
+have only one relevant variable.",00:31:45.020,00:31:48.780
+"I want to relate your overall GPA to
+your earnings 10 years from now.",00:31:48.780,00:31:54.670
+Your overall GPA is x.,00:31:54.670,00:31:57.170
+Your earnings 10 years from now is y.,00:31:57.170,00:32:00.050
+That's it.,00:32:00.050,00:32:01.420
+OK?,00:32:01.420,00:32:02.962
+[CHUCKLES],00:32:02.962,00:32:04.850
+"I would have properly called this
+x_1 according to our notation.",00:32:04.850,00:32:10.010
+"And then there would be an x_0,
+which is the constant 1.",00:32:10.010,00:32:13.080
+"But I didn't bother, because
+I have only one variable.",00:32:13.080,00:32:15.400
+But this is what we have.,00:32:15.830,00:32:18.270
+So you look at this.,00:32:18.270,00:32:19.540
+"And you see that, for different
+x's, you have these guys.",00:32:19.540,00:32:23.530
+Wow.,00:32:23.530,00:32:24.100
+Your earnings are going down with--,00:32:24.100,00:32:26.260
+"Well, that may not have been the
+example that is drawn here.",00:32:26.620,00:32:30.590
+"What linear regression does is it tries
+to produce a line, which is what",00:32:30.590,00:32:35.480
+"you have here, that tries to fit
+this data according to the",00:32:35.480,00:32:38.810
+squared-error rule.,00:32:38.810,00:32:40.690
+So it may look like this.,00:32:40.690,00:32:43.390
+"And in this case, the threshold
+here depends on w_0.",00:32:44.710,00:32:50.660
+"The slope depends on w_1, which
+is the weight for x.",00:32:50.660,00:32:54.440
+And that is the solution you have.,00:32:54.440,00:32:57.010
+"Now you didn't get it right, but
+what you got is some errors.",00:32:57.010,00:33:01.670
+"And you realize that-- this is
+the error on the first example.",00:33:01.670,00:33:04.520
+"This is the error on
+the second example.",00:33:04.520,00:33:05.920
+"And if you sum up the squares of the
+lengths of these bars, that is what we",00:33:05.920,00:33:10.150
+"called the in-sample error that we defined
+in the previous viewgraph.",00:33:10.150,00:33:13.950
+"Well, linear regression can apply
+to more than one dimension.",00:33:14.840,00:33:18.220
+"And I can plot 2 dimensions here
+just to illustrate it.",00:33:18.220,00:33:26.060
+It's the same principle.,00:33:26.060,00:33:27.730
+What you have here is you have x_1.,00:33:27.730,00:33:29.535
+If I can get the pointer--,00:33:34.920,00:33:36.170
+"OK, we'll leave it to rest.",00:33:38.440,00:33:39.900
+We have x_1 and x_2.,00:33:39.900,00:33:41.950
+"And in this case, the linear
+thing is really a plane.",00:33:41.950,00:33:46.880
+"And you're again not separating, but
+trying to estimate these guys.",00:33:46.880,00:33:50.090
+And you're making errors.,00:33:50.090,00:33:51.580
+"And in general, when you go to
+a higher-dimensional space, the line--",00:33:51.580,00:33:54.980
+"which is the reason why we call it
+linear-- is not really a line.",00:33:54.980,00:33:57.790
+"It's a hyperplane, one dimension short
+of the space you are working with.",00:33:57.790,00:34:02.730
+"And that's what you are trying to
+use to approximate the guys.",00:34:02.730,00:34:08.210
+"Now let's look at the
+expression for E_in.",00:34:08.210,00:34:10.300
+"And that is the analytic expression
+we are going to try to minimize.",00:34:10.300,00:34:13.350
+"And that will make us derive the
+linear regression algorithm.",00:34:13.350,00:34:17.550
+We wrote this before.,00:34:18.300,00:34:20.820
+"And you have the value of the
+hypothesis minus y_n squared.",00:34:20.820,00:34:26.090
+That is because it's a squared error.,00:34:26.090,00:34:27.870
+"And because it's linear regression, this
+value, h of x_n, happens to be w",00:34:27.870,00:34:33.139
+transposed x_n.,00:34:33.139,00:34:34.190
+It's a linear function of x_n.,00:34:34.190,00:34:37.719
+"Now let us try to write this
+down in a vector form.",00:34:37.719,00:34:41.660
+I will explain this in detail.,00:34:44.380,00:34:45.810
+But let's look at this.,00:34:45.810,00:34:47.699
+"Instead of the summation, all of
+a sudden, I have a norm squared of",00:34:47.699,00:34:53.040
+something that is--,00:34:53.040,00:34:54.670
+"Capital X, I haven't seen
+capital X before.",00:34:54.670,00:34:56.630
+I haven't seen vector y before.,00:34:56.630,00:34:58.160
+"Well, it's basically a consolidation
+of the different x_n's here.",00:34:58.890,00:35:03.080
+x_n is a vector.,00:35:03.080,00:35:04.530
+So you put the vectors in a matrix.,00:35:04.530,00:35:05.970
+"You call it X. And you put the
+scalars, the y_n, in a vector.",00:35:05.970,00:35:09.340
+And you call it y.,00:35:09.340,00:35:10.600
+"The definition of capital X and
+the vector y is as follows.",00:35:10.600,00:35:17.120
+"For the matrix X, what you do-- you
+put your first example here.",00:35:17.120,00:35:21.250
+"So this would be the constant coordinate 1,
+the first coordinate,",00:35:21.250,00:35:25.480
+"second coordinate, up to the d-th
+coordinate, the last coordinate.",00:35:25.480,00:35:29.460
+"And then you go for the second
+example, and do the same and",00:35:29.460,00:35:32.140
+construct this matrix.,00:35:32.140,00:35:33.330
+"And for y, you put the
+corresponding output.",00:35:33.330,00:35:35.450
+"This is the output for the first
+example, output for the second",00:35:35.450,00:35:37.830
+"example, output for the last example.",00:35:37.830,00:35:40.440
+"Now one thing to realize
+about the matrix X is",00:35:40.440,00:35:42.870
+that it's pretty tall.,00:35:42.870,00:35:44.890
+"The typical situation is that
+you have few parameters.",00:35:44.890,00:35:47.640
+"We reduced them to three, for example,
+in the case of the classification of",00:35:47.640,00:35:52.940
+the digits.,00:35:52.940,00:35:53.740
+"But you usually have many, many
+examples, in the 1000's.",00:35:53.740,00:35:57.480
+"So this will be a very,
+very long matrix.",00:35:57.480,00:36:00.690
+"Now the way you take this-- well, the
+norm squared will be simply this",00:36:00.690,00:36:06.650
+vector transposed times itself.,00:36:06.650,00:36:09.450
+"And when you do it, you realize that
+what you are doing is summing up",00:36:09.450,00:36:12.790
+"contributions from the
+different components.",00:36:12.790,00:36:15.040
+"And each component happens to be exactly
+what you are having here.",00:36:15.040,00:36:18.960
+"So this becomes a shorthand for
+writing this expression.",00:36:18.960,00:36:22.410
+"Now, let's look at minimizing E_in.",00:36:25.210,00:36:27.100
+"When you look at minimizing, you realize
+that the matrix X, which has",00:36:29.670,00:36:34.490
+"the inputs of the data, and y, which has
+the outputs of the data, are, as",00:36:34.490,00:36:38.135
+"far as we are concerned, constants.",00:36:38.135,00:36:40.020
+This is the data set someone gave me.,00:36:40.020,00:36:42.300
+"The parameter I'm actually playing
+with in order to get a good",00:36:42.300,00:36:45.290
+hypothesis is w.,00:36:45.290,00:36:47.200
+So E_in is of w.,00:36:47.200,00:36:49.010
+And w appears here.,00:36:49.010,00:36:50.110
+And the rest are constants.,00:36:50.110,00:36:51.360
+"If I do any calculus of minimization,
+it is with respect to w.",00:36:51.360,00:36:55.810
+So I try to minimize this.,00:36:55.810,00:36:59.400
+"And what you do-- you get the derivative
+and equate it with 0,",00:36:59.400,00:37:03.790
+"except here, it's a glorified
+derivative.",00:37:03.790,00:37:06.120
+"You get the gradient, which is
+the derivative on a bunch",00:37:06.120,00:37:08.990
+of them all at once.,00:37:08.990,00:37:10.410
+"And there is a formula for it, which
+is pretty simple in this case.",00:37:10.410,00:37:14.550
+I will explain it.,00:37:14.550,00:37:15.660
+"By the way, if you hate this,
+and you want to make sure,",00:37:15.660,00:37:18.300
+"because linear regression is so
+important. And you want to verify that",00:37:18.300,00:37:21.240
+"it's true, you can always go for the
+scalar form, get partial E by partial",00:37:21.240,00:37:26.380
+"every w: partial w_0, partial
+w_1, partial w_d,",00:37:26.380,00:37:30.270
+"get a formula that is a pretty hairy
+one, and then try to reduce it.",00:37:30.270,00:37:33.230
+And--,00:37:33.230,00:37:33.850
+"surprise, surprise-- you will get the
+solution here that we have in matrix",00:37:33.850,00:37:36.560
+form in two steps.,00:37:36.560,00:37:38.610
+"Now if you look at this, deal with it in
+terms of calculus as if it was just",00:37:38.610,00:37:42.630
+a simple square.,00:37:42.630,00:37:44.140
+"If this was a simple square, and w
+was the variable, what would the",00:37:44.140,00:37:47.560
+derivative be?,00:37:47.560,00:37:49.390
+You will get 2 sitting outside.,00:37:49.390,00:37:51.330
+"Well, you've got it here.",00:37:51.330,00:37:52.820
+"And then you will get the same
+thing in a linear form.",00:37:52.820,00:37:55.640
+You got it here.,00:37:55.640,00:37:56.370
+"And then you will get whatever constant
+was multiplied by w to sit",00:37:56.370,00:37:59.120
+"outside, which you got here.",00:37:59.120,00:38:00.860
+"You just got here with a transpose,
+because this is really not a square.",00:38:00.860,00:38:03.400
+"This is the transpose of
+this times itself.",00:38:03.400,00:38:05.780
+That's where you get the transpose.,00:38:05.780,00:38:07.110
+"Pretty straightforward and
+standard matrix calculus.",00:38:07.850,00:38:11.320
+So that's what you have.,00:38:11.320,00:38:12.460
+"And then you equate this
+to 0, but it's a fat 0.",00:38:12.460,00:38:15.260
+It's a vector of 0's.,00:38:15.260,00:38:16.730
+"You want all the derivatives
+to be 0 all at once.",00:38:16.730,00:38:20.590
+"And that will define a point where
+this achieves a minimum.",00:38:20.590,00:38:24.680
+"Now, you would suspect that the solution
+will be simple, because this",00:38:24.680,00:38:27.850
+is a very simple quadratic form.,00:38:27.850,00:38:29.760
+"And indeed, the solution is simple.",00:38:29.760,00:38:31.710
+"And if you look at it, you realize that
+if I want this to be 0, then",00:38:31.710,00:38:35.600
+I want this to cancel out.,00:38:35.600,00:38:36.800
+"So when I multiply X transposed X w, I get
+the same thing as X transposed y.",00:38:36.800,00:38:41.700
+"So they cancel out, and I get my 0.",00:38:41.700,00:38:43.750
+"So you write this down, and you find
+that this is the situation.",00:38:43.750,00:38:46.850
+"I want this term to be
+equal to this term.",00:38:46.850,00:38:48.640
+And that will give me the 0.,00:38:48.640,00:38:50.300
+"The interesting thing is that in spite
+of the fact that the matrix",00:38:50.300,00:38:54.190
+"X is a very tall matrix, definitely
+not square, hence not invertible,",00:38:54.190,00:38:59.150
+"X transposed X is actually a square
+matrix, because X transposed is this",00:38:59.150,00:39:04.070
+way and X is this way.,00:39:04.070,00:39:05.980
+"You multiply them, and you get
+a pretty small square matrix.",00:39:05.980,00:39:09.490
+"And as we will see, the chances are
+overwhelming that it will be",00:39:09.490,00:39:12.110
+invertible.,00:39:12.110,00:39:13.020
+"So you can actually solve this very
+simply, by inverting this.",00:39:13.020,00:39:16.570
+"You multiply by the inverse
+in this direction.",00:39:16.570,00:39:18.310
+You multiply by this.,00:39:18.310,00:39:19.245
+"This will disappear, and you will get
+an explicit formula for w, which you",00:39:19.245,00:39:22.800
+were trying to solve for.,00:39:22.800,00:39:24.700
+"And when you do that, you will get w
+equals this funny symbol, X dagger.",00:39:24.700,00:39:31.090
+What is X dagger?,00:39:31.090,00:39:33.970
+"This is simply a shorthand
+for writing this.",00:39:33.970,00:39:36.650
+"So I got the inverse of that, and
+then multiplied it by here.",00:39:36.650,00:39:40.550
+"So this is really what I get
+to be multiplied by y.",00:39:40.550,00:39:43.230
+I call it X dagger.,00:39:43.230,00:39:44.220
+"And indeed, it gets multiplied
+by y to give me my w.",00:39:44.220,00:39:47.950
+"Now the X dagger is a pretty
+interesting notion.",00:39:47.950,00:39:50.130
+"It's called the pseudo-inverse of X.
+X, being a non-invertible matrix, does",00:39:50.130,00:39:56.690
+not have an inverse.,00:39:56.690,00:39:57.980
+But it does have a pseudo-inverse.,00:39:57.980,00:40:00.210
+"And the pseudo-inverse has
+interesting properties.",00:40:00.210,00:40:02.400
+"For example, if you take this, the X
+dagger, and multiply it by X-- so X",00:40:02.400,00:40:06.200
+dagger times X-- what do you get?,00:40:06.200,00:40:08.360
+You add X here.,00:40:08.360,00:40:09.860
+"You get X transposed X. Oh, I have
+X transposed X to the -1 here.",00:40:09.860,00:40:13.520
+"So they cancel out, and
+I get an identity.",00:40:13.520,00:40:15.880
+"So when I multiply X dagger
+by X, I get the identity.",00:40:15.880,00:40:19.160
+"So it's OK to call it
+an inverse of sorts.",00:40:19.160,00:40:21.910
+It doesn't work the other way around.,00:40:21.910,00:40:23.470
+"The other way around gives us
+an interesting matrix, which we'll talk",00:40:23.470,00:40:25.620
+about later.,00:40:25.620,00:40:26.880
+"But basically, this is
+the essence of it.",00:40:26.880,00:40:29.240
+"If we were in a trivial situation
+where X was a square--",00:40:29.240,00:40:32.660
+"I have 3 parameters, and I have
+3 examples to determine them--",00:40:32.660,00:40:36.040
+that can be solved perfectly.,00:40:36.040,00:40:37.240
+I can actually get this to be 0.,00:40:37.240,00:40:38.980
+And how would you get it to be 0?,00:40:38.980,00:40:40.530
+"You would just multiply by the proper
+inverse of X in this case, and you",00:40:40.530,00:40:44.100
+will get X inverse y.,00:40:44.100,00:40:45.910
+"So this is pretty much similar,
+when X is a tall one.",00:40:45.910,00:40:49.760
+And we are not going to get a 0.,00:40:49.760,00:40:51.550
+"We're just going to get a minimum
+using the pseudo-inverse.",00:40:51.550,00:40:55.350
+"Now I would like you to appreciate the
+pseudo-inverse from a computational",00:40:55.350,00:40:59.910
+point of view.,00:40:59.910,00:41:02.450
+"This is the formula for the pseudo-inverse
+that you will need to",00:41:03.080,00:41:07.520
+"compute, in order to get the solution
+for linear regression.",00:41:07.520,00:41:12.530
+So let's look at it.,00:41:12.530,00:41:15.090
+Something is inverted.,00:41:15.090,00:41:16.880
+"And when you see inversion in matrix,
+you say, oh, computation, computation.",00:41:16.880,00:41:19.810
+"If this was a million by a million,
+I'm in trouble.",00:41:19.810,00:41:22.120
+"If this is 5 by 5, I'm in good shape.",00:41:22.120,00:41:24.650
+"So we'd like to know, what kind
+of matrix do we have here?",00:41:24.650,00:41:27.120
+"Well, nothing mysterious about
+what's inside this.",00:41:27.620,00:41:31.000
+"You have this fellow, which
+is X transposed.",00:41:31.000,00:41:34.630
+"It's d plus 1, d is the
+length of your input,",00:41:34.630,00:41:37.500
+1 is the added constant variable.,00:41:37.500,00:41:39.440
+So these are the number of parameters.,00:41:39.440,00:41:40.780
+"This would be 3 in the digit
+classification guy.",00:41:40.780,00:41:44.040
+"We have only x_1 and x_2, so d equals 2.",00:41:44.040,00:41:46.710
+"d plus 1 equals 3, which corresponds
+to x_0, x_1, x_2, or to w_0, w_1, w_2.",00:41:46.710,00:41:52.630
+"So this is 3 times N.
+N is the scary one.",00:41:52.630,00:41:57.210
+That's the number of examples.,00:41:57.210,00:41:58.490
+That could be in the thousands.,00:41:58.490,00:42:01.590
+"Now you multiply this by X,
+and that's what you have.",00:42:01.590,00:42:05.120
+The multiplication will be--,00:42:05.430,00:42:06.690
+"multiplication is
+not that difficult.",00:42:06.690,00:42:08.670
+"Even if this is 10,000, I can
+multiply this by 10,000.",00:42:08.670,00:42:12.240
+"But the good news is that when I go to
+this guy, I will have to be dealing",00:42:12.240,00:42:15.720
+with a simpler guy.,00:42:15.720,00:42:16.910
+Let's just complete the formula first.,00:42:16.910,00:42:19.050
+This is what you have.,00:42:19.050,00:42:19.830
+"This is what you are computationally
+doing.",00:42:19.830,00:42:22.550
+"And if you look at what's inside
+here, it completely shrinks.",00:42:22.550,00:42:29.090
+That is what the matrix inside is.,00:42:29.090,00:42:31.320
+It's just 3 by 3 in our case.,00:42:31.320,00:42:33.620
+You can invert that.,00:42:33.620,00:42:35.060
+"Just accumulating it is the one that
+you have to go through all of",00:42:35.060,00:42:38.230
+the examples.,00:42:38.230,00:42:38.810
+"And there's a very simple
+way of doing it.",00:42:38.810,00:42:40.620
+"It's not that difficult
+to get this fellow.",00:42:40.620,00:42:43.520
+"And you can see now that, oh, good
+thing that we had 3 parameters.",00:42:43.520,00:42:46.570
+"If we had the 257 parameters to begin
+with, this would have been 257 by 257.",00:42:46.570,00:42:52.040
+Not that this will discourage us.,00:42:52.040,00:42:53.480
+"But if you go for some raw inputs, you
+can get something really in the",00:42:53.480,00:42:56.290
+"thousands or sometimes
+even more than that.",00:42:56.290,00:42:58.950
+"So the computational aspect
+of this is very simple.",00:42:59.550,00:43:04.010
+"And there are so many packages for
+computing the pseudo-inverse, or",00:43:04.010,00:43:10.760
+"outright getting the solution for linear
+regression, that you will never",00:43:10.760,00:43:13.400
+"have to do that yourself, except
+if you're doing something very",00:43:13.400,00:43:16.130
+specialized.,00:43:16.130,00:43:16.940
+"If you do have something very
+specialized, it's not that bad.",00:43:16.940,00:43:20.760
+So that is the final matrix.,00:43:22.510,00:43:25.110
+"And the final matrix will have the
+same dimensions as this guy.",00:43:25.110,00:43:28.280
+"And if you look at it, this will
+be multiplied by what?",00:43:28.280,00:43:30.690
+"Multiplied by y, which is y_1,
+y_2, y_3, y_N, corresponding",00:43:30.690,00:43:35.340
+to different outputs.,00:43:35.340,00:43:37.160
+"And then, as a result of that,
+you will get the w's--",00:43:37.160,00:43:39.610
+"w_0, w_1, up to w_d.",00:43:39.610,00:43:41.350
+"Indeed, if you multiply this by an N
+tall vector, you will get a d plus 1",00:43:41.350,00:43:46.240
+"tall vector, and that's
+what we expect.",00:43:46.240,00:43:49.090
+"Let's now flash the full linear
+regression algorithm here.",00:43:50.430,00:43:55.390
+That's a crowded slide.,00:43:55.740,00:43:57.890
+That is what you do.,00:43:57.890,00:43:59.420
+"The first thing is you take the data
+that is given to you, and put them in",00:43:59.420,00:44:04.210
+the proper form.,00:44:04.210,00:44:04.920
+What is the proper form?,00:44:04.920,00:44:06.100
+"You construct the matrix
+X and the vector y.",00:44:06.100,00:44:09.500
+"And these are what we
+introduced before.",00:44:09.500,00:44:11.110
+"This will be the input data matrix, and
+this will be the target vector.",00:44:11.110,00:44:16.250
+"And once you construct them, you are
+basically done, because all you are",00:44:16.250,00:44:19.520
+"going to do-- you plug this into
+a formula, which is the pseudo-inverse.",00:44:19.520,00:44:23.010
+"And then you will return the value w,
+that is the multiplication of that",00:44:23.010,00:44:26.450
+pseudo-inverse with y.,00:44:26.450,00:44:27.810
+And you are done.,00:44:27.810,00:44:29.650
+"Now you can call this one-step
+learning if you want.",00:44:29.650,00:44:33.740
+"With the perceptron learning algorithm,
+it looked more like",00:44:33.740,00:44:36.380
+"learning, because I have
+an initial hypothesis.",00:44:36.380,00:44:38.980
+"And then I take one example at a time,
+and try to figure out what is going",00:44:38.980,00:44:41.480
+"on, move this around, et cetera.",00:44:41.480,00:44:42.890
+"And after 1000 iterations,
+I get something.",00:44:42.890,00:44:44.810
+"It looks more like
+what we learn.",00:44:44.810,00:44:46.680
+We learn in steps.,00:44:46.680,00:44:47.950
+This looks like cheating.,00:44:47.950,00:44:49.290
+"You give me the thing,
+and [MAKES SOUND].",00:44:49.290,00:44:50.990
+And you have the answer.,00:44:50.990,00:44:52.580
+"Well, as far as we are concerned,
+we don't care how you got it.",00:44:52.580,00:44:55.700
+"If it's correct and gives you a correct
+E_out, you have learned.",00:44:55.700,00:45:00.010
+"And because this is so simple, this is
+a very popular algorithm that is used",00:45:00.010,00:45:04.680
+"often, and used often as a building
+block for other guys.",00:45:04.680,00:45:07.480
+"We can afford to use it as a building
+block, because the step here will be so",00:45:07.480,00:45:10.330
+"simple that we can become more
+sophisticated in using it.",00:45:10.330,00:45:13.610
+Just one remark about the inversion--,00:45:13.610,00:45:16.260
+"this has to be invertible in order
+for this formula to hold.",00:45:16.260,00:45:20.480
+"Now the chances are, that this will be
+invertible in a real application you",00:45:20.480,00:45:23.880
+"have, is close to 1.",00:45:23.880,00:45:26.440
+The reason is the following.,00:45:26.440,00:45:27.760
+"Usually, you use very few parameters
+and tons of examples.",00:45:27.760,00:45:32.810
+"You will be very, very, very unlucky
+to have these so dependent on each",00:45:32.810,00:45:38.500
+"other that you cannot even capture
+the dimensionality which is",00:45:38.500,00:45:42.090
+the number of columns.,00:45:42.090,00:45:43.230
+"The number of columns is 3, 5, 10,
+and you have 10,000 of those.",00:45:43.230,00:45:46.560
+"So the chances are overwhelming in
+a real problem that this will be",00:45:46.560,00:45:49.450
+invertible.,00:45:49.450,00:45:50.290
+"Nonetheless, if it is not invertible,
+you can still define the",00:45:50.290,00:45:53.880
+pseudo-inverse.,00:45:53.880,00:45:55.360
+"It will not be unique and has
+some elaborate features, but",00:45:55.360,00:45:58.240
+it's not a big deal.,00:45:58.240,00:45:59.020
+"That is not a situation you will
+encounter in practice.",00:45:59.020,00:46:02.380
+So now we have linear regression.,00:46:04.910,00:46:06.910
+"I'm going to tell you that you can
+use linear regression not only for",00:46:06.910,00:46:09.800
+"a real-valued function, for
+regression problems.",00:46:09.800,00:46:12.150
+"But you're also going to be able
+to use it for classification.",00:46:12.150,00:46:15.710
+"Maybe the perceptron is now
+going out of business.",00:46:16.890,00:46:18.970
+It has a competitor now.,00:46:18.970,00:46:20.280
+"And the competitor has a very
+simple algorithm.",00:46:20.280,00:46:22.700
+So let's see how this works.,00:46:22.980,00:46:24.605
+The idea is incredibly simple.,00:46:24.605,00:46:28.380
+"Linear regression learns
+a real-valued function.",00:46:28.380,00:46:30.790
+"Yeah, we know that.",00:46:30.790,00:46:32.040
+That is the real-valued function.,00:46:35.370,00:46:36.780
+The value belongs to the real numbers.,00:46:36.780,00:46:38.750
+Fine.,00:46:38.750,00:46:39.980
+"Now the main observation, the ingenious
+observation, is that",00:46:39.980,00:46:43.410
+"binary-valued functions, which are the
+classification functions, are also",00:46:43.410,00:46:47.180
+real-valued.,00:46:47.180,00:46:48.410
+"+1 and -1, among other things,
+happen to be real numbers.",00:46:48.410,00:46:52.610
+"So linear regression is not going to
+refuse to learn them as real numbers.",00:46:52.610,00:46:57.430
+Right?,00:46:57.430,00:46:58.780
+So what do we do?,00:46:58.780,00:47:00.430
+"You use linear regression in order to
+get a solution, such that the solution",00:47:03.440,00:47:10.110
+"is approximately y_n in the
+mean squared sense.",00:47:10.110,00:47:13.220
+"For every example, the actual value
+of the signal is close to the",00:47:13.220,00:47:18.310
+numerical +1 and the numerical -1.,00:47:18.310,00:47:20.940
+That's what linear regression does.,00:47:20.940,00:47:24.180
+"Now, having done that with y_n equals +1
+or -1, you realize that in",00:47:24.180,00:47:31.170
+"this case, if you take the
+classification version of it-- you",00:47:31.170,00:47:35.800
+"take the sign of that signal in order
+to be able to classify as",00:47:35.800,00:47:38.310
++1 or -1.,00:47:38.310,00:47:39.820
+"If the value is genuinely close to
++1 or -1 numerically, then",00:47:39.820,00:47:44.530
+"the chances are when it's +1,
+this would be positive.",00:47:44.530,00:47:47.540
+"And when it's -1, it's negative.",00:47:47.540,00:47:49.190
+"The chances are-- you're getting close to
+a number, you'll probably cross the",00:47:49.190,00:47:52.830
+zero in doing that.,00:47:52.830,00:47:54.700
+"And if you cross the zero, the
+classification will be correct.",00:47:54.700,00:47:57.790
+"So if you take this, and then plug it in
+as weights for classification, you",00:47:57.790,00:48:01.425
+"will likely get something
+that will give you--",00:48:01.425,00:48:04.460
+likely to agree with +1 or -1.,00:48:04.460,00:48:06.700
+"That's a pretty simple trick,
+because it's almost free.",00:48:07.400,00:48:10.200
+All you need to do--,00:48:10.200,00:48:11.010
+I have a classification problem.,00:48:11.010,00:48:12.100
+Let's run linear regression.,00:48:12.100,00:48:13.230
+It's almost for free.,00:48:13.230,00:48:14.410
+"Do this one-step learning, get
+a solution, and use it for",00:48:14.410,00:48:17.370
+classification.,00:48:17.370,00:48:18.520
+"Now, let's see if this is
+as good as it sounds.",00:48:18.970,00:48:21.770
+"Well, the weights are good for
+classification, so to speak, just by",00:48:21.770,00:48:25.650
+conjecture.,00:48:25.650,00:48:26.560
+"But they also may serve as good initial
+weights for classification.",00:48:26.560,00:48:32.420
+"Remember that the perceptron algorithm,
+or the pocket algorithm, are really",00:48:32.420,00:48:35.460
+very slow to get there.,00:48:35.460,00:48:36.980
+You start with a random guy.,00:48:36.980,00:48:38.500
+Half the guys are misclassified.,00:48:38.500,00:48:40.130
+"And it just goes around, tries to
+correct one, messes up the others,",00:48:40.130,00:48:43.350
+"until it gets to the
+region of interest.",00:48:43.350,00:48:46.390
+And then it converges.,00:48:46.390,00:48:48.290
+Why not give it a jump start?,00:48:48.290,00:48:50.500
+"Why not run linear regression
+first, get the w's.",00:48:50.500,00:48:54.240
+"We know that the w's are OK, but they
+are not really tailored toward",00:48:54.240,00:48:57.890
+classification.,00:48:57.890,00:48:59.110
+But they're good initial condition.,00:48:59.110,00:49:00.930
+"Feed those to the pocket algorithm, and
+let it run to the solution, which",00:49:00.930,00:49:05.800
+is a classification solution.,00:49:05.800,00:49:07.250
+That's a pretty nice idea.,00:49:07.990,00:49:09.790
+"So let's actually look at the
+linear regression boundary.",00:49:09.790,00:49:16.350
+"Now, I take an example here.",00:49:16.350,00:49:18.770
+"Again, I have the +1 class
+and the -1 class.",00:49:18.770,00:49:23.330
+And I applied--,00:49:23.330,00:49:24.860
+"we're trying to find, what is the
+linear regression solution?",00:49:24.860,00:49:27.450
+"Now, we remember, the blue region
+and the pink region belong to",00:49:27.450,00:49:31.120
+classification.,00:49:31.120,00:49:32.530
+"When you talk about linear regression,
+you have the value here.",00:49:32.530,00:49:35.340
+And the signal is 0 here.,00:49:35.340,00:49:37.700
+"The signal is positive, more positive,
+more positive, more positive.",00:49:37.700,00:49:40.850
+"And here, the signal is negative,
+more negative, more",00:49:40.850,00:49:42.820
+"negative, more negative.",00:49:42.820,00:49:43.870
+"There is a real-valued function that
+we are trying to interpret as",00:49:43.870,00:49:47.940
+a classification by taking the sign.,00:49:47.940,00:49:50.540
+"Now, if you look at what the linear
+regression is trying to do when you",00:49:50.540,00:49:53.360
+"use it for classification,
+all of these guys have",00:49:53.360,00:49:56.520
+a target value -1.,00:49:56.520,00:49:58.500
+"It is actually trying to make
+the numerical value equal",00:49:58.500,00:50:01.620
+-1 to all of them.,00:50:01.620,00:50:02.990
+"So the chances are, these
+will be -1.",00:50:02.990,00:50:05.630
+"This will be -2, -3.",00:50:05.630,00:50:08.680
+"And the linear regression algorithm
+is very sad about that.",00:50:08.680,00:50:12.000
+"It considers it an error, in spite of
+the fact that, when we plug it into the",00:50:12.000,00:50:15.560
+"classification, it just
+has the correct sign.",00:50:15.560,00:50:17.510
+And that's all we care about.,00:50:17.510,00:50:18.940
+But we are applying linear regression.,00:50:18.940,00:50:20.540
+"It is actually trying very hard to make
+all of them -1 at the same",00:50:20.540,00:50:24.300
+"time, which obviously it cannot.",00:50:24.300,00:50:26.050
+"And you can see now the problem
+with linear regression.",00:50:26.050,00:50:29.710
+"In its attempt to make this -8,
+-1, it moved the boundary to the",00:50:29.710,00:50:35.480
+"level where it's in the middle
+of the red region.",00:50:35.480,00:50:37.650
+"And now, it's very happy because it
+minimized its error function.",00:50:37.650,00:50:40.460
+"But that's not really
+the classification.",00:50:40.460,00:50:42.280
+"Nonetheless, it's a good
+starting point.",00:50:42.280,00:50:43.940
+"And then you take the classification now,
+that forgets about the values and",00:50:43.940,00:50:46.990
+"tries to adjust it according
+to the classification.",00:50:46.990,00:50:48.870
+And you will get a good boundary.,00:50:48.870,00:50:50.510
+"That's the contrast between applying
+linear regression for classification",00:50:50.510,00:50:55.590
+and linear classification outright.,00:50:55.590,00:50:58.950
+Now we are done.,00:51:00.660,00:51:01.370
+"I'm going to start on nonlinear
+transformation.",00:51:01.370,00:51:04.160
+"And I'm going to give you a very
+interesting tool to play with.",00:51:04.160,00:51:11.010
+Here is the deal.,00:51:11.010,00:51:16.320
+"You probably realized that, even when
+dealing with non-separable data, we",00:51:16.320,00:51:20.455
+"are dealing with non-separable data that
+are really basically separable",00:51:20.455,00:51:23.380
+with few exceptions.,00:51:23.380,00:51:24.910
+"But in reality, when you take a real
+problem, a real-life problem, you will",00:51:24.910,00:51:29.700
+"find that the data you are going
+to get could be anything.",00:51:29.700,00:51:32.210
+"It could be, for example, something
+that looks like this.",00:51:32.210,00:51:37.780
+"So you want to classify these as
++1's and these as -1's.",00:51:37.780,00:51:41.880
+"Let's take the classification
+paradigm here.",00:51:41.880,00:51:45.030
+Now I can put the line anywhere.,00:51:45.030,00:51:47.580
+"And obviously, I'm in trouble because
+this is not linearly separable, even by",00:51:47.580,00:51:51.870
+a long shot.,00:51:51.870,00:51:53.590
+"You can look at this and say:
+I can see the pattern here.",00:51:53.590,00:51:57.180
+"Closer to the center, you have blues.",00:51:57.180,00:51:59.290
+"Closer to the peripherals,
+you have reds.",00:51:59.290,00:52:02.300
+"So it would be very nice if
+I could apply a hypothesis",00:52:02.300,00:52:06.280
+that looks like this.,00:52:06.280,00:52:07.935
+Yes.,00:52:10.500,00:52:11.620
+"The only problem is that
+that's not linear.",00:52:11.620,00:52:13.910
+"We don't have the tools
+to deal with that, yet.",00:52:13.910,00:52:17.950
+"Wouldn't it be nice if in two viewgraphs,
+you can use linear regression",00:52:17.950,00:52:23.200
+"and linear classification, the
+perceptron or the pocket, to apply it",00:52:23.200,00:52:26.960
+to this guy?,00:52:26.960,00:52:28.310
+That's what will happen.,00:52:28.310,00:52:29.730
+"I told you this is
+a practical lecture.",00:52:29.730,00:52:31.510
+"So we take another example
+of nonlinearity.",00:52:34.930,00:52:38.490
+We take the credit line.,00:52:38.490,00:52:40.810
+"Now if you look at the credit line, the
+credit line is affected by years",00:52:40.810,00:52:44.420
+in residence.,00:52:44.420,00:52:45.020
+"We argued that if someone has been in
+the same residence for a long time,",00:52:45.020,00:52:47.590
+"there is stability and
+trustworthiness.",00:52:47.590,00:52:50.020
+"And someone has been a short time,
+there's a question mark.",00:52:50.020,00:52:54.560
+"Now one thing is to say that this is
+a variable that affects the output.",00:52:54.560,00:53:00.750
+"Another thing to say is that
+this is a variable that",00:53:00.750,00:53:02.840
+affects the output linearly.,00:53:02.840,00:53:06.170
+"It would be strange if I'm trying to
+determine a credit line, to decide that",00:53:06.170,00:53:10.010
+"the credit line will be proportional
+to the time you",00:53:10.010,00:53:12.020
+have lived in residence.,00:53:12.020,00:53:13.520
+"If you have 10 years, 20 years, I will
+give you twice the credit line.",00:53:13.520,00:53:16.860
+It doesn't make sense.,00:53:16.860,00:53:18.440
+"Because stability is established
+probably by the time",00:53:18.440,00:53:20.550
+you get to 5 years.,00:53:20.550,00:53:21.570
+"After that, it's diminishing returns.",00:53:21.570,00:53:24.150
+"So it would be very nice if I can
+instead of using the linear one,",00:53:24.150,00:53:29.910
+"define nonlinear features,
+which is the following.",00:53:29.910,00:53:34.770
+"Let's take the condition, the logical
+condition, that the years in residence",00:53:34.770,00:53:39.070
+are less than 1.,00:53:39.070,00:53:40.420
+"And in my mind, I'm considering that
+this is not very stable.",00:53:40.420,00:53:44.250
+You haven't been there for very long.,00:53:44.250,00:53:46.270
+"And another guy, which is x_i greater
+than 5, you have been there for more",00:53:46.270,00:53:49.590
+than 5 years.,00:53:49.590,00:53:50.230
+So you are stable.,00:53:50.230,00:53:51.600
+"The notation here, when I put something
+between these brackets, means that this",00:53:51.600,00:53:56.200
+"returns 1 if the condition is true, and
+returns 0 if the condition is false.",00:53:56.200,00:54:01.370
+"So this is 1, 0, and this is 1, 0.",00:54:01.370,00:54:04.230
+"Now if I had those as variables in my
+linear regression, they would be much",00:54:04.230,00:54:10.070
+"more friendly to the linear formula in
+deciding the credit line, rather than",00:54:10.070,00:54:14.870
+the crude input.,00:54:14.870,00:54:16.050
+"But these are nonlinear
+functions of x_i.",00:54:16.050,00:54:18.600
+"And again, we have the nonlinearity.",00:54:18.600,00:54:19.990
+"And we wonder if we can apply the same
+techniques to a nonlinear case.",00:54:19.990,00:54:23.870
+This is the question.,00:54:28.270,00:54:29.200
+Can we use linear models?,00:54:29.200,00:54:30.680
+"The key question to ask
+is, linear in what?",00:54:30.680,00:54:36.990
+What do I mean?,00:54:36.990,00:54:39.190
+Look at linear regression.,00:54:39.190,00:54:41.190
+What does it implement?,00:54:41.190,00:54:43.620
+It implements this.,00:54:43.620,00:54:45.220
+This is indeed a linear formula.,00:54:45.220,00:54:48.180
+"And when you look at the linear
+classification counterpart, it",00:54:48.180,00:54:52.570
+implements this.,00:54:52.570,00:54:54.180
+"This is a linear formula, and the
+algorithm being simple depends on this",00:54:54.180,00:54:57.790
+part being linear.,00:54:57.790,00:54:58.690
+"And then you just make a decision
+based on that signal.",00:54:58.690,00:55:02.900
+"Now, these you would think are called
+linear because they are linear in the",00:55:02.900,00:55:08.170
+"x's, which they are.",00:55:08.170,00:55:10.725
+"Yeah, I get these inputs.",00:55:10.725,00:55:12.030
+And I combine them linearly.,00:55:12.030,00:55:13.600
+And I get my surface.,00:55:13.600,00:55:14.710
+That's why I'm calling it linear.,00:55:14.710,00:55:17.460
+"However, you will realize that,
+more importantly, these guys",00:55:17.460,00:55:21.560
+are linear in w.,00:55:21.560,00:55:26.360
+"Now when you go from the definition
+of a function to learning,",00:55:26.360,00:55:30.360
+the roles are reversed.,00:55:30.360,00:55:32.770
+"The inputs, which are supposed to be
+the variable when you evaluate",00:55:32.770,00:55:35.850
+"a function, are now constants.",00:55:35.850,00:55:37.700
+They are dictated by the training set.,00:55:37.700,00:55:39.510
+"They're just a bunch of numbers
+someone gave me.",00:55:39.510,00:55:42.060
+"The real variables, as far as learning
+is concerned, are the parameters.",00:55:42.060,00:55:46.880
+"The fact that it's linear in the
+parameters is what matters in deriving",00:55:46.880,00:55:51.040
+"the perceptron learning algorithm, and
+the linear regression algorithm.",00:55:51.040,00:55:54.370
+"If you go back to the derivation, it
+didn't matter what the x's were.",00:55:54.370,00:55:57.900
+"The x's were sitting
+there as constants.",00:55:57.900,00:55:59.850
+"And their linearity in w is what
+enabled the derivation.",00:55:59.850,00:56:04.380
+"That results in the algorithm
+working, because of",00:56:04.380,00:56:08.090
+linearity in the weights.,00:56:08.090,00:56:11.480
+"Now that opens a fantastic possibility,
+because now I can take the inputs,",00:56:11.480,00:56:15.610
+which are just constants.,00:56:15.610,00:56:17.570
+Someone gives me data.,00:56:17.570,00:56:19.300
+"And I can do incredible nonlinear
+transformations to that data.",00:56:19.300,00:56:24.040
+"And it will just remain more elaborate
+data, but constant.",00:56:24.040,00:56:28.830
+"When I get to learn using the
+nonlinearly transformed data, I'm",00:56:28.830,00:56:33.060
+"still in the realm of linear models,
+because the weight that will be given",00:56:33.060,00:56:36.790
+"to the nonlinear feature will
+have a linear dependency.",00:56:36.790,00:56:41.650
+Let's look at an example.,00:56:41.650,00:56:45.240
+Let's say that you take x_1 and x_2.,00:56:45.240,00:56:48.220
+"I omitted the constant x_0
+here, for simplicity.",00:56:48.220,00:56:52.450
+"And these are the guys
+that gave us trouble.",00:56:52.450,00:56:55.960
+These are the coordinates.,00:56:55.960,00:56:58.300
+This is x_1.,00:56:58.300,00:56:58.975
+This is x_2.,00:56:58.975,00:57:00.310
+These guys should map to +1.,00:57:00.310,00:57:02.110
+These guys should map to -1.,00:57:02.110,00:57:03.740
+I don't have a linear separator.,00:57:03.740,00:57:05.990
+"OK, fine.",00:57:05.990,00:57:07.530
+"These are data, right?",00:57:07.530,00:57:08.610
+"So everything that appears within this
+box is just a bunch of constant x's",00:57:08.610,00:57:14.080
+and corresponding constants y.,00:57:14.080,00:57:16.270
+"Now I'm going to take
+a transformation.",00:57:16.270,00:57:19.132
+I'm going to call it phi.,00:57:19.132,00:57:21.160
+"Every point in that space, I'm going
+to transform to another space.",00:57:21.160,00:57:25.860
+"And my formula for transformation
+will be this.",00:57:25.860,00:57:29.390
+"I'm assuming here that the origin of
+the coordinate system is here.",00:57:29.390,00:57:33.550
+"So I'm taking x_1 squared
+and x_2 squared.",00:57:33.550,00:57:36.380
+"And you can see where I'm leading,
+because now I'm measuring distances",00:57:36.380,00:57:39.990
+from the origin.,00:57:39.990,00:57:40.720
+"And that seems to be
+a helpful guy here.",00:57:40.720,00:57:42.860
+"Now in doing this, all I did was take
+constants and produce other constants.",00:57:42.860,00:57:48.400
+"Now, you can look at this and say:
+this is my training data.",00:57:49.070,00:57:53.270
+"I take your original training data, do
+the transformation, and forget about",00:57:53.270,00:57:56.610
+the original one.,00:57:56.610,00:57:57.580
+"Can you solve the problem
+in the new space?",00:57:57.580,00:57:59.520
+"Oh, yes you can, because that's what
+they look like in the new space.",00:57:59.520,00:58:04.410
+"All of a sudden, the red guys, which
+happen to be far away, will have",00:58:04.410,00:58:08.560
+"bigger values for x_1 squared
+and x_2 squared.",00:58:08.560,00:58:11.070
+They will sit here.,00:58:11.070,00:58:12.090
+"And the guys that are closer to the
+origin, by the time they transform",00:58:12.090,00:58:15.040
+"them, they will have smaller
+values here.",00:58:15.040,00:58:17.410
+So this is now your new data set.,00:58:17.410,00:58:20.050
+"Can you separate this
+using a perceptron?",00:58:20.050,00:58:22.580
+"Yes, I can.",00:58:22.580,00:58:23.500
+I can put a line going through here.,00:58:23.500,00:58:25.440
+Great.,00:58:25.440,00:58:26.180
+"When you get a new point to classify,
+transform it the same way, classify",00:58:26.180,00:58:31.740
+"it here, and then report that.",00:58:31.740,00:58:34.730
+That's the game.,00:58:34.730,00:58:36.020
+"And there is really no limit,
+at least computationally,",00:58:36.020,00:58:39.010
+in terms of what you can do here.,00:58:39.010,00:58:40.480
+"You can dream up really elaborate
+nonlinear transformations, transform",00:58:40.480,00:58:44.960
+"the data, and then do
+the classification.",00:58:44.960,00:58:47.890
+There is a catch.,00:58:47.890,00:58:48.890
+And it's a big catch.,00:58:48.890,00:58:50.870
+I will stop here.,00:58:50.870,00:58:52.790
+"And we'll continue with the nonlinear
+transformation at the beginning of the",00:58:52.790,00:58:55.680
+next lecture.,00:58:55.680,00:58:56.550
+"And we'll take a short break now, before
+we go to the Q&amp;A session.",00:58:56.550,00:58:59.890
+We have from the online audience.,00:59:06.250,00:59:09.740
+MODERATOR: A popular question is,00:59:09.740,00:59:12.780
+"how to figure out in
+a systematic way the nonlinear",00:59:12.780,00:59:16.120
+"transformations,
+instead of from the data.",00:59:16.120,00:59:19.350
+"PROFESSOR: I said
+that the nonlinear",00:59:19.350,00:59:21.090
+transformation is a loaded question.,00:59:21.090,00:59:23.710
+"And there will be two steps
+in dealing with it.",00:59:23.710,00:59:27.650
+"I will talk about it a little bit more
+elaborately at the beginning of",00:59:27.650,00:59:31.090
+next lecture.,00:59:31.090,00:59:32.270
+"And then we are going to talk about the
+guidelines for choice, and what you",00:59:32.270,00:59:36.120
+"can do and what you cannot do, after we
+develop the theory of generalization",00:59:36.120,00:59:40.600
+"because it is very sensitive to
+the generalization issue.",00:59:40.600,00:59:43.790
+"And that should not come as a surprise,
+because I can see that I can take",00:59:43.790,00:59:48.160
+"the input, which is, let's say, two
+variables corresponding to two",00:59:48.160,00:59:51.280
+parameters.,00:59:51.280,00:59:52.200
+"And I want the transformation to be as
+elaborate as possible, in order to",00:59:52.200,00:59:58.600
+"stand a good chance of being able
+to separate them linearly.",00:59:58.600,01:00:01.420
+So I'm going to go all out.,01:00:01.420,01:00:02.830
+"I'm just going to keep getting
+nonlinear coordinates--",01:00:02.830,01:00:06.020
+"x_1, x_1 squared, x_1 cubed, x_1
+squared x_2, e to the x,",01:00:06.020,01:00:10.180
+just go on.,01:00:10.180,01:00:12.160
+"Now at some point, you should smell
+a rat, because you realize that I",01:00:12.160,01:00:15.800
+"have this very, very long vector and
+corresponding number of parameters.",01:00:15.800,01:00:19.700
+"And generalization may become an issue,
+which it will become an issue.",01:00:19.700,01:00:23.870
+"So there are guidelines for
+how far you can go.",01:00:23.870,01:00:26.370
+"And also, there are guidelines
+for how you can choose them.",01:00:26.370,01:00:28.800
+"Do I look at the data and figure
+out what is a good nonlinear",01:00:28.800,01:00:31.490
+transformation?,01:00:31.490,01:00:32.320
+Is this allowed?,01:00:32.320,01:00:33.170
+Is this not allowed?,01:00:33.170,01:00:34.150
+What the ramifications are?,01:00:34.150,01:00:35.500
+"All of these will become clear only
+after you look at the theory part.",01:00:35.500,01:00:42.690
+MODERATOR: OK.,01:00:42.690,01:00:45.600
+There's a question about slide 15.,01:00:45.600,01:00:47.515
+So regarding the expression of E_in.,01:00:52.710,01:00:58.300
+"How does the in-sample error here, or
+the out-of-sample error, relate",01:00:58.300,01:01:04.620
+"to the probabilistic definition
+of last time?",01:01:04.620,01:01:08.060
+PROFESSOR: OK.,01:01:08.060,01:01:09.940
+"Here we dealt only with
+the in-sample error.",01:01:09.940,01:01:13.740
+So we decided on E_in.,01:01:13.740,01:01:16.130
+"And in general in learning, you only
+have the in-sample error to deal with.",01:01:16.130,01:01:20.420
+"You have on the side a guarantee that
+when you do well in-sample, you will",01:01:20.420,01:01:25.260
+do well out-of-sample.,01:01:25.260,01:01:26.600
+"So you never handle the out-of-sample
+explicitly.",01:01:26.600,01:01:29.060
+"You just handle the in-sample, and have
+the theoretical guarantee that what",01:01:29.060,01:01:32.220
+"you are doing will help
+you out-of-sample.",01:01:32.220,01:01:34.950
+"Now, the error measure here
+was a squared error.",01:01:34.950,01:01:40.250
+"Therefore, when you define the in-sample
+error, you get the squared",01:01:40.250,01:01:43.680
+error and average it.,01:01:43.680,01:01:45.110
+"And when you define the out-of-sample
+error, it's really the expected value",01:01:45.110,01:01:48.720
+of the squared error.,01:01:48.720,01:01:50.810
+"Now in the case of the binary
+classification, the error was binary.",01:01:50.810,01:01:54.310
+You're either right or wrong.,01:01:54.310,01:01:56.510
+"So you can always define the
+in-sample error as also the",01:01:56.510,01:01:59.820
+average of the question.,01:01:59.820,01:02:01.780
+Am I right or wrong on every point?,01:02:01.780,01:02:03.490
+"So if you are right,",01:02:03.490,01:02:05.350
+there's no error and you get 0.,01:02:05.350,01:02:06.630
+"If you are wrong, you get 1.",01:02:06.630,01:02:08.220
+"So you ask yourself: what is the
+frequency of 1's in-sample?",01:02:08.220,01:02:12.610
+"And that would give you
+the in-sample error.",01:02:12.610,01:02:15.470
+"The expected value of that
+error happens to be the",01:02:15.470,01:02:17.620
+probability of error.,01:02:17.620,01:02:18.840
+"That's why we simply, without going into
+expectation and in-sample average",01:02:18.840,01:02:22.720
+versus out-of-sample expected value--,01:02:22.720,01:02:24.690
+"in the case of classification, we simply
+talked about frequency of error",01:02:24.690,01:02:28.240
+"and probability of error, not because
+they are different, but just because",01:02:28.240,01:02:31.560
+they are simple to state.,01:02:31.560,01:02:32.820
+"But in reality, the aspect of them that
+made them qualify as in-sample",01:02:32.820,01:02:37.140
+"and out-of-sample is that the probability
+is the expected value of",01:02:37.140,01:02:41.510
+"an error measure that happens to
+be a binary error measure.",01:02:41.510,01:02:43.980
+"And the frequency of error happens
+to be the average value",01:02:43.980,01:02:46.910
+of that error measure.,01:02:46.910,01:02:50.540
+"STUDENT: So you showed us a very nice
+graph with negative slope about",01:02:50.540,01:02:57.800
+dependence of future income and--,01:02:57.800,01:03:01.330
+"PROFESSOR: This
+is unintentional.",01:03:01.330,01:03:02.450
+"I didn't think of the income at
+the time I drew the graph.",01:03:02.450,01:03:06.040
+"So any implication that you should
+really do worse in school in order to",01:03:06.040,01:03:10.060
+gain more money is--,01:03:10.060,01:03:12.790
+I disown any such conclusion!,01:03:12.790,01:03:15.620
+STUDENT: OK.,01:03:15.620,01:03:16.340
+"But you mentioned the example of
+determining future income from grade",01:03:16.340,01:03:25.020
+"point average, or at least finding
+some correlation.",01:03:25.020,01:03:29.300
+"So the question I'm interested
+in is, where can we get data?",01:03:29.300,01:03:37.290
+PROFESSOR: You can get--,01:03:37.290,01:03:37.930
+"obviously, the alumni association
+of every school keeps",01:03:37.930,01:03:41.120
+track of the alumni.,01:03:41.120,01:03:43.740
+And they send them questionnaires.,01:03:43.740,01:03:45.640
+"And they have some of the inputs,
+and how much money they make.",01:03:45.640,01:03:50.260
+There are a number of parameters.,01:03:50.260,01:03:51.900
+"So there will be a number of
+schools that have that.",01:03:51.900,01:03:54.190
+"And actually, this is actually used.",01:03:54.190,01:03:56.210
+"If you realize that something is
+related to success or something, you",01:03:56.210,01:03:59.490
+"can go back and revise your curriculum
+or revise your criteria.",01:03:59.490,01:04:02.550
+"So the data is indeed available,
+if that's the question.",01:04:02.550,01:04:08.430
+"STUDENT: I mean, it's available
+in principle.",01:04:08.430,01:04:10.350
+But can we get it?,01:04:10.350,01:04:12.040
+"PROFESSOR: Oh, we get it.",01:04:12.040,01:04:13.260
+I thought it was generic we.,01:04:13.630,01:04:15.370
+I don't--,01:04:15.370,01:04:16.020
+"obviously, the data will be
+anonymous after a while.",01:04:16.020,01:04:19.740
+"You'll just get the GPA and the income,
+without knowing who the person is.",01:04:19.740,01:04:23.610
+"You are dependent on the kindness of the
+alumni associations at different",01:04:26.145,01:04:30.150
+"schools, I guess.",01:04:30.150,01:04:31.430
+"Or maybe there are some available
+in public domain.",01:04:31.430,01:04:34.010
+I have not looked.,01:04:34.010,01:04:36.310
+"So my understanding is that you want
+to run linear regression, see what",01:04:36.310,01:04:40.220
+"happens, and then focus your time
+on the courses that matter.",01:04:40.220,01:04:42.670
+That's the idea now?,01:04:42.670,01:04:43.790
+That's your feedback?,01:04:43.790,01:04:46.190
+MODERATOR: A technical question.,01:04:48.070,01:04:53.490
+"Why is the w_0 included in
+the linear regression.",01:04:53.500,01:04:57.680
+"So there's a confusion about this. And
+also in that point, what do you do",01:04:57.680,01:05:03.010
+specifically in the binary case?,01:05:03.010,01:05:05.760
+"How do you incorporate the
++1's or -1?",01:05:05.760,01:05:08.550
+There's some people asking about this.,01:05:08.550,01:05:09.640
+"PROFESSOR: Let me 
+answer one at a time.",01:05:09.640,01:05:10.500
+I'll talk about the threshold first.,01:05:10.500,01:05:11.710
+"Why the threshold is there, right?",01:05:11.710,01:05:14.660
+Let's look here.,01:05:14.660,01:05:15.910
+"If you look at the line here,
+the linear regression line.",01:05:20.710,01:05:24.000
+"The linear regression line is
+not a homogeneous line.",01:05:26.990,01:05:33.500
+It doesn't pass by the origin.,01:05:33.500,01:05:34.720
+"If I told you that you cannot use
+a threshold, then the constant part of",01:05:34.720,01:05:38.680
+"the equation goes away, and the
+line you have will have to",01:05:38.680,01:05:41.410
+pass through the origin.,01:05:41.410,01:05:42.840
+"Can you imagine if you were trying
+to fit this with a line?",01:05:42.840,01:05:46.150
+"Obviously, it would be down there
+if you have the negative slope,",01:05:46.150,01:05:49.940
+"or if you want to pass through
+the points up there.",01:05:49.940,01:05:51.730
+"So obviously, I need the constant
+in order to get a proper model.",01:05:51.730,01:05:55.450
+"And in general, there is
+an offset depending on the",01:05:55.450,01:05:58.930
+values of these variables.,01:05:58.930,01:06:00.310
+"And the offset is compensated
+for by the threshold.",01:06:00.310,01:06:02.450
+"That's why we need the threshold
+for linear regression.",01:06:02.450,01:06:06.390
+What is the second question?,01:06:06.390,01:06:07.770
+"MODERATOR: In the binary case, when
+you use y as +1 or -1, why",01:06:07.770,01:06:13.930
+does that just work?,01:06:13.930,01:06:16.480
+"PROFESSOR: Well, if you apply
+linear regression, you have the",01:06:16.480,01:06:21.170
+following guarantee at the end.,01:06:21.170,01:06:23.350
+"The hypothesis you have has the
+least squared error from the",01:06:23.350,01:06:28.220
+targets on the examples.,01:06:28.220,01:06:30.280
+"That's what has been achieved by the
+linear regression algorithm.",01:06:30.280,01:06:34.470
+"Now the outputs of the examples
+being +1 or -1,",01:06:34.470,01:06:37.700
+"we can put that together with
+the first statement.",01:06:37.700,01:06:39.380
+"And then we realize that the output
+of my hypothesis is closest to",01:06:39.380,01:06:44.890
+"the value +1 or -1 with
+a mean squared error.",01:06:44.890,01:06:49.650
+"The leap of faith is that, if you are
+close to +1 versus -1, then",01:06:49.650,01:06:55.030
+"the chances are when you are close to
++1, you are at least positive.",01:06:55.030,01:06:58.560
+"And when you are close to -1,
+you are at least negative.",01:06:58.560,01:07:01.900
+"If you accept that leap of faith, then
+the conclusion is that, when you take",01:07:01.900,01:07:05.730
+"the threshold of the value of the signal
+from linear regression, you",01:07:05.730,01:07:09.260
+"will get the classification right
+because positive will give you +1.",01:07:09.260,01:07:12.170
+Negative will give you -1.,01:07:12.170,01:07:13.810
+"This is not quite the case, because in
+the attempt to numerically replicate",01:07:13.810,01:07:18.880
+"all the points, the signal for linear
+regression can become-- let's say as I",01:07:18.880,01:07:26.950
+"mentioned, +7 for some points
+and -7 for another point.",01:07:26.950,01:07:30.970
+"And the linear regression is trying to
+push the w, which is what will end up",01:07:30.970,01:07:35.960
+"being the boundary, in order to
+capture that numerical value.",01:07:35.960,01:07:39.320
+"So in attempting to fit stuff that is
+irrelevant to the classification,",01:07:39.320,01:07:43.590
+it may mess up the classification.,01:07:43.590,01:07:45.500
+"And that's why the suggestion is, don't
+use it as a final thing for",01:07:45.500,01:07:48.950
+classification.,01:07:48.950,01:07:49.520
+"Just use it as an initial weight, and
+then use a proper classification,",01:07:49.520,01:07:53.400
+"something as simple as the pocket
+algorithm, in order to fine-tune it",01:07:53.400,01:07:56.180
+"further in order to get the classification
+part, without having to",01:07:56.180,01:07:59.090
+suffer from the numerical angle.,01:07:59.090,01:08:02.650
+"MODERATOR: So also on that, does it
+make a difference what you use?",01:08:02.650,01:08:05.910
+"+1, -1, or something else?",01:08:05.910,01:08:09.380
+PROFESSOR: OK.,01:08:09.380,01:08:10.470
+"If it's plus something and minus the same
+thing, it's a matter of scale.",01:08:10.470,01:08:15.420
+"If it's plus and minus, and not
+symmetric, it will be",01:08:15.420,01:08:18.140
+absorbed in the threshold.,01:08:18.140,01:08:19.160
+So it really doesn't matter.,01:08:19.160,01:08:20.680
+"It will just make things
+look different.",01:08:20.680,01:08:22.109
+MODERATOR: Regarding the first part,01:08:24.649,01:08:26.380
+"of the lecture, how
+do you usually come up",01:08:26.380,01:08:29.890
+with features?,01:08:29.890,01:08:32.040
+PROFESSOR: OK.,01:08:32.040,01:08:34.800
+"The best approach is to look at the
+raw input, and look at the problem",01:08:34.800,01:08:40.080
+"statement, and then try to infer
+what would be a meaningful",01:08:40.080,01:08:44.939
+feature for this problem?,01:08:44.939,01:08:46.140
+"For example, the case where I talked
+about the years in residence.",01:08:46.140,01:08:51.160
+"It does make sense to derive some
+features that are closer to the linear",01:08:51.160,01:08:57.750
+dependency.,01:08:57.750,01:08:58.960
+"There is no general algorithm
+for getting features.",01:08:58.960,01:09:03.785
+"This is the part where you work
+with the problem, and you try to",01:09:03.785,01:09:08.090
+represent the input in a better way.,01:09:08.090,01:09:10.220
+"And the only catch is, if you look
+at the data in order to try",01:09:10.220,01:09:14.550
+"to derive the features,",01:09:14.550,01:09:16.229
+"there is a problem there that
+will become apparent when",01:09:16.229,01:09:20.140
+we come to the theory.,01:09:20.140,01:09:23.240
+"But the bottom line is that, if you don't
+look at the data, and you study",01:09:23.240,01:09:27.140
+"the problem and derive features based
+on that, that will almost always be",01:09:27.140,01:09:31.359
+"helpful if you don't have
+too many of them.",01:09:31.359,01:09:34.270
+"If you have too many of them, it
+starts becoming a problem.",01:09:34.270,01:09:36.380
+But something--,01:09:36.380,01:09:37.830
+"first order, usually when I get
+a problem, I look at the data.",01:09:37.830,01:09:40.300
+"And I probably can think of less
+than a dozen variables",01:09:40.300,01:09:44.210
+that will be helpful.,01:09:44.210,01:09:45.220
+And I put all of them.,01:09:45.220,01:09:46.050
+"And usually, a dozen variables in
+this case doesn't increase the",01:09:46.050,01:09:48.689
+input space by much.,01:09:48.689,01:09:49.609
+These are big problems.,01:09:49.609,01:09:51.160
+"So I don't suffer much from
+the generalization issue.",01:09:51.160,01:09:55.990
+"MODERATOR: So added to that,
+a short clarification--",01:09:55.990,01:09:58.260
+so the nonlinear transformations--,01:09:58.260,01:10:00.900
+they become features?,01:10:00.900,01:10:02.770
+PROFESSOR: Yeah.,01:10:02.770,01:10:03.140
+"The word feature, we
+are going to use.",01:10:03.140,01:10:06.790
+"There's a feature space
+which is called Z.",01:10:06.790,01:10:09.220
+"And anything that you take the input and
+transform it into something else,",01:10:09.220,01:10:13.280
+this will be called feature.,01:10:13.280,01:10:14.580
+"And features of features
+will also be features.",01:10:14.580,01:10:17.630
+"So if you take for example the
+classification of the digits, we had",01:10:17.630,01:10:20.890
+the pixel values.,01:10:20.890,01:10:21.680
+That's the raw input.,01:10:21.680,01:10:22.850
+"And then we had the symmetry
+and the intensity.",01:10:22.850,01:10:25.640
+These were features.,01:10:25.640,01:10:26.700
+"If you go further and find nonlinear
+transformations of those, these will",01:10:26.700,01:10:30.340
+also be called features.,01:10:30.340,01:10:31.980
+"A feature is any higher-level
+representation of a raw input.",01:10:31.980,01:10:35.830
+"MODERATOR: Another question is: how
+does this analysis change if",01:10:40.980,01:10:45.830
+"we cannot assume that the data--
+if they're not independent.",01:10:45.830,01:10:50.565
+"PROFESSOR: Not clear
+about the question.",01:10:53.675,01:10:55.350
+So there is really--,01:10:55.350,01:10:58.420
+I think I get it.,01:10:58.660,01:11:01.180
+"Probably when we get the inputs, the
+question is independence versus",01:11:01.180,01:11:05.720
+dependence.,01:11:05.720,01:11:06.250
+"And the independence was used in
+getting the generalization bound.",01:11:06.250,01:11:09.070
+"That's probably the direction
+of the question.",01:11:09.070,01:11:10.650
+"The independence was from one
+data point to another.",01:11:10.650,01:11:16.110
+So I have N inputs.,01:11:16.110,01:11:18.680
+"And I want these guys to be generated
+independently, according to",01:11:18.680,01:11:21.540
+a probability distribution.,01:11:21.540,01:11:23.050
+"If they were originally independent,
+and I transformed one of them and",01:11:23.050,01:11:27.160
+"transformed the other, the independence
+is inherited.",01:11:27.160,01:11:30.180
+"There is no question of independence
+between coordinates of the same input.",01:11:30.180,01:11:33.710
+"The independence was a question
+of the independence between",01:11:33.710,01:11:37.820
+the different inputs.,01:11:37.820,01:11:39.680
+MODERATOR: So the different inputs.,01:11:39.680,01:11:40.950
+"PROFESSOR: Different
+input points.",01:11:40.950,01:11:42.200
+"MODERATOR: So another question is, are
+there methods that use different",01:11:47.930,01:11:53.990
+"hyperplanes and intersections
+of them to separate data?",01:11:53.990,01:11:57.250
+PROFESSOR: Correct.,01:11:57.250,01:11:58.300
+"The linear model that we have described
+is the building block of so",01:11:58.300,01:12:02.730
+many models in machine learning.,01:12:02.730,01:12:06.300
+"You will find that if you take a linear
+model with a soft threshold,",01:12:06.300,01:12:09.500
+"not the hard-threshold version, and you
+put a bunch of them together, you",01:12:09.500,01:12:13.890
+will get a neural network.,01:12:13.890,01:12:15.720
+"If you take the linear model, and you try
+to pick the separating boundary in",01:12:15.720,01:12:22.195
+"a principled way, you get
+support vector machines.",01:12:22.195,01:12:25.130
+"If you take the nonlinear
+transformation, and you try to find",01:12:25.130,01:12:29.170
+"a computationally efficient way of doing
+it, you get kernel methods.",01:12:29.170,01:12:33.050
+"So there are lots of methods within
+machine learning that build on the",01:12:33.050,01:12:36.730
+linear model.,01:12:36.730,01:12:37.790
+"The linear model is somewhat
+underutilized.",01:12:37.790,01:12:40.660
+It's not glorious.,01:12:40.660,01:12:42.230
+"It's not glorious,
+but it does the job.",01:12:42.230,01:12:45.090
+"The interesting thing is that if you
+have a problem, there is a very good",01:12:45.090,01:12:47.710
+"chance that if you take a simple linear
+model, you will be able to",01:12:47.710,01:12:51.570
+achieve what you want.,01:12:51.570,01:12:52.930
+You may not be able to brag about it.,01:12:52.930,01:12:55.270
+But you are going to do the job.,01:12:55.270,01:12:57.680
+"And obviously, the other models will
+give you incremental performance in",01:12:57.680,01:13:01.450
+some cases.,01:13:01.450,01:13:03.540
+"MODERATOR: So a question, getting
+a little bit ahead-- how do you",01:13:03.540,01:13:06.090
+"assess the quality of E_in
+and E_out systematically?",01:13:06.090,01:13:11.456
+"PROFESSOR: This is
+a theoretical question.",01:13:11.456,01:13:13.610
+E_in is very simple.,01:13:13.620,01:13:15.150
+I have the value of E_in.,01:13:15.150,01:13:16.680
+"I can assess its value by just
+looking at its value.",01:13:16.680,01:13:19.540
+I can evaluate it at any given point.,01:13:19.540,01:13:21.480
+"And this is what makes the algorithm
+able to pick the best in-sample",01:13:21.480,01:13:25.530
+"hypothesis, by picking the one that
+has the smallest in-sample error.",01:13:25.530,01:13:29.460
+"The out-of-sample error,
+I don't have access to.",01:13:29.460,01:13:31.740
+"There will be some methods described
+after the theory that will give us",01:13:31.740,01:13:35.640
+"an explicit estimate of the
+out-of-sample error.",01:13:35.640,01:13:38.170
+"But in general, I rely on the theory
+that guarantees that the in-sample",01:13:38.170,01:13:44.080
+"error tracks the out-of-sample error,
+in order to go all out for the",01:13:44.080,01:13:48.240
+"in-sample error, and hope that the
+out-of-sample error follows, which we",01:13:48.240,01:13:51.360
+"have seen in the graph when we were
+looking at the evolution of the",01:13:51.360,01:13:53.800
+perceptron.,01:13:53.800,01:13:54.590
+"And the in-sample error
+was going down and up.",01:13:54.590,01:13:56.770
+"And the out-of-sample error was also
+going down and up, albeit with",01:13:56.770,01:14:00.000
+a discrepancy between the two.,01:14:00.000,01:14:01.530
+But they were tracking each other.,01:14:01.530,01:14:04.010
+"MODERATOR: So here's a question
+that's kind of a confusion.",01:14:04.010,01:14:07.060
+"If you want to fit a polynomial, is
+this still a linear regression case?",01:14:07.060,01:14:16.840
+PROFESSOR: Correct.,01:14:16.840,01:14:17.380
+"Because right now, let's say we have
+a single input variable, x, like the",01:14:17.380,01:14:21.810
+case I gave.,01:14:21.810,01:14:22.890
+So you have x and y.,01:14:23.040,01:14:24.740
+Now you have a line.,01:14:24.740,01:14:26.700
+"If you use the nonlinear transformation,
+you can transform this",01:14:26.700,01:14:29.700
+"x to x, x squared, x cubed, x to the
+fourth, x to the fifth, and then fit",01:14:29.700,01:14:37.720
+a line to the new space.,01:14:37.720,01:14:39.340
+"And a line in the new space will be
+a polynomial in the old space.",01:14:39.340,01:14:42.540
+"So this is covered through the
+nonlinear transformation.",01:14:42.540,01:14:44.380
+"MODERATOR: What is the relation
+between linear regression",01:14:47.350,01:14:50.160
+least squares,01:14:50.160,01:14:50.720
+with maximum likelihood estimation.,01:14:50.720,01:14:53.960
+PROFESSOR: OK.,01:14:53.960,01:14:54.700
+"When you look at linear regression in
+the statistics literature, there are",01:14:54.700,01:14:58.840
+"many more assumptions about the
+probabilities and what the noise is.",01:14:58.840,01:15:01.800
+"And you can get actually
+more results about it.",01:15:01.800,01:15:05.320
+"Under certain conditions, you can
+relate it to the maximum likelihood.",01:15:05.320,01:15:08.400
+"You can say, Gaussian goes
+with the squared error.",01:15:08.400,01:15:12.540
+"And in this case, minimizing it will
+correspond to maximum likelihood.",01:15:12.540,01:15:15.500
+So there is a relationship.,01:15:15.500,01:15:17.510
+"On the other hand, I prefer to give the
+linear regression in the context",01:15:17.510,01:15:22.880
+"of machine learning, without making too
+many assumptions about distributions",01:15:22.880,01:15:26.370
+"and whatnot, because I want it to be
+applied to a general situation rather",01:15:26.370,01:15:30.190
+"than applied to a particular
+situation.",01:15:30.190,01:15:32.440
+"As a result of that, I will be able to
+say less in terms of what is the",01:15:32.440,01:15:35.640
+probability of being right or wrong.,01:15:35.640,01:15:36.470
+"I just have the generalization from
+in-sample and out-of-sample.",01:15:36.470,01:15:39.580
+"But that suffices for most of the
+machine learning situation.",01:15:39.580,01:15:42.660
+So there is a relationship.,01:15:42.660,01:15:44.440
+"And it's studied fairly well
+in other disciplines.",01:15:44.440,01:15:48.150
+"But it is not of particular
+interest to the line of",01:15:48.150,01:15:54.180
+logic that I'm following.,01:15:54.180,01:15:56.460
+"MODERATOR: So a popular question is: can
+you give at least a set of usual",01:15:56.460,01:16:00.930
+nonlinear transformations used?,01:16:00.930,01:16:03.510
+PROFESSOR: There will be many.,01:16:03.510,01:16:04.830
+"When we get to support vector
+machines, we will be dealing with",01:16:04.840,01:16:08.160
+"a number of transformations, some of
+them polynomials like the ones that",01:16:08.160,01:16:11.060
+were mentioned.,01:16:11.060,01:16:11.790
+"One of the useful ones is referred
+to as radial basis functions.",01:16:11.790,01:16:14.910
+We will talk about that as well.,01:16:14.910,01:16:16.360
+So there will be transformations.,01:16:16.360,01:16:18.090
+"And the main point is to be able to
+understand what you can and what you",01:16:18.090,01:16:23.830
+"cannot do, in terms of jeopardizing the
+generalization performance by taking",01:16:23.830,01:16:28.870
+a nonlinear transformation.,01:16:28.870,01:16:30.090
+"So after we are done with that theory,
+we will have a significant level of",01:16:30.090,01:16:33.510
+"freedom of choosing what nonlinear
+transform we use.",01:16:33.510,01:16:37.020
+"And we'll have some guidelines of some
+of the famous nonlinear transforms.",01:16:37.020,01:16:39.640
+So this is coming up.,01:16:39.640,01:16:42.790
+"MODERATOR: I think you already
+answered this question last time.",01:16:42.790,01:16:44.860
+"But again, someone asks, is it
+impossible for machine learning to",01:16:44.860,01:16:48.010
+"find a pattern of a pseudo-random
+number generator?",01:16:48.010,01:16:51.280
+"PROFESSOR: Well, if it's pseudo
+random, then in principle, if",01:16:51.280,01:16:55.050
+"you get the seed, you can produce it.",01:16:55.050,01:16:58.460
+"But the way it's usually used is you use
+a pseudo-random number, and then",01:16:58.460,01:17:05.160
+"you take a few bits and have them as
+an output for different inputs.",01:17:05.160,01:17:07.700
+"So just looking at the inputs and trying
+to decipher it-- it's next to",01:17:07.700,01:17:10.700
+impossible.,01:17:10.700,01:17:11.370
+So it's a practical question.,01:17:11.370,01:17:12.353
+"Philosophically, yes you can.",01:17:12.353,01:17:14.280
+"Practically, it looks random
+for all intents and purposes.",01:17:14.280,01:17:17.060
+"MODERATOR: So what are the different
+treatments for continuous responses",01:17:22.560,01:17:27.200
+versus discrete responses in,01:17:27.200,01:17:29.460
+I guess--,01:17:29.460,01:17:30.140
+PROFESSOR: Yeah.,01:17:30.140,01:17:30.470
+"Obviously, this is dictated
+by the problem.",01:17:30.470,01:17:32.970
+"If someone comes, and they want to
+approve credit, etc, I'm going to use",01:17:32.970,01:17:35.900
+the classification hypothesis set.,01:17:35.900,01:17:38.730
+"If someone wants to get a credit line or
+something else, then I will have to",01:17:38.730,01:17:42.320
+use regression.,01:17:42.320,01:17:43.405
+"So it really is dependent
+on the problem.",01:17:43.405,01:17:45.290
+"And the funny part is that real numbers
+look more sophisticated.",01:17:45.290,01:17:49.990
+"Yet the algorithm that goes with them,
+which is linear regression, is much",01:17:49.990,01:17:52.960
+easier than the other one.,01:17:52.960,01:17:54.590
+"The reason is that the other
+one is combinatorial.",01:17:54.590,01:17:56.020
+"And combinatorial optimization is
+pretty difficult in general.",01:17:56.020,01:17:59.510
+"So the answer to the question is that it
+depends on the target function that",01:17:59.510,01:18:04.110
+the person is coming up with.,01:18:04.110,01:18:05.350
+"And when there is cross fertilization
+between the techniques,",01:18:05.350,01:18:08.240
+"it's just a way to use an analytic
+advantage from one method to give the",01:18:08.240,01:18:13.420
+"other one a jump start, or to give
+it a reasonable solution.",01:18:13.420,01:18:18.280
+But it's a computational question.,01:18:18.280,01:18:19.440
+"The distinction is really in the
+problem statement itself.",01:18:19.440,01:18:23.600
+"MODERATOR: Can you say what makes
+a nonlinear transformation good?",01:18:23.600,01:18:28.740
+PROFESSOR: OK.,01:18:28.740,01:18:30.380
+"I will be able to talk about this
+a little bit more intelligently after",01:18:30.380,01:18:34.210
+the theory.,01:18:34.210,01:18:35.360
+"I would like to emphasize that the
+theory part will be very important in",01:18:35.360,01:18:40.820
+"giving us all the tools to talk, with
+authority, about all the issues that",01:18:40.820,01:18:44.880
+are being raised.,01:18:44.880,01:18:45.900
+"So there is a reason for including the
+theory before we go into more details.",01:18:45.900,01:18:50.960
+"This lecture was meant to give you just
+a little bit of standard tools",01:18:50.960,01:18:56.960
+"that you use, and if you look at it now,
+you can use for many applications",01:18:56.960,01:19:01.550
+"and many data sets, because now you
+can deal with non-separable data.",01:19:01.550,01:19:04.400
+You can deal with real-valued data.,01:19:04.400,01:19:06.250
+"And you can even deal with some
+nonlinear situations.",01:19:06.250,01:19:08.960
+"So it's just a toolbox for you
+to get your hands wet.",01:19:08.960,01:19:13.900
+"And then things will become
+more principled when we",01:19:13.900,01:19:17.850
+develop more material.,01:19:17.850,01:19:19.100
+"MODERATOR: Yeah, I think that's it.",01:19:21.592,01:19:22.830
+"PROFESSOR: OK, that's it.",01:19:22.830,01:19:23.840
+We will see you on Thursday.,01:19:23.850,01:19:25.580

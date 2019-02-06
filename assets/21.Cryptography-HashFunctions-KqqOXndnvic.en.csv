@@ -1,0 +1,2536 @@
+text,start,stop
+"The following content is
+provided under a Creative",00:00:00.090,00:00:02.500
+Commons license.,00:00:02.500,00:00:04.019
+"Your support will help
+MIT OpenCourseWare",00:00:04.019,00:00:06.360
+"continue to offer high quality
+educational resources for free.",00:00:06.360,00:00:10.730
+"To make a donation, or
+view additional materials",00:00:10.730,00:00:13.330
+"from hundreds of MIT courses,
+visit MIT OpenCourseWare",00:00:13.330,00:00:17.236
+at ocw.mit.edu.,00:00:17.236,00:00:17.861
+"SRINIVAS DEVADAS: All
+right, let's get started.",00:00:21.222,00:00:23.180
+Good morning everyone.,00:00:23.180,00:00:24.740
+I see a lot of tired faces.,00:00:24.740,00:00:28.210
+I'm not tired.,00:00:28.210,00:00:29.030
+Why are you tired?,00:00:29.030,00:00:29.930
+[LAUGHTER],00:00:29.930,00:00:30.894
+I only lecture half the time.,00:00:31.860,00:00:33.130
+"You guys take the
+class all the time.",00:00:33.130,00:00:36.240
+"So today's lecture is
+about hash functions.",00:00:36.240,00:00:41.640
+"And you may think that you know
+a lot about hash functions,",00:00:41.640,00:00:45.680
+and you probably do.,00:00:45.680,00:00:47.860
+"But what we're going to do
+today is talk about really",00:00:47.860,00:00:50.840
+"a completely different
+application of hash functions,",00:00:50.840,00:00:54.990
+"and a new set of
+properties that we're",00:00:54.990,00:00:57.700
+"going to require
+of hash functions",00:00:57.700,00:01:00.190
+that I'll elaborate on.,00:01:00.190,00:01:01.900
+"And we're going to see a bunch
+of different applications",00:01:01.900,00:01:04.459
+"to things like
+password protection,",00:01:04.459,00:01:06.700
+"checking the integrity
+of files, auctions,",00:01:06.700,00:01:10.220
+and so on and so forth.,00:01:10.220,00:01:11.316
+"So a little bit of
+a different lecture.",00:01:11.316,00:01:12.940
+"Both today and on
+Thursday I'm going",00:01:12.940,00:01:15.692
+"to be going to be doing
+cryptography and applications,",00:01:15.692,00:01:18.320
+not too much of algorithms.,00:01:18.320,00:01:20.380
+"But we will do a little bit
+of analysis with respect",00:01:20.380,00:01:22.960
+"to whether properties
+are satisfied,",00:01:22.960,00:01:25.390
+"in this case by hash
+functions or not.",00:01:25.390,00:01:28.010
+So let's just dive right in.,00:01:28.010,00:01:29.910
+"You all know what
+hash functions are.",00:01:29.910,00:01:33.240
+"There's no real change
+in the definition.",00:01:33.240,00:01:37.380
+"But the kinds of hash
+functions that we're",00:01:37.380,00:01:39.370
+"going to be looking at
+today are quite different",00:01:39.370,00:01:41.960
+"from the simple hash
+functions, like taking a mod",00:01:41.960,00:01:45.590
+"with a prime number that
+we've looked at in the past.",00:01:45.590,00:01:49.950
+"And the notion of
+collisions is going",00:01:49.950,00:01:51.680
+"to come up again,
+except that again we're",00:01:51.680,00:01:53.980
+"going to raise the
+stakes a little bit.",00:01:53.980,00:01:56.600
+"So a hash function
+maps arbitrary",00:01:56.600,00:02:04.100
+strings-- let me do this right.,00:02:04.100,00:02:08.539
+"So you're not making a statement
+about the length of the string.",00:02:11.940,00:02:15.645
+"You will break it up, even if
+you had a string of length 512,",00:02:18.440,00:02:23.490
+"or maybe it was 27, you do
+want to get a number out of it.",00:02:23.490,00:02:28.830
+"In a specific
+range there's going",00:02:28.830,00:02:31.540
+"to be a number of
+bits associated",00:02:31.540,00:02:34.190
+with our hash functions.,00:02:34.190,00:02:35.346
+"And previously we
+had a number of slots",00:02:35.346,00:02:36.970
+"associated with the output
+of the hash function.",00:02:36.970,00:02:39.620
+"But the input
+could be arbitrary.",00:02:39.620,00:02:42.100
+"And these arbitrary
+strings of data",00:02:42.100,00:02:48.080
+"are going to get
+mapped, as I just said,",00:02:48.080,00:02:50.310
+to a fixed length output.,00:02:50.310,00:02:53.190
+"And we're going to
+think about this fixed",00:02:56.282,00:02:57.990
+"length as being a
+number of bits today,",00:02:57.990,00:03:01.590
+"as opposed to slots
+in the hash table.",00:03:01.590,00:03:04.530
+"Because we really aren't
+going to be storing",00:03:04.530,00:03:08.170
+"a dictionary or a hash
+table in the applications",00:03:08.170,00:03:10.520
+we're going to look at today.,00:03:10.520,00:03:11.780
+"It's simply a question
+of computing a hash.",00:03:11.780,00:03:14.750
+"And because the
+fixed length output",00:03:14.750,00:03:18.120
+"is going to be something on the
+order of 160-bits, or 256-bits,",00:03:18.120,00:03:23.880
+"there's no way that you
+could store two arrays",00:03:23.880,00:03:26.980
+"to 160 elements in a hash
+table, or even two arrays to 64",00:03:26.980,00:03:33.370
+really.,00:03:33.370,00:03:34.340
+"And so we're going
+to just assume",00:03:34.340,00:03:37.120
+"that we're computing
+these hashes",00:03:37.120,00:03:41.880
+"and using them for
+certain applications.",00:03:41.880,00:03:45.960
+"I just wrote output
+twice I guess.",00:03:45.960,00:03:48.800
+"So map it to a
+fixed length output.",00:03:48.800,00:03:52.720
+"We want to do this in a
+deterministic fashion.",00:03:52.720,00:03:58.990
+"So once we've computed the
+hash of a particular arbitrary",00:03:58.990,00:04:04.430
+"string that is
+given to us, we want",00:04:04.430,00:04:07.960
+"to be able to repeat
+that process to get",00:04:07.960,00:04:10.150
+the same hash every time.,00:04:10.150,00:04:13.090
+"We want to do this
+in a public fashion.",00:04:13.090,00:04:15.070
+So everything is public.,00:04:15.070,00:04:16.170
+There's no secrecy.,00:04:16.170,00:04:17.420
+"There's keyed hash functions
+that we won't actually",00:04:17.420,00:04:19.920
+"look at today, but
+maybe in passing",00:04:19.920,00:04:22.210
+I'll mention it next time.,00:04:22.210,00:04:24.500
+"We're not looking at
+keyed hash functions here.",00:04:24.500,00:04:26.700
+"There's no secrets in any of
+the descriptions of algorithms",00:04:26.700,00:04:30.920
+"or techniques I'm going
+to be describing today.",00:04:30.920,00:04:34.540
+And we want this to be random.,00:04:34.540,00:04:37.720
+We want it to look random.,00:04:37.720,00:04:39.870
+"True randomness is going to
+be impossible to achieve,",00:04:39.870,00:04:43.750
+given our other constraints.,00:04:43.750,00:04:45.142
+"But we're going to
+try and approximate it",00:04:45.142,00:04:46.850
+with pseudo-randomness.,00:04:46.850,00:04:48.880
+"But we'd want it to
+look random, because we",00:04:48.880,00:04:51.040
+"are interested-- as we were
+in the case of dictionaries",00:04:51.040,00:04:55.210
+"and the regular application
+of hash functions-- we",00:04:55.210,00:04:58.030
+"are interested in
+minimizing collisions.",00:04:58.030,00:05:00.870
+"And in fact we're going to
+raise the stakes really high",00:05:00.870,00:05:03.570
+with respect to collisions.,00:05:03.570,00:05:05.470
+"We want it to be impossible
+for you, or anyone else,",00:05:05.470,00:05:09.870
+to discover collisions.,00:05:09.870,00:05:12.210
+"And that's going to be an
+important property of collision",00:05:12.210,00:05:15.150
+"resistance that obviously is
+going to require randomness.",00:05:15.150,00:05:20.520
+"And those are the
+three things we want,",00:05:20.520,00:05:24.220
+"deterministic,
+public, and random.",00:05:24.220,00:05:26.840
+"And so just from a function
+description standpoint",00:05:26.840,00:05:32.870
+"you have 0, 1 star here,
+which implies that it's",00:05:32.870,00:05:35.800
+an arbitrary length strength.,00:05:35.800,00:05:37.770
+"And we want to go to 0, 1 d.",00:05:37.770,00:05:41.830
+"And this is a
+string of length d.",00:05:41.830,00:05:43.955
+"So that means that
+you're getting d-bits out",00:05:49.170,00:05:51.250
+from your hash function.,00:05:51.250,00:05:52.650
+"And here the length is
+greater than or equal to 0.",00:05:52.650,00:05:56.630
+So that's it.,00:06:00.360,00:06:01.750
+Not a lot that's new here.,00:06:01.750,00:06:05.000
+"But a few things that are going
+to be a little bit different.",00:06:05.000,00:06:08.880
+"And there's some subtleties
+here that we'll get to.",00:06:08.880,00:06:11.630
+"I want to emphasize two things,
+one of which I just said.",00:06:11.630,00:06:18.600
+"There's no secrecy, no secret
+keys here in the hash functions",00:06:18.600,00:06:23.570
+that we are describing.,00:06:23.570,00:06:25.350
+All operations are public.,00:06:25.350,00:06:27.250
+"So just like you had your hash
+function, which was k mod p,",00:06:27.250,00:06:33.330
+"and p was a prime and p was
+public and known to everyone",00:06:33.330,00:06:38.220
+"who used the dictionary,
+everything here",00:06:38.220,00:06:40.600
+"we are going to be
+talking about is public.",00:06:40.600,00:06:42.570
+So anyone can compute h.,00:06:42.570,00:06:44.680
+"And we're going to
+assume that this",00:06:51.942,00:06:53.400
+"is poly-time computation--
+not too surprising-- but I'm",00:06:53.400,00:06:57.310
+being quite flexible here.,00:06:57.310,00:07:01.700
+"When you look at
+dictionaries, and you",00:07:01.700,00:07:03.720
+"think about using dictionaries,
+and using it to implement",00:07:03.720,00:07:07.140
+"efficient algorithms,
+what is the assumption",00:07:07.140,00:07:10.540
+"we kind of implicitly made--
+are perhaps explicitly",00:07:10.540,00:07:13.690
+"in some cases-- with respect
+to computing the hash?",00:07:13.690,00:07:18.810
+Anybody?,00:07:18.810,00:07:19.310
+Yeah?,00:07:22.210,00:07:22.710
+AUDIENCE: Constant time?,00:07:22.710,00:07:23.690
+SRINIVAS DEVADAS: Constant time.,00:07:23.690,00:07:25.023
+"We assumed-- so this is not
+necessarily order 1, right?",00:07:25.023,00:07:33.680
+So that's important.,00:07:33.680,00:07:34.840
+"So we're going to-- I want
+to make sure you're watching.",00:07:34.840,00:07:42.180
+"So you're going to raise
+the stakes even with respect",00:07:42.180,00:07:45.770
+to the complexity of the hash.,00:07:45.770,00:07:47.990
+"And as you'll see, because
+of the desirable properties,",00:07:47.990,00:07:50.459
+we're going to have to do that.,00:07:50.459,00:07:51.750
+"We're going to ask for
+really a lot with respect",00:07:51.750,00:07:54.010
+to these hash functions.,00:07:54.010,00:07:55.610
+"Nobody can find a
+collision, right?",00:07:55.610,00:07:58.350
+"And if you have something
+as simple as k mod p,",00:07:58.350,00:08:01.750
+"it's going to be trivial
+to find a collision.",00:08:01.750,00:08:03.910
+"And so these order
+1 hash functions",00:08:03.910,00:08:06.710
+"that you're familiar
+with aren't going",00:08:06.710,00:08:08.380
+"to make the grade with respect
+to any of the properties",00:08:08.380,00:08:12.160
+"that we'll discuss
+in a few minutes.",00:08:12.160,00:08:14.500
+"All right, so remember this
+is poly-time computation.",00:08:14.500,00:08:16.962
+"And there's lots of examples
+of these hash functions.",00:08:16.962,00:08:19.170
+"And for those of you who are
+kind of into computer security",00:08:19.170,00:08:21.820
+"and cryptography already,
+you might have heard",00:08:21.820,00:08:24.890
+of examples like MD4 and MD5.,00:08:24.890,00:08:29.240
+These are versions.,00:08:29.240,00:08:30.260
+MD stands for message digest.,00:08:30.260,00:08:32.309
+"These were functions that were
+invented by Professor Rivest.",00:08:32.309,00:08:35.610
+"And they had d equals
+128 way back when-- 1992,",00:08:35.610,00:08:42.970
+"if I recall-- when
+they were proposed.",00:08:42.970,00:08:45.830
+"And these algorithms have
+since been broken in the sense",00:08:45.830,00:08:50.830
+"that it was conjectured that
+they had particular properties",00:08:50.830,00:08:53.490
+"of collision resistance that
+it would take exponential time",00:08:53.490,00:08:59.060
+for anybody to find collisions.,00:08:59.060,00:09:01.660
+"And it still kind of
+takes exponential time,",00:09:01.660,00:09:04.490
+"but 2 raised to 37 is
+exponential at one level,",00:09:04.490,00:09:11.040
+but constant in another level.,00:09:11.040,00:09:13.700
+"So you can kind of do
+it in a few seconds now.",00:09:13.700,00:09:17.720
+So a little bit of history.,00:09:17.720,00:09:20.610
+"I'm not going to spend
+a lot of time on this.",00:09:20.610,00:09:23.300
+"MD5 was used to create what was
+called a secure hash algorithm.",00:09:23.300,00:09:28.400
+This is 160-bits.,00:09:28.400,00:09:31.770
+"And this is not quite
+broken at this point.",00:09:31.770,00:09:36.330
+"But that people consider it
+broken, or soon to be broken.",00:09:36.330,00:09:41.920
+"Right now the
+recommended algorithm",00:09:41.920,00:09:45.560
+"is called SHA-3, secure hash
+algorithm version three.",00:09:45.560,00:09:50.260
+"And there was a contest
+that ran for like 18 months,",00:09:50.260,00:09:53.870
+"or maybe even longer,
+that eventually was won",00:09:53.870,00:09:56.770
+by what turned into the SHA-3.,00:09:56.770,00:09:59.580
+"And they had a different name
+for it that I can't recall.",00:09:59.580,00:10:03.200
+But it turned into SHA-3.,00:10:03.200,00:10:05.180
+"And what happened along the
+way, as we went from MD4,",00:10:05.180,00:10:08.220
+"MD5, SHA-1 to SHA-3, is that
+this amount of computation",00:10:08.220,00:10:12.690
+that you had to do increased.,00:10:12.690,00:10:14.810
+"And the complexity of
+operations that you",00:10:14.810,00:10:16.570
+"had to do in order to compute
+the hash of an arbitrary string",00:10:16.570,00:10:21.690
+"increased to the
+point where-- you",00:10:21.690,00:10:24.460
+"want to think about this as
+100 rounds of computation.",00:10:24.460,00:10:27.720
+"And certainly order
+d computation,",00:10:27.720,00:10:31.780
+where d is the number of bits.,00:10:31.780,00:10:34.200
+And perhaps even more.,00:10:34.200,00:10:35.940
+So it's definitely not order 1.,00:10:35.940,00:10:38.850
+"So as I said a little bit
+of context with respect",00:10:38.850,00:10:43.270
+"to the things that
+are out there.",00:10:43.270,00:10:45.355
+"At the end of the
+lecture I'll give you",00:10:45.355,00:10:46.980
+"a sense for how these
+hash functions are built.",00:10:46.980,00:10:49.570
+"We're not going to
+spend a lot of time",00:10:49.570,00:10:51.380
+"on creating these
+hash functions.",00:10:51.380,00:10:53.220
+"It's really a research topic
+onto itself and not really",00:10:53.220,00:10:56.320
+in the slope of 6.046.,00:10:56.320,00:10:58.390
+"What is in the scope
+of 6.046, and what",00:10:58.390,00:11:00.920
+"I think is more
+interesting, which",00:11:00.920,00:11:02.510
+"is what we'll focus
+our energy and time on,",00:11:02.510,00:11:05.690
+"is the properties of
+these hash functions.",00:11:05.690,00:11:07.990
+"And why these properties
+are useful in a bunch",00:11:07.990,00:11:10.640
+of different apps.,00:11:10.640,00:11:12.270
+And so what is it that we want?,00:11:12.270,00:11:15.100
+We want a random oracle.,00:11:15.100,00:11:19.440
+"We want to essentially
+build something",00:11:19.440,00:11:23.790
+"that looks like that,
+deterministic, public, random.",00:11:23.790,00:11:27.960
+"And we're going to
+claim that what we want",00:11:27.960,00:11:31.390
+"is this random
+oracle which has all",00:11:31.390,00:11:33.135
+"of these wonderful properties
+that I'm going to describe.",00:11:33.135,00:11:35.892
+"I'm going to describe
+the random oracle to you,",00:11:35.892,00:11:37.850
+"and then I'm going to tell you
+about what the properties are.",00:11:37.850,00:11:40.391
+"And then unfortunately
+this is an ideal world",00:11:40.391,00:11:44.420
+"and we can't build
+this in the real world.",00:11:44.420,00:11:47.890
+"And so we're going to
+have to approximate it.",00:11:47.890,00:11:49.919
+"And that's where the MD4's and
+the MD5's and the SHA-1's came",00:11:49.919,00:11:52.460
+"in, OK?",00:11:52.460,00:11:55.200
+"So this is not
+achievable in practice.",00:11:55.200,00:11:56.885
+So what is this oracle?,00:12:05.560,00:12:09.300
+"This oracle is on input
+x, belonging to 0,1 star.",00:12:09.300,00:12:17.170
+"So that could be an
+arbitrary string.",00:12:17.170,00:12:20.740
+"If x not in the book--
+so there's this the book,",00:12:20.740,00:12:26.100
+all right?,00:12:26.100,00:12:26.840
+"And there's this
+infinite capacity book",00:12:26.840,00:12:29.720
+"that has all of the computations
+that were ever done prior.",00:12:29.720,00:12:35.170
+"And they're always
+stored in the book.",00:12:35.170,00:12:36.770
+"And that's how we're
+going to get determinism.",00:12:36.770,00:12:38.770
+"Because this book
+initially gets filled in.",00:12:38.770,00:12:42.100
+"All of the entries in
+the book are filled",00:12:42.100,00:12:44.380
+in using pure randomness.,00:12:44.380,00:12:47.000
+"So you flip a coin d
+times to determine h of x.",00:12:47.000,00:12:55.610
+So that's basically it.,00:12:55.610,00:12:57.760
+And you just keep flipping.,00:12:57.760,00:12:59.420
+You have to flip d times.,00:12:59.420,00:13:00.950
+"And so if x was 0, you
+flip d times, d was 160.",00:13:00.950,00:13:05.320
+"You flipped a coin 160
+times and got a string.",00:13:05.320,00:13:08.300
+"If x were 1, flip 160 times,
+you get a different string",00:13:08.300,00:13:13.430
+"with very high
+probability, obviously.",00:13:13.430,00:13:15.530
+And so on and so forth.,00:13:15.530,00:13:16.890
+"But what you do is
+you have this book.",00:13:16.890,00:13:19.280
+"So you're going to record
+x h of x in the book, OK?",00:13:19.280,00:13:29.870
+"So at some level
+your hash function",00:13:29.870,00:13:31.770
+"is this giant look-up
+table in the sky, right?",00:13:31.770,00:13:35.220
+"Actually not giant, infinite
+capacity look-up table",00:13:35.220,00:13:37.480
+in the sky.,00:13:37.480,00:13:38.510
+"Because you can put
+arbitrary strings into this.",00:13:38.510,00:13:42.230
+"And if it's in the book-- this
+is obviously the important part",00:13:42.230,00:13:47.910
+"that gives you determinism--
+then you return y,",00:13:47.910,00:13:52.740
+"where x and y are
+in the book, OK?",00:13:52.740,00:13:58.700
+"So you get a random
+answer every time,",00:14:01.350,00:14:05.040
+"except as required
+for consistency",00:14:05.040,00:14:08.380
+with previous answers.,00:14:08.380,00:14:10.180
+"So the very first
+time you see a string,",00:14:10.180,00:14:11.930
+"or-- and the whole world
+can create this book.",00:14:11.930,00:14:16.730
+It's public.,00:14:16.730,00:14:17.740
+"So if I created the book at
+first with a particular string,",00:14:17.740,00:14:22.430
+let's say Eric.,00:14:22.430,00:14:23.710
+I was the string.,00:14:23.710,00:14:25.120
+"And I'm the one who put
+the entry-- x equals Eric,",00:14:25.120,00:14:29.960
+"and h of x, h of Eric equals
+some random 160-bit string--",00:14:29.960,00:14:34.040
+"into the book, I get
+credit for that, right?",00:14:34.040,00:14:36.640
+"But if you come a nanosecond
+later and ask for h of Eric,",00:14:36.640,00:14:43.650
+"you should get exactly
+what got put into the book",00:14:43.650,00:14:46.090
+when I asked for h of Eric.,00:14:46.090,00:14:49.850
+And so on and so forth.,00:14:49.850,00:14:51.290
+So this is true for everybody.,00:14:51.290,00:14:53.050
+"So this is like-- I mean
+basically impossible to get.",00:14:53.050,00:14:56.810
+"Because not only can
+anybody and everybody query,",00:14:56.810,00:15:01.770
+"you have to have this
+ordering associated",00:15:01.770,00:15:05.190
+with people querying the book.,00:15:05.190,00:15:09.450
+"And you have to
+have consistency.",00:15:09.450,00:15:11.330
+All right.,00:15:11.330,00:15:11.990
+"So everyone convinced
+that we can't build this?",00:15:11.990,00:15:15.990
+All right.,00:15:15.990,00:15:16.710
+"If you took anything
+out of this lecture,",00:15:16.710,00:15:18.660
+that's what you should take.,00:15:18.660,00:15:20.011
+"No, no.",00:15:20.011,00:15:20.510
+There's a lot more.,00:15:20.510,00:15:22.290
+"So we want to approximate
+the random oracle.",00:15:22.290,00:15:26.750
+And we're going to get to that.,00:15:26.750,00:15:28.840
+"Obviously we're going to have to
+do this in poly-space as well.",00:15:28.840,00:15:34.767
+So what's wrong with this?,00:15:34.767,00:15:35.850
+"Of course this picture is
+I didn't actually say this,",00:15:35.850,00:15:38.810
+"but you'd like things to be
+poly-time in terms of space.",00:15:38.810,00:15:42.320
+"You don't want to store
+an infinite number-- this",00:15:42.320,00:15:46.210
+"is worse than poly-time,
+worse than exponential time,",00:15:46.210,00:15:48.649
+"because it's arbitrary strings
+that we're talking about here,",00:15:48.649,00:15:51.190
+right?,00:15:51.190,00:15:51.920
+So you can't possibly do that.,00:15:51.920,00:15:53.940
+"So we have to do
+something better.",00:15:53.940,00:15:56.350
+"But before I get into how we'd
+actually build this, and give",00:15:56.350,00:16:00.180
+"you a sense of how SHA-1
+and MD5 were built--",00:16:00.180,00:16:04.346
+"and that's going to come
+a little bit later--",00:16:04.346,00:16:06.220
+"I want to spend a lot of time
+on the what is interesting,",00:16:06.220,00:16:11.910
+"which are the
+desirable properties.",00:16:11.910,00:16:13.630
+"Which you can kind of see
+using the random oracle.",00:16:13.630,00:16:16.640
+"So what is cool about
+the random oracle",00:16:16.640,00:16:18.690
+is that it's a simple algorithm.,00:16:18.690,00:16:21.140
+You can understand it.,00:16:21.140,00:16:23.060
+You can't implement it.,00:16:23.060,00:16:24.410
+"But now you can see what
+wonderful properties",00:16:24.410,00:16:27.130
+it gives you.,00:16:27.130,00:16:28.230
+"And these properties are
+going to be important",00:16:28.230,00:16:30.350
+"for our applications, OK?",00:16:30.350,00:16:32.490
+"And so let's get started with a
+bunch of different properties.",00:16:32.490,00:16:36.146
+"And these are all
+properties that",00:16:36.146,00:16:37.520
+"are going to be useful for
+verification or computer",00:16:37.520,00:16:43.030
+security applications.,00:16:43.030,00:16:44.850
+"The first one, it's not ow,
+it's O, W. It's one-wayness,",00:16:44.850,00:16:51.100
+all right?,00:16:51.100,00:16:51.780
+"So one-way, or one-wayness.",00:16:51.780,00:16:53.930
+"And it's also called-- you're
+not going to call it this--",00:16:53.930,00:17:03.230
+"but perhaps this is a more
+technical term, a more precise",00:17:03.230,00:17:09.390
+"term, pre-image resistance.",00:17:09.390,00:17:11.150
+And so what does this mean?,00:17:11.150,00:17:13.060
+"Well this is a very
+strong requirement.",00:17:13.060,00:17:15.167
+"I mean a couple of
+other ones are also",00:17:15.167,00:17:16.750
+going to be perhaps stronger.,00:17:16.750,00:17:18.990
+"But this is a pretty
+strong requirement",00:17:18.990,00:17:21.270
+"which says it's
+infeasible, given y,",00:17:21.270,00:17:28.710
+"which is in the-- it's basically
+a d-bit vector, to find any x",00:17:28.710,00:17:45.170
+such that h of x equals y.,00:17:45.170,00:17:50.950
+"And so this is x is
+the pre-image of y.",00:17:50.950,00:18:00.120
+So what does this say?,00:18:00.120,00:18:01.580
+"It says that I want to
+create a hash function such",00:18:01.580,00:18:04.400
+"that if I give you
+a specific-- we call",00:18:04.400,00:18:08.030
+"it a 160-bit string, because
+we're talking SHA-1 here,",00:18:08.030,00:18:12.870
+"and that's the hash--
+I'm going to have,",00:18:12.870,00:18:16.792
+"it's going to have
+to be impossible",00:18:16.792,00:18:18.250
+"for me to discover an x that
+produced that 160-bit string,",00:18:18.250,00:18:25.430
+OK?,00:18:25.430,00:18:26.390
+"Now if you go look
+at our random oracle,",00:18:26.390,00:18:29.100
+"you realize that if you
+had a 160-bit string,",00:18:29.100,00:18:32.750
+"and perhaps you
+have the entire book",00:18:32.750,00:18:36.970
+"and you can read
+the entire book.",00:18:36.970,00:18:39.290
+It's an infinite capacity book.,00:18:39.290,00:18:41.940
+It's got a bunch of stuff in it.,00:18:41.940,00:18:44.750
+"And know that any time anyone
+queried the book the first time",00:18:44.750,00:18:49.800
+"for a given x, that there was
+this random 160-bit number that",00:18:49.800,00:18:53.580
+"was generated and
+put into the book.",00:18:53.580,00:18:55.700
+"And there's a whole lot
+of these numbers, right?",00:18:55.700,00:18:58.100
+"So what's going to
+happen is, you're",00:18:58.100,00:18:59.954
+"going to have to look
+through the entire book,",00:18:59.954,00:19:01.870
+"this entire potentially
+infinite capacity book,",00:19:01.870,00:19:04.710
+"in order to figure out if this
+particular y is in the book",00:19:04.710,00:19:13.500
+or not.,00:19:13.500,00:19:14.660
+"And that's going to take a long
+time to do, potentially, OK?",00:19:14.660,00:19:18.310
+"So in the case where you
+have a random oracle you'd",00:19:18.310,00:19:23.290
+"have to go through and find--
+looking at the output hash",00:19:23.290,00:19:27.660
+"corresponding to each of the
+entries in the random oracle,",00:19:27.660,00:19:30.502
+"you're going to start matching,
+match, match, match, match,",00:19:30.502,00:19:32.960
+"it's going to take
+you exponential time.",00:19:32.960,00:19:35.290
+"Well actually worse than that,
+given the infinite capacity",00:19:35.290,00:19:37.760
+of the book.,00:19:37.760,00:19:38.930
+So this clearly gives you that.,00:19:38.930,00:19:40.970
+"Now you may not be a completely
+satisfied with that answer",00:19:40.970,00:19:44.070
+"because you say well,
+you can't implement that.",00:19:44.070,00:19:46.620
+"But we'll talk a
+little bit, as I said,",00:19:46.620,00:19:48.410
+"about how you could
+actually get this.",00:19:48.410,00:19:50.410
+"But what's-- I should be
+clear-- is that the simple hash",00:19:50.410,00:19:54.510
+"functions that we've looked
+at in the past just to build",00:19:54.510,00:19:59.180
+"dictionaries do not
+satisfy this, right?",00:19:59.180,00:20:02.570
+"So suppose I had h of x
+equals x square mod p.",00:20:02.570,00:20:11.860
+"Is this one-way,
+given a public p?",00:20:11.860,00:20:18.050
+"No of course not, right?",00:20:18.050,00:20:19.210
+"Because I'm going to be--
+it's going to be easy",00:20:19.210,00:20:22.310
+for me to do something.,00:20:22.310,00:20:24.730
+"Even though this is discrete
+arithmetic I could do something",00:20:24.730,00:20:29.320
+"like, well, I know that what
+I have here-- actually let's",00:20:29.320,00:20:32.670
+"do it with something
+that's simpler,",00:20:32.670,00:20:34.170
+"and then I'll talk
+about the x squared.",00:20:34.170,00:20:36.580
+"If I had something
+as simple as x mod p,",00:20:36.580,00:20:38.650
+"I mean that's trivially broken
+in terms of one-wayness.",00:20:38.650,00:20:42.100
+"Because I know that h of x could
+be viewed as the remainder.",00:20:42.100,00:20:45.900
+"So anything-- if this
+is h of x, and let's",00:20:45.900,00:20:51.870
+"just call that y for a
+second, because that's",00:20:51.870,00:20:54.310
+what we had it out there.,00:20:54.310,00:20:56.280
+"Something that's a multiple
+of y plus the remainder-- so I",00:20:56.280,00:21:00.340
+could have a-- is that right?,00:21:00.340,00:21:02.777
+Is that what I want?,00:21:02.777,00:21:03.610
+Yeah.,00:21:03.610,00:21:04.109
+"No, plus y.",00:21:04.109,00:21:05.050
+"So I want a of-- well since
+I can't figure it out,",00:21:05.050,00:21:13.760
+why can't you?,00:21:13.760,00:21:16.250
+"What do I need to
+put in there in order",00:21:16.250,00:21:17.970
+"to discover an x that
+would produce a y?",00:21:17.970,00:21:24.170
+Can I write an equation?,00:21:24.170,00:21:25.290
+Yeah?,00:21:25.290,00:21:26.192
+"AUDIENCE: Could you
+just write y itself?",00:21:26.192,00:21:27.967
+SRINIVAS DEVADAS: Just y itself.,00:21:27.967,00:21:29.300
+That's right.,00:21:29.300,00:21:29.960
+Good point.,00:21:29.960,00:21:30.900
+Just y itself in this case.,00:21:30.900,00:21:32.635
+Good.,00:21:32.635,00:21:33.820
+"I knew you guys were
+smarter than me.",00:21:33.820,00:21:35.650
+This proves it.,00:21:35.650,00:21:38.060
+"So if you just take
+y-- and y remember",00:21:38.060,00:21:41.500
+"is going to be something
+that's 0 to p minus 1, right?",00:21:41.500,00:21:46.190
+And that's it.,00:21:46.190,00:21:47.520
+"It just goes through, right?",00:21:47.520,00:21:49.170
+"So that's a trivial
+example, right?",00:21:49.170,00:21:51.150
+"Now if I put x squared in
+here, obviously it's not y,",00:21:51.150,00:21:55.780
+"but I could start looking
+at-- what I have here is",00:21:55.780,00:22:03.050
+"I'm going to get y that
+looks like x squared.",00:22:03.050,00:22:05.280
+"But I could take
+the y that I have,",00:22:05.280,00:22:07.220
+"take the square root
+of that, and then start",00:22:07.220,00:22:09.240
+"looking for x's that give
+me the y that I have.",00:22:09.240,00:22:13.570
+"Actually it's not a complicated
+process to try and figure out,",00:22:13.570,00:22:18.020
+"through trial and
+error potentially,",00:22:18.020,00:22:20.230
+"what an x is that
+produces a particular y",00:22:20.230,00:22:23.250
+"for the kinds of hash
+functions that we've",00:22:23.250,00:22:25.360
+"looked at, all right?",00:22:25.360,00:22:26.900
+"Now as you complicate this
+equation it gets harder.",00:22:26.900,00:22:32.050
+"Because you have to invert
+this set of equations.",00:22:32.050,00:22:34.626
+"And that's what
+the game is going",00:22:34.626,00:22:36.000
+"to be when you go create
+one-way hash functions.",00:22:36.000,00:22:38.620
+"The amount of computation
+that you do in order",00:22:38.620,00:22:41.520
+"to compute the y is going
+to increase to the point",00:22:41.520,00:22:44.770
+"where, as I mentioned, you have
+80, 100 rounds of computation,",00:22:44.770,00:22:47.770
+things getting mixed in.,00:22:47.770,00:22:49.400
+"And the hope is that you create
+this circuit, if you will,",00:22:49.400,00:22:53.210
+"that has all this
+computation in that.",00:22:53.210,00:22:54.970
+"Going forwards is
+easy, because you've",00:22:54.970,00:22:57.170
+"specified the
+multiplications and the mods",00:22:57.170,00:22:59.350
+and so on and so forth.,00:22:59.350,00:23:00.700
+"But not all of these operations
+have simple inverses.",00:23:00.700,00:23:04.830
+"And going backwards,
+which is what",00:23:04.830,00:23:07.790
+"you need to do in order
+to break one-wayness,",00:23:07.790,00:23:11.010
+"or discover the x
+given a y, is going",00:23:11.010,00:23:14.890
+"to be harder and harder
+as the computations get",00:23:14.890,00:23:17.100
+"more complex, OK?",00:23:17.100,00:23:18.890
+"So everyone have a sense
+of what one-wayness is?",00:23:18.890,00:23:20.905
+So that's one-wayness.,00:23:24.810,00:23:26.990
+"There's four other properties,
+two of which are very related.",00:23:26.990,00:23:30.930
+CR and TCR.,00:23:30.930,00:23:33.700
+So CR is collision resistance.,00:23:33.700,00:23:35.550
+"It's infeasible to find x and
+x prime such that x not equal",00:23:42.970,00:23:54.290
+"to x prime, and h of
+x equals h of x prime,",00:23:54.290,00:24:02.269
+which is of course a collision.,00:24:02.269,00:24:03.560
+OK?,00:24:08.300,00:24:09.690
+"And that just says you have
+this crazy hash function where",00:24:09.690,00:24:14.790
+you can't discover collisions.,00:24:14.790,00:24:16.650
+"Well it would be
+absolutely wonderful.",00:24:16.650,00:24:18.620
+"In fact that's what we wanted
+when we built dictionaries.",00:24:18.620,00:24:21.740
+"But why don't we use
+SHA-3 in dictionaries?",00:24:21.740,00:24:25.290
+"Why don't we use
+SHA-3 in dictionaries?",00:24:28.410,00:24:30.350
+Yeah?,00:24:30.350,00:24:30.851
+"AUDIENCE: Because it's more
+complicated than we need.",00:24:30.851,00:24:33.058
+"SRINIVAS DEVADAS: Yeah,
+it's horribly slow, right?",00:24:33.058,00:24:35.270
+"It would take longer to
+compute the hash than access",00:24:35.270,00:24:39.365
+"the dictionary,
+when you actually",00:24:39.365,00:24:40.740
+"had a reasonable dictionary
+that maybe had some collisions.",00:24:40.740,00:24:44.847
+"I mean you just go off and
+you have a linked list,",00:24:44.847,00:24:46.930
+"you can afford a few collisions,
+what's the big deal, right?",00:24:46.930,00:24:50.090
+"So it just doesn't
+make any sense",00:24:50.090,00:24:51.860
+"to use this level of
+heavyweight hash function,",00:24:51.860,00:24:57.420
+"even if it satisfies
+collision resistance-- which",00:24:57.420,00:25:00.830
+"some of these are conjectured to
+do-- for the applications we've",00:25:00.830,00:25:04.070
+looked at.,00:25:04.070,00:25:04.617
+"But there'll be other apps
+where collision resistance is",00:25:04.617,00:25:06.950
+going to be important.,00:25:06.950,00:25:08.520
+So that's collision resistance.,00:25:08.520,00:25:10.110
+"And then there's-- TCR is
+target collision resistance.",00:25:10.110,00:25:15.470
+"It's a weaker form--
+so sometimes people",00:25:15.470,00:25:18.300
+"CR strong collision resistance,
+and TCR weak occlusion",00:25:18.300,00:25:24.190
+resistance.,00:25:24.190,00:25:24.810
+We'll use CR and TCR here.,00:25:24.810,00:25:28.090
+"And this says it's
+infeasible, given",00:25:28.090,00:25:35.460
+"x-- so there's a
+specific x that you",00:25:35.460,00:25:39.200
+"want to find a collision
+for, as opposed",00:25:39.200,00:25:41.590
+"to just finding a pair that
+goes once to x and x prime.",00:25:41.590,00:25:45.360
+"And any pair would suffice to
+break the collision resistance",00:25:45.360,00:25:49.700
+property.,00:25:49.700,00:25:50.560
+"But TCR says is I'm going
+to give you a specific x.",00:25:50.560,00:25:54.630
+"And I want you to
+find an x prime who's",00:25:54.630,00:25:57.750
+"hash collides with
+the hash of x, OK?",00:25:57.750,00:26:01.050
+That's TCR.,00:26:01.050,00:26:02.065
+OK that's TCR for you.,00:26:16.350,00:26:18.082
+"And that just to be clear,
+I think you probably",00:26:18.082,00:26:20.040
+"all got this, obviously
+we want this here",00:26:20.040,00:26:23.420
+"because we have a
+deterministic hash function.",00:26:23.420,00:26:26.340
+"And it's a trivial thing
+to say that if you had x,",00:26:26.340,00:26:29.430
+"and you had x again, that you
+get the same hash back from it.",00:26:29.430,00:26:32.380
+"That's a requirement, really.",00:26:32.380,00:26:33.740
+"So we want two distinct x
+and x primes that are not",00:26:33.740,00:26:36.670
+equal that end up colliding.,00:26:36.670,00:26:38.590
+"That's really what
+a collision is.",00:26:38.590,00:26:40.890
+"And so you see the difference
+between CR and TCR?",00:26:40.890,00:26:44.200
+Yup?,00:26:44.200,00:26:44.700
+Yeah?,00:26:44.700,00:26:45.812
+"AUDIENCE: Are we to
+assume that given an x",00:26:45.812,00:26:49.144
+"it's very easy to
+get the h of x back?",00:26:49.144,00:26:51.105
+"SRINIVAS DEVADAS:
+So the question",00:26:51.105,00:26:52.480
+"was, given an x, it's poly-time
+computation to get h of x.",00:26:52.480,00:26:57.150
+Absolutely.,00:26:57.150,00:26:58.230
+"Public poly-time computation
+given an x to get h of x.",00:26:58.230,00:27:02.480
+So going this way is easy.,00:27:02.480,00:27:08.840
+"Going this way-- I ran
+out of room-- hard.",00:27:08.840,00:27:15.170
+OK?,00:27:15.170,00:27:16.954
+"AUDIENCE: So does that mean that
+TCR is basically the same as 1?",00:27:16.954,00:27:20.160
+"SRINIVAS DEVADAS: No,
+no, no, absolutely not.",00:27:20.160,00:27:22.230
+TCR says it's OK.,00:27:22.230,00:27:25.890
+You can compute this.,00:27:25.890,00:27:27.620
+You can get x.,00:27:27.620,00:27:29.030
+And you can get h of x.,00:27:29.030,00:27:30.720
+"So given x, you know
+that you can get h of x.",00:27:30.720,00:27:33.125
+"I didn't actually put
+that in the definition.",00:27:33.125,00:27:35.000
+And maybe I should have.,00:27:35.000,00:27:36.800
+"So given x you can
+always get h of x.",00:27:36.800,00:27:38.860
+Remember that.,00:27:38.860,00:27:40.080
+It's easy to get h of x.,00:27:40.080,00:27:41.640
+"So any time I say given
+x, you can always add it,",00:27:41.640,00:27:44.350
+saying given x and h of x.,00:27:44.350,00:27:46.400
+So I'm given x.,00:27:46.400,00:27:48.690
+I'm given h of x.,00:27:48.690,00:27:49.960
+"I obviously need to
+map-- I need to discover",00:27:49.960,00:27:53.600
+"an x prime such that h of
+x prime equals h of x, OK?",00:27:53.600,00:27:58.080
+"Now you have situations
+where for-- it",00:27:58.080,00:28:04.490
+"may be the case that
+for particular x's you",00:28:04.490,00:28:07.920
+can actually do this.,00:28:07.920,00:28:08.900
+And that's enough to break TCR.,00:28:08.900,00:28:10.363
+"So you have to have
+this strong property",00:28:13.270,00:28:15.640
+"that you really don't want to
+find collisions are for some--",00:28:15.640,00:28:22.520
+"even if there's a constant
+fraction of x's that",00:28:22.520,00:28:26.470
+"break the TCR property, you
+don't like your hash function,",00:28:26.470,00:28:29.210
+OK?,00:28:29.210,00:28:29.710
+"Because you might end
+up picking those and go",00:28:29.710,00:28:31.850
+"build security applications
+using those properties.",00:28:31.850,00:28:35.490
+"I want to talk a little
+bit about the relationship",00:28:35.490,00:28:37.990
+"between OW, CR, and TCR.",00:28:37.990,00:28:41.240
+"So I'm going to
+get back to that.",00:28:41.240,00:28:42.700
+"And we're going to talking
+about hash functions that",00:28:42.700,00:28:45.290
+"satisfy one property but
+don't satisfy the other.",00:28:45.290,00:28:48.076
+"And I think your
+question will probably",00:28:48.076,00:28:49.700
+"be answered better, OK?",00:28:49.700,00:28:52.150
+Thanks for the question.,00:28:52.150,00:28:53.460
+So those are the main ones.,00:28:53.460,00:28:56.160
+"And really quickly, if you
+want to spend a lot of time",00:28:56.160,00:28:59.260
+"on this-- but I do
+want to put up--",00:28:59.260,00:29:02.972
+"I think I'll leave
+these properties up here",00:29:02.972,00:29:05.320
+for the duration.,00:29:05.320,00:29:06.590
+"Because it's important for you
+to see these definitions as we",00:29:06.590,00:29:10.350
+"look at the
+applications where we",00:29:10.350,00:29:13.580
+"require these properties, or
+a subset of these properties.",00:29:13.580,00:29:17.090
+"But that we have
+pseudo randomness.",00:29:17.090,00:29:19.580
+"And this is simply a
+function of the fact",00:29:19.580,00:29:22.910
+"that-- so this is PRF-- we know
+we can't build a random oracle.",00:29:22.910,00:29:31.100
+"And so we're going to have to do
+something that's pseudo-random.",00:29:31.100,00:29:35.300
+"And basically what
+we're saying here",00:29:35.300,00:29:37.840
+"is the behavior is
+indistinguishable from random.",00:29:37.840,00:29:45.870
+"So we're going to have to use
+non-linearity, things that",00:29:50.990,00:29:56.140
+"are called non-linear
+feedback shift registers,",00:29:56.140,00:29:58.730
+"to create pseudo-random
+functions.",00:29:58.730,00:30:00.370
+"There's many ways that we can
+create pseudo-random functions.",00:30:00.370,00:30:03.710
+We won't really get into that.,00:30:03.710,00:30:05.310
+"But obviously
+that's what we want.",00:30:05.310,00:30:07.680
+"And then the last
+one is a bit tricky.",00:30:07.680,00:30:14.420
+"And we will have an app that
+requires this way at the end.",00:30:14.420,00:30:18.830
+"But this is infeasible
+given h of x",00:30:18.830,00:30:29.240
+"to produce h of x prime, where
+x and x prime are-- and it gets",00:30:29.240,00:30:42.010
+"a little bit fuzzy here-- are
+related in some fashion, right?",00:30:42.010,00:30:50.150
+"So a concrete
+example of this is,",00:30:50.150,00:30:53.630
+"let's say that x
+prime is x plus 1.",00:30:53.630,00:30:59.770
+"So this is a reasonable
+example of this.",00:30:59.770,00:31:02.630
+"So what this says is
+you're just given h of x.",00:31:02.630,00:31:09.930
+"It doesn't actually say
+anything about one-wayness yet.",00:31:09.930,00:31:12.680
+"But you could
+assume, for example,",00:31:12.680,00:31:14.670
+"that if this was a
+one-way hash function,",00:31:14.670,00:31:18.510
+"that it would be possible to
+get x from h of x, correct?",00:31:18.510,00:31:23.581
+And let's keep that though.,00:31:26.300,00:31:28.070
+"Hold that thought, all right?",00:31:28.070,00:31:29.470
+We're going to get back to it.,00:31:29.470,00:31:31.290
+"So if I'm just given the hash
+through some computation,",00:31:31.290,00:31:36.710
+"it may be possible for me
+to create another hash, h",00:31:36.710,00:31:40.300
+"of x prime, such that
+there's some relationship",00:31:40.300,00:31:45.330
+"that I can prove or argue
+for between the strings that",00:31:45.330,00:31:51.010
+"created the hashes,
+namely x and x prime, OK?",00:31:51.010,00:31:54.390
+"That's what
+malleability is, right?",00:31:54.390,00:31:57.330
+"Now you might just go off and
+say here's an x, here's a y,",00:31:57.330,00:32:03.440
+"here's h of x,
+and here's h of y.",00:32:03.440,00:32:07.700
+These look completely random.,00:32:07.700,00:32:09.620
+"And you might go off-- I'm
+being facetious here-- I",00:32:09.620,00:32:12.890
+"say that y is x's third cousin's
+roommate's brother-in-law",00:32:12.890,00:32:17.767
+"or something, right?",00:32:17.767,00:32:18.600
+"I mean just make
+something up, right?",00:32:18.600,00:32:20.600
+"So clearly there's got to be
+a strong, precise relationship",00:32:20.600,00:32:26.470
+between x and y.,00:32:26.470,00:32:27.780
+"If in fact you could
+do this and get y",00:32:27.780,00:32:32.180
+"equals x plus 1, that'd
+be a problem, right?",00:32:32.180,00:32:36.160
+"But if you are--
+and then you can",00:32:36.160,00:32:38.840
+"do this sort of consistently
+for different x's and y's, that",00:32:38.840,00:32:42.280
+"would absolutely be
+a problem, right?",00:32:42.280,00:32:44.980
+"But what you're really
+asking for-- and typically",00:32:44.980,00:32:48.440
+"when you want
+non-malleability-- it's",00:32:48.440,00:32:50.710
+"things where you have
+auctions, for example, where",00:32:50.710,00:32:55.000
+"you are to be careful about
+making sure that you don't want",00:32:55.000,00:32:58.350
+to expose your bid.,00:32:58.350,00:33:01.320
+"And so maybe what you're
+doing is exposing h of x.",00:33:01.320,00:33:04.700
+"You don't want somebody
+to look at your h of x",00:33:04.700,00:33:08.960
+"and figure out how
+they could beat",00:33:08.960,00:33:10.420
+your bid by just a little bit.,00:33:10.420,00:33:13.540
+"Or in case of Vickrey auctions,
+where the second highest bidder",00:33:13.540,00:33:17.140
+"wins, now just be a little
+bit below you, right?",00:33:17.140,00:33:20.031
+"So that's the kind
+of thing that you",00:33:20.031,00:33:21.530
+"want to think about when it
+comes to non-malleability,",00:33:21.530,00:33:25.110
+"or malleability, where you
+want a strong relationship",00:33:25.110,00:33:28.880
+"between two strings
+that are related",00:33:28.880,00:33:32.300
+"in some ordered fashion,
+like x equals-- x prime",00:33:32.300,00:33:35.510
+"equals x plus 1, or just
+x prime equals 2 times x.",00:33:35.510,00:33:38.950
+"And you don't want
+to be able to-- you",00:33:38.950,00:33:43.040
+"don't want the adversary
+to be able to discover",00:33:43.040,00:33:45.350
+these new strings.,00:33:45.350,00:33:47.670
+"Because that would be
+the system, all right?",00:33:47.670,00:33:51.440
+"So any questions
+about properties?",00:33:51.440,00:33:55.580
+"Are we all good on
+these properties?",00:33:55.580,00:33:57.620
+"All right, because I'm
+going to start asking you",00:33:57.620,00:33:59.840
+"how to use them for
+particular applications,",00:33:59.840,00:34:03.010
+"or what properties are required
+for certain applications, OK?",00:34:03.010,00:34:09.170
+"One last thing
+before we get there.",00:34:09.170,00:34:11.150
+"I promised a slightly
+more detailed analysis",00:34:11.150,00:34:16.960
+"of the relationships
+between these properties.",00:34:16.960,00:34:20.170
+So let's do that.,00:34:20.170,00:34:20.974
+"Now if your just look
+at it, eyeball it,",00:34:24.810,00:34:27.830
+"and you look at collision
+resistance and TCR,",00:34:27.830,00:34:34.888
+"what can I say about
+the relationship",00:34:34.888,00:34:36.429
+between CR and TCR?,00:34:36.429,00:34:40.820
+"If h is CR, it's going
+to be TCR, right?",00:34:40.820,00:34:45.953
+It's got to be TCR.,00:34:45.953,00:34:46.744
+"It's a strictly
+stronger requirement.",00:34:46.744,00:34:48.735
+But not reverse.,00:34:54.659,00:34:55.415
+"And you can actually
+give a concrete example",00:34:57.940,00:35:04.230
+"of a particular hash
+function that is TCR.",00:35:04.230,00:35:07.077
+I'm not going to go there.,00:35:07.077,00:35:08.160
+"It's actually a
+little more involved",00:35:08.160,00:35:09.659
+"than you might think it is,
+where a TCR hash function is",00:35:09.659,00:35:12.780
+not collision resistant.,00:35:12.780,00:35:14.430
+"But you can see that
+examples such as these",00:35:14.430,00:35:17.180
+"should exist, simply because I
+have a more stringent property",00:35:17.180,00:35:20.340
+"corresponding to
+collision resistance",00:35:20.340,00:35:22.280
+"as opposed to TCR, right?",00:35:22.280,00:35:24.680
+"So if you're interested in
+that particular example,",00:35:24.680,00:35:27.170
+"you're not responsible for
+it, get in touch with me",00:35:27.170,00:35:29.780
+"and I'll point you to a,
+like a three-page description",00:35:29.780,00:35:32.545
+of an example.,00:35:32.545,00:35:34.180
+"So I didn't really
+want to go in there.",00:35:34.180,00:35:35.930
+"But what I do want to do is talk
+about one-wayness and collision",00:35:35.930,00:35:40.170
+resistance.,00:35:40.170,00:35:40.820
+"Because I think that's
+actually much more interesting,",00:35:40.820,00:35:43.069
+all right?,00:35:43.069,00:35:43.720
+"So if h is one-way--
+any conjectures",00:35:43.720,00:35:59.060
+"as to what the question
+mark is in the middle?",00:35:59.060,00:36:03.370
+"Can I make strong statements
+about the collision resistance",00:36:03.370,00:36:07.950
+"of a hash function,
+if I'm guaranteed",00:36:07.950,00:36:10.430
+"that the hash function I have
+is a one-way hash function,",00:36:10.430,00:36:14.010
+or vice versa?,00:36:14.010,00:36:14.730
+"Another way of
+putting it is, can you",00:36:20.960,00:36:23.080
+"give me an example of,
+just to start with,",00:36:23.080,00:36:28.970
+"a hash function which is
+one-way but not TCR, not",00:36:28.970,00:36:35.096
+target collision resistant?,00:36:35.096,00:36:36.220
+"So I'm going to try and
+extract this out of you.",00:36:40.520,00:36:43.540
+This is somewhat subtle.,00:36:43.540,00:36:46.870
+"But the way you want
+to think about this",00:36:46.870,00:36:48.990
+"is, let's say that h
+of x is OW and TCR, OK?",00:36:48.990,00:36:59.260
+And so I have a bunch of inputs.,00:36:59.260,00:37:02.660
+And this is the output.,00:37:02.660,00:37:03.660
+And I get d-bits out.,00:37:03.660,00:37:06.160
+"And I've got x1, x2, to xn, OK?",00:37:06.160,00:37:12.010
+"Now I've given this h--
+I've been given this h which",00:37:12.010,00:37:16.620
+is one-way and TCR.,00:37:16.620,00:37:18.240
+"It satisfies those properties
+that you have up there.",00:37:18.240,00:37:20.960
+"In the case of one-way, I give
+you an arbitrary d-bit string.",00:37:20.960,00:37:24.590
+"You can't go backwards and
+find a bunch of the xi's that",00:37:24.590,00:37:28.770
+"produce exactly that
+d-bit string, all right?",00:37:28.770,00:37:34.150
+"So it's going to be
+hard to get here.",00:37:34.150,00:37:36.530
+"But you're allowed now
+to give me an example.",00:37:36.530,00:37:40.380
+"So this is some hash
+function that you can create,",00:37:40.380,00:37:45.390
+which may use h as well.,00:37:45.390,00:37:48.300
+"And h is kind of nice because
+it has this one-way property.",00:37:48.300,00:37:51.780
+"So let's say that we want
+to discover something where",00:37:51.780,00:37:55.030
+one-way does not imply TCR.,00:37:55.030,00:37:59.080
+"So I want to cook up a
+hash function h prime such",00:37:59.080,00:38:03.490
+"that h prime is one-way,
+but it's not TCR, OK?",00:38:03.490,00:38:09.550
+"The way you want to think about
+this is you want to add to h.",00:38:09.550,00:38:13.610
+"And you want to add something
+to h such that it's still hard--",00:38:13.610,00:38:16.790
+"if you add h it's still hard
+to go from here to there.",00:38:16.790,00:38:20.347
+Because you've got to go deeper.,00:38:20.347,00:38:21.680
+"If you add to, for
+example, the inputs of h.",00:38:21.680,00:38:23.760
+"Or you could add to the
+outputs of h as well,",00:38:23.760,00:38:26.170
+or the outputs of the current h.,00:38:26.170,00:38:27.730
+"But you can basically go deeper,
+or need to go deeper in order",00:38:27.730,00:38:34.670
+"to find the break
+one-wayness, in order",00:38:34.670,00:38:39.580
+"to find an x, whatever you have,
+that produces the d-bit string",00:38:39.580,00:38:43.820
+"that you have, right?",00:38:43.820,00:38:44.910
+"So what's a simple way of
+creating an h prime such that",00:38:44.910,00:38:49.690
+"it's going to be pretty easy to
+find targeted collisions even,",00:38:49.690,00:38:53.700
+"not necessarily collisions,
+it's pretty easy to find",00:38:53.700,00:38:56.150
+"targeted collisions,
+without breaking",00:38:56.150,00:38:58.740
+the one-way property of h?,00:38:58.740,00:39:00.180
+Yeah?,00:39:03.785,00:39:05.264
+"AUDIENCE: So if you have
+x sub i, if i odd then",00:39:05.264,00:39:11.673
+return h of x of i.,00:39:11.673,00:39:14.631
+So that's minus 1.,00:39:14.631,00:39:16.603
+So return the even group.,00:39:16.603,00:39:18.552
+SRINIVAS DEVADAS: Sure.,00:39:18.552,00:39:19.510
+Yep.,00:39:19.510,00:39:21.004
+"AUDIENCE: Given
+x any x of i, you",00:39:21.004,00:39:24.241
+"can usually find another x of
+i that was the same output?",00:39:24.241,00:39:27.478
+You can go backwards.,00:39:27.478,00:39:28.980
+"SRINIVAS DEVADAS: You
+can't go backwards.",00:39:28.980,00:39:29.700
+"Yeah, that's good.",00:39:29.700,00:39:30.500
+That's good.,00:39:30.500,00:39:31.450
+"I'm going to do something that's
+almost exactly what you said.",00:39:31.450,00:39:34.114
+"But I'm going to
+draw it pictorially.",00:39:34.114,00:39:35.655
+"And what you can do, you can
+do a parity, like odd and even",00:39:38.270,00:39:42.705
+that was just described.,00:39:42.705,00:39:43.705
+"And all I'll do is add
+a little [? XNOR ?]",00:39:47.520,00:39:51.440
+"gate, which is a parity
+gate, to one of the inputs.",00:39:51.440,00:39:55.240
+So you have and b here.,00:39:55.240,00:39:56.830
+"So I've taken x1, and
+I have a and b here.",00:39:56.830,00:40:01.010
+"So I've added-- I can
+add as many inputs",00:40:01.010,00:40:04.560
+as I want to this function.,00:40:04.560,00:40:06.190
+"Oh I should mention
+by the way, h of x",00:40:06.190,00:40:08.830
+is working on arbitrary strings.,00:40:08.830,00:40:11.290
+"And obviously I
+put in some number",00:40:11.290,00:40:13.630
+"here that corresponds to
+n, which is a fixed number.",00:40:13.630,00:40:16.774
+"So you might ask, what the
+heck happened here with respect",00:40:16.774,00:40:19.190
+to arbitrary strings?,00:40:19.190,00:40:20.610
+And there's two answers.,00:40:20.610,00:40:22.570
+"The first answer is,
+well, ignore arbitrary.",00:40:22.570,00:40:25.000
+"And assume that you
+only have n-bit strings.",00:40:25.000,00:40:27.350
+"And n this is really
+large number, right?",00:40:27.350,00:40:29.370
+"And that may not be
+particularly satisfying.",00:40:29.370,00:40:31.500
+"The other answer is,
+which is more practical,",00:40:31.500,00:40:34.220
+"which is what's
+used in practice,",00:40:34.220,00:40:35.850
+"is that typically
+what happens is,",00:40:35.850,00:40:38.140
+"you do have particular
+implementations",00:40:38.140,00:40:41.000
+"of hash functions that
+obviously need to have",00:40:41.000,00:40:43.180
+"fixed inputs, n, for example.",00:40:43.180,00:40:46.440
+And n is typically 512.,00:40:46.440,00:40:48.110
+It's usually the block size.,00:40:48.110,00:40:49.680
+"And you chunk the input up
+into five 12-bit blocks.",00:40:49.680,00:40:52.940
+"And typically what
+you do is, you",00:40:52.940,00:40:54.770
+"take the first five 12-bits,
+compute the hash for it.",00:40:54.770,00:40:57.800
+"And then you can do it
+for the remaining blocks.",00:40:57.800,00:41:02.280
+"And then you can hash all
+of them together, all right?",00:41:02.280,00:41:04.530
+"So there's typically
+more invocations.",00:41:04.530,00:41:06.872
+"I don't really want
+to get into it.",00:41:06.872,00:41:08.330
+"But there's typically
+more invocations of h",00:41:08.330,00:41:11.370
+"when the input would be 2 times
+n, or 3 times n, all right?",00:41:11.370,00:41:15.600
+"So we don't really
+need to go there",00:41:15.600,00:41:17.410
+"for the purposes
+of this lecture.",00:41:17.410,00:41:18.960
+But keep that in mind.,00:41:18.960,00:41:20.270
+"So we'll still stick with our
+arbitrary string requirement.",00:41:20.270,00:41:23.750
+"So having said that, take
+a look at this picture.",00:41:23.750,00:41:26.410
+"And see what this
+picture implies.",00:41:26.410,00:41:30.190
+"I have an h prime that
+I've constructed, right?",00:41:30.190,00:41:33.340
+"Now if I look at h
+prime, and I give you",00:41:33.340,00:41:36.720
+"an output for h prime--
+so h prime now has,",00:41:36.720,00:41:40.270
+"it's a function of a and b, and
+x2 all the way to xn, right?",00:41:40.270,00:41:45.640
+So it's got an extra input.,00:41:45.640,00:41:47.850
+"If I look at h prime, and I look
+at the output of h prime that",00:41:47.850,00:41:50.630
+"is given to me, and I need
+to discover something that",00:41:50.630,00:41:56.280
+"produces that, it is pretty
+clear that I need to figure out",00:41:56.280,00:42:00.280
+"what these values
+are, all right?",00:42:00.280,00:42:03.400
+"And I need to know what
+the parity of a and b is.",00:42:03.400,00:42:06.930
+"And maybe I don't need to
+know exactly what a and b are,",00:42:06.930,00:42:09.293
+"but I absolutely need to know
+what the parity of a and b",00:42:09.293,00:42:11.626
+"are, because that's x1.",00:42:11.626,00:42:13.230
+"And the one-way I'd
+break would require",00:42:13.230,00:42:15.490
+"me to tell you what
+the value of x1 is,",00:42:15.490,00:42:17.670
+"and the value of x2,
+and so on and so forth.",00:42:17.670,00:42:20.070
+"So it's pretty clear that
+h prime is one-way, right?",00:42:20.070,00:42:23.640
+Everybody buy that?,00:42:23.640,00:42:25.520
+h prime is one-way.,00:42:25.520,00:42:28.870
+But you know what?,00:42:28.870,00:42:30.160
+"I've got target
+collisions galore, right?",00:42:30.160,00:42:33.860
+"All I have to do is flip-- I
+have a equals 1 and b equals 1.",00:42:33.860,00:42:37.360
+"And I have a equals
+0 and b equals 0.",00:42:37.360,00:42:39.770
+"They're going to give
+me the same hash, right?",00:42:39.770,00:42:42.350
+"So trivial example,
+but that gets",00:42:42.350,00:42:45.690
+"to the essence of the difference
+between collision resistance",00:42:45.690,00:42:50.070
+"and one-wayness, target
+collision resistance",00:42:50.070,00:42:52.290
+"and one-wayness, all right?",00:42:52.290,00:42:54.210
+"So this is one-way but not TCR,
+simply because a equals 0, b",00:42:54.210,00:43:03.710
+"equals 0 for
+arbitrary x's produce",00:43:03.710,00:43:06.500
+"the same thing as a equals
+1 and b equals 1, right?",00:43:06.500,00:43:11.200
+So those are collisions.,00:43:11.200,00:43:13.940
+So admittedly contrived.,00:43:13.940,00:43:15.690
+But it's a counterexample.,00:43:15.690,00:43:19.350
+"Counterexamples
+can be contrived.",00:43:19.350,00:43:21.150
+It's OK.,00:43:21.150,00:43:23.510
+All right.,00:43:23.510,00:43:24.710
+"So that was what
+happens with that.",00:43:24.710,00:43:28.470
+"Let's look at one
+more interesting thing",00:43:28.470,00:43:32.400
+"that corresponds to
+the other way, right?",00:43:32.400,00:43:36.150
+"So what I want to show is that a
+TCR does not imply one-wayness.",00:43:36.150,00:43:46.030
+"OK, so now I want an
+example where it is clear",00:43:59.040,00:44:03.122
+"that I have target collision
+resistance, because I can just",00:44:03.122,00:44:05.580
+assume that.,00:44:05.580,00:44:06.370
+"And we're going to
+use the same strategy.",00:44:06.370,00:44:08.310
+"I'm just going assume
+that I have an h that's",00:44:08.310,00:44:10.550
+target collision resistant.,00:44:10.550,00:44:12.240
+"And I'm going to try and cook up
+an h prime that is not one-way.",00:44:12.240,00:44:16.250
+"So I'm going to assume that
+in fact h is TCR and OW.",00:44:16.250,00:44:21.080
+"And I'm going to take away
+one of the properties.",00:44:21.080,00:44:24.420
+"And if I take it one
+of the properties",00:44:24.420,00:44:26.060
+"I have a counterexample, right?",00:44:26.060,00:44:28.350
+"So think about how
+you could do this.",00:44:28.350,00:44:34.320
+You have h as before.,00:44:34.320,00:44:38.355
+"And I want to add
+some stuff around it",00:44:41.920,00:44:46.330
+"such that it's going to be
+easy to discover-- for a large,",00:44:46.330,00:44:52.820
+"for a constant
+fraction of hashes",00:44:52.820,00:44:55.610
+"that I've given to me,
+not for any old hash.",00:44:55.610,00:44:58.430
+"Because you can always
+claim that one-wayness",00:44:58.430,00:45:01.000
+"is broken by saying I have
+x, I computed h of x, now",00:45:01.000,00:45:06.360
+"I know what-- given h
+of x I know what x is.",00:45:06.360,00:45:09.780
+"I mean you can't do that, right?",00:45:09.780,00:45:11.970
+"So that's not breaking
+the one-wayness of it.",00:45:11.970,00:45:14.360
+"It's when you have
+an h of x and this",00:45:14.360,00:45:16.420
+"is the first time
+you've seen it,",00:45:16.420,00:45:18.250
+"you're trying to find
+what x is, right?",00:45:18.250,00:45:20.660
+"So how would you-- how
+would you set it up",00:45:20.660,00:45:23.370
+"so you break the
+one-wayness of h",00:45:23.370,00:45:28.230
+"without necessarily breaking
+the target collision",00:45:28.230,00:45:31.310
+"resistance of the overall hash
+function that you're creating?",00:45:31.310,00:45:37.430
+"And you have to do something
+with the outputs, OK?",00:45:37.430,00:45:41.339
+You have to do something.,00:45:41.339,00:45:42.380
+This is a little more involved.,00:45:42.380,00:45:43.671
+"It's not as easy
+as this example.",00:45:43.671,00:45:45.734
+It's a little more involved.,00:45:45.734,00:45:46.900
+But any ideas?,00:45:46.900,00:45:47.920
+"Yeah, go ahead.",00:45:51.240,00:45:52.761
+"AUDIENCE: So x is
+less than b returns x.",00:45:52.761,00:45:55.707
+"If x is greater than
+b, return [INAUDIBLE].",00:45:55.707,00:45:57.964
+SRINIVAS DEVADAS: Beautiful.,00:45:57.964,00:45:59.130
+Right.,00:45:59.130,00:45:59.460
+"What color did
+you get last time?",00:45:59.460,00:46:00.970
+AUDIENCE: Blue.,00:46:00.970,00:46:02.150
+"SRINIVAS DEVADAS: You
+got a blue last time?",00:46:02.150,00:46:03.050
+All right.,00:46:03.050,00:46:03.800
+Well you get a purple.,00:46:03.800,00:46:04.890
+You have a set.,00:46:04.890,00:46:06.190
+"Actually we have these red ones
+that are precious, that are--",00:46:06.190,00:46:09.220
+"no, we don't.",00:46:09.220,00:46:12.780
+We chose not to do red.,00:46:12.780,00:46:14.479
+I don't know.,00:46:14.479,00:46:15.020
+"There was some
+subliminal message",00:46:15.020,00:46:17.370
+"I think with throwing red
+Frisbees that we didn't like.",00:46:17.370,00:46:20.750
+But OK.,00:46:20.750,00:46:21.380
+So thank you.,00:46:21.380,00:46:22.550
+"And h of x is simply
+something where",00:46:22.550,00:46:33.260
+"I'm going to concatenate
+a zero to the x value",00:46:33.260,00:46:37.360
+and just put it out.,00:46:37.360,00:46:38.660
+"And clearly this is
+breaking one-wayness",00:46:38.660,00:46:40.810
+"because I'm just taking the
+input, I'm adding a zero to it,",00:46:40.810,00:46:43.610
+and shipping it out.,00:46:43.610,00:46:44.730
+"So it's going to be easy
+to go backwards, right?",00:46:44.730,00:46:46.900
+"And this only happens
+if x is less than n,",00:46:46.900,00:46:53.500
+as the gentleman just said.,00:46:53.500,00:46:55.460
+"Less than or equal to n in
+terms of the input length, OK?",00:46:55.460,00:47:00.220
+"Otherwise I'm
+going to do h of x.",00:47:00.220,00:47:03.131
+So this is good news.,00:47:08.270,00:47:10.160
+"Because I'm actually using
+the hash function in the case",00:47:10.160,00:47:15.400
+"where I have a
+longer input string.",00:47:15.400,00:47:17.890
+"This is bad news for
+one-wayness because I'm just",00:47:17.890,00:47:20.660
+piping out the input.,00:47:20.660,00:47:23.010
+"And so if I get an x, and I
+see what the x is out here,",00:47:23.010,00:47:30.927
+"and let's just say
+for argument's sake",00:47:30.927,00:47:32.510
+"that-- you could
+even say that n is",00:47:32.510,00:47:38.480
+"going to be something
+that is less than d,",00:47:38.480,00:47:43.330
+"which is the final
+output, which has d-bits.",00:47:43.330,00:47:46.210
+"And so if you see something
+that h prime produces",00:47:46.210,00:47:49.090
+"that's less than
+d-bits you instantly",00:47:49.090,00:47:51.450
+"know that you can go
+backwards and discover",00:47:51.450,00:47:54.030
+"what input produced that
+for the h prime, right?",00:47:54.030,00:47:57.186
+"Because you just go off
+and you go backwards.",00:47:57.186,00:47:59.060
+This is what it tells you.,00:47:59.060,00:48:00.350
+"Now on the other
+hand if it's larger",00:48:00.350,00:48:01.850
+obviously you can't do that.,00:48:01.850,00:48:03.160
+"But there's a whole
+lot of combinations",00:48:03.160,00:48:06.770
+that you can do that for.,00:48:06.770,00:48:08.100
+"So this breaks one-wayness, OK?",00:48:08.100,00:48:11.300
+Now you think about TCR.,00:48:11.300,00:48:13.074
+"And what you want
+a show of course",00:48:13.074,00:48:14.490
+is that this maintains TCR.,00:48:14.490,00:48:17.570
+"So that's the last thing
+that we have to show.",00:48:17.570,00:48:20.622
+"We know that it
+breaks one-wayness.",00:48:20.622,00:48:22.080
+"But if it broke TCR we don't
+quite have our example.",00:48:22.080,00:48:25.182
+"So we want to show
+that it actually",00:48:25.182,00:48:26.640
+"maintains TCR, which is
+kind of a weakish property",00:48:26.640,00:48:31.220
+that we need to maintain.,00:48:31.220,00:48:33.440
+"And the reason
+this maintains TCR",00:48:33.440,00:48:35.890
+"is that there's really only
+two cases here obviously,",00:48:35.890,00:48:39.290
+"corresponding to
+the if statement.",00:48:39.290,00:48:41.720
+"And it's pretty clear that if
+x is less than or equal to n,",00:48:41.720,00:48:49.280
+"clearly different x's produce
+different h prime x's, correct?",00:48:49.280,00:49:03.520
+"Because I'm just passing
+along the x out to the output.",00:49:03.520,00:49:06.620
+"So if x is less than n I am
+going to get different hashes",00:49:06.620,00:49:09.730
+at the output.,00:49:09.730,00:49:10.570
+I'm just passing them out.,00:49:10.570,00:49:12.350
+So that's easy.,00:49:12.350,00:49:13.940
+"And for the other case,
+well I assume that h of x",00:49:13.940,00:49:17.490
+"was CCR, correct?",00:49:17.490,00:49:20.129
+"Because that was the original
+assumption, that I had h,",00:49:20.129,00:49:22.420
+which was CCR.,00:49:22.420,00:49:23.540
+"So in both cases TCR is
+maintained because else h",00:49:23.540,00:49:30.690
+"of x maintains TCR, all right?",00:49:30.690,00:49:38.350
+"So again, a bit of
+a contrived example",00:49:38.350,00:49:41.284
+"to show you the
+difference between",00:49:41.284,00:49:42.700
+"these different properties so
+you know not to mix them up.",00:49:42.700,00:49:45.510
+"You know what you
+want to ask for,",00:49:45.510,00:49:47.630
+"what is required
+when you actually",00:49:47.630,00:49:51.150
+"implement an
+application that depends",00:49:51.150,00:49:53.870
+on particular properties.,00:49:53.870,00:49:56.000
+All right?,00:49:56.000,00:49:57.230
+"Any questions so
+far about properties",00:49:57.230,00:49:59.010
+or any of these examples?,00:49:59.010,00:50:01.040
+"We're going to dive
+in to using them.",00:50:01.040,00:50:03.227
+OK.,00:50:06.970,00:50:08.510
+"So start thinking
+computer security.",00:50:08.510,00:50:12.170
+"Start thinking hackers,
+protecting yourself",00:50:12.170,00:50:18.090
+"against the bad guys
+that are out there who",00:50:18.090,00:50:20.655
+"are trying to discover
+your passwords,",00:50:20.655,00:50:22.640
+"trying to corrupt
+your files, generally",00:50:22.640,00:50:24.924
+make your life miserable.,00:50:24.924,00:50:25.965
+"And we'll start out with
+fairly simple examples, where",00:50:32.880,00:50:38.880
+"the properties are
+somewhat obvious,",00:50:38.880,00:50:41.730
+"and graduate to this auction
+bidding example which",00:50:41.730,00:50:46.205
+"should be sort of the
+culmination of at least",00:50:46.205,00:50:48.080
+this part of the lecture.,00:50:48.080,00:50:50.120
+"And depending on
+how much time I have",00:50:50.120,00:50:52.470
+"I'll tell you a
+little bit about how",00:50:52.470,00:50:54.800
+to implement hash functions.,00:50:54.800,00:50:56.730
+"But I think these
+things are more",00:50:56.730,00:50:59.640
+"important from a
+standpoint of giving you",00:50:59.640,00:51:03.580
+a sense of cryptographic hashes.,00:51:03.580,00:51:08.610
+All right.,00:51:08.610,00:51:10.380
+Password storage.,00:51:10.380,00:51:11.970
+"How many of you write your
+password in an unencrypted text",00:51:11.970,00:51:16.730
+"file and store it in
+a readable location?",00:51:16.730,00:51:22.230
+"There you go, man.",00:51:22.230,00:51:24.380
+Thank you for being honest.,00:51:24.380,00:51:27.390
+And I do worse.,00:51:27.390,00:51:29.550
+"Not only do I do that, I
+use my first daughter's",00:51:29.550,00:51:32.610
+name for four passwords.,00:51:32.610,00:51:35.334
+"I won't tell you
+what the name is.",00:51:35.334,00:51:36.750
+"So that's something that
+we'd like to fix, right?",00:51:41.350,00:51:43.470
+So what do real systems do?,00:51:43.470,00:51:45.500
+"Real systems cannot protect
+against me using my first",00:51:45.500,00:51:49.530
+"daughter's name as
+a password, right?",00:51:49.530,00:51:51.400
+"So there's no way you
+can protect against that.",00:51:51.400,00:51:53.580
+"But if I had a reasonable
+password, which",00:51:53.580,00:51:56.830
+"had reasonable
+entropy in it-- so",00:51:56.830,00:51:59.030
+"let's assume here that we
+have reasonable entropy",00:51:59.030,00:52:01.344
+in the password.,00:52:01.344,00:52:02.010
+And you can just say 128-bits.,00:52:02.010,00:52:04.000
+"And it's not a lot, right?",00:52:04.000,00:52:05.240
+"128-bits is 16 characters, OK?",00:52:05.240,00:52:09.135
+"And you don't have to answer
+this-- how many of you",00:52:09.135,00:52:11.260
+"have 16 characters
+in your password?",00:52:11.260,00:52:15.390
+Oh I'm impressed.,00:52:15.390,00:52:16.710
+OK.,00:52:16.710,00:52:17.350
+"So you've got
+128-bits of entropy.",00:52:17.350,00:52:18.980
+"But the rest of you, forget it.",00:52:18.980,00:52:21.710
+"This is not going
+to help you, OK?",00:52:21.710,00:52:25.040
+"But what I want,
+assuming you have",00:52:25.040,00:52:28.140
+"significant entropy in your
+password-- because otherwise,",00:52:28.140,00:52:31.830
+"if there's not
+enough entropy you",00:52:31.830,00:52:33.940
+"can just enumerate all possible
+passwords of eight letters.",00:52:33.940,00:52:38.272
+And it's not that much.,00:52:38.272,00:52:39.230
+"It's 2 raised to
+50, what have you.",00:52:39.230,00:52:41.391
+And you can just go off.,00:52:41.391,00:52:42.390
+"And none of these
+properties matter.",00:52:42.390,00:52:44.150
+You just-- you have your h of x.,00:52:44.150,00:52:45.810
+It's public.,00:52:45.810,00:52:48.206
+"We'll talk about how we
+use that in a second.",00:52:48.206,00:52:50.080
+"But clearly if the
+domain is small",00:52:50.080,00:52:53.350
+"you can just
+enumerate the domain.",00:52:53.350,00:52:55.120
+So keep that in mind.,00:52:55.120,00:52:57.062
+"I talked about h of
+x, and it's obviously",00:52:57.062,00:52:58.770
+going to be relevant here.,00:52:58.770,00:53:00.300
+"But suppose I wanted
+to build a system,",00:53:00.300,00:53:02.520
+"and this is how
+systems are built,",00:53:02.520,00:53:04.300
+"ETC slash password
+file, assuming",00:53:04.300,00:53:06.700
+"you have long passwords
+it does it this way,",00:53:06.700,00:53:11.040
+"otherwise it needs something
+that's called a salt.",00:53:11.040,00:53:13.320
+"But that's 6, 8, 57
+and we won't go there.",00:53:13.320,00:53:16.540
+"So we just assume
+a large entropy.",00:53:16.540,00:53:19.590
+What is it that a system can do?,00:53:19.590,00:53:21.980
+"What can it store in order
+to let you in, and only",00:53:21.980,00:53:26.210
+"let you in when you
+type your password,",00:53:26.210,00:53:28.830
+"and not let some bogus
+password into the system?",00:53:28.830,00:53:32.190
+"Or somebody with a bogus
+password into the system.",00:53:32.190,00:53:34.610
+"Yeah, go ahead.",00:53:34.610,00:53:35.249
+"AUDIENCE: If you capture the
+password when you enter it",00:53:35.249,00:53:37.540
+"and compare it to
+what's stored--",00:53:37.540,00:53:39.380
+SRINIVAS DEVADAS: Yes.,00:53:39.380,00:53:40.347
+"AUDIENCE: If it's a one-way
+hash you know you have",00:53:40.347,00:53:42.430
+what the correct password is.,00:53:42.430,00:53:42.730
+"SRINIVAS DEVADAS:
+That's exactly right.",00:53:42.730,00:53:43.820
+That's exactly right.,00:53:43.820,00:53:44.790
+"So it's a really simple
+idea, a very powerful idea.",00:53:44.790,00:53:49.950
+"It, as I said, assumed that the
+entropy-- and I'm belaboring",00:53:49.950,00:53:54.610
+"the obvious now--
+but it is important",00:53:54.610,00:53:56.890
+"when you talk about security
+to state your assumptions.",00:53:56.890,00:53:59.890
+"But you do not store
+password on your computer.",00:53:59.890,00:54:04.380
+"And you store the
+hash of the password.",00:54:04.380,00:54:06.940
+"Now why do I store my
+password on the computer?",00:54:06.940,00:54:09.530
+"Because this is so
+inconvenient, right?",00:54:09.530,00:54:12.200
+"So this is what the
+system does for me.",00:54:12.200,00:54:15.180
+"But the fact of the matter
+is, if I lose my password,",00:54:15.180,00:54:18.110
+this doesn't help me.,00:54:18.110,00:54:19.470
+"Because what the system wants
+you to do is choose a password",00:54:19.470,00:54:24.050
+"that is long enough,
+and the h is one-way.",00:54:24.050,00:54:26.720
+"So anybody who discovers h of
+PW that is publicly readable",00:54:26.720,00:54:30.960
+"cannot discover PW, all right?",00:54:30.960,00:54:33.840
+That's what's cool about this.,00:54:33.840,00:54:36.420
+"How do you let
+the person log in?",00:54:36.420,00:54:38.740
+"Use h of PW to compare
+against h of PW prime,",00:54:38.740,00:54:47.860
+"which is what is entered, where
+PW prime is the typed password.",00:54:47.860,00:54:54.420
+"And clearly what we need is
+the disclosure of h of PW",00:55:00.540,00:55:08.530
+should not reveal PW.,00:55:08.530,00:55:14.960
+"So we definitely
+need one-wayness.",00:55:14.960,00:55:19.570
+"What about-- what about
+collision resistance?",00:55:19.570,00:55:24.370
+Our target collision resistance?,00:55:24.370,00:55:28.340
+"Think practitioner now, right?",00:55:28.340,00:55:31.350
+"Are we interested in
+this hash function",00:55:31.350,00:55:33.590
+being collision resistant?,00:55:33.590,00:55:34.880
+"What does that
+mean in this case?",00:55:34.880,00:55:37.150
+"Give me the context in this
+particular application?",00:55:37.150,00:55:40.315
+"Yeah, go ahead.",00:55:40.315,00:55:40.940
+"AUDIENCE: It means that someone
+entering a different password",00:55:40.940,00:55:44.860
+"will have the same
+hash [INAUDIBLE].",00:55:44.860,00:55:47.107
+SRINIVAS DEVADAS: Exactly.,00:55:47.107,00:55:48.190
+"So it means that what you have
+is a situation where you do not",00:55:48.190,00:55:56.600
+"reveal-- and so what might
+happen is that h of PW prime",00:55:56.600,00:56:00.900
+equals h of PW.,00:56:00.900,00:56:02.460
+"But h of PW equals
+h of PW prime.",00:56:02.460,00:56:07.190
+But PW is not equal to PW prime.,00:56:07.190,00:56:11.490
+"What you have is
+a false positive.",00:56:11.490,00:56:13.950
+"Someone who didn't
+know your password",00:56:13.950,00:56:15.570
+"but guessed right-- and
+this is a 128-bit value,",00:56:15.570,00:56:19.060
+"and they guessed right--
+is going to get it.",00:56:19.060,00:56:22.840
+"You don't particularly
+care of the probability",00:56:22.840,00:56:24.940
+of this occurrence.,00:56:24.940,00:56:26.190
+It's really small.,00:56:26.190,00:56:27.900
+"Typically you're going to
+have systems that lock you out",00:56:27.900,00:56:30.570
+"if you try 10 tries that occurs
+one, two, wrong passwords,",00:56:30.570,00:56:34.770
+right?,00:56:34.770,00:56:35.270
+"So really in systems
+you do not require--",00:56:35.270,00:56:37.965
+"you do want to
+build systems that",00:56:37.965,00:56:39.340
+"have minimal
+properties with respect",00:56:39.340,00:56:42.090
+to the perimeters that are used.,00:56:42.090,00:56:43.570
+"So from a system building
+standpoint just require OW.",00:56:43.570,00:56:47.090
+Don't go overboard.,00:56:47.090,00:56:48.350
+"Don't require collision
+resistance or TCR, OK?",00:56:48.350,00:56:53.100
+"Let's do a slightly
+different example.",00:56:53.100,00:56:55.420
+"Also a bit of a
+warm-up for what's",00:56:55.420,00:56:59.010
+"coming next, which is a
+file modification detector.",00:56:59.010,00:57:01.895
+"So for each file F, I'm going to
+store h of F. And as securely.",00:57:22.080,00:57:32.800
+"So you assume that this means
+that h of F cannot be modified",00:57:32.800,00:57:36.980
+"by anybody, h of F itself.",00:57:36.980,00:57:40.380
+"And now we want to
+check if F is modified",00:57:47.860,00:57:56.030
+"by re-computing h of
+F. Which could be,",00:57:56.030,00:58:04.470
+this could be modified.,00:58:04.470,00:58:05.640
+"So this could
+actually be F prime.",00:58:05.640,00:58:07.130
+You don't know that.,00:58:07.130,00:58:09.250
+You have a file.,00:58:09.250,00:58:10.500
+It's a gigabyte.,00:58:10.500,00:58:11.780
+"And somebody might
+have tampered with one",00:58:11.780,00:58:14.270
+of the bits in the file.,00:58:14.270,00:58:16.030
+"All you have is a
+d-bit digest that",00:58:16.030,00:58:19.340
+"corresponds to h of F that you
+stored in a secure location.",00:58:19.340,00:58:23.670
+"And you want to check
+to see, by re-computing",00:58:23.670,00:58:27.190
+"h of F, the file
+that is given to you,",00:58:27.190,00:58:31.940
+"and comparing it with what
+you've stored, the h of F",00:58:31.940,00:58:34.135
+that you've stored.,00:58:34.135,00:58:35.730
+"And so what property do we
+need in order to pull this off?",00:58:35.730,00:58:42.200
+Of hash functions.,00:58:42.200,00:58:44.590
+"What precisely do we
+need to pull this off?",00:58:44.590,00:58:48.070
+"What is the adversary
+trying to do?",00:58:50.620,00:58:53.040
+And what is a successful break?,00:58:53.040,00:58:55.530
+"A successful break is if an
+adversary can modify the file",00:58:55.530,00:59:02.000
+"and keep h of F the same, right?",00:59:02.000,00:59:08.720
+"That would be a
+successful break, right?",00:59:08.720,00:59:10.780
+Yup.,00:59:10.780,00:59:13.600
+Go ahead.,00:59:13.600,00:59:14.125
+AUDIENCE: TCR.,00:59:14.125,00:59:14.910
+SRINIVAS DEVADAS: TCR?,00:59:14.910,00:59:15.550
+"Yeah, absolutely.",00:59:15.550,00:59:16.300
+You need TCR.,00:59:16.300,00:59:16.841
+So you want to modify the file.,00:59:19.350,00:59:21.750
+"So you're given that
+the file-- the adversary",00:59:34.830,00:59:38.230
+"is given the file, which
+is the input to the hash,",00:59:38.230,00:59:41.980
+"and is going to try and
+modify-- modify the file, right?",00:59:41.980,00:59:47.550
+So let's do a couple more.,00:59:47.550,00:59:51.130
+"And we're going to advance our
+requirements here a little bit.",00:59:51.130,00:59:57.470
+"So those two are
+basic properties.",00:59:57.470,01:00:00.891
+I want to leave this up there.,01:00:00.891,01:00:02.140
+"We're going to do
+something that corresponds",01:00:04.937,01:00:06.770
+to digital signatures.,01:00:06.770,01:00:08.690
+"So digital signatures are
+this wonderful invention",01:00:08.690,01:00:13.030
+"that came out of MIT in a
+computer science laboratory--",01:00:13.030,01:00:18.290
+"again, Ron Rivest and
+collaborators-- which",01:00:18.290,01:00:23.160
+"are a way of digitally
+signing a document using",01:00:23.160,01:00:28.120
+"a secret key, a private key.",01:00:28.120,01:00:31.170
+"But anybody who has
+access to a public key,",01:00:31.170,01:00:35.660
+"so it could be
+pretty much anybody,",01:00:35.660,01:00:37.210
+"could verify the authenticity
+of that signature, right?",01:00:37.210,01:00:41.647
+"So that's what a
+digital signature is.",01:00:41.647,01:00:43.230
+"So we're going to talk
+about public cryptography",01:00:52.490,01:00:55.960
+"on Thursday, in terms
+of how you could build",01:00:55.960,01:01:00.730
+"systems or encryption algorithms
+that are public key algorithms.",01:01:00.730,01:01:06.640
+"But here I'll just tell you
+what we want out of them.",01:01:06.640,01:01:12.470
+"Essentially what we have here
+in the case of signatures,",01:01:12.470,01:01:15.100
+"we actually want to talk
+about encryption here,",01:01:15.100,01:01:18.100
+"are-- there's two
+keys associated",01:01:18.100,01:01:20.180
+with a public key system.,01:01:20.180,01:01:24.030
+"Anybody and everybody
+in the system",01:01:24.030,01:01:26.880
+"would have a public key that
+you can put on your website.",01:01:26.880,01:01:31.090
+"And you also have a secret key--
+that's like your password--",01:01:31.090,01:01:34.500
+"that you don't
+want to write down,",01:01:34.500,01:01:35.930
+"you don't want to give away,
+because that's effectively",01:01:35.930,01:01:38.221
+your identity.,01:01:38.221,01:01:39.930
+"And what digital
+signatures respond to",01:01:39.930,01:01:44.700
+"are that you have
+two operations.",01:01:44.700,01:01:46.880
+"You have signing
+and verification.",01:01:46.880,01:01:51.030
+"So signing means that you
+create a signature sigma that",01:01:51.030,01:01:56.760
+"is the sign using your
+private key, your secret key,",01:01:56.760,01:02:06.420
+"off a message M. So you're
+saying this is this message,",01:02:06.420,01:02:10.070
+"it came from me, right?",01:02:10.070,01:02:12.060
+That's what signing means.,01:02:12.060,01:02:13.655
+"You have this long message
+and you sign it at the bottom.",01:02:13.655,01:02:16.030
+"You're taking responsibility for
+the contents of that message.",01:02:16.030,01:02:20.620
+"And then verification is you
+have M sigma and a public key.",01:02:20.620,01:02:27.710
+"And this is simply going
+to output true or false.",01:02:27.710,01:02:31.770
+"And so the public key should
+not reveal any information",01:02:35.780,01:02:42.260
+about the secret key.,01:02:42.260,01:02:43.260
+"And that's the challenge
+of building PKI systems,",01:02:48.570,01:02:51.700
+"that we'll talk about in
+some detail next time.",01:02:51.700,01:02:56.800
+"But we don't need to
+think about that other",01:02:56.800,01:03:01.440
+than acknowledging it today.,01:03:01.440,01:03:06.100
+"So the public and private
+key are two distinct things,",01:03:06.100,01:03:09.680
+"neither one of which reveals
+anything about the other.",01:03:09.680,01:03:12.150
+"Think of them as completely
+distinct passwords.",01:03:12.150,01:03:14.430
+"But they happen to be
+mathematically related.",01:03:14.430,01:03:16.730
+"That's why this
+whole thing works.",01:03:16.730,01:03:18.500
+"And that mathematical
+relationship",01:03:18.500,01:03:20.260
+"we'll look at in some
+detail on Thursday.",01:03:20.260,01:03:24.750
+"But having said
+that, take a look",01:03:24.750,01:03:26.920
+"at what this app is
+doing for us, right?",01:03:26.920,01:03:29.490
+This is a security application.,01:03:29.490,01:03:31.370
+"And I haven't quite gotten
+to hash functions yet.",01:03:31.370,01:03:33.930
+"But I'll get to it
+in just a minute.",01:03:33.930,01:03:36.600
+"But what I want to do is
+emphasize that there's",01:03:36.600,01:03:39.330
+two operations going on.,01:03:39.330,01:03:41.150
+"One of which is a
+signature, which",01:03:41.150,01:03:42.760
+"is a private signature, in the
+sense that it's private to me,",01:03:42.760,01:03:46.050
+if I'm Alice.,01:03:46.050,01:03:47.160
+Or private to Alice.,01:03:47.160,01:03:48.500
+"And you're using
+secret information",01:03:48.500,01:03:50.590
+"on this public message,
+M, because that's",01:03:50.590,01:03:52.810
+going to be publicized.,01:03:52.810,01:03:54.690
+"And you're going to
+sign the public message.",01:03:54.690,01:03:57.580
+"And then anybody in the
+world who has access",01:03:57.580,01:04:01.160
+"to Alice's public key is
+going to be able to say,",01:04:01.160,01:04:04.190
+"oh I'm looking at the signature,
+which is a bunch of bits.",01:04:04.190,01:04:06.840
+"I'm looking at the message,
+which is a whole lot of bits.",01:04:06.840,01:04:09.900
+"And I have this public key,
+which is a bunch of bits.",01:04:09.900,01:04:12.590
+"And I'm going to be
+able to tell for sure",01:04:12.590,01:04:16.150
+"that either Alice
+signed this message,",01:04:16.150,01:04:19.340
+"or Alice did not
+sign this message.",01:04:19.340,01:04:22.560
+"And the assumption
+here is that Alice",01:04:22.560,01:04:26.710
+kept her private key secret.,01:04:26.710,01:04:28.950
+"And of course, what
+I just wrote there,",01:04:28.950,01:04:30.970
+"that the public key
+does not reveal anything",01:04:30.970,01:04:33.450
+"about the secret key, OK?",01:04:33.450,01:04:35.530
+"So that's digital signatures
+for you, in a nutshell.",01:04:35.530,01:04:38.350
+"And when you do MIT
+certificates you're",01:04:38.350,01:04:40.990
+"using digital signatures a la
+Rivest-Shamir-Adleman, the RSA",01:04:40.990,01:04:45.130
+algorithm.,01:04:45.130,01:04:45.900
+"So you're using
+this all the time,",01:04:45.900,01:04:48.580
+"when you click on 6.046
+links, for example.",01:04:48.580,01:04:52.290
+"And what happens is M is
+typically really large.",01:04:52.290,01:04:56.440
+"I mean it could
+be a file, right?",01:04:56.440,01:04:58.060
+It could be a large file.,01:04:58.060,01:04:59.510
+"And you don't necessarily want
+to compute these operations",01:04:59.510,01:05:02.730
+on large files.,01:05:02.730,01:05:04.150
+"So for convenience, what happens
+is you end up hashing the file.",01:05:04.150,01:05:09.580
+"And for large M it's
+easier to sign h of M.",01:05:09.580,01:05:22.550
+"And so replace the M's that
+you see here with h of M,",01:05:22.550,01:05:29.810
+all right?,01:05:29.810,01:05:30.720
+"So now that we're given that
+we're going to be doing h of M",01:05:30.720,01:05:38.640
+"in here, think
+about what we wanted",01:05:38.640,01:05:42.550
+"to accomplish with M, right?",01:05:42.550,01:05:45.390
+"I told you what we wanted
+to accomplish with M.",01:05:45.390,01:05:48.150
+There's a particular message.,01:05:48.150,01:05:49.360
+I'm Alice.,01:05:49.360,01:05:50.190
+"I'm going to keep my
+secret key secret.",01:05:50.190,01:05:53.850
+"But I want to commit to signing
+this message M, all right?",01:05:53.850,01:05:57.910
+"And I want to make
+sure that nobody",01:05:57.910,01:06:00.330
+"can pretend to be me who
+doesn't know my secret key.",01:06:00.330,01:06:05.320
+And nobody does.,01:06:05.320,01:06:07.290
+"So if I'm going to be signing
+the hash of the message,",01:06:07.290,01:06:10.760
+"now it comes down
+to today's lecture.",01:06:10.760,01:06:13.930
+"I'm signing the hash
+of the message h of M.",01:06:13.930,01:06:16.680
+"What property do I require of
+h in order for this whole thing",01:06:16.680,01:06:22.120
+to work out?,01:06:22.120,01:06:23.640
+"Yeah, go ahead.",01:06:23.640,01:06:24.636
+"AUDIENCE: Is it
+non-malleability?",01:06:24.636,01:06:26.540
+"SRINIVAS DEVADAS: Non
+malleability, but even before",01:06:26.540,01:06:28.665
+"that-- suppose-- absolutely,
+but non-malleability",01:06:28.665,01:06:31.770
+"is kind of beyond one of these
+properties over on the right.",01:06:31.770,01:06:36.590
+"You're on the
+right track, right?",01:06:36.590,01:06:39.570
+"So do you want to give
+me a different answer?",01:06:39.570,01:06:45.219
+"You can give me a
+different answer.",01:06:45.219,01:06:46.677
+"AUDIENCE: Oh, I'm not sure.",01:06:46.677,01:06:50.090
+SRINIVAS DEVADAS: OK.,01:06:50.090,01:06:52.190
+What?,01:06:52.190,01:06:52.690
+"Yeah, back there.",01:06:52.690,01:06:53.898
+"AUDIENCE: I think you wanted to
+one-way because otherwise you",01:06:53.898,01:06:56.766
+"could take that signature and
+find another message that you",01:06:56.766,01:07:00.112
+could credit.,01:07:00.112,01:07:01.080
+"SRINIVAS DEVADAS: I
+can make M public.",01:07:01.080,01:07:02.740
+I can make M-- M can be public.,01:07:02.740,01:07:05.480
+And h of M is public.,01:07:05.480,01:07:07.060
+"So one-wayness is not
+interesting for this example",01:07:07.060,01:07:13.570
+if M is public.,01:07:13.570,01:07:14.690
+"And we can assume that M
+eventually gets public.",01:07:14.690,01:07:16.690
+"Because that's the message
+I'm signing, right?",01:07:16.690,01:07:18.840
+I can also put M out.,01:07:18.840,01:07:21.082
+"So I want the
+relationship-- I want",01:07:21.082,01:07:22.540
+"you to focus on the relationship
+between h of M and M",01:07:22.540,01:07:25.760
+"and tell me what would
+break this system.",01:07:25.760,01:07:28.720
+And you're on the right track.,01:07:28.720,01:07:31.120
+"Yeah, go ahead.",01:07:31.120,01:07:31.970
+Or way back there.,01:07:31.970,01:07:32.932
+"Yeah, sorry about that.",01:07:32.932,01:07:33.890
+AUDIENCE: TCR.,01:07:33.890,01:07:35.074
+SRINIVAS DEVADAS: TCR.,01:07:35.074,01:07:35.990
+Why TCR?,01:07:35.990,01:07:36.780
+AUDIENCE: [INAUDIBLE].,01:07:36.780,01:07:37.696
+"SRINIVAS DEVADAS: So I have
+M. So what happens here--",01:07:46.130,01:07:49.070
+I should write this out.,01:07:49.070,01:07:51.920
+"I'm given-- as an adversary I
+have M and h of M. It is bad",01:07:51.920,01:08:12.640
+"if Alice signs h of M, but Bob
+claims Alice signed M prime.",01:08:12.640,01:08:33.010
+"Because h of M equals
+h of M prime, right?",01:08:33.010,01:08:39.830
+That is bad.,01:08:39.830,01:08:41.600
+"So the M is public--
+could you stand up?",01:08:41.600,01:08:44.729
+M is given.,01:08:49.229,01:08:50.600
+"There's a specific
+M, and a specific h",01:08:50.600,01:08:53.329
+"of M in particular,
+that has been exposed.",01:08:53.329,01:08:56.470
+"And h of M is what was
+used for the signature.",01:08:56.470,01:08:59.620
+"So you want to keep
+h of M the same.",01:08:59.620,01:09:01.140
+It's a specific one.,01:09:01.140,01:09:02.170
+"So it's not
+collision resistance,",01:09:02.170,01:09:03.544
+"it's target
+collision resistance,",01:09:03.544,01:09:05.850
+because that's given to you.,01:09:05.850,01:09:07.460
+"And you want to
+keep that the same.",01:09:07.460,01:09:09.430
+"But you want to claim that oh,
+you promised me $10,000, not",01:09:09.430,01:09:13.600
+"$20, right?",01:09:13.600,01:09:15.319
+"If you can do that,
+you signed saying",01:09:15.319,01:09:17.899
+"you want to pay $10,000, not
+$20, then you've got a problem.",01:09:17.899,01:09:22.149
+So your thing is very close.,01:09:22.149,01:09:24.160
+"It's just that it doesn't need
+to be a strong relationship",01:09:24.160,01:09:27.130
+"between the 10,000 or the 20.",01:09:27.130,01:09:28.710
+"I mean I give you a
+concrete example of that.",01:09:28.710,01:09:31.000
+"But it could be more,
+it could be less.",01:09:31.000,01:09:33.720
+"Anything that is different
+from what you signed,",01:09:33.720,01:09:36.479
+"be it with the numerical
+relationship or not,",01:09:36.479,01:09:38.870
+"would cause a problem and
+break this scheme, all right?",01:09:38.870,01:09:43.080
+Are we good?,01:09:43.080,01:09:45.260
+"All right, one last example,
+the most interesting one.",01:09:45.260,01:09:50.490
+"And as I guessed I'm
+probably not going",01:09:50.490,01:09:57.250
+"to get to saying very much
+about how cache functions are",01:09:57.250,01:10:01.670
+implemented.,01:10:01.670,01:10:02.250
+"But maybe I'll spend
+a minute or two on it.",01:10:02.250,01:10:04.041
+"So let's do this example that
+has to do with commitments.",01:10:08.770,01:10:12.700
+"Commitment is important, right?",01:10:19.260,01:10:20.890
+"You want to commit
+to doing things.",01:10:20.890,01:10:22.640
+You want to keep your promises.,01:10:22.640,01:10:24.420
+"And in this case we
+have a legal requirement",01:10:24.420,01:10:28.310
+"that you want to be able to make
+people honor their commitments,",01:10:28.310,01:10:34.550
+"and not weasel their way
+out of commitments, right?",01:10:34.550,01:10:37.040
+"And we want to deal with
+this computationally.",01:10:37.040,01:10:39.670
+And let's think about auctions.,01:10:39.670,01:10:42.720
+"So Alice has value x,
+e.g. an auction bid.",01:10:42.720,01:10:51.325
+"Alice computes what
+we're going to call",01:10:54.940,01:11:02.170
+"C of x, which is a commitment
+of x, and cements it, right?",01:11:02.170,01:11:11.500
+"C of x, C of x is-- let's
+assume that the auctioneer,",01:11:11.500,01:11:26.670
+"and perhaps other auctionees
+as well, see C of x.",01:11:26.670,01:11:32.470
+"You have to submit it
+to somebody, right?",01:11:32.470,01:11:34.770
+"So you can assume
+that that's exposed.",01:11:34.770,01:11:37.100
+"And what is going to happen
+is, when bidding is over Alice",01:11:37.100,01:11:49.460
+"is going to open--
+so this is-- C",01:11:49.460,01:11:53.145
+"of x can be thought
+of as sealing the bid.",01:11:53.145,01:12:00.069
+So that's the commitment.,01:12:00.069,01:12:01.110
+"You're sealing the--
+you're making a bid",01:12:01.110,01:12:03.030
+"and you're sealing
+it in an envelope.",01:12:03.030,01:12:04.600
+You've committed to that.,01:12:04.600,01:12:05.650
+"That's obviously, what
+happens in real life",01:12:05.650,01:12:08.110
+"without cryptography,
+but we want",01:12:08.110,01:12:09.740
+"to do this with cryptography,
+with hash functions.",01:12:09.740,01:12:12.300
+"And so now Alice opens
+C of x to reveal x.",01:12:12.300,01:12:19.250
+"So she has to prove that
+in fact x was her bid.",01:12:19.250,01:12:25.670
+"And that it matches
+what she sealed.",01:12:25.670,01:12:28.580
+"When you open it up, think
+about it conceptually",01:12:28.580,01:12:31.930
+"from a standpoint of
+what happens with paper,",01:12:31.930,01:12:34.660
+"and then we have to think
+about this computationally",01:12:34.660,01:12:38.620
+"and what this implies, right?",01:12:38.620,01:12:41.120
+"So again I'll do a
+little bit of set up.",01:12:41.120,01:12:43.245
+"And then we have start
+talking about the properties",01:12:43.245,01:12:45.370
+"that we want for this
+particular application.",01:12:45.370,01:12:48.997
+"So there are a bunch
+of people who are",01:12:48.997,01:12:50.580
+doing bidding for this auction.,01:12:50.580,01:12:54.680
+"I don't-- I want
+to be the first--",01:12:54.680,01:12:56.999
+"I don't want to
+spend a lot of money.",01:12:56.999,01:12:58.540
+But I want to win.,01:12:58.540,01:12:59.560
+"All of us are like that, right?",01:12:59.560,01:13:01.640
+"If I know information
+about your bid,",01:13:01.640,01:13:04.350
+"that is obviously a
+tremendous advantage.",01:13:04.350,01:13:06.490
+"So clearly that
+can't happen, right?",01:13:06.490,01:13:09.110
+"If I know one other person's
+bid I just do plus 1 on that.",01:13:09.110,01:13:13.000
+"If I know everybody else's I
+just do plus 1 on the maximum.",01:13:13.000,01:13:16.090
+"So clearly there's some secrecy
+that's required here, correct?",01:13:16.090,01:13:19.420
+"So C of x is going to
+have to do two things.",01:13:19.420,01:13:23.000
+It can't reveal x.,01:13:23.000,01:13:26.160
+"Because then even maybe
+the auctioneer is bad.",01:13:26.160,01:13:28.760
+"Or other people are
+looking at this.",01:13:28.760,01:13:31.570
+"And you can just assume that C
+of x is-- the C of x's are all",01:13:31.570,01:13:34.760
+public.,01:13:34.760,01:13:36.000
+"But I also need a
+constraint that's",01:13:36.000,01:13:39.840
+"associated with C of x
+that corresponds to making",01:13:39.840,01:13:43.530
+"sure Alice is honest, correct?",01:13:43.530,01:13:46.540
+"So I need to make Alice
+commit to something, right?",01:13:46.540,01:13:50.940
+"So what are the different
+properties of the hash function",01:13:50.940,01:13:56.000
+"that if I use h of
+x here, that I'd",01:13:56.000,01:14:03.350
+"want h to satisfy in order
+for this whole process",01:14:03.350,01:14:08.090
+"to work like it's supposed to
+work with paper and envelopes?",01:14:08.090,01:14:14.700
+"Yeah, go ahead.",01:14:14.700,01:14:15.695
+"AUDIENCE: It has to be
+one-way [INAUDIBLE].",01:14:15.695,01:14:18.406
+"SRINIVAS DEVADAS: It
+has to be one-way.",01:14:18.406,01:14:20.030
+"And explain to me-- so I
+want a description of it",01:14:20.030,01:14:24.210
+"has to be one-way, because why?",01:14:24.210,01:14:26.260
+"AUDIENCE: Because
+you want all the c",01:14:26.260,01:14:27.957
+"x's to be hidden from
+all the other options.",01:14:27.957,01:14:29.790
+SRINIVAS DEVADAS: Right.,01:14:29.790,01:14:31.200
+"C of x should not
+reveal x, all right?",01:14:31.200,01:14:40.930
+All right.,01:14:40.930,01:14:41.430
+That's good.,01:14:41.430,01:14:41.950
+Do you have more?,01:14:41.950,01:14:44.320
+"It has to be
+collision resistant.",01:14:44.320,01:14:46.765
+OK.,01:14:53.180,01:14:55.560
+I guess.,01:14:55.560,01:14:57.852
+A little bit more.,01:14:57.852,01:15:00.580
+You're getting there.,01:15:00.580,01:15:02.560
+"What-- why is it
+collision resistant?",01:15:02.560,01:15:05.672
+"AUDIENCE: Because you want
+to make sure that Alice,",01:15:05.672,01:15:08.132
+"when she makes a bid that
+she commits that bid.",01:15:08.132,01:15:12.560
+"If she's not going to resist
+it then she could bid $100",01:15:12.560,01:15:15.512
+and then find something else.,01:15:15.512,01:15:16.805
+"SRINIVAS DEVADAS:
+That's exactly right.",01:15:16.805,01:15:18.430
+"So CR, because
+Alice should not be",01:15:18.430,01:15:26.540
+"able to open this in
+multiple ways, right?",01:15:26.540,01:15:37.760
+"And in this case it's
+not TCR in the sense",01:15:37.760,01:15:41.940
+"that Alice controls
+what her bids are.",01:15:41.940,01:15:45.350
+"And so she might find a pair
+of bids that collide, correct?",01:15:45.350,01:15:51.440
+"She might realize that in
+this particular hash function,",01:15:51.440,01:15:55.840
+"you know $10,000 and a billion
+dollars collide, right?",01:15:55.840,01:16:01.000
+"And so she figures
+depending on what happens,",01:16:01.000,01:16:04.450
+"she's a billionaire,
+let's assume.",01:16:04.450,01:16:07.820
+"She's going to open
+the right thing.",01:16:07.820,01:16:09.320
+"She's a billionaire, but
+she doesn't necessarily",01:16:09.320,01:16:11.320
+"want to spend the billion, OK?",01:16:11.320,01:16:13.390
+"So that's that, right?",01:16:13.390,01:16:15.040
+But I want more.,01:16:15.040,01:16:18.360
+Go ahead.,01:16:18.360,01:16:19.115
+"AUDIENCE: You don't
+want it to be malleable.",01:16:19.115,01:16:21.590
+"Assuming that the
+auctioneer is not honest",01:16:21.590,01:16:23.482
+"because you don't want to
+accept a bribe from someone",01:16:23.482,01:16:25.690
+"and then change
+everyone else's bid",01:16:25.690,01:16:27.200
+"to square root of
+whatever they bid.",01:16:27.200,01:16:29.485
+"SRINIVAS DEVADAS:
+That's exactly right.",01:16:29.485,01:16:31.110
+"Or plus 1, which is a
+great example, right?",01:16:31.110,01:16:34.480
+So there you go.,01:16:34.480,01:16:37.050
+I ran out of Frisbees.,01:16:37.050,01:16:38.000
+You can get one next time.,01:16:38.000,01:16:39.083
+"So yeah, I don't
+need this anymore.",01:16:42.610,01:16:45.640
+You're exactly right.,01:16:45.640,01:16:47.020
+"There's another-- it turns out
+it's even more subtle than what",01:16:47.020,01:16:49.790
+you just described.,01:16:49.790,01:16:51.070
+"And I think I might be able
+to point that out to you.",01:16:51.070,01:16:54.470
+"But let me just first
+describe this answer, which",01:16:54.470,01:16:59.730
+gives us non-malleability.,01:16:59.730,01:17:02.960
+"So the claim is that you
+also want non-malleability",01:17:02.960,01:17:06.130
+in your hash function.,01:17:06.130,01:17:08.000
+"And the simple reason is,
+given C of x-- and let's assume",01:17:08.000,01:17:14.147
+that this is public.,01:17:14.147,01:17:14.980
+"It's certainly public
+to the auctioneer,",01:17:14.980,01:17:16.646
+"and it could be public to
+the other bidders as well.",01:17:16.646,01:17:19.530
+"Because the notion of
+sealing is that you've",01:17:19.530,01:17:23.370
+sealed it using C of x.,01:17:23.370,01:17:24.372
+"But people can see the
+outside of the envelope, which",01:17:24.372,01:17:26.580
+is C of x.,01:17:26.580,01:17:27.990
+So everyone can see C of x.,01:17:27.990,01:17:29.510
+"You still want this to work,
+even though all other bidders",01:17:29.510,01:17:32.250
+can see C of x.,01:17:32.250,01:17:33.650
+"So given C of x, should
+not be possible to produce",01:17:33.650,01:17:44.990
+C of x plus 1.,01:17:44.990,01:17:48.110
+You don't know x is.,01:17:48.110,01:17:49.250
+"But if you can produce C of
+x plus 1, you win, all right?",01:17:49.250,01:17:54.050
+And so that's the problem.,01:17:54.050,01:17:57.590
+"Now it turns out you
+now say OK, am I done?",01:17:57.590,01:18:04.930
+I want these three properties.,01:18:04.930,01:18:06.930
+"And I'm done, right?",01:18:06.930,01:18:10.350
+"There's a little
+subtlety here which",01:18:10.350,01:18:13.060
+these properties don't capture.,01:18:13.060,01:18:15.750
+So that's why there's more here.,01:18:15.750,01:18:18.290
+"And I don't mean to
+titillate, because I'll",01:18:18.290,01:18:21.770
+tell you what is missing here.,01:18:21.770,01:18:24.000
+"But let's say that I have a hash
+function that looks like this.",01:18:24.000,01:18:29.370
+And this here is non-malleable.,01:18:33.600,01:18:39.970
+It is collision resistant.,01:18:39.970,01:18:41.690
+"And it's one-way, all right?",01:18:41.690,01:18:43.290
+"So h of x has all these
+wonderful properties,",01:18:43.290,01:18:46.730
+all right?,01:18:46.730,01:18:48.710
+"I'm creating an h
+prime x that looks",01:18:48.710,01:18:52.160
+"like this, which is
+a concatenation of h",01:18:52.160,01:18:54.660
+"of x, and giving away the most
+significant bit of x, which",01:18:54.660,01:19:00.210
+"is my bid, right?",01:19:00.210,01:19:01.670
+"I'm just giving
+that away, right?",01:19:01.670,01:19:03.780
+"The problem here is
+that we haven't really",01:19:03.780,01:19:08.190
+"made our properties
+broad enough to solve",01:19:08.190,01:19:11.660
+"this particular
+application to the extent",01:19:11.660,01:19:14.230
+"that there's contrived cases
+where these properties aren't",01:19:14.230,01:19:19.140
+"enough, OK?",01:19:19.140,01:19:20.420
+And the reason is simple.,01:19:20.420,01:19:22.180
+"h prime x is arguably
+NM, CR, and OW.",01:19:22.180,01:19:30.000
+"And I won't go into to
+each of those arguments.",01:19:30.000,01:19:32.660
+"But you can think
+about it, right?",01:19:32.660,01:19:36.630
+"If I'm just giving you one
+bit, there's 159 others,",01:19:36.630,01:19:40.030
+"there's a couple of
+hundred others, whatever it",01:19:40.030,01:19:42.140
+is that I have in the domain.,01:19:42.140,01:19:43.860
+It's not going to be invertible.,01:19:43.860,01:19:46.230
+"h prime x is not going to
+be invertible if h of x",01:19:46.230,01:19:49.420
+is not invertible.,01:19:49.420,01:19:51.080
+"h prime x is not going to be
+breakable in terms of collision",01:19:51.080,01:19:57.880
+"resistance if h of
+x is not breakable,",01:19:57.880,01:20:00.950
+and so on and so forth.,01:20:00.950,01:20:02.450
+"But if I had a hash
+function like that,",01:20:02.450,01:20:04.740
+"is it a good hash function
+for my commitment application?",01:20:04.740,01:20:09.340
+"No, obviously not.",01:20:09.340,01:20:10.090
+"Because if I publicize this
+hash function-- remember,",01:20:10.090,01:20:12.298
+"everything is public
+here with respect",01:20:12.298,01:20:13.890
+"to h and h prime-- you
+are giving away the most",01:20:13.890,01:20:18.030
+"significant that
+corresponds to your bid",01:20:18.030,01:20:21.360
+"in this particular
+hash function, right?",01:20:21.360,01:20:23.350
+"So you really need a little bit
+more than these for secrecy,",01:20:23.350,01:20:33.170
+for true secrecy.,01:20:33.170,01:20:34.200
+"But in the context
+of this example,",01:20:37.510,01:20:39.890
+"I mean it's common
+sense that you would not",01:20:39.890,01:20:41.770
+"use the hash function
+like that, right?",01:20:41.770,01:20:43.550
+"So it's not that there's
+anything profound here.",01:20:43.550,01:20:46.950
+"It's just that I
+want to make sure",01:20:46.950,01:20:48.540
+"that you understand the
+nuances of the properties",01:20:48.540,01:20:51.480
+that we're requiring.,01:20:51.480,01:20:52.580
+"We had all the
+requirements corresponding",01:20:52.580,01:20:55.560
+"to the definitions
+of NM and CR and OW.",01:20:55.560,01:20:58.900
+"And you need a little bit
+more for this example, where",01:20:58.900,01:21:01.150
+"you have to say something,
+perhaps informally,",01:21:01.150,01:21:04.300
+"like the bits of your auction
+are scrambled in the final hash",01:21:04.300,01:21:10.870
+"output, which most hash
+functions should do anyway,",01:21:10.870,01:21:14.010
+and h of x will definitely do.,01:21:14.010,01:21:15.730
+"But you kind of unscrambled
+it by adding this little thing",01:21:15.730,01:21:19.290
+"in here, corresponding to
+the most significant thing,",01:21:19.290,01:21:22.210
+all right?,01:21:22.210,01:21:23.050
+So I'll stop with that.,01:21:23.050,01:21:25.480
+"Let me just say that the
+operation-- or sorry,",01:21:25.480,01:21:29.760
+"the work involved in
+creating hash functions that",01:21:29.760,01:21:33.590
+"are poly-time computable
+is research work.",01:21:33.590,01:21:37.430
+"People put up hash functions
+and they get broken,",01:21:37.430,01:21:40.290
+"like MD4 was put up in '92 and
+then got broken, SHA-1 and so",01:21:40.290,01:21:43.770
+on and so forth.,01:21:43.770,01:21:44.700
+"And so I just encourage you
+to look up SHA-3 and just take",01:21:44.700,01:21:49.580
+"a quick scan and what
+the complexity of SHA-3",01:21:49.580,01:21:52.480
+"is with respect to computing the
+hash given an arbitrary string,",01:21:52.480,01:21:56.820
+all right?,01:21:56.820,01:21:57.590
+I'll stick around for questions.,01:21:57.590,01:21:59.575

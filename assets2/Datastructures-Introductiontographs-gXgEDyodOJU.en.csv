@@ -1,0 +1,474 @@
+text,start,stop
+"Hello everyone. So far in the series on
+data structures,",00:00:00.149,00:00:03.790
+"we have talked about some of the linear
+data structures like array,",00:00:03.790,00:00:07.830
+"linked list, stack and queue. In all these
+structure, data is arranged in a linear or",00:00:07.830,00:00:13.769
+"sequential manner, so we can call
+them linear data structures",00:00:13.769,00:00:17.400
+"and we've also talked about tree which
+is a non-linear data structure.",00:00:17.400,00:00:22.240
+"Tree is a hierarchical structure. Now as
+we understand data structures are ways to",00:00:22.240,00:00:27.779
+"store and organize data,",00:00:27.779,00:00:29.650
+"and for different kinds of data we use
+different kinds of data structures.",00:00:29.650,00:00:33.590
+"In this lesson, we're going to introduce
+you to another non linear data",00:00:33.590,00:00:37.930
+structure,00:00:37.930,00:00:38.440
+"that has got its application in a wide
+number of scenarios in computer science.",00:00:38.440,00:00:42.850
+"It is used to model and represent a
+variety of systems",00:00:42.850,00:00:46.780
+and this data structure is graph.,00:00:46.780,00:00:49.820
+"When we study data structures, we often
+first study them as",00:00:49.820,00:00:53.620
+"mathematical or logical models. Here
+also,",00:00:53.620,00:00:57.070
+"we will first study graph as a
+mathematical or logical model",00:00:57.070,00:01:00.770
+"and we will go into implementation
+details later.",00:01:00.770,00:01:03.890
+"Okay so let's get started. A graph just
+like a tree",00:01:03.890,00:01:07.780
+"is a collection of objects or entities that
+we call ",00:01:07.780,00:01:10.979
+"nodes or vertices, connected to each
+other through",00:01:10.979,00:01:14.830
+a set of edges. But in a tree,00:01:14.830,00:01:18.170
+"connections are bound to be in a certain
+way. In a tree that our rules",00:01:18.170,00:01:22.939
+"dictating the connection among the nodes.
+In a tree with",00:01:22.939,00:01:26.270
+"N Nodes, we must have exactly",00:01:26.270,00:01:29.329
+N - 1 edges. One edge for,00:01:29.329,00:01:32.880
+"each parent child relationship. As
+we know an edge",00:01:32.880,00:01:36.350
+"in a tree is for a parent child
+relationship and all nodes in a tree",00:01:36.350,00:01:40.829
+"except the root node would have apparent
+would have exactly 1 parent",00:01:40.829,00:01:45.630
+"and that's why if they are N nodes, it
+must be exactly N - 1 edges.",00:01:45.630,00:01:50.460
+"In a tree, all nodes must be reachable
+from the root",00:01:50.460,00:01:53.899
+"and there must be exactly one possible
+path from root",00:01:53.899,00:01:57.950
+"to a node. Now in a graph there are no
+rules",00:01:57.950,00:02:01.350
+"dictating the connection among the nodes.
+A graph contains",00:02:01.350,00:02:05.189
+a set of nodes and a set of edges,00:02:05.189,00:02:08.300
+"and edges can be connecting nodes in any
+possible way.",00:02:08.300,00:02:11.870
+"Tree is only a special kind of graph.
+Now graph",00:02:11.870,00:02:15.739
+"as a concept has been studied
+extensively in mathematics.",00:02:15.739,00:02:19.239
+"If you have taken a course on discrete
+mathematics",00:02:19.239,00:02:22.270
+"then you must be knowing about graphs
+already. In computer science, we basically",00:02:22.270,00:02:27.260
+"study and implement the same concept
+of graph from mathematics.",00:02:27.260,00:02:30.640
+"The study of graph is often referred to
+as",00:02:30.640,00:02:33.959
+graph theory. In pure mathematical terms,00:02:33.959,00:02:37.260
+we can define graph something like this.,00:02:37.260,00:02:40.340
+"A graph G is in order pair of a set
+V of vertices",00:02:40.340,00:02:45.000
+"and a set E of edges. Now I'm using
+some mathematical jargon here.",00:02:45.000,00:02:50.310
+"An ordered pair is just a pair of
+mathematical objects",00:02:50.310,00:02:54.190
+in which the order of objects in the pair,00:02:54.190,00:02:57.450
+"matters. This is how we write and
+represent an ordered",00:02:57.450,00:03:01.050
+"pair, objects separated by comma put
+within parenthesis.",00:03:01.050,00:03:05.330
+"Now because the order here matters. We
+can say that V",00:03:05.330,00:03:09.470
+"is the first object in the pair and E
+is the second object.",00:03:09.470,00:03:13.260
+"An ordered pair A, B is not equal to B, A",00:03:13.260,00:03:17.400
+unless A and B are equal.,00:03:17.400,00:03:20.569
+"In our definition of graph here, first
+object in the pair",00:03:20.569,00:03:24.440
+"must always be a set of vertices and
+the second object must be a set of edges",00:03:24.440,00:03:29.970
+"that's why we are calling the pair 
+an ordered pair.",00:03:29.970,00:03:33.549
+"We also have concept of unordered pair.
+An unordered pair",00:03:33.549,00:03:38.040
+"is simply a set of two elements. Order is
+not important here.",00:03:38.040,00:03:42.019
+"We write an unordered pair using curly
+brackets or braces.",00:03:42.019,00:03:45.560
+"Because the order is not important here,
+unordered pair",00:03:45.560,00:03:49.310
+"A, B is equal to B, A. It doesn't matter
+which object is first and",00:03:49.310,00:03:54.470
+"which object is second. Okay coming back,
+so",00:03:54.470,00:03:58.040
+"a graph of is an ordered pair of a set of
+vertices and a set of",00:03:58.040,00:04:01.959
+"edges and G = (V,E) is a formal
+mathematical notation",00:04:01.959,00:04:06.840
+"that we use to define a graph. Now I
+have a graph drawn here",00:04:06.840,00:04:10.780
+"in the right. This graph is 8 vertices
+and 10 edges.",00:04:10.780,00:04:15.049
+"What I want to do is I want give some
+names to these vertices",00:04:15.049,00:04:19.280
+"because each node in a graph must
+have some identification.",00:04:19.280,00:04:22.970
+It can be a name or it can be an index.,00:04:22.970,00:04:26.910
+"I'm naming these vertices as V1, V2",00:04:26.910,00:04:30.020
+"V3, V4, V5 and so on, and this
+naming is not indicative of any order.",00:04:30.020,00:04:35.930
+"There is no 1st, 2nd and 3rd Node here. I could
+give",00:04:35.930,00:04:39.389
+"any name to any node. So my set of 
+vertices here",00:04:39.389,00:04:43.570
+"is this. We have 8 elements in the
+set V1, V2, V3, V4,",00:04:43.570,00:04:48.560
+"V5, V6, V7 and V8. So this is my set of
+vertices for this graph.",00:04:48.560,00:04:54.860
+"Now what's my set of edges. To answer
+this",00:04:54.860,00:04:58.530
+"we first need to know how to represent
+an edge.",00:04:58.530,00:05:02.410
+"An edge is uniquely identified by it's
+2",00:05:02.410,00:05:05.789
+"endpoints, so we can just write the names
+of the two endpoint",00:05:05.789,00:05:10.970
+"of an edge as a pair and it can be
+a representation for the edge.",00:05:10.970,00:05:16.669
+"But edges can be of two types. We can
+have",00:05:16.669,00:05:19.960
+"a directed edge in which connection is
+one-way",00:05:19.960,00:05:23.979
+"or we can have an undirected edge in
+which connection is two way.",00:05:23.979,00:05:28.620
+"In this example graph that I'm showing
+here, edges are undirected",00:05:28.620,00:05:32.850
+"but if you remember the tree that I had
+shown earlier",00:05:32.850,00:05:36.550
+"then we had directed edges in that tree.
+With this directed edge that I'm showing",00:05:36.550,00:05:41.060
+"you here,",00:05:41.060,00:05:41.860
+we are saying that there is link or path,00:05:41.860,00:05:45.250
+"from vertex U to V but we cannot
+assume a path from V to U.",00:05:45.250,00:05:50.449
+"This connection is one way. For
+a directed edge,",00:05:50.449,00:05:53.639
+"one of the endpoints would be the
+origin and other end point would be",00:05:53.639,00:05:58.690
+the destination and we draw the edge with,00:05:58.690,00:06:01.780
+"an arrow head pointing towards the
+destination.",00:06:01.780,00:06:05.380
+"For our edge here, origin is U and
+destination is V.",00:06:05.380,00:06:10.259
+"A directed edge can be to represented as
+an ordered pair,",00:06:10.259,00:06:13.940
+"first element in the pair can be the
+origin and second element can be the",00:06:13.940,00:06:17.840
+destination.,00:06:17.840,00:06:19.610
+"So with this directed edge represented
+as ordered pair",00:06:19.610,00:06:22.919
+"(U,V), we have a path from U to V.",00:06:22.919,00:06:26.900
+"If we want a path from V to U, when need
+to draw",00:06:26.900,00:06:30.289
+"another directed edge here with V as 
+origin",00:06:30.289,00:06:33.610
+"and U as destination and this edge can be
+the represented as ordered pair",00:06:33.610,00:06:38.319
+"(V,U), the upper one here is (U,V) and the
+below one is",00:06:38.319,00:06:43.060
+"(V,U) and they are not same.",00:06:43.060,00:06:46.340
+"Now if the edge is undirected, the
+connection",00:06:46.340,00:06:49.350
+"is 2 way and undirected edge can be
+to represented as an",00:06:49.350,00:06:53.400
+"unordered pair here because the edge is
+bi directional",00:06:53.400,00:06:57.280
+"origin and destination are not fixed. We
+only need to know what two end points",00:06:57.280,00:07:01.759
+have been connected by the edge.,00:07:01.759,00:07:04.009
+"So now that we know how to present edges,
+we can write the set of edges for this",00:07:04.009,00:07:08.310
+example graph here.,00:07:08.310,00:07:10.060
+"We have an undirected edge between V1
+and V2",00:07:10.060,00:07:14.210
+"then we have 1 between V1 and V3 and
+then be have V1 V4.",00:07:14.210,00:07:19.569
+"This is really simple and just go ahead
+and write all of them.",00:07:19.569,00:07:22.870
+"So this is my set of edges. Typically in
+a graph,",00:07:22.870,00:07:26.620
+"all edges would either be directed or
+undirected.",00:07:26.620,00:07:30.560
+"It's possible for a graph to have both
+directed and undirected edges",00:07:30.560,00:07:34.360
+"but we are not going to study such
+graphs, we are only going to study graphs",00:07:34.360,00:07:38.819
+"in which all edges would either be
+directed or",00:07:38.819,00:07:42.270
+"undirected. A graph with all directed
+edges",00:07:42.270,00:07:45.460
+is called a directed graph or digraph,00:07:45.460,00:07:49.199
+"and a graph with all undirected ages is
+called an undirected graph.",00:07:49.199,00:07:54.419
+"There is no special name for an
+undirected graph.",00:07:54.419,00:07:57.780
+"Usually, if the graph directed, we
+explicitly say that it's",00:07:57.780,00:08:02.069
+"directed graph or digraph. So these are
+two types of graphs.",00:08:02.069,00:08:06.440
+Directed graph or digraph in which edges,00:08:06.440,00:08:09.560
+are uni-directional or ordered pairs and,00:08:09.560,00:08:12.819
+"undirected graph in which edges are
+bi-directional",00:08:12.819,00:08:16.440
+"or unordered pairs. Now many real-world
+systems and",00:08:16.440,00:08:20.830
+"problems can be modeled using a graph.
+Graphs can be used to represent",00:08:20.830,00:08:25.440
+"any collection of objects having some
+kind of",00:08:25.440,00:08:28.490
+"pairwise relationship. Let's have a look
+at some of the interesting examples.",00:08:28.490,00:08:33.469
+"A social network like Facebook can be
+represented as an",00:08:33.469,00:08:37.370
+"undirected graph. A user would be a node in
+the graph",00:08:37.370,00:08:41.430
+"and if 2 user are friends, there
+would be an edge connecting them.",00:08:41.430,00:08:46.010
+"A real social network would have millions
+and billions of nodes.",00:08:46.010,00:08:50.010
+"I can show only few in my diagram here
+because I'm short of space.",00:08:50.010,00:08:53.640
+"Now social network is an undirected
+graphs because friendship",00:08:53.640,00:08:57.660
+"is a mutual relationship. If I'm your
+friend, you are my friend too.",00:08:57.660,00:09:01.860
+"So connections have to be 2 way. Now once
+a system",00:09:01.860,00:09:05.730
+"is modeled as a graph a lot of problems
+can easily be solved",00:09:05.730,00:09:10.050
+"by applying standard algorithms
+in graph theory.",00:09:10.050,00:09:13.760
+"Like here in this social network, let's
+say we want to do something like",00:09:13.760,00:09:17.519
+"suggest friends to a user. Let's say we
+want to suggest some connections to",00:09:17.519,00:09:22.450
+Rama.,00:09:22.450,00:09:23.730
+"One possible approach to do so can be
+suggesting friends of friends",00:09:23.730,00:09:27.980
+"who are not connected already. Rama has
+3 friends,",00:09:27.980,00:09:31.910
+"Ella, Bob and Katie and friends of",00:09:31.910,00:09:34.930
+"3 that are not connected to Rama
+already",00:09:34.930,00:09:38.000
+"can be suggested. There is no friend of
+Ella which is not connected to Rama",00:09:38.000,00:09:41.839
+already.,00:09:41.839,00:09:42.860
+"Bob however, has 3 friends Tom, Sam,",00:09:42.860,00:09:46.470
+"and Lee that are not friends with Rama so
+they can be suggested",00:09:46.470,00:09:50.910
+and katie has two friends Lee and Swati,00:09:50.910,00:09:54.100
+"that are not connected to Rama.We have
+counted Lee already,",00:09:54.100,00:09:57.709
+"so in all we can suggest these for users
+to Rama.",00:09:57.709,00:10:02.430
+"Now even though we described this
+problem in context of a social network.",00:10:02.430,00:10:06.700
+"This is a standard graph problem. The
+problem here in",00:10:06.700,00:10:10.380
+"pure graph terms is finding all nodes
+having lenght of",00:10:10.380,00:10:14.600
+"shortest path from a given
+node equal to 2.",00:10:14.600,00:10:18.029
+"Standard algorithms can be applied to
+solve this problem.",00:10:18.029,00:10:21.570
+"We'll talk about concepts like path in
+a graph in some time.",00:10:21.570,00:10:24.990
+"For now just know that the problem that
+we just described in context of",00:10:24.990,00:10:28.640
+"a social network is a standard graph
+problem.",00:10:28.640,00:10:32.230
+"Okay so a social network like Facebook
+is an undirected graph",00:10:32.230,00:10:36.940
+"Now let's have a look at another example.
+Interlinked",00:10:36.940,00:10:40.160
+"web pages on the internet or the World
+Wide Web",00:10:40.160,00:10:43.680
+"can be represented as a directed graph.
+A web page",00:10:43.680,00:10:47.730
+"that would have a unique address or URL
+would be a node in the graph",00:10:47.730,00:10:52.329
+"and we can have a directed edge if a
+page contains link to another page.",00:10:52.329,00:10:58.140
+"Now once again, there are billions of pages
+on the web",00:10:58.140,00:11:01.600
+"but I can show only few here. The edges
+in this graph are directed because",00:11:01.600,00:11:06.430
+"that relationship is not mutual this
+time.",00:11:06.430,00:11:09.579
+"If page A has a link to page B then
+it's not necessary that page B will",00:11:09.579,00:11:14.600
+also have a link to page A.,00:11:14.600,00:11:16.050
+"Let's say one of the pages on
+mycodeschool.com has",00:11:16.050,00:11:19.790
+a tutorial on graph and on this page,00:11:19.790,00:11:22.810
+"I have put a link to Wikipedia article on
+graph.",00:11:22.810,00:11:26.370
+"Let's assume that in this example
+graph that I am showing you here.",00:11:26.370,00:11:29.709
+"Page P is my mycodeschool tutorial
+on graph",00:11:29.709,00:11:33.380
+"with this address or URL 
+mycodeschool.com/videos/graph",00:11:33.380,00:11:37.700
+"and lets say, page Q is the
+Wikipedia article on graph",00:11:37.700,00:11:42.540
+with this URL Wikipedia/org/wiki/graph. ,00:11:42.540,00:11:46.329
+Now on my page that is page,00:11:46.329,00:11:49.399
+"P, I have put a link to the Wikipedia page on
+graph.",00:11:49.399,00:11:53.019
+"If you are on page P, you can click on
+this link and go to page Q",00:11:53.019,00:11:58.490
+"but Wikipedia has not reciprocated
+to my favor by putting",00:11:58.490,00:12:02.079
+"a link back to my page. So if you are on
+page Q",00:12:02.079,00:12:06.010
+"you cannot click on the link can
+come to page P. Connection here",00:12:06.010,00:12:09.680
+"is one way and that's why we have
+drawn a directed egde here.",00:12:09.680,00:12:13.870
+"Okay now once again if we are able to
+present",00:12:13.870,00:12:17.470
+"web as a directed graph, we can apply
+standard graph theory algorithms to",00:12:17.470,00:12:22.389
+solve problems and to perform tasks.,00:12:22.389,00:12:25.480
+"One of the tasks that search engines
+like Google perform very regularly",00:12:25.480,00:12:30.220
+"is web crawling. Search engines use a
+program called web crawler",00:12:30.220,00:12:35.459
+"that systematically browsers the 
+World Wide Web",00:12:35.459,00:12:38.870
+"to collect and store data about web
+pages. Search engines can then use this",00:12:38.870,00:12:43.350
+data,00:12:43.350,00:12:43.899
+"to provide quick and accurate results
+against search queries.",00:12:43.899,00:12:48.320
+"Now even though in this context, we are
+using a nice and heavy term like web",00:12:48.320,00:12:52.550
+crawling.,00:12:52.550,00:12:53.200
+"Web crawling is basically graph
+traversal",00:12:53.200,00:12:56.420
+"or in simpler words, act of visiting all
+nodes in a graph",00:12:56.420,00:13:01.060
+"and no prizes for guessing that there
+are standard algorithms for graph",00:13:01.060,00:13:05.100
+traversal.,00:13:05.100,00:13:06.300
+"We will be studying graph traversal
+algorithms in a later lessons.",00:13:06.300,00:13:09.950
+"Okay now the next thing that I want to
+talk about is concept of a",00:13:09.950,00:13:13.740
+"weighted graph. Sometimes in a graph, all
+connections cannot be treated as equal.",00:13:13.740,00:13:19.279
+"Some connections can be preferable to
+others",00:13:19.279,00:13:22.380
+like for example we can represent,00:13:22.380,00:13:25.550
+"intercity road network that is the
+network of highways and",00:13:25.550,00:13:29.220
+"free ways between cities as an
+undirected graph.",00:13:29.220,00:13:33.459
+"I'm assuming that all highways would be
+bi-directional.",00:13:33.459,00:13:36.920
+"Intra-city road network that is road
+network within a city",00:13:36.920,00:13:41.060
+would definitely have one-way roads and so,00:13:41.060,00:13:44.410
+"Intra-city network must be
+represented as a directed graph",00:13:44.410,00:13:48.420
+"but intercity road network in my opinion
+can be represented as an",00:13:48.420,00:13:52.079
+"undirected graph. Now clearly we cannot
+treat all connections as equal here.",00:13:52.079,00:13:57.000
+"Roads would be of different lengths and
+to perform a lot of tasks",00:13:57.000,00:14:00.930
+"to solve a lot of problems, we need to
+take length of roads into account.",00:14:00.930,00:14:05.360
+"In such cases, we associate some weight or",00:14:05.360,00:14:08.649
+"cost with every edge. We label the edges with
+their weights.",00:14:08.649,00:14:12.769
+"In this case weight can be lenght of the roads,
+so what to do here is I'll just",00:14:12.769,00:14:17.760
+"label this edges with some values for
+the lenghts.",00:14:17.760,00:14:22.079
+Let's say these values are in kilometers,00:14:22.079,00:14:25.449
+"and now edges in this graph are weighted and
+this graph can be called weighted",00:14:25.449,00:14:30.570
+graph.,00:14:30.570,00:14:31.199
+"Let's say in this graph, we want to
+pick the best route",00:14:31.199,00:14:35.209
+from city A to city D.,00:14:35.209,00:14:38.490
+"Have a look at these four possible
+routes, I am showing them in different",00:14:38.490,00:14:41.980
+colors.,00:14:41.980,00:14:43.199
+Now if I would treat all edges as equal,00:14:43.199,00:14:46.350
+"then I would say that the green route
+through B and C",00:14:46.350,00:14:50.329
+"and a red route through E and F are equally
+good.",00:14:50.329,00:14:54.500
+"Both these paths have to three edges and
+this yellow route through E",00:14:54.500,00:14:58.670
+"is the best because we have only two
+edges in this path.",00:14:58.670,00:15:03.089
+"But with different weights assigned to
+the connections, I need to add up",00:15:03.089,00:15:07.410
+"weights of edges in a path to calculate
+total cost.",00:15:07.410,00:15:11.050
+"When I'm taking weight into account shortest
+route",00:15:11.050,00:15:14.199
+"is through B and C. Connections have
+different weights and",00:15:14.199,00:15:18.290
+"this is really important here in this
+graph. Actually, we can look at all the",00:15:18.290,00:15:22.100
+graphs as weighted graphs,00:15:22.100,00:15:24.480
+"An unweighted graph can basically be seen
+as",00:15:24.480,00:15:27.600
+"a weighted graph in which weight of all
+the edges",00:15:27.600,00:15:30.820
+"is same and typically we assume to weight
+as one.",00:15:30.820,00:15:35.709
+"Okay so we have represented inter-city cities
+road network as",00:15:35.709,00:15:39.709
+"weighted undirected graph. Social network
+was an unweighted undirected graph",00:15:39.709,00:15:45.910
+"and World Wide Web was an unweighted
+directed graph",00:15:45.910,00:15:49.940
+and this one is a weighted undirected graph.,00:15:49.940,00:15:53.860
+"Now this was inter-city road network. I
+think intra-city road network that is",00:15:53.860,00:15:58.190
+"road network within a city can be
+modeled as",00:15:58.190,00:16:01.930
+"a weighted directed graph because in a
+city that would be some one ways.",00:16:01.930,00:16:06.920
+"Intersections in interest city's road
+network would be Nodes",00:16:06.920,00:16:10.250
+"and road segments would be our edges,",00:16:10.250,00:16:14.630
+"and by the way we can also draw an
+undirected graph as directed.",00:16:14.630,00:16:19.320
+"It's just that for each undirected edge
+we will have 2 directed edges.",00:16:19.320,00:16:24.089
+"We may not be able to redraw a directed
+graph has undirected",00:16:24.089,00:16:27.850
+"but we can always redraw an undirected
+graph as directed.",00:16:27.850,00:16:32.050
+"Okay I'll stop here now. This much is
+good for an introductory lesson.",00:16:32.050,00:16:36.829
+"In next lesson, we will talk about some more
+properties of graph.",00:16:36.829,00:16:40.040
+"This is it for this lesson. Thanks for
+watching !",00:16:40.040,00:16:42.339

@@ -1,0 +1,2485 @@
+text,start,stop
+"ANNOUNCER: The following program
+is brought to you by Caltech.",00:00:00.580,00:00:03.275
+YASER ABU-MOSTAFA: Welcome back.,00:00:15.330,00:00:18.150
+"Last time, we talked about kernel
+methods, which is a generalization of",00:00:18.150,00:00:23.880
+"the basic SVM algorithm to accommodate
+feature spaces Z, which",00:00:23.880,00:00:31.800
+"are possibly infinite and which we
+don't have to explicitly know, or",00:00:31.800,00:00:38.560
+"transform our inputs to, in order to be
+able to carry out the support",00:00:38.560,00:00:43.880
+vector machinery.,00:00:43.880,00:00:45.470
+"And the idea was to define a kernel
+that captures the inner product in",00:00:45.470,00:00:50.320
+that space.,00:00:50.320,00:00:51.650
+"And if you can compute that kernel, the
+generalized inner product for the",00:00:51.650,00:00:57.290
+"Z space, this is the only operation
+you need in order to carry the",00:00:57.290,00:01:01.080
+"algorithm, and in order to interpret
+the solution after you get it.",00:01:01.080,00:01:05.300
+"And we took an example, which is the
+RBF kernel, suitable since we are",00:01:05.300,00:01:10.510
+"going to talk about RBF's, radial
+basis functions, today.",00:01:10.510,00:01:13.510
+"And the kernel is very simple
+to compute in terms of x.",00:01:13.510,00:01:17.050
+It's not that difficult.,00:01:17.050,00:01:18.460
+"However, it corresponds to an infinite
+dimensional space, Z space.",00:01:18.460,00:01:23.150
+"And therefore, by doing this, it's as
+if we transform every point in this",00:01:23.150,00:01:28.200
+"space, which is two-dimensional, into
+an infinite-dimensional space, carry",00:01:28.200,00:01:32.500
+"out the SVM there, and then interpret
+the solution back here.",00:01:32.500,00:01:35.940
+"And this would be the separating surface
+that corresponds to a plane,",00:01:35.940,00:01:40.120
+"so to speak, in that infinite
+dimensional space.",00:01:40.120,00:01:44.010
+"So with this, we went into another way
+to generalize SVM, not by having",00:01:44.010,00:01:50.190
+"a nonlinear transform in this case, but
+by having an allowance for errors.",00:01:50.190,00:01:54.190
+"Errors in this case would be
+violations of the margin.",00:01:54.190,00:01:57.530
+"The margin is the currency
+we use in SVM.",00:01:57.530,00:02:00.480
+"And we added a term to the objective
+function that allows us to violate the",00:02:00.480,00:02:05.640
+"margin for different points, according
+to the variable xi.",00:02:05.640,00:02:09.259
+"And we have a total violation,
+which is this summation.",00:02:09.259,00:02:13.590
+"And then we have a degree to which
+we allow those violations.",00:02:13.590,00:02:18.060
+"If C is huge, then we don't really
+allow the violations.",00:02:18.060,00:02:21.580
+"And if C goes to infinity, we are
+back to the hard-margin case.",00:02:21.580,00:02:25.150
+"And if C is very small, then we are
+more tolerant and would allow",00:02:25.150,00:02:28.070
+violations.,00:02:28.070,00:02:29.130
+"And in that case, we might allow some
+violations here and there, and then",00:02:29.130,00:02:33.110
+"have a smaller w, which means a bigger
+margin, a bigger yellow region that is",00:02:33.110,00:02:38.060
+violated by those guys.,00:02:38.060,00:02:39.970
+"Think of it as-- it gives us another
+degree of freedom in our design.",00:02:39.970,00:02:44.310
+"And it might be the case that in some
+data sets, there are a couple of",00:02:44.310,00:02:49.380
+"outliers where it doesn't make sense
+to shrink the margin just to",00:02:49.380,00:02:53.740
+"accommodate them, or by going to
+a higher-dimensional space with",00:02:53.740,00:02:59.280
+"a nonlinear transformation to go around
+that point and, therefore, generate so",00:02:59.280,00:03:05.852
+many support vectors.,00:03:05.852,00:03:07.060
+"And therefore, it might be a good idea
+to ignore them, and ignoring them",00:03:07.060,00:03:10.130
+"meaning that we are going to commit
+a violation of the margin.",00:03:10.130,00:03:12.830
+Could be an outright error.,00:03:12.830,00:03:14.200
+"Could be just a violation of the margin
+where we are here, but we haven't",00:03:14.200,00:03:17.270
+"crossed the boundary, so to speak.",00:03:17.270,00:03:19.360
+"And therefore, this gives us another
+way of achieving the better",00:03:19.360,00:03:25.920
+"generalization by allowing some in-sample
+error, or margin error in this",00:03:25.920,00:03:29.750
+"case, at the benefit of getting better
+generalization prospects.",00:03:29.750,00:03:37.660
+"Now the good news here is that,
+in spite of this significant",00:03:37.660,00:03:42.460
+"modification of the statement of the
+problem, the solution was identical to",00:03:42.460,00:03:45.500
+what we had before.,00:03:45.500,00:03:46.210
+"We are applying quadratic programming,
+with the same objective, the same",00:03:46.210,00:03:49.540
+"equality constraint, and almost the
+same inequality constraint.",00:03:49.540,00:03:52.980
+"The only difference is that it
+used to be, alpha_n could be",00:03:52.980,00:03:55.360
+as big as it wants.,00:03:55.360,00:03:56.410
+"Now it is limited by C.
+And when you pass this to quadratic",00:03:56.410,00:04:00.300
+"programming, you will
+get your solution.",00:04:00.300,00:04:02.390
+Now C being a parameter--,00:04:02.390,00:04:04.310
+and it is not clear how to choose it.,00:04:04.310,00:04:06.450
+"There is a compromise
+that I just described.",00:04:06.450,00:04:08.720
+"The best way to pick C, and it is the
+way used in practice, is to use",00:04:08.720,00:04:15.230
+cross-validation to choose it.,00:04:15.230,00:04:16.870
+"So you apply different values of C, you
+run this and see what is the",00:04:16.870,00:04:20.300
+"out-of-sample error estimate, using your
+cross-validation, and then pick the C",00:04:20.300,00:04:24.160
+that minimizes that.,00:04:24.160,00:04:25.420
+"And that is the way you will
+choose the parameter C.",00:04:25.420,00:04:30.730
+"So that ends the basic part of SVM, the
+hard margin, the soft margin, and",00:04:30.730,00:04:39.240
+"the nonlinear transforms together
+with the kernel version of them.",00:04:39.240,00:04:43.200
+"Together they are a technique really
+that is superb for classification.",00:04:43.200,00:04:47.900
+"And it is, by the choice of many people,
+the model of choice when it",00:04:47.900,00:04:53.240
+comes to classification.,00:04:53.240,00:04:54.700
+Very small overhead.,00:04:54.700,00:04:56.380
+"There is a particular criterion that
+makes it better than just choosing",00:04:56.380,00:04:59.170
+a random separating plane.,00:04:59.170,00:05:00.790
+"And therefore, it does reflect on
+the out-of-sample performance.",00:05:00.790,00:05:05.640
+"Today's topic is a new model, which
+is radial basis functions.",00:05:05.640,00:05:09.150
+"Not so new, because we had a version of
+it under SVM and we'll be able to",00:05:09.150,00:05:13.080
+relate to it.,00:05:13.080,00:05:14.160
+"But it's an interesting model
+in its own right.",00:05:14.160,00:05:17.150
+"It captures a particular understanding
+of the input space that",00:05:17.150,00:05:21.500
+we will talk about.,00:05:21.500,00:05:23.130
+"But the most important aspect that the
+radial basis functions provide for us",00:05:23.130,00:05:28.620
+"is the fact that they relate to so many
+facets of machine learning that",00:05:28.620,00:05:32.900
+"we have already touched on, and other
+aspects that we didn't touch on in",00:05:32.900,00:05:36.750
+"pattern recognition, that it's worthwhile
+to understand the model and",00:05:36.750,00:05:40.220
+see how it relates.,00:05:40.220,00:05:41.800
+"It almost serves as a glue
+between so many different",00:05:41.800,00:05:44.100
+topics in machine learning.,00:05:44.100,00:05:45.860
+"And this is one of the important aspects
+of studying the subject.",00:05:45.860,00:05:50.820
+"So the outline here-- it's not like I'm
+going to go through one item then",00:05:50.820,00:05:56.950
+the next according to this outline.,00:05:56.950,00:05:58.730
+What I'm going to do--,00:05:58.730,00:05:59.450
+"I'm going to define the model, define
+the algorithms, and so on, as I would",00:05:59.450,00:06:03.760
+describe any model.,00:06:03.760,00:06:05.500
+"In the course of doing that, I will be
+able, at different stages, to relate",00:06:05.500,00:06:09.210
+"RBF to, in the first case, nearest
+neighbors, which is a standard model",00:06:09.210,00:06:15.430
+in pattern recognition.,00:06:15.430,00:06:16.790
+"We will be able to relate it to neural
+networks, which we have already",00:06:16.790,00:06:19.810
+"studied, to kernel methods",00:06:19.810,00:06:21.060
+"obviously-- it should relate
+to the RBF kernel.",00:06:21.060,00:06:23.940
+And it will.,00:06:23.940,00:06:25.010
+"And finally, it will relate to
+regularization, which is actually the",00:06:25.010,00:06:27.790
+"origin, in function approximation,
+for the study of RBF's.",00:06:27.790,00:06:32.950
+"So let's first describe the basic
+radial basis function model.",00:06:32.950,00:06:41.390
+"The idea here is that every point in
+your data set will influence the value",00:06:41.390,00:06:47.165
+of the hypothesis at every point x.,00:06:47.165,00:06:50.820
+"Well, that's nothing new.",00:06:50.820,00:06:52.200
+"That's what happens when you
+are doing machine learning.",00:06:52.200,00:06:54.750
+You learn from the data.,00:06:54.750,00:06:56.120
+And you choose a hypothesis.,00:06:56.120,00:06:57.280
+"So obviously, that hypothesis
+will be affected by the data.",00:06:57.280,00:07:00.270
+"But here, it's affected
+in a particular way.",00:07:00.270,00:07:02.380
+It's affected through the distance.,00:07:02.380,00:07:06.850
+"So a point in the data set will affect
+the nearby points, more than it affects",00:07:06.850,00:07:12.060
+the far-away points.,00:07:12.060,00:07:13.700
+"That is the key component that makes
+it a radial basis function.",00:07:13.700,00:07:17.770
+Let's look at a picture here.,00:07:17.770,00:07:21.010
+"Imagine that the center of this bump
+happens to be the data point.",00:07:21.010,00:07:28.770
+So this is x_n.,00:07:28.770,00:07:30.110
+"And this shows you the influence
+of x_n on the neighboring",00:07:30.110,00:07:34.110
+points in the space.,00:07:34.110,00:07:35.810
+So it's most influential nearby.,00:07:35.810,00:07:38.320
+"And then the influence
+goes by and dies.",00:07:38.320,00:07:40.430
+"And the fact that this is symmetric
+around, means that it's function only of",00:07:40.430,00:07:44.020
+"the distance, which is the
+condition we have here.",00:07:44.020,00:07:47.400
+"So let me give you, concretely, the
+standard form of a radial basis",00:07:47.400,00:07:51.340
+function model.,00:07:51.340,00:07:54.170
+It starts from h of x being--,00:07:54.170,00:07:58.110
+"and here are the components
+that build it.",00:07:58.110,00:08:01.940
+"As promised, it depends
+on the distance.",00:08:01.940,00:08:04.890
+"And it depends on the distance such
+that the closer you are to x_n, the",00:08:04.890,00:08:08.680
+"bigger the influence is, as
+seen in this picture.",00:08:08.680,00:08:11.520
+"So if you take the norm
+of x minus x_n squared.",00:08:11.520,00:08:14.500
+"And you take minus-- gamma is a positive
+parameter, fixed for the moment, you will",00:08:14.500,00:08:19.940
+"see that this exponential really
+reflects that picture.",00:08:19.940,00:08:22.330
+"The further you are away, you go down.",00:08:22.330,00:08:23.840
+And you go down as a Gaussian.,00:08:23.840,00:08:26.270
+"So this is the contribution to the
+point x, at which we are evaluating",00:08:26.270,00:08:30.930
+"the function, according to the data
+point x_n, from the data set.",00:08:30.930,00:08:37.150
+"Now we get an influence from every
+point in the data set.",00:08:37.150,00:08:41.010
+"And those influences will have
+a parameter that reflects the value, as",00:08:41.010,00:08:47.110
+"we will see in a moment,
+of the target here.",00:08:47.110,00:08:50.510
+So it will be affected by y_n.,00:08:50.510,00:08:52.180
+"That's the influence-- is having
+the value y_n propagate.",00:08:52.180,00:08:55.770
+So I'm not going to put it as y_n here.,00:08:55.770,00:08:57.270
+"I'm just going to put it generically
+as a weight to be determined.",00:08:57.270,00:09:00.730
+"And we'll find that it's very
+much correlated to y_n.",00:09:00.730,00:09:03.430
+"And then we will sum up all of these
+influences, from all the data points,",00:09:03.430,00:09:07.480
+and you have your model.,00:09:07.480,00:09:09.080
+"So this is the standard model
+for radial basis functions.",00:09:09.080,00:09:13.170
+"Now let me, in terms of this slide,
+describe why it is called",00:09:13.170,00:09:18.830
+"radial, basis function.",00:09:18.830,00:09:20.080
+It's radial because of this.,00:09:22.360,00:09:27.610
+"And it's basis function
+because of this.",00:09:27.610,00:09:31.490
+This is your building block.,00:09:31.490,00:09:32.760
+You could use another basis function.,00:09:32.760,00:09:35.510
+"So you could have another shape, that
+is also symmetric in center, and has",00:09:35.510,00:09:39.200
+the influence in a different way.,00:09:39.200,00:09:40.560
+And we will see an example later on.,00:09:40.560,00:09:43.160
+"But this is basically the model
+in its simplest form, and its",00:09:43.160,00:09:46.660
+most popular form.,00:09:46.660,00:09:47.780
+"Most people will use
+a Gaussian like this.",00:09:47.780,00:09:49.780
+"And this will be the functional
+form for the hypothesis.",00:09:49.780,00:09:52.650
+Now we have the model.,00:09:55.190,00:09:56.510
+"The next question we normally ask is
+what is the learning algorithm?",00:09:56.510,00:10:00.050
+"So what is a learning algorithm
+in general?",00:10:00.050,00:10:03.170
+You want to find the parameters.,00:10:03.170,00:10:04.410
+"And we call the parameters
+w_1 up to w_N.",00:10:04.410,00:10:07.310
+And they have this functional form.,00:10:07.310,00:10:09.890
+"So I put them in purple now, because
+they are the variables.",00:10:09.890,00:10:12.720
+Everything else is fixed.,00:10:12.720,00:10:14.590
+"And we would like to find the w_n's
+that minimize some sort of error.",00:10:14.590,00:10:18.836
+"We base that error on the
+training data, obviously.",00:10:21.830,00:10:26.580
+"So what I'm going to do now, I'm going
+to evaluate the hypothesis on the data",00:10:26.580,00:10:31.910
+"points, and try to make them match target
+value on those points-- try to",00:10:31.910,00:10:36.600
+make them match y.,00:10:36.600,00:10:38.140
+"As I said, w_n won't be exactly y_n,
+but it will be affected by it.",00:10:38.140,00:10:43.870
+"Now there is an interesting point of
+notation, because the points appear",00:10:43.870,00:10:47.740
+explicitly in the model.,00:10:47.740,00:10:49.440
+x_n is the n-th training input.,00:10:49.440,00:10:53.890
+"And now I'm going to evaluate this on
+a training point, in order to evaluate",00:10:53.890,00:10:58.490
+the in-sample error.,00:10:58.490,00:11:00.350
+"So because of this, there will
+be an interesting notation.",00:11:00.350,00:11:03.920
+"When we, let's say, ask ambitiously to
+have the in-sample error being 0.",00:11:03.920,00:11:08.590
+"I want to be exactly right
+on the data points.",00:11:08.590,00:11:12.020
+"I should expect that I will
+be able to do that.",00:11:12.020,00:11:14.620
+Why?,00:11:14.620,00:11:15.470
+"Because really I have quite a number
+of parameters here, don't I?",00:11:15.470,00:11:20.410
+I have N data points.,00:11:20.410,00:11:23.770
+"And I'm trying to learn
+N parameters.",00:11:23.770,00:11:28.320
+"Notwithstanding the generalization
+ramifications of that statement, it",00:11:28.320,00:11:32.730
+"should be easy to get parameters
+that really knock down the",00:11:32.730,00:11:36.100
+in-sample error to 0.,00:11:36.100,00:11:38.750
+"So in doing that, what I'm going to do,
+I'm going to apply this to every",00:11:38.750,00:11:42.700
+"point x_n, and ask that the output of
+the hypothesis be equal to y_n.",00:11:42.700,00:11:47.990
+No error at all.,00:11:47.990,00:11:49.260
+"So indeed, the in-sample
+error will be 0.",00:11:49.260,00:11:52.090
+"Let's substitute in
+the equation here.",00:11:52.090,00:11:55.680
+"And this is true for all n up to
+N, and here is what you have.",00:11:55.680,00:12:01.720
+"First, you realize that I changed
+the name of the dummy",00:12:01.720,00:12:04.170
+"variable, the index here.",00:12:04.170,00:12:05.680
+I changed it from n to m.,00:12:05.680,00:12:07.760
+And this goes with x_m here.,00:12:07.760,00:12:10.070
+"The reason I did that, because I'm
+going to evaluate this on x_n.",00:12:10.070,00:12:13.060
+"And obviously, you shouldn't have
+recycling of the dummy",00:12:13.060,00:12:16.270
+variable as a genuine variable.,00:12:16.270,00:12:18.360
+"So in this case, you want this quantity,
+which will in this case be",00:12:18.360,00:12:23.680
+the evaluation of h at the point x_n.,00:12:23.680,00:12:27.590
+You want this to be equal to y_n.,00:12:27.590,00:12:30.710
+That's the condition.,00:12:30.710,00:12:31.420
+"And you want this to be true for
+n equals 1 to N. Not that",00:12:31.420,00:12:35.890
+difficult to solve.,00:12:35.890,00:12:36.760
+So let's go for the solution.,00:12:36.760,00:12:38.010
+These are the equations.,00:12:40.840,00:12:42.170
+"And we ask ourselves: how many equations
+and how many unknowns?",00:12:42.170,00:12:45.670
+"Well, I have N data points.",00:12:45.670,00:12:49.770
+I'm listing N of these equations.,00:12:49.770,00:12:51.790
+"So indeed, I have N equations.",00:12:51.790,00:12:54.930
+How many unknowns do I have?,00:12:54.930,00:12:56.580
+"Well, what are the unknowns?",00:12:56.580,00:12:57.890
+The unknowns are the w's.,00:12:57.890,00:13:00.470
+And I happen to have N unknowns.,00:13:00.470,00:13:04.160
+That's familiar territory.,00:13:04.160,00:13:05.910
+All I need to do is just solve it.,00:13:05.910,00:13:08.790
+"Let's put it in matrix form,
+which will make it easy.",00:13:08.790,00:13:11.930
+"Here is the matrix form, with all
+the coefficients for n and m.",00:13:11.930,00:13:18.380
+"You can see that this
+goes from 1 to N.",00:13:18.380,00:13:21.160
+And the second guy goes from 1 to N.,00:13:21.160,00:13:23.720
+These are the coefficients.,00:13:23.720,00:13:25.300
+You multiply this by a vector of w's.,00:13:25.300,00:13:28.750
+"So I'm putting all the N equations
+at once, as in matrix form.",00:13:28.750,00:13:33.440
+"And I'm asking this to be equal
+to the vector of y's.",00:13:33.440,00:13:39.840
+Let's call the matrices something.,00:13:39.840,00:13:41.470
+This matrix I'm going to call phi.,00:13:41.470,00:13:43.910
+And I am recycling the notation phi.,00:13:43.910,00:13:47.270
+"phi used to be the nonlinear
+transformation.",00:13:47.270,00:13:49.260
+"And this is indeed a nonlinear
+transformation of sorts.",00:13:49.260,00:13:52.150
+Slight difference that we'll discuss.,00:13:52.150,00:13:53.790
+But we can call it phi.,00:13:53.790,00:13:55.710
+"And then these guys will be called
+the standard name, the vector w",00:13:55.710,00:13:59.340
+and the vector y.,00:13:59.340,00:14:00.900
+What is the solution for this?,00:14:00.900,00:14:02.610
+"All you ask for, in order to guarantee
+a solution, is that phi be invertible,",00:14:02.610,00:14:08.220
+"that under these conditions, the
+solution is very simply just: w equals",00:14:08.220,00:14:13.710
+the inverse of phi times y.,00:14:13.710,00:14:16.590
+"In that case, you interpret your
+solution as exact interpolation,",00:14:16.590,00:14:22.930
+"because what you are really doing is, on
+the points that you know the value,",00:14:22.930,00:14:28.110
+"which are the training points, you
+are getting the value exactly.",00:14:28.110,00:14:33.670
+That's what you solved for.,00:14:33.670,00:14:35.610
+"And now the kernel, which is the Gaussian
+in this case, what it does is",00:14:35.610,00:14:40.950
+"interpolate between the points to give
+you the value on the other x's.",00:14:40.950,00:14:46.370
+"And it's exact, because you get it
+exactly right on those points.",00:14:46.370,00:14:50.330
+Now let's look at the effect of gamma.,00:14:53.710,00:14:57.450
+"There was a gamma, a parameter,
+that I considered fixed",00:14:57.450,00:15:00.180
+from the very beginning.,00:15:00.180,00:15:01.660
+This guy--,00:15:01.660,00:15:02.750
+so I'm highlighting it in red.,00:15:02.750,00:15:05.110
+"When I give you a value of
+gamma, you carry out the",00:15:05.110,00:15:08.830
+machinery that I just described.,00:15:08.830,00:15:11.080
+"But you suspect that gamma
+will affect the outcome.",00:15:11.080,00:15:15.080
+"And indeed, it will.",00:15:15.080,00:15:16.910
+Let's look at two situations.,00:15:16.910,00:15:20.010
+Let's say that gamma is small.,00:15:20.010,00:15:21.970
+What happens when gamma is small?,00:15:21.970,00:15:24.260
+"What happens is that this Gaussian
+is wide, going this way.",00:15:24.260,00:15:31.090
+"If gamma was large, then I
+would be going this way.",00:15:31.090,00:15:35.970
+"Now depending obviously on where the
+points are, how sparse they are, it",00:15:35.970,00:15:39.650
+"makes a big difference whether you are
+interpolating with something that goes",00:15:39.650,00:15:43.230
+"this way, or something
+that goes this way.",00:15:43.230,00:15:45.840
+And it's reflected in this picture.,00:15:45.840,00:15:47.390
+Let's say you take this case.,00:15:47.390,00:15:49.380
+"And I have three points
+just for illustration.",00:15:49.380,00:15:52.030
+"The total contribution of the three
+interpolations passes exactly through",00:15:52.030,00:15:58.130
+"the points, because this is what I solved
+for. That's what I insisted on.",00:15:58.130,00:16:02.130
+"But the small gray ones here
+are the contribution",00:16:02.130,00:16:07.930
+according to each of them.,00:16:07.930,00:16:09.230
+"So this would be w_1, w_2, w_3
+if these are the points.",00:16:09.230,00:16:13.790
+"And when you add w_1 times the Gaussian,
+plus w_2 times the Gaussian, et cetera.",00:16:13.790,00:16:17.890
+"You get a curve that gives you
+exactly the y_1, y_2, and y_3.",00:16:17.890,00:16:22.540
+"Now because of the width, there
+is an interpolation here that is",00:16:22.540,00:16:27.950
+successful.,00:16:27.950,00:16:29.380
+"Between two points, you can
+see that there is a meaningful",00:16:29.380,00:16:34.490
+interpolation.,00:16:34.490,00:16:37.170
+"If you go for a large gamma,
+this is what you get.",00:16:37.170,00:16:44.040
+Now the Gaussians are still there.,00:16:44.040,00:16:46.140
+You may see them faintly.,00:16:46.140,00:16:47.500
+But they die out very quickly.,00:16:47.500,00:16:50.340
+"And therefore, in spite of the fact
+that you are still satisfying your",00:16:50.340,00:16:53.260
+"equations, because that's what you solved
+for, the interpolation here is",00:16:53.260,00:16:56.330
+"very poor because the influence of this
+point dies out, and the influence",00:16:56.330,00:16:59.610
+of this point dies out.,00:16:59.610,00:17:00.590
+"So in between, you just get nothing.",00:17:00.590,00:17:03.430
+"So clearly, gamma matters.",00:17:03.430,00:17:05.810
+"And you probably, in your mind, think
+that gamma matters also in relation to",00:17:05.810,00:17:10.390
+"the distance between the points,
+because that's what the",00:17:10.390,00:17:12.810
+interpolation is.,00:17:12.810,00:17:13.839
+"And we will discuss the choice
+of gamma towards the end.",00:17:13.839,00:17:16.520
+"After we settle all the other
+parameters, we will go and visit gamma",00:17:16.520,00:17:19.680
+and see how we can choose it wisely.,00:17:19.680,00:17:21.650
+"With this in mind, we have a model.",00:17:24.569,00:17:28.040
+"But that model, if you look at
+it, is a regression model.",00:17:28.040,00:17:31.790
+"I consider the output
+to be real-valued.",00:17:31.790,00:17:34.800
+"And I match the real-valued output
+to the target output, which",00:17:34.800,00:17:38.230
+is also real-valued.,00:17:38.230,00:17:40.170
+"Often, we will use RBF's
+for classification.",00:17:40.170,00:17:43.880
+"When you look at h of x, which used
+to be regression this way-- it gives",00:17:43.880,00:17:48.890
+you a real number.,00:17:48.890,00:17:50.670
+"Now we are going to take, as usual, the
+sign of this quantity, +1 or",00:17:50.670,00:17:55.805
+"-1, and interpret the output
+as a yes/no decision.",00:17:55.805,00:17:59.470
+"And we would like to ask ourselves: how
+do we learn the w's under these",00:17:59.470,00:18:03.470
+conditions?,00:18:03.470,00:18:05.070
+"That shouldn't be a very alien situation
+to you, because you have seen",00:18:05.070,00:18:09.930
+"before linear regression used
+for classification.",00:18:09.930,00:18:14.420
+"That is pretty much what we
+are going to do here.",00:18:14.420,00:18:17.320
+"We are going to focus on the inner part,
+which is the signal before we",00:18:17.320,00:18:21.820
+take the sign.,00:18:21.820,00:18:23.280
+"And we are going to try to make the
+signal itself match the +1,-1",00:18:23.280,00:18:28.770
+"target, like we did when we used linear
+regression for classification.",00:18:28.770,00:18:33.410
+"And after we are done, since we are
+trying hard to make it",00:18:33.410,00:18:37.160
+"+1 or -1,",00:18:37.160,00:18:39.700
+"and if we are successful--
+we get exact solution,",00:18:39.700,00:18:42.000
+"then obviously the sign of it will
+be +1 or -1 if you're",00:18:42.000,00:18:44.910
+successful.,00:18:44.910,00:18:45.640
+"If you are not successful, and there is
+an error, as will happen in other",00:18:45.640,00:18:50.390
+"cases, then at least since you try to
+make it close to +1, and you try",00:18:50.390,00:18:54.680
+"to make the other one close to -1,
+you would think that the sign, at",00:18:54.680,00:18:58.030
+"least, will agree with
++1 or -1.",00:18:58.030,00:19:02.130
+"So the signal here is what used to
+be the whole hypothesis value.",00:19:02.130,00:19:07.280
+"And what you're trying to do, you are
+trying to minimize the mean squared",00:19:07.280,00:19:11.270
+"error between that signal and
+y, knowing that y actually--",00:19:11.270,00:19:16.060
+"on the training set-- knowing that
+y is only +1 or -1.",00:19:16.060,00:19:20.690
+So you solve for that.,00:19:20.690,00:19:22.070
+"And then when you get s, you report
+the sign of that s as your value.",00:19:22.070,00:19:26.720
+"So we are ready to use the solution we
+had before in case we are using RBF's",00:19:26.720,00:19:31.900
+for classification.,00:19:31.900,00:19:33.150
+"Now we come to the observation that
+the radial basis functions are related",00:19:36.410,00:19:43.570
+to other models.,00:19:43.570,00:19:44.550
+"And I'm going to start with
+a model that we didn't cover.",00:19:44.550,00:19:46.680
+"It's extremely simple to
+cover in five minutes.",00:19:46.680,00:19:49.880
+"And it shows an aspect of radial basis
+functions that is important.",00:19:49.880,00:19:54.090
+This is the nearest-neighbor method.,00:19:54.090,00:19:56.080
+So let's look at it.,00:19:56.080,00:19:58.040
+"The idea of nearest neighbor is
+that I give you a data set.",00:19:58.040,00:20:01.050
+And each data point has a value y_n.,00:20:01.050,00:20:03.580
+"Could be a label, if you're talking
+about classification,",00:20:03.580,00:20:05.870
+could be a real value.,00:20:05.870,00:20:07.870
+"And what you do for classifying other
+points, or assigning values to other",00:20:07.870,00:20:12.340
+"points, is very simple.",00:20:12.340,00:20:13.910
+"You look at the closest point within
+that training set, to the point that",00:20:13.910,00:20:18.953
+you are considering.,00:20:18.953,00:20:19.570
+So you have x.,00:20:19.570,00:20:20.680
+"You look at what is x_n in the
+training set that is closest to me,",00:20:20.680,00:20:25.630
+in Euclidean distance.,00:20:25.630,00:20:27.770
+"And then you inherit the label, or
+the value, that that point has.",00:20:27.770,00:20:33.140
+Very simplistic.,00:20:33.140,00:20:34.710
+Here is a case of classification.,00:20:34.710,00:20:38.430
+"The data set are the red pluses
+and the blue circles.",00:20:38.430,00:20:45.870
+"And what I am doing is that I am
+applying this rule of classifying",00:20:45.870,00:20:49.080
+"every point on this plane, which
+is X, the input space,",00:20:49.080,00:20:55.060
+"according to the label of the nearest
+point within the training set.",00:20:55.060,00:20:59.790
+"As you can see, if I take a point
+here, this is the closest.",00:20:59.790,00:21:02.970
+That's why this is pink.,00:21:02.970,00:21:04.490
+And here it's still the closest.,00:21:04.490,00:21:06.200
+"Once I'm here, this guy
+becomes the closest.",00:21:06.200,00:21:09.150
+"And therefore, it gets blue.",00:21:09.150,00:21:11.070
+"So you end up, as a result of
+that, as if you are breaking",00:21:11.070,00:21:14.100
+the plane into cells.,00:21:14.100,00:21:16.350
+"Each of them has the label of a point
+in the training set that happens",00:21:16.350,00:21:20.200
+to be in the cell.,00:21:20.200,00:21:21.340
+"And this tessellation of the plane,
+into these cells, describes the",00:21:21.340,00:21:25.960
+boundary for your decisions.,00:21:25.960,00:21:28.660
+This is the nearest-neighbor method.,00:21:28.660,00:21:32.160
+"Now, if you want to implement this
+using radial basis functions,",00:21:32.160,00:21:35.260
+there is a way to implement it.,00:21:35.260,00:21:37.130
+"It's not exactly this, but it has
+a similar effect, where you basically are",00:21:37.130,00:21:41.410
+"trying to take an influence
+of a nearby point.",00:21:41.410,00:21:44.250
+"And that is the only thing
+you're considering.",00:21:44.250,00:21:46.150
+You are not considering other points.,00:21:46.150,00:21:48.050
+"So let's say you take the basis
+function, in this case,",00:21:48.050,00:21:51.100
+to look like this.,00:21:51.100,00:21:54.460
+"Instead of a Gaussian,",00:21:54.460,00:21:55.900
+it's a cylinder.,00:21:55.900,00:21:57.140
+"It's still symmetric--
+depends on the radius.",00:21:57.140,00:21:59.550
+But the dependency is very simple.,00:21:59.550,00:22:01.850
+I am constant.,00:22:01.850,00:22:03.430
+And then I go to 0.,00:22:03.430,00:22:05.320
+So it's very abrupt.,00:22:05.320,00:22:06.890
+"In that case, I am not
+exactly getting this.",00:22:06.890,00:22:09.220
+"But what I'm getting is a cylinder
+around every one of those guys that",00:22:09.220,00:22:13.370
+inherits the value of that point.,00:22:13.370,00:22:17.570
+"And obviously, there is the question of
+overlaps and whatnot, and that is",00:22:17.570,00:22:20.370
+what makes a difference from here.,00:22:20.370,00:22:22.940
+"In both of those cases,
+it's fairly brittle.",00:22:22.940,00:22:26.340
+You go from here to here.,00:22:26.340,00:22:27.830
+You immediately change values.,00:22:27.830,00:22:29.880
+"And if there are points in between, you
+keep changing from blue, to red,",00:22:29.880,00:22:32.910
+"to blue, and so on.",00:22:32.910,00:22:34.300
+"In this case, it's even more
+brittle, and so on.",00:22:34.300,00:22:36.980
+"So in order to make it less abrupt, the
+nearest neighbor is modified to",00:22:36.980,00:22:43.200
+"becoming K nearest neighbors, that is,
+instead of taking the value of the",00:22:43.200,00:22:47.620
+"closest point, you look for, let's say,
+for the three closest points, or",00:22:47.620,00:22:51.480
+"the five closest points, or the seven
+closest points, and then take a vote.",00:22:51.480,00:22:56.690
+"If most of them are +1, you
+consider yourself +1.",00:22:56.690,00:23:00.060
+"That helps even things
+out a little bit.",00:23:00.060,00:23:02.560
+"So an isolated guy in the middle,
+that doesn't belong, gets",00:23:02.560,00:23:06.150
+filtered out by this.,00:23:06.150,00:23:08.260
+"This is a standard way
+of smoothing, so to",00:23:08.260,00:23:10.640
+"speak, the surface here.",00:23:10.640,00:23:12.190
+"It will still be very abrupt going
+from one point to another, but at",00:23:12.190,00:23:15.350
+"least the number of fluctuations
+will go down.",00:23:15.350,00:23:19.080
+"The way you smoothen the radial basis
+function is, instead of using",00:23:19.080,00:23:22.260
+"a cylinder, you use a Gaussian.",00:23:22.260,00:23:24.280
+"So now it's not like I have an influence,
+I have an influence, I have an influence,",00:23:24.280,00:23:26.900
+I don't have any influence.,00:23:26.900,00:23:28.210
+"No, you have an influence, you have
+less influence, you have even less",00:23:28.210,00:23:31.310
+"influence, and eventually you have
+effectively no influence because the",00:23:31.310,00:23:34.690
+Gaussian went to 0.,00:23:34.690,00:23:37.010
+"And in both of those cases, you can
+consider the model, whether it's nearest",00:23:37.010,00:23:40.320
+"neighbor or K nearest neighbors,
+or a radial basis function",00:23:40.320,00:23:42.790
+with different bases.,00:23:42.790,00:23:45.020
+"You can consider it as
+a similarity-based method.",00:23:45.020,00:23:49.640
+"You are classifying points according to
+how similar they are to points in",00:23:49.640,00:23:54.330
+the training set.,00:23:54.330,00:23:55.850
+"And the particular form of applying
+the similarity is what defines the",00:23:55.850,00:24:00.110
+"algorithm, whether it's this way or
+that way, whether it's abrupt or",00:24:00.110,00:24:03.480
+"smooth, and whatnot.",00:24:03.480,00:24:04.730
+"Now let's look at the model we had,
+which is the exact-interpolation model",00:24:08.830,00:24:14.580
+"and modify it a little bit, in order to
+deal with a problem that you probably",00:24:14.580,00:24:19.410
+"already noticed, which
+is the following.",00:24:19.410,00:24:22.960
+"In the model, we have
+N parameters, w--",00:24:22.960,00:24:27.380
+should be w_1 up to w_N.,00:24:27.380,00:24:29.675
+"And it is based on
+N data points.",00:24:34.470,00:24:39.250
+I have N parameters.,00:24:39.250,00:24:40.040
+I have N data points.,00:24:40.040,00:24:42.690
+"We have alarm bells that calls for a red
+color, because right now, you usually",00:24:42.690,00:24:50.490
+"have the generalization in your mind
+related to the ratio between data",00:24:50.490,00:24:54.130
+"points and parameters, parameters being
+more or less a VC dimension.",00:24:54.130,00:24:57.550
+"And therefore, in this case, it's
+pretty hopeless to generalize.",00:24:57.550,00:25:00.720
+"It's not as hopeless as in other cases,
+because the Gaussian is a pretty",00:25:00.720,00:25:03.670
+friendly guy.,00:25:03.670,00:25:05.210
+"Nonetheless, you might consider the
+idea that I'm going to use",00:25:05.210,00:25:09.110
+"radial basis functions, so I'm
+going to have an influence,",00:25:09.110,00:25:13.080
+symmetric and all of that.,00:25:13.080,00:25:14.610
+"But I don't want to have every
+point have its own influence.",00:25:14.610,00:25:17.850
+"What I'm going to do, I'm going to elect
+a number of important centers",00:25:17.850,00:25:21.250
+"for the data, have these as my centers,
+and have them influence the",00:25:21.250,00:25:26.300
+neighborhood around them.,00:25:26.300,00:25:29.090
+"So what you do, you take K,
+which is the number of centers in this",00:25:29.090,00:25:33.300
+"case, and hopefully it's much smaller
+than N. so that the generalization",00:25:33.300,00:25:36.460
+worry is mitigated.,00:25:36.460,00:25:39.500
+And you define the centers--,00:25:39.500,00:25:41.740
+"these are vectors,",00:25:41.740,00:25:43.060
+"mu_1 up to mu_K, as the centers of
+the radial basis functions, instead of",00:25:43.060,00:25:50.120
+"having x_1 up to x_N, the data points
+themselves, being the centers.",00:25:50.120,00:25:54.800
+"Now those guys live in the same
+space, let's say in",00:25:54.800,00:25:58.490
+a d-dimensional Euclidean space.,00:25:58.490,00:25:59.820
+"These are exactly in the same space,
+except that they are not data points.",00:25:59.820,00:26:04.250
+They are not necessarily data points.,00:26:04.250,00:26:05.980
+"We may have elected some of them as
+being important points, or we may have",00:26:05.980,00:26:10.120
+"elected points that are simply
+representative, and don't coincide with",00:26:10.120,00:26:13.100
+any of those points.,00:26:13.100,00:26:14.140
+"Generically, there will
+be mu_1 up to mu_K.",00:26:14.140,00:26:18.590
+"And in that case, the functional form
+of the radial basis function changes",00:26:18.590,00:26:22.020
+"form, and it becomes this.",00:26:22.020,00:26:25.040
+Let's look at it.,00:26:25.040,00:26:26.040
+"Used to be that we are counting
+from 1 to N, now from 1 to K.",00:26:26.040,00:26:30.160
+And we have w.,00:26:30.160,00:26:31.090
+"So indeed, we have fewer parameters.",00:26:31.090,00:26:33.750
+"And now we are comparing the x that we
+are evaluating at, not with every point,",00:26:33.750,00:26:39.460
+but with every center.,00:26:39.460,00:26:42.380
+"And according to the distance from that
+center, the influence of that",00:26:42.380,00:26:46.120
+"particular center, which is captured
+by w_k is contributed.",00:26:46.120,00:26:49.750
+"And you take the contribution of all
+the centers, and you get the value.",00:26:49.750,00:26:52.920
+"Exactly the same thing we did before
+except, with this modification, that we",00:26:52.920,00:26:56.430
+are using centers instead of points.,00:26:56.430,00:26:59.570
+"So the parameters here now are
+interesting, because I have w_k's",00:26:59.570,00:27:05.920
+are parameters.,00:27:05.920,00:27:06.550
+"And I'm supposedly going through this
+entire exercise because I didn't like",00:27:06.550,00:27:10.380
+having N parameters.,00:27:10.380,00:27:11.670
+I want only K parameters.,00:27:11.670,00:27:12.930
+But look what we did.,00:27:12.930,00:27:15.720
+"mu_k's now are parameters, right?",00:27:15.720,00:27:18.580
+I don't know what they are.,00:27:18.580,00:27:20.660
+And I have K of them.,00:27:20.660,00:27:23.360
+"That's not a worry, because I already
+said that K is much smaller than N.",00:27:23.360,00:27:26.970
+"But each of them is a d-dimensional
+vector, isn't it?",00:27:26.970,00:27:31.100
+So that's a lot of parameters.,00:27:31.100,00:27:33.560
+"If I have to estimate those, et
+cetera, I haven't done a lot of",00:27:33.560,00:27:37.630
+progress in this exercise.,00:27:37.630,00:27:39.570
+"But it turns out that I will be able,
+through a very simple algorithm, to",00:27:39.570,00:27:42.830
+"estimate those without touching the
+outputs of the training set, so",00:27:42.830,00:27:47.120
+without contaminating the data.,00:27:47.120,00:27:48.530
+That's the key.,00:27:48.530,00:27:49.780
+"Two questions. How do I choose the
+centers, which is an interesting",00:27:52.040,00:27:55.280
+"question, because I have to choose it
+now-- if I want to maintain that the",00:27:55.280,00:27:58.600
+number of parameters here is small--,00:27:58.600,00:27:59.750
+"I have to choose it without really
+consulting the y_n's, the values of the",00:27:59.750,00:28:05.720
+the output at the training set.,00:28:05.720,00:28:08.770
+"And the other question is
+how to choose the weights.",00:28:08.770,00:28:14.570
+"Choosing the weights shouldn't be that
+different from what we did before. It will",00:28:14.570,00:28:18.060
+"be a minor modification, because it
+has the same functional form.",00:28:18.060,00:28:20.800
+"This one is the interesting part,",00:28:20.800,00:28:22.400
+at least the novel part.,00:28:22.400,00:28:25.280
+"So let's talk about choosing
+the centers.",00:28:25.280,00:28:29.520
+"What we are going to do, we are going
+to choose the centers as",00:28:29.520,00:28:33.850
+representative of the data inputs.,00:28:33.850,00:28:36.500
+I have N points.,00:28:36.500,00:28:38.230
+"They are here, here, and here.",00:28:38.230,00:28:39.880
+"And the whole idea is that I don't
+want to assign a radial basis function",00:28:39.880,00:28:44.860
+for each of them.,00:28:44.860,00:28:47.260
+"And therefore, what I'm going to do, I'm
+going to have a representative.",00:28:47.260,00:28:49.950
+"It would be nice, for every group of
+points that are nearby, to have",00:28:49.950,00:28:53.490
+"a center near to them, so that
+it captures this cluster.",00:28:53.490,00:28:57.890
+This is the idea.,00:28:57.890,00:29:01.200
+"So you are now going to take x_n, and
+take a center which is the closest to",00:29:01.200,00:29:10.630
+"it, and assign that point to it.",00:29:10.630,00:29:13.140
+Here is the idea.,00:29:13.140,00:29:14.600
+I have the points spread around.,00:29:14.600,00:29:17.720
+I am going to select centers.,00:29:17.720,00:29:20.300
+Not clear how do I choose the centers.,00:29:20.300,00:29:22.650
+"But once you choose them, I'm going to
+consider the neighborhood of the",00:29:22.650,00:29:26.580
+"center within the data set, the
+x_n's, as being the cluster",00:29:26.580,00:29:31.130
+that has that center.,00:29:31.130,00:29:33.370
+"If I do that, then those points are
+represented by that center, and",00:29:33.370,00:29:37.910
+"therefore, I can say that their
+influence will be propagated through",00:29:37.910,00:29:43.060
+"the entire space by the radial
+basis function that is",00:29:43.060,00:29:46.960
+centered around this one.,00:29:46.960,00:29:48.370
+So let's do this.,00:29:50.920,00:29:53.360
+"It's called K-means clustering, because
+the center for the points will end up",00:29:53.360,00:29:59.030
+"being the mean of the points,
+as we'll see in a moment.",00:29:59.030,00:30:01.610
+And here is the formalization.,00:30:01.610,00:30:05.210
+"You split the data points, x_1 up to
+x_n, into groups-- clusters, so to",00:30:05.210,00:30:11.930
+"speak-- hopefully points that
+are close to each other.",00:30:11.930,00:30:14.670
+And you call these S_1 up to S_K.,00:30:14.670,00:30:17.080
+"Each cluster will have 
+a center that goes with it.",00:30:17.080,00:30:22.600
+"And what you minimize, in order to make
+this a good clustering, and these",00:30:22.600,00:30:27.170
+"good representative centers, is
+to try to make the points",00:30:27.170,00:30:30.960
+close to their centers.,00:30:30.960,00:30:33.430
+"So you take this for every
+point you have.",00:30:33.430,00:30:36.150
+"But you sum up over the
+points in the cluster.",00:30:36.150,00:30:40.290
+"So you take the points in the cluster,
+whose center is this guy.",00:30:40.290,00:30:43.720
+"And you try to minimize the mean squared
+error there, mean squared error",00:30:43.720,00:30:48.780
+in terms of Euclidean distance.,00:30:48.780,00:30:50.740
+"So this takes care of one
+cluster, S_k.",00:30:50.740,00:30:55.240
+"You want this to be small
+over all the data.",00:30:55.240,00:30:58.280
+"So what you do is you sum this
+up over all the clusters.",00:30:58.280,00:31:02.240
+"That becomes your objective
+function in clustering.",00:31:02.240,00:31:06.060
+"Someone gives you K. That is,
+the choice of the actual number of",00:31:06.060,00:31:10.300
+clusters is a different issue.,00:31:10.300,00:31:11.770
+But let's say K is 9.,00:31:11.770,00:31:14.050
+I give you 9 clusters.,00:31:14.050,00:31:16.070
+"Then, I'm asking you to find the mu's,
+and the break-up of the points into",00:31:16.070,00:31:22.630
+"the S_k's, such that this value
+assumes its minimum.",00:31:22.630,00:31:27.470
+"If you succeed in that, then I can
+claim that this is good clustering,",00:31:27.470,00:31:31.120
+"and these are good representatives
+of the clusters.",00:31:31.120,00:31:34.950
+"Now I have some good news,
+and some bad news.",00:31:34.950,00:31:39.800
+"The good news is that, finally, we
+have unsupervised learning.",00:31:39.800,00:31:45.850
+"I did this without any reference
+to the label y_n.",00:31:45.850,00:31:49.770
+"I am taking the inputs, and producing
+some organization of them, as we",00:31:49.770,00:31:54.440
+"discussed the main goal of
+unsupervised learning is.",00:31:54.440,00:32:00.260
+So we are happy about that.,00:32:00.260,00:32:02.480
+Now the bad news.,00:32:02.480,00:32:04.840
+"The bad news is that the problem,
+as I stated it, is",00:32:04.840,00:32:08.180
+NP-hard in general.,00:32:08.180,00:32:10.330
+"It's a nice unsupervised problem,
+but not so nice.",00:32:10.330,00:32:14.150
+"It's intractable, if you want
+to get the absolute minimum.",00:32:14.150,00:32:17.930
+So our goal now is to go around it.,00:32:17.930,00:32:20.220
+"That sort of problem being NP-hard
+never discouraged us.",00:32:20.220,00:32:25.280
+"Remember, with neural networks,",00:32:25.280,00:32:27.160
+"we said that the absolute minimum of
+that error in the general case--",00:32:27.160,00:32:30.830
+finding it would be NP-hard.,00:32:30.830,00:32:32.240
+"And we ended up with saying we will
+find some heuristic, which was",00:32:32.240,00:32:35.660
+gradient descent in this case.,00:32:35.660,00:32:36.750
+That led to backpropagation.,00:32:36.750,00:32:38.180
+"We'll start with a random configuration
+and then descend.",00:32:38.180,00:32:40.880
+"And we'll get, not to the global minimum,
+the finding of which is NP-hard,",00:32:40.880,00:32:45.010
+"but a local minimum, hopefully
+a decent local minimum.",00:32:45.010,00:32:47.620
+We'll do exactly the same thing here.,00:32:47.620,00:32:51.530
+"Here is the iterative algorithm for
+solving this problem, the K-means.",00:32:51.530,00:32:56.100
+And it's called Lloyd's algorithm.,00:32:56.100,00:32:58.150
+"It is extremely simple, to the level
+where the contrast between this",00:32:58.150,00:33:01.440
+"algorithm-- not only in the
+specification of it, but how quickly it",00:33:01.440,00:33:05.080
+"converges-- and the fact that finding
+the global minimums of NP-hard, is",00:33:05.080,00:33:08.880
+rather mind-boggling.,00:33:08.880,00:33:10.780
+So here is the algorithm.,00:33:10.780,00:33:12.770
+"What you do is you iteratively
+minimize this quantity.",00:33:12.770,00:33:16.910
+"You start with some configuration,
+and get a better configuration.",00:33:16.910,00:33:21.510
+"And as you see, I have now two guys in
+purple, which are my parameters here.",00:33:21.510,00:33:26.910
+mu's are parameters by definition.,00:33:26.910,00:33:29.170
+I am trying to find what they are.,00:33:29.170,00:33:30.630
+"But also the sets S_k, the
+clusters, are parameters.",00:33:30.630,00:33:33.980
+"I want to know which
+guys go into them.",00:33:33.980,00:33:36.060
+"These are the two things
+that I'm determining.",00:33:36.060,00:33:38.240
+"So the way this algorithm does it is that
+it fixes one of them, and tries to",00:33:38.240,00:33:43.280
+minimize the other.,00:33:43.280,00:33:44.520
+"It tells you for this particular
+membership of the clusters, could you",00:33:44.520,00:33:47.960
+find the optimal centers?,00:33:47.960,00:33:50.470
+"Now that you found the
+optimal centers--",00:33:50.470,00:33:52.170
+"forget about the clustering that
+resulted in that-- these are centers,",00:33:52.170,00:33:55.730
+"could you find the best clustering
+for those centers? And keep",00:33:55.730,00:33:59.420
+repeating back and forth.,00:33:59.420,00:34:01.700
+Let's look at the steps.,00:34:01.700,00:34:03.900
+"You are minimizing this
+with respect to both,",00:34:03.900,00:34:05.770
+so you take one at a time.,00:34:05.770,00:34:07.640
+Now you update the value of mu.,00:34:07.640,00:34:11.704
+How do you do that?,00:34:11.704,00:34:14.380
+"You take the fixed clustering that
+you have-- so you have already",00:34:14.380,00:34:17.030
+"a clustering that is inherited
+from the last iteration.",00:34:17.030,00:34:20.190
+"What you do is you take the
+mean of that cluster.",00:34:20.190,00:34:22.510
+"You take the points that belong
+to that cluster.",00:34:22.510,00:34:24.760
+"You add them up and divide
+by their number.",00:34:24.760,00:34:27.550
+"Now in our mind, you know that this must
+be pretty good in minimizing the",00:34:27.550,00:34:30.750
+"mean squared error, because the squared
+error to the mean is the smallest",00:34:30.750,00:34:36.719
+"of the squared errors to any point.
+That happens to be the closest to the",00:34:36.719,00:34:40.290
+"points collectively, in terms
+of mean squared value.",00:34:40.290,00:34:44.090
+"So if I do that, I know that this is
+a good representative, if this was the",00:34:44.090,00:34:49.810
+real cluster.,00:34:49.810,00:34:52.429
+So that's the first step.,00:34:52.429,00:34:53.440
+Now I have new mu_k's.,00:34:53.440,00:34:55.580
+So you freeze the mu_k's.,00:34:55.580,00:34:57.620
+"And you completely forget about
+the clustering you had before.",00:34:57.620,00:35:01.690
+Now you are creating new clusters.,00:35:01.690,00:35:03.900
+And the idea is the following.,00:35:03.900,00:35:06.390
+"You take every point, and you measure
+the distance between it and mu_k, the",00:35:06.390,00:35:11.920
+newly acquired mu_k.,00:35:11.920,00:35:13.460
+"And you ask yourself: is the closest
+of the mu's that I have?",00:35:13.460,00:35:17.910
+"So you compare this with
+all of the other guys.",00:35:17.910,00:35:21.640
+"And if it happens to be smaller,
+then you declare that this",00:35:21.640,00:35:24.680
+x_n belongs to S_k.,00:35:24.680,00:35:28.500
+"You do this for all the points, and
+you create a full clustering.",00:35:28.500,00:35:32.180
+"Now, if you look at this step, we argued
+that this reduces the error.",00:35:32.180,00:35:36.380
+"It has to, because you picked the mean
+for every one of them, and that will",00:35:36.380,00:35:41.060
+definitely not increase the error.,00:35:41.060,00:35:44.040
+"This will also decrease the error,
+because the worst that it can do is",00:35:44.040,00:35:48.450
+"take a point from one cluster
+and put it in another.",00:35:48.450,00:35:51.570
+"But in doing that, what did it do?",00:35:51.570,00:35:54.010
+It picked the one that is closest.,00:35:54.010,00:35:56.010
+"So the term that used to be here is
+now smaller, because it went to the",00:35:56.010,00:35:59.610
+closer guy.,00:35:59.610,00:36:00.800
+So this one reduces the value.,00:36:00.800,00:36:02.750
+This one reduces the value.,00:36:02.750,00:36:04.090
+"You go back and forth, and the
+quantity is going down.",00:36:04.090,00:36:07.620
+Are we ever going to converge?,00:36:07.620,00:36:10.840
+"Yes, we have to. Because by structure,
+we are only dealing with a finite",00:36:10.840,00:36:16.180
+number of points.,00:36:16.180,00:36:17.880
+"And there are a finite number of
+possible values for the mu's, given",00:36:17.880,00:36:22.720
+"the algorithm, because they have to be
+the average of points from those.",00:36:22.720,00:36:27.240
+So I have 100 points.,00:36:27.240,00:36:29.180
+"There will be a finite,
+but tremendously big,",00:36:29.180,00:36:32.570
+number of possible values.,00:36:32.570,00:36:34.780
+But it's finite.,00:36:34.780,00:36:35.760
+"All I care about, it's a finite number.",00:36:35.760,00:36:37.390
+"And as long as it's finite,
+and I'm going down, I will",00:36:37.390,00:36:40.100
+definitely hit a minimum.,00:36:40.100,00:36:41.840
+"It will not be the case that it's
+a continuous thing, and I'm doing half,",00:36:41.840,00:36:45.190
+"and then half again, and half
+of half, and never arrive.",00:36:45.190,00:36:48.880
+"Here, you will arrive perfectly
+at a point.",00:36:48.880,00:36:51.050
+"The catch is that you're converging to
+good, old-fashioned local minimum.",00:36:53.620,00:36:58.400
+"Depending on your initial configuration,
+you will end up with",00:36:58.400,00:37:02.030
+one local minimum or another.,00:37:02.030,00:37:04.260
+"But again, exactly the same situation
+as we had with neural networks.",00:37:04.260,00:37:08.180
+"We did converge to a local minimum
+with backpropagation, right?",00:37:08.180,00:37:11.870
+"And that minimum depended
+on the initial weights.",00:37:11.870,00:37:14.620
+"Here, it will depend on the initial
+centers, or the initial clustering,",00:37:14.620,00:37:18.260
+whichever way you want to begin.,00:37:18.260,00:37:20.780
+"And the way you do it is, try
+different starting points.",00:37:20.780,00:37:25.770
+And you get different solutions.,00:37:25.770,00:37:27.570
+"And you can evaluate which one is better
+because you can definitely",00:37:27.570,00:37:30.680
+"evaluate this objective function for
+all of them, and pick one out of",00:37:30.680,00:37:34.170
+a number of runs.,00:37:34.170,00:37:35.110
+That usually works very nicely.,00:37:35.110,00:37:37.210
+"It's not going to give
+you the global one.",00:37:37.210,00:37:38.820
+"But it's going to give you a very decent
+clustering, and very decent",00:37:38.820,00:37:41.730
+representative mu's.,00:37:41.730,00:37:42.980
+"Now, let's look at Lloyd's
+algorithm in action.",00:37:46.360,00:37:48.710
+"And I'm going to take the problem
+that I showed you last time",00:37:48.710,00:37:51.330
+for the RBF kernel.,00:37:51.330,00:37:53.670
+"This is the one we're going to
+carry through, because we can",00:37:53.670,00:37:55.590
+relate to it now.,00:37:55.590,00:37:56.850
+And let's see how the algorithm works.,00:37:56.850,00:38:01.390
+"The first step in the algorithm,
+give me the data points.",00:38:01.390,00:38:04.740
+"OK, thank you.",00:38:04.740,00:38:06.130
+Here are the data points.,00:38:06.130,00:38:07.400
+"If you remember, this was the target.",00:38:07.400,00:38:09.800
+The target was slightly nonlinear.,00:38:09.800,00:38:12.590
+We had -1 and +1.,00:38:12.590,00:38:14.670
+And we have them with this color.,00:38:14.670,00:38:16.090
+And that is the data we have.,00:38:16.090,00:38:20.010
+"First thing, I only want the inputs.",00:38:20.010,00:38:25.500
+I don't see the labels.,00:38:25.500,00:38:27.260
+And I don't see the target function.,00:38:27.260,00:38:29.980
+"You probably don't see the
+target function anyway.",00:38:29.980,00:38:32.070
+It's so faint!,00:38:32.070,00:38:32.960
+"But really, you don't see it at all.",00:38:32.960,00:38:36.160
+"So I'm going now to take away the
+target function and the labels.",00:38:36.160,00:38:40.780
+"I'm only going to keep the
+position of the inputs.",00:38:40.780,00:38:43.810
+So this is what you get.,00:38:43.810,00:38:46.680
+"Looks more formidable now, right?",00:38:46.680,00:38:48.860
+I have no idea what the function is.,00:38:48.860,00:38:51.080
+"But now we realize one
+interesting point.",00:38:51.080,00:38:53.100
+"I'm going to cluster those, without
+any benefit of the label.",00:38:53.100,00:38:57.080
+"So I could have clusters that belong
+to one category, +1 or -1.",00:38:57.080,00:39:02.070
+"And I could, as well, have clusters
+that happen to be on the boundary,",00:39:02.070,00:39:05.010
+"half of them are +1, or
+half of them -1.",00:39:05.010,00:39:07.580
+"That's the price you pay when you
+do unsupervised learning.",00:39:07.580,00:39:10.590
+"You are trying to get similarity, but
+the similarity is as far as the inputs",00:39:10.590,00:39:14.530
+"are concerned, not as far
+as the behavior with the",00:39:14.530,00:39:17.060
+target function is concerned.,00:39:17.060,00:39:18.770
+That is key.,00:39:18.770,00:39:21.420
+So I have the points.,00:39:21.420,00:39:22.800
+What do I do next?,00:39:22.800,00:39:24.610
+You need to initialize the centers.,00:39:24.610,00:39:26.410
+There are many ways of doing this.,00:39:26.410,00:39:27.880
+There are a number of methods.,00:39:27.880,00:39:29.430
+I'm going to keep it simple here.,00:39:29.430,00:39:30.730
+"And I'm going to initialize
+the centers at random.",00:39:30.730,00:39:33.020
+So I'm just going to pick 9 points.,00:39:33.020,00:39:35.090
+"And I'm picking 9
+for a good reason.",00:39:35.090,00:39:37.150
+"Remember last lecture when we did
+the support vector machines.",00:39:37.150,00:39:40.230
+We ended up with 9 support vectors.,00:39:40.230,00:39:42.830
+And I want to be able to compare them.,00:39:42.830,00:39:44.840
+"So I'm fixing the number, in order to be
+able to compare them head to head.",00:39:44.840,00:39:49.530
+So here are my initial centers.,00:39:49.530,00:39:52.050
+Totally random.,00:39:52.050,00:39:53.310
+"Looks like a terribly stupid thing to
+have three centers near each other, and",00:39:53.310,00:39:57.080
+"have this entire area empty. But let's
+hope that Lloyd's algorithm will place",00:39:57.080,00:40:02.570
+them a little bit more strategically.,00:40:02.570,00:40:03.945
+Now you iterate.,00:40:08.640,00:40:09.790
+"So now I would like you
+to stare at this.",00:40:09.790,00:40:12.800
+I will even make it bigger.,00:40:12.800,00:40:14.770
+"Stare at it, because I'm going
+to do a full iteration now.",00:40:19.000,00:40:21.530
+"I am going to do re-clustering, and
+re-evaluation of the mu, and then show",00:40:21.530,00:40:25.890
+you the new mu.,00:40:25.890,00:40:27.390
+One step at a time.,00:40:27.390,00:40:28.920
+This is the first step.,00:40:28.920,00:40:30.210
+Keep your eyes on the screen.,00:40:30.210,00:40:32.250
+They moved a little bit.,00:40:37.040,00:40:37.940
+"And I am pleased to find that those
+guys, that used to be crowded, are now",00:40:37.940,00:40:41.400
+serving different guys.,00:40:41.400,00:40:42.800
+They are moving away.,00:40:42.800,00:40:45.090
+Second iteration.,00:40:45.090,00:40:48.120
+"I have to say, this is
+not one iteration.",00:40:48.120,00:40:51.560
+These are a number of iterations.,00:40:51.560,00:40:52.870
+"But I'm sampling it at a certain rate,
+in order not to completely bore you.",00:40:52.870,00:40:56.520
+"It would be-- clicking through
+the end of the lecture.",00:40:56.520,00:40:59.050
+"And then we would have the clustering
+at the end of the",00:40:59.050,00:41:00.500
+"lecture, and nothing else!",00:41:00.500,00:41:02.970
+So next iteration.,00:41:02.970,00:41:04.350
+Look at the screen.,00:41:04.350,00:41:05.600
+The movement is becoming smaller.,00:41:07.640,00:41:11.200
+Third iteration.,00:41:11.200,00:41:12.450
+Uh.,00:41:14.465,00:41:14.910
+Just a touch.,00:41:14.910,00:41:17.550
+Fourth.,00:41:17.550,00:41:19.170
+Nothing happened.,00:41:19.170,00:41:20.710
+I actually flipped the slide.,00:41:20.710,00:41:23.990
+Nothing happened.,00:41:23.990,00:41:26.120
+Nothing happened.,00:41:26.120,00:41:28.470
+So we have converged.,00:41:28.470,00:41:30.880
+And these are your mu's.,00:41:30.880,00:41:34.030
+And it does converge very quickly.,00:41:34.030,00:41:36.610
+"And you can see now the
+centers make sense.",00:41:36.610,00:41:39.460
+These guys have a center.,00:41:39.460,00:41:41.450
+These guys have a center.,00:41:41.450,00:41:43.460
+"These guys, and so on.",00:41:43.460,00:41:45.820
+"I guess since it started here, it got
+stuck here and is just serving two",00:41:45.820,00:41:50.140
+"points, or something like that.",00:41:50.140,00:41:51.500
+"But more or less, it's
+a reasonable clustering.",00:41:51.500,00:41:54.390
+"Notwithstanding the fact that
+there was no natural",00:41:54.390,00:41:56.990
+clustering for the points.,00:41:56.990,00:41:58.190
+"It's not like I generated these
+guys from 9 centers.",00:41:58.190,00:42:01.500
+These were generated uniformly.,00:42:01.500,00:42:03.580
+So the clustering is incidental.,00:42:03.580,00:42:05.280
+"But nonetheless, the clustering
+here makes sense.",00:42:05.280,00:42:08.930
+"Now this is a clustering, right?",00:42:08.930,00:42:12.520
+Surprise!,00:42:12.520,00:42:13.770
+We have to go back to this.,00:42:16.190,00:42:17.700
+"And now, you look at the clustering
+and see what happens.",00:42:17.700,00:42:21.470
+"This guy takes points from
+both +1 and -1.",00:42:21.470,00:42:25.560
+"They look very similar to it, because
+it only depended on x's.",00:42:25.560,00:42:28.650
+"Many of them are deep inside and,
+indeed, deal with points",00:42:28.650,00:42:31.740
+that are the same.,00:42:31.740,00:42:32.900
+"The reason I'm making an issue of this,
+because the way the center will serve,",00:42:32.900,00:42:36.730
+"as a center of influence for
+affecting the value of the",00:42:36.730,00:42:39.380
+"hypothesis. It will get a w_k,",00:42:39.380,00:42:41.460
+"and then it will propagate that w_k
+according to the distance from itself.",00:42:41.460,00:42:46.010
+"So now the guys that happen to be the
+center of positive and negative",00:42:46.010,00:42:49.560
+"points will cause me a problem,
+because what do I propagate?",00:42:49.560,00:42:51.980
+The +1 or the -1?,00:42:51.980,00:42:54.380
+"But indeed, that is the price you pay
+when you use unsupervised learning.",00:42:54.380,00:42:59.180
+"So this is Lloyd's algorithm
+in action.",00:42:59.180,00:43:02.280
+"Now I'm going to do something
+interesting.",00:43:02.280,00:43:05.010
+"We had 9 points that are centers of
+unsupervised learning, in order to be",00:43:05.010,00:43:10.030
+"able to carry out the influence of
+radial basis functions using the",00:43:10.030,00:43:14.050
+algorithm we will have.,00:43:14.050,00:43:15.130
+That's number one.,00:43:15.130,00:43:16.790
+"Last lecture, we had 
+also 9 guys.",00:43:16.790,00:43:21.140
+They were support vectors.,00:43:21.140,00:43:23.250
+"They were representative
+of the data points.",00:43:23.250,00:43:26.820
+"And since the 9 points were
+representative of the data points, and",00:43:26.820,00:43:30.720
+"the 9 centers here are representative
+of the data points, it",00:43:30.720,00:43:33.690
+"might be illustrative to put them next
+to each other, to understand what is",00:43:33.690,00:43:37.810
+"common, what is different, where
+did they come from, and so on.",00:43:37.810,00:43:41.290
+Let's start with the RBF centers.,00:43:41.290,00:43:45.620
+Here they are.,00:43:45.620,00:43:46.260
+"And I put them on the data that is
+labeled, not that I got them from the",00:43:46.260,00:43:51.300
+"labeled data, but just to have the
+same picture right and left.",00:43:51.300,00:43:54.710
+So these are where the centers are.,00:43:54.710,00:43:56.020
+Everybody sees them clearly.,00:43:56.020,00:43:57.740
+"Now let me remind you of what
+the support vectors from",00:43:57.740,00:43:59.930
+last time looked like.,00:43:59.930,00:44:02.030
+Here are the support vectors.,00:44:02.030,00:44:05.460
+"Very interesting, indeed.",00:44:05.460,00:44:09.115
+"The support vectors obviously
+are here, all around here.",00:44:09.115,00:44:11.990
+"They had no interest whatsoever in
+representing clusters of points.",00:44:11.990,00:44:16.120
+That was not their job.,00:44:16.120,00:44:19.270
+"Here these guys have absolutely
+nothing to do with",00:44:19.270,00:44:22.300
+the separating plane.,00:44:22.300,00:44:23.400
+"They didn't even know that there
+was separating surface.",00:44:23.400,00:44:26.440
+They just looked at the data.,00:44:26.440,00:44:28.330
+"And you basically get what
+you set out to do.",00:44:28.330,00:44:31.410
+"Here you were representing
+the data inputs.",00:44:31.410,00:44:35.320
+"And you've got a representation
+of the data inputs.",00:44:35.320,00:44:38.280
+"Here you were trying to capture
+the separating surface.",00:44:38.280,00:44:41.600
+That's what support vectors do.,00:44:41.600,00:44:42.860
+They support the separating surface.,00:44:42.860,00:44:45.050
+And this is what you got.,00:44:45.050,00:44:47.570
+These guys are generic centers.,00:44:47.570,00:44:49.550
+They are all black.,00:44:49.550,00:44:51.030
+"These guys, there are some blue and
+some red, because they are support",00:44:51.030,00:44:54.520
+"vectors that come with a label,
+because of the value y_n.",00:44:54.520,00:44:59.420
+So some of them are on this side.,00:44:59.420,00:45:01.300
+Some of them are on this side.,00:45:01.300,00:45:04.460
+"And indeed, they serve completely
+different purposes.",00:45:04.460,00:45:07.960
+"And it's rather remarkable that we get
+two solutions using the same kernel,",00:45:07.960,00:45:13.700
+"which is RBF kernel, using such
+an incredibly different diversity of",00:45:13.700,00:45:18.080
+approaches.,00:45:18.080,00:45:19.230
+"This was just to show you the
+difference between when you do the",00:45:19.230,00:45:23.540
+"choice of important points in
+an unsupervised way, and here patently in",00:45:23.540,00:45:29.230
+a supervised way.,00:45:29.230,00:45:29.980
+"Choosing the support vectors was
+very much dependent on the",00:45:29.980,00:45:32.930
+value of the target.,00:45:32.930,00:45:34.440
+"The other thing you need to notice is
+that the support vectors have to be",00:45:34.440,00:45:38.080
+points from the data.,00:45:38.080,00:45:41.330
+"The mu's here are not points
+from the data.",00:45:41.330,00:45:43.892
+They are average of those points.,00:45:43.892,00:45:45.640
+But they end up anywhere.,00:45:45.640,00:45:47.070
+"So if you actually look, for example,
+at these three points.",00:45:47.070,00:45:51.100
+You go here.,00:45:51.100,00:45:52.180
+"And one of them became a center, one
+of them became a support vector.",00:45:52.180,00:45:55.710
+"On the other hand, this point
+doesn't exist here.",00:45:55.710,00:45:58.690
+"It just is a center that happens
+to be anywhere in the plane.",00:45:58.690,00:46:01.760
+So now we have the centers.,00:46:04.580,00:46:07.190
+I will give you the data.,00:46:07.190,00:46:08.780
+I tell you K equals 9.,00:46:08.780,00:46:11.650
+"You go and you do your
+Lloyd's algorithm.",00:46:11.650,00:46:13.410
+"And you come up with the centers,
+and half the problem of the",00:46:13.410,00:46:16.240
+choice is now solved.,00:46:16.240,00:46:17.680
+"And it's the big half, because the
+centers are vectors of d dimensions.",00:46:17.680,00:46:21.310
+"And now I found the centers, without
+even touching the labels.",00:46:21.310,00:46:24.020
+I didn't touch y_n.,00:46:24.020,00:46:25.400
+"So I know that I didn't
+contaminate anything.",00:46:25.400,00:46:27.360
+"And indeed, I have only the weights,
+which happen to be K weights,",00:46:27.360,00:46:31.470
+to determine using the labels.,00:46:31.470,00:46:33.280
+"And therefore, I have good
+hopes for generalization.",00:46:33.280,00:46:37.900
+Now I look at here. I froze it--,00:46:37.900,00:46:40.730
+"it became black now, because
+it has been chosen.",00:46:40.730,00:46:42.550
+"And now I'm only trying
+to choose these guys,",00:46:42.550,00:46:44.570
+w_k. This is y_n.,00:46:44.570,00:46:47.430
+And I ask myself the same question.,00:46:47.430,00:46:48.900
+"I want this to be true for all
+the data points if I can.",00:46:48.900,00:46:52.200
+"And I ask myself: how many equations,
+how many unknowns?",00:46:52.200,00:46:55.360
+I end up with N equations.,00:46:55.360,00:46:57.120
+Same thing.,00:46:57.120,00:46:57.560
+"I want this to be true for
+all the data points.",00:46:57.560,00:46:59.630
+I have N data points.,00:46:59.630,00:47:00.780
+So I have N equations.,00:47:00.780,00:47:02.130
+How many unknowns?,00:47:02.130,00:47:03.780
+The unknowns are the w's.,00:47:03.780,00:47:05.810
+And I have K of them.,00:47:05.810,00:47:07.850
+"And oops, K is less than N. I have
+more equations than unknowns.",00:47:07.850,00:47:14.260
+So something has to give.,00:47:14.260,00:47:15.800
+"And this fellow is the
+one that has to give.",00:47:15.800,00:47:21.050
+That's all I can hope for.,00:47:21.050,00:47:22.750
+"I'm going to get it close, in a mean
+squared sense, as we have done before.",00:47:22.750,00:47:26.130
+"I don't think you'll be surprised
+by anything in this slide.",00:47:28.920,00:47:31.420
+You have seen this before.,00:47:31.420,00:47:32.910
+So let's do it.,00:47:32.910,00:47:34.910
+This is the matrix phi now.,00:47:34.910,00:47:36.480
+It's a new phi.,00:47:36.480,00:47:38.790
+It has K columns and N rows.,00:47:38.790,00:47:43.780
+"So according to our criteria that K is
+smaller than N, this is a tall matrix.",00:47:43.780,00:47:49.620
+"You multiply it by w, which
+are K weights.",00:47:49.620,00:47:54.830
+And you should get approximately y.,00:47:54.830,00:47:59.120
+Can you solve this?,00:47:59.120,00:47:59.990
+"Yes, we have done this before
+in linear regression.",00:47:59.990,00:48:02.780
+"All you need is to make sure that
+phi transposed phi is invertible.",00:48:02.780,00:48:08.090
+"And under those conditions, you
+have one-step solution, which",00:48:08.090,00:48:12.410
+is the pseudo-inverse.,00:48:12.410,00:48:14.060
+"You take phi transposed phi to the -1,
+times phi transposed y.",00:48:14.060,00:48:16.910
+"And that will give you the value of
+w that minimizes the mean squared",00:48:16.910,00:48:19.830
+difference between these guys.,00:48:19.830,00:48:22.870
+"So you have the pseudo-inverse,
+instead of the exact interpolation.",00:48:22.870,00:48:26.370
+"And in this case, you are not guaranteed
+that you will get the",00:48:26.370,00:48:29.120
+correct value at every data point.,00:48:29.120,00:48:31.790
+"So you are going to be making
+an in-sample error.",00:48:31.790,00:48:33.860
+"But we know that this
+is not a bad thing.",00:48:33.860,00:48:35.840
+"On the other hand, we are only
+determining K weights.",00:48:35.840,00:48:38.860
+"So the chances of generalization
+are good.",00:48:38.860,00:48:40.430
+"Now, I would like to take this, and
+put it as a graphical network.",00:48:43.510,00:48:47.320
+"And this will help me relate
+it to neural networks.",00:48:47.320,00:48:50.390
+This is the second link.,00:48:50.390,00:48:51.500
+"We already related RBF to nearest
+neighbor methods, similarity methods.",00:48:51.500,00:48:55.730
+"Now we are going to relate
+it to neural networks.",00:48:55.730,00:48:57.870
+Let me first put the diagram.,00:48:57.870,00:49:01.650
+Here's my illustration of it.,00:49:01.650,00:49:03.270
+I have x.,00:49:03.270,00:49:04.710
+"I am computing the radial aspect, the
+distance from mu_1 up to mu_K, and then",00:49:04.710,00:49:12.860
+"handing it to a nonlinearity, in this
+case the Gaussian nonlinearity.",00:49:12.860,00:49:16.680
+You can have other basis functions.,00:49:16.680,00:49:18.940
+Like we had the cylinder in one case.,00:49:18.940,00:49:20.260
+But cylinder is a bit extreme.,00:49:20.260,00:49:21.590
+But there are other functions.,00:49:21.590,00:49:23.640
+"You get features that are combined
+with weights, in order to",00:49:23.640,00:49:30.240
+give you the output.,00:49:30.240,00:49:32.750
+"Now this one could be just passing the
+sum if you're doing regression, could",00:49:32.750,00:49:37.270
+"be hard threshold if you're doing
+classification, could",00:49:37.270,00:49:39.830
+be something else.,00:49:39.830,00:49:41.460
+"But what I care about is that this
+configuration looks familiar to us.",00:49:41.460,00:49:45.740
+It's layers.,00:49:45.740,00:49:46.930
+I select features.,00:49:46.930,00:49:48.400
+And then I go to output.,00:49:48.400,00:49:49.720
+Let's look at the features.,00:49:49.720,00:49:52.430
+"The features are these fellows, right?",00:49:52.430,00:49:57.290
+"Now if you look at these features, they
+depend on D-- mu, in general, are",00:49:57.290,00:50:05.390
+parameters.,00:50:05.390,00:50:06.680
+"If I didn't have this slick Lloyd's
+algorithm, and K-means, and",00:50:06.680,00:50:09.900
+"unsupervised thing, I need to determine
+what these guys are.",00:50:09.900,00:50:14.010
+"And once you determine them, the value
+of the feature depends on the data set.",00:50:14.010,00:50:19.610
+"And when the value of the feature
+depends on the data set,",00:50:19.610,00:50:22.400
+all bets are off.,00:50:22.400,00:50:23.350
+"It's no longer a linear model, pretty
+much like a neural network doing the",00:50:23.350,00:50:28.610
+"first layer, extracting the features.",00:50:28.610,00:50:31.520
+"Now the good thing is that, because we
+used only the inputs in order to",00:50:31.520,00:50:36.560
+"compute mu, it's almost linear.",00:50:36.560,00:50:40.280
+"We've got the benefit of the
+pseudo-inverse because in this case,",00:50:40.280,00:50:44.470
+"we didn't have to go back and adjust mu
+because you don't like the value of",00:50:44.470,00:50:49.550
+the output.,00:50:49.550,00:50:50.180
+"These were frozen forever
+based on inputs.",00:50:50.180,00:50:52.450
+"And then, we only had to get the w's.",00:50:52.450,00:50:54.260
+"And the w's now look like multiplicative
+factors, in which case",00:50:54.260,00:50:57.370
+it's linear on those w's.,00:50:57.370,00:50:58.820
+And we get the solution.,00:50:58.820,00:51:00.070
+"Now in radial basis functions, there
+is often a bias term added.",00:51:02.810,00:51:07.780
+You don't only get those.,00:51:07.780,00:51:08.840
+You get either w_0 or b.,00:51:08.840,00:51:11.030
+And it enters the final layer.,00:51:11.030,00:51:13.200
+"So you just add another weight that
+is, this time, multiplied by 1.",00:51:13.200,00:51:17.840
+And everything remains the same.,00:51:17.840,00:51:19.720
+"The phi matrix has another
+column because of this.",00:51:19.720,00:51:22.760
+"And you just do the machinery
+you had before.",00:51:22.760,00:51:27.000
+"Now let's compare it
+to neural networks.",00:51:27.000,00:51:28.840
+Here is the RBF network.,00:51:28.840,00:51:32.020
+We just saw it.,00:51:32.020,00:51:33.750
+And I pointed x in red.,00:51:33.750,00:51:36.240
+"This is what gets passed to this, gets
+the features, and gets you the output.",00:51:36.240,00:51:41.100
+"And here is a neural network that
+is comparable in structure.",00:51:41.100,00:51:46.670
+So you start with the input.,00:51:46.670,00:51:47.640
+You start with the input.,00:51:47.640,00:51:49.730
+Now you compute features.,00:51:49.730,00:51:51.910
+And here you do.,00:51:51.910,00:51:53.640
+"And the features here depend
+on the distance.",00:51:53.640,00:51:55.670
+"And they are such that, when the distance
+is large, the influence dies.",00:51:55.670,00:52:00.030
+"So if you look at this value, and this
+value is huge, you know that this",00:52:00.030,00:52:04.820
+feature will have 0 contribution.,00:52:04.820,00:52:08.720
+"Here this guy, big or small, is
+going to go through a sigmoid.",00:52:08.720,00:52:14.960
+"So it could be huge, small, negative.",00:52:14.960,00:52:18.000
+And it goes through this.,00:52:18.000,00:52:19.690
+So it always has a contribution.,00:52:19.690,00:52:22.480
+"So one interpretation is that, what
+radial basis function networks do, is",00:52:22.480,00:52:28.540
+"look at local regions in the space and
+worry about them, without worrying",00:52:28.540,00:52:33.250
+about the far-away points.,00:52:33.250,00:52:35.510
+"I have a function that
+is in this space.",00:52:35.510,00:52:37.680
+"I look at this part, and
+I want to learn it.",00:52:37.680,00:52:40.130
+"So I get a basis function
+that captures it, or",00:52:40.130,00:52:42.280
+"a couple of them, et cetera.",00:52:42.280,00:52:43.720
+"And I know that by the time I go to
+another part of the space, whatever I",00:52:43.720,00:52:47.270
+"have done here is not going to
+interfere, whereas in the other case",00:52:47.270,00:52:51.380
+"of neural networks, it did interfere
+very, very much.",00:52:51.380,00:52:55.240
+"And the way you actually got something
+interesting, is making sure that the",00:52:55.240,00:52:58.670
+"combinations of the guys you
+got give you what you want.",00:52:58.670,00:53:02.790
+"But it's not local as
+it is in this case.",00:53:02.790,00:53:05.970
+So this is the first observation.,00:53:05.970,00:53:08.190
+"The second observation is that here,
+the nonlinearity we call phi.",00:53:08.190,00:53:13.790
+"The corresponding nonlinearity
+here is theta.",00:53:13.790,00:53:16.340
+"And then you combine with
+the w's, and you get h.",00:53:16.340,00:53:19.170
+"So very much the same, except
+the way you extract",00:53:19.170,00:53:22.230
+features here is different.,00:53:22.230,00:53:24.040
+"And w here was full-fledged parameter
+that depended on the labels.",00:53:24.040,00:53:31.590
+"We use backpropagation
+in order to get those.",00:53:31.590,00:53:34.800
+"So these are learned features,
+which makes it completely",00:53:34.800,00:53:38.530
+not a linear model.,00:53:38.530,00:53:39.990
+"This one, if we learned mu's based on
+their effect on the output, which would",00:53:39.990,00:53:44.220
+"be a pretty hairy algorithm,
+that would be the case.",00:53:44.220,00:53:47.120
+But we didn't.,00:53:47.120,00:53:48.020
+"And therefore, this is almost
+linear in this part.",00:53:48.020,00:53:50.520
+"And this is why we got
+this part fixed.",00:53:50.520,00:53:53.160
+"And then we got this one using
+the pseudo inverse.",00:53:53.160,00:53:56.560
+"One last thing, this is
+a two-layer network.",00:53:56.560,00:54:00.030
+And this is a two-layer network.,00:54:00.030,00:54:02.350
+"And pretty much any two-layer network, of
+this type of structure, lends itself",00:54:02.350,00:54:08.380
+to being a support vector machine.,00:54:08.380,00:54:10.990
+"The first layer takes
+care of the kernel.",00:54:10.990,00:54:13.400
+"And the second one is the linear
+combination that is built-in in",00:54:13.400,00:54:16.590
+support vector machines.,00:54:16.590,00:54:18.190
+"So you can solve a support vector
+machine by choosing a kernel.",00:54:18.190,00:54:21.050
+"And you can picture in your mind that
+I have one of those, where the first",00:54:21.050,00:54:24.380
+part is getting the kernel.,00:54:24.380,00:54:25.850
+"And the second part is getting
+the linear part.",00:54:25.850,00:54:29.720
+"And indeed, you can implement
+neural networks using",00:54:29.720,00:54:32.890
+support vector machines.,00:54:32.890,00:54:33.850
+"There is a neural-network kernel
+for support vector machines.",00:54:33.850,00:54:37.190
+"But it deals only with two layers, as you
+see here, not multiple layers as",00:54:37.190,00:54:41.510
+the general neural network would do.,00:54:41.510,00:54:45.240
+"Now, the final parameter to choose here
+was gamma, the width of the Gaussian.",00:54:45.240,00:54:52.300
+"And we now treat it as
+a genuine parameter.",00:54:52.300,00:54:56.710
+So we want to learn it.,00:54:56.710,00:54:59.670
+"And because of that, it turned purple.",00:54:59.670,00:55:02.580
+"So now mu is fixed, according
+to Lloyd.",00:55:02.580,00:55:06.830
+Now I have parameters w_1 up to w_K.,00:55:06.830,00:55:09.780
+And then I have also gamma.,00:55:09.780,00:55:11.700
+"And you can see this is actually pretty
+important because, as you saw,",00:55:11.700,00:55:14.510
+"that if we choose it wrong, the
+interpolation becomes very poor.",00:55:14.510,00:55:17.840
+"And it does depend on the spacing
+in the data set.",00:55:17.840,00:55:21.910
+"So it might be a good idea to choose
+gamma in order to also minimize",00:55:21.910,00:55:25.720
+"the in-sample error--
+get good performance.",00:55:25.720,00:55:28.760
+"So of course, I could do that--",00:55:28.760,00:55:31.420
+"and I could do it for
+w for all I care--",00:55:31.420,00:55:33.465
+"I could do it for all the parameters,
+because here is the value.",00:55:33.465,00:55:37.020
+I am minimizing mean squared error.,00:55:37.020,00:55:38.430
+"So I'm going to compare this with
+the value of the y_n",00:55:38.430,00:55:41.790
+when I plug-in x_n.,00:55:41.790,00:55:43.390
+"And I get an in-sample error,
+which is mean squared.",00:55:43.390,00:55:45.900
+"I can always find parameters that
+minimize that, using gradient descent,",00:55:45.900,00:55:51.620
+the most general one.,00:55:51.620,00:55:53.260
+"Start with random values, and then
+descend, and then you get a solution.",00:55:53.260,00:55:57.750
+"However, it would be a shame to do that,
+because these guys have such",00:55:57.750,00:56:01.590
+a simple algorithm that goes with them.,00:56:01.590,00:56:04.020
+"If gamma is fixed, this is a snap.",00:56:04.020,00:56:06.180
+"You do the pseudo-inverse, and
+you get exactly that.",00:56:06.180,00:56:08.710
+"So it is a good idea to separate that
+for this one. It's inside the",00:56:08.710,00:56:13.720
+"exponential, and this and that.",00:56:13.720,00:56:14.840
+"I don't think I have any hope
+of finding a short cut.",00:56:14.840,00:56:16.930
+"I probably will have to do gradient
+descent for this guy.",00:56:16.930,00:56:19.670
+"But I might as well do gradient
+descent for this guy,",00:56:19.670,00:56:21.780
+not for these guys.,00:56:21.780,00:56:23.380
+"And the way this is done is
+by an iterative approach.",00:56:23.380,00:56:27.990
+"You fix one, and solve for the others.",00:56:27.990,00:56:31.370
+"This seems to be the theme
+of the lecture.",00:56:31.370,00:56:33.790
+"And in this case, it is a pretty
+famous algorithm--",00:56:33.790,00:56:36.760
+a variation of that algorithm.,00:56:36.760,00:56:38.550
+"The algorithm is called EM,
+Expectation-Maximization.",00:56:38.550,00:56:42.260
+"And it is used for solving the case
+of mixture of Gaussians, which we",00:56:42.260,00:56:46.970
+"actually have, except that we are
+not calling them probabilities.",00:56:46.970,00:56:49.270
+"We are calling them bases that
+are implementing a target.",00:56:49.270,00:56:53.020
+So here is the idea.,00:56:53.020,00:56:55.970
+Fix gamma.,00:56:55.970,00:56:58.400
+That we have done before.,00:56:58.400,00:56:59.340
+We have been fixing gamma all through.,00:56:59.340,00:57:01.620
+"If you want to solve for w based on
+fixing gamma, you just solve for it",00:57:01.620,00:57:06.490
+using the pseudo-inverse.,00:57:06.490,00:57:08.480
+Now we have w's.,00:57:08.480,00:57:09.730
+Now you fix them.,00:57:12.370,00:57:13.160
+They are frozen.,00:57:13.160,00:57:15.380
+"And you minimize the error, the squared
+error, with respect to gamma,",00:57:15.380,00:57:18.480
+one parameter.,00:57:18.480,00:57:19.500
+"It would be pretty easy to gradient
+descent with respect to one parameter.",00:57:19.500,00:57:22.640
+You find the minimum.,00:57:22.640,00:57:23.950
+You find gamma.,00:57:23.950,00:57:24.990
+Freeze it.,00:57:24.990,00:57:26.330
+"And now, go back to step one
+and find the new w's that go",00:57:26.330,00:57:29.920
+with the new gamma.,00:57:29.920,00:57:31.270
+"Back and forth, converges
+very, very quickly.",00:57:31.270,00:57:34.280
+"And then you will get a combination
+of both w's and gamma.",00:57:34.280,00:57:38.610
+"And because it is so simple, you might
+be even encouraged to say: why do",00:57:38.610,00:57:44.070
+we have one gamma?,00:57:44.070,00:57:46.380
+I have data sets.,00:57:46.380,00:57:47.680
+"It could be that these data points are
+close to each other, and one data point",00:57:47.680,00:57:51.140
+is far away.,00:57:51.140,00:57:53.240
+"Now if I have a center here that has to
+reach out further, and a center here",00:57:53.240,00:57:58.280
+"that doesn't have to reach out, it looks
+like a good idea to have different",00:57:58.280,00:58:01.310
+gammas for those guys.,00:58:01.310,00:58:02.940
+Granted.,00:58:02.940,00:58:04.000
+"And since this is so simple, all you
+need to do is now is have K",00:58:04.000,00:58:08.670
+"parameters, gamma_k, so you doubled
+the number of parameters.",00:58:08.670,00:58:12.120
+"But the number of parameters
+is small to begin with.",00:58:12.120,00:58:14.760
+And now you do the first step exactly.,00:58:14.760,00:58:16.830
+"You fix the vector gamma,
+and you get these guys.",00:58:16.830,00:58:19.440
+"And now we are doing gradient descent
+in a K-dimensional space.",00:58:19.440,00:58:22.260
+We have done that before.,00:58:22.260,00:58:23.230
+It's not a big deal.,00:58:23.230,00:58:24.030
+"You find the minimum with respect
+to those, freeze them,",00:58:24.030,00:58:26.080
+and go back and forth.,00:58:26.080,00:58:27.360
+"And in that case, you adjust the width
+of the Gaussian according to the",00:58:27.360,00:58:30.710
+region you are in the space.,00:58:30.710,00:58:32.020
+"Now very quickly, I'm going to go
+through two aspects of RBF, one of",00:58:34.970,00:58:39.770
+"them relating it to kernel methods,
+which we already have seen the",00:58:39.770,00:58:42.990
+beginning of.,00:58:42.990,00:58:43.920
+We have used it as a kernel.,00:58:43.920,00:58:45.290
+"So we would like to compare
+the performance.",00:58:45.290,00:58:47.040
+"And then, I will relate
+it to regularization.",00:58:47.040,00:58:49.540
+"It's interesting that RBF's, as I
+described them-- like intuitive, local,",00:58:49.540,00:58:53.780
+"influence, all of that-- you will find
+in a moment that they are completely",00:58:53.780,00:58:58.840
+based on regularization.,00:58:58.840,00:58:59.960
+"And that's how they arose in the first
+place in function approximation.",00:58:59.960,00:59:05.010
+"So let's do the RBF versus
+its kernel version.",00:59:05.010,00:59:10.350
+"Last lecture we had a kernel,
+which is the RBF kernel.",00:59:10.350,00:59:14.660
+"And we had a solution with
+9 support vectors.",00:59:14.660,00:59:17.460
+"And therefore, we ended up with
+a solution that implements this.",00:59:17.460,00:59:23.490
+Let's look at it.,00:59:23.490,00:59:26.730
+"I am getting a sign that's a built-in
+part of support vector machines.",00:59:26.730,00:59:29.940
+They are for classification.,00:59:29.940,00:59:31.770
+"I had this guy after I expanded the z
+transposed z, in terms of the kernel.",00:59:31.770,00:59:38.780
+"So I am summing up over only
+the support vector.",00:59:38.780,00:59:41.010
+There are 9 of them.,00:59:41.010,00:59:43.380
+"This becomes my parameter, the weight.",00:59:43.380,00:59:47.320
+"It happens to have the
+sign of the label.",00:59:47.320,00:59:51.220
+"That makes sense because if I want to
+see the influence of x_n, it might as",00:59:51.220,00:59:55.740
+"well be that the influence of x_n
+agrees with the label of x_n.",00:59:55.740,00:59:59.780
+That's how I want it.,00:59:59.780,01:00:00.420
+"If it's +1, I want the
++1 to propagate.",01:00:00.420,01:00:03.180
+"So because the alphas are non-negative
+by design, they get their sign from",01:00:03.180,01:00:07.340
+the label of the point.,01:00:07.340,01:00:09.300
+"And now the centers are points
+from the data set.",01:00:09.300,01:00:12.770
+"They happen to be
+the support vectors.",01:00:12.770,01:00:14.590
+And I have a bias there.,01:00:14.590,01:00:16.310
+So that's the solution we have.,01:00:16.310,01:00:17.810
+What did we have here?,01:00:17.810,01:00:19.570
+"We had the straight RBF implementation,
+with 9 centers.",01:00:19.570,01:00:25.750
+"I am putting the sign in blue, because
+this is not an integral part.",01:00:25.750,01:00:28.790
+I could have done a regression part.,01:00:28.790,01:00:30.130
+"But since I'm comparing here, I'm going
+to take the sign and consider",01:00:30.130,01:00:32.890
+this a classification.,01:00:32.890,01:00:34.290
+"I also added a bias, also in blue, because
+this is not an integral part.",01:00:34.290,01:00:37.620
+"But I'm adding it in order to
+be exactly comparable here.",01:00:37.620,01:00:42.280
+So the number of terms here is 9.,01:00:42.280,01:00:43.810
+The number of terms here is 9.,01:00:43.810,01:00:44.940
+I'm adding a bias.,01:00:44.940,01:00:45.660
+I'm adding a bias.,01:00:45.660,01:00:46.940
+"Now the parameter here is called w,
+which takes place of this guy.",01:00:46.940,01:00:51.680
+"And the centers here are general
+centers, mu_k's.",01:00:51.680,01:00:54.540
+"These do not have to be points from
+the data set, indeed they",01:00:54.540,01:00:57.690
+most likely are not.,01:00:57.690,01:00:59.240
+And they play the role here.,01:00:59.240,01:01:00.490
+So these are the two guys.,01:01:00.490,01:01:02.210
+How do they perform?,01:01:02.210,01:01:05.410
+That's the bottom line.,01:01:05.410,01:01:06.670
+Can you imagine?,01:01:06.670,01:01:07.280
+"This is exactly the same
+model in front of me.",01:01:07.280,01:01:09.500
+And in one of them I did what?,01:01:09.500,01:01:13.260
+"Unsupervised learning of centers,
+followed by a pseudo-inverse.",01:01:13.260,01:01:16.800
+"And I used linear regression
+for classification.",01:01:16.800,01:01:19.450
+That's one route.,01:01:19.450,01:01:20.510
+What did I do here?,01:01:20.510,01:01:22.590
+"Maximize the margin,",01:01:22.590,01:01:24.400
+"equate with a kernel, and
+pass to quadratic",01:01:24.400,01:01:28.810
+programming.,01:01:28.810,01:01:29.680
+Completely different routes.,01:01:29.680,01:01:31.840
+"And finally, I have a function
+that is comparable.",01:01:31.840,01:01:34.060
+So let's see how they perform.,01:01:34.060,01:01:36.190
+"Just to be fair to the poor straight RBF
+implementation, the data doesn't",01:01:36.190,01:01:41.970
+cluster normally.,01:01:41.970,01:01:43.570
+"And I chose the 9 because
+I got 9 here.",01:01:43.570,01:01:46.580
+"So the SVM has the home
+advantage here.",01:01:46.580,01:01:49.940
+This is just a comparison.,01:01:49.940,01:01:50.765
+"I didn't optimize the number of
+things, I didn't do anything.",01:01:50.765,01:01:54.320
+"So if this guy ends up performing
+better, OK, it's better.",01:01:54.320,01:01:58.060
+SVM is good.,01:01:58.060,01:01:58.960
+"But it really has a little
+bit of unfair advantage in this",01:01:58.960,01:02:02.720
+comparison.,01:02:02.720,01:02:03.740
+But let's look at what we have.,01:02:03.740,01:02:05.230
+This is the data.,01:02:05.230,01:02:06.720
+"Let me magnify it, so that
+you can see the surface.",01:02:06.720,01:02:10.120
+"Now let's start with
+the regular RBF.",01:02:14.910,01:02:19.120
+"Both of them are RBF, but
+this is the regular RBF.",01:02:19.120,01:02:22.190
+"This is the surface you get after you
+do everything I said, the Lloyd,",01:02:22.190,01:02:26.380
+"and the pseudo-inverse, and whatnot.",01:02:26.380,01:02:28.700
+"And the first thing you realize is that
+the in-sample error is not zero.",01:02:28.700,01:02:32.940
+"There are points that
+are misclassified.",01:02:32.940,01:02:33.830
+Not a surprise.,01:02:33.830,01:02:34.910
+I had only K centers.,01:02:34.910,01:02:36.360
+"And I'm trying to minimize
+mean squared error.",01:02:36.360,01:02:38.620
+"It is possible that some points,
+close to the boundary, will go one way",01:02:38.620,01:02:42.300
+or the other.,01:02:42.300,01:02:42.796
+"I'm interpreting the signal as being
+closer to +1 or -1.",01:02:42.796,01:02:45.820
+Sometimes it will cross.,01:02:45.820,01:02:46.820
+And that's what I get.,01:02:46.820,01:02:47.750
+This is the guy that I get.,01:02:47.750,01:02:50.480
+"Here is the guy that I got
+last time from the SVM.",01:02:50.480,01:02:52.850
+Rather interesting.,01:02:56.100,01:02:58.760
+"First, it's better-- because I have the
+benefit of looking at the green, the",01:02:58.760,01:03:03.180
+"faint green line, which is the target.",01:03:03.180,01:03:04.820
+"And I am definitely closer to the green
+one, in spite of the fact that I",01:03:04.820,01:03:07.700
+"never used it explicitly
+in the computation.",01:03:07.700,01:03:10.010
+"I used only the data, the
+same data for both.",01:03:10.010,01:03:12.730
+But this tracks it better.,01:03:12.730,01:03:14.480
+It does zero in-sample error.,01:03:14.480,01:03:18.650
+It's fairly close to this guy.,01:03:18.650,01:03:21.170
+"So here are two solutions coming
+from two different worlds,",01:03:21.170,01:03:24.030
+using the same kernel.,01:03:24.030,01:03:25.260
+"And I think by the time you have done
+a number of problems using these two",01:03:25.260,01:03:28.760
+"approaches, you have it cold.",01:03:28.760,01:03:30.740
+You know exactly what is going on.,01:03:30.740,01:03:32.230
+"You know the ramifications of doing
+unsupervised learning, and what you",01:03:32.230,01:03:34.860
+"miss out by choosing the centers without
+knowing the label, versus the",01:03:34.860,01:03:38.230
+advantage of support vectors.,01:03:38.230,01:03:39.950
+"The final items that I promised
+was RBF versus regularization.",01:03:42.600,01:03:46.950
+"It turns out that you can derive RBF's
+entirely based on regularization.",01:03:46.950,01:03:55.590
+"You are not talking about
+influence of a point.",01:03:55.590,01:03:57.460
+You are not talking about anything.,01:03:57.460,01:03:59.040
+"Here is the formulation from
+function approximation",01:03:59.040,01:04:01.620
+that resulted in that.,01:04:01.620,01:04:03.360
+"And that is why people consider RBF's to
+be very principled, and they have",01:04:03.360,01:04:06.350
+a merit.,01:04:06.350,01:04:07.520
+"It is modulo assumptions, as always.",01:04:07.520,01:04:09.450
+"And we will see what the
+assumptions are.",01:04:09.450,01:04:12.060
+"Let's say that you have
+a one-dimensional function.",01:04:12.060,01:04:16.330
+So you have a function.,01:04:16.330,01:04:17.770
+"And you have a bunch of points,
+the data points.",01:04:17.770,01:04:21.040
+"And what you are doing now is you are
+trying to interpolate and extrapolate",01:04:21.040,01:04:25.800
+"between these points, in order to get the
+whole function, which is what you",01:04:25.800,01:04:28.930
+"do in function approximation-- what you
+do in machine learning if your",01:04:28.930,01:04:31.150
+function happens to be one-dimensional.,01:04:31.150,01:04:33.610
+What do you do in this case?,01:04:33.610,01:04:35.140
+There are usually two terms.,01:04:35.140,01:04:36.880
+"One of them you try to minimize
+the in-sample error.",01:04:36.880,01:04:39.200
+"And the other one is regularization, to
+make sure that your function is not",01:04:39.200,01:04:41.860
+crazy outside.,01:04:41.860,01:04:43.070
+That's what we do.,01:04:43.070,01:04:44.300
+So look at the in-sample error.,01:04:44.300,01:04:46.300
+"That's what you do with the in-sample
+error, notwithstanding the 1 over",01:04:46.300,01:04:49.330
+"N, which I took out
+to simplify the form.",01:04:49.330,01:04:51.800
+"You take the value of your hypothesis,
+compare it with the value y, the",01:04:51.800,01:04:56.710
+"target value, squared, and this
+is your error in sample.",01:04:56.710,01:05:01.360
+"Now we are going to add
+a smoothness constraint.",01:05:01.360,01:05:05.420
+"And in this approach, the smoothness
+constraint is always taken, almost",01:05:05.420,01:05:10.810
+"always taken, as a constraint
+on the derivatives.",01:05:10.810,01:05:16.840
+"If I have a function, and I tell you
+that the second derivative is very",01:05:16.840,01:05:22.410
+"large, what does this mean?",01:05:22.410,01:05:25.180
+It means--,01:05:25.180,01:05:27.500
+So you do--,01:05:27.500,01:05:27.719
+That's not smooth.,01:05:28.090,01:05:30.550
+"And if I go to the third derivative, it
+will be the rate of change of",01:05:30.550,01:05:33.040
+"that, and so on.",01:05:33.040,01:05:34.030
+"So I can go for derivatives
+in general.",01:05:34.030,01:05:35.990
+"And if you can tell me that the
+derivatives are not very large in",01:05:35.990,01:05:40.010
+"general, that corresponds, in
+my mind, to smoothness.",01:05:40.010,01:05:43.830
+"The way they formulated the
+smoothness is by taking, generically,",01:05:43.830,01:05:47.910
+"the k-th derivative of your hypothesis,
+hypothesis now is",01:05:47.910,01:05:52.200
+a function of x.,01:05:52.200,01:05:53.300
+I can differentiate it.,01:05:53.300,01:05:54.550
+"I can differentiate it k times, assuming
+that it's parametrized in",01:05:54.550,01:05:57.180
+a way that is analytic.,01:05:57.180,01:05:59.400
+"And now I'm squaring it, because
+I'm only interested in the",01:05:59.400,01:06:02.390
+magnitude of it.,01:06:02.390,01:06:04.600
+"And what I'm going to do, I'm going to
+integrate this from minus infinity to",01:06:04.600,01:06:08.500
+plus infinity.,01:06:08.500,01:06:10.080
+"This will be an estimate of the
+size of the k-th derivative,",01:06:10.080,01:06:13.270
+notwithstanding it's squared.,01:06:13.270,01:06:15.330
+"If this is big, that's
+bad for smoothness.",01:06:15.330,01:06:17.960
+"If this is small, that's
+good for smoothness.",01:06:17.960,01:06:20.190
+"Now I'm going to up the ante, and combine
+the contributions of different",01:06:20.190,01:06:24.960
+derivatives.,01:06:24.960,01:06:27.590
+"I am going to combine all the
+derivatives with coefficients.",01:06:27.590,01:06:31.210
+"If you want some of them, all you need
+to do is just set these guys to zero",01:06:31.210,01:06:34.160
+for the ones you are not using.,01:06:34.160,01:06:35.700
+"Typically, you will be using, let's
+say, first derivative and second",01:06:35.700,01:06:38.360
+derivative.,01:06:38.360,01:06:38.820
+And the rest of the guys are zero.,01:06:38.820,01:06:40.540
+And you get a condition like that.,01:06:40.540,01:06:42.300
+And now you multiply it by lambda.,01:06:42.300,01:06:43.970
+That's the regularization parameter.,01:06:43.970,01:06:45.750
+"And you try to minimize the
+augmented error here.",01:06:45.750,01:06:48.690
+"And the bigger lambda is, the
+more insistent you are on",01:06:48.690,01:06:51.440
+smoothness versus fitting.,01:06:51.440,01:06:53.000
+And we have seen all of that before.,01:06:53.000,01:06:55.490
+"The interesting thing is that, if
+you actually solve this under",01:06:55.490,01:06:59.910
+"conditions, and assumptions, and after
+an incredibly hairy mathematics that",01:06:59.910,01:07:05.130
+"goes with it, you end up with
+radial basis functions.",01:07:05.130,01:07:10.460
+What does that mean?,01:07:10.460,01:07:12.220
+It really means--,01:07:12.220,01:07:13.250
+I'm looking for an interpolation.,01:07:13.250,01:07:14.780
+"And I'm looking for as smooth
+an interpolation as possible, in the sense",01:07:14.780,01:07:18.490
+"of the sum of the squares of the
+derivatives with these coefficients.",01:07:18.490,01:07:22.370
+"It's not stunning that the best
+interpolation happens to be Gaussian.",01:07:22.370,01:07:27.460
+That's all we are saying.,01:07:27.460,01:07:28.880
+So it comes out.,01:07:28.880,01:07:29.980
+"And that's what gives it a bigger
+credibility as being",01:07:29.980,01:07:34.430
+"inherently self-regularized,
+and whatnot.",01:07:34.430,01:07:38.220
+"And you get, this is the smoothest
+interpolation.",01:07:38.220,01:07:41.890
+"And that is one interpretation
+of radial basis functions.",01:07:41.890,01:07:46.000
+"On that happy note, we will stop,
+and I'll take questions",01:07:46.000,01:07:49.810
+after a short break.,01:07:49.810,01:07:53.040
+Let's start the Q&amp;A.,01:07:53.040,01:07:57.050
+"MODERATOR: First, can you explain
+again how does an SVM simulate",01:07:57.050,01:08:02.150
+a two-level neural network?,01:08:02.150,01:08:04.660
+PROFESSOR: OK.,01:08:04.660,01:08:07.440
+"Look at the RBF, in order
+to get a hint.",01:08:07.440,01:08:10.340
+What does this feature do?,01:08:10.340,01:08:12.970
+"It actually computes
+the kernel, right?",01:08:12.970,01:08:17.430
+"So think of what this guy is doing
+as implementing the kernel.",01:08:17.430,01:08:21.410
+What is it implementing?,01:08:21.410,01:08:22.729
+"It's implementing theta, the sigmoidal
+function, the tanh in this",01:08:22.729,01:08:26.080
+"case, of this guy.",01:08:26.080,01:08:29.340
+"Now if you take this as your kernel,
+and you verify that it is",01:08:29.340,01:08:34.830
+"a valid kernel-- in the case of radial
+basis functions, we had no",01:08:34.830,01:08:39.700
+problem with that.,01:08:39.700,01:08:40.569
+"In the case of neural networks, believe
+it or not, depending on your choice of",01:08:40.569,01:08:44.270
+"parameters, that kernel could be
+a valid kernel corresponding to",01:08:44.270,01:08:48.170
+"a legitimate Z space, or can be
+an illegitimate kernel.",01:08:48.170,01:08:52.380
+"But basically, you use
+that as your kernel.",01:08:52.380,01:08:54.710
+"And if it's a valid kernel, you carry
+out the support vector machinery.",01:08:54.710,01:08:57.920
+So what are you going to get?,01:08:57.920,01:08:59.109
+"You are going to get that value of the
+kernel, evaluated at different data",01:08:59.109,01:09:02.479
+"points, which happen to be
+the support vectors.",01:09:02.479,01:09:04.660
+These become your units.,01:09:04.660,01:09:06.130
+"And then you get to combine
+them using the weights.",01:09:06.130,01:09:09.180
+"And that is the second layer
+of the neural network.",01:09:09.180,01:09:11.850
+"So it will implement a two-layer
+neural network this way.",01:09:11.850,01:09:15.529
+"MODERATOR: In a real example, where you're
+not comparing to support vectors, how",01:09:18.170,01:09:22.080
+do you choose the number of centers?,01:09:22.080,01:09:26.090
+"PROFESSOR: This is perhaps
+the biggest question in clustering.",01:09:26.090,01:09:31.880
+There is no conclusive answer.,01:09:31.880,01:09:34.189
+"There are lots of information
+criteria, and this and that.",01:09:34.189,01:09:39.160
+But it really is an open question.,01:09:39.160,01:09:43.300
+"That's probably the best
+answer I can give.",01:09:43.300,01:09:45.979
+"In many cases, there is a relatively
+clear criterion.",01:09:45.979,01:09:52.859
+I'm looking at the minimization.,01:09:52.859,01:09:54.580
+"And if I increase the clusters by one,
+supposedly the sum of the squared",01:09:54.580,01:10:01.140
+"distances should go down, because I have
+one more parameter to play with.",01:10:01.140,01:10:05.060
+"So if I increase the things by one, and
+the objective function goes down",01:10:05.060,01:10:10.930
+"significantly, then it looks like it's
+meritorious, that it was warranted to",01:10:10.930,01:10:14.360
+add this center.,01:10:14.360,01:10:15.680
+"And if it doesn't, then maybe
+it's not a good idea.",01:10:15.680,01:10:18.470
+"There are tons of heuristics
+like that.",01:10:18.470,01:10:20.780
+But it is really a difficult question.,01:10:20.780,01:10:23.290
+"And the good news is that if you
+don't get it exactly, it's not",01:10:23.290,01:10:27.730
+the end of the world.,01:10:27.730,01:10:28.980
+"If you get a reasonable number
+of clusters, the rest of",01:10:28.980,01:10:31.140
+the machinery works.,01:10:31.140,01:10:31.940
+"And you get a fairly comparable
+performance.",01:10:31.940,01:10:34.440
+"Very seldom that there is an absolute
+hit, in terms of the number of clusters",01:10:34.440,01:10:39.030
+"that are needed, if the goal is to plug
+them in later on for the rest of the",01:10:39.030,01:10:43.260
+RBF machinery.,01:10:43.260,01:10:44.990
+"MODERATOR: So cross-validation
+would be useful for--",01:10:44.990,01:10:47.370
+"PROFESSOR: Validation would
+be one way of doing it.",01:10:47.370,01:10:48.780
+"But there are so many things to validate
+with respect to, but this is",01:10:48.780,01:10:52.200
+definitely one of them.,01:10:52.200,01:10:55.370
+"MODERATOR: Also, is RBF practical in
+applications where there's a high",01:10:55.370,01:11:03.260
+dimensionality of the input space?,01:11:03.260,01:11:04.910
+"I mean, does Lloyd algorithm suffer
+from high dimensionality problems?",01:11:04.910,01:11:10.330
+"PROFESSOR: Yeah, it's a question
+of-- distances become funny,",01:11:10.330,01:11:12.740
+"or sparsity becomes funny, in
+higher-dimensional space.",01:11:12.740,01:11:15.950
+"So the question of choice of gamma and
+other things become more critical.",01:11:15.950,01:11:20.900
+"And if it's really very high-dimensional
+space, and you have few",01:11:20.900,01:11:23.160
+"points, then it becomes very difficult
+to expect good interpolation.",01:11:23.160,01:11:29.970
+So there are difficulties.,01:11:29.970,01:11:30.890
+But the difficulties are inherent.,01:11:30.890,01:11:32.190
+"The curse of dimensionality
+is inherent in this case.",01:11:32.190,01:11:34.110
+"And I think it's not
+particular to RBF's.",01:11:34.110,01:11:36.610
+You use other methods.,01:11:36.610,01:11:37.470
+"And you also suffer from
+one problem or another.",01:11:37.470,01:11:41.300
+"MODERATOR: Can you review
+again how to choose gamma?",01:11:41.300,01:11:44.550
+PROFESSOR: OK.,01:11:44.550,01:11:45.800
+This is one way of doing it.,01:11:56.720,01:12:02.440
+Let me--,01:12:02.440,01:12:05.370
+"Here I am trying to take advantage of
+the fact that determining a subset",01:12:08.740,01:12:14.300
+of the parameters is easy.,01:12:14.300,01:12:16.070
+"If I didn't have that, I would have
+treated all the parameters on equal",01:12:16.070,01:12:19.480
+"footing, and I would have just used
+a general nonlinear optimization, like",01:12:19.480,01:12:24.160
+"gradient descent, in order to find all
+of them at once, iteratively until I",01:12:24.160,01:12:28.570
+"converge to a local minimum
+with respect to all of them.",01:12:28.570,01:12:32.350
+"Now that I realize that when gamma is
+fixed, there is a very simple way in",01:12:32.350,01:12:36.990
+one step to get to the w's.,01:12:36.990,01:12:39.900
+"I would like to take
+advantage of that.",01:12:39.900,01:12:42.000
+"The way I'm going to take advantage of
+it, is to separate the variables into",01:12:42.000,01:12:45.170
+"two groups, the expectation
+and the maximization,",01:12:45.170,01:12:49.440
+according to the EM algorithm.,01:12:49.440,01:12:51.390
+"And when I fix one of them, when
+I fix gamma, then I can",01:12:51.390,01:12:55.030
+solve for w_k's directly.,01:12:55.030,01:12:56.780
+I get them.,01:12:56.780,01:12:57.550
+So that's one step.,01:12:57.550,01:12:58.890
+"And then I fix w's that I have, and then
+try to optimize with respect to",01:12:58.890,01:13:03.240
+"gamma, according to the
+mean squared error.",01:13:03.240,01:13:05.010
+"So I take this guy with w's being
+constant, gamma being a variable, and",01:13:05.010,01:13:09.910
+"I apply this to every point in the
+training set, x_1 up to x_N, and take it",01:13:09.910,01:13:15.010
+"minus y_n squared, sum them up.",01:13:15.010,01:13:17.110
+This is an objective function.,01:13:17.110,01:13:18.600
+"And then get the gradient of that and
+try to minimize it, until I get to",01:13:18.600,01:13:22.510
+a local minimum.,01:13:22.510,01:13:23.500
+"And when I get to a local minimum, and
+now it's a local minimum with respect",01:13:23.500,01:13:25.680
+"to this gamma, and with the
+w_k's as being constant.",01:13:25.680,01:13:30.120
+"There's no question of variation
+of the w_k's in those cases.",01:13:30.120,01:13:33.130
+"But I get a value of gamma at
+which I assume a minimum.",01:13:33.130,01:13:36.190
+"Now I freeze it, and repeat
+the iteration.",01:13:36.190,01:13:38.880
+"And going back and forth will be far
+more efficient than doing gradient",01:13:38.880,01:13:42.340
+"descent in all, just because one of the
+steps that involves so many variables",01:13:42.340,01:13:45.550
+is a one shot.,01:13:45.550,01:13:46.800
+"And usually, the EM algorithm
+converges very quickly",01:13:46.800,01:13:49.380
+to a very good result.,01:13:49.380,01:13:50.310
+"It's a very successful algorithm
+in practice.",01:13:50.310,01:13:53.874
+"MODERATOR: Going back to neural
+networks, now that you mentioned the",01:13:53.874,01:13:57.340
+"relation with the SVM's. In practical
+problems, is it necessary to",01:13:57.340,01:14:01.690
+"have more than one hidden
+layer, or is it--",01:14:01.690,01:14:03.980
+"PROFESSOR: Well, in terms
+of the approximation, there is",01:14:03.980,01:14:06.230
+"an approximation result that tells you you
+can approximate everything using",01:14:06.230,01:14:09.140
+a two-layer neural network.,01:14:09.140,01:14:10.570
+"And the argument is fairly similar to
+the argument that we gave before.",01:14:10.570,01:14:14.460
+So it's not necessary.,01:14:14.460,01:14:15.550
+"And if you look at people who are using
+neural networks, I would say the",01:14:15.550,01:14:19.390
+minority use more than two layers.,01:14:19.390,01:14:21.080
+"So I wouldn't consider the restriction
+of two layers dictated by support",01:14:21.080,01:14:24.750
+"vector machines as being a very
+prohibitive restriction in this case.",01:14:24.750,01:14:31.210
+"But there are cases where you need
+more than two layers, and in that",01:14:31.210,01:14:33.750
+"case, you go just for the
+straightforward neural networks, and",01:14:33.750,01:14:38.210
+"then you have an algorithm
+that goes with that.",01:14:38.210,01:14:40.460
+There is an in-house question.,01:14:40.460,01:14:43.640
+"STUDENT: Hi, professor.",01:14:43.640,01:14:44.080
+I have a question about slide one.,01:14:44.080,01:14:48.160
+"Why we come up with this
+radial basis function?",01:14:48.160,01:14:53.070
+"You said that because the hypothesis is
+affected by the data point which is",01:14:53.070,01:14:59.730
+closest to x.,01:14:59.730,01:15:03.880
+"PROFESSOR: This is the slide
+you are referring to, right?",01:15:03.880,01:15:06.360
+STUDENT: Yeah.,01:15:06.360,01:15:06.640
+This is the slide.,01:15:06.640,01:15:07.700
+"So is it because you assume that the
+target function should be smooth?",01:15:07.700,01:15:13.920
+So that's why we can use this.,01:15:13.920,01:15:15.580
+"PROFESSOR: It turns out, in
+hindsight, that this is the underlying",01:15:15.580,01:15:18.560
+"assumption, because when we looked at
+solving the approximation problem with",01:15:18.560,01:15:22.980
+"smoothness, we ended up with those
+radial basis functions.",01:15:22.980,01:15:25.270
+"There is another motivation,
+which I didn't refer to.",01:15:25.270,01:15:27.340
+It's a good opportunity to raise it.,01:15:27.340,01:15:29.500
+"Let's say that I have a data
+set, x_1 y1, x_2 y_2, up to x_N y_N.",01:15:29.500,01:15:36.720
+"And I'm going to assume
+that there is noise.",01:15:36.720,01:15:39.100
+But it's a funny noise.,01:15:39.100,01:15:40.220
+It's not noise in the value y.,01:15:40.220,01:15:42.840
+It's noise in the value x.,01:15:42.840,01:15:45.550
+"That is, I can't measure
+the input exactly.",01:15:45.550,01:15:49.670
+"And I want to take that into
+consideration in my learning.",01:15:49.670,01:15:53.100
+"The interesting ramification of that
+is that, if I assume that there is",01:15:53.100,01:15:56.150
+"noise, and let's say that the noise
+is Gaussian, which is a typical",01:15:56.150,01:15:58.470
+assumption.,01:15:58.470,01:15:59.330
+"Although this is the x that was given
+to me, the real x could be here,",01:15:59.330,01:16:03.200
+"or here, or here.",01:16:03.200,01:16:04.480
+"And what I have to do, since I have
+the value y at that x, the value y",01:16:04.480,01:16:08.900
+"itself, I'm going to consider to
+be noiseless in that case.",01:16:08.900,01:16:11.670
+"I just don't know which
+x it corresponds to.",01:16:11.670,01:16:16.130
+"Then you will find that when you solve
+this, you realize that what you have",01:16:16.130,01:16:20.040
+"to do, you have to make the value of
+your hypothesis not change much by",01:16:20.040,01:16:23.960
+"changing x, because you run
+the risk of missing it.",01:16:23.960,01:16:27.470
+"And if you solve it, you end up with
+actually having an interpolation which",01:16:27.470,01:16:30.970
+is Gaussian in this case.,01:16:30.970,01:16:32.370
+"So you can arrive at the same thing
+under different assumptions.",01:16:32.370,01:16:35.910
+"There are many ways
+of looking at this.",01:16:35.910,01:16:37.880
+"But definitely smoothness comes one
+way or the other, whether by just observing",01:16:37.880,01:16:43.600
+"here, by observing the regularization,
+by observing the input noise",01:16:43.600,01:16:46.665
+"interpretation, or other
+interpretations.",01:16:46.665,01:16:48.266
+"STUDENT: OK, I see.",01:16:48.266,01:16:49.370
+"Another question is about slide
+six, when we choose small gamma",01:16:49.370,01:16:58.050
+or large gamma.,01:16:58.050,01:16:59.680
+"Yes, here.",01:16:59.680,01:17:01.220
+"So actually here, just from this example,
+can we say that definitely",01:17:01.220,01:17:06.250
+"small gamma is better than
+large gamma here?",01:17:06.250,01:17:08.790
+"PROFESSOR: Well,
+small is relative.",01:17:08.790,01:17:10.960
+"So the question is-- this is related to
+the distance between points in the",01:17:10.960,01:17:16.340
+"space, because the value of the Gaussian
+will decay in that space.",01:17:16.340,01:17:23.070
+"And this guy looks great if
+the two points are here.",01:17:23.070,01:17:28.090
+"But the same guy looks terrible if the
+two points are here because, by the",01:17:28.090,01:17:31.220
+"time you get here, it
+will have died out.",01:17:31.220,01:17:32.700
+So it's all relative.,01:17:32.700,01:17:33.790
+"But relatively speaking, it's a good
+idea to have the width of the Gaussian",01:17:33.790,01:17:39.480
+"comparable to the distances between the
+points so that there is a genuine",01:17:39.480,01:17:43.100
+interpolation.,01:17:43.100,01:17:44.660
+"And the objective criterion for choosing
+gamma will affect that,",01:17:44.660,01:17:49.850
+"because when we solve for gamma,
+we are using the K centers.",01:17:49.850,01:17:54.410
+"So you have points that have
+the center of the Gaussian.",01:17:54.410,01:17:58.510
+"But you need to worry about that
+Gaussian covering the data points that",01:17:58.510,01:18:02.440
+are nearby.,01:18:02.440,01:18:04.300
+"And therefore, you are going to have the
+widths of that up or down, and the",01:18:04.300,01:18:07.210
+"other ones, such that the influence
+gets to those points.",01:18:07.210,01:18:10.350
+"So the good news is that there is
+an objective criterion for choosing it.",01:18:10.350,01:18:14.820
+"This slide was meant to make the
+point that gamma matters.",01:18:14.820,01:18:19.250
+"Now that it matters, let's look at
+the principled way of solving it.",01:18:19.250,01:18:21.930
+"And the other way was
+the principled way of solving it.",01:18:21.930,01:18:24.820
+"STUDENT: So does that mean that
+choosing gamma makes sense when we have",01:18:24.820,01:18:29.540
+"fewer clusters than number of samples?
+Because in this case, we have three",01:18:29.540,01:18:33.705
+clusters and three samples.,01:18:33.705,01:18:36.040
+"PROFESSOR: This was not meant
+to be a utility for gamma.",01:18:36.040,01:18:39.760
+"It was meant just to visually illustrate
+that gamma matters.",01:18:39.760,01:18:42.680
+"But the main utility, indeed,
+is for the K centers.",01:18:42.680,01:18:45.130
+"STUDENT: OK, I see.",01:18:45.130,01:18:46.050
+"Here actually, in both cases,
+the in-sample error is zero, same",01:18:46.050,01:18:51.030
+generalization behavior.,01:18:51.030,01:18:52.720
+"PROFESSOR: You're
+absolutely correct.",01:18:52.720,01:18:54.100
+"STUDENT: So can we say that K, the
+number of clusters is a measure of VC",01:18:54.100,01:18:58.230
+"dimension, in this sense?",01:18:58.230,01:19:00.840
+"PROFESSOR: Well, it's
+a cause and effect.",01:19:00.840,01:19:03.720
+"When I decide on the number of
+clusters, I decide on the number of",01:19:03.720,01:19:08.260
+"parameters, and that will affect
+the VC dimension.",01:19:08.260,01:19:10.690
+"So this is the way it is, rather
+than the other way around.",01:19:10.690,01:19:13.380
+"I didn't want people to take the
+question as: oh, we want to determine",01:19:13.380,01:19:18.960
+"the number of clusters, so let's
+look for the VC dimension.",01:19:18.960,01:19:22.070
+That would be the argument backwards.,01:19:22.070,01:19:24.030
+So the statement is correct.,01:19:24.030,01:19:26.070
+They are related.,01:19:26.070,01:19:26.500
+"But the cause and effect is that your
+choice of the number of clusters",01:19:26.500,01:19:30.290
+"affects the complexity of
+your hypothesis set.",01:19:30.290,01:19:32.880
+STUDENT: Not the reverse?,01:19:32.880,01:19:33.890
+"Because I thought, for example, if you
+have N data, and we know what",01:19:33.890,01:19:38.820
+"kind of VC dimension will give good
+generalization, so based on that, can",01:19:38.820,01:19:42.810
+we kind of--,01:19:42.810,01:19:43.690
+"PROFESSOR: So this
+is out of necessity.",01:19:43.690,01:19:45.540
+"You're not saying that this is the
+inherent number of clusters that are",01:19:45.540,01:19:51.620
+needed to do this.,01:19:51.620,01:19:52.220
+This is what I can afford.,01:19:52.220,01:19:53.130
+"STUDENT: Yeah, that's what I mean.",01:19:53.130,01:19:53.500
+"PROFESSOR: And then
+in that case, it's true.",01:19:53.500,01:19:54.660
+"But in this case, it's not the number
+of clusters you can afford--",01:19:54.660,01:19:57.040
+it is indirectly--,01:19:57.040,01:19:59.250
+"it is the number of parameters you can
+afford, because of the VC dimension.",01:19:59.250,01:20:02.670
+"And because I have that many parameters,
+I have to settle for that",01:20:02.670,01:20:05.010
+"number of clusters, whether or not
+they break the data points",01:20:05.010,01:20:07.850
+correctly or not.,01:20:07.850,01:20:09.370
+"The only thing I'm trying to avoid
+is that I don't want people to",01:20:09.370,01:20:12.160
+"think that this will carry an answer to
+the optimal choice of clusters, from",01:20:12.160,01:20:17.940
+"an unsupervised learning
+point of view.",01:20:17.940,01:20:20.060
+That link is not there.,01:20:20.060,01:20:21.930
+STUDENT: I see.,01:20:21.930,01:20:22.820
+"But because like in this example, we
+deal with-- it seems there's no natural",01:20:22.820,01:20:27.373
+"cluster in the input sample, it's
+uniformly distributed in the input space.",01:20:27.373,01:20:32.350
+PROFESSOR: Correct.,01:20:32.350,01:20:32.710
+"And in many cases, even if there is
+clustering, you don't know the",01:20:32.710,01:20:37.340
+inherent number of clusters.,01:20:37.340,01:20:39.590
+"But again, the saving grace here is that
+we can do a half-cooked",01:20:39.590,01:20:46.870
+"clustering, just to have a representative
+of some points, and then",01:20:46.870,01:20:51.050
+"let the supervised stage of learning
+take care of getting the values right.",01:20:51.050,01:20:57.910
+"So it is just a way to
+think of clustering.",01:20:57.910,01:20:59.670
+"I'm trying, instead of using
+all the points, I'm",01:20:59.670,01:21:03.130
+trying to use K centers.,01:21:03.130,01:21:04.280
+"And I want them to be as
+representative as possible.",01:21:04.280,01:21:06.700
+"And that will put me
+ahead of the game.",01:21:06.700,01:21:08.990
+"And then the real test would be when
+I plug it into the supervised.",01:21:08.990,01:21:13.590
+"STUDENT: OK. Thank you, professor.",01:21:13.590,01:21:16.720
+"MODERATOR: Are there cases when RBF's
+are actually better than SVM's?",01:21:16.720,01:21:20.540
+PROFESSOR: There are cases.,01:21:20.540,01:21:21.330
+"You can run them in a number of
+cases, and if the data is clustered in",01:21:21.330,01:21:27.510
+"a particular way, and the clusters happen
+to have a common value, then",01:21:27.510,01:21:30.890
+"you would expect that doing the
+unsupervised learning will get me",01:21:30.890,01:21:33.930
+"ahead, whereas the SVM's now are on the
+boundary and they have to be such that",01:21:33.930,01:21:38.640
+"the cancellations of RBF's will
+give me the right value.",01:21:38.640,01:21:41.770
+"So you can definitely create cases where
+one will win over the other.",01:21:41.770,01:21:46.260
+"Most people will use the RBF kernels,
+the SVM approach.",01:21:46.260,01:21:51.150
+"MODERATOR: Then that's
+it for today.",01:21:51.150,01:21:53.070
+PROFESSOR: Very good.,01:21:53.070,01:21:53.460
+Thank you.,01:21:53.460,01:21:53.930
+We'll see you next week.,01:21:53.930,01:21:55.180

@@ -1,0 +1,2766 @@
+text,start,stop
+"ANNOUNCER: The following program is
+brought to you by Caltech.",00:00:00.580,00:00:03.270
+YASER ABU-MOSTAFA: Welcome back.,00:00:15.660,00:00:18.630
+"Last time, we introduced the third
+linear model, which is logistic",00:00:18.630,00:00:23.690
+regression.,00:00:23.690,00:00:25.440
+"It has the same structure as the linear
+models, where you have the",00:00:25.440,00:00:28.610
+"inputs combined linearly using weights,
+summed up into a signal, and then the",00:00:28.610,00:00:33.610
+signal passes through something.,00:00:33.610,00:00:35.550
+"In this case, it passes through what
+we refer to as a soft threshold.",00:00:35.550,00:00:39.310
+We labeled it theta.,00:00:39.310,00:00:41.500
+"And the model is meant to implement
+a probability that has a genuine",00:00:41.500,00:00:47.450
+probability interpretation.,00:00:47.450,00:00:49.290
+"And because of that, the error measure
+we derived was based on likelihood",00:00:49.290,00:00:54.620
+"measure, which has a probabilistic
+connotation,",00:00:54.620,00:00:57.660
+"in which case we maximized the
+probability that we would get the data",00:00:57.660,00:01:02.255
+"set that we got-- the outputs
+given the inputs--",00:01:02.255,00:01:05.340
+"based on the hypothesis that is
+represented by the logistic",00:01:05.340,00:01:10.140
+"regression being assumed to be the
+target function identically.",00:01:10.140,00:01:14.520
+"And this makes us able to express the
+probability in terms of the parameters",00:01:14.520,00:01:19.840
+"that define the hypothesis, which
+are the weights, w.",00:01:19.840,00:01:23.780
+"And therefore, we have this quantity
+that we want to maximize.",00:01:23.780,00:01:27.100
+"And then we derived an error measure
+that very much parallels the error",00:01:27.100,00:01:31.410
+"measures that we had before, in terms of
+the in-example error for logistic",00:01:31.410,00:01:37.270
+regression that we will minimize.,00:01:37.270,00:01:39.490
+"So this is a useful model, and it
+complements the other models.",00:01:39.490,00:01:43.090
+"One of them was for classification, one
+of them for real-valued function",00:01:43.090,00:01:46.270
+regression.,00:01:46.270,00:01:46.740
+"And this one is for bounded real-valued
+function that is interpreted as",00:01:46.740,00:01:51.110
+a probability.,00:01:51.110,00:01:52.770
+"One of the key issues about logistic
+regression is that, because the",00:01:52.770,00:01:56.180
+"the error measure is a little bit
+more complicated than we had for",00:01:56.180,00:01:59.370
+"example in linear regression, we were
+unable to optimize it directly.",00:01:59.370,00:02:03.910
+"And therefore, we introduced the method
+that is meant to minimize",00:02:03.910,00:02:07.830
+"an arbitrary nonlinear function that
+is smooth enough, twice",00:02:07.830,00:02:12.680
+differentiable.,00:02:12.680,00:02:13.830
+"And in the case of logistic
+regression, although we don't have",00:02:13.830,00:02:19.140
+"a closed-form solution, the
+error measure actually",00:02:19.140,00:02:21.520
+has a very nice behavior.,00:02:21.520,00:02:22.560
+"It's a convex function and, therefore,
+when you apply a method like gradient",00:02:22.560,00:02:26.450
+"descent or other methods, it is fairly
+easy to optimize because you just fall",00:02:26.450,00:02:30.140
+"into that minimum and stay there, rather
+than have problems with local",00:02:30.140,00:02:34.660
+minima that we talked about briefly.,00:02:34.660,00:02:37.480
+"So the algorithm for gradient descent,
+regardless of the error measure that",00:02:37.480,00:02:40.640
+you are trying to minimize.,00:02:40.640,00:02:42.700
+"First you initialize and, in the case
+of logistic regression, initializing",00:02:42.700,00:02:45.930
+to all zeros was fine.,00:02:45.930,00:02:47.350
+"We will find out that today in neural
+networks, that will not be fine, and",00:02:47.350,00:02:50.700
+we'll make the point why.,00:02:50.700,00:02:52.380
+"And then you keep iterating
+until termination.",00:02:52.380,00:02:55.620
+"And what you do is, you update your
+weight gradually by going along the",00:02:55.620,00:03:00.360
+"negative of the gradient. That would be
+the steepest descent in the error--",00:03:00.360,00:03:04.870
+"the biggest gain you would get
+for a fixed-size step.",00:03:04.870,00:03:10.290
+"And in this case, we adjusted the
+fixed-size step so that it's a fixed",00:03:10.290,00:03:13.210
+"learning rate that is proportional
+to the gradient at that point.",00:03:13.210,00:03:18.950
+"We keep doing this, and then when we
+arrive at termination we report that",00:03:18.950,00:03:23.770
+as our final hypothesis.,00:03:23.770,00:03:26.140
+"And we talked a little bit in the Q&amp;A
+session about criteria for termination,",00:03:26.140,00:03:30.600
+"and also about local minima that
+will become an issue for today.",00:03:30.600,00:03:34.310
+"So today when I modify the gradient
+descent into the more practical",00:03:34.310,00:03:37.970
+"version, which is called stochastic
+gradient descent, we will talk",00:03:37.970,00:03:40.930
+"a little bit about initialization and
+we'll talk about other aspects that",00:03:40.930,00:03:44.230
+"have to do with local
+minima and whatnot.",00:03:44.230,00:03:47.050
+OK.,00:03:47.050,00:03:48.200
+Today's topic is neural networks.,00:03:48.200,00:03:50.700
+"And historically, neural networks are
+responsible for the revival of",00:03:50.700,00:03:54.660
+interest in machine learning.,00:03:54.660,00:03:56.660
+"They have a biological link that
+got people very excited and",00:03:56.660,00:04:00.190
+people pursued them.,00:04:00.190,00:04:01.360
+"And they were very easy to implement
+because of the algorithm that I'm",00:04:01.360,00:04:04.120
+going to describe today.,00:04:04.120,00:04:05.520
+"And they met a lot of success
+in practical applications,",00:04:05.520,00:04:08.990
+and got people going.,00:04:08.990,00:04:10.870
+"Now, it is not necessarily the model
+of choice nowadays, probably people",00:04:10.870,00:04:15.560
+"will opt for support vector machines
+or other models. Yet every now and",00:04:15.560,00:04:19.130
+"then, neural networks would do the
+job as well as the other models.",00:04:19.130,00:04:24.220
+"And many industries use
+it as a standard.",00:04:24.220,00:04:26.990
+"For example, in banking and
+credit approval, neural",00:04:26.990,00:04:29.260
+networks are often used.,00:04:29.260,00:04:33.070
+"So the outline for today
+is very simple.",00:04:33.070,00:04:35.580
+"First, I'm going to extend gradient
+descent into the special case of",00:04:35.580,00:04:38.590
+"stochastic gradient descent that
+is used in neural networks.",00:04:38.590,00:04:42.300
+"And then, I'm going to talk about
+neural network as a model.",00:04:42.300,00:04:45.030
+"What is the hypothesis that
+it is implementing?",00:04:45.030,00:04:46.970
+"And I motivate it from a biological
+point of view, and relate it to",00:04:46.970,00:04:50.080
+perceptrons.,00:04:50.080,00:04:51.590
+"And then we'll talk about the
+backpropagation algorithm, the",00:04:51.590,00:04:53.710
+"efficient algorithm that goes with
+neural networks that actually made",00:04:53.710,00:04:57.882
+that model particularly practical.,00:04:57.882,00:05:00.260
+"So let's start with stochastic
+gradient descent.",00:05:01.720,00:05:03.500
+What do we have?,00:05:03.500,00:05:05.510
+"We have gradient descent, and gradient
+descent minimizes an error function.",00:05:05.510,00:05:10.400
+"That is function of w-- minimizes
+it with respect to w.",00:05:10.400,00:05:13.060
+"And that happens to be an in-sample
+error in our mind.",00:05:13.060,00:05:15.670
+And it is the in-sample error.,00:05:15.670,00:05:19.300
+"And the only thing I would notice here
+that is particular to the derivation of",00:05:19.300,00:05:24.180
+"stochastic gradient descent is that, in order
+for you to compute the error or the",00:05:24.180,00:05:27.960
+"gradient of the error, which
+you need in order to",00:05:27.960,00:05:29.970
+"implement gradient descent,",00:05:29.970,00:05:31.410
+"you need to evaluate the hypothesis
+at every point in your sample.",00:05:31.410,00:05:36.480
+"So for n equals 1 to N, you
+need to evaluate those, or you",00:05:36.480,00:05:39.500
+evaluate their gradient.,00:05:39.500,00:05:40.480
+"And that will tell you what is the
+error, or what is that direction",00:05:40.480,00:05:43.670
+"you would go to, which is normal because
+this is the error we are",00:05:43.670,00:05:46.060
+minimizing.,00:05:46.060,00:05:46.560
+You'd better compute it.,00:05:46.560,00:05:48.350
+"So you take the case of logistic
+regression and we had a very",00:05:48.350,00:05:53.740
+particular form for that.,00:05:53.740,00:05:54.990
+"And now you can see that
+it's an analytic form.",00:05:54.990,00:05:57.220
+"In this case, friendly and smooth.",00:05:57.220,00:05:59.250
+"And indeed, you can get the gradient
+with respect to that vector and go",00:05:59.250,00:06:03.720
+"down the error surface,
+along the direction",00:06:03.720,00:06:06.780
+suggested by gradient descent.,00:06:06.780,00:06:09.420
+"Now, the steps were iterative, and so
+we take one step at a time.",00:06:10.210,00:06:15.070
+"And one step is a full epoch, in the
+sense-- we call something epoch when you",00:06:15.070,00:06:19.930
+"have considered all the examples
+at once, which is the only",00:06:19.930,00:06:22.570
+choice we have so far.,00:06:22.570,00:06:23.910
+"And we had this formula
+that we have seen.",00:06:26.250,00:06:29.560
+"The difference we are going to do now
+is that, instead of having",00:06:29.560,00:06:34.870
+"the movement in the w space
+based on all of the examples,",00:06:34.870,00:06:39.880
+"we are going to try to do it based
+on one example at a time.",00:06:39.880,00:06:43.680
+"That's what will make stochastic
+gradient descent.",00:06:43.680,00:06:45.890
+"So because now we are going to have
+another method, we're going to label",00:06:45.890,00:06:49.240
+"the standard gradient descent as
+being batch gradient descent.",00:06:49.240,00:06:53.840
+"It takes a batch of all the examples and
+does a move at once, as opposed",00:06:53.840,00:06:57.680
+to the other mode.,00:06:57.680,00:06:58.980
+"So the stochastic aspect
+is as follows.",00:07:00.110,00:07:04.260
+You pick one example at a time.,00:07:04.260,00:07:07.690
+Think of it that you pick it at random.,00:07:08.520,00:07:10.810
+"You have N examples,
+each of them is equi-probable",00:07:10.810,00:07:12.880
+to be picked.,00:07:12.880,00:07:13.510
+You pick one of them at random.,00:07:13.510,00:07:15.110
+"Now you apply gradient descent, not to the
+in-sample error for all the examples,",00:07:17.250,00:07:21.370
+but the in-sample error on that point.,00:07:21.370,00:07:24.100
+"That looks like a very meager thing to
+do, because the other examples are not",00:07:24.410,00:07:28.190
+involved at all.,00:07:28.190,00:07:29.360
+"But I think you have seen something
+like that before.",00:07:29.360,00:07:32.160
+"When we take one example at a time and
+worry about it, and not to worry",00:07:32.160,00:07:35.200
+"about what other guys are doing even
+if we are interfering with them.",00:07:35.200,00:07:38.950
+"Remember the perceptron
+learning algorithm?",00:07:38.950,00:07:41.380
+"That's exactly what it
+did, and it worked.",00:07:41.380,00:07:42.960
+"And in this case, it will also work.",00:07:42.960,00:07:45.590
+"Now to argue that it will work, think
+of the average direction that you're",00:07:47.480,00:07:52.270
+going to descend along.,00:07:52.270,00:07:53.930
+What does that mean?,00:07:54.370,00:07:56.910
+"If you take the gradient of
+the error measure that you",00:07:56.910,00:08:00.670
+"are going to minimize,",00:08:00.670,00:08:02.080
+"which in this case just
+for one example,",00:08:02.080,00:08:04.970
+"and you take the expected value under
+the experiment that you picked the",00:08:04.970,00:08:08.230
+"example from the entire training
+set at random.",00:08:08.230,00:08:11.730
+"In that case, if you want to get the
+expected value with respect to the",00:08:12.600,00:08:16.050
+"red n, which is now a random variable,
+this is what you get.",00:08:16.050,00:08:20.460
+"And if you evaluate it,
+it's pretty easy.",00:08:20.460,00:08:24.190
+You simply take this value.,00:08:24.190,00:08:26.910
+"For every example it has a probability of
+1 over N. And the expected value would",00:08:26.910,00:08:31.100
+be 1 over N summation of that.,00:08:31.100,00:08:33.090
+"So this would be the
+average direction.",00:08:33.480,00:08:35.320
+"So you think that every step, I'm going
+along this direction plus noise.",00:08:35.320,00:08:39.760
+"So this is the expected value,
+but because it's one example or",00:08:39.760,00:08:42.190
+"another, there is some
+stochastic aspect.",00:08:42.190,00:08:44.043
+"And if you look at the quantity on the
+right hand side, this happens to be",00:08:44.870,00:08:48.380
+"identically minus the gradient
+of the total in-sample error.",00:08:48.380,00:08:53.060
+"So it's as if, at least in expected
+value, we are actually going along the",00:08:53.060,00:08:57.580
+"direction we want, except that we
+now involve one example in the",00:08:57.580,00:09:01.030
+"computation, which is a big advantage,
+and we have a stochastic",00:09:01.030,00:09:03.930
+aspect to the game.,00:09:03.930,00:09:05.260
+"So this is the idea, and then
+you keep repeating.",00:09:05.650,00:09:08.160
+"And as you repeat, you always get the
+expected value in that direction,",00:09:08.160,00:09:11.880
+"and you get different noises
+depending on which example.",00:09:11.880,00:09:13.990
+"So the hope now is that by the time you
+did it a lot of times, the noise",00:09:14.440,00:09:18.380
+"will average out and you actually will
+be going along the ideal direction.",00:09:18.380,00:09:22.600
+"So it's a randomized version of gradient
+descent, and it's called",00:09:24.180,00:09:27.110
+"stochastic gradient descent,
+SGD for short.",00:09:27.110,00:09:31.840
+"Now let's look at the benefits of
+having that stochastic aspect.",00:09:31.840,00:09:36.260
+The main benefit by far--,00:09:36.260,00:09:37.910
+"that is the motivation
+for having this--",00:09:37.910,00:09:40.180
+is that it's a cheaper computation.,00:09:40.180,00:09:43.780
+"Think of one step that you're going to
+do using stochastic gradient descent.",00:09:43.780,00:09:46.950
+What do you need?,00:09:46.950,00:09:48.200
+"You take one example, you put the input
+and you get the output, and then",00:09:48.200,00:09:51.150
+"you compute whatever the gradient
+is for one example.",00:09:51.150,00:09:55.550
+"If you're doing the batch gradient
+descent, you will do this for all the",00:09:55.550,00:09:59.020
+"examples before you can
+declare a single move.",00:09:59.020,00:10:03.240
+"Nevertheless, the expected value of your
+move in the cheaper version is",00:10:03.240,00:10:07.230
+the same as the other one.,00:10:07.230,00:10:09.230
+"So it looks there's a little
+bit of cheating here.",00:10:09.430,00:10:11.530
+"On the other hand, it
+looks attractive.",00:10:11.530,00:10:12.890
+"If this actually works on average, this
+is an attractive proposition.",00:10:12.890,00:10:16.300
+So this is number 1 advantage.,00:10:16.300,00:10:18.890
+The second advantage is randomization.,00:10:18.890,00:10:22.990
+"There is an aspect of optimization
+that makes randomization advantageous.",00:10:23.830,00:10:29.470
+"So you don't want to be
+extremely deterministic.",00:10:29.920,00:10:32.930
+You want to have an element of chance.,00:10:32.930,00:10:34.680
+"Why would I want an element of chance
+if I know my goal exactly?",00:10:34.680,00:10:38.650
+"Well, because optimization
+is not exact.",00:10:38.650,00:10:41.840
+"It's not like you're going for the
+minimum for sure after that.",00:10:41.840,00:10:44.670
+"There are all kinds of traps that you
+can go through, like local",00:10:44.670,00:10:47.650
+minima and whatnot.,00:10:47.650,00:10:48.610
+"So let's look at cases where
+randomization would help.",00:10:48.610,00:10:51.890
+"This is an error surface,
+and it is the typical",00:10:53.470,00:10:56.470
+error surface you will encounter.,00:10:56.470,00:10:57.830
+"The one you encountered in logistic
+regression, which was simply like",00:10:57.830,00:11:01.350
+"this, that was a lucky
+one, the convex one.",00:11:01.350,00:11:04.150
+"In general, and in neural networks for
+sure, you are going to get lots of",00:11:04.150,00:11:08.730
+"hills and valleys in
+your error surface.",00:11:08.730,00:11:11.350
+"So depending on where you start,
+you may end up in one",00:11:11.350,00:11:14.580
+local minimum or another.,00:11:14.580,00:11:16.470
+"You may not get the best one, you
+may get one or the other.",00:11:16.470,00:11:19.190
+"Now, this is inevitable and there is
+really no full-proof cure for it, as",00:11:19.770,00:11:24.140
+we discussed in the Q&amp;A session.,00:11:24.140,00:11:26.110
+"On the other hand, it will be quite
+a shame if you get stuck in this fellow.",00:11:26.110,00:11:29.550
+You see this small fellow?,00:11:29.550,00:11:30.485
+"Because it's really just
+a shallow local minimum.",00:11:31.260,00:11:33.840
+"But according to gradient descent, you
+go here, the gradient is zero,",00:11:33.840,00:11:37.150
+"everybody is happy, and you stop there.",00:11:37.150,00:11:38.790
+"So you would love to have an added
+element that will make you escape at",00:11:39.340,00:11:43.040
+least shallow valleys like that.,00:11:43.040,00:11:47.050
+"And the idea now is that, because you
+are not going in a direction that is",00:11:47.050,00:11:50.980
+"deterministic-- in this case, there
+is a random-- there is some",00:11:50.980,00:11:54.310
+fluctuation here.,00:11:54.310,00:11:55.600
+"So there is a chance as you go
+here that you will escape",00:11:55.600,00:11:57.920
+from the local minima.,00:11:57.920,00:11:59.740
+"Now this is a practical observation that
+in reality, stochastic gradient",00:11:59.740,00:12:03.120
+descent does help with this.,00:12:03.120,00:12:05.190
+"It doesn't definitely cure
+it, far from curing it.",00:12:05.690,00:12:08.540
+"On the other hand, it does take
+care of some aspect of",00:12:08.540,00:12:12.130
+escaping silly local minima.,00:12:12.130,00:12:14.130
+"So this is an advantage that basically
+is a side benefit.",00:12:14.130,00:12:16.760
+"We did it for the cheap computation,
+and we're getting this for free.",00:12:16.760,00:12:20.720
+"The other one we also talked about
+a little bit in the Q&amp;A session, which",00:12:20.720,00:12:24.310
+was the flat regions.,00:12:24.310,00:12:25.240
+"So you could be having this being very,
+very, flat and then finally",00:12:25.240,00:12:28.960
+going down.,00:12:28.960,00:12:30.010
+"So if your termination criterion tells
+you that here you are OK,",00:12:30.010,00:12:32.860
+then you--,00:12:33.610,00:12:34.460
+"it looks like flat,
+and nothing is happening,",00:12:34.460,00:12:36.610
+and you will stop.,00:12:36.610,00:12:37.360
+"Every now and then when you do the
+random things, the fluctuation takes",00:12:37.980,00:12:41.780
+"you up and down and the algorithm
+is still alive.",00:12:41.780,00:12:45.170
+"Still, termination is a tricky criterion,
+because for termination you",00:12:45.170,00:12:47.990
+"need to consider all the examples in
+order to know exactly where you stand.",00:12:47.990,00:12:51.520
+"But for some of the flat regions, just
+the stochastic aspect also helps",00:12:51.520,00:12:55.410
+a little bit with it.,00:12:55.410,00:12:56.470
+"So there are basically annoying
+artifacts of the optimization of",00:12:56.920,00:13:03.650
+"a surface that gradient descent will help
+a little bit with, if you use the",00:13:03.650,00:13:08.640
+stochastic version.,00:13:08.640,00:13:10.180
+"Now, the third advantage--",00:13:11.440,00:13:12.700
+shows randomization helps--,00:13:12.700,00:13:13.990
+"the third advantage you have
+is that it's very simple.",00:13:13.990,00:13:17.370
+"It is the simplest possible optimization
+you can think of.",00:13:17.370,00:13:20.330
+"You take one example, you do something,
+and you're ready to go.",00:13:20.920,00:13:23.550
+"And I will see an example in
+a moment that applies it.",00:13:23.550,00:13:26.790
+"And because it's simple, there are
+lots of rules of thumb for it.",00:13:26.790,00:13:29.700
+"So people have used it a lot, and
+people use it in different",00:13:29.700,00:13:31.830
+applications.,00:13:31.830,00:13:32.690
+"So you can find rules of thumb that
+are actually very useful.",00:13:32.690,00:13:35.770
+"So I'll give you one rule of thumb
+that will be helpful in practice.",00:13:35.770,00:13:40.070
+Remember the learning rate?,00:13:40.770,00:13:42.990
+"The learning rate was telling
+us how far we go.",00:13:42.990,00:13:45.390
+"And we talked about, you know, that if
+it's too big then you lose the linear",00:13:45.390,00:13:48.770
+approximation.,00:13:48.770,00:13:49.430
+"If it's too small,
+you are moving too slowly.",00:13:49.430,00:13:52.070
+"So sometimes you ask, what should
+I use for eta, the learning rate?",00:13:52.070,00:13:57.290
+"Obviously, the exact answer depends
+on the situation, and even it is",00:13:57.760,00:14:00.590
+"dependent on scaling the error up and
+down. Mathematically, you can't really",00:14:00.590,00:14:04.170
+pin it down.,00:14:04.170,00:14:05.060
+"From a practical point of view, if
+you go for a very wide range of",00:14:05.060,00:14:07.960
+"applications, you take a normal
+application, a normal error function,",00:14:07.960,00:14:11.010
+"mean squared or something, and
+then you take eta equals 0.1.",00:14:11.010,00:14:16.382
+That actually works.,00:14:17.530,00:14:18.890
+"So you can always start with this, and
+then adjust it there. That's for",00:14:18.890,00:14:22.350
+stochastic gradient descent.,00:14:22.350,00:14:23.530
+"So this is a theorem, eta equals 0.1!",00:14:24.080,00:14:26.080
+And the proof is that.,00:14:26.340,00:14:28.340
+"These are advantages, so we are now
+motivated to look into stochastic",00:14:29.040,00:14:31.930
+gradient descent.,00:14:31.930,00:14:33.970
+And let's see it in action.,00:14:33.970,00:14:35.630
+"I'll take an example far from
+the linear models and neural",00:14:36.050,00:14:40.250
+networks.,00:14:40.250,00:14:40.890
+"I'll take an example that we looked at
+before in an informal way, and it will",00:14:40.890,00:14:45.340
+"be very easy to formalize
+and implement this way.",00:14:45.340,00:14:49.710
+Remember movie ratings?,00:14:49.710,00:14:51.810
+What was that?,00:14:51.810,00:14:52.380
+"Oh, that was the example where you want
+a user to look at a movie and",00:14:52.380,00:14:57.050
+do a rating.,00:14:57.050,00:14:57.610
+"And you want to look at previous ratings
+and predict. All of that.",00:14:57.610,00:15:00.170
+"Now it looked like this,",00:15:02.120,00:15:04.132
+"at least the proposed solution, that we
+will describe the user by a number of",00:15:04.132,00:15:08.140
+"factors, which are basically
+their taste.",00:15:08.140,00:15:11.810
+"They like comedy, they like action,
+they hate this, et cetera.",00:15:11.810,00:15:15.250
+"So there are some values here describing
+their taste, a profile of",00:15:15.250,00:15:18.190
+the user if you will.,00:15:18.190,00:15:19.580
+"And then a movie-- you describe the
+content with the same factors.",00:15:19.580,00:15:22.470
+Does it have comedy?,00:15:22.470,00:15:23.330
+Does it have-- et cetera.,00:15:23.330,00:15:24.210
+"And the idea now is that we are going
+to reverse-engineer the ratings, the",00:15:25.770,00:15:30.060
+"existing ratings in the training
+set, into factors that explain",00:15:30.060,00:15:34.440
+why this rating is.,00:15:34.440,00:15:35.870
+"And hopefully by the time we do that,
+we will be able to predict future guys.",00:15:35.870,00:15:39.720
+"So I do this for the movies that this
+user saw, and then I will take the",00:15:39.720,00:15:43.130
+"factors of the user, the factors of
+a movie that they haven't seen, and do",00:15:43.130,00:15:46.800
+"the same combination that I did here,
+and hopefully get a prediction for",00:15:46.800,00:15:49.680
+the rating.,00:15:49.680,00:15:50.490
+"So all I want to do here is
+show you this method",00:15:51.220,00:15:54.310
+"using stochastic gradient descent,
+which was actually the method",00:15:54.310,00:15:57.390
+"that was used in this solution
+in the million-dollar prize.",00:15:57.390,00:16:02.030
+"So although it is very,
+very simple,",00:16:02.030,00:16:05.280
+it is actually used.,00:16:05.280,00:16:06.590
+"And if you are working for something
+with the stakes that high, you",00:16:06.590,00:16:10.430
+"probably will try your best
+to get something right.",00:16:10.430,00:16:13.090
+"So the fact that actually stochastic
+gradient descent survived until",00:16:13.090,00:16:16.607
+"that late stage tells you that it's
+not a trivial algorithm.",00:16:16.607,00:16:20.200
+"So in order to put some formality on
+this, we need to give labels for the",00:16:20.790,00:16:24.950
+users and movies.,00:16:24.950,00:16:26.370
+"So it would be user i, movie j,",00:16:26.370,00:16:29.960
+and the rating we will call r_ij.,00:16:29.960,00:16:32.960
+Very simple.,00:16:32.960,00:16:34.320
+"Now there are factors for the users
+and factors for the movie.",00:16:34.320,00:16:37.290
+So let's call them something.,00:16:37.290,00:16:38.710
+"The factors for the user will be u_1,
+u_2, u_3, u_K, so it's a vector of",00:16:38.710,00:16:43.230
+"numbers that describe the
+taste of that user.",00:16:43.230,00:16:46.520
+"And the corresponding factors for a movie
+would be v_1, v_2, v_3, up to v_K,",00:16:46.520,00:16:51.470
+"which describe the content
+of that movie.",00:16:51.470,00:16:54.680
+"When we said we're going to match the
+taste of the user to the content",00:16:55.630,00:17:01.290
+"of the movie, what we were going to
+do, we were going to simply take",00:17:01.290,00:17:04.790
+"a coordinate,",00:17:04.790,00:17:05.910
+"small k, from k equals 1 to K,",00:17:05.910,00:17:08.770
+and multiply these two.,00:17:08.770,00:17:10.119
+"So we're taking an inner product
+between these two guys.",00:17:10.119,00:17:12.650
+And then sum up.,00:17:12.650,00:17:14.410
+"And that will tell us the level
+of matching between the two.",00:17:15.020,00:17:17.349
+"At least that is the quantity we are
+trying to make replicate the rating.",00:17:17.349,00:17:21.220
+"So we would like the difference between
+the rating and this quantity",00:17:21.700,00:17:24.380
+to be small.,00:17:24.380,00:17:25.750
+That's the goal.,00:17:25.750,00:17:26.609
+"Now in order to be accurate in the notation,
+the factors u_1 up to u_k and v_1",00:17:27.520,00:17:32.550
+"up to v_k depend on which
+user and which movie.",00:17:32.550,00:17:34.790
+"Different users have different
+factors, et cetera.",00:17:34.790,00:17:37.130
+"So I'm going to add the label of the
+user, and the label of the movie.",00:17:37.130,00:17:40.410
+"And now, if you look at the picture,
+i and j will appear.",00:17:40.410,00:17:45.520
+"So it's a bit more elaborate notation,
+but it's not a big deal.",00:17:45.520,00:17:49.850
+"And we also introduce it
+here in the sum.",00:17:49.850,00:17:52.105
+So this will be exactly the case.,00:17:52.360,00:17:54.110
+"And for all of the users and all the
+movies, you have a shuffle of",00:17:54.110,00:17:57.520
+"different users rating
+different movies.",00:17:57.520,00:17:59.300
+"So the factors are reused for different
+ratings that appear in your",00:17:59.300,00:18:02.940
+training set.,00:18:02.940,00:18:03.860
+"And now your idea is, how do I make these
+guys close to the ratings in the",00:18:03.860,00:18:09.410
+"training set, hopefully that
+they will generalize.",00:18:09.410,00:18:11.550
+"And the way you do it is, you define
+an error on that particular rating, which",00:18:11.550,00:18:16.770
+"is the difference between the
+actual rating and what the",00:18:16.770,00:18:19.750
+current factors suggest.,00:18:19.750,00:18:21.230
+"The factors now are your parameters,
+and you're trying to find the value",00:18:21.230,00:18:24.340
+"for the parameters that minimizes this.
+Because you're taking one example at",00:18:24.340,00:18:28.320
+"a time, if you do descend on this one, it
+will be stochastic gradient descent.",00:18:28.320,00:18:33.290
+"If you wanted to do batch gradient
+descent, you would have to take all the",00:18:33.290,00:18:35.730
+"ratings, add up these terms for
+all the ratings you have, and",00:18:35.730,00:18:39.620
+then descend on those.,00:18:39.620,00:18:40.680
+"But the stochastic gradient descent
+is the one which is used.",00:18:40.680,00:18:44.390
+Could there be anything simpler?,00:18:44.390,00:18:45.780
+"You're going to get the partial this
+by partial every parameter",00:18:45.780,00:18:48.780
+that appears here.,00:18:48.780,00:18:50.050
+"And remember in the first one, we said
+that all we are doing is-- we take these",00:18:50.710,00:18:55.160
+"factors and try to nudge them a little
+bit towards creating the rating.",00:18:55.160,00:19:01.360
+"And now we have a principled
+way of the nudging.",00:19:02.030,00:19:04.450
+"The nudging will be proportional
+to the partial",00:19:04.450,00:19:06.840
+by partial each factor.,00:19:06.840,00:19:08.470
+So I have a bunch of factors.,00:19:08.470,00:19:09.670
+"Which factors do I modify
+in order to get there?",00:19:09.670,00:19:12.330
+"Now we have the formula, and the
+formula will be, as a vector,",00:19:12.330,00:19:15.500
+"I'm going to move in the space that now
+has 2K parameters in this case.",00:19:15.500,00:19:20.240
+"And I'm going to move in that very
+high-dimensional space in a direction",00:19:20.890,00:19:24.950
+"that makes me, with a certain size of
+step, achieve the biggest drop in the",00:19:24.950,00:19:30.400
+error in estimating the rating.,00:19:30.400,00:19:32.440
+So you can implement this.,00:19:33.160,00:19:34.740
+"And indeed, if you implement it, you
+will get a pretty good score.",00:19:34.740,00:19:37.460
+"Not a winning score, but a pretty good
+score for the Netflix competition.",00:19:37.460,00:19:41.950
+"And in this case, people started adding
+terms, and obviously regularizing,",00:19:41.950,00:19:46.810
+"which will be an important
+issue that we'll come up with.",00:19:46.810,00:19:49.310
+"But basically, the simplest stochastic
+gradient descent with very plain",00:19:49.310,00:19:53.260
+"squared error on something as simple
+as that will get you somewhere.",00:19:53.260,00:19:57.280
+"So now we know that stochastic
+gradient descent is good.",00:19:58.030,00:20:00.810
+"And stochastic gradient descent
+is the one we're going to",00:20:00.810,00:20:03.430
+apply to neural networks,00:20:03.430,00:20:03.940
+"model, so let's talk about
+neural networks model.",00:20:03.940,00:20:07.090
+"I am going to start with the
+biological inspiration of neural",00:20:09.500,00:20:12.060
+"networks, because it's
+an important factor.",00:20:12.060,00:20:13.690
+"That's where they got their name, and
+that's how they got the initial",00:20:13.690,00:20:16.220
+"excitement that got them to have
+a critical mass of work.",00:20:16.220,00:20:20.230
+"So biological inspiration is a method
+really we use in engineering",00:20:20.230,00:20:27.350
+applications a number of times.,00:20:27.350,00:20:28.700
+"And there is a little bit of a leap
+of faith there which is: we are",00:20:29.230,00:20:33.910
+"interested in replicating
+the biological function.",00:20:33.910,00:20:37.410
+"You know, humans learn.",00:20:37.410,00:20:39.460
+We want machines to learn.,00:20:39.460,00:20:40.990
+"So in order to replicate the function,
+our first order is to",00:20:42.600,00:20:47.970
+replicate the structure.,00:20:47.970,00:20:49.710
+That's what we do.,00:20:50.660,00:20:51.290
+"We try to make it look like the
+biological system, hoping that it will",00:20:51.290,00:20:54.490
+perform the same.,00:20:54.490,00:20:55.280
+"It is a legitimate approach because
+something is working-- there is",00:20:56.600,00:20:59.600
+"an existence proof, and it
+has this structure.",00:20:59.600,00:21:01.910
+"Maybe the structure has
+something to it.",00:21:01.910,00:21:04.690
+"So in the case of neural networks,
+this is the biological system.",00:21:04.690,00:21:08.920
+"We have neurons connected
+by synapses, there are",00:21:08.920,00:21:11.640
+a large number of them.,00:21:11.640,00:21:13.100
+Each of them does a simple job.,00:21:13.100,00:21:15.110
+"The job, the action of a particular
+neuron, depends on the stimuli coming",00:21:15.110,00:21:21.540
+from different synapses.,00:21:21.540,00:21:22.760
+Synapses have weights.,00:21:22.760,00:21:23.920
+"Very much similar, if you look at
+a single neuron, to what we",00:21:23.920,00:21:26.940
+thought of the perceptron.,00:21:26.940,00:21:28.370
+"Except, obviously, they are different
+quantities and not as exact",00:21:28.980,00:21:31.520
+"and whatnot, but this
+is the principle.",00:21:31.520,00:21:33.150
+"So the idea, now, maybe if we put a bunch
+of perceptrons together in a big",00:21:33.150,00:21:36.400
+"network, we will be able to achieve the
+intelligence or the learning that",00:21:36.400,00:21:40.680
+a biological system does.,00:21:40.680,00:21:42.210
+"And we get to replicate it, and get
+something like that in engineering,",00:21:42.210,00:21:45.890
+a network of this sort.,00:21:45.890,00:21:46.690
+"And indeed, this was the initial
+thing that we did.",00:21:46.690,00:21:49.570
+"Now I'm going to make a single comment
+about the use of biological",00:21:49.570,00:21:54.420
+inspiration in this way.,00:21:54.420,00:21:55.730
+"So I'm going to give you another
+example, where we had biological",00:21:55.730,00:21:58.260
+inspiration.,00:21:58.260,00:21:59.650
+And we'll get a lesson from it.,00:21:59.650,00:22:01.450
+So the other example is the following.,00:22:02.460,00:22:04.030
+We want to fly.,00:22:07.500,00:22:08.830
+We look around.,00:22:08.830,00:22:09.940
+Birds fly.,00:22:09.940,00:22:11.020
+Let's try to get inspired by birds.,00:22:11.020,00:22:13.410
+"And after a long chain of events,
+we ended up with this.",00:22:14.470,00:22:19.450
+"Now, there is no question
+that the structure,",00:22:21.070,00:22:26.360
+"which is what we are going
+to use, made it.",00:22:26.360,00:22:28.690
+"There are wings, there is
+the tail, et cetera.",00:22:28.970,00:22:32.740
+"But once you got the basic structure
+going, if you are in an engineering",00:22:32.740,00:22:37.120
+"discipline-- if you're in biology, your
+goal is to understand why the",00:22:37.120,00:22:40.800
+"structure does the function,
+and know it.",00:22:40.800,00:22:42.550
+"So you want to know how biology
+does it, regardless.",00:22:42.550,00:22:45.800
+"In engineering, you want
+to do the job.",00:22:45.800,00:22:48.220
+You don't care how you do it.,00:22:48.220,00:22:49.440
+"You're just using biology
+as an inspiration.",00:22:49.440,00:22:51.610
+"Completely legitimate approaches
+to the problem from different",00:22:51.610,00:22:54.410
+perspectives.,00:22:54.410,00:22:55.640
+"But once you did the initial thing, you
+are no longer going for the bird",00:22:55.640,00:22:59.920
+and seeing what organs the bird has.,00:22:59.920,00:23:02.310
+"No, no, no.",00:23:02.310,00:23:03.140
+"What you went here, and all of a sudden
+it's all partial differential",00:23:03.140,00:23:06.430
+equations and conformal mappings.,00:23:06.430,00:23:08.530
+"And when you get the solution, you
+get a plane that flies but",00:23:09.290,00:23:13.200
+doesn't flap its wings.,00:23:13.200,00:23:16.080
+"So, imitating biology has a limit.",00:23:16.760,00:23:19.250
+"You have to get an inspiration for what
+is relevant, and then on your own",00:23:19.250,00:23:23.140
+derive what you need.,00:23:23.140,00:23:24.840
+So going back to our model here.,00:23:24.840,00:23:27.270
+We will get this.,00:23:27.660,00:23:28.760
+"Now if I derive a way to learn, et
+cetera, I don't need from",00:23:28.760,00:23:32.900
+"an engineering point of view to
+go back and see if it's",00:23:32.900,00:23:35.780
+biologically plausible.,00:23:35.780,00:23:37.705
+"If I'm a biologist, I had better because
+my job is to explain how the",00:23:37.990,00:23:41.550
+biological system is working.,00:23:41.550,00:23:43.170
+"So if I tell you that it's doing
+something that is not biologically",00:23:43.170,00:23:45.420
+"plausible, I already violated
+the premise.",00:23:45.420,00:23:47.540
+"Here, as long as I get
+the job done, I'm OK.",00:23:47.540,00:23:51.500
+"So it is fine to take the inspiration,
+but let's not get carried away.",00:23:51.500,00:23:55.710
+"We are actually trying to build
+something that does a job",00:23:55.710,00:23:59.150
+"from an engineering point of view,
+and whatever works, we will take it.",00:23:59.150,00:24:02.580
+"And that is where the neural
+network is going.",00:24:02.580,00:24:05.370
+"So knowing that the building block is
+the perceptron, and that we are putting",00:24:05.960,00:24:10.220
+"perceptrons together in a neural
+network, let us explore what we can do",00:24:10.220,00:24:14.290
+"with combinations of perceptrons
+rather than a single one.",00:24:14.290,00:24:17.840
+And I'm going to do this pictorially.,00:24:18.510,00:24:20.460
+"I will save the math when we define
+the neural network itself.",00:24:20.780,00:24:23.740
+"So we'll just look at pictures of what
+perceptrons do and how to combine",00:24:24.240,00:24:27.160
+"them, and we will get the idea that
+actually combining this very simple",00:24:27.160,00:24:30.510
+unit does achieve something.,00:24:30.510,00:24:33.820
+"So let's look at the famous problem
+where perceptrons failed.",00:24:34.560,00:24:39.700
+Remember the four points?,00:24:40.170,00:24:41.590
+With the diagonal +1 and -1.,00:24:41.590,00:24:44.230
+"If you want something that is plus here
+and plus here, and minus here and",00:24:44.230,00:24:48.170
+"minus here, you're out of luck as far
+as using a perceptron is concerned.",00:24:48.170,00:24:52.750
+"Now we are exploring, can we do this
+with more than one perceptron arranged",00:24:52.750,00:24:56.620
+in the right way?,00:24:56.620,00:24:58.180
+That's the goal.,00:24:58.180,00:24:59.380
+"So we look at this and say, I can
+get the first-- this thing-- with",00:25:00.110,00:25:04.530
+"a perceptron I'm going to
+call h_1. That's easy.",00:25:04.530,00:25:07.800
+"I'm going to get the
+second one as this.",00:25:07.800,00:25:10.490
+"And maybe now I can take the outputs of
+these perceptrons, and combine them in",00:25:10.490,00:25:15.360
+"a way that achieves
+this particular dependence.",00:25:15.360,00:25:19.470
+"And you look at it and say,",00:25:20.600,00:25:21.930
+that's actually very plausible.,00:25:21.930,00:25:23.100
+"And your building blocks for doing that
+are your old-fashioned OR's and",00:25:23.100,00:25:28.650
+AND's. The logical OR and AND.,00:25:28.650,00:25:31.700
+"So you think, let's say I have two
+Boolean variables, 0 or 1.",00:25:31.700,00:25:34.700
+"Or in this case, +1 or -1.",00:25:34.700,00:25:36.490
+"Can I implement an AND, which
+returns +1 if, and only if,",00:25:37.300,00:25:40.600
+both are +1?,00:25:40.600,00:25:41.980
+"Or can I implement an OR, which
+returns +1 if at least one of",00:25:41.980,00:25:46.220
+them is +1?,00:25:46.220,00:25:47.360
+That would be the AND and OR.,00:25:47.360,00:25:49.010
+"Can I implement these
+using perceptrons?",00:25:49.010,00:25:50.870
+Why?,00:25:50.870,00:25:51.410
+"Because I am in the game of trying to
+use perceptrons to build stuff, and I'm",00:25:51.410,00:25:55.180
+seeing where this can take me.,00:25:55.180,00:25:56.890
+"Well, the OR is very simple.",00:25:57.780,00:25:59.840
+"I can do this because I realize
+I already have,",00:25:59.840,00:26:02.520
+"because of the constant term that
+has a weight 1.5, I'm already",00:26:02.520,00:26:05.940
+ahead of the 0.,00:26:05.940,00:26:06.790
+"So in order for this to actually go
+negative, both of these guys have to",00:26:07.560,00:26:10.580
+"be -1, right?",00:26:10.580,00:26:12.450
+"And therefore, this actually does
+implement the OR because if either",00:26:13.060,00:26:15.930
+"of them is +1, I will
+get the signal +1.",00:26:15.930,00:26:18.850
+"For this one, I'm resisting
+a negative bias already.",00:26:18.850,00:26:22.390
+"So I'd better have both of them to
+be +1, if I'm going to exceed 0 and",00:26:22.840,00:26:25.970
+report +1.,00:26:25.970,00:26:26.580
+So this actually implements the AND.,00:26:26.580,00:26:28.560
+"So indeed I can implement the OR and
+AND, using a simple perceptron.",00:26:28.560,00:26:32.020
+"Now, you create layers of perceptrons
+based on what you had.",00:26:33.190,00:26:37.590
+"So in our case, we had h_1 and h_2 that
+implemented the surfaces we wanted in",00:26:37.590,00:26:45.380
+"the Euclidean space, and we just
+want to combine them.",00:26:45.380,00:26:48.350
+"The combination now, if you look at
+it, is that you want the AND of",00:26:48.350,00:26:53.170
+"h_1 and h_2 bar, the negative of
+this, and h_1 bar and h_2.",00:26:53.170,00:26:58.860
+"Basically, you are implementing
+an XOR.",00:26:58.860,00:27:01.430
+"An XOR wants one of them to be +1,
+and the other one to be -1.",00:27:01.430,00:27:04.670
+"So this is what you want to implement,
+but that is easy because if this is",00:27:04.670,00:27:07.830
+"a variable, if I have that ready-- I don't
+know whether I have that ready.",00:27:07.830,00:27:10.180
+"I know that I have h_1, and
+I know that I have h_2.",00:27:10.180,00:27:12.410
+"I don't know whether I have this
+funny quantity with the bar,",00:27:12.410,00:27:14.940
+but likely I do.,00:27:14.940,00:27:16.200
+"Then all I need to do is combine them
+this way with the OR function, and",00:27:16.810,00:27:21.650
+then I will get the function I want.,00:27:21.650,00:27:23.110
+"So let's expand the first layer, and
+make it really layers.",00:27:23.500,00:27:27.360
+"So now, you do have h_1 and h_2. We
+already established that these are",00:27:27.900,00:27:31.940
+perceptrons.,00:27:31.940,00:27:32.600
+"So what you do, when you have
+a weight of -1, it's",00:27:33.070,00:27:35.830
+as if you are negating.,00:27:35.830,00:27:37.210
+"And a weight of +1, you
+are leaving it alone.",00:27:37.210,00:27:39.810
+So you have -1 and +1.,00:27:40.070,00:27:42.210
+"And then you get the first layer to
+do the AND. But not the AND of the",00:27:42.210,00:27:48.325
+"thing itself, but the AND sometimes
+of the thing, or sometimes of its",00:27:48.325,00:27:50.690
+"negation, in order to implement
+this guy that I want.",00:27:50.690,00:27:53.180
+So you end up with these.,00:27:54.010,00:27:54.920
+"And these guys will be implementing
+the functions you want here.",00:27:54.920,00:27:58.470
+"And now you pass them on to the OR, and
+you get the function you want.",00:27:58.470,00:28:01.970
+"So let's plot the full multilayer
+perceptron that implemented the",00:28:03.120,00:28:07.360
+function we want.,00:28:07.360,00:28:10.918
+It looks like this.,00:28:10.918,00:28:12.968
+This is your original input space.,00:28:14.650,00:28:16.380
+"This is x_1 a real number, x_2 a real
+number in the Euclidean space, and",00:28:16.380,00:28:20.360
+"this is the x_0, the constant 1.",00:28:20.360,00:28:22.350
+"This is the perceptron h_1 and h_2 that
+you implemented in order to get the",00:28:23.460,00:28:27.780
+first picture.,00:28:27.780,00:28:28.500
+"So these are the components, and I can
+implement them using a perceptron.",00:28:28.960,00:28:33.110
+"After I implement them using a perceptron,
+I do the conjunction of",00:28:33.110,00:28:37.720
+"one and the negation of the other,
+in order to get here.",00:28:37.720,00:28:40.820
+"And then I do the OR, and get here.",00:28:40.820,00:28:42.600
+"So this multilayer perceptron
+implements the function that a single",00:28:43.370,00:28:48.170
+perceptron failed in.,00:28:48.170,00:28:50.200
+And we have layers.,00:28:51.090,00:28:52.530
+"So each layer would be this fellow,
+the inputs going into it and the",00:28:52.530,00:28:57.160
+"neurons themselves, the perceptrons.",00:28:57.160,00:28:59.400
+"And this is the second layer,
+and this is the third layer.",00:28:59.830,00:29:02.510
+So in this case we have three layers.,00:29:02.510,00:29:04.890
+"We have strict rules in the
+construction, which is feedforward.",00:29:05.500,00:29:09.830
+"So it's feedforward, that is, you don't
+get the output and put it to",00:29:10.110,00:29:14.020
+"a previous layer, and you also
+don't jump layers.",00:29:14.020,00:29:16.500
+It is very hierarchical.,00:29:16.500,00:29:17.400
+"You go from this layer to the next
+layer, and then from the next layer to",00:29:17.400,00:29:21.220
+the next layer.,00:29:21.220,00:29:22.250
+"It didn't restrict us very much because
+you realize that, if you have",00:29:22.250,00:29:25.860
+"done logic before, you realize that if
+you can do the AND's and the OR's",00:29:25.860,00:29:31.570
+"and the negations, you
+can do anything.",00:29:31.570,00:29:33.200
+"So I can have a very sophisticated
+surface and just by having enough of",00:29:33.720,00:29:36.310
+"those guys and combining them, I can get
+a very sophisticated surface under",00:29:36.310,00:29:39.810
+"the restriction of this
+hierarchical thing.",00:29:39.810,00:29:42.160
+So that's pretty good.,00:29:43.110,00:29:43.920
+"We now realize that we
+have a powerful model.",00:29:43.920,00:29:46.270
+"And to illustrate the powerful model
+in a case, let's look at this case.",00:29:46.860,00:29:50.790
+"Let's be ambitious, not only just the
+XOR, I want to implement the circle,",00:29:50.790,00:29:54.590
+"which we remember we had to go
+to a nonlinear transformation,",00:29:54.590,00:29:57.510
+just using perceptrons.,00:29:57.510,00:29:58.730
+"So you say,",00:29:59.520,00:30:00.270
+"definitely that doesn't
+look anything like a line.",00:30:00.270,00:30:03.320
+"And I'm using lines, there's
+no transformation here.",00:30:04.110,00:30:06.620
+So what am I going to do?,00:30:06.620,00:30:08.170
+Let me try 8 perceptrons.,00:30:08.170,00:30:09.840
+Just sort of cornering this.,00:30:09.840,00:30:11.740
+"If I do this, each of them will be +1
+somewhere, -1 somewhere.",00:30:11.740,00:30:14.830
+"So I have a pattern of
++1's and -1's.",00:30:14.830,00:30:16.950
+"And all I need to do is the logical
+function that will give me where I am",00:30:16.950,00:30:19.980
+inside and where I'm outside.,00:30:19.980,00:30:21.350
+"So I end up with a polygon,",00:30:22.230,00:30:23.310
+"an octagon in this case,",00:30:23.310,00:30:25.040
+"that approximates the circle, using 8.",00:30:25.040,00:30:27.270
+I can go for 16.,00:30:27.270,00:30:28.900
+"And then I'm getting closer
+and closer to the circle.",00:30:28.900,00:30:31.250
+"And I can get as close as I want, by
+having as many perceptrons as I want.",00:30:31.250,00:30:34.930
+"And now I have a bigger task of
+combining the logical results, in order",00:30:34.930,00:30:39.710
+to get the final thing I have.,00:30:39.710,00:30:41.620
+"And indeed, you can prove that
+multilayer perceptrons with enough",00:30:41.620,00:30:46.750
+"neurons can approximate any function,
+which is very good.",00:30:46.750,00:30:50.080
+"And for us, being powerful is good,
+but it raises two red flags.",00:30:50.080,00:30:55.210
+"Once I give you, this
+is a great model.",00:30:55.210,00:30:56.900
+"Everybody will be excited, except
+people in machine learning.",00:30:57.520,00:30:59.700
+"Wait a minute, I have
+been there before.",00:30:59.700,00:31:01.780
+So what are the two red flags?,00:31:02.320,00:31:04.640
+One of them is generalization.,00:31:04.640,00:31:06.490
+I have a powerful model.,00:31:06.490,00:31:07.290
+"I have so many perceptrons, so they have
+so many weights, and the degrees of",00:31:07.290,00:31:13.040
+"freedom, VC dimension.",00:31:13.040,00:31:14.220
+I'm in trouble.,00:31:14.220,00:31:14.940
+"Well, you are in trouble, but at least
+you know the trouble you are in now.",00:31:14.940,00:31:18.990
+"That is, you can completely
+evaluate this.",00:31:19.540,00:31:22.620
+"I have this model. It has that VC
+dimension. I need that many examples.",00:31:22.620,00:31:27.530
+Done deal.,00:31:27.530,00:31:28.300
+So this is not going to scare us.,00:31:28.810,00:31:30.390
+"It is going to make us careful about
+matching how sophisticated we can go,",00:31:30.390,00:31:34.680
+to the resources of data we have.,00:31:34.680,00:31:37.050
+So this is not really a deal breaker.,00:31:37.050,00:31:40.040
+"The real deal breaker for using
+multilayer perceptron is",00:31:40.040,00:31:42.670
+the optimization.,00:31:42.670,00:31:44.380
+"Even for a single perceptron, we
+were lucky enough to have this",00:31:44.380,00:31:48.570
+"perceptron learning algorithm that applies
+only in cases of separable.",00:31:48.570,00:31:52.130
+"And we say that in the case of
+non-separable, it's a very hairy",00:31:52.130,00:31:54.680
+optimization problem.,00:31:54.680,00:31:55.830
+"It's a combinatorial optimization, and
+it is very difficult to solve.",00:31:55.830,00:31:59.760
+"Can you imagine, now, the problem when
+I take layers upon layers upon",00:31:59.760,00:32:02.830
+"layers, and combine them?",00:32:02.830,00:32:04.330
+"And now I'm trying to find what
+is the combination of weights",00:32:04.330,00:32:06.880
+that matches a function.,00:32:06.880,00:32:07.800
+You don't know what the function is.,00:32:07.800,00:32:08.770
+"Here, you looked at it.",00:32:08.770,00:32:10.430
+But I'm just giving you examples.,00:32:10.430,00:32:11.630
+I'm asking you to match.,00:32:11.630,00:32:12.820
+"How are you going to adjust the weights,
+in order to match that?",00:32:12.820,00:32:15.390
+"That's an incredibly difficult
+optimization problem.",00:32:15.390,00:32:19.110
+And that's what neural networks do.,00:32:19.110,00:32:21.080
+That's the only thing they do.,00:32:21.080,00:32:23.130
+"They have a way of getting
+that solution.",00:32:23.130,00:32:25.810
+"And the way they are going to do it is
+that, instead of having perceptrons",00:32:26.360,00:32:29.450
+"which are hard-threshold, they are
+going to soften the threshold.",00:32:29.450,00:32:33.150
+"Not that they like soft thresholds, but
+soft thresholds have the advantage",00:32:33.660,00:32:36.610
+"of being smooth, twice
+differentiable.",00:32:36.610,00:32:39.140
+Rings a bell?,00:32:39.140,00:32:39.910
+"Oh, maybe we can apply
+the all-general gradient descent in",00:32:39.910,00:32:43.430
+order to find the solution.,00:32:43.430,00:32:44.970
+"And once you find the solution,
+you can say",00:32:44.970,00:32:47.740
+I know the weights.,00:32:47.740,00:32:48.800
+"Soft threshold is almost the
+same as the hard threshold.",00:32:48.800,00:32:50.860
+"Let me hard-threshold the answer,
+and give you that answer.",00:32:50.860,00:32:53.970
+So that would be the approach.,00:32:53.970,00:32:55.410
+So let's look at neural networks.,00:32:56.690,00:32:59.170
+The neural network will look like this.,00:33:00.480,00:33:02.430
+"It has the inputs-- same as inputs
+before-- and it has layers.",00:33:05.490,00:33:10.590
+And each layer has a nonlinearity.,00:33:10.590,00:33:13.620
+"I'm referring to the nonlinearity
+generically as theta.",00:33:13.620,00:33:16.060
+"Remember, theta was used in logistic
+regression as very specifically the",00:33:16.060,00:33:19.120
+logistic function.,00:33:19.120,00:33:20.410
+"I'm using it here generically for
+any nonlinearity you want.",00:33:20.410,00:33:23.820
+"It turns out the nonlinearity we are going
+to use is very much like the",00:33:23.820,00:33:27.210
+"logistic function except it goes
+from -1 to +1,",00:33:27.210,00:33:30.270
+"in order to replicate the hard
+threshold which goes from",00:33:30.270,00:33:32.820
+-1 to +1.,00:33:32.820,00:33:34.190
+"In the case of logistic regression,
+we weren't replicating that.",00:33:34.190,00:33:36.860
+"We were simulating a probability
+that goes from 0 to 1.",00:33:36.860,00:33:40.150
+So it's very similar to this.,00:33:40.150,00:33:41.660
+"And in principle, when you use a neural
+network, each of these guys",00:33:41.660,00:33:45.250
+could be different.,00:33:45.250,00:33:45.940
+"You can have your different
+nonlinearities and you will see, when",00:33:45.940,00:33:48.490
+"we talk about the algorithm, that there is
+a very minor modification you do in",00:33:48.490,00:33:51.340
+"order to accommodate these
+nonlinearities.",00:33:51.340,00:33:53.490
+"So I could have a label for each of
+these depending on where it happens.",00:33:53.490,00:33:56.510
+"And the most famous, different
+nonlinearity that you get to use is",00:33:56.510,00:34:02.380
+"actually to make all of them
+this soft threshold.",00:34:02.380,00:34:05.680
+"And then when you go to the
+output, make that linear.",00:34:05.680,00:34:07.800
+"So this part would be as if
+it was linear regression.",00:34:07.800,00:34:10.370
+"This would be with a view to
+implementing a real-valued function.",00:34:10.370,00:34:13.610
+"So the intermediate things are doing
+this thing, and then finally you",00:34:13.610,00:34:16.429
+"combine them in order to get
+a real-valued function.",00:34:16.429,00:34:18.600
+"But for the purpose of this lecture
+and the derivation, I'm going to",00:34:18.600,00:34:21.239
+"consider all these thetas
+to be the same.",00:34:21.239,00:34:23.550
+"And all of them will be this function
+that I'm going to describe",00:34:23.550,00:34:25.810
+mathematically in a moment.,00:34:25.810,00:34:27.270
+So this is the neural network.,00:34:28.130,00:34:29.090
+It has the same rules.,00:34:29.090,00:34:29.980
+It's feedforward.,00:34:29.980,00:34:30.530
+"There is no going back, there
+is no jumping forward.",00:34:30.530,00:34:33.170
+And the first column is the input x.,00:34:33.170,00:34:37.170
+"So you are going to apply your input
+x from an actual example to this,",00:34:37.170,00:34:41.630
+"follow the rules of derivation from one
+layer to another until you arrive",00:34:41.630,00:34:45.290
+"at the end, and then you are going to
+declare at the end that this is the value",00:34:45.290,00:34:47.679
+"of my hypothesis, the neural-network
+hypothesis, on that x.",00:34:47.679,00:34:51.989
+"The intermediate values we are going to
+call hidden layers, because the",00:34:52.600,00:34:58.520
+user doesn't see them.,00:34:58.520,00:34:59.460
+"You put the input, there's a black
+box, and then comes output.",00:34:59.780,00:35:02.180
+"If you open the box, you'll find that
+there are layers, and something",00:35:02.180,00:35:04.820
+"interesting is happening in the
+layers that I'm going to",00:35:04.820,00:35:06.640
+comment about later on.,00:35:06.640,00:35:07.920
+But these are the ones.,00:35:08.370,00:35:09.150
+"And for a notation, we're going to
+consider that we have L layers.",00:35:09.150,00:35:13.110
+"So in this case, it will be three.",00:35:13.110,00:35:14.560
+"This is the first layer
+with its input.",00:35:14.560,00:35:16.990
+"This is the second layer
+with its input.",00:35:16.990,00:35:19.060
+"This is the third layer
+with its input.",00:35:19.060,00:35:20.800
+"This is not really hidden,
+it's an output layer.",00:35:20.800,00:35:23.240
+"So this is the final layer, L.
+And this is that.",00:35:23.240,00:35:28.060
+"The notation here will persist
+with us for that.",00:35:28.270,00:35:34.340
+"Now I'm going to take this, and I'm
+going to put the mathematical",00:35:34.340,00:35:37.340
+"equations that go with it, in order
+to be able to implement it.",00:35:37.340,00:35:40.980
+"If you want to code this, the next
+slide will be the one for",00:35:40.980,00:35:44.210
+you to implement.,00:35:44.210,00:35:45.610
+"First thing, I'm going to define the
+nonlinearity that I described.",00:35:45.610,00:35:49.850
+"It's a soft threshold and we are going
+to use the tanh, the hyperbolic tan--",00:35:52.110,00:35:57.260
+hyperbolic tangent.,00:35:57.260,00:35:58.850
+And the hyperbolic tangent--,00:35:58.850,00:36:00.830
+"Well, the formula looks more or less
+like the one we had before",00:36:00.830,00:36:04.280
+for the logistic one.,00:36:04.280,00:36:05.130
+"It's again based on e^s. And this one
+happens to go from -1 to +1.",00:36:05.130,00:36:09.320
+"At 0, it's exactly 0.",00:36:09.320,00:36:10.780
+It has a slope 1.,00:36:10.780,00:36:11.380
+It has very interesting properties.,00:36:11.380,00:36:12.960
+"And you can see now why
+we are using it.",00:36:12.960,00:36:15.330
+"If you take it this way, it looks
+like a hard threshold.",00:36:15.330,00:36:18.370
+And in the beginning it looks linear.,00:36:19.150,00:36:21.410
+"So it has the combination
+of both worlds.",00:36:21.680,00:36:25.030
+"So if your signal,",00:36:25.030,00:36:26.630
+"which is what you have here-- this is
+the signal and this is the output.",00:36:26.630,00:36:28.930
+"If your signal, which is the weighted
+sum of your inputs, is very small,",00:36:28.930,00:36:32.790
+it's as if you are linear.,00:36:32.790,00:36:34.590
+"If your signal is extremely large, it's as
+if you are hard-threshold, and you get",00:36:34.590,00:36:39.100
+"the benefit of one function that is
+analytic and very well-behaved for the",00:36:39.100,00:36:43.010
+optimization.,00:36:43.010,00:36:43.810
+So this is the one we're going to use.,00:36:43.810,00:36:46.330
+"Now what I'm going to do, I'm going to
+introduce to you the notation of the",00:36:46.330,00:36:49.810
+"neural network, because
+it's all notation.",00:36:49.810,00:36:51.730
+"Obviously the notation will be more
+elaborate than a perceptron, because I",00:36:52.530,00:36:55.330
+have different layers.,00:36:55.330,00:36:56.410
+So I have an index for that.,00:36:56.650,00:36:58.170
+I have different neurons per layer.,00:36:58.170,00:36:59.970
+So I have an index for that.,00:36:59.970,00:37:01.045
+And inputs go to the output.,00:37:01.045,00:37:03.620
+"And then the output becomes the
+input to the next layer.",00:37:03.620,00:37:05.960
+"So I just need to get my house in order,
+to be able to implement this.",00:37:05.960,00:37:10.370
+"So although this is mostly
+a notational viewgraph, it's",00:37:10.370,00:37:13.720
+"an important viewgraph to follow because
+if you decide to implement neural",00:37:13.720,00:37:16.870
+"networks, you just print this viewgraph
+and code it, and you have your",00:37:16.870,00:37:20.380
+neural network.,00:37:20.380,00:37:21.600
+"The parameters of a neural network
+are called w, weights.",00:37:24.270,00:37:28.090
+"The weights now happen to belong
+to any layer to any neuron.",00:37:28.090,00:37:30.830
+"And there are three indices
+that change.",00:37:31.390,00:37:35.520
+"One of them, the different layers, the
+different inputs that feed, and the",00:37:35.520,00:37:43.310
+different outputs I get.,00:37:43.310,00:37:45.120
+"I have different inputs and different
+outputs for every layer.",00:37:46.020,00:37:49.320
+"So the weight is connecting one
+input to one output in",00:37:49.320,00:37:52.012
+a certain layer.,00:37:52.012,00:37:52.970
+So let's have a notation.,00:37:52.970,00:37:53.920
+"I'm going to introduce a notation,
+and then apply it to the w.",00:37:53.920,00:37:56.500
+So I'll denote the layer by l.,00:37:56.500,00:38:01.530
+"And l, as you see, appears
+as a superscript for w.",00:38:01.530,00:38:06.850
+That will be our standard notation.,00:38:06.850,00:38:08.300
+"The layer is always a superscript
+between parentheses, for",00:38:08.300,00:38:11.690
+the quantity we have.,00:38:11.690,00:38:12.960
+And then I have the inputs.,00:38:14.180,00:38:15.100
+"The inputs we are going to
+call i, as an index.",00:38:15.100,00:38:17.910
+"And obviously, since the weight connects
+an input to an output, the i",00:38:17.910,00:38:21.340
+should appear as an index.,00:38:21.340,00:38:23.160
+And the output will be called j.,00:38:23.160,00:38:26.330
+"So now my parameters for the network
+are w, superscript l, sub ij.",00:38:27.170,00:38:32.845
+"Although it's more elaborate than
+we had before, we understand",00:38:32.845,00:38:35.530
+where it came from.,00:38:35.530,00:38:36.510
+"Now let's talk about the ranges of
+values for these three indices.",00:38:37.280,00:38:41.930
+"For l as we discussed, l will go
+from 1 to L. So from the first",00:38:41.930,00:38:46.520
+"layer to L, which would be the
+output layer, the final layer.",00:38:46.520,00:38:51.180
+"The outputs go from 1
+to d, as if it was--",00:38:51.180,00:38:59.620
+d as in dimension.,00:38:59.620,00:39:01.090
+So you have--,00:39:01.090,00:39:02.110
+"I'm going to the neuron 1,
+neuron 2, and neuron d.",00:39:02.110,00:39:05.300
+"And because I am in layer l, by
+definition, then the dimension of the",00:39:05.300,00:39:11.680
+"layer that I'm talking about
+will have that superscript.",00:39:11.680,00:39:14.230
+"So d superscript l, the number will
+differ from one layer to another.",00:39:14.230,00:39:18.920
+"And depending on which layer you have,
+you'll have different number of output",00:39:19.140,00:39:22.110
+"units, and therefore the
+j will depend on that.",00:39:22.110,00:39:24.880
+"Now for the inputs, they come
+from the previous layer.",00:39:26.020,00:39:30.770
+"You take the outputs of
+the previous layer to be",00:39:30.770,00:39:34.180
+the inputs in your layer.,00:39:34.180,00:39:35.900
+"Therefore, the index for i will go
+for the size of the previous",00:39:35.900,00:39:40.490
+"layer, l minus 1.",00:39:40.490,00:39:42.000
+"Now, I left this out because this
+will not be 1, this will be 0.",00:39:43.310,00:39:50.880
+Anybody knows why?,00:39:50.880,00:39:52.000
+"Yeah, yeah, it's that constant
+x_0 that we always have.",00:39:52.000,00:39:56.060
+"Every neuron will have that as an input,
+and therefore we will have",00:39:56.060,00:39:59.460
+"a generic one, which is x_0
+to take care of that.",00:39:59.460,00:40:02.580
+"So for every value in this array, you
+will have w_ij l, and these are the",00:40:03.410,00:40:09.690
+parameters you want to determine.,00:40:09.690,00:40:11.180
+"Now, let's see the function
+that is being implemented.",00:40:13.170,00:40:16.540
+"What you do is, you get the x's in
+layer l in terms of the x's in",00:40:16.540,00:40:24.090
+layer l minus 1.,00:40:24.090,00:40:26.120
+Right?,00:40:26.120,00:40:27.080
+"And our notation will give this a generic
+index j, so this is the j-th",00:40:27.080,00:40:31.900
+"unit in this layer, and this was the
+i-th unit in the previous layer.",00:40:31.900,00:40:37.150
+What do you do in order to get that?,00:40:37.950,00:40:40.110
+"We do what perceptrons do,
+or neurons in this case.",00:40:40.110,00:40:44.750
+You combine them with the weights.,00:40:45.460,00:40:47.520
+"The weights are connecting the i to
+the j, and they happen to be the",00:40:47.520,00:40:55.570
+weights of this layer.,00:40:55.570,00:40:57.070
+"So when we talk about the weights,
+the weights will correspond to",00:40:57.070,00:40:59.810
+where the output is.,00:40:59.810,00:41:01.760
+You sum these up.,00:41:02.650,00:41:05.030
+"You sum them up from i equals 0, which
+is the constant variable, up to the",00:41:05.030,00:41:09.570
+"maximum, which would be the maximum for
+that layer, which happens to be",00:41:09.570,00:41:13.240
+d superscript l minus 1.,00:41:13.240,00:41:15.500
+So this is the signal.,00:41:16.300,00:41:18.300
+"Now you pass the signal through
+a threshold, in",00:41:18.300,00:41:20.060
+this case a soft threshold.,00:41:20.060,00:41:22.310
+And you're ready to go.,00:41:22.310,00:41:23.650
+"That will be the function
+you're implementing.",00:41:23.650,00:41:25.940
+"And indeed, this would be",00:41:25.940,00:41:29.280
+the value of the output x.,00:41:29.280,00:41:30.700
+"And it happens to be theta of-- we are
+going to call this quantity inside, we",00:41:30.700,00:41:34.560
+are going to call it the signal again.,00:41:34.560,00:41:36.580
+"And now the signal corresponds
+to the output.",00:41:36.580,00:41:38.930
+"So the signal is of layer l and
+the j-th signal in that layer.",00:41:38.930,00:41:43.700
+"You pass it through the nonlinearity,
+and what you get is",00:41:43.700,00:41:46.180
+the output of that.,00:41:46.180,00:41:47.570
+So that wasn't too bad.,00:41:48.140,00:41:49.390
+"Now, when you use the network,",00:41:51.750,00:41:53.220
+this a recursive definition.,00:41:53.220,00:41:54.970
+"So you do this for the first layer,
+second, third, et cetera.",00:41:54.970,00:41:58.560
+"Every time you use it, you
+get the new outputs.",00:41:58.560,00:42:01.060
+"So the first, you get the outputs
+of the first layer.",00:42:01.060,00:42:04.240
+These are the inputs to the second.,00:42:04.240,00:42:05.670
+"You get the outputs of the second, these
+are the inputs to the third.",00:42:05.670,00:42:07.890
+"And you keep repeating, until
+you get to the final.",00:42:07.890,00:42:09.930
+"Now, how do you start this?",00:42:09.930,00:42:11.470
+"You start this by applying your input,
+the actual input you have, to the input",00:42:11.470,00:42:17.660
+variables of the network.,00:42:17.660,00:42:19.060
+"The input variables happen to
+be in layer 0, if you want.",00:42:19.060,00:42:22.540
+"And they happen to be called x_1 up to
+that, d superscript 0 by definition.",00:42:23.240,00:42:26.890
+"Therefore, d superscript 0 is the same
+as the dimensionality of your input.",00:42:26.890,00:42:31.310
+So this one actually has--,00:42:31.730,00:42:33.350
+what is the x? x_1 up to x_d.,00:42:33.350,00:42:35.340
+So this guy matches this.,00:42:36.180,00:42:37.880
+"Therefore, that is how you
+construct the network.",00:42:37.880,00:42:40.640
+"The number of inputs is the same
+as the number of inputs you have.",00:42:40.640,00:42:44.140
+"Once you leave that, it
+could be anything.",00:42:44.140,00:42:45.840
+"It could be expanding, shrinking,
+whatever it is, anything it wants.",00:42:45.840,00:42:48.900
+"And when it arrives, it should arrive
+at the value of your output.",00:42:49.540,00:42:52.500
+"You have a scalar output, and
+therefore, after a long iteration, you",00:42:52.500,00:42:58.380
+"will end up with one output, which
+happens to be in layer L, and",00:42:58.380,00:43:04.310
+"since I have one output,
+the j is only 1.",00:43:04.310,00:43:06.810
+"So this is my output of the network,
+and I'm going to declare that my",00:43:06.810,00:43:10.200
+"output of the network is the
+value of my hypothesis.",00:43:10.200,00:43:13.480
+"That is the entire operation of
+a neural network when you feed it.",00:43:13.480,00:43:18.420
+"So when you tell me what the weights
+are, I am going to be able to compute",00:43:18.420,00:43:23.000
+what the hypothesis does.,00:43:23.000,00:43:24.540
+"Now our job is to find the weights
+through learning, so that we match",00:43:25.360,00:43:31.360
+a bunch of input-output examples.,00:43:31.360,00:43:32.900
+"When I put those inputs and look at
+the target outputs, I find that the",00:43:32.900,00:43:36.140
+network is replicating them well.,00:43:36.140,00:43:37.900
+That is the backpropagation algorithm.,00:43:41.280,00:43:43.500
+So let's do what?,00:43:43.790,00:43:45.210
+"We are going to apply stochastic
+gradient descent.",00:43:45.210,00:43:48.560
+"So you take one example at a time,
+apply it to the network, and then",00:43:48.560,00:43:51.870
+"adjust all the weights of the
+network in the direction of the",00:43:51.870,00:43:55.340
+"negative of the gradient, according
+to that single example.",00:43:55.340,00:43:58.250
+That's what makes it stochastic.,00:43:58.250,00:43:59.800
+So let's do it.,00:44:00.030,00:44:01.520
+"Now the parameters are
+all the weights.",00:44:02.380,00:44:04.130
+"This array, which is a funny array,",00:44:04.130,00:44:05.530
+"is not quite a complete matrix
+because you have",00:44:05.530,00:44:10.570
+"different number of neurons
+in different layers.",00:44:10.570,00:44:12.210
+So this is just a funny array.,00:44:12.210,00:44:13.760
+But it's indexed by i j l.,00:44:13.760,00:44:15.055
+It's a legitimate array.,00:44:15.055,00:44:16.560
+And this determines h.,00:44:16.560,00:44:18.480
+"Therefore, what I'm doing here is
+getting the error on a single",00:44:18.480,00:44:22.610
+"example: x_n , y_n.",00:44:22.610,00:44:23.816
+And I'm going to--,00:44:25.040,00:44:27.680
+"by definition, I have
+some error measure.",00:44:27.680,00:44:29.960
+Let's call it e of h--,00:44:29.960,00:44:32.262
+"my error measure between the value
+of the hypothesis, which is the",00:44:32.262,00:44:36.270
+"neural network, and the target label.",00:44:36.270,00:44:39.080
+"And this happens to be a function of
+the weights in the network, why?",00:44:40.650,00:44:44.430
+"y_n is a constant, x_n is a constant.",00:44:44.430,00:44:46.930
+This is part of the training example.,00:44:46.930,00:44:48.450
+h is determined by the w.,00:44:48.450,00:44:49.955
+"That's why this is w, and I'm putting
+it in purple, because this is the",00:44:49.955,00:44:53.010
+"active quantity now when
+we are learning.",00:44:53.010,00:44:55.970
+"So to implement SGD, all you
+need to do is implement the",00:44:57.460,00:45:01.200
+gradient of this quantity.,00:45:01.200,00:45:03.100
+And what is gradient of this quantity?,00:45:04.130,00:45:05.530
+"Well, the gradient of this quantity
+is a huge vector.",00:45:05.530,00:45:07.520
+"Each component is partial the error,
+by partial one of the parameters.",00:45:08.120,00:45:11.890
+So we put it down.,00:45:11.890,00:45:13.530
+"All you need to do is compute
+this for every i, j, and l.",00:45:13.530,00:45:17.780
+That's all you need to do!,00:45:18.940,00:45:20.360
+"And then you take this entire vector
+of stuff, and you move in the",00:45:21.030,00:45:24.290
+"space along the negative
+of that gradient.",00:45:24.290,00:45:27.120
+That is the game.,00:45:29.850,00:45:31.160
+There is nothing mysterious about this.,00:45:31.160,00:45:33.690
+"If you never heard of backpropagation,
+you will be able to do this, as we'll",00:45:33.690,00:45:36.930
+see in a moment.,00:45:36.930,00:45:38.010
+The idea is just to do it efficiently.,00:45:38.010,00:45:40.170
+"And it makes a big difference when you
+find an efficient algorithm to do",00:45:40.170,00:45:43.560
+something.,00:45:43.560,00:45:44.100
+"For example, those of you who have
+learned linear systems know FFT, the",00:45:44.100,00:45:49.050
+Fast Fourier Transform.,00:45:49.050,00:45:50.030
+"Fast Fourier Transform is,
+you implement the",00:45:50.770,00:45:53.050
+discrete Fourier transform.,00:45:53.050,00:45:53.660
+What's the big deal?,00:45:53.660,00:45:54.320
+The big deal is,00:45:54.840,00:45:55.430
+because it's faster.,00:45:55.430,00:45:56.480
+"You get N logarithm N, instead
+of the alternative.",00:45:56.775,00:45:59.080
+"And that simple factor made the
+field enormously active,",00:45:59.640,00:46:04.110
+just by that algorithm.,00:46:04.110,00:46:05.760
+And very similar here.,00:46:05.760,00:46:07.100
+"Backpropagation, if you look at it, I
+can brute-force-implement this for",00:46:07.100,00:46:10.570
+"every i, j, and l.",00:46:10.570,00:46:11.720
+"But now I have one thing that will get
+me basically all of these guys at",00:46:11.720,00:46:15.630
+"once, so to speak.",00:46:15.630,00:46:16.870
+"And therefore it's efficient and people
+get to use it, and that's why",00:46:16.870,00:46:19.360
+neural networks became quite popular.,00:46:19.360,00:46:22.450
+So let's try to compute this.,00:46:22.790,00:46:25.660
+Let me take part of the network.,00:46:27.090,00:46:28.870
+"So this is in the layer l minus 1,
+and this is in the layer l.",00:46:28.870,00:46:32.790
+"I'm looking at the output of one neuron
+in this layer, feeding through",00:46:32.790,00:46:37.080
+"some weight, into this guy.",00:46:37.080,00:46:39.640
+"So it is contributing to the signal
+going into the next guy, and the signal",00:46:39.640,00:46:43.490
+"goes into the nonlinearity
+to produce the output.",00:46:43.490,00:46:46.290
+Now this quantity is not mysterious.,00:46:47.820,00:46:50.670
+"If you look at it, we can evaluate
+those one by one.",00:46:50.670,00:46:53.880
+"That is for every single weight in the
+network, we can ask ourselves: what",00:46:53.880,00:46:57.850
+is the error?,00:46:57.850,00:46:58.230
+"Well, the error is sitting there.",00:46:58.230,00:46:59.410
+"At the output, I have--",00:46:59.410,00:47:01.090
+Here's my pointer.,00:47:11.040,00:47:12.350
+I have the output.,00:47:12.810,00:47:13.530
+I went further than I should!,00:47:13.530,00:47:16.360
+"But the output is sitting
+somewhere there.",00:47:16.360,00:47:18.770
+"Therefore, there is an error.",00:47:18.770,00:47:20.220
+"And that error will change,
+if you change w.",00:47:20.220,00:47:23.080
+"And that will tell you what
+is partial e by partial w.",00:47:23.080,00:47:25.670
+So we can do this analytically.,00:47:25.670,00:47:29.300
+There is nothing mysterious.,00:47:29.560,00:47:30.560
+"I can get the output as a function of
+the previous layer, of the previous",00:47:30.560,00:47:34.610
+"layer, of the previous layer,
+until I arrive here.",00:47:34.610,00:47:38.650
+"So I have this function that has tons
+of weights in it, and I'm focusing on",00:47:38.650,00:47:42.300
+one of them.,00:47:42.300,00:47:42.800
+"And I can say, what is partial
+e by partial this fellow?",00:47:42.800,00:47:46.690
+"Apply chain rule, get a number.",00:47:46.690,00:47:48.860
+Not a big deal.,00:47:48.860,00:47:49.640
+"It's not your favorite activity,
+but you can do that.",00:47:50.010,00:47:53.550
+Or even you can do it numerically.,00:47:53.550,00:47:55.660
+"I can take this fellow, perturb it
+just a little bit, and see what",00:47:55.990,00:48:00.400
+happens for the error of the output.,00:48:00.400,00:48:02.320
+"And therefore, I can get numerical
+estimate for partial by partial.",00:48:02.900,00:48:07.120
+"The problem with those approaches
+is that I have to do it",00:48:07.120,00:48:09.040
+for each one of them.,00:48:09.040,00:48:10.640
+"What I'm going to do now, I'm going to
+try to find something that will make",00:48:10.640,00:48:13.350
+"me get the entire array, which is the
+full gradient, in almost one shot.",00:48:13.350,00:48:20.000
+So here is the trick.,00:48:21.380,00:48:22.950
+The trick is the following.,00:48:22.950,00:48:24.250
+"I'm going to express partial e by
+partial w_ij, the change in e which",00:48:24.250,00:48:29.290
+"is upstairs here, with respect
+to this particular parameter.",00:48:29.290,00:48:32.800
+I'm going to get it in terms of,00:48:32.800,00:48:34.537
+"partial the same quantity by partial
+an intermediate quantity,",00:48:38.280,00:48:41.410
+"this signal, times partial the intermediate
+quantity by partial what I want.",00:48:41.410,00:48:50.170
+This is just chain rule.,00:48:50.170,00:48:51.300
+"But chain rule with partial derivatives,
+you need to be",00:48:51.990,00:48:54.300
+"a little bit careful, because there may
+be different ways your variable is",00:48:54.300,00:48:57.710
+"affecting the output, and you need
+to sum up all the effects.",00:48:57.710,00:49:00.350
+"But here, if you're looking for how does
+w affect the error? Well, w only",00:49:00.350,00:49:06.050
+affects this sum.,00:49:06.050,00:49:07.690
+w_ij affects only the sum s_j.,00:49:07.690,00:49:11.190
+"So if I get partial by partial s_j,
+this is the only link which w_ij",00:49:11.190,00:49:14.830
+"affects the output, and therefore I'm
+allowed to do this, and there is",00:49:14.830,00:49:17.580
+nothing to sum up with respect to.,00:49:17.580,00:49:19.600
+So I have this chain rule.,00:49:20.020,00:49:21.380
+That's nice.,00:49:21.380,00:49:23.050
+"I can probably look at this and say, this
+is a very simple quantity to get.",00:49:23.050,00:49:27.000
+"How does the signal change
+with the weight?",00:49:27.000,00:49:30.730
+"We probably can get
+an easy one there.",00:49:30.730,00:49:33.070
+"But this one is almost as
+bad as the original one.",00:49:33.070,00:49:36.220
+"How does the error change
+with this signal?",00:49:36.220,00:49:38.970
+"It doesn't look like
+a great progress.",00:49:39.610,00:49:41.390
+"But the great progress is that this
+quantity will be able to be computed",00:49:41.890,00:49:45.420
+recursively.,00:49:45.420,00:49:46.560
+That's the key.,00:49:46.560,00:49:47.320
+So what do we have in this equation?,00:49:47.770,00:49:49.650
+"Well, we have the first one.",00:49:49.650,00:49:50.840
+"Because if I take this guy, what
+is partial s by partial w?",00:49:50.840,00:49:55.420
+"s is simply the sum
+of w's times x's.",00:49:55.420,00:49:58.340
+"So partial s by partial w is the
+coefficient, which happens to be the",00:49:58.340,00:50:00.770
+"x, and this is the coefficient there.",00:50:00.770,00:50:02.550
+And that is readily available.,00:50:02.550,00:50:04.020
+"I already computed all the
+x's, so that I have.",00:50:04.020,00:50:06.390
+"The other guy, this is a troublesome one,
+so we're just going to call it",00:50:07.070,00:50:11.385
+"a name, and see if we can get
+something going for it.",00:50:11.385,00:50:14.020
+"And the name we're going
+to call it is delta.",00:50:14.570,00:50:17.620
+So now delta goes with a signal.,00:50:18.640,00:50:21.200
+"There will be a delta sitting here,
+if we can compute it.",00:50:21.200,00:50:24.970
+"And the interesting is that the
+derivative of the error with respect",00:50:24.970,00:50:29.290
+"to this weight,",00:50:29.290,00:50:30.170
+"which will determine how much you change
+that weight, because when you",00:50:30.170,00:50:34.230
+"get that gradient, you move along
+the direction of the gradient.",00:50:34.230,00:50:37.120
+"It means, in each component, you go in
+proportion to the value of the partial",00:50:37.120,00:50:40.400
+derivative.,00:50:40.400,00:50:41.340
+"So since this is the partial derivative,
+the change in the w will be the",00:50:41.340,00:50:46.210
+"product of these two guys--
+proportional to that.",00:50:46.210,00:50:50.130
+"One of them is x here, and one
+of them is delta here.",00:50:50.130,00:50:55.090
+"So we'll be changing the weight
+according to two quantities that the",00:50:55.090,00:50:59.440
+weight is sandwiched between.,00:50:59.440,00:51:01.260
+And that's a pretty attractive one.,00:51:01.530,00:51:02.830
+"If I get all of those, then I look at
+the x's and the delta's, and the weight",00:51:02.830,00:51:06.320
+in between will change accordingly.,00:51:06.320,00:51:08.330
+"Now, let's get delta
+for the final layer.",00:51:10.430,00:51:13.730
+"Why do I get delta for
+the final layer?",00:51:14.200,00:51:16.010
+"When we computed the thing, we got x's
+for the first layer, the input.",00:51:16.010,00:51:21.940
+"And then we propagated forward
+until we got to the output.",00:51:22.140,00:51:26.020
+"The reason why we're going to get it is
+because the math will tell us that",00:51:26.020,00:51:28.660
+"if you know delta later, you're going
+to be able to detect delta earlier.",00:51:28.660,00:51:33.330
+"So this will be propagating backwards,
+and hence the name",00:51:33.330,00:51:36.320
+backpropagation.,00:51:36.320,00:51:37.610
+"So we're going to start with
+the delta at the output.",00:51:37.610,00:51:39.500
+"And it's not a surprise, because I'm
+trying to get the partial error by",00:51:39.500,00:51:43.640
+partial something.,00:51:43.640,00:51:44.810
+"The closer I am to the action, to
+the output, the easier it is to",00:51:44.810,00:51:48.780
+compute it.,00:51:48.780,00:51:49.580
+"And indeed, for the output, it
+will be very easy to compute.",00:51:49.580,00:51:52.080
+"This is the definition of delta
+for any value of j and l.",00:51:52.660,00:51:57.460
+"And when you look at the final layer,
+the final layer is not mysterious.",00:51:58.250,00:52:01.835
+"It's l equals L, and j equals 1.",00:52:01.835,00:52:05.400
+"I have a scalar function, so
+that is the output layer.",00:52:05.400,00:52:08.570
+"Therefore, the quantity I'm interested
+in is exactly-- just substituting with",00:52:09.410,00:52:12.680
+this quantity.,00:52:12.680,00:52:13.490
+"I want delta superscript L,
+subscript 1.",00:52:13.490,00:52:18.270
+That's what I want to compute.,00:52:18.270,00:52:20.150
+"Now, can I compute this?",00:52:21.060,00:52:22.820
+Let's look at it.,00:52:22.820,00:52:23.960
+"This is e of w, the thing
+I'm differentiating.",00:52:24.660,00:52:26.650
+What is e of w?,00:52:26.650,00:52:29.460
+"e of w is the error measure, whatever
+you have, between the value of your",00:52:29.460,00:52:34.090
+"hypothesis, that is the value of the
+neural network in its current state,",00:52:34.090,00:52:38.120
+with the weights frozen.,00:52:38.120,00:52:39.590
+You apply x_n.,00:52:39.590,00:52:40.550
+"You go forward until you get
+the output, that is h of x_n.",00:52:40.550,00:52:43.980
+"You compare that to the target output,
+which is the label of the example, y_n.",00:52:43.980,00:52:48.190
+And that error will be your e of w.,00:52:48.190,00:52:50.730
+Why is it e of w?,00:52:50.730,00:52:51.630
+Because h depends on w.,00:52:51.630,00:52:53.370
+"So that is not mysterious
+because h of x_n is what?",00:52:54.890,00:52:57.645
+It's the value of the output.,00:53:00.840,00:53:03.440
+Right?,00:53:03.440,00:53:04.100
+"And that happens to be the variable in
+layer L, variable number 1,",00:53:04.100,00:53:08.840
+that is your output.,00:53:08.840,00:53:10.140
+"And, for example, let's say that you
+are using mean squared error, just",00:53:11.400,00:53:15.170
+for the moment.,00:53:15.170,00:53:15.780
+"This can apply for any analytic
+error measure you put here.",00:53:15.780,00:53:19.120
+"But if you're using mean squared
+error, this would be it.",00:53:19.120,00:53:22.560
+"That's a friendly quantity, because now
+I want partial by partial. I have",00:53:22.860,00:53:26.320
+"this, and this fellow is related to
+the thing I'm differentiating with",00:53:26.320,00:53:30.450
+respect to.,00:53:30.450,00:53:31.000
+This is a constant.,00:53:31.000,00:53:32.130
+I can deal with the squared.,00:53:32.130,00:53:33.360
+"So I'm getting closer to being able
+to evaluate this explicitly.",00:53:33.360,00:53:36.390
+"So let's look at x, the output.",00:53:36.870,00:53:39.830
+"Well, the output is nothing but-- you
+pass the signal through the",00:53:39.830,00:53:44.270
+"nonlinearity, right?",00:53:44.270,00:53:45.950
+The nonlinearity is the tanh.,00:53:45.950,00:53:47.740
+Not mysterious.,00:53:47.740,00:53:48.680
+"The signal is what I'm differentiating
+with respect to.",00:53:48.680,00:53:51.120
+I'm almost done.,00:53:51.120,00:53:52.250
+"So now, all I need to do is realize that
+when I do this, I will have to",00:53:53.420,00:53:57.530
+"know the derivative of theta, because
+there is a chain rule and I'm",00:53:57.530,00:54:00.360
+differentiating with respect to this.,00:54:00.360,00:54:01.960
+"And this is an intermediate quantity,
+so I need to get theta dash.",00:54:01.960,00:54:05.220
+So what is theta dash?,00:54:05.760,00:54:07.170
+So what is the derivative of the tanh?,00:54:07.640,00:54:09.630
+"Happens to be 1 minus
+the tanh squared.",00:54:09.630,00:54:12.250
+This is for this particular one.,00:54:12.250,00:54:13.650
+"If you have another nonlinearity, you
+just compute what that is.",00:54:13.650,00:54:17.610
+This is good.,00:54:18.120,00:54:18.920
+So we have delta for the final layer.,00:54:18.920,00:54:20.880
+"If I put the input, get the output,
+I go through this and I",00:54:20.880,00:54:24.470
+"have an explicit value: delta at
+the output is the following.",00:54:24.470,00:54:27.380
+"So now, the next item is to
+back-propagate delta down to get the",00:54:27.380,00:54:32.170
+other delta's.,00:54:32.170,00:54:33.350
+"This is the essence
+of the algorithm.",00:54:34.100,00:54:37.980
+"So now, I'm taking the network, but
+now I'm taking the network from--",00:54:40.070,00:54:45.130
+"I'm taking one unit here,",00:54:45.130,00:54:46.880
+"and looking at all the units in
+the next layer, because these guys",00:54:46.880,00:54:52.290
+"happen to be affected by x, and
+therefore, happen to be affected by s.",00:54:52.290,00:54:57.130
+"Remember delta is partial
+something by partial s.",00:54:57.130,00:54:59.990
+"And I want to get partial this by
+partial s_i, in terms of",00:54:59.990,00:55:03.600
+partial by partial the s's here.,00:55:03.600,00:55:06.120
+I'm going backwards.,00:55:06.120,00:55:07.280
+"So I already computed up to here,
+and now I want to go here.",00:55:07.280,00:55:09.990
+"So now, I need to take into consideration
+all the ways that this",00:55:10.580,00:55:13.680
+"affects the output, so I'm drawing
+the relevant part of the network.",00:55:13.680,00:55:16.600
+This is the quantity that I want.,00:55:19.030,00:55:20.850
+"I want to evaluate partial
+e by partial s_i",00:55:20.850,00:55:22.980
+"So I want to compute partial by
+partial this fellow.",00:55:22.980,00:55:26.380
+"So now I'm going to apply
+the chain rule again.",00:55:27.040,00:55:30.470
+"I will get partial e by partial these
+fellows, which supposedly in my",00:55:30.470,00:55:35.160
+"mind, I already know.",00:55:35.160,00:55:36.520
+That's the first part of the chain.,00:55:36.520,00:55:38.660
+"Then I'm going to get partial
+this guy by partial x.",00:55:38.660,00:55:47.080
+Fine.,00:55:47.490,00:55:47.780
+"As long as I'm making progress towards
+the destination, I'm OK. You can do it",00:55:47.780,00:55:50.470
+any way you want.,00:55:50.470,00:55:51.230
+"And finally, I'm doing this.",00:55:52.230,00:55:54.880
+Partial x by partial s.,00:55:54.880,00:55:57.620
+So you go through this.,00:55:57.620,00:55:58.860
+"This is partial e by partial the final
+guy, and these guys happens to be",00:55:58.860,00:56:01.390
+intermediate.,00:56:01.390,00:56:03.020
+"However, the way this fellow affects
+the output, it affects",00:56:03.020,00:56:07.670
+all of those guys.,00:56:07.670,00:56:09.860
+"So when I do the chain rule, I need to
+sum up over all the routes that this",00:56:10.520,00:56:15.040
+happens through.,00:56:15.040,00:56:16.280
+"And therefore, I need to sum
+up over all the points",00:56:16.280,00:56:19.940
+here for this quantity.,00:56:19.940,00:56:22.640
+"The way e is affected by this guy is
+through the way e is affected by this",00:56:22.640,00:56:27.070
+"fellow through here, or by this fellow
+through here, et cetera.",00:56:27.070,00:56:30.820
+"And therefore, the rule in this
+case would be the sum.",00:56:30.820,00:56:34.020
+"It looks like a very hairy one,
+but it's no big deal.",00:56:35.890,00:56:39.790
+"Now let's collapse it to
+something very friendly.",00:56:39.790,00:56:42.530
+It's a sum of something.,00:56:42.530,00:56:43.810
+Let's take it one term at a time.,00:56:44.110,00:56:45.320
+We will take this.,00:56:45.910,00:56:46.900
+"What is the partial derivative
+of x_i by s_i.",00:56:46.900,00:56:53.720
+"x_i simply happens to be the
+nonlinearity applied to this one.",00:56:54.520,00:56:57.640
+"So all I need to do is just
+differentiate that nonlinearity, and",00:56:57.640,00:57:01.350
+apply it to the value at hand.,00:57:01.350,00:57:02.750
+So what do you get?,00:57:03.480,00:57:05.380
+You get theta dash,00:57:05.380,00:57:06.870
+applied to the signal.,00:57:06.870,00:57:08.650
+I can have that.,00:57:09.180,00:57:10.330
+How about the next guy?,00:57:11.360,00:57:13.430
+That's an easy one.,00:57:13.430,00:57:14.770
+"What is the derivative
+of this fellow by x_i?",00:57:14.770,00:57:17.690
+"Yeah, this is just the sum.",00:57:17.690,00:57:19.130
+"I get the coefficient, the coefficient
+happens to be this thing, so that is",00:57:19.130,00:57:22.280
+what I get.,00:57:22.280,00:57:22.730
+Do I have all of this?,00:57:25.550,00:57:26.420
+Yes.,00:57:26.420,00:57:27.120
+The next guy is the interesting one.,00:57:27.120,00:57:29.320
+How do I get this?,00:57:29.320,00:57:30.570
+"Well, you don't get it. You already
+have it by recursion.",00:57:30.570,00:57:33.280
+This happens to be the old delta.,00:57:33.280,00:57:37.000
+"So now I have the lower delta
+in terms of the upper delta.",00:57:37.000,00:57:39.860
+And I have the top delta in hand.,00:57:39.860,00:57:42.601
+We are done.,00:57:42.990,00:57:43.842
+"We just have to keep doing this,
+and we'll get all the delta's.",00:57:43.842,00:57:48.950
+"And the form for the delta
+is interesting.",00:57:48.950,00:57:50.900
+"So this fellow does not depend on
+the summation index j, right?",00:57:51.430,00:57:55.750
+"And this happens to be the derivative
+of the tanh, so it's 1",00:57:56.030,00:57:59.590
+minus that squared.,00:57:59.590,00:58:00.910
+"So when you get 1 minus that
+squared, you get this and you",00:58:00.910,00:58:02.980
+can factor it out.,00:58:02.980,00:58:04.950
+"The rest of it depends on j and
+you are summing this up and",00:58:04.950,00:58:07.880
+you're getting this.,00:58:07.880,00:58:09.490
+"Now isn't it lovely to have
+an equation like this?",00:58:09.490,00:58:12.390
+"This looks exactly like
+the forward pass.",00:58:12.390,00:58:16.240
+"We're taking something, combining it
+with the weights, summing up, and",00:58:16.240,00:58:20.070
+getting this.,00:58:20.070,00:58:21.060
+"Instead of applying a nonlinearity,
+which we did in the forward, we're",00:58:21.060,00:58:23.800
+multiplying by this funny guy.,00:58:23.800,00:58:26.170
+"So it looks like a very much
+similar situation.",00:58:26.170,00:58:29.850
+"But when you are done, you are going
+to get a bunch of delta's at every",00:58:29.850,00:58:33.400
+position where an s is.,00:58:33.400,00:58:35.220
+"And from our previous experience, then
+we're ready to go with the delta and",00:58:36.090,00:58:40.140
+"the x, and adjust the weight that is
+sandwiched between them accordingly.",00:58:40.140,00:58:45.390
+"So you see the reverse,
+now we are going down.",00:58:46.970,00:58:49.990
+"It's delta's going down, the
+arrows are going down.",00:58:49.990,00:58:53.170
+It used to go up.,00:58:53.440,00:58:54.490
+So let's do this.,00:58:54.710,00:58:57.240
+"And then instead of having theta here,
+we are multiplying by something, and",00:58:57.240,00:59:00.430
+"what we're multiplying
+by is this quantity.",00:59:00.430,00:59:02.500
+"That's what you do in the
+backward propagation.",00:59:02.700,00:59:05.490
+So here's the algorithm.,00:59:06.330,00:59:08.270
+"First, the picture
+of the algorithm.",00:59:08.270,00:59:11.370
+That's all you do.,00:59:11.370,00:59:13.140
+"You take the input, you compute the x's
+forward, you get the error, you",00:59:13.140,00:59:17.590
+compute the delta's backward.,00:59:17.590,00:59:19.095
+"This is supposed to be delta-- delta
+has disappeared for some reason.",00:59:19.580,00:59:22.230
+The delta and the x,00:59:23.090,00:59:25.750
+determine the weight in between.,00:59:25.750,00:59:27.660
+"So if you put the algorithm this way,
+you initialize the weights and then",00:59:28.400,00:59:34.820
+"you pick n at random-- that's what makes
+stochastic gradient descent.",00:59:34.820,00:59:37.730
+You do the forward run I described.,00:59:37.730,00:59:39.580
+"You do the backward run, and then you
+update the weights according to the",00:59:39.580,00:59:43.580
+"input and the delta that are
+surrounding the weight.",00:59:43.580,00:59:46.450
+"You keep this until it's time to stop,
+and then you return the final weights,",00:59:47.000,00:59:50.310
+and that is your algorithm.,00:59:50.310,00:59:51.520
+"Now there are obviously all the
+questions: the termination criterion, the",00:59:52.300,00:59:55.520
+"local minima, all of that. That's the
+thing we discussed in the Q&amp;A session.",00:59:55.520,00:59:58.370
+"There's something specific here that
+I want to emphasize, which is the",00:59:58.370,01:00:02.050
+initialization.,01:00:02.050,01:00:03.100
+"Because it's very tempting to initialize
+weights to 0, which worked",01:00:03.100,01:00:06.160
+"actually very well with
+logistic regression.",01:00:06.160,01:00:08.430
+"If you initialize weights to 0 here,
+bad things will happen.",01:00:08.430,01:00:11.980
+So let me describe why.,01:00:11.980,01:00:13.590
+"First, the prescription is to
+initialize them at random.",01:00:13.590,01:00:18.840
+Why is initializing 0 bad?,01:00:18.840,01:00:21.570
+"If you follow the math, you realize that
+if I have all the weights being",01:00:21.570,01:00:25.530
+"0, which is what that means, and you
+have multiple layers, then either the",01:00:25.530,01:00:30.710
+x's or the delta's will be 0.,01:00:30.710,01:00:34.350
+"In every possible weight, one
+of the two guys that are",01:00:34.350,01:00:36.700
+sandwiching it will be 0.,01:00:36.700,01:00:38.790
+"And therefore, the adjustment of the
+weight according to your criterion",01:00:38.790,01:00:42.490
+would be 0.,01:00:42.490,01:00:43.420
+"And therefore, nothing will happen.",01:00:43.420,01:00:45.170
+"This is just because of the terrible
+coincidence that you are perfectly at",01:00:46.010,01:00:50.030
+"the top of a hill, unable
+to break the symmetry.",01:00:50.030,01:00:54.430
+So you're not moving.,01:00:54.630,01:00:55.780
+"If I just nudge you a little
+bit, you will be slipping",01:00:56.300,01:00:58.800
+like there's no tomorrow.,01:00:58.800,01:01:00.030
+"But as long as you're there,
+you're not moving.",01:01:00.030,01:01:02.550
+"Pretty much like you think of a donkey
+that is hungry, so they put two sacks",01:01:02.550,01:01:07.210
+of food on top of it.,01:01:07.210,01:01:08.330
+All it needs to do is eat or eat.,01:01:09.010,01:01:10.430
+"Unfortunately, it's perfectly symmetric,
+and the donkey cannot break",01:01:11.260,01:01:14.920
+"the symmetry, and it starves to death.",01:01:14.920,01:01:17.570
+So we just want to break the symmetry.,01:01:18.170,01:01:19.650
+"So we introduce randomness: shake
+the food a little bit, which is",01:01:19.650,01:01:22.820
+"here to just start with
+a random thing.",01:01:22.820,01:01:25.500
+"Choose weights that are small and
+random, and you will be OK.",01:01:25.500,01:01:28.005
+"One final remark and we'll call it a day,
+which is about the hidden layers.",01:01:31.660,01:01:37.570
+So let's look at the network again.,01:01:37.570,01:01:40.510
+This is the network.,01:01:40.510,01:01:42.040
+"We have an understanding of this fellow,
+and we have an understanding of",01:01:42.040,01:01:44.770
+the output.,01:01:44.770,01:01:45.170
+"And the hidden layers were just a means
+for us to get more sophisticated",01:01:45.170,01:01:49.240
+dependency.,01:01:49.240,01:01:50.380
+"So, if you think what the hidden layers
+do, they are actually doing",01:01:51.500,01:01:56.890
+"a nonlinear transform, aren't they?",01:01:56.890,01:02:00.020
+"I have these raw inputs, and I'm passing
+them through this thing, so I",01:02:00.020,01:02:04.050
+"can look at these guys and
+consider them features.",01:02:04.050,01:02:07.560
+"And because they are higher-order
+features, I'm able to implement",01:02:08.250,01:02:11.090
+a better one.,01:02:11.090,01:02:11.810
+"And this one will be features
+of features, and so on.",01:02:11.810,01:02:15.170
+"Now the only difference,",01:02:16.090,01:02:17.330
+"and it's a big difference,",01:02:17.330,01:02:18.620
+"between the nonlinear transform here and
+the nonlinear transform we applied",01:02:18.620,01:02:22.390
+"explicitly in the case of
+linear models, is that",01:02:22.390,01:02:25.110
+these are learned features.,01:02:25.110,01:02:28.910
+Remember when I told you,01:02:29.870,01:02:30.890
+"not to look at the data before
+you choose the transform.",01:02:30.890,01:02:34.370
+"The network is looking at
+the data all it wants.",01:02:34.370,01:02:37.680
+"It is actually adjusting the weights
+to get the proper transform",01:02:37.980,01:02:40.890
+that fits the data.,01:02:40.890,01:02:42.160
+"And this is not bothering me, because I
+have already charged the network for",01:02:42.800,01:02:46.530
+the proper VC.,01:02:46.530,01:02:48.570
+"The weights here that constitute that
+guy contribute to the VC dimension.",01:02:49.190,01:02:53.190
+"The VC dimension is more or less
+the number of weights.",01:02:53.190,01:02:56.120
+That's the rule of thumb here.,01:02:56.120,01:02:57.060
+"So it is completely fine to look at the
+data, because it's not looking at",01:02:57.710,01:03:01.780
+"the data that is bad, it is looking at
+the data without accounting for it",01:03:01.780,01:03:04.880
+that is bad.,01:03:04.880,01:03:05.770
+"And here it's built in that
+it's accounted for.",01:03:05.770,01:03:08.370
+"So this is nice, because now you can
+see it's not a generic nonlinear",01:03:09.040,01:03:12.270
+"transformation, it's a nonlinear
+transformation with a view to matching",01:03:12.270,01:03:15.400
+"very specifically the dependency
+that I'm after.",01:03:15.400,01:03:18.040
+"So that's the source of
+efficiency there.",01:03:18.040,01:03:20.020
+"Now comes the question,
+can I interpret what the",01:03:20.770,01:03:24.210
+hidden layers are doing?,01:03:24.210,01:03:25.620
+So I'll tell you a story.,01:03:25.620,01:03:26.530
+"Early in my career, I was doing
+a consulting job for a bank, and they",01:03:26.530,01:03:30.780
+"wanted to apply neural networks
+to credit approval.",01:03:30.780,01:03:33.240
+Very easy.,01:03:34.300,01:03:34.890
+"Give me the data, we'll do it.",01:03:34.890,01:03:36.210
+We'll take a fairly simple network.,01:03:36.210,01:03:38.110
+"So one of the people in the bank that
+I was dealing with",01:03:38.110,01:03:43.350
+"came and asked me: can you please tell
+me what the hidden layers are doing?",01:03:43.350,01:03:46.700
+"So in my mind I think, is he doubting
+my competence or something?",01:03:47.550,01:03:50.850
+"He wants reassurance or
+something like that?",01:03:50.850,01:03:53.070
+"I mean, the performance is perfect,
+and he can try it out of",01:03:53.070,01:03:55.430
+sample and whatnot.,01:03:55.430,01:03:56.760
+"But then I realized that the reason he
+is asking for the interpretation has",01:03:56.760,01:03:59.050
+"absolutely nothing to do
+with performance.",01:03:59.050,01:04:01.460
+It's legal.,01:04:01.460,01:04:04.300
+"If you deny credit for someone,
+you have to tell them why.",01:04:04.300,01:04:09.940
+"And you cannot send a letter
+to someone saying: sorry,",01:04:09.940,01:04:12.140
+"we denied credit because lambda
+is less than 0.5.",01:04:12.140,01:04:15.136
+[LAUGHTER],01:04:15.136,01:04:17.060
+So that's the reason.,01:04:17.060,01:04:18.050
+"But the fact that you are not able to
+interpret what happens in machine",01:04:18.050,01:04:22.970
+"learning is very, very common.",01:04:22.970,01:04:24.730
+Go back to the movie example.,01:04:24.730,01:04:26.900
+We get the factors.,01:04:27.600,01:04:28.780
+We predict the ratings.,01:04:28.780,01:04:30.400
+"And let's say you apply the
+system, and you keep",01:04:30.400,01:04:31.890
+recommending movies to someone.,01:04:31.890,01:04:33.640
+"And the person is so impressed. You are
+recommending movies that are on the",01:04:33.640,01:04:36.620
+spot every time.,01:04:36.620,01:04:37.830
+"So they come and ask
+you: how do you do it?",01:04:37.830,01:04:40.070
+"You tell him, because factor number 7
+is very important in your case.",01:04:40.780,01:04:46.070
+"So he says: OK, great.",01:04:46.460,01:04:47.670
+So what is factor number 7?,01:04:47.670,01:04:50.710
+And then you say--,01:04:50.710,01:04:52.830
+"lots of hand waving. You have no idea what
+factor number 7 is, but",01:04:52.830,01:04:55.440
+factor number 7 is important in your case.,01:04:55.440,01:04:57.370
+"Very common in machine learning
+because you remember, when the",01:04:57.960,01:05:01.700
+"learning algorithm tried to learn, it
+tried to produce the right hypothesis.",01:05:01.700,01:05:05.470
+"It didn't try to explain to you
+what the right hypothesis is.",01:05:05.470,01:05:08.990
+That was the goal.,01:05:08.990,01:05:10.240
+"Let me stop here, and then take
+questions after a short break.",01:05:11.300,01:05:15.270
+Let's start the Q&amp;A.,01:05:19.940,01:05:25.420
+MODERATOR: The first question is,01:05:25.420,01:05:29.130
+"could you explain what people
+mean by using",01:05:29.130,01:05:31.740
+a momentum term in neural networks?,01:05:31.740,01:05:33.900
+"PROFESSOR: Momentum is used
+as an enhancement for",01:05:33.900,01:05:37.200
+"the batch gradient descent, in",01:05:37.200,01:05:39.700
+"order to get some effect
+of the 2nd order.",01:05:39.700,01:05:43.150
+"So the idea is that if you use gradient
+descent, gradient descent is",01:05:43.150,01:05:46.410
+"using strictly 1st order,
+just the slope.",01:05:46.410,01:05:49.320
+"And if the surface is changing so
+quickly, which means that the second",01:05:49.320,01:05:53.680
+"order is important, you want to get
+a glimpse of that without having to go",01:05:53.680,01:05:58.620
+"through the trouble of computing the
+Hessian, the 2nd-order quantities.",01:05:58.620,01:06:02.460
+"So if you take what's called a momentum
+term, which means that you",01:06:02.460,01:06:07.170
+"take a little bit of the step that you
+had previously, and a bit less of the",01:06:07.170,01:06:12.840
+"previous step, and so on,",01:06:12.840,01:06:14.620
+"you end up accounting for
+some aspect of this.",01:06:14.620,01:06:17.080
+"Because if the surface is curved, this
+goes one way, and if the surface is",01:06:17.080,01:06:24.450
+"flat, it goes the other way.",01:06:24.450,01:06:26.540
+So I didn't--,01:06:26.540,01:06:28.910
+"There are lots of heuristics.
+The momentum is one of them.",01:06:28.910,01:06:32.710
+"For stochastic gradient descent,
+the way I described it,",01:06:32.710,01:06:36.160
+actually works very nicely.,01:06:36.160,01:06:38.430
+"And in all honesty, if I have to go
+to 2nd order I will just go for",01:06:38.430,01:06:41.870
+"conjugate gradient, because it's
+so principled and really",01:06:41.870,01:06:44.930
+gets the bottom line.,01:06:44.930,01:06:48.390
+"I'm not big on using momentum in my
+own applications, but other people",01:06:48.390,01:06:52.490
+have found it to be useful.,01:06:52.490,01:06:54.001
+"MODERATOR: Some people are asking about
+the popularity of neural networks, that it",01:06:57.090,01:07:02.270
+has had its ups and downs.,01:07:02.275,01:07:03.840
+"So what's the state of the
+art in neural networks",01:07:03.840,01:07:06.830
+research if there's any?,01:07:06.830,01:07:09.070
+"PROFESSOR: Initially, neural networks
+were going to solve",01:07:09.070,01:07:12.050
+the problems of the universe.,01:07:12.050,01:07:13.310
+So the usual hype.,01:07:13.570,01:07:14.510
+"And hype in some sense is not bad for
+research, because it gets people",01:07:14.890,01:07:18.060
+"excited and gets enough people to
+work to get the real results.",01:07:18.060,01:07:21.100
+"And then when it settles down, there's
+a critical mass of work.",01:07:21.100,01:07:23.640
+"So I don't think this was
+a bad thing in hindsight.",01:07:23.640,01:07:26.810
+"But what happened is that because of the
+simplicity of the network and the",01:07:26.810,01:07:30.350
+"simplicity of the algorithm, people
+used them in many applications.",01:07:30.350,01:07:34.760
+And it became a standard tool.,01:07:34.760,01:07:37.020
+"And there are lots of tools you will
+find in all kinds of software, where",01:07:37.020,01:07:40.160
+you just apply a neural network.,01:07:40.160,01:07:41.530
+"And until this very day, there
+are companies that use",01:07:41.530,01:07:43.600
+"them very, very regularly.",01:07:43.600,01:07:44.920
+"So they are post-research, so to speak.",01:07:44.920,01:07:47.940
+"There's very little done in terms of
+research. The basic questions have",01:07:47.940,01:07:50.502
+been answered.,01:07:50.502,01:07:51.370
+"But in terms of being used in
+commerce and industry,",01:07:51.370,01:07:53.930
+they are used.,01:07:53.930,01:07:55.660
+"They have very serious competitors,
+like, for example, support vector",01:07:55.660,01:07:58.530
+"machines and lots of other models,
+but they're still in use.",01:07:58.530,01:08:01.880
+"Not the top choice nowadays, but every
+now and then, someone will publish",01:08:01.880,01:08:06.660
+"something and he did this, and
+he will have used a neural",01:08:06.660,01:08:09.200
+network and got good results.,01:08:09.200,01:08:12.880
+MODERATOR: OK.,01:08:12.880,01:08:14.310
+How to choose the number of layers?,01:08:14.310,01:08:17.090
+PROFESSOR: This is model selection.,01:08:17.090,01:08:19.450
+"So the neural networks is really
+a class of models-- a class of",01:08:19.460,01:08:23.840
+hypothesis sets--,01:08:23.840,01:08:24.960
+"and there are obviously bunch
+of things to choose.",01:08:24.960,01:08:27.109
+How many layers?,01:08:27.109,01:08:28.380
+And how many units per layer?,01:08:28.380,01:08:30.250
+"So if you look from an approximation
+point of view, because of the sum of",01:08:30.680,01:08:33.609
+"products in logic, you can implement
+anything using a fairly shallow",01:08:33.609,01:08:38.340
+"network, provided that you have
+enough neurons in that layer.",01:08:38.340,01:08:42.020
+"But that's not an approximation
+question, we are talking about",01:08:42.020,01:08:44.340
+a learning question.,01:08:44.340,01:08:45.640
+"So the real question is, how
+many weights can I afford?",01:08:45.640,01:08:50.189
+"And then the question of organizing
+them is less severe.",01:08:50.189,01:08:54.770
+So how many weights can I afford?,01:08:54.770,01:08:56.160
+"Because they reflect directly on the
+VC dimension and the number of",01:08:56.160,01:08:58.580
+examples I need.,01:08:58.580,01:08:59.770
+"And there are actually methods that,
+given a particular architecture, it",01:08:59.770,01:09:03.454
+"tries to kill some weights in order to
+reduce the number of parameters, as",01:09:03.454,01:09:07.310
+a method for regularization.,01:09:07.310,01:09:08.620
+"And we'll allude to that, when
+we get to regularization.",01:09:08.620,01:09:10.960
+"But basically, this is a model selection
+question, where model",01:09:10.960,01:09:14.439
+selection tools apply.,01:09:14.439,01:09:15.729
+"The most profound of them will be
+validation that we will have a lecture",01:09:15.729,01:09:19.180
+dedicated to.,01:09:19.180,01:09:20.430
+MODERATOR: Can you--,01:09:23.950,01:09:25.530
+"why was tanh, the hyperbolic
+tan used?",01:09:25.540,01:09:31.540
+PROFESSOR: Why is it used?,01:09:31.540,01:09:32.210
+MODERATOR: Yes.,01:09:32.210,01:09:32.590
+PROFESSOR: OK.,01:09:32.590,01:09:33.279
+"I want a soft threshold, and I want it
+to go from -1 to +1.",01:09:33.279,01:09:37.060
+"And I want it to have a nice analytic
+property that I can differentiate it.",01:09:37.060,01:09:41.649
+These are basically the three reasons.,01:09:41.649,01:09:44.240
+"In the other case, it was exactly the
+same except that I didn't want",01:09:44.240,01:09:46.760
+"something to go from
+-1 to +1.",01:09:46.760,01:09:48.590
+"I wanted something to go from 0 to 1,
+because in logistic regression, I",01:09:48.590,01:09:51.479
+wanted a probability.,01:09:51.479,01:09:52.660
+"Here, I wasn't really interested in
+the continuity for its own sake.",01:09:52.660,01:09:56.000
+"There I was, because it's
+a probability.",01:09:56.000,01:09:57.915
+"Here I was interested in the continuity
+just because I wanted the",01:09:57.915,01:10:00.780
+"analytic property of differentiation,
+in order to apply gradient descent.",01:10:00.780,01:10:04.050
+"But what I care about is going from
+-1 to +1, which are the hard",01:10:04.050,01:10:08.330
+decision version.,01:10:08.330,01:10:09.580
+"MODERATOR: Will the final weights
+depend on the order, the way that",01:10:11.990,01:10:16.530
+the samples are being picked?,01:10:16.530,01:10:18.483
+PROFESSOR: Correct.,01:10:18.483,01:10:19.635
+"They will depend on the
+initial condition.",01:10:19.635,01:10:21.260
+"They will depend on the order
+of presentation.",01:10:21.260,01:10:23.820
+"They will depend on that, but that
+is inherent in the game.",01:10:23.820,01:10:26.120
+"We are never assured of getting to the
+perfect minimum, the global minimum.",01:10:26.120,01:10:29.510
+"We will get to a local minimum,
+and anything will affect us.",01:10:29.510,01:10:32.280
+"But the whole idea is that you are
+going to arrive at a minimum.",01:10:32.970,01:10:36.000
+"And if you do what we suggested in the
+last lecture in the Q&amp;A session, that",01:10:36.000,01:10:40.190
+"you just start from different starting
+points, and have different",01:10:40.190,01:10:44.610
+randomization for the presentation.,01:10:44.610,01:10:46.400
+"This randomization could be, you
+pick a point at random.",01:10:46.400,01:10:49.460
+"You could pick a random permutation,
+and then go through the examples",01:10:49.460,01:10:53.190
+"according to that permutation,
+and then change permutation",01:10:53.190,01:10:55.390
+from epoch to epoch.,01:10:55.390,01:10:56.540
+"Or you could simply be lazy and
+just do it sequentially.",01:10:56.540,01:10:59.380
+"And all of these, more or less,
+get you there-- will get you",01:10:59.380,01:11:03.660
+with different results.,01:11:03.660,01:11:04.690
+"So if you try a variety of those,
+let's say 100 tries, and then",01:11:04.690,01:11:10.560
+"pick the best minimum you have, you will
+get a pretty decent minimum, and",01:11:10.560,01:11:14.550
+"will be fairly more robust in
+terms of independence of the",01:11:14.550,01:11:17.590
+"particular choices that you made in
+any of the 100 cases.",01:11:17.590,01:11:21.370
+"MODERATOR: Could you go
+back to slide 12?",01:11:25.470,01:11:27.110
+There.,01:11:30.670,01:11:31.460
+"So if you could review the two red
+flags for generalization and",01:11:31.460,01:11:34.770
+optimization?,01:11:34.770,01:11:35.770
+PROFESSOR: OK.,01:11:35.770,01:11:36.500
+"So the top part of the figure showed
+that we are dealing with",01:11:36.500,01:11:40.160
+"a sophisticated model, because
+in spite of the fact that the",01:11:40.160,01:11:42.790
+unit of it is linear--,01:11:42.790,01:11:44.270
+the perceptron--,01:11:44.270,01:11:45.590
+"you can implement a circle, just for
+illustration. You can implement",01:11:45.590,01:11:48.290
+"a pretty difficult surface by
+combining those fellows.",01:11:48.290,01:11:52.170
+"When you have a powerful model,",01:11:52.170,01:11:53.820
+"it means you can express a lot of things,
+and therefore the question of",01:11:53.820,01:11:56.290
+"generalization comes in because, if you
+can express a lot of things, you have",01:11:56.290,01:11:59.440
+a big hypothesis set.,01:11:59.440,01:12:00.970
+"And then the question of zooming in
+and generalization-- the stuff we",01:12:00.970,01:12:03.470
+handled in theory.,01:12:03.470,01:12:04.820
+"But the comment here is that we are
+going to have the VC dimension of",01:12:04.820,01:12:07.910
+"whatever model we have, and the
+VC dimension summarizes all",01:12:07.910,01:12:11.570
+generalization consideration.,01:12:11.570,01:12:13.180
+"We may decide that this is too
+sophisticated a model, because we look",01:12:13.180,01:12:16.300
+"at the VC dimension of it and the
+resources of data we have, and we",01:12:16.300,01:12:19.365
+decide we just cannot generalize.,01:12:19.365,01:12:20.780
+"But at least it's under control, because
+we have the number that",01:12:20.780,01:12:23.350
+describes it.,01:12:23.350,01:12:24.330
+"In terms of optimization, now it's not
+like I have the target written here",01:12:24.330,01:12:28.790
+and I'm just designing perceptrons.,01:12:28.790,01:12:30.610
+"I'm given a data set--
+inputs, outputs--",01:12:30.610,01:12:33.260
+"and I have a multilayer perceptron,
+each of which is computing",01:12:33.260,01:12:37.250
+"a perceptron function, of a perceptron
+function, of a perceptron function.",01:12:37.250,01:12:40.350
+"And now I want to choose the weights
+for the different layers, in",01:12:40.350,01:12:42.680
+order to get there.,01:12:42.680,01:12:44.430
+"So obviously that's a very difficult
+combinatorial optimization, because it",01:12:44.740,01:12:47.990
+was difficult even for one perceptron.,01:12:47.990,01:12:50.390
+"That's why the optimization
+here is a red flag.",01:12:50.390,01:12:52.820
+"That's why we needed to go for
+an approximation using a continuous",01:12:52.820,01:12:55.940
+"function, where we have something like
+gradient descent that can work for us.",01:12:55.940,01:13:00.840
+"MODERATOR: You mentioned the VC
+dimension is roughly the number of",01:13:00.840,01:13:03.530
+parameters.,01:13:03.530,01:13:04.030
+So they want to comment on it.,01:13:04.030,01:13:05.380
+"PROFESSOR: We are not going to be
+as lucky as the case of",01:13:05.380,01:13:09.540
+"perceptrons, of getting the
+VC dimension exactly.",01:13:09.540,01:13:11.690
+"In this case, there are some analyses.",01:13:12.290,01:13:13.690
+"And because the weights are not
+completely independent in their",01:13:13.690,01:13:17.560
+"impact-- you can play around with
+weights in different layers and",01:13:17.560,01:13:20.420
+"compensate for one another, and there
+are some permutations and whatnot.",01:13:20.420,01:13:23.590
+"Therefore, they don't contribute full
+degrees of freedom, each of them.",01:13:23.590,01:13:27.700
+"So you can upper-bound it by the number
+of weights, and lower-bound it by",01:13:27.700,01:13:30.360
+"something fairly close to the number
+of weights, but smaller.",01:13:30.360,01:13:32.810
+"So as a rule of thumb, you take
+it as the number of weights",01:13:32.810,01:13:35.390
+being the VC dimension.,01:13:35.390,01:13:36.470
+"And that has stood the test
+of time, in terms of practice.",01:13:36.470,01:13:39.840
+"MODERATOR: In terms of the interpretation,
+by just looking at the first layer,",01:13:42.680,01:13:48.240
+it's not enough to interpret the--,01:13:48.240,01:13:50.430
+"PROFESSOR: Oh, if your
+interpretation is to say: yeah,",01:13:50.430,01:13:53.300
+"I understand perfectly what
+the first layer does.",01:13:53.300,01:13:56.220
+"It gives 0.3 weight to the first input,
+and 0.7 weight to the second input,",01:13:56.220,01:14:00.910
+"and minus 0.4 weight to the third
+input, and sums them up and then",01:14:00.910,01:14:03.940
+"compares to the threshold,
+which is 0.23.",01:14:03.940,01:14:06.890
+"If you take that as an interpretation,
+then they are interpretable.",01:14:06.890,01:14:09.380
+"But an interpretation here,
+what people mean, is interpretation",01:14:09.380,01:14:11.705
+that makes sense.,01:14:11.705,01:14:12.810
+"That, for example, your interpretation
+in the case of movies, you say",01:14:13.390,01:14:16.200
+this factor is a comedy content.,01:14:16.200,01:14:18.160
+People can relate to that.,01:14:18.160,01:14:19.260
+"But what we are saying is that the
+factor is relevant to the rating, but",01:14:19.750,01:14:23.100
+"cannot be articulated in simple terms
+that people would consider",01:14:23.100,01:14:26.090
+interpretation.,01:14:26.090,01:14:26.940
+And similarly for the hidden layer here.,01:14:26.940,01:14:28.690
+"MODERATOR: Can you say what happened
+in the end with the bank?",01:14:31.430,01:14:34.780
+What explanation was taken in the end?,01:14:34.780,01:14:39.120
+"PROFESSOR: No, I can't.",01:14:39.120,01:14:40.370
+[LAUGHING],01:14:40.370,01:14:43.170
+"It's a private consultation.
+I cannot comment in detail.",01:14:43.170,01:14:45.480
+"But basically, the question was
+raised and it made the point.",01:14:45.480,01:14:52.080
+"MODERATOR: Can you explain again why in
+the past lecture, you mentioned that",01:14:52.080,01:14:56.670
+data snooping is not a good practice?,01:14:56.670,01:14:59.670
+"PROFESSOR: Data snooping is a bad
+practice if you don't account for it.",01:14:59.670,01:15:03.890
+"When we get to data snooping--
+we will discuss it in one of the",01:15:03.900,01:15:06.360
+"lectures, we will say that you either
+avoid it or account for it.",01:15:06.360,01:15:09.800
+"The problem is that if you data-snoop,
+and you don't account for it in terms",01:15:10.400,01:15:14.530
+"of its impact on generalization,
+you end up with something that is",01:15:14.530,01:15:17.390
+extremely optimistic.,01:15:17.390,01:15:18.600
+"You go to the bank,",01:15:18.600,01:15:19.300
+"if you do a private consulting job for
+a bank, and tell them: I have something",01:15:19.300,01:15:22.420
+that predicts the stock market great.,01:15:22.420,01:15:24.180
+And then you give them.,01:15:24.810,01:15:25.690
+"And when they go to stock market,
+it falls on its head,",01:15:25.690,01:15:29.200
+and that's the problem.,01:15:29.200,01:15:30.600
+"Because you thought it would
+generalize, and it didn't.",01:15:30.600,01:15:32.780
+"So data snooping, in the way I presented
+it, was the fact that we",01:15:32.780,01:15:37.820
+didn't account for that--,01:15:37.820,01:15:39.090
+"we learned in our mind, but we didn't
+account for the VC dimension of the",01:15:39.090,01:15:42.060
+space we worked on.,01:15:42.060,01:15:43.010
+"That was the problem, rather than
+looking at the data in and of itself.",01:15:43.010,01:15:46.480
+"But since the damage is almost
+unavoidable, it's a very good practice",01:15:46.480,01:15:50.280
+"not to look at the data, because the
+accounting is difficult in this case.",01:15:50.280,01:15:53.840
+"In the case of neural networks, there
+was looking at the data in a very",01:15:53.840,01:15:56.380
+prescribed way.,01:15:56.380,01:15:57.220
+"A learning algorithm was actually
+trying to find the weights that",01:15:57.220,01:16:00.240
+constitute the hidden layer.,01:16:00.240,01:16:02.280
+"So therefore, it is looking
+at the data in abundance.",01:16:02.280,01:16:06.270
+"On the other hand, the accounting has
+already been taken into consideration,",01:16:06.270,01:16:08.840
+"because, as I mentioned, the weights
+have been counted as contributing to",01:16:08.840,01:16:12.650
+the VC dimension.,01:16:12.650,01:16:13.620
+"So we know the impact on the
+generalization behavior.",01:16:13.620,01:16:15.680
+"MODERATOR: Does the range of the weights
+alter the choice of eta?",01:16:19.520,01:16:25.410
+PROFESSOR: Which weight?,01:16:25.410,01:16:26.020
+"Repeat the question, please.",01:16:26.020,01:16:26.840
+"MODERATOR: Does the range of
+the weights affect the value of eta?",01:16:26.840,01:16:31.420
+"PROFESSOR: Let's say that
+you're making decisions.",01:16:31.420,01:16:35.250
+"So let's say that you're
+making decisions.",01:16:35.250,01:16:35.260
+"Eventually, you will take the output layer
+and hard-threshold it, as if you are",01:16:35.920,01:16:41.890
+scaling the weights.,01:16:41.890,01:16:43.070
+"But the intermediate weights, the
+actual value matters because the",01:16:43.070,01:16:48.390
+"actual value of their output
+will contribute to the",01:16:48.390,01:16:50.190
+next layer.,01:16:50.190,01:16:51.300
+"So you cannot just say that I'm
+scale-invariant or anything like that.",01:16:51.300,01:16:54.370
+"But supposedly, the learning rate was
+only a way to arrive at a minimum of",01:16:54.370,01:16:59.980
+the error function.,01:16:59.980,01:17:01.910
+"And the minimum of the error function
+will happen at a particular",01:17:01.910,01:17:03.990
+combination of the weights.,01:17:03.990,01:17:05.560
+"So it shouldn't affect it, in the
+sense of a predictable way.",01:17:05.560,01:17:10.050
+"Obviously if I change the rate, I may
+end up in a different spot,",01:17:10.050,01:17:13.810
+"but it's not like I will end up in
+a better spot or a worse spot if",01:17:13.810,01:17:17.940
+I use a reasonable learning rate.,01:17:17.940,01:17:20.010
+"Yes it does affect it, but it affects
+it in an unpredictable way.",01:17:20.010,01:17:22.900
+"Pretty much like you can say:
+how does the initial",01:17:22.900,01:17:25.510
+condition affect the result?,01:17:25.510,01:17:27.520
+"Well it affects it, but it affects it in
+a random way, and you're better off",01:17:27.520,01:17:30.570
+"just averaging over a number of cases,
+or picking from a number of cases, in",01:17:30.570,01:17:33.400
+"order to immunize against
+that type of variation.",01:17:33.400,01:17:38.630
+"MODERATOR: Is there a relation between
+neural networks and genetic",01:17:38.630,01:17:41.120
+algorithms?,01:17:41.120,01:17:43.950
+"PROFESSOR: I guess both of
+them appeal to someone who's",01:17:43.950,01:17:46.480
+interested in a biology reflection.,01:17:46.480,01:17:49.480
+"Genetic algorithms are optimization
+techniques, based on getting",01:17:49.480,01:17:52.030
+"a generation and having mating and
+keeping the good genetic properties,",01:17:52.030,01:17:56.340
+so it doesn't apply.,01:17:56.340,01:17:57.990
+"Everything in machine learning has been
+applied to everything.",01:17:57.990,01:18:02.100
+"So there were actually people trying to
+train neural networks using genetic",01:18:02.100,01:18:05.110
+algorithms.,01:18:05.110,01:18:05.880
+"You'll find in the literature
+all combinations.",01:18:05.880,01:18:07.620
+"But at a basic level, neural network
+is a model.",01:18:07.620,01:18:10.930
+"Genetic algorithm is an optimization
+technique.",01:18:10.930,01:18:13.410
+"And therefore, there's really no
+relationship between them.",01:18:13.410,01:18:18.800
+MODERATOR: Small confusion.,01:18:18.800,01:18:20.590
+"Does in-sample training constitute
+looking at the data?",01:18:20.600,01:18:24.000
+PROFESSOR: The strict answer is yes.,01:18:26.210,01:18:28.315
+You look at the data all too well.,01:18:28.320,01:18:30.160
+"You're are actually looking at the data,
+and you're trying to minimize the",01:18:30.160,01:18:33.490
+"performance of the data, and all of
+that, which again is fine as long as",01:18:33.490,01:18:37.220
+"you have already put into account
+that the way you're navigating the",01:18:37.220,01:18:42.000
+"weight space-- the weight space
+has limited VC dimension.",01:18:42.000,01:18:44.430
+"And therefore, when you do that and you
+get to something, you still have",01:18:44.430,01:18:48.450
+"a guarantee of generalization from
+what you're arriving at",01:18:48.450,01:18:51.130
+to the out-of-sample.,01:18:51.130,01:18:52.360
+"So the learning algorithm looks at
+the data. That's all it does.",01:18:52.830,01:18:56.570
+It looks at the data.,01:18:56.570,01:18:57.520
+"But it's already-- before we even
+turn the learning algorithm",01:18:58.000,01:19:01.890
+"loose on the data,",01:19:01.890,01:19:03.080
+"we have already chosen
+the hypothesis set.",01:19:03.080,01:19:05.020
+"And we put the generalization
+checks in place.",01:19:05.020,01:19:08.240
+"MODERATOR: What do you recommend,
+implementing your own neural network",01:19:08.240,01:19:11.100
+or using a package?,01:19:11.100,01:19:12.710
+PROFESSOR: It's--,01:19:12.710,01:19:14.400
+"Honestly, it's a borderline case.",01:19:14.820,01:19:18.270
+"For example, if you're doing the
+perceptron, you just write it down.",01:19:18.270,01:19:22.560
+It's so simple.,01:19:22.560,01:19:23.310
+"In neural networks, it's a little bit
+complicated, and there are some",01:19:24.010,01:19:29.250
+bugs that are typical.,01:19:29.250,01:19:31.100
+"I used to have this as an exercise, and
+then I decided that the logistics of",01:19:31.100,01:19:34.230
+"doing it is not worth
+the benefit of it.",01:19:34.230,01:19:36.910
+"So to answer your question,
+I recommend using",01:19:36.910,01:19:39.140
+"a package, for neural networks.",01:19:39.140,01:19:40.981
+MODERATOR: Does analyzing--,01:19:43.570,01:19:46.190
+"performing some sort of sensitivity
+analysis on the weights give us some",01:19:46.190,01:19:51.530
+"information about how the neural
+network--",01:19:51.530,01:19:54.160
+"PROFESSOR: Yeah, there's
+actually work on that.",01:19:54.160,01:19:55.890
+"There are questions of regularization
+based on that, on how",01:19:55.890,01:20:01.990
+"effective the weight is, and the
+disturbance, and whatnot.",01:20:01.990,01:20:05.390
+"There are all kinds of analyses.
+Neural networks have been",01:20:05.390,01:20:08.540
+studied to a great level of detail.,01:20:08.540,01:20:10.500
+"And indeed, the choice of the weights,
+the range of the weight,",01:20:10.500,01:20:13.810
+"perturbation of the weight-- all
+of these have been looked at.",01:20:13.810,01:20:18.300
+"MODERATOR: Are there other models
+that lend themselves more to",01:20:18.300,01:20:21.110
+interpretation?,01:20:21.110,01:20:22.360
+"PROFESSOR: If you have a bunch
+of parameters and the",01:20:26.560,01:20:29.330
+"algorithm is going to choose them,
+then already interpreting those",01:20:29.330,01:20:31.900
+parameters is not clear.,01:20:31.900,01:20:33.080
+"You can artificially put constraints
+in order to make sure,",01:20:33.800,01:20:37.640
+"or you can start from an initial condition
+that already has an interpretation,",01:20:37.640,01:20:40.930
+and you're just fine-tuning it.,01:20:40.930,01:20:43.000
+"But that's if you are very keen
+on the interpretation aspect.",01:20:43.000,01:20:46.160
+"MODERATOR: Going back to
+the first examples,",01:20:49.630,01:20:51.700
+"where there were logic implementations
+with the perceptrons.",01:20:51.700,01:20:56.700
+So there was a confusion.,01:20:58.030,01:20:59.405
+"Are we still trying to learn weights
+here, or we just have them fixed?",01:20:59.405,01:21:03.040
+"PROFESSOR: This was an illustration
+for the fact that when",01:21:06.470,01:21:09.600
+"you combine perceptrons, you're able to
+implement more interesting functions.",01:21:09.600,01:21:14.880
+This didn't touch on learning yet.,01:21:14.880,01:21:17.630
+"After we do that, we found that the
+structure that is multilayered is",01:21:17.630,01:21:20.800
+an interesting model to study.,01:21:20.800,01:21:22.980
+"And from then on, it became
+a learning question.",01:21:22.980,01:21:25.140
+"We had a neural network. We are no
+longer going to look at target",01:21:25.140,01:21:27.850
+"functions, and try to
+choose the neurons.",01:21:27.850,01:21:29.670
+"We are just going to put it as a model,
+and let the learning algorithm choose",01:21:29.670,01:21:32.850
+"the weights, which is backpropagation
+in this case.",01:21:32.850,01:21:35.840
+"MODERATOR: Could you briefly
+explain early stopping?",01:21:35.840,01:21:39.030
+PROFESSOR: OK.,01:21:39.030,01:21:41.520
+"I think it is best described when
+I talk about regularization and",01:21:41.520,01:21:44.840
+validation.,01:21:44.840,01:21:45.950
+"It is basically a way to prevent
+overfitting, which is the next topic.",01:21:45.950,01:21:52.690
+"So I think it will be much better
+understood in the context once we",01:21:52.690,01:21:55.920
+"understand what overfitting is, and
+what are the tools for the dealing",01:21:55.920,01:21:58.920
+"with overfitting-- regularization,
+and validation in this case.",01:21:58.920,01:22:01.500
+"And then early stopping will
+be very easily explained.",01:22:01.500,01:22:05.990
+"MODERATOR: A question on stochastic
+gradient descent.",01:22:05.990,01:22:08.080
+"When you go through an epoch, you choose
+points randomly. Only points you",01:22:08.080,01:22:13.490
+"have not selected, right?",01:22:13.490,01:22:14.910
+PROFESSOR: There are lots of choices.,01:22:14.910,01:22:16.450
+An epoch is one run.,01:22:16.480,01:22:19.200
+"And it's a good idea to get all
+the examples contribute.",01:22:19.200,01:22:22.150
+"So one way to get it to be random and
+still guarantee that you get all of",01:22:22.150,01:22:25.980
+"them is, instead of choosing the point
+at random, you choose a random",01:22:25.980,01:22:29.060
+"permutation from 1 to N, and then
+go through that in order.",01:22:29.060,01:22:33.260
+"And then for the next epoch,
+you do another permutation.",01:22:33.260,01:22:36.060
+"If you do it this way, eventually every
+example we will contribute the",01:22:36.710,01:22:39.950
+"same, but an epoch will be a little
+bit more difficult to define.",01:22:39.950,01:22:43.220
+"You're can define it simply as N
+iterations, regardless of whether you",01:22:43.220,01:22:46.290
+covered all of them or not.,01:22:46.290,01:22:47.670
+That is valid.,01:22:47.670,01:22:48.740
+"And some people simply do a sequential
+version, no randomness at all.",01:22:48.740,01:22:52.380
+"You just go through the examples, or you
+have a fixed permutation, and you",01:22:52.380,01:22:56.120
+"go through the examples in that
+order, and keep repeating it.",01:22:56.120,01:22:58.820
+"And there are some observations about
+differences, but the differences are",01:22:58.820,01:23:02.050
+not that profound.,01:23:02.050,01:23:04.960
+"MODERATOR: Does having layers
+and no loops limit the power",01:23:04.960,01:23:08.950
+of the neural network?,01:23:08.950,01:23:10.230
+"PROFESSOR: Loops as in feedback,
+I'm assuming.",01:23:10.230,01:23:13.300
+"Once you have feedback, even the
+definition of what function I'm",01:23:14.050,01:23:17.410
+"implementing becomes tricky, because
+I'm feeding on myself.",01:23:17.410,01:23:20.170
+So it's a completely different type.,01:23:20.690,01:23:23.120
+"There are recurrent neural networks,
+which actually is the",01:23:23.120,01:23:27.620
+model that started work in neural networks.,01:23:27.620,01:23:29.620
+"And it has completely different
+mathematics and application domains.",01:23:29.620,01:23:32.890
+"Here we're implementing a function,
+and it is clean enough to do it in",01:23:33.620,01:23:37.540
+"a layered way, in order to get
+a nice algorithm like that.",01:23:37.540,01:23:39.950
+"And since we showed that you can
+basically implement anything if you",01:23:39.950,01:23:43.160
+"have a big enough model, you
+are not missing out on",01:23:43.160,01:23:45.330
+something by doing that.,01:23:45.330,01:23:47.260
+"One can become, say--",01:23:47.260,01:23:48.780
+"Maybe I can get a smaller network
+if I can jump layers, which is",01:23:48.780,01:23:52.090
+possible.,01:23:52.090,01:23:52.940
+"It's an interesting intellectual
+curiosity, but in terms of practical",01:23:52.940,01:23:56.720
+"impact, it has very little.",01:23:56.720,01:23:58.740
+"MODERATOR: In terms of the VC dimension,
+since it roughly depends",01:23:58.740,01:24:04.800
+"on the number of parameters, if you had
+a fixed number of nodes, but you",01:24:04.800,01:24:09.430
+"arrange them in layers, what do you
+gain or what do you lose in that?",01:24:09.430,01:24:14.230
+PROFESSOR: OK.,01:24:14.230,01:24:15.270
+"If you believe in the rule of thumb,
+and it's just a rule of thumb that is",01:24:15.270,01:24:17.930
+"based on upper and lower bounds,",01:24:17.930,01:24:20.720
+"then if I rearrange the number of nodes
+and number of that, the number of",01:24:20.720,01:24:24.760
+"weights will change because
+the number of weights--",01:24:24.760,01:24:27.850
+"I say how many neurons here, and how
+many neurons here, and I multiply the",01:24:27.850,01:24:30.420
+"number, and that will give
+me the number of weights.",01:24:30.420,01:24:32.230
+"So as long as you take your guiding
+number, the bottom line number is how",01:24:32.230,01:24:36.280
+many weights did I put in the network.,01:24:36.280,01:24:38.150
+You'll be more or less OK.,01:24:38.150,01:24:39.760
+"Obviously, you can take extreme cases,
+where I have one neuron feeding",01:24:39.760,01:24:42.500
+"into one neuron, feeding into one neuron--
+the example I gave last time.",01:24:42.500,01:24:45.290
+"So you have tons of weights that are
+really not contributing much.",01:24:45.290,01:24:47.550
+"But within reason, if you have taken
+general architectures that are",01:24:48.020,01:24:50.800
+"reasonable, then the number of weights
+is the operative quantity.",01:24:50.800,01:24:53.380
+"MODERATOR: OK, we should quit.",01:24:57.830,01:25:00.220
+"PROFESSOR: So, we'll see you
+next week.",01:25:00.230,01:25:02.010

@@ -1,0 +1,247 @@
+text,start,stop
+ ,00:00:00.000,00:00:00.080
+Hi.,00:00:00.080,00:00:00.880
+"In this problem, we'll be going
+over practice with the",00:00:00.880,00:00:03.340
+"calculation of conditional
+probabilities.",00:00:03.340,00:00:06.140
+"We'll start with a game where
+our friend Alice will be",00:00:06.140,00:00:09.580
+"tossing a coin with certain
+bias of having a head, and",00:00:09.580,00:00:13.500
+tosses this coin twice.,00:00:13.500,00:00:15.170
+"And we're interested in
+knowing, what's the",00:00:15.170,00:00:16.520
+"probability that both
+coin tosses will",00:00:16.520,00:00:19.110
+end up being a head?,00:00:19.110,00:00:20.980
+"The first step we're going to
+do is to convert the problem",00:00:20.980,00:00:23.500
+"into a mathematical form
+by defining two",00:00:23.500,00:00:25.940
+events as the following.,00:00:25.940,00:00:27.490
+"Event A is where the first
+coin toss is a head.",00:00:27.490,00:00:31.430
+"And similarly, event B will be
+having the second coin toss",00:00:31.430,00:00:35.200
+also being a head.,00:00:35.200,00:00:37.050
+"Having these two events will
+allow us to say, well, the",00:00:37.050,00:00:40.910
+"event that A intersection B will
+be the event that both",00:00:40.910,00:00:44.280
+coin tosses are a head.,00:00:44.280,00:00:45.640
+"And we'd like to know the
+probability of such an event.",00:00:45.640,00:00:50.640
+"In particular, the probability
+of A and B will be calculated",00:00:50.640,00:00:54.310
+"under two types of
+information.",00:00:54.310,00:00:57.040
+"In the first case, we'll be
+conditioning on that we know",00:00:57.040,00:01:01.480
+the first coin toss is a head.,00:01:01.480,00:01:04.879
+"I'd like to know what the
+probability of A and B is.",00:01:04.879,00:01:07.670
+"In the second case, we know that
+at least one of the two",00:01:07.670,00:01:12.160
+"coin tosses is a head expressed
+in the form A union",00:01:12.160,00:01:16.260
+B.,00:01:16.260,00:01:17.310
+"And under this conditioning,
+what is the probability of A",00:01:17.310,00:01:22.560
+"and B, A intersection B?",00:01:22.560,00:01:25.180
+"So Alice, in this problem,
+says-- well, her guess will be",00:01:25.180,00:01:28.790
+"that the first quantity
+is no smaller",00:01:28.790,00:01:31.980
+than the second quantity.,00:01:31.980,00:01:33.630
+"Namely, knowing that the first
+coin toss is a head somehow",00:01:33.630,00:01:38.900
+"more strongly implies that both
+coin tosses will be a",00:01:38.900,00:01:41.800
+"head, compared to the case that
+we only know at least one",00:01:41.800,00:01:44.650
+"of the two coin tosses
+is a head.",00:01:44.650,00:01:46.610
+And we'd like to verify if this,00:01:46.610,00:01:49.190
+inequality is indeed true.,00:01:49.190,00:01:51.440
+"To do so, let's just use the
+basic calculation of",00:01:51.440,00:01:54.970
+conditional probability.,00:01:54.970,00:01:56.780
+"Now, from the lectures, you've
+already learned that to",00:01:56.780,00:01:59.110
+"calculate this quantity, we'll
+write out a fraction where the",00:01:59.110,00:02:02.880
+"numerator is the probability of
+the intersection of these",00:02:02.880,00:02:07.240
+two events.,00:02:07.240,00:02:08.550
+"So we have A intersect B
+intersection A divided by the",00:02:08.550,00:02:16.820
+"probability of the event that
+we're conditioning on, which",00:02:16.820,00:02:19.410
+is A.,00:02:19.410,00:02:23.000
+"Now, the top quantity, since
+we know that A and B is a",00:02:23.000,00:02:28.140
+"subset of event A, then taking
+the intersection of these two",00:02:28.140,00:02:32.110
+"quantities will just give
+us the first event.",00:02:32.110,00:02:35.190
+"So we have A and B. And the
+bottom is still probability of",00:02:35.190,00:02:41.060
+A.,00:02:41.060,00:02:42.560
+"Let's do the same thing for
+the second quantity here.",00:02:42.560,00:02:45.780
+"We have the top probability of A
+and B intersection the event",00:02:45.780,00:02:54.480
+"A union B, and on the bottom,
+probability of the event A and",00:02:54.480,00:03:02.430
+"B. Again, we see the event A and
+B is a subset of the event",00:03:02.430,00:03:08.930
+"A union B. So the top will be
+A and B. And the bottom--",00:03:08.930,00:03:16.050
+A union B.,00:03:16.050,00:03:19.990
+"OK, now let's stop
+for a little bit.",00:03:19.990,00:03:23.070
+"We've computed the probability
+for each expression in the",00:03:23.070,00:03:28.230
+following fractional form.,00:03:28.230,00:03:30.280
+"And we observed that for
+both fractions, the",00:03:30.280,00:03:32.610
+numerator is the same.,00:03:32.610,00:03:33.920
+"So the numerator is a
+probability of A and B. And",00:03:33.920,00:03:37.530
+"the denominator in the first
+case is probably of A, and the",00:03:37.530,00:03:41.590
+"second case, probably
+of A union B.",00:03:41.590,00:03:44.490
+"Since we know that A is a subset
+of the event A union B,",00:03:44.490,00:03:49.370
+"and by the monotonicity of
+probabilities, we know that",00:03:49.370,00:03:53.120
+"the probability of A is hence no
+greater than a probability",00:03:53.120,00:03:57.230
+"of A union B. Substituting
+this back into these",00:03:57.230,00:04:02.080
+"expressions, we know that
+because they lie in the",00:04:02.080,00:04:07.330
+"denominators, the first
+expression is indeed no",00:04:07.330,00:04:11.500
+"smaller than the second
+expression.",00:04:11.500,00:04:13.430
+"So our friend Alice
+was correct.",00:04:13.430,00:04:16.690
+"So throughout this problem, we
+never used the fact that the",00:04:16.690,00:04:20.269
+"probability of a particular coin
+toss results, let's say,",00:04:20.269,00:04:25.160
+in a head is a certain number.,00:04:25.160,00:04:27.270
+"Actually, this bias for the
+coin is irrelevant.",00:04:27.270,00:04:30.430
+"Whether the coin is fair
+or unfair, this",00:04:30.430,00:04:33.260
+fact is always true.,00:04:33.260,00:04:35.170
+"So indeed, it does
+not depend on the",00:04:35.170,00:04:36.750
+probability of the coin.,00:04:36.750,00:04:38.660
+"But if you're really curious
+what happens when the coin is",00:04:38.660,00:04:43.440
+"fair, we can plug
+in the numbers.",00:04:43.440,00:04:45.820
+"And here, we're assuming the
+coin is fair, which means",00:04:45.820,00:04:52.320
+"probability of having
+a head is 1/2.",00:04:52.320,00:04:57.790
+"Then, we'll see after going
+through the calculations that",00:04:57.790,00:05:01.130
+"the first probability is 1/2,
+whereas the second probability",00:05:01.130,00:05:05.610
+"is 1/3, which means, in this
+case, the [? dominance ?]",00:05:05.610,00:05:11.660
+actually is strict.,00:05:11.660,00:05:12.640
+"So the first one is strictly
+greater than",00:05:12.640,00:05:14.550
+"the second one, OK?",00:05:14.550,00:05:16.110
+"So this completes the first
+part of the problem.",00:05:16.110,00:05:18.480
+"How do we generalize this into
+more general settings?",00:05:18.480,00:05:22.590
+"There are multiple ways,
+but we'll go over",00:05:22.590,00:05:24.300
+one particular form.,00:05:24.300,00:05:27.630
+"And to do so, we'll be defining
+three events somewhat",00:05:27.630,00:05:35.880
+more abstractly.,00:05:35.880,00:05:37.030
+"Let's say we have
+three events--",00:05:37.030,00:05:38.420
+"C, D, and E. Imagine any event,
+but all three events",00:05:38.420,00:05:44.530
+"have to satisfy the following
+condition.",00:05:44.530,00:05:47.000
+"First, event D will be a subset
+of E. And second, the",00:05:47.000,00:05:54.620
+"intersection of C and
+D is equal to the",00:05:54.620,00:05:57.950
+"intersection of C and E, OK?",00:05:57.950,00:06:01.340
+"So this will be our
+choice events.",00:06:01.340,00:06:03.570
+"And let's see a particular
+example.",00:06:03.570,00:06:07.700
+"Let's say you have a sample
+space here and some event E.",00:06:07.700,00:06:12.990
+"Now, by the first condition, D
+will have to lie somewhere in",00:06:12.990,00:06:17.570
+"E. For the second condition,
+we'll pick some event C such",00:06:17.570,00:06:21.990
+that this is true.,00:06:21.990,00:06:23.500
+"And one way to do so is simply
+picking C that lies within",00:06:23.500,00:06:27.780
+"both D and E. And you can see
+C intersection D will be C.",00:06:27.780,00:06:32.630
+"And C intersection E will still
+be C. Hence, the second",00:06:32.630,00:06:37.910
+equality is true.,00:06:37.910,00:06:39.760
+"So if both equalities are true,
+we have the following",00:06:39.760,00:06:42.720
+"relationship, that the
+probability of C conditional",00:06:42.720,00:06:46.170
+"on D will be no smaller than
+the probability of C",00:06:46.170,00:06:51.940
+"conditional on event E. And this
+will be the more general",00:06:51.940,00:06:57.150
+"form of the inequality
+that we saw before.",00:06:57.150,00:06:59.265
+ ,00:06:59.265,00:07:01.940
+"So first of all, the
+way to prove this",00:07:01.940,00:07:03.430
+is in fact the same.,00:07:03.430,00:07:04.590
+"We simply write out the
+value of this using",00:07:04.590,00:07:07.920
+the fractional form.,00:07:07.920,00:07:09.410
+"And based on these two facts,
+we can arrive at this",00:07:09.410,00:07:12.180
+"equation, which I shall
+now go over.",00:07:12.180,00:07:15.000
+"But just to see why this form
+is more general, in fact, if",00:07:15.000,00:07:18.380
+"we-- say we let C be the event
+A intersection B, D be the",00:07:18.380,00:07:25.950
+"event A, and E be the event A
+and B where A and B are the",00:07:25.950,00:07:36.070
+"events that we defined
+earlier.",00:07:36.070,00:07:37.990
+"We can verify that, indeed,
+these conditions are true,",00:07:37.990,00:07:41.260
+"namely D is a subset of E.
+Because A is a subset of A",00:07:41.260,00:07:45.170
+"union B, and C is a subset of
+both D and E. And hence,",00:07:45.170,00:07:50.870
+condition two is also true.,00:07:50.870,00:07:53.030
+"And if that's the case, we
+will actually recover the",00:07:53.030,00:07:56.330
+"result we got earlier for events
+A and B. And hence,",00:07:56.330,00:08:00.440
+"this equation here is
+a more general form.",00:08:00.440,00:08:03.710
+"So that's the end
+of the problem.",00:08:03.710,00:08:04.870
+See you next time.,00:08:04.870,00:08:06.120
+ ,00:08:06.120,00:08:09.834

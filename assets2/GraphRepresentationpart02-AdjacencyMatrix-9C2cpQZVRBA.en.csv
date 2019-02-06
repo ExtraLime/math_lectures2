@@ -1,0 +1,384 @@
+text,start,stop
+"So in our previous lesson, we discussed
+one possible way of",00:00:00.480,00:00:04.069
+"storing and representing a graph in
+which",00:00:04.069,00:00:07.640
+we used two list. One to store the,00:00:07.640,00:00:10.820
+vertices and another to store the,00:00:10.820,00:00:14.050
+"edges. A record in vertex list here
+is name of a node",00:00:14.050,00:00:18.280
+"and a record in edge list is an
+object",00:00:18.280,00:00:21.940
+containing references to the two endpoints,00:00:21.940,00:00:25.180
+of an edge and also the weight of that edge,00:00:25.180,00:00:28.340
+"because this example graph that I am showing
+you here is a",00:00:28.340,00:00:31.660
+"weighted graph. We called this kind of
+representation",00:00:31.660,00:00:35.680
+edge list representation but we realised,00:00:35.680,00:00:39.239
+"that this kind of storage is not very
+efficient in terms of",00:00:39.239,00:00:43.030
+"time cost of most frequently performed
+operations",00:00:43.030,00:00:46.630
+"like finding nodes adjacent to a given
+node",00:00:46.630,00:00:50.960
+"or finding if two nodes are
+connected are not.",00:00:50.960,00:00:54.450
+"To perform any of these operations, we
+need to scan the whole",00:00:54.450,00:00:58.550
+"edge list. We need to perform a
+linear search on the edge list.",00:00:58.550,00:01:02.820
+"So the time complexity is big oh of number
+of",00:01:02.820,00:01:06.299
+"edges and we know that number of edges
+in the graph",00:01:06.299,00:01:10.159
+can be really really large. In worst case,00:01:10.159,00:01:13.200
+"it can be close to square of number of
+vertices.",00:01:13.200,00:01:16.899
+"In a graph, anything running in order
+of number of",00:01:16.899,00:01:20.200
+"edges is considered very costly. We
+often want to keep the cost",00:01:20.200,00:01:25.039
+"in order of number of vertices. So we
+should think of some other efficient",00:01:25.039,00:01:30.179
+design.,00:01:30.179,00:01:30.729
+"We should think of something better than
+this. One more possible design is that",00:01:30.729,00:01:35.490
+"we can store the edges in a
+two-dimensional array",00:01:35.490,00:01:39.319
+"or matrix. We can have a
+two-dimensional matrix",00:01:39.319,00:01:43.270
+or array of size V*V,00:01:43.270,00:01:46.380
+where V is number of vertices.,00:01:46.380,00:01:49.999
+"As you can see, I have drawn an 8*8",00:01:49.999,00:01:53.439
+"array here because number of vertices
+in my sample graph here",00:01:53.439,00:01:58.020
+is 8. Let's name this array A.,00:01:58.020,00:02:01.509
+Now if we want to store a graph that is,00:02:01.509,00:02:05.099
+"unweighted. Let's just remove the weights
+from this sample graph here",00:02:05.099,00:02:09.399
+"and now our graph is unweighted and if we
+have",00:02:09.399,00:02:13.400
+of value or index between 0 and V-1,00:02:13.400,00:02:18.400
+for each vertex which we have here,00:02:18.400,00:02:21.530
+"if we are storing the vertices in a
+vertex list",00:02:21.530,00:02:25.160
+than we have an index between 0 and V-1,00:02:25.160,00:02:29.060
+"for each vertex. We can say that A
+is zeroth node,",00:02:29.060,00:02:32.890
+"B is 1th node, C is
+2th",00:02:32.890,00:02:36.290
+node and so on. We are picking up,00:02:36.290,00:02:39.740
+"indices from vertex list. Okay
+so if the graph",00:02:39.740,00:02:43.400
+"is unweighted and each vertex has an
+index between 0 and",00:02:43.400,00:02:48.080
+"V-1, then in this matrix",00:02:48.080,00:02:51.140
+or 2d array. We can set ith row,00:02:51.140,00:02:55.040
+and jth column that is A[i][j],00:02:55.040,00:02:58.500
+as 1 or boolean value,00:02:58.500,00:03:01.560
+true. if there is an edge from i to j,00:03:01.560,00:03:05.320
+"0 or false otherwise. If I have
+to fill this matrix for this example",00:03:05.320,00:03:11.000
+graph here then I'll go vertex by vertex.,00:03:11.000,00:03:14.320
+Vertex 0 is connected to Vertex 1,00:03:14.320,00:03:18.250
+2 and 3. Vertex 1,00:03:18.250,00:03:22.420
+"is connected to 0, 4 and 5.",00:03:22.420,00:03:26.500
+"This is an undirected graph so if we
+have and edge from 0 to 1,",00:03:26.500,00:03:32.000
+"we also have an edge from 1 to 0
+so",00:03:32.000,00:03:35.290
+"1th row and 0th column should also be
+set as 1.",00:03:35.290,00:03:39.220
+"Now let's go to nodes 2, it's connected
+to 0",00:03:39.220,00:03:43.330
+"and 6, 3 is connected to 0 and 7,",00:03:43.330,00:03:48.030
+"4 is connected to 1 and 7,",00:03:48.030,00:03:52.330
+"5 once again is connected to 1 and 7,
+6 is connected to",00:03:52.330,00:03:56.810
+2 and 7 and 7 is connected,00:03:56.810,00:04:00.490
+"to 3, 4, 5 and 6.",00:04:00.490,00:04:06.250
+"All the remaining positions in
+this array should be set as 0.",00:04:06.250,00:04:10.090
+Notice that this matrix,00:04:10.090,00:04:13.269
+"is symmetric. For an undirected graph,
+this matrix would be symmetric",00:04:13.269,00:04:17.750
+because A[i][j] would be equal to A[j][i].,00:04:17.750,00:04:21.600
+"We would have two positions filled for
+each edge.",00:04:21.600,00:04:25.020
+"In fact to see all the edges in the graph,",00:04:25.020,00:04:28.620
+"we need to go through only one of these
+two halves.",00:04:28.620,00:04:33.139
+Now this would not be true for our,00:04:33.139,00:04:36.300
+"directed graph. Only one position will be
+filled for each",00:04:36.300,00:04:40.490
+"edge and we will have to go through
+the entire matrix",00:04:40.490,00:04:44.419
+"to see all the edges. Okay,",00:04:44.419,00:04:47.430
+"now this kind of representation of a
+graph in which",00:04:47.430,00:04:50.570
+"edges or connections are stored in a
+matrix",00:04:50.570,00:04:54.560
+or 2D array is called adjacency matrix,00:04:54.560,00:04:59.410
+"representation. This particular matrix that
+I have drawn here",00:04:59.410,00:05:03.620
+"is an adjacency matrix. Now with this
+kind of storage or representation,",00:05:03.620,00:05:09.639
+"what do you think would be the time cost
+of finding",00:05:09.639,00:05:13.740
+"all nodes adjacent to a given node. Let's say
+given this vertex list",00:05:13.740,00:05:18.880
+"and adjacency matrix, we want to find",00:05:18.880,00:05:21.949
+all nodes adjacent to node named F.,00:05:21.949,00:05:25.080
+"If we are given name of a node than
+we first need to know it's",00:05:25.080,00:05:29.280
+"index and to know the index, we will have to
+scan the vertex list.",00:05:29.280,00:05:34.260
+"There is no other way. Once we figured out
+index",00:05:34.260,00:05:37.510
+like for F index is 5 then,00:05:37.510,00:05:41.060
+"we can go to the row with that index
+in the adjacency matrix",00:05:41.060,00:05:45.270
+"and we can scan this complete row to
+find all the",00:05:45.270,00:05:49.849
+"adjacent nodes. Scanning the vertex
+list",00:05:49.849,00:05:53.440
+"to figure it out the index in worst case
+will cost us time proportional to the",00:05:53.440,00:05:58.139
+number of vertices,00:05:58.139,00:05:59.510
+"because in worst case we may have to
+scan the whole list,",00:05:59.510,00:06:03.250
+and scanning a row,00:06:03.250,00:06:06.360
+"in the adjacency matrix would once again
+cost us time proportional to number of",00:06:06.360,00:06:11.470
+what vertices because,00:06:11.470,00:06:12.630
+in a row we would have exactly,00:06:12.630,00:06:16.229
+"V columns where V is number of a
+vertices.",00:06:16.229,00:06:19.020
+So overall time cost of this operation,00:06:19.020,00:06:21.940
+"is big oh of V. Now most of the time
+while performing operations,",00:06:21.940,00:06:27.300
+"we must pass indices to avoid
+scanning the vertex list all the time.",00:06:27.300,00:06:31.770
+"If we know an index, we can figure out
+the name in constant time,",00:06:31.770,00:06:36.280
+because in an array we can access element at,00:06:36.280,00:06:39.620
+"any index in constant time but if we know
+a name",00:06:39.620,00:06:43.460
+"want to figure out index then it will
+cost us big oh of V.",00:06:43.460,00:06:47.440
+We will have to scan the vertex list.,00:06:47.440,00:06:50.889
+"wWe will have to perform linear search
+on it. Okay moving on.",00:06:50.889,00:06:55.190
+"Now what would be the time cost of
+finding if 2 nodes",00:06:55.190,00:06:58.570
+"are connected or not. Now once again the
+two nodes can be given to us",00:06:58.570,00:07:03.289
+"as indices or names. If the nodes
+would be passed test as indices",00:07:03.289,00:07:08.669
+"then we simply need to look at value in
+a particular row and",00:07:08.669,00:07:12.639
+"particular column. We simply need to look
+at",00:07:12.639,00:07:15.990
+A[I][J] for some values of I and J,00:07:15.990,00:07:19.190
+and this will cost us constant time.,00:07:19.190,00:07:22.199
+You can look at Value in any cell in,00:07:22.199,00:07:25.280
+"a two-dimensional array in constant time.
+So if",00:07:25.280,00:07:29.010
+"indices are given time complexity of
+this operation would be big oh of 1",00:07:29.010,00:07:32.699
+"which simply means that we will
+take constant time",00:07:32.699,00:07:36.580
+"but if names are given then we also need
+to do the scanning",00:07:36.580,00:07:41.260
+"to figure out the indices which will
+cost us big oh of V.",00:07:41.260,00:07:45.020
+"Overall time complexity would be 
+Big oh of V.",00:07:45.020,00:07:48.690
+"The constant time access would not mean
+anything.",00:07:48.690,00:07:52.180
+"The scanning of vertex list all the
+time to figure it out",00:07:52.180,00:07:56.820
+"indices can be avoided. We can use
+some extra memory to create",00:07:56.820,00:08:01.639
+a hash table with names and indices,00:08:01.639,00:08:04.960
+"as key value pairs and then the time
+cost of finding",00:08:04.960,00:08:08.889
+index from name would also be big oh,00:08:08.889,00:08:12.530
+"of 1 that is constant. Hash table is
+a data structure",00:08:12.530,00:08:17.280
+"and I have not talked about it in any of
+my lessons so far.",00:08:17.280,00:08:20.870
+"If you do not know about hash table, just
+search online for",00:08:20.870,00:08:24.630
+"a basic idea of it. Okay, so as you can
+see",00:08:24.630,00:08:28.349
+with adjacency matrix representation,00:08:28.349,00:08:31.530
+"our time cost of some of the most
+frequently performed operations",00:08:31.530,00:08:35.839
+"is in order of number of vertices
+and not in order of number of",00:08:35.839,00:08:40.279
+"edges which can be as high as square of
+number of vertices.",00:08:40.279,00:08:44.470
+Okay now if we want to store,00:08:44.470,00:08:47.730
+"a weighted graph in adjacency matrix
+representation",00:08:47.730,00:08:51.540
+then A[i][j] in the matrix can be set as,00:08:51.540,00:08:56.110
+"weight of an edge. For non-existent ages we
+can have",00:08:56.110,00:09:00.620
+"a default value like a really large
+or maximum possible integer value",00:09:00.620,00:09:05.950
+"that is never expected to be an edge
+weight. I have just filled in infinity",00:09:05.950,00:09:10.740
+have to mean that,00:09:10.740,00:09:11.730
+"we can choose the default as infinity
+minus infinity",00:09:11.730,00:09:16.320
+"or any other value that would never
+ever be a valid",00:09:16.320,00:09:19.570
+"edge weight. Okay, now for further
+discussion",00:09:19.570,00:09:22.580
+"I'll come back to an unweighted graph.
+Ajacency matrix",00:09:22.580,00:09:27.860
+"looks really good so should we not use it
+always.",00:09:27.860,00:09:31.180
+"Well, with this design we have improved
+on",00:09:31.180,00:09:34.350
+"time, but we have gone really high on
+memory usage",00:09:34.350,00:09:38.690
+"instead of using memory units exactly
+equal to the number of edges",00:09:38.690,00:09:43.649
+"what we're doing with
+edge list kind of storage.",00:09:43.649,00:09:48.010
+"Here we're using exactly V square
+units of memory.",00:09:48.010,00:09:52.870
+We are using big oh of V square space.,00:09:52.870,00:09:55.940
+"We are not just storing the information
+that these two",00:09:55.940,00:09:59.070
+"nodes are connected, we are also storing not
+of it",00:09:59.070,00:10:02.829
+"that is these two nodes side not connected
+which probably is",00:10:02.829,00:10:06.610
+"redundant information. If a graph is
+dense,",00:10:06.610,00:10:10.220
+"if the number of edges is really close
+to V square",00:10:10.220,00:10:13.899
+"then this is good but if the graph is
+sparse",00:10:13.899,00:10:17.490
+"that is if number of edges is lot lessser
+than V square",00:10:17.490,00:10:21.560
+"then we are wasting a lot of
+memory in storing the zeros.",00:10:21.560,00:10:25.770
+"Like for this example graph that I have
+drawn here, in the edge list we were",00:10:25.770,00:10:30.480
+consuming,00:10:30.480,00:10:31.390
+"10 units of memory we had ten rows
+consumed in the edge list",00:10:31.390,00:10:36.779
+but here we are consuming 64 unit.,00:10:36.779,00:10:40.040
+Most graphs with,00:10:40.040,00:10:43.050
+"really large number of vertices would
+not be very dense,",00:10:43.050,00:10:46.589
+"would not have number of edges anywhere
+close to V sqaure",00:10:46.589,00:10:50.829
+"like for example, Let's say we are modeling",00:10:50.829,00:10:54.300
+"a social network like Facebook as a
+graph such that a user in the network",00:10:54.300,00:10:59.260
+is a node,00:10:59.260,00:11:00.250
+"and there is an undetected edge if two
+users are friends.",00:11:00.250,00:11:05.070
+"Facebook has a billion users but I'm
+showing only a few in my example graph",00:11:05.070,00:11:09.980
+here because I'm short of space.,00:11:09.980,00:11:11.709
+"Let's just assume that we have a billion
+users in our network,",00:11:11.709,00:11:16.459
+"so number of vertices in a graph is
+10 to the power 9",00:11:16.459,00:11:20.680
+"which is billion. Now do you think number
+of connections",00:11:20.680,00:11:25.020
+"in our social network can ever be close
+to square of number of users",00:11:25.020,00:11:30.010
+"that will mean everyone in the network
+is a friend of",00:11:30.010,00:11:34.010
+"everyone else. A user of our social
+network will not be friend to all other",00:11:34.010,00:11:39.050
+billion users.,00:11:39.050,00:11:40.130
+We can safely assume that a user,00:11:40.130,00:11:43.720
+"on an average would not have more than
+a thousand friends",00:11:43.720,00:11:47.380
+"with this assumption we would have
+10 to the power 12",00:11:47.380,00:11:50.770
+"edges in our graph. Actually, this is an
+undirected graph",00:11:50.770,00:11:56.350
+"so we should do a divide by 2 here. So
+that we do not",00:11:56.350,00:12:01.070
+count an edge twice. So if,00:12:01.070,00:12:04.390
+"average number of friends is 1000 then total
+number of connections in my graph is",00:12:04.390,00:12:09.820
+5 * 10 to power 11. Now this,00:12:09.820,00:12:13.170
+"is lot lesser than a square of number
+of vertices.",00:12:13.170,00:12:16.440
+"So basically if you would use an adjacency
+matrix for this kind of a graph,",00:12:16.440,00:12:22.550
+"we would waste a hell lot of space
+and moreover",00:12:22.550,00:12:26.949
+"even if we are not looking in relative
+terms 10 to the power 18",00:12:26.949,00:12:30.459
+"units of memory, even in absolute
+sense",00:12:30.459,00:12:34.529
+is alot. 10 to the power 18 bytes,00:12:34.529,00:12:38.220
+would be about a 1000 petabytes.,00:12:38.220,00:12:41.550
+"Now this really is a lot of space. This
+much data would never ever fit on one",00:12:41.550,00:12:47.220
+physical disk.,00:12:47.220,00:12:48.779
+"5 into 10 to the power 11 byts on the other
+hand",00:12:48.779,00:12:51.979
+"it's just 0.5 terabytes. A typical
+personal computer these days would have this",00:12:51.979,00:12:58.329
+much of storage.,00:12:58.329,00:12:59.429
+"So as you can see for something like a
+large",00:12:59.429,00:13:02.739
+"social graph adjacency matrix
+representation is not very efficient.",00:13:02.739,00:13:07.389
+"Agency matrix is good when a graph is
+dense",00:13:07.389,00:13:11.139
+"that is when the number of edges is
+close to square of number of vertices",00:13:11.139,00:13:15.729
+"or sometimes when total number of
+possible connection that is V square",00:13:15.729,00:13:21.769
+"is so less that wasted space would not
+even matter",00:13:21.769,00:13:25.879
+"but most real-world graphs would be
+sparse",00:13:25.879,00:13:29.849
+"and adjacency matrix would not be a good
+fit.",00:13:29.849,00:13:32.959
+"Let's think about another example. Let's
+think about",00:13:32.959,00:13:36.289
+world wide web as are directed graph.,00:13:36.289,00:13:39.299
+"If you can think of web pages as nodes
+in a graph",00:13:39.299,00:13:42.959
+and hyperlinks as directed edges,00:13:42.959,00:13:46.619
+"then a webpage would not have linked to
+all other pages",00:13:46.619,00:13:51.509
+"and once again number of webpages
+would be in order of millions.",00:13:51.509,00:13:55.829
+"A webpage would have link to only
+the",00:13:55.829,00:13:59.249
+"a few other pages, so the graph would be
+sparse.",00:13:59.249,00:14:03.059
+Most real world graphs would be sparse,00:14:03.059,00:14:06.409
+"and adjacency matrix. Even though it's
+giving us good running time for most",00:14:06.409,00:14:11.769
+frequently performed,00:14:11.769,00:14:13.059
+operations would not be a good fit,00:14:13.059,00:14:16.129
+"because it's not very efficient in terms
+of space",00:14:16.129,00:14:19.539
+"so what should we do. Well there's
+another",00:14:19.539,00:14:23.879
+representation that gives us similar,00:14:23.879,00:14:26.879
+or maybe even better running time than,00:14:26.879,00:14:30.099
+"adjacency matrix and does not consume so
+much space",00:14:30.099,00:14:33.989
+It's called adjacency list,00:14:33.989,00:14:37.479
+"representation and we will talk about it
+in our next lesson.",00:14:37.479,00:14:41.449
+"This is it for this lesson. 
+Thanks for watching",00:14:41.449,00:14:43.979

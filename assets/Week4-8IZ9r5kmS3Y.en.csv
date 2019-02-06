@@ -1,0 +1,1792 @@
+text,start,stop
+&gt;&gt; [MUSIC PLAYING],00:00:00.488,00:00:10.800
+DAVID MALAN: All right.,00:00:10.800,00:00:13.500
+"All right, welcome back.",00:00:13.500,00:00:14.670
+"So this is Week 4, the beginning
+thereof, already.",00:00:14.670,00:00:18.120
+"And you'll recall that last week, we put
+code aside for just a little bit",00:00:18.120,00:00:21.320
+"and we started talking a little more
+high-level, about things like",00:00:21.320,00:00:24.240
+"searching and sorting, which though
+somewhat simple ideas, are",00:00:24.240,00:00:28.130
+"representative of a class of problems
+you will begin to solve particularly",00:00:28.130,00:00:31.840
+"as you start thinking about final
+projects and interesting solutions you",00:00:31.840,00:00:34.820
+might have to real-world problems.,00:00:34.820,00:00:36.760
+"Now bubble sort was one of the simplest
+such algorithms, and it",00:00:36.760,00:00:39.490
+"worked by having these small numbers
+in a list or in an array kind of",00:00:39.490,00:00:42.900
+"bubble their way up to the top, and the
+big numbers move their way down to",00:00:42.900,00:00:46.530
+the end of that list.,00:00:46.530,00:00:47.930
+"&gt;&gt; And recall that we could visualize
+bubble sort a little",00:00:47.930,00:00:50.650
+something like this.,00:00:50.650,00:00:52.310
+So let me go ahead and click Start.,00:00:52.310,00:00:53.640
+I've preselected bubble sort.,00:00:53.640,00:00:55.350
+"And if you recall that the taller blue
+lines represent big numbers, small",00:00:55.350,00:00:58.920
+"blue lines represent small numbers, as
+we go through this again and again and",00:00:58.920,00:01:03.300
+"again, comparing two bars next to each
+other in red, we're going to swap the",00:01:03.300,00:01:07.680
+"biggest and the smallest if
+they are out of order.",00:01:07.680,00:01:11.010
+"&gt;&gt; So this will go on and go on and go
+on, and you'll see that the larger",00:01:11.010,00:01:14.150
+"elements are making their way to the
+right, and the smaller elements are",00:01:14.150,00:01:16.700
+making their way to the left.,00:01:16.700,00:01:17.900
+"But we began to quantify
+the efficiency, the",00:01:17.900,00:01:21.380
+quality of this algorithm.,00:01:21.380,00:01:22.970
+"And we said that in the worst
+case, this algorithm took",00:01:22.970,00:01:25.200
+roughly how many steps?,00:01:25.200,00:01:27.940
+&gt;&gt; So n squared.,00:01:27.940,00:01:28.980
+And what was n?,00:01:28.980,00:01:30.402
+&gt;&gt; AUDIENCE: Number of elements.,00:01:30.402,00:01:31.650
+"&gt;&gt; DAVID MALAN: So n was the
+number of elements.",00:01:31.650,00:01:32.790
+And so we'll do this often.,00:01:32.790,00:01:33.730
+"Any time we want to talk about the size
+of a problem or the size of an",00:01:33.730,00:01:36.650
+"input, or the amount of time it takes
+to produce output, we'll just",00:01:36.650,00:01:39.140
+"generalized whatever
+the input is as n.",00:01:39.140,00:01:41.610
+"So back in Week 0, the number pages
+in the phone book was n.",00:01:41.610,00:01:45.970
+"The number of students
+in the room was n.",00:01:45.970,00:01:47.550
+"So here, too, we're following
+that pattern.",00:01:47.550,00:01:49.630
+"&gt;&gt; Now n squared isn't particularly
+fast, so we tried to do better.",00:01:49.630,00:01:52.800
+"And so we looked at a couple of
+other algorithms, among which",00:01:52.800,00:01:55.970
+were selection sort.,00:01:55.970,00:01:57.690
+"So selection sort was
+a little different.",00:01:57.690,00:01:59.180
+"It was almost simpler, I dare say,
+whereby I started at the start of the",00:01:59.180,00:02:03.130
+"list of our volunteers and I just again
+and again and again went through",00:02:03.130,00:02:06.740
+"the list, plucking out the smallest
+element at a time and putting him or",00:02:06.740,00:02:10.060
+her at the beginning of the list.,00:02:10.060,00:02:13.040
+"&gt;&gt; But this, too, once we started to think
+through the math and bigger",00:02:13.040,00:02:16.410
+"picture, thought about how many times
+I was going back and forth and back",00:02:16.410,00:02:19.860
+"and forth, we said in the worst case,
+selection sort, too, was what?",00:02:19.860,00:02:24.090
+n squared.,00:02:24.090,00:02:24.960
+"Now in the real world, it might
+actually be marginally faster.",00:02:24.960,00:02:27.490
+"Because again, I didn't have to keep
+backtracking once I had sorted the",00:02:27.490,00:02:30.620
+smallest elements.,00:02:30.620,00:02:31.880
+"But if we think about very large n, and
+if you sort of do out the math as",00:02:31.880,00:02:35.090
+"I did on the board, with the n squared
+minus something, everything else",00:02:35.090,00:02:39.170
+"besides the n squared, once n
+gets really large, doesn't",00:02:39.170,00:02:41.850
+really matter as much.,00:02:41.850,00:02:42.850
+"So as computer scientists, we sort of
+turn a blind eye to the smaller",00:02:42.850,00:02:45.470
+"factors and focus only on the factor in
+an expression that's going to make",00:02:45.470,00:02:49.220
+the biggest difference.,00:02:49.220,00:02:50.330
+"&gt;&gt; Well, lastly, we looked
+at insertion sort.",00:02:50.330,00:02:52.840
+"And this was similar in spirit, but
+rather than go through iteratively and",00:02:52.840,00:02:56.620
+"select the smallest element one at a
+time, I instead took the hand that I",00:02:56.620,00:03:01.250
+"was dealt, and I decided, all
+right, you belong here.",00:03:01.250,00:03:04.070
+"Then I moved on to the next element
+and decided that he or",00:03:04.070,00:03:06.160
+she belonged here.,00:03:06.160,00:03:07.470
+And then I moved on and on.,00:03:07.470,00:03:08.810
+"And I might to, along the way,
+shift these guys in order to",00:03:08.810,00:03:11.780
+make room for them.,00:03:11.780,00:03:13.030
+"So that was sort of the mental reversal
+of selection sort that we",00:03:13.030,00:03:16.880
+called insertion sort.,00:03:16.880,00:03:18.630
+"&gt;&gt; So these topics to occur
+in the real world.",00:03:18.630,00:03:20.810
+"Just a few years ago, when a certain
+senator was running for president,",00:03:20.810,00:03:23.640
+"Eric Schmidt, at the time the CEO of
+Google, actually had the opportunity",00:03:23.640,00:03:27.160
+to interview him.,00:03:27.160,00:03:28.040
+"And we thought we'd share this YouTube
+clip for you here, if we could turn up",00:03:28.040,00:03:32.010
+the volume.,00:03:32.010,00:03:32.950
+&gt;&gt; [VIDEO PLAYBACK],00:03:32.950,00:03:39.360
+"&gt;&gt; -Now, Senator, you're here at Google,
+and I like to think of the presidency",00:03:39.360,00:03:44.620
+as a job interview.,00:03:44.620,00:03:46.042
+&gt;&gt; [LAUGHTER],00:03:46.042,00:03:47.770
+"&gt;&gt; -Now it's hard to get
+a job as president.",00:03:47.770,00:03:50.800
+"And you're going through
+the rigors now.",00:03:50.800,00:03:52.480
+It's also hard to get a job at Google.,00:03:52.480,00:03:54.330
+"We have questions and we ask
+our candidates questions.",00:03:54.330,00:03:59.610
+And this one is from Larry Schwimmer.,00:03:59.610,00:04:02.250
+&gt;&gt; [LAUGHTER],00:04:02.250,00:04:05.325
+-You guys think I'm kidding?,00:04:05.325,00:04:06.400
+It's right here.,00:04:06.400,00:04:08.750
+"What is the most efficient way to
+sort a million two-bit integers?",00:04:08.750,00:04:12.110
+&gt;&gt; [LAUGHTER],00:04:12.110,00:04:15.810
+"&gt;&gt; -Well, uh--",00:04:15.810,00:04:18.260
+&gt;&gt; -I'm sorry.,00:04:18.260,00:04:19.029
+Maybe we should--,00:04:19.029,00:04:19.745
+"&gt;&gt; -No, no, no, no, no.",00:04:19.745,00:04:21.000
+&gt;&gt; -That's not a--,00:04:21.000,00:04:21.470
+OK.,00:04:21.470,00:04:22.185
+"&gt;&gt; -I think the bubble sort would
+be the wrong way to go.",00:04:22.185,00:04:25.328
+&gt;&gt; [LAUGHTER],00:04:25.328,00:04:26.792
+&gt;&gt; [CHEERING AND APPLAUSE],00:04:26.792,00:04:28.510
+"&gt;&gt; -Come on, who told him this?",00:04:28.510,00:04:31.211
+OK.,00:04:31.211,00:04:32.155
+&gt;&gt; [END VIDEO PLAYBACK],00:04:32.155,00:04:33.350
+&gt;&gt; DAVID MALAN: So there you have it.,00:04:33.350,00:04:35.070
+"So we began to quantify these running
+times, so to speak, with something",00:04:35.070,00:04:39.600
+"called asymptotic notation, which is
+just referring to our sort of turning",00:04:39.600,00:04:43.480
+"a blind eye to those smaller factors and
+only looking at the running time,",00:04:43.480,00:04:47.420
+"the performance of these algorithms,
+as n gets really large over time.",00:04:47.420,00:04:51.250
+"And so we introduced big O. And big O
+represented something that we thought",00:04:51.250,00:04:55.110
+of as an upper bound.,00:04:55.110,00:04:57.000
+"And actually, Barry, can we lower
+than the mic a little bit?",00:04:57.000,00:04:59.570
+&gt;&gt; We thought of this is an upper bound.,00:04:59.570,00:05:01.040
+"So big O of n squared means that in
+the worst case, something like",00:05:01.040,00:05:04.710
+"selection sort would take
+n squared steps.",00:05:04.710,00:05:07.780
+"Or something like insertion sort
+would n squared steps.",00:05:07.780,00:05:10.310
+"Now for something like insertion
+sort, what was the worst case?",00:05:10.310,00:05:15.150
+"Given an array, what's the worst
+possible scenario that you might find",00:05:15.150,00:05:18.200
+yourself faced with?,00:05:18.200,00:05:20.650
+"&gt;&gt; It's completely backwards, right?",00:05:20.650,00:05:21.860
+"Because if it's completely backwards,
+you have to do a whole lot of work.",00:05:21.860,00:05:24.530
+"Because if you're completely backwards,
+you're going to find the",00:05:24.530,00:05:26.420
+"biggest element here, even though
+it belongs down there.",00:05:26.420,00:05:28.840
+"So you're going to say, all right, at
+this moment in time, you belong here,",00:05:28.840,00:05:31.140
+so you leave it alone.,00:05:31.140,00:05:32.310
+"&gt;&gt; Then you realize, oh, damn, I have to
+move this slightly smaller element to",00:05:32.310,00:05:35.425
+the left of you.,00:05:35.425,00:05:36.470
+"Then I have to do that again
+and again and again.",00:05:36.470,00:05:38.770
+"And if I walked back and forth, you
+would sort of feel the performance of",00:05:38.770,00:05:41.410
+"that algorithm, because constantly am I
+shuffling everyone else down in the",00:05:41.410,00:05:45.540
+array to make room for it.,00:05:45.540,00:05:46.510
+So that's the worst case.,00:05:46.510,00:05:47.750
+&gt;&gt; By contrast--,00:05:47.750,00:05:48.570
+and this was a cliffhanger last time--,00:05:48.570,00:05:50.320
+"we said that insertion sort
+was an omega of what?",00:05:50.320,00:05:54.065
+"What's the best-case running
+time of insertion sort?",00:05:54.065,00:05:57.530
+So it's actually n.,00:05:57.530,00:05:58.520
+"That was the blank that we left
+on the board last time.",00:05:58.520,00:06:00.980
+&gt;&gt; And it's omega of n because why?,00:06:00.980,00:06:03.160
+"Well, in the very best case, what's
+insertion sort going to be handed?",00:06:03.160,00:06:06.630
+"Well, a list that's completely sorted
+already, minimal work to do.",00:06:06.630,00:06:09.830
+"But what's neat about insertion sort
+is that because it starts here and",00:06:09.830,00:06:12.460
+"decides, oh, you are the number
+one, you belong here.",00:06:12.460,00:06:15.340
+"Oh, what a good fortune.",00:06:15.340,00:06:16.970
+&gt;&gt; You're the number two.,00:06:16.970,00:06:17.740
+You also belong here.,00:06:17.740,00:06:19.030
+"Number three, even better,
+you belong here.",00:06:19.030,00:06:21.010
+"As soon as it gets to the end of the
+list, per insertion sort's pseudocode",00:06:21.010,00:06:25.210
+"that we walked through verbally
+last time, it's done.",00:06:25.210,00:06:28.010
+"But selection sort, by contrast,
+kept doing what?",00:06:28.010,00:06:32.790
+"&gt;&gt; Kept going through the list
+again and again and again.",00:06:32.790,00:06:35.260
+"Because the key insight there was only
+once you've looked all the way to the",00:06:35.260,00:06:39.160
+"end of the list can you be certain
+that the element you selected was",00:06:39.160,00:06:42.500
+indeed the currently smallest element.,00:06:42.500,00:06:45.560
+"So these different mental models end
+up yielding some very real-world",00:06:45.560,00:06:48.920
+"differences for us, as well as these
+theoretical asymptotic differences.",00:06:48.920,00:06:53.130
+"&gt;&gt; So just to recap, then, big O of n
+squared, we've seen a few such",00:06:53.130,00:06:56.910
+algorithms thus far.,00:06:56.910,00:06:58.350
+Big O of n?,00:06:58.350,00:06:59.580
+"What's an algorithm that could
+be said to be big O of n?",00:06:59.580,00:07:02.870
+"In the worst case, it takes
+a linear number of steps.",00:07:02.870,00:07:06.930
+"&gt;&gt; OK, linear search.",00:07:06.930,00:07:07.810
+"And in the worst case, where is the
+element you're looking for when",00:07:07.810,00:07:10.470
+applying linear search?,00:07:10.470,00:07:12.950
+"&gt;&gt; OK, in the worst case,
+it's not even there.",00:07:12.950,00:07:14.680
+"Or in the second worst case, it's
+all the way in the end, which is",00:07:14.680,00:07:17.000
+plus-or-minus a one-step difference.,00:07:17.000,00:07:18.880
+"So at the end of the day,
+we can say it's linear.",00:07:18.880,00:07:21.180
+"Big O of n would be linear search,
+because in the worst case, the",00:07:21.180,00:07:23.910
+"element's not even there or it's
+all the way at the end.",00:07:23.910,00:07:26.610
+"&gt;&gt; Well, big O of log of n.",00:07:26.610,00:07:29.370
+"We didn't talk in great detail about
+this, but we've seen this before.",00:07:29.370,00:07:32.760
+"What runs in so-called logarithmic
+time, in the worst case?",00:07:32.760,00:07:36.840
+"&gt;&gt; Yeah, so binary search.",00:07:36.840,00:07:38.500
+"And binary search in the worst case
+might have the element somewhere in",00:07:38.500,00:07:42.930
+"the middle, or somewhere
+inside the array.",00:07:42.930,00:07:45.640
+"But you only find it once you
+divide the list in half, in",00:07:45.640,00:07:48.040
+"half, in half, in half.",00:07:48.040,00:07:48.940
+"And then voila, it's there.",00:07:48.940,00:07:50.200
+"Or again, worst case,
+it's not even there.",00:07:50.200,00:07:52.500
+"But you don't know that it's not there
+until you sort of reach that last",00:07:52.500,00:07:56.770
+"bottom-most elements by halving
+and halving and halving.",00:07:56.770,00:08:00.470
+&gt;&gt; Big O of 1.,00:08:00.470,00:08:01.400
+"So we could big O of 2, big O of 3.",00:08:01.400,00:08:03.540
+"Anytime you want just a constant number,
+we just sort of just simplify",00:08:03.540,00:08:06.260
+that as big O of 1.,00:08:06.260,00:08:07.280
+"Even though if realistically, it takes
+2 or even 100 steps, if it's a",00:08:07.280,00:08:10.440
+"constant number of steps,
+we just say big O of 1.",00:08:10.440,00:08:13.680
+"What's an algorithm that's
+in big O of 1?",00:08:13.680,00:08:15.930
+"&gt;&gt; AUDIENCE: Finding the length
+of a variable.",00:08:15.930,00:08:18.350
+"&gt;&gt; DAVID MALAN: Finding the
+length of a variable?",00:08:18.350,00:08:21.090
+"&gt;&gt; AUDIENCE: No, the length
+if it's already sorted.",00:08:21.090,00:08:23.870
+&gt;&gt; DAVID MALAN: Good.,00:08:23.870,00:08:24.160
+"OK, so finding the length of something
+if the length of that something, like",00:08:24.160,00:08:27.850
+"an array, is stored in some variable.",00:08:27.850,00:08:30.020
+"Because you can just read the variable,
+or print the variable, or",00:08:30.020,00:08:33.380
+just generally access that variable.,00:08:33.380,00:08:34.960
+"And voila, that takes constant time.",00:08:34.960,00:08:37.299
+"&gt;&gt; By contrast, think back to scratch.",00:08:37.299,00:08:38.909
+"Think back to the first week of C,
+calling just printf and printing",00:08:38.909,00:08:42.460
+"something on the screen is arguably
+constant time, because it just takes",00:08:42.460,00:08:46.240
+"some number of CPU cycles to show
+that text on the screen.",00:08:46.240,00:08:50.880
+Or wait-- does it?,00:08:50.880,00:08:52.720
+"How else might we model the
+performance of printf?",00:08:52.720,00:08:56.430
+"Would someone like to disagree, that
+maybe it's not really constant time?",00:08:56.430,00:09:00.420
+"In what sense might printf's running
+time, actually printing a string on",00:09:00.420,00:09:03.600
+"the screen, be something
+other than constant.",00:09:03.600,00:09:05.580
+&gt;&gt; AUDIENCE: [INAUDIBLE].,00:09:05.580,00:09:07.860
+&gt;&gt; DAVID MALAN: Yeah.,00:09:07.860,00:09:08.230
+So it depends on our perspective.,00:09:08.230,00:09:09.300
+"If we actually think of the input to
+printf as being the string, and",00:09:09.300,00:09:13.390
+"therefore we measure the size of that
+input by its length-- so let's call",00:09:13.390,00:09:16.380
+that length n as well--,00:09:16.380,00:09:17.780
+"arguably, printf is itself big O of n
+because it's going to take you n steps",00:09:17.780,00:09:21.990
+"to print out each of those n
+characters, most likely.",00:09:21.990,00:09:24.750
+"At least to the extent that we assume
+that maybe it's using a for loop",00:09:24.750,00:09:27.730
+underneath the hood.,00:09:27.730,00:09:28.560
+"&gt;&gt; But we would have to look at that
+code to understand it better.",00:09:28.560,00:09:30.860
+"And indeed, once you guys start
+analyzing your own algorithms, you'll",00:09:30.860,00:09:33.650
+literally do just that.,00:09:33.650,00:09:34.900
+"Sort of eyeball your code and think
+about-- all right, I have this loop",00:09:34.900,00:09:37.765
+"here or I have a nested loops here,
+that's going to do n things n times,",00:09:37.765,00:09:41.870
+"and you can sort of reason your way
+through the code, even if it's",00:09:41.870,00:09:46.050
+pseudocode and not actual code.,00:09:46.050,00:09:47.980
+&gt;&gt; So what about omega of n squared?,00:09:47.980,00:09:49.730
+"What was an algorithm that in the best
+case, still took n squared steps?",00:09:49.730,00:09:53.582
+Yeah?,00:09:53.582,00:09:54.014
+&gt;&gt; AUDIENCE: [INAUDIBLE].,00:09:54.014,00:09:54.880
+&gt;&gt; DAVID MALAN: So selection sort.,00:09:54.880,00:09:55.900
+"Because in that problem really reduced
+to the fact that again, I don't know",00:09:55.900,00:09:59.150
+"I've found the current smallest until
+I've checked all the darn elements.",00:09:59.150,00:10:02.600
+"So omega of, say, n, we
+just came up with one.",00:10:02.600,00:10:08.050
+Insertion sort.,00:10:08.050,00:10:09.300
+"If the list happens to be sorted
+already, in the best case we just have",00:10:09.300,00:10:12.370
+"to make one pass through it,
+at which point we're sure.",00:10:12.370,00:10:15.090
+"And then that could be said
+to be linear, for sure.",00:10:15.090,00:10:17.890
+&gt;&gt; What about omega of 1?,00:10:17.890,00:10:20.570
+"What, in the best case, might take
+a constant number of steps?",00:10:20.570,00:10:23.790
+"So linear search, if you just get lucky
+and the element you're looking",00:10:23.790,00:10:27.220
+"is right at the beginning of the list,
+if that's where you're starting your",00:10:27.220,00:10:31.000
+linear traversal of that list.,00:10:31.000,00:10:33.070
+"&gt;&gt; And this is true of a
+number of things.",00:10:33.070,00:10:35.180
+"For instance, even binary
+search is omega of 1.",00:10:35.180,00:10:37.660
+"Because what if you get really darn
+lucky and smack-dab in the middle of",00:10:37.660,00:10:40.310
+"your array is the number
+you're looking for?",00:10:40.310,00:10:42.950
+"So you can get lucky there, as well.",00:10:42.950,00:10:45.730
+"&gt;&gt; This one, lastly, omega of n log n.",00:10:45.730,00:10:49.190
+"So n log n, we didn't really
+talk about yet, but--",00:10:49.190,00:10:52.573
+&gt;&gt; AUDIENCE: Merge sort?,00:10:52.573,00:10:53.300
+&gt;&gt; DAVID MALAN: Merge sort.,00:10:53.300,00:10:53.960
+"That was the cliffhanger of last time,
+where we proposed, and we showed",00:10:53.960,00:10:56.920
+"visually, that there are algorithms.",00:10:56.920,00:10:58.600
+"And merge sort of just one such
+algorithm that is fundamentally faster",00:10:58.600,00:11:02.470
+than some of these other guys.,00:11:02.470,00:11:03.450
+"In fact, merge short is not only in the
+best case n log n, in the worst",00:11:03.450,00:11:07.800
+case n log n.,00:11:07.800,00:11:09.460
+"And when you have this coincidence of
+omega and big O being the same thing?",00:11:09.460,00:11:14.540
+"We can actually describe that as what's
+called theta, though it's a",00:11:14.540,00:11:17.310
+little less common.,00:11:17.310,00:11:18.220
+"But that just means the two bounds,
+in this case, are the same.",00:11:18.220,00:11:21.730
+"&gt;&gt; So merge sort, what does this
+really boil down to for us?",00:11:21.730,00:11:25.770
+"Well, recall the motivation.",00:11:25.770,00:11:27.000
+"Let me pull up another animation that
+we didn't look at last time.",00:11:27.000,00:11:30.340
+"This one, same idea, but
+it's a little larger.",00:11:30.340,00:11:33.390
+"And I'm going to go ahead and point out
+first-- we have insertion sort on",00:11:33.390,00:11:36.160
+"the top left, then selection sort,
+bubble sort, a couple of other sorts--",00:11:36.160,00:11:39.410
+"shell and quick-- that we haven't talked
+about, and heap and merge sort.",00:11:39.410,00:11:42.670
+"&gt;&gt; So at least try to focus your eyes on
+the top three on the left and then",00:11:42.670,00:11:47.090
+"merge sort when I click
+this green arrow.",00:11:47.090,00:11:49.120
+"But I'll let all of them run, just to
+give you a sense of the diversity of",00:11:49.120,00:11:51.900
+algorithms that exist in the world.,00:11:51.900,00:11:53.980
+"I'm going to let this run
+for just a few seconds.",00:11:53.980,00:11:56.180
+"And if you focus your eyes-- pick an
+algorithm, focus on it for just a",00:11:56.180,00:11:59.640
+"seconds-- you'll begin to see the
+pattern that it's implementing.",00:11:59.640,00:12:02.970
+"&gt;&gt; Merge sort, notice, is done.",00:12:02.970,00:12:04.530
+"Heap sort, quick sort, shell--",00:12:04.530,00:12:06.430
+"so it seems we introduced the three
+worst algorithms last week.",00:12:06.430,00:12:09.480
+"But that's good that we're here today to
+look at merge sort, which is one of",00:12:09.480,00:12:12.960
+"the easier ones is to look at, even
+though it probably will bend your mind",00:12:12.960,00:12:16.500
+just a little bit.,00:12:16.500,00:12:17.490
+"Here we can see just how much
+selection sort sucks.",00:12:17.490,00:12:21.130
+"&gt;&gt; But on the flip side, it's
+really easy to implement.",00:12:21.130,00:12:24.600
+"And maybe for P Set 3, that's one of the
+algorithms you chose to implement",00:12:24.600,00:12:28.160
+for the standard edition.,00:12:28.160,00:12:28.960
+"Perfectly fine, perfectly correct.",00:12:28.960,00:12:30.970
+"&gt;&gt; But again, as n gets large, if you
+choose to implement a faster algorithm",00:12:30.970,00:12:35.210
+"like merge sort, odds are in larger and
+larger inputs, your code is just",00:12:35.210,00:12:39.020
+going to run faster.,00:12:39.020,00:12:39.800
+Your website's going to work better.,00:12:39.800,00:12:41.090
+Your users are going to be happier.,00:12:41.090,00:12:42.650
+"And so there are these effects
+of actually giving",00:12:42.650,00:12:45.280
+us some deeper thought.,00:12:45.280,00:12:47.350
+"&gt;&gt; So let's take a look at what merge
+sort is actually all about.",00:12:47.350,00:12:49.990
+"The cool thing is that merge
+sort is just this.",00:12:49.990,00:12:52.992
+"This is, again, what we've called
+pseudocode, pseudocode being",00:12:52.992,00:12:56.300
+English-like syntax.,00:12:56.300,00:12:57.720
+"And the simplicity is
+sort of fascinating.",00:12:57.720,00:12:59.890
+"&gt;&gt; So on input of n elements-- so that
+just means, here's an array.",00:12:59.890,00:13:02.840
+It's got n things in it.,00:13:02.840,00:13:04.000
+That's all we're saying there.,00:13:04.000,00:13:05.370
+"&gt;&gt; If n is less than 2, return.",00:13:05.370,00:13:07.560
+So that's just the trivial case.,00:13:07.560,00:13:08.640
+"If n is less than 2, then obviously it's
+1 or 0, in which case the thing",00:13:08.640,00:13:12.580
+"is already sorted or nonexistent,
+so just return.",00:13:12.580,00:13:14.780
+There's nothing to do.,00:13:14.780,00:13:15.900
+So that's a simple case to pluck off.,00:13:15.900,00:13:18.360
+"&gt;&gt; Else, we have three steps.",00:13:18.360,00:13:20.110
+"Sort the left half of the elements, sort
+the right half of the elements,",00:13:20.110,00:13:23.650
+and then merge the sorted halves.,00:13:23.650,00:13:26.650
+"What's interesting here is that
+I'm kind of punting, right?",00:13:26.650,00:13:29.400
+"There's kind of a circular definition
+to this algorithm.",00:13:29.400,00:13:32.300
+"In what sense is this algorithm's
+definition circular?",00:13:32.300,00:13:35.986
+&gt;&gt; AUDIENCE: [INAUDIBLE].,00:13:35.986,00:13:37.850
+"&gt;&gt; DAVID MALAN: Yeah, my sorting algorithm,
+two of its steps are ""sort",00:13:37.850,00:13:41.670
+"something."" And so that begs the
+question, well, what am I going to use",00:13:41.670,00:13:44.640
+"to sort the left half
+and the right half?",00:13:44.640,00:13:46.460
+"And the beauty here is that even though
+again, this is the mind-bending",00:13:46.460,00:13:49.600
+"part potentially, you can use same
+algorithm to sort the left half.",00:13:49.600,00:13:54.030
+&gt;&gt; But wait a minute.,00:13:54.030,00:13:54.700
+"When you're told to sort the
+left half, what are the two",00:13:54.700,00:13:57.070
+steps going to be next?,00:13:57.070,00:13:58.240
+"We'll sort the left half of the
+left half and the right",00:13:58.240,00:14:00.550
+half of the left half.,00:14:00.550,00:14:01.420
+"Damn, how do I sort those two
+halves, or quarters, now?",00:14:01.420,00:14:04.430
+&gt;&gt; But that's OK.,00:14:04.430,00:14:05.260
+We have a sorting algorithm here.,00:14:05.260,00:14:07.830
+"And even though you might worry at
+first this is kind of an infinite",00:14:07.830,00:14:10.660
+"loop, it's a cycle that's never
+going to end-- it is going to",00:14:10.660,00:14:12.780
+end once what happens?,00:14:12.780,00:14:15.770
+Once n is less than 2.,00:14:15.770,00:14:16.970
+"Which eventually is going to happen,
+because if you keep halving and",00:14:16.970,00:14:19.180
+"halving in halving these halves, surely
+eventually you're going to end",00:14:19.180,00:14:23.020
+up with just 1 or 0 elements.,00:14:23.020,00:14:25.350
+"At which point, this algorithm
+says you're done.",00:14:25.350,00:14:28.500
+"&gt;&gt; So the real magic in this
+algorithm seems to be in",00:14:28.500,00:14:31.020
+"that final step, merging.",00:14:31.020,00:14:33.470
+"That simple idea just merging two
+things, that's what's ultimately going",00:14:33.470,00:14:37.190
+"to allow us to sort an array of,
+let's say, eight elements.",00:14:37.190,00:14:40.920
+"So I have eight more stress balls up
+here, eight pieces of paper, and one",00:14:40.920,00:14:44.410
+Google Glass--,00:14:44.410,00:14:45.500
+which I get to keep.,00:14:45.500,00:14:46.140
+&gt;&gt; [LAUGHTER],00:14:46.140,00:14:46.960
+"&gt;&gt; DAVID MALAN: If we could take eight
+volunteers, and let's see if we can",00:14:46.960,00:14:48.970
+"play this out, so.",00:14:48.970,00:14:51.430
+"Wow, OK.",00:14:51.430,00:14:52.500
+Computer science is getting fun.,00:14:52.500,00:14:53.565
+All right.,00:14:53.565,00:14:54.320
+"So how about you three,
+biggest hand up there.",00:14:54.320,00:14:57.770
+Four in the back.,00:14:57.770,00:14:58.580
+"And how about we'll do you
+three in this row?",00:14:58.580,00:15:02.220
+And four in the front.,00:15:02.220,00:15:03.390
+"So you eight, come on up.",00:15:03.390,00:15:04.920
+&gt;&gt; [LAUGHTER],00:15:04.920,00:15:12.060
+"&gt;&gt; DAVID MALAN: I'm actually
+not sure what it is.",00:15:12.060,00:15:13.450
+Is it the stress balls?,00:15:13.450,00:15:14.810
+The desk lamps?,00:15:14.810,00:15:16.510
+The material?,00:15:16.510,00:15:18.650
+The internet?,00:15:18.650,00:15:19.680
+&gt;&gt; OK.,00:15:19.680,00:15:20.160
+So come on up.,00:15:20.160,00:15:21.310
+Who would like--,00:15:21.310,00:15:22.310
+keep coming up.,00:15:22.310,00:15:23.570
+Let's see.,00:15:23.570,00:15:24.240
+And this puts you in location--,00:15:24.240,00:15:26.460
+you're in location one.,00:15:26.460,00:15:27.940
+"Uh-oh, wait a minute.",00:15:27.940,00:15:28.670
+"1, 2, 3, 4, 5, 6, 7-- oh, good.",00:15:28.670,00:15:30.760
+"All right, we're good.",00:15:30.760,00:15:31.310
+"All right, so everyone have a seat,
+but not on the Google Glass.",00:15:31.310,00:15:35.130
+Let me to queue these up.,00:15:35.130,00:15:36.475
+What's your name?,00:15:36.475,00:15:37.115
+&gt;&gt; MICHELLE: Michelle.,00:15:37.115,00:15:37.440
+&gt;&gt; DAVID MALAN: Michelle?,00:15:37.440,00:15:38.090
+"All right, you get to look like
+the geek, if that's OK.",00:15:38.090,00:15:42.000
+"Well, I do too, I suppose,
+for just a moment.",00:15:42.000,00:15:44.625
+"All right, standby.",00:15:44.625,00:15:45.875
+"We've been trying to come up with a
+use case for Google Glass, and we",00:15:48.510,00:15:50.950
+"thought it would be fun to just do
+this when people are onstage.",00:15:50.950,00:15:53.750
+"We will record the world
+from their perspective.",00:15:53.750,00:15:57.120
+All right.,00:15:57.120,00:15:58.410
+Not probably what Google intended.,00:15:58.410,00:15:59.830
+"All right, if you don't mind wearing
+this for the next awkward minutes,",00:15:59.830,00:16:02.260
+that would be wonderful.,00:16:02.260,00:16:03.150
+"&gt;&gt; All right, so we have here an array of
+elements, and that array, as per the",00:16:03.150,00:16:08.620
+"pieces of paper in these folks'
+hands, is currently unsorted.",00:16:08.620,00:16:11.480
+"&gt;&gt; MICHELLE: Oh, that's so weird.",00:16:11.480,00:16:12.050
+&gt;&gt; DAVID MALAN: It's pretty much random.,00:16:12.050,00:16:12.810
+"And in just a moment, we're going to try
+to implement merge sort together",00:16:12.810,00:16:15.760
+and see where that key insight is.,00:16:15.760,00:16:17.950
+"And the trick here with merge sort is
+something that we haven't assumed yet.",00:16:17.950,00:16:21.970
+"We actually need some
+additional space.",00:16:21.970,00:16:24.030
+"So what's going to be particularly
+interesting about this is that these",00:16:24.030,00:16:26.650
+"guys are going to move around a little
+bit, because I'm going to assume that",00:16:26.650,00:16:29.270
+"there's an extra array of space,
+say, right behind them.",00:16:29.270,00:16:31.880
+"&gt;&gt; So if they're behind their chair,
+that's the secondary array.",00:16:31.880,00:16:34.570
+"If they're seated here, that's
+the primary array.",00:16:34.570,00:16:36.960
+"But this is a resource that we have
+not leveraged thus far with bubble",00:16:36.960,00:16:40.170
+"sort, with selection sort,
+with insertion sort.",00:16:40.170,00:16:42.040
+"Recall last week, everyone just
+kind of shuffled in place.",00:16:42.040,00:16:44.600
+They didn't use any additional memory.,00:16:44.600,00:16:46.840
+"We made room for people by
+moving people around.",00:16:46.840,00:16:49.310
+"&gt;&gt; So this is a key insight, too.",00:16:49.310,00:16:50.580
+"There's this trade-off, in general in
+computer science, of resources.",00:16:50.580,00:16:53.410
+"If you want to speed up something
+like time, you're going to",00:16:53.410,00:16:55.800
+have to pay a price.,00:16:55.800,00:16:56.900
+"And one of those prices is very often
+space, the amount of memory or hard",00:16:56.900,00:17:00.750
+disk space that you're using.,00:17:00.750,00:17:01.700
+"Or, frankly, the amount
+of programmer time.",00:17:01.700,00:17:03.640
+"How much time it takes you, the human,
+to actually implement some more",00:17:03.640,00:17:06.700
+complicated algorithm.,00:17:06.700,00:17:07.829
+"But for today, the trade-off
+is time and space.",00:17:07.829,00:17:09.760
+"&gt;&gt; So if you guys could just hold up your
+numbers so we can see that you're",00:17:09.760,00:17:11.930
+"indeed matching 4, 2, 6, 1, 3, 7, 8.",00:17:11.930,00:17:15.839
+Excellent.,00:17:15.839,00:17:16.599
+"So I'm going to try to orchestrate
+things, if you guys can just",00:17:16.599,00:17:19.520
+follow my lead here.,00:17:19.520,00:17:21.800
+"&gt;&gt; So I am going to implement, first, the
+first step of the pseudocode, which is",00:17:21.800,00:17:26.650
+"on input of n elements, if n is
+less than 2, then return.",00:17:26.650,00:17:29.440
+"Obviously, that doesn't
+apply, so we move on.",00:17:29.440,00:17:31.370
+So sort the left half of the elements.,00:17:31.370,00:17:33.340
+"So that means I'm going to focus my
+attention for just a moment on these",00:17:33.340,00:17:36.220
+four guys here.,00:17:36.220,00:17:37.310
+"All right, what do I next do?",00:17:37.310,00:17:39.774
+&gt;&gt; AUDIENCE: Sort the left half.,00:17:39.774,00:17:40.570
+"&gt;&gt; DAVID MALAN: So now I have to sort
+the left half of these guys.",00:17:40.570,00:17:42.780
+"Because again, assume to yourself the
+goal is to sort the left half.",00:17:42.780,00:17:45.580
+How do you do that?,00:17:45.580,00:17:46.440
+"Just follow the instructions, even
+though we're doing it again.",00:17:46.440,00:17:49.140
+So sort the left half.,00:17:49.140,00:17:50.160
+Now I'm sorting these two guys.,00:17:50.160,00:17:52.030
+What comes next?,00:17:52.030,00:17:53.563
+&gt;&gt; AUDIENCE: Sort the left half.,00:17:53.563,00:17:54.510
+&gt;&gt; DAVID MALAN: Sort the left half.,00:17:54.510,00:17:55.460
+"So now these, this seat here,
+is a list of size 1.",00:17:55.460,00:18:00.680
+And what's your name again?,00:18:00.680,00:18:01.365
+&gt;&gt; PRINCESS DAISY: Princess Daisy.,00:18:01.365,00:18:02.390
+&gt;&gt; DAVID MALAN: Princess Daisy is here.,00:18:02.390,00:18:03.690
+"And so she is already sorted, because
+the list is of size 1.",00:18:03.690,00:18:07.470
+What do I next do?,00:18:07.470,00:18:09.490
+"OK, return, because that list is of
+size 1, which is less than 2.",00:18:09.490,00:18:13.680
+Then what's the next step?,00:18:13.680,00:18:14.320
+"And now you have to kind of
+backtrack in your mind.",00:18:14.320,00:18:17.490
+"&gt;&gt; Sort the right half, which is--",00:18:17.490,00:18:19.340
+what's your name?,00:18:19.340,00:18:19.570
+&gt;&gt; LINDA: Linda.,00:18:19.570,00:18:20.220
+&gt;&gt; DAVID MALAN: Linda.,00:18:20.220,00:18:20.980
+"And so what do we do now that
+we have a list of size 1?",00:18:20.980,00:18:23.210
+&gt;&gt; AUDIENCE: Return.,00:18:23.210,00:18:24.440
+&gt;&gt; DAVID MALAN: Careful.,00:18:24.440,00:18:24.760
+"We return first, and now the third
+step-- and if I kind of depict it by",00:18:24.760,00:18:29.540
+"embracing the two seats now, now I
+have to merge these two elements.",00:18:29.540,00:18:33.490
+"So now unfortunately, the elements
+are out of order.",00:18:33.490,00:18:35.530
+"But that's where the merging process
+starts to get compelling.",00:18:35.530,00:18:39.920
+"&gt;&gt; So if you guys could stand up for just
+a moment, I'm going to need you, in a",00:18:39.920,00:18:42.410
+"moment, to step behind your chair.",00:18:42.410,00:18:44.170
+"And if Linda, because 2 is
+smaller than 4, why don't",00:18:44.170,00:18:46.480
+you come around first?,00:18:46.480,00:18:48.130
+Stay there.,00:18:48.130,00:18:48.690
+"So Linda, you come around first.",00:18:48.690,00:18:50.520
+"&gt;&gt; Now in reality if it's just an array
+we could just move her in real time",00:18:50.520,00:18:53.820
+from this chair to this spot.,00:18:53.820,00:18:55.360
+"So imagine that took some constant
+number of steps 1.",00:18:55.360,00:18:57.770
+And now--,00:18:57.770,00:18:58.480
+"but we need to put you in
+the first location here.",00:18:58.480,00:19:01.490
+"&gt;&gt; And now if you could come around,
+as well, we're going to",00:19:01.490,00:19:03.930
+be in location two.,00:19:03.930,00:19:06.300
+"And even though this feels like it's
+taking a while, what's nice now is",00:19:06.300,00:19:09.120
+"that the left half of the
+left half is now sorted.",00:19:09.120,00:19:14.710
+"So what was the next step, if we now
+rewind further in the story?",00:19:14.710,00:19:18.010
+&gt;&gt; AUDIENCE: Right half.,00:19:18.010,00:19:18.980
+&gt;&gt; DAVID MALAN: Sort the right half.,00:19:18.980,00:19:19.900
+"So you guys have to do this, as well.",00:19:19.900,00:19:21.320
+"So if you could stand up
+for just a moment?",00:19:21.320,00:19:23.510
+And what's your name?,00:19:23.510,00:19:25.192
+&gt;&gt; JESS: Jess.,00:19:25.192,00:19:25.540
+&gt;&gt; DAVID MALAN: Jess.,00:19:25.540,00:19:25.870
+"OK, so Jess is now the left
+half of the right half.",00:19:25.870,00:19:29.720
+And so she's a list of size 1.,00:19:29.720,00:19:31.400
+She's obviously sorted.,00:19:31.400,00:19:32.380
+And your name again?,00:19:32.380,00:19:33.070
+&gt;&gt; MICHELLE: Michelle.,00:19:33.070,00:19:33.630
+"&gt;&gt; DAVID MALAN: Michelle is obviously
+a list of size 1.",00:19:33.630,00:19:35.340
+She's already sorted.,00:19:35.340,00:19:36.050
+"So now the magic happens,
+the merging process.",00:19:36.050,00:19:38.690
+So who's going to come first?,00:19:38.690,00:19:39.790
+Obviously Michelle.,00:19:39.790,00:19:41.560
+So if you could come around back.,00:19:41.560,00:19:43.280
+"The space we have available for her now
+is right behind this chair here.",00:19:43.280,00:19:47.090
+"And now if you could come back as well,
+we now have, to be clear, two",00:19:47.090,00:19:51.580
+"halves, each of size 2--",00:19:51.580,00:19:53.810
+"and just for depiction's sake, if you
+could make a little bit of a space--",00:19:53.810,00:19:57.090
+"one left half here, one
+right half here.",00:19:57.090,00:19:59.780
+&gt;&gt; Rewind further in the story.,00:19:59.780,00:20:01.160
+What step is next?,00:20:01.160,00:20:02.270
+&gt;&gt; AUDIENCE: Merge.,00:20:02.270,00:20:03.030
+&gt;&gt; DAVID MALAN: So now we have to merge.,00:20:03.030,00:20:04.160
+"So OK, so now, thankfully, we
+just freed up four chairs.",00:20:04.160,00:20:07.490
+"So we've used twice as much memory, but
+we can give flip-flopping between",00:20:07.490,00:20:11.480
+the two arrays.,00:20:11.480,00:20:12.330
+So which number is to come first?,00:20:12.330,00:20:14.190
+"So Michelle, obviously.",00:20:14.190,00:20:14.850
+"So come around and take
+your seat here.",00:20:14.850,00:20:16.680
+"And then number 2 is obviously
+next, so you come here.",00:20:16.680,00:20:19.120
+"Number 4, number 6.",00:20:19.120,00:20:21.520
+"And again, even though there's a
+little bit of walking involved,",00:20:21.520,00:20:23.390
+"really, these could happen instantly,
+by moving one--",00:20:23.390,00:20:26.010
+"OK, well played.",00:20:26.010,00:20:26.880
+&gt;&gt; [LAUGHTER],00:20:26.880,00:20:28.350
+"&gt;&gt; DAVID MALAN: And now we're
+in pretty good shape.",00:20:28.350,00:20:29.680
+"The left half of the entire
+input has now been sorted.",00:20:29.680,00:20:34.910
+"All right, so these guys had
+the advantage of my--",00:20:34.910,00:20:37.370
+"how did it end up all the girls on the
+left and all the boys on the right?",00:20:37.370,00:20:40.340
+"&gt;&gt; OK, so guys' turn now.",00:20:40.340,00:20:42.450
+"So I won't walk you through
+these steps.",00:20:42.450,00:20:44.680
+"We'll see if we can reapply
+the same pseudocode.",00:20:44.680,00:20:46.550
+"If you want to go ahead and stand up,
+and you guys, let me give you the mic.",00:20:46.550,00:20:50.050
+"See if you can't replicate what
+we just did here on the",00:20:50.050,00:20:52.990
+other end of the list.,00:20:52.990,00:20:53.880
+"Who needs to speak first,
+based on the algorithm?",00:20:53.880,00:20:59.530
+"So explain what you're doing before
+you make any foot movements.",00:20:59.530,00:21:03.210
+"&gt;&gt; SPEAKER 1: All right, so since
+I am the left half of the",00:21:03.210,00:21:05.930
+"left half, I return.",00:21:05.930,00:21:07.790
+Right?,00:21:07.790,00:21:08.730
+&gt;&gt; DAVID MALAN: Good.,00:21:08.730,00:21:09.250
+&gt;&gt; SPEAKER 1: And then--,00:21:09.250,00:21:10.350
+"&gt;&gt; DAVID MALAN: Who does
+the mic go to next?",00:21:10.350,00:21:11.800
+&gt;&gt; SPEAKER 1: Next number.,00:21:11.800,00:21:12.920
+"&gt;&gt; SPEAKER 2: So I'm the right half
+of the left half of the",00:21:12.920,00:21:14.720
+"left half, and I return.",00:21:14.720,00:21:17.830
+&gt;&gt; DAVID MALAN: Good.,00:21:17.830,00:21:18.050
+You return.,00:21:18.050,00:21:18.550
+So now what's the next up for you two?,00:21:18.550,00:21:21.855
+&gt;&gt; SPEAKER 2: We want see who's smaller.,00:21:21.855,00:21:23.740
+&gt;&gt; DAVID MALAN: Exactly.,00:21:23.740,00:21:24.200
+We want to merge.,00:21:24.200,00:21:24.940
+"The space we're going to use to merge
+you into, even though they're",00:21:24.940,00:21:27.590
+"obviously sorted already, we're going
+to follow the same algorithm.",00:21:27.590,00:21:30.250
+So who goes in back first?,00:21:30.250,00:21:31.560
+"So 3, and then 7.",00:21:31.560,00:21:35.720
+"And now the mic goes
+to these guys, OK?",00:21:35.720,00:21:38.570
+"&gt;&gt; SPEAKER 3: So I'm the right half of the
+left half, and my n is less than",00:21:38.570,00:21:43.590
+"1, so I'm just going to pass--",00:21:43.590,00:21:45.048
+&gt;&gt; DAVID MALAN: Good.,00:21:45.048,00:21:46.380
+"&gt;&gt; SPEAKER 4: I'm the right half of the
+right half of the right half, and I'm",00:21:46.380,00:21:49.450
+"also one person, so I'm
+going to return.",00:21:49.450,00:21:51.740
+So now we merge.,00:21:51.740,00:21:52.990
+&gt;&gt; SPEAKER 3: So we go back.,00:21:55.140,00:21:56.150
+&gt;&gt; DAVID MALAN: So you go into the back.,00:21:56.150,00:21:57.160
+"So 5 goes first, then 8.",00:21:57.160,00:21:59.200
+"And now audience, which is the
+step we have to now rewind",00:21:59.200,00:22:01.240
+back to in our minds?,00:22:01.240,00:22:02.200
+&gt;&gt; AUDIENCE: Merge.,00:22:02.200,00:22:02.940
+"&gt;&gt; DAVID MALAN: Merging left half and right
+half of the original left half.",00:22:02.940,00:22:07.270
+So now--,00:22:07.270,00:22:08.840
+"and just to make this clear,
+make a little bit of space",00:22:08.840,00:22:10.520
+between you two guys.,00:22:10.520,00:22:11.690
+"So now that's the two lists,
+left and right.",00:22:11.690,00:22:13.800
+"So how do we now merge you guys into
+the front row of seats again?",00:22:13.800,00:22:18.320
+&gt;&gt; 3 goes first.,00:22:18.320,00:22:19.600
+"Then 5, obviously.",00:22:19.600,00:22:20.850
+"Then 7, and now 8.",00:22:23.110,00:22:27.330
+"OK, and now we are?",00:22:27.330,00:22:28.710
+&gt;&gt; AUDIENCE: Not done.,00:22:28.710,00:22:29.650
+"&gt;&gt; DAVID MALAN: Not done, because
+obviously, there's one step remaining.",00:22:29.650,00:22:32.440
+"But again, the reason I'm using this
+jargon like ""rewind in your mind,""",00:22:32.440,00:22:35.720
+"it's because that's really
+what's happening.",00:22:35.720,00:22:37.160
+"We're going through all of these steps,
+but we're sort of pausing for a",00:22:37.160,00:22:39.610
+"moment, diving deeper into the
+algorithm, pausing for a moment,",00:22:39.610,00:22:42.480
+"diving deeper into the algorithm, and
+now we have to sort of rewind in our",00:22:42.480,00:22:45.840
+"minds and undo all of these layers
+that we've sort of put on hold.",00:22:45.840,00:22:49.430
+&gt;&gt; So now we have two lists of size 4.,00:22:49.430,00:22:51.790
+"If you guys could stand up one last time
+and make a bit of space here to",00:22:51.790,00:22:54.790
+"make clear that this is the left
+half of the original, the",00:22:54.790,00:22:57.230
+right half of the original.,00:22:57.230,00:22:58.620
+"Who's the first number that we
+need to pull into the back?",00:22:58.620,00:23:01.060
+"Michelle, of course.",00:23:01.060,00:23:01.870
+&gt;&gt; So we put Michelle here.,00:23:01.870,00:23:03.230
+And who has number 2?,00:23:03.230,00:23:05.080
+Number 2 comes on back as well.,00:23:05.080,00:23:06.440
+Number 3?,00:23:06.440,00:23:07.800
+Excellent.,00:23:07.800,00:23:08.510
+"Number 4, number 5, number 6,
+number 7, and number 8.",00:23:08.510,00:23:16.570
+"&gt;&gt; OK, so it felt like a lot
+of steps, for sure.",00:23:16.570,00:23:18.850
+"But now let's see if we can't confirm
+sort of intuitively that this",00:23:18.850,00:23:22.390
+"algorithm fundamentally, particularly as
+n gets really large, as we've seen",00:23:22.390,00:23:26.190
+"with the animations, is
+fundamentally faster.",00:23:26.190,00:23:29.170
+"So I claim this algorithm, in the worst
+case and even in the best case,",00:23:29.170,00:23:33.400
+is big O of n times log n.,00:23:33.400,00:23:36.160
+"That is, there's some aspect of this
+algorithm that takes n steps, but",00:23:36.160,00:23:39.160
+"there's another aspect somewhere in
+that iteration, that looping, that",00:23:39.160,00:23:43.110
+takes log n steps.,00:23:43.110,00:23:44.410
+"Can we put our finger on what those
+two numbers are referring to?",00:23:44.410,00:23:49.154
+"Well, where--",00:23:49.154,00:23:51.320
+where'd the mic go?,00:23:51.320,00:23:54.160
+"&gt;&gt; SPEAKER 1: Would the log n be
+breaking us up into two--",00:23:54.160,00:23:58.660
+"dividing by two, essentially.",00:23:58.660,00:23:59.630
+&gt;&gt; DAVID MALAN: Exactly.,00:23:59.630,00:24:00.120
+"Any time we see in any algorithm thus
+far, there's been this pattern of",00:24:00.120,00:24:03.000
+"dividing, dividing, dividing.",00:24:03.000,00:24:04.200
+"And it's typically reduced
+to something that's",00:24:04.200,00:24:05.700
+"logarithmic, log base 2.",00:24:05.700,00:24:07.100
+"But it could really be anything,
+but log base 2.",00:24:07.100,00:24:10.180
+&gt;&gt; Now what about the n?,00:24:10.180,00:24:11.330
+"I can see that we kind of divided you
+guys-- divided you, divided you,",00:24:11.330,00:24:14.550
+"divided you, divided you.",00:24:14.550,00:24:15.910
+Where does the end come from?,00:24:15.910,00:24:18.760
+&gt;&gt; So it's the merging.,00:24:18.760,00:24:19.810
+Because think about it.,00:24:19.810,00:24:20.610
+"When you merge eight people together,
+whereby half of them are a set of four",00:24:20.610,00:24:25.420
+"and the other half are another
+set of four, how do you go",00:24:25.420,00:24:27.770
+about doing the merging?,00:24:27.770,00:24:28.820
+"Well, you guys did it
+fairly intuitively.",00:24:28.820,00:24:30.830
+"&gt;&gt; But if I instead did it a little more
+methodically, I might have pointed at",00:24:30.830,00:24:34.140
+"the leftmost person first with my left
+hand, pointed at the leftmost person",00:24:34.140,00:24:38.090
+"of that half with my right hand, and
+just subsequently walked through the",00:24:38.090,00:24:42.080
+"list, pointing at the smallest element
+each time, moving my finger over and",00:24:42.080,00:24:46.990
+over as needed throughout the list.,00:24:46.990,00:24:48.970
+"But what's key about this merging
+process is I'm comparing these pairs",00:24:48.970,00:24:51.890
+of elements.,00:24:51.890,00:24:53.460
+"From the right half and from the left
+half, I'm never once backtracking.",00:24:53.460,00:24:57.270
+"&gt;&gt; So the merge itself is taking
+no more than n steps.",00:24:57.270,00:25:00.570
+"And how many times did I have
+to do that merging?",00:25:00.570,00:25:03.250
+"Well, no more than n, and we just
+saw that with the final merge.",00:25:03.250,00:25:07.150
+"And so if you do something that takes
+log n steps n times, or vice versa,",00:25:07.150,00:25:13.120
+it's going to give us n times log n.,00:25:13.120,00:25:15.210
+&gt;&gt; And why is this better?,00:25:15.210,00:25:16.310
+"Well, if we already know that log
+n is better than n-- right?",00:25:16.310,00:25:19.600
+"We saw in binary search, the phone book
+example, log n was definitely",00:25:19.600,00:25:22.590
+better than linear.,00:25:22.590,00:25:23.760
+"So that means n times log n is
+definitely better than n times another",00:25:23.760,00:25:28.420
+"n, AKA n squared.",00:25:28.420,00:25:30.390
+And that's what we ultimately feel.,00:25:30.390,00:25:32.400
+"&gt;&gt; So big round of applause, if
+we could, for these guys.",00:25:32.400,00:25:34.928
+&gt;&gt; [APPLAUSE],00:25:34.928,00:25:38.920
+"&gt;&gt; DAVID MALAN: And your parting gifts--
+you may keep the numbers,",00:25:38.920,00:25:41.550
+if you would like.,00:25:41.550,00:25:44.010
+"And your parting gift, as usual.",00:25:44.010,00:25:45.620
+"Oh, and we will send you
+the footage, Michelle.",00:25:45.620,00:25:47.290
+Thank you.,00:25:47.290,00:25:48.343
+All right.,00:25:48.343,00:25:49.250
+Help yourself to a stress ball.,00:25:49.250,00:25:50.400
+"&gt;&gt; And let me pull up, in the meantime,
+our friend Rob Bowden to offer",00:25:50.400,00:25:54.110
+"somewhat different perspective on this,
+since you can think about these",00:25:54.110,00:25:59.520
+"steps happening in a somewhat
+different way.",00:25:59.520,00:26:01.280
+"In fact, the set-up for what Rob's about
+to show us assumes that we've",00:26:01.280,00:26:04.750
+"already done the dividing up of the
+big list into eight small lists,",00:26:04.750,00:26:09.030
+each of size 1.,00:26:09.030,00:26:10.570
+"&gt;&gt; So we're changing the pseudocode a
+little bit just to sort of get at the",00:26:10.570,00:26:13.350
+core idea of how the merging works.,00:26:13.350,00:26:15.320
+"But the running time of what
+he's about to do is still",00:26:15.320,00:26:17.600
+going to be the same.,00:26:17.600,00:26:19.110
+"And again, the set-up here is that he's
+begun with eight lists of size 1.",00:26:19.110,00:26:23.540
+"So you've missed the part where he's
+actually done the log n, log n, log n",00:26:23.540,00:26:27.730
+dividing of the input.,00:26:27.730,00:26:31.205
+&gt;&gt; [VIDEO PLAYBACK],00:26:31.205,00:26:32.120
+&gt;&gt; -That's it for step one.,00:26:32.120,00:26:33.615
+"For step two, repeatedly
+merge pairs of lists.",00:26:33.615,00:26:38.270
+&gt;&gt; DAVID MALAN: Hm.,00:26:38.270,00:26:39.210
+"Only audio is coming
+out of my computer.",00:26:39.210,00:26:41.270
+Let's try this again.,00:26:41.270,00:26:42.520
+"&gt;&gt; -Just arbitrarily pick which--
+now we have four lists.",00:26:45.330,00:26:48.310
+Learn before.,00:26:51.590,00:26:52.120
+&gt;&gt; DAVID MALAN: There we go.,00:26:52.120,00:26:53.040
+"&gt;&gt; -Merging 108 and 15, we end
+up with the list 15, 108.",00:26:53.040,00:27:00.510
+"Merging 50 and 4, we
+end up with 4, 50.",00:27:00.510,00:27:07.170
+"Merging 8 and 42, we
+end up with 8, 42.",00:27:07.170,00:27:12.990
+"And merging 23 and 16, we
+end up with 16, 23.",00:27:12.990,00:27:19.970
+&gt;&gt; Now all our lists are of size 2.,00:27:19.970,00:27:23.270
+"Notice that each of the
+four lists is sorted.",00:27:23.270,00:27:26.690
+"So we can start merging
+pairs of lists again.",00:27:26.690,00:27:29.450
+"Merging 15 and 108 and 4 and 50, we
+first take the 4, then the 15, then",00:27:29.450,00:27:38.420
+"the 50, then the 108.",00:27:38.420,00:27:41.500
+"Merging 8, 42 and 16, 23, we first take
+the 8, then the 16, then the 23,",00:27:41.500,00:27:50.610
+then the 42.,00:27:50.610,00:27:52.700
+"&gt;&gt; So now we have just two lists of size
+4, each of which is sorted.",00:27:52.700,00:27:57.600
+So now we merge these two lists.,00:27:57.600,00:28:01.170
+"First, we take the 4, then we take the
+8, then we take the 15, then 16, then",00:28:01.170,00:28:11.835
+"23, then 42, then 50, then 108.",00:28:11.835,00:28:19.456
+&gt;&gt; [END VIDEO PLAYBACK],00:28:19.456,00:28:19.872
+"&gt;&gt; DAVID MALAN: Again, notice, he never
+touched a given cup more than one time",00:28:19.872,00:28:23.430
+after advancing beyond it.,00:28:23.430,00:28:24.860
+So he's never repeating.,00:28:24.860,00:28:26.200
+"So he's always moving to the side,
+and that's where we got our n.",00:28:26.200,00:28:29.850
+"&gt;&gt; Why not let me pull up one animation
+that we saw earlier, but this time",00:28:29.850,00:28:33.290
+focusing only on merge sort.,00:28:33.290,00:28:35.110
+"Let me go ahead and zoom
+in on this here.",00:28:35.110,00:28:38.030
+"First let me choose a random input,
+magnify this, and you can sort of see",00:28:38.030,00:28:42.530
+"what we took for granted, earlier,
+merge sort is actually doing.",00:28:42.530,00:28:46.600
+"&gt;&gt; So notice that you get these halves or
+these quarters or these eighths of the",00:28:46.600,00:28:50.330
+"problem that all of a sudden
+start to take good shape.",00:28:50.330,00:28:53.140
+"And then finally, you see at
+the very end that bam,",00:28:53.140,00:28:57.070
+everything is merged together.,00:28:57.070,00:28:58.860
+"&gt;&gt; So these are just three different
+takes on the same idea.",00:28:58.860,00:29:01.690
+"But the key insight, just like divide
+and conquer in the very first class,",00:29:01.690,00:29:05.980
+"was that we decided to somehow divide
+the problem into something big, into",00:29:05.980,00:29:10.640
+"something sort of identical in spirit,
+but smaller and smaller and smaller",00:29:10.640,00:29:14.760
+and smaller.,00:29:14.760,00:29:15.660
+"&gt;&gt; Now another fun way to sort of think
+about these, even though it's not",00:29:15.660,00:29:18.420
+"going to give you the same intuitive
+understanding, is",00:29:18.420,00:29:20.520
+the following animation.,00:29:20.520,00:29:21.640
+"So this is a video someone put together
+that associated different",00:29:21.640,00:29:25.400
+"sounds with the various operations for
+insertion sort, for merge sort, and",00:29:25.400,00:29:29.970
+for a couple of others.,00:29:29.970,00:29:31.150
+"So in a moment, I'm going to hit Play.",00:29:31.150,00:29:32.330
+It's about a minute long.,00:29:32.330,00:29:33.600
+"And even though you can still see the
+patterns happening, this time you can",00:29:33.600,00:29:37.410
+"also hear how these algorithms are
+performing differently and with",00:29:37.410,00:29:41.420
+somewhat different patterns.,00:29:41.420,00:29:43.950
+&gt;&gt; This is insertion sort.,00:29:43.950,00:29:45.830
+&gt;&gt; [TONES PLAYING],00:29:45.830,00:29:50.400
+"&gt;&gt; DAVID MALAN: It again is trying
+to insert each element",00:29:50.400,00:29:52.400
+into where it belongs.,00:29:52.400,00:29:52.900
+This is bubble sort.,00:29:52.900,00:29:54.628
+&gt;&gt; [TONES PLAYING],00:29:54.628,00:30:10.097
+"&gt;&gt; DAVID MALAN: And you can sort of feel
+how relatively little work it's doing",00:30:10.097,00:30:13.630
+on each step.,00:30:13.630,00:30:15.834
+This is what tediousness sounds like.,00:30:15.834,00:30:20.470
+&gt;&gt; [TONES PLAYING],00:30:20.470,00:30:21.472
+"&gt;&gt; DAVID MALAN: This is selection sort,
+where we select the element we want by",00:30:21.472,00:30:25.222
+"going through again and again and again
+and putting it at the beginning.",00:30:25.222,00:30:28.845
+&gt;&gt; [TONES PLAYING],00:30:28.845,00:30:37.674
+"&gt;&gt; DAVID MALAN: This is merge sort, which
+you can really start to feel.",00:30:37.674,00:30:43.970
+&gt;&gt; [TONES PLAYING],00:30:43.970,00:30:51.810
+&gt;&gt; [LAUGHTER],00:30:51.810,00:30:54.770
+"&gt;&gt; DAVID MALAN: Something called gnome
+sort, which we haven't looked at.",00:30:54.770,00:30:58.395
+&gt;&gt; [TONES PLAYING],00:30:58.395,00:31:13.630
+"&gt;&gt; DAVID MALAN: So let me see, now,
+distracted as you hopefully are by the",00:31:13.630,00:31:17.910
+"music, if I can slip a little
+bit of math in here.",00:31:17.910,00:31:21.110
+"So there's a fourth way that we can
+think about what it means these",00:31:21.110,00:31:24.850
+"functions to be faster than ones
+that we've seen before.",00:31:24.850,00:31:29.210
+"And if you're coming at the course from
+a mathematics background, you",00:31:29.210,00:31:32.470
+"actually know perhaps already that you
+can slap a term on this technique--",00:31:32.470,00:31:36.030
+"namely recursion, a function
+that somehow calls itself.",00:31:36.030,00:31:40.400
+"&gt;&gt; And again, recall that merge sort
+pseudocode was recursive in the sense",00:31:40.400,00:31:44.780
+"that one of merge sort's steps
+was to call sort--",00:31:44.780,00:31:48.460
+"that is, itself.",00:31:48.460,00:31:49.740
+"But thankfully, because we kept
+calling sort, or merge sort,",00:31:49.740,00:31:52.480
+"specifically, on a smaller and smaller
+and smaller list, we eventually",00:31:52.480,00:31:55.880
+"bottomed out thanks to what we'll call
+a base case, the hard-coded case that",00:31:55.880,00:32:00.005
+"said if the list is small, less than 2
+in that case, just return immediately.",00:32:00.005,00:32:04.270
+"If we didn't have that special case, the
+algorithm would never bottom out,",00:32:04.270,00:32:07.550
+"and you would indeed get into an
+infinite loop truly forever.",00:32:07.550,00:32:11.010
+"&gt;&gt; But suppose that we wanted to now put
+some numbers on this, again, using n",00:32:11.010,00:32:14.330
+as the size of the input.,00:32:14.330,00:32:15.660
+"And I wanted to ask you, what's
+the total time involved in",00:32:15.660,00:32:18.680
+running merge sort?,00:32:18.680,00:32:19.800
+"Or more generally, what's
+the cost of it in time?",00:32:19.800,00:32:22.960
+&gt;&gt; Well it's pretty easy to measure that.,00:32:22.960,00:32:24.730
+"If n is less than 2, the time involved
+in sorting n elements,",00:32:24.730,00:32:29.010
+"where n is 2, is 0.",00:32:29.010,00:32:30.480
+Because we just return.,00:32:30.480,00:32:31.410
+There's no work to be done.,00:32:31.410,00:32:32.510
+"Now arguably, maybe it's one step or two
+steps to figure out the amount of",00:32:32.510,00:32:35.660
+"work, but it's close enough to 0 that
+I'm just going to say no work is",00:32:35.660,00:32:38.420
+"required if the list is so small
+to be uninteresting.",00:32:38.420,00:32:40.940
+&gt;&gt; But this case is interesting.,00:32:40.940,00:32:42.580
+"The recursive case was the branch of
+the pseudocode that said else, sort",00:32:42.580,00:32:47.320
+"the left half, sort the right
+half, merge the two halves.",00:32:47.320,00:32:52.000
+"Now why does this expression
+represent that expense?",00:32:52.000,00:32:55.530
+"Well, T of n just means the
+time to sort n elements.",00:32:55.530,00:32:58.690
+"And then on the right-hand side of the
+equals sign there, the T of n divided",00:32:58.690,00:33:03.070
+by 2 is referring to the cost of what?,00:33:03.070,00:33:06.600
+Sorting the left half.,00:33:06.600,00:33:07.570
+"The other T of n divided by 2 is
+presumably referring to the cost to",00:33:07.570,00:33:10.990
+sort the right half.,00:33:10.990,00:33:12.390
+&gt;&gt; And then the plus n?,00:33:12.390,00:33:14.590
+Is the merging.,00:33:14.590,00:33:15.420
+"Because if you have two lists, one of
+size n over 2 and another of size n",00:33:15.420,00:33:19.120
+"over 2, you have to essentially touch
+each of those elements, just like Rob",00:33:19.120,00:33:22.580
+"touched each of the cups, and just
+as we pointed at each of the",00:33:22.580,00:33:24.990
+volunteers on stage.,00:33:24.990,00:33:26.310
+So n is the expense of merging.,00:33:26.310,00:33:28.790
+"&gt;&gt; Now unfortunately, this formula
+is also itself recursive.",00:33:28.790,00:33:31.780
+"So if asked the question, if n is, say,
+16, if there's 16 people on stage",00:33:31.780,00:33:36.390
+"or 16 cups in the video, how many total
+steps does it take to sort them",00:33:36.390,00:33:40.670
+with merge sort?,00:33:40.670,00:33:41.550
+"It's actually not an obvious answer,
+because now you have to sort of",00:33:41.550,00:33:45.790
+recursively answer this formula.,00:33:45.790,00:33:48.500
+"&gt;&gt; But that's OK, because let me propose
+that we do the following.",00:33:48.500,00:33:51.190
+"The time involved to sort 16 people or
+16 cups is going to be represented",00:33:51.190,00:33:56.670
+generally as T of 16.,00:33:56.670,00:33:58.020
+"But that equals, according to our
+previous formula, 2 times the amount",00:33:58.020,00:34:01.400
+"of time it takes to sort
+8 cups plus 16.",00:34:01.400,00:34:04.780
+"And again, plus 16 is the time to merge,
+and the two times T of 8 is the",00:34:04.780,00:34:08.590
+time to sort left half and right half.,00:34:08.590,00:34:10.790
+"&gt;&gt; But again, this isn't enough.",00:34:10.790,00:34:11.989
+We have to dive in deeper.,00:34:11.989,00:34:13.210
+"This means we have to answer the
+question, what is T of 8?",00:34:13.210,00:34:16.409
+"Well T of 8 is just 2
+times T of 4 plus 8.",00:34:16.409,00:34:19.610
+"Well, what's T of 4?",00:34:19.610,00:34:20.520
+T of 4 is just 2 times T of 2 plus 4.,00:34:20.520,00:34:23.780
+"Well, what's T of 2?",00:34:23.780,00:34:25.489
+T of 2 is just 2 times T of 1 plus 2.,00:34:25.489,00:34:29.030
+"&gt;&gt; And again, we're kind of getting
+stuck in this cycle.",00:34:29.030,00:34:31.940
+"But it's about to hit that
+so-called base case.",00:34:31.940,00:34:34.790
+"Because what's T of 1, did we claim?",00:34:34.790,00:34:37.310
+0.,00:34:37.310,00:34:37.810
+"So now finally, we can work backwards.",00:34:37.810,00:34:39.730
+"&gt;&gt; If T of 1 is 0, I can now go back up one
+line to this guy here, and I can",00:34:39.730,00:34:44.290
+plug in 0 for T of 1.,00:34:44.290,00:34:46.330
+"So that means it equals 2 times zero,
+otherwise known as 0, plus 2.",00:34:46.330,00:34:51.770
+And so that whole expression is 2.,00:34:51.770,00:34:53.739
+"&gt;&gt; Now if I take the T of 2, whose answer
+is 2, plug it into the middle line, T",00:34:53.739,00:34:58.740
+"of 4, that gives me 2 times
+2 plus 4, so 8.",00:34:58.740,00:35:02.740
+"If I then plug in 8 to the previous
+line, that gives me 2 times 8, 16.",00:35:02.740,00:35:07.080
+"And if we then continue that with the
+24, adding in 16, we finally get a",00:35:07.080,00:35:12.470
+value of 64.,00:35:12.470,00:35:13.820
+"&gt;&gt; Now that in and of itself sort of speaks
+nothing to the n notation, the",00:35:13.820,00:35:18.480
+"big O, the omega that we've
+been talking about.",00:35:18.480,00:35:20.700
+"But it turns out that 64 is indeed
+16, the size of the input,",00:35:20.700,00:35:24.890
+log base 2 of 16.,00:35:24.890,00:35:27.110
+"And if this is a little unfamiliar, just
+think back, and it'll come back",00:35:27.110,00:35:30.200
+to you eventually.,00:35:30.200,00:35:30.700
+"If this is log base 2, it's like 2
+raised to the what gives you 16?",00:35:30.700,00:35:33.775
+"Oh, that's 4, so it's 16 times 4.",00:35:33.775,00:35:36.380
+"&gt;&gt; And again, it's not a big deal if this
+is sort of a hazy memory now.",00:35:36.380,00:35:39.380
+"But for now, take on faith
+that 16 log 16 is 64.",00:35:39.380,00:35:43.720
+"And so indeed, with this simple sanity
+check, we've confirmed--",00:35:43.720,00:35:46.590
+but not proved formally--,00:35:46.590,00:35:48.250
+"that the running time of merge
+sort is indeed n log n.",00:35:48.250,00:35:52.800
+&gt;&gt; So not bad.,00:35:52.800,00:35:53.790
+"It's definitely better than the
+algorithms we've seen thus far, and",00:35:53.790,00:35:57.260
+"it's because we've leveraged, one,
+a technique called recursion.",00:35:57.260,00:36:00.710
+"But more interesting than that, that
+notion of dividing and conquering.",00:36:00.710,00:36:03.880
+"Again, truly week 0 stuff that
+even now is recurring in a",00:36:03.880,00:36:07.460
+more compelling way.,00:36:07.460,00:36:08.740
+"&gt;&gt; Now a fun little exercise, if you've
+never done this-- and you probably",00:36:08.740,00:36:11.750
+"wouldn't have, because sort of normal
+people don't think to do this.",00:36:11.750,00:36:14.660
+"But if I go to google.com and if
+I want to learn something about",00:36:14.660,00:36:20.650
+"recursion, Enter.",00:36:20.650,00:36:22.356
+&gt;&gt; [LAUGHTER],00:36:25.106,00:36:29.058
+[MORE LAUGHTER],00:36:29.058,00:36:32.030
+DAVID MALAN: Bad joke slowly spreading.,00:36:32.030,00:36:33.385
+[LAUGHTER],00:36:33.385,00:36:34.450
+"DAVID MALAN: Just in case, it's there.",00:36:34.450,00:36:36.970
+"I didn't spell it wrong,
+and there's the joke.",00:36:36.970,00:36:38.710
+All right.,00:36:38.710,00:36:40.810
+"Explain it to the people next to you if
+it hasn't quite clicked just yet.",00:36:40.810,00:36:42.950
+"But recursion, more generally, refers
+to the process of a function calling",00:36:42.950,00:36:47.650
+"itself, or more generally, dividing a
+problem into something that can be",00:36:47.650,00:36:51.430
+"solved piecemeal by solving identical
+representative problems.",00:36:51.430,00:36:56.220
+"&gt;&gt; Well, let's change gears
+for just a moment.",00:36:56.220,00:36:58.400
+"We like to end on certain cliffhangers,
+so let's start to set",00:36:58.400,00:37:00.840
+"the stage, for several minutes,
+on a very simple idea--",00:37:00.840,00:37:05.870
+"that of swapping two elements, right?",00:37:05.870,00:37:07.620
+"All of these algorithms we've been
+talking about the past couple of",00:37:07.620,00:37:10.040
+"lectures involve some
+sort of swapping.",00:37:10.040,00:37:12.420
+"Today it was visualized by them getting
+up out of their chairs and",00:37:12.420,00:37:14.630
+"walking around, but in code, we would
+just take an element from one array",00:37:14.630,00:37:18.570
+and plop it into another.,00:37:18.570,00:37:20.370
+&gt;&gt; So how do we go about doing this?,00:37:20.370,00:37:21.880
+"Well, let me go ahead and write
+a quick program here.",00:37:21.880,00:37:24.850
+"I'm going to go ahead and do
+this as the following.",00:37:24.850,00:37:31.600
+Let's call this--,00:37:31.600,00:37:33.910
+what do we want to call this one?,00:37:33.910,00:37:38.070
+"&gt;&gt; Actually, no.",00:37:38.070,00:37:38.650
+Let me rewind.,00:37:38.650,00:37:39.420
+"I don't want to do that
+cliffhanger yet.",00:37:39.420,00:37:41.220
+It will spoil the fun.,00:37:41.220,00:37:42.270
+Let's do this instead.,00:37:42.270,00:37:43.600
+"&gt;&gt; Suppose that I want to write a little
+program and that now embraces this",00:37:43.600,00:37:47.430
+idea of recursion.,00:37:47.430,00:37:48.700
+I kind of got ahead of myself there.,00:37:48.700,00:37:50.370
+I'm going to do the following.,00:37:50.370,00:37:51.420
+"&gt;&gt; First, a quick include of standard io.h,
+as well as an include of cs50.h.",00:37:51.420,00:38:00.220
+"And then I'm going to go ahead
+and declare int main void",00:38:00.220,00:38:03.200
+in the usual way.,00:38:03.200,00:38:04.360
+"I realized I've misnamed the file, so
+let me just add a .c extension here so",00:38:04.360,00:38:07.920
+that we can compile it properly.,00:38:07.920,00:38:09.510
+Start this function off.,00:38:09.510,00:38:10.970
+"&gt;&gt; And the function I want to write, quite
+simply, is one that asks the",00:38:10.970,00:38:13.290
+"user for a number and then adds up
+all the numbers between that",00:38:13.290,00:38:16.210
+"number and, say, 0.",00:38:16.210,00:38:19.920
+"So first I'm going to go ahead
+and declare int n.",00:38:19.920,00:38:22.510
+"Then I copy some code that
+we've used for a while.",00:38:22.510,00:38:24.760
+While something is true.,00:38:24.760,00:38:26.660
+I'll come back to that in a moment.,00:38:26.660,00:38:28.000
+&gt;&gt; What do I want to do?,00:38:28.000,00:38:29.010
+"I want to say printf positive
+integer please.",00:38:29.010,00:38:33.460
+"And then I'm going to
+say n gets get int.",00:38:33.460,00:38:36.130
+"So again, some boilerplate code
+that we've used before.",00:38:36.130,00:38:38.800
+"And I'm going to do this
+while n is less than 1.",00:38:38.800,00:38:40.810
+"So this will ensure that the user
+gives me a positive integer.",00:38:40.810,00:38:44.120
+&gt;&gt; And now I'm going to do the following.,00:38:44.120,00:38:45.490
+"I want to add up all of the numbers
+between 1 and and n, or 0 and n,",00:38:45.490,00:38:51.020
+"equivalently, to get the total sum.",00:38:51.020,00:38:52.570
+"So the big sigma symbol
+that you might recall.",00:38:52.570,00:38:55.100
+"So I'm going to do this by first calling
+a function called sigma,",00:38:55.100,00:38:59.050
+"passing it in n, and then I'm going to
+say printf, the answer is right there.",00:38:59.050,00:39:06.030
+"&gt;&gt; So in short, I get and
+int from the user.",00:39:06.030,00:39:08.180
+I ensure it's positive.,00:39:08.180,00:39:09.280
+"I declare a variable called answer of
+type int and store in it the return",00:39:09.280,00:39:12.700
+"value of sigma, passing in n as input.",00:39:12.700,00:39:15.610
+And then I print out that answer.,00:39:15.610,00:39:17.060
+"&gt;&gt; Unfortunately, even though sigma sounds
+like something that might be in",00:39:17.060,00:39:19.550
+"the math.h file, its declaration,
+it's actually not.",00:39:19.550,00:39:24.040
+So that's OK.,00:39:24.040,00:39:24.690
+I can implement this myself.,00:39:24.690,00:39:26.170
+"I'm going to implement a function called
+sigma, and it's going to take a",00:39:26.170,00:39:29.160
+parameter--,00:39:29.160,00:39:29.900
+"let's just call it m, just
+so it's different.",00:39:29.900,00:39:32.100
+"And then up here, I'm going to say,
+well, if m is less than 1-- this is a",00:39:32.100,00:39:35.910
+very uninteresting program.,00:39:35.910,00:39:38.180
+"So I'm going to go ahead and
+immediately return 0.",00:39:38.180,00:39:41.700
+"It just doesn't make sense to add up all
+the numbers between 1 and m if m",00:39:41.700,00:39:45.920
+is itself 0 or negative.,00:39:45.920,00:39:48.470
+"&gt;&gt; And then I'm going to go ahead
+and do this very iteratively.",00:39:48.470,00:39:50.900
+"I'm going to do this sort of old-school,
+and I'm going to go ahead",00:39:50.900,00:39:53.090
+"and say that I'm going to
+declare a sum to be 0.",00:39:53.090,00:39:57.150
+"Then I'm going to have
+a for loop of int--",00:39:57.150,00:39:59.630
+"and let me do it to match our
+distribution code, so you have a copy",00:39:59.630,00:40:02.820
+"at home. int i gets 1 on up to
+i is less than or equal to m.",00:40:02.820,00:40:07.500
+i plus plus.,00:40:07.500,00:40:09.430
+And then inside of this for loop--,00:40:09.430,00:40:11.430
+we're almost there--,00:40:11.430,00:40:12.440
+sum gets sum plus 1.,00:40:12.440,00:40:15.810
+And then I'm going to return the sum.,00:40:15.810,00:40:17.670
+"&gt;&gt; So I did this quickly,
+quite admittedly.",00:40:17.670,00:40:19.420
+"But again, the main function's pretty
+straightforward, based on code we've",00:40:19.420,00:40:22.775
+written thus far.,00:40:22.775,00:40:23.190
+"Uses the dual loop to get a positive
+int from the user.",00:40:23.190,00:40:25.610
+"I then pass that int to a new function
+called sigma, calling it, again, n.",00:40:25.610,00:40:29.870
+"And I store the return value, the answer
+from the black box currently",00:40:29.870,00:40:33.100
+"known as sigma, in a variable
+called answer.",00:40:33.100,00:40:35.460
+Then I print it.,00:40:35.460,00:40:36.580
+"&gt;&gt; If we now continue the story,
+how is sigma implemented?",00:40:36.580,00:40:39.090
+I propose to implement as follows.,00:40:39.090,00:40:40.840
+"First, a little bit of error-checking
+to make sure that the user's not",00:40:40.840,00:40:43.560
+"messing with me and passing in
+some negative or 0 value.",00:40:43.560,00:40:46.480
+"Then I declare a variable called
+sum and set it to 0.",00:40:46.480,00:40:49.710
+"&gt;&gt; And now I begin to move from i equals
+1 all the way up to and including m,",00:40:49.710,00:40:55.910
+"because I want to include all the
+numbers from one through m, inclusive.",00:40:55.910,00:41:00.130
+"And inside of this for loop, I just do
+sum gets whatever it is now, plus the",00:41:00.130,00:41:04.350
+value of i.,00:41:04.350,00:41:08.900
+Plus the value of i.,00:41:08.900,00:41:10.370
+"&gt;&gt; As an aside, if you've not seen this
+before, there's some syntactic sugar",00:41:10.370,00:41:14.090
+for this line.,00:41:14.090,00:41:14.870
+"I can rewrite this as plus equals i,
+just to save myself a few keystrokes",00:41:14.870,00:41:21.120
+and to look a bit cooler.,00:41:21.120,00:41:22.570
+But that's all.,00:41:22.570,00:41:23.140
+It's functionally the same thing.,00:41:23.140,00:41:24.660
+"&gt;&gt; Unfortunately, this code's
+not going to compile yet.",00:41:24.660,00:41:26.710
+"If I run make sigma 0, how am
+I going to get yelled at?",00:41:26.710,00:41:31.600
+What's it going to not like?,00:41:31.600,00:41:33.473
+&gt;&gt; AUDIENCE: [INAUDIBLE].,00:41:33.473,00:41:35.740
+"&gt;&gt; DAVID MALAN: Yeah, I didn't declare
+the function up top, right?",00:41:35.740,00:41:37.800
+"C is kind of stupid, in that it only
+does what you tell it to do, and you",00:41:37.800,00:41:40.590
+have to do it in that order.,00:41:40.590,00:41:41.880
+"And so if I hit Enter here, I'm going to
+get a warning about sigma implicit",00:41:41.880,00:41:45.910
+declaration.,00:41:45.910,00:41:46.860
+"&gt;&gt; Oh, not a problem.",00:41:46.860,00:41:48.120
+"I can go up to the top, and I can
+say, all right, wait a minute.",00:41:48.120,00:41:50.370
+"Sigma is a function that returns
+an int and it expects an",00:41:50.370,00:41:54.240
+"int as input, semicolon.",00:41:54.240,00:41:56.620
+"Or I could put the whole function
+above main, but in general, I'd",00:41:56.620,00:41:59.550
+"recommend against that, because it's
+nice to always have main at the top so",00:41:59.550,00:42:02.260
+"you can dive right in and know what a
+program's doing by reading main first.",00:42:02.260,00:42:06.310
+&gt;&gt; So now let me clear the screen.,00:42:06.310,00:42:07.930
+Remake sigma 0.,00:42:07.930,00:42:09.330
+All seems to check out.,00:42:09.330,00:42:10.340
+Let me run sigma 0.,00:42:10.340,00:42:11.970
+Positive inter.,00:42:11.970,00:42:12.770
+"I'll give it the number
+3 to keep it simple.",00:42:12.770,00:42:15.580
+"So that should give me 3
+plus 2 plus 1, so 6.",00:42:15.580,00:42:18.710
+"Enter, and indeed I get 6.",00:42:18.710,00:42:20.750
+&gt;&gt; I can do something bigger--,00:42:20.750,00:42:21.820
+"50, 12, 75.",00:42:21.820,00:42:24.080
+"Just as a tangent, I'm going to do
+something ridiculous like a really big",00:42:24.080,00:42:27.690
+"number, Oh, that actually worked out--",00:42:27.690,00:42:30.375
+"eh, I don't think that's right.",00:42:30.375,00:42:31.600
+Let's see.,00:42:31.600,00:42:32.810
+Let's really mess with it.,00:42:32.810,00:42:34.060
+&gt;&gt; That's a problem.,00:42:37.150,00:42:38.400
+What's going on?,00:42:43.180,00:42:44.970
+The code's not that bad.,00:42:44.970,00:42:46.050
+It's still linear.,00:42:46.050,00:42:48.470
+"Whistling is a good effect, though.",00:42:48.470,00:42:50.810
+What's going on?,00:42:50.810,00:42:52.060
+&gt;&gt; Not sure if I heard it.,00:42:54.700,00:42:55.620
+"So it turns out-- and
+this is as an aside.",00:42:55.620,00:42:57.620
+"This is not core to the
+idea of recursion.",00:42:57.620,00:42:59.400
+"It turns out, because I'm trying to
+represent such a big number, most",00:42:59.400,00:43:02.480
+"likely it's being misinterpreted
+by C as a not positive number,",00:43:02.480,00:43:06.980
+but negative number.,00:43:06.980,00:43:09.980
+"&gt;&gt; We have not talked about this, but it
+turns out there are negative numbers",00:43:09.980,00:43:12.690
+"in the world in addition
+to positive numbers.",00:43:12.690,00:43:14.210
+"And the means by which you can
+represent a negative number",00:43:14.210,00:43:16.290
+"essentially is, you use one
+special bit to indicate",00:43:16.290,00:43:19.530
+positive over negative.,00:43:19.530,00:43:20.400
+"It's a little more complex than that,
+but that's the basic idea.",00:43:20.400,00:43:22.950
+"&gt;&gt; So unfortunately, if C is confusing one
+of those bits as actually meaning,",00:43:22.950,00:43:26.740
+"oh, this is a negative number, my loop
+here, for instance, is actually never",00:43:26.740,00:43:30.790
+going to terminate.,00:43:30.790,00:43:31.740
+"So if I were actually printing something
+again and again, we would",00:43:31.740,00:43:33.850
+see a whole lot.,00:43:33.850,00:43:34.650
+"But again, this is besides the point.",00:43:34.650,00:43:36.220
+"This is really just a sort of
+intellectual curiosity that we'll come",00:43:36.220,00:43:38.590
+back to eventually.,00:43:38.590,00:43:39.550
+"But for now, this is a correct
+implementation if we assume that the",00:43:39.550,00:43:43.400
+"user will provide ints
+that fit within ints.",00:43:43.400,00:43:45.970
+"&gt;&gt; But I claim that this code, frankly,
+could be done so much more simply.",00:43:45.970,00:43:49.370
+"If the goal at hand is to take a number
+like m and add up all of the",00:43:49.370,00:43:54.060
+"numbers between it and 1, or conversely
+between 1 and it, I claim",00:43:54.060,00:43:59.510
+"that I can borrow this idea that merge
+sort had, which was taking a problem",00:43:59.510,00:44:03.380
+"of this size and dividing it
+into something smaller.",00:44:03.380,00:44:05.660
+"Maybe not half, but smaller, but
+representatively the same.",00:44:05.660,00:44:09.875
+"Same idea, but a smaller problem.",00:44:09.875,00:44:12.130
+"&gt;&gt; So I'm actually-- let me save this file
+with a different version number.",00:44:12.130,00:44:15.470
+"We'll call this version
+1 instead of 0.",00:44:15.470,00:44:17.670
+"And I claim that I can actually
+reimplement this in this sort of",00:44:17.670,00:44:20.790
+mind-bending way.,00:44:20.790,00:44:22.160
+&gt;&gt; I'm going to leave part of it alone.,00:44:22.160,00:44:23.710
+"I'm going to say if m is less
+than or even equal to 0--",00:44:23.710,00:44:27.710
+"I'm just going to be a little
+more anal this time",00:44:27.710,00:44:29.280
+with my error checking--,00:44:29.280,00:44:30.520
+I'm going to go ahead and return 0.,00:44:30.520,00:44:33.190
+This is arbitrary.,00:44:33.190,00:44:34.490
+"I am just simply deciding if the user
+gives me a negative number, I'm",00:44:34.490,00:44:37.500
+"returning 0, and they should have read
+the documentation more closely.",00:44:37.500,00:44:41.490
+&gt;&gt; Else--,00:44:41.490,00:44:42.170
+notice what I'm going to do.,00:44:42.170,00:44:44.070
+Else I am going to return m plus--,00:44:44.070,00:44:49.260
+what is sigma of m?,00:44:49.260,00:44:51.010
+"Well, sigma of m plus m minus 1,
+plus m minus 2, plus m minus 3.",00:44:51.010,00:44:56.710
+I don't want to write all of that out.,00:44:56.710,00:44:58.030
+Why don't I just punt?,00:44:58.030,00:44:59.120
+"Recursively call myself with a slightly
+smaller problem, semicolon,",00:44:59.120,00:45:05.080
+and call it a day?,00:45:05.080,00:45:06.840
+&gt;&gt; Right?,00:45:06.840,00:45:07.040
+"Now here, too, you might feel or worry
+that this is an infinite loop that I'm",00:45:07.040,00:45:10.980
+"inducing, whereby I am implementing
+sigma by calling sigma.",00:45:10.980,00:45:15.450
+"But that's perfectly OK, because I
+thought ahead an added which lines?",00:45:15.450,00:45:20.342
+&gt;&gt; AUDIENCE: [INAUDIBLE].,00:45:20.342,00:45:22.600
+"&gt;&gt; DAVID MALAN: 23 to 26, which
+is my if condition.",00:45:22.600,00:45:25.430
+"Because what's nice about the
+subtraction here, because I keep",00:45:25.430,00:45:28.390
+"handing sigma smaller problems, smaller
+problems, smaller-- it's not",00:45:28.390,00:45:31.180
+half the size.,00:45:31.180,00:45:31.870
+"It's only a baby step smaller,
+but that's OK.",00:45:31.870,00:45:34.380
+"Because eventually, we'll work
+our way down to 1 or 0.",00:45:34.380,00:45:38.050
+"And once we hit 0, sigma's not
+going to call itself anymore.",00:45:38.050,00:45:41.630
+It's going to immediately return 0.,00:45:41.630,00:45:43.590
+"&gt;&gt; So the effect, if you sort of wind this
+up in your mind, is to add m plus",00:45:43.590,00:45:47.960
+"m minus 1, plus m minus 2, plus m minus
+3, plus dot, dot, dot, m minus",00:45:47.960,00:45:52.740
+"m, eventually giving you 0, and the
+effect is ultimately to add all of",00:45:52.740,00:45:57.820
+these things together.,00:45:57.820,00:45:59.070
+"So we have not, with recursion,
+solved the problem that we",00:45:59.070,00:46:02.380
+couldn't solve before.,00:46:02.380,00:46:03.470
+"Indeed, version 0 of this, and every
+problem to date, has been solvable",00:46:03.470,00:46:06.840
+"with just using for loops or while
+loops or similar constructs.",00:46:06.840,00:46:09.980
+"&gt;&gt; But recursion, I daresay, gives us
+a different way of thinking about",00:46:09.980,00:46:13.150
+"problems, whereby if we can take a
+problem, divide it from something",00:46:13.150,00:46:17.010
+"somewhat large into something somewhat
+smaller, I claim that we can solve it",00:46:17.010,00:46:22.340
+"perhaps a little more elegantly in terms
+of the design, with less code,",00:46:22.340,00:46:26.040
+"and maybe even solve problems that would
+be harder, as we'll eventually",00:46:26.040,00:46:30.980
+"see, solving purely iteratively.",00:46:30.980,00:46:33.280
+"&gt;&gt; But the cliffhanger that I did
+want to leave us on was this.",00:46:33.280,00:46:35.980
+"Let me go ahead and open
+up a file from--",00:46:35.980,00:46:40.720
+"actually, let me go and
+do this real fast.",00:46:40.720,00:46:44.300
+"Let me go ahead and propose
+the following.",00:46:44.300,00:46:46.875
+Among today's code is this file here.,00:46:51.160,00:46:54.785
+"This one here, noswap.",00:47:01.090,00:47:03.050
+"&gt;&gt; So this is a stupid little program that
+I whipped up that claims to do",00:47:03.050,00:47:06.260
+the following.,00:47:06.260,00:47:06.940
+"In main, it first declares an
+int called x and assigns it",00:47:06.940,00:47:10.140
+the value of 1.,00:47:10.140,00:47:11.100
+"Then it declares an int y and
+assigns it the value 2.",00:47:11.100,00:47:13.520
+Then it prints out what x and y is.,00:47:13.520,00:47:15.310
+"Then it says, swapping, dot dot dot.",00:47:15.310,00:47:17.781
+"&gt;&gt; Then it claims to be calling a function
+called swap, passing in x and",00:47:17.781,00:47:21.670
+"y, the idea of which is that hopefully
+x and y will come back",00:47:21.670,00:47:24.290
+"different, the opposite.",00:47:24.290,00:47:25.620
+Then it claim swapped!,00:47:25.620,00:47:27.110
+with an exclamation point.,00:47:27.110,00:47:28.420
+Then it prints out x and y.,00:47:28.420,00:47:30.190
+"&gt;&gt; But it turns out that this very
+simple demonstration down",00:47:30.190,00:47:33.480
+here is actually buggy.,00:47:33.480,00:47:35.570
+"Even though I'm declaring a temporary
+variable and temporarily putting a in",00:47:35.570,00:47:38.870
+"it, then I'm reassigning
+a the value of b--",00:47:38.870,00:47:42.010
+"which feels reasonable, because I've
+saved a copy of a in temp.",00:47:42.010,00:47:45.080
+"Then I update b to equal
+whatever was in temp.",00:47:45.080,00:47:48.410
+"This sort of shell game of moving a
+into b and b into a by using this",00:47:48.410,00:47:51.610
+"middle-man called temp feels
+perfectly reasonable.",00:47:51.610,00:47:54.360
+"&gt;&gt; But I claim that when I run this
+code, as I'll do now--",00:47:54.360,00:47:57.270
+let me go ahead and paste it in here.,00:47:57.270,00:47:59.490
+I'll call this noswap.c.,00:47:59.490,00:48:01.995
+"And as the name suggests, this is not
+going to be a correct program.",00:48:01.995,00:48:05.630
+Make noswap ./ no swap.,00:48:05.630,00:48:09.460
+"x is 1, y is 2, swapping, swapped.",00:48:09.460,00:48:12.110
+"x is 1, y is 2.",00:48:12.110,00:48:14.220
+"This is fundamentally wrong, even
+though this seems perfectly",00:48:14.220,00:48:16.920
+reasonable to me.,00:48:16.920,00:48:17.730
+"And there is a reason, but we're not
+going to reveal the reason just yet.",00:48:17.730,00:48:21.330
+"&gt;&gt; For now the second cliffhanger I wanted
+to leave you with is this, an",00:48:21.330,00:48:24.610
+announcement of sorts on coupon codes.,00:48:24.610,00:48:27.120
+"Our innovation with late days this year
+has provoked a non-trivial number",00:48:27.120,00:48:31.590
+"of questions, which was
+not our intention.",00:48:31.590,00:48:33.830
+"The intention of these coupon codes,
+whereby if you do part of the problem",00:48:33.830,00:48:36.590
+"set early, thereby getting an extra day,
+was really to help you guys help",00:48:36.590,00:48:39.850
+"yourself start early, sort
+of by incentivizing you.",00:48:39.850,00:48:42.420
+"Helps us distribute load across
+office hours better so that",00:48:42.420,00:48:44.880
+it's sort of win-win.,00:48:44.880,00:48:45.740
+"&gt;&gt; Unfortunately, I think my instructions
+have not been, to date, very clear, so",00:48:45.740,00:48:48.860
+"I went back this weekend and updated
+the spec in bigger, bolder text to",00:48:48.860,00:48:52.230
+explain bullets like these.,00:48:52.230,00:48:53.600
+"And just to say it more publicly, by
+default, problem sets are due Thursday",00:48:53.600,00:48:56.900
+"at noon, per the syllabus.",00:48:56.900,00:48:58.400
+"If you start early, finishing part of
+the problem set by Wednesday at 12:00",00:48:58.400,00:49:02.030
+"PM, the part that relates to a coupon
+code, the idea is that you can extend",00:49:02.030,00:49:05.170
+"your deadline for the
+P set until Friday.",00:49:05.170,00:49:07.710
+"That is, bit off a tiny part of the P
+set relative to what typically is the",00:49:07.710,00:49:10.890
+"larger problem, and you buy
+yourself an extra day.",00:49:10.890,00:49:13.200
+"Again, it gets you thinking about
+the problem set, gets you to",00:49:13.200,00:49:15.190
+office hours sooner.,00:49:15.190,00:49:16.380
+"But the coupon code problem is still
+required, even if you don't submit it.",00:49:16.380,00:49:20.670
+&gt;&gt; But more compellingly is this.,00:49:20.670,00:49:23.340
+"(STAGE WHISPER) And those folks leaving
+early are gonna regret it.",00:49:23.340,00:49:26.520
+As are the folks on the balcony.,00:49:26.520,00:49:28.620
+"I apologize in advance to the folks on
+the balcony for reasons that will be",00:49:28.620,00:49:32.510
+clear in just a moment.,00:49:32.510,00:49:33.920
+"&gt;&gt; So we are fortunate to have one of
+CS50's former head teaching fellows at",00:49:33.920,00:49:37.050
+a company called dropbox.com.,00:49:37.050,00:49:39.302
+"They have very generously donated a
+coupon code here for this much space,",00:49:39.302,00:49:45.500
+"which is up from the
+usual 2 gigabytes.",00:49:45.500,00:49:48.180
+"So what I thought we would do on this
+final note is do a bit of a giveaway,",00:49:48.180,00:49:51.740
+"whereby in just a moment, we will reveal
+the winner and who has a coupon",00:49:51.740,00:49:55.380
+"code that you can then go to their
+website, type it in, and voila, get a",00:49:55.380,00:49:57.980
+"whole lot more Dropbox space for your
+appliance and for your personal files.",00:49:57.980,00:50:01.370
+"&gt;&gt; And first, who would like to participate
+in this drawing?",00:50:01.370,00:50:05.690
+"OK, now that makes it even more fun.",00:50:05.690,00:50:09.630
+"The person who receives this 25-gigabyte
+coupon code-- which is far",00:50:09.630,00:50:14.010
+"more compelling than the late
+days now, perhaps--",00:50:14.010,00:50:16.150
+"is the one who is seated on top of a
+seat cushion beneath which there is",00:50:16.150,00:50:20.620
+that coupon code.,00:50:20.620,00:50:21.620
+"You may now look underneath
+your seat cushion.",00:50:21.620,00:50:23.480
+&gt;&gt; [VIDEO PLAYBACK],00:50:28.710,00:50:29.680
+"&gt;&gt; -One, two, three.",00:50:29.680,00:50:31.620
+&gt;&gt; [SCREAMING],00:50:31.620,00:50:35.015
+&gt;&gt; -You get a car!,00:50:35.015,00:50:35.985
+You get a car!,00:50:35.985,00:50:36.670
+"&gt;&gt; DAVID MALAN: We will see
+you on Wednesday.",00:50:36.670,00:50:37.970
+&gt;&gt; -You get a car!,00:50:37.970,00:50:38.904
+You get a car!,00:50:38.904,00:50:39.371
+You get a car!,00:50:39.371,00:50:40.305
+You get a car!,00:50:40.305,00:50:41.706
+You get a car!,00:50:41.706,00:50:43.107
+"&gt;&gt; DAVID MALAN: Balcony folks, come
+down here to the front,",00:50:43.107,00:50:45.530
+where we have extras.,00:50:45.530,00:50:46.866
+&gt;&gt; -Everybody gets a car!,00:50:46.866,00:50:50.282
+Everybody gets a car!,00:50:50.282,00:50:52.234
+&gt;&gt; [END VIDEO PLAYBACK],00:50:52.234,00:50:52.722
+&gt;&gt; NARRATOR: At the next CS50--,00:50:52.722,00:50:54.590
+"&gt;&gt; SPEAKER 5: Oh my gosh gosh gosh gosh
+gosh gosh gosh gosh gosh gosh--",00:50:54.590,00:51:00.374
+&gt;&gt; [UKELELE PLAYS],00:51:00.374,00:51:02.106

@@ -1,0 +1,1588 @@
+text,start,stop
+&gt;&gt; [MUSIC],00:00:00.000,00:00:11.214
+&gt;&gt; DAVID J. MALAN: All right.,00:00:11.214,00:00:11.661
+"So this is CS50 and this
+is the end of week 10.",00:00:11.661,00:00:15.400
+"So some of you might have seen this
+already, but being circulated of late",00:00:15.400,00:00:20.420
+"is an article that I thought I'd read
+an excerpt from and then show you a",00:00:20.420,00:00:25.800
+"three minute video that paints
+the same picture.",00:00:25.800,00:00:27.800
+"It was really a touching story, I
+thought, of this intersection of the",00:00:27.800,00:00:30.950
+"real world with genuinely compelling
+uses of technology.",00:00:30.950,00:00:35.210
+"&gt;&gt; So the article was entitled, ""A boy
+oversleeps on train, uses Google Maps",00:00:35.210,00:00:39.785
+"to find family 25 years later."" And the
+first couple of paragraphs were,",00:00:39.785,00:00:44.930
+"""When Saroo was five years old he went
+with his older brother to scrounge for",00:00:44.930,00:00:48.820
+"change on a passenger train
+in a town about two hours",00:00:48.820,00:00:51.830
+from his small hometown.,00:00:51.830,00:00:53.510
+"Saroo became tired and hopped on a
+nearby train where he thought his",00:00:53.510,00:00:56.790
+"brother was, then fell asleep.",00:00:56.790,00:00:58.880
+"When he woke up he was in Calcutta,
+nearly 900 miles away.",00:00:58.880,00:01:03.360
+"Saroo tried to find his way
+back, but he didn't know",00:01:03.360,00:01:05.770
+the name of his hometown.,00:01:05.770,00:01:07.260
+"And as a tiny illiterate boy in a vast
+city full of forgotten children he had",00:01:07.260,00:01:11.430
+virtually no chance of getting home.,00:01:11.430,00:01:13.520
+"&gt;&gt; He was a street child for a while until
+a local adoption agency hooked",00:01:13.520,00:01:16.760
+"him up with an Australian couple
+who brought him to",00:01:16.760,00:01:18.840
+"live in Hobart, Tasmania.",00:01:18.840,00:01:20.600
+"Saroo moved there, learned
+English, and grew up.",00:01:20.600,00:01:23.130
+"But he never stopped looking for
+his family and his hometown.",00:01:23.130,00:01:27.450
+"&gt;&gt; Decades later, he discovered Google
+Earth and followed rail tracks.",00:01:27.450,00:01:32.380
+"And giving himself a prescribed radius
+based on how long he thought he was",00:01:32.380,00:01:36.140
+"asleep and how fast he thought the train
+was going, he knew he'd grown up",00:01:36.140,00:01:40.020
+"in a warm climate, he knew he spoke
+Hindi as a child, and he'd been told",00:01:40.020,00:01:43.930
+"that he looked like he
+was from East India.",00:01:43.930,00:01:46.160
+"&gt;&gt; Finally, after years of scouring
+the satellite photos, he",00:01:46.160,00:01:49.650
+recognized a few landmarks.,00:01:49.650,00:01:51.340
+"And after chatting with an administrator
+of a nearby town's",00:01:51.340,00:01:54.180
+"Facebook page, he realized
+he'd found home.""",00:01:54.180,00:01:57.740
+"&gt;&gt; So here then is the video telling
+that tale from his perspective.",00:01:57.740,00:02:03.770
+&gt;&gt; [VIDEO PLAYBACK],00:02:03.770,00:02:04.025
+"&gt;&gt; -It was 26 years ago and I was
+just about to turn five.",00:02:04.025,00:02:07.480
+"We got to the train station and
+we boarded a train together.",00:02:07.480,00:02:10.539
+"My brother just said I'll stay
+here and I'll come back.",00:02:10.539,00:02:13.390
+"And I just thought, well, you know, I
+might as well just go to sleep and",00:02:13.390,00:02:16.363
+then he'll just wake me up.,00:02:16.363,00:02:17.950
+"And when I wake up the next day, the
+whole carriage was empty on a runaway",00:02:17.950,00:02:21.740
+"train, a ghost train taking
+me I don't know where.",00:02:21.740,00:02:24.305
+"&gt;&gt; I was adopted out to Australia
+to a Australian family.",00:02:27.120,00:02:31.660
+"And Mom had decorated my room with
+the map of India, which she",00:02:31.660,00:02:35.360
+put next to my bedside.,00:02:35.360,00:02:37.090
+"I woke up every morning seeing that map,
+and hence, it sort of kept the",00:02:37.090,00:02:42.170
+memories alive.,00:02:42.170,00:02:43.740
+"&gt;&gt; People would say, you're trying to
+find a needle in a haystack.",00:02:43.740,00:02:46.475
+"Saroo, you'll never find it.",00:02:46.475,00:02:49.060
+"I'd have flashes of the places that
+I used to go, the flashes",00:02:49.060,00:02:52.510
+of my family's faces.,00:02:52.510,00:02:55.050
+"There was the image of my mother sitting
+down with her legs crossed",00:02:55.050,00:02:59.200
+just watching her cry.,00:02:59.200,00:03:00.610
+Life is just so hard.,00:03:00.610,00:03:03.340
+That was my treasure.,00:03:03.340,00:03:06.002
+"&gt;&gt; And I was looking in Google Map and
+realized there's Google Earth as well.",00:03:06.002,00:03:09.390
+"In a world where you could zoom into I
+started to have all these thoughts and",00:03:09.390,00:03:13.560
+"what possibilities that
+this could do for me.",00:03:13.560,00:03:16.650
+"I said to myself, well, you know,
+you've got all the photographic",00:03:16.650,00:03:19.520
+"memories and landmarks where you're
+from and you know what",00:03:19.520,00:03:22.340
+the town looks like.,00:03:22.340,00:03:23.460
+"This could be an application that you
+can use to find your way back.",00:03:23.460,00:03:27.910
+"&gt;&gt; I thought, well, I'll put a dot on
+Calcutta Train Station in a radius",00:03:27.910,00:03:32.750
+"line that you should be searching
+around this area.",00:03:32.750,00:03:36.350
+I came across these train tracks.,00:03:36.350,00:03:38.850
+"And I started following it and I came to
+a train station which reflected the",00:03:38.850,00:03:44.490
+same image that was in my memories.,00:03:44.490,00:03:48.260
+&gt;&gt; Everything matched.,00:03:48.260,00:03:49.730
+"I just thought, yep.",00:03:49.730,00:03:50.800
+I know where I'm going.,00:03:50.800,00:03:51.545
+"I'm just going to let the map that I
+have in my head to lead me and take me",00:03:51.545,00:03:55.387
+back to my hometown.,00:03:55.387,00:03:58.230
+"&gt;&gt; I came to the doorstep of the house
+that I was born and walked around",00:03:58.230,00:04:02.290
+"about fifteen meters
+around the corner.",00:04:02.290,00:04:04.270
+"There was three ladies standing outside
+adjacent to each other.",00:04:04.270,00:04:08.140
+And the middle one stepped forward.,00:04:08.140,00:04:10.230
+"And I just thought, this
+is your mother.",00:04:10.230,00:04:12.910
+"She came forward, she hugged me, and we
+were there for about five minutes.",00:04:12.910,00:04:18.590
+"&gt;&gt; She grabbed my hand and she took me to
+the house and got on the phone and she",00:04:21.670,00:04:25.787
+"rang my sister and my brother to say
+that your brother has just all of the",00:04:25.787,00:04:31.110
+sudden appeared like a ghost.,00:04:31.110,00:04:34.480
+"&gt;&gt; And then the family was
+reunited again.",00:04:34.480,00:04:37.590
+Everything's all good.,00:04:37.590,00:04:38.570
+I help my mother out.,00:04:38.570,00:04:40.250
+She doesn't have to be slaving away.,00:04:40.250,00:04:42.240
+"She can lead the rest of
+her life in peace.",00:04:42.240,00:04:45.040
+"&gt;&gt; It was a needle in a haystack,
+but the needle was there.",00:04:45.040,00:04:48.590
+Everything's there.,00:04:48.590,00:04:49.530
+"Everything we have in the world
+is the tap of a button.",00:04:49.530,00:04:53.410
+"But you've got to have the will and
+the determination to wanting it.",00:04:53.410,00:04:57.375
+&gt;&gt; [END VIDEO PLAYBACK],00:05:02.310,00:05:02.780
+&gt;&gt; So a really sweet story.,00:05:02.780,00:05:04.220
+"And it actually reminds me of quite a
+topic that's been getting quite a bit",00:05:04.220,00:05:08.430
+"of attention of late in The Crimson,
+more nationally in general.",00:05:08.430,00:05:11.200
+"Especially as MOOCs are taking
+the stage of late.",00:05:11.200,00:05:13.620
+"MOOCs being these massive and open
+online courses of which CS50 is one.",00:05:13.620,00:05:17.370
+"&gt;&gt; And people talking about how, for
+instance, the humanities aren't really",00:05:17.370,00:05:20.680
+"catching up or aren't nearly as
+in vogue as they once were.",00:05:20.680,00:05:23.900
+"And I would encourage you guys, much
+like Jonathan did on Monday, to think",00:05:23.900,00:05:26.680
+"about as you exit 50, and we know
+already about 50% of you will not",00:05:26.680,00:05:29.900
+"continue on to take another computer
+science course, and that's totally",00:05:29.900,00:05:32.480
+fine and expected.,00:05:32.480,00:05:33.770
+"Because one of the overarching goals
+of a class like this is really to",00:05:33.770,00:05:36.620
+"empower you guys with just an
+understanding of how all of this stuff",00:05:36.620,00:05:39.790
+"works and how this world
+of technology works.",00:05:39.790,00:05:41.760
+"&gt;&gt; So that when you are back in your own
+worlds, whether it's pre-med or",00:05:41.760,00:05:45.400
+"whether it's the humanities or the
+social sciences or some other field",00:05:45.400,00:05:48.270
+"altogether, that you guys are bringing
+some technical savvy to the table and",00:05:48.270,00:05:51.830
+"helping to make smart decisions when
+it comes to the use of and",00:05:51.830,00:05:54.770
+"introduction of technology
+into your world.",00:05:54.770,00:05:57.530
+"&gt;&gt; For instance I was reminded of late
+too of two of the undergraduate",00:05:57.530,00:06:00.410
+"classes I took two years ago, which were
+such simple uses of technology",00:06:00.410,00:06:04.410
+but ever so compelling.,00:06:04.410,00:06:06.180
+"First Nights with Professor Tom Kelly
+if you've taken the class.",00:06:06.180,00:06:08.845
+"It's a class on classical music on
+this stage here where you learn a",00:06:08.845,00:06:11.640
+little something about music.,00:06:11.640,00:06:13.190
+"It's actually First Nights that CS50
+borrowed the idea of tracks for those",00:06:13.190,00:06:17.770
+"less comfortable in between
+and more comfortable.",00:06:17.770,00:06:20.630
+"&gt;&gt; In my time they had different tracks
+for kids with absolutely no music",00:06:20.630,00:06:24.410
+"experience like me, and then kids who
+had been performing since they were",00:06:24.410,00:06:27.300
+five years old.,00:06:27.300,00:06:28.240
+"And that class, for instance, just had
+a website like most any other, but it",00:06:28.240,00:06:31.200
+"was a website that allowed you to
+explore music on it and play back",00:06:31.200,00:06:34.210
+"musical clips from class, from the web,
+and just use technology in a very",00:06:34.210,00:06:39.120
+seamless way.,00:06:39.120,00:06:40.210
+"&gt;&gt; Another class years later that I
+audited, essentially, in grad school,",00:06:40.210,00:06:44.460
+"Anthro 1010, Introduction
+to Archaeology here.",00:06:44.460,00:06:47.430
+It was amazing.,00:06:47.430,00:06:48.190
+"And one of the most compelling yet super
+obvious, in retrospect, uses of",00:06:48.190,00:06:52.715
+"software was that the professors in
+that class used Google Earth.",00:06:52.715,00:06:56.000
+"We were sitting across the street
+in some lecture hall.",00:06:56.000,00:06:58.250
+"And you couldn't travel, for instance,
+to the Middle East to the dig that one",00:06:58.250,00:07:01.240
+"of the professors had just come back on,
+but we could do that virtually by",00:07:01.240,00:07:04.530
+"flying around in Google Earth and
+looking at a bird's eye view at the",00:07:04.530,00:07:07.870
+"dig site he had just returned
+from a week ago.",00:07:07.870,00:07:10.360
+"&gt;&gt; So I would encourage you guys,
+especially in the humanities, to go",00:07:10.360,00:07:12.630
+"back to those departments after this
+class bringing your final projects",00:07:12.630,00:07:16.260
+"with you or ideas of your own, and see
+just what you can do to infuse your",00:07:16.260,00:07:19.960
+"own fields in humanities or beyond
+with a little bit of this sort of",00:07:19.960,00:07:23.570
+"thing that we've explored
+here in CS50.",00:07:23.570,00:07:26.770
+"&gt;&gt; So with that picture painted, thought
+we'd try to tackle two things today.",00:07:26.770,00:07:31.790
+"One, try to give you a sense of
+where you can go after 50.",00:07:31.790,00:07:35.040
+"And in particular, if you choose to
+tackle a web based project as is",00:07:35.040,00:07:37.950
+"incredibly common, how you can go
+about taking off all of CS50's",00:07:37.950,00:07:42.580
+"training wheels and going out there on
+your own and not having to rely on a",00:07:42.580,00:07:45.810
+PDF or a specification of a pset?,00:07:45.810,00:07:48.000
+"Not having to rely on a CS50
+appliance anymore.",00:07:48.000,00:07:50.510
+"But can really pull yourself
+up by your bootstraps.",00:07:50.510,00:07:52.780
+"&gt;&gt; With that said, C-based final
+projects are welcome.",00:07:52.780,00:07:55.790
+"Things that use the stand for
+a portable library in",00:07:55.790,00:07:58.020
+graphics are welcome.,00:07:58.020,00:07:59.510
+"We just know that statistically a lot of
+people bite off projects in PHP and",00:07:59.510,00:08:03.240
+"Python and Ruby and MySQL and other
+environments, so we'll bias some of",00:08:03.240,00:08:07.860
+our remarks toward that.,00:08:07.860,00:08:09.570
+&gt;&gt; But a quick look back.,00:08:09.570,00:08:10.650
+"So we took for granted in pset7 the
+fact that $_SESSION existed.",00:08:10.650,00:08:15.940
+"This was a super global, a global,
+associative array.",00:08:15.940,00:08:19.400
+And what does this let you do?,00:08:19.400,00:08:23.040
+"Functionally, what's the
+feature this gives us?",00:08:23.040,00:08:27.130
+Yeah?,00:08:27.130,00:08:28.590
+To track the user's ID.,00:08:28.590,00:08:30.270
+And why is this useful?,00:08:30.270,00:08:31.660
+"To be able to store inside of this super
+global JHarvard or [? Scroobs ?]",00:08:31.660,00:08:36.059
+"or Malan's user ID when he
+or she visits a site.",00:08:36.059,00:08:41.880
+&gt;&gt; Exactly.,00:08:41.880,00:08:42.380
+"So you don't have to log
+in again and again.",00:08:42.380,00:08:44.049
+"It would be a really lame world wide web
+if every time you clicked a link",00:08:44.049,00:08:47.170
+"on a site like Facebook or every time
+you clicked on an email in Gmail you",00:08:47.170,00:08:50.780
+"had to re-authenticate to prove that
+it's still you and not your roommate",00:08:50.780,00:08:54.060
+"who might have walked up to your
+computer in your absence.",00:08:54.060,00:08:56.700
+"&gt;&gt; So we use SESSION to just
+remember who you are.",00:08:56.700,00:08:59.640
+"And how is this implemented
+underneath the hood?",00:08:59.640,00:09:01.830
+"How does a website that uses , the
+protocol that web browsers and servers",00:09:01.830,00:09:07.720
+"speak, how does HTTP, which is a
+stateless protocol, let's say.",00:09:07.720,00:09:12.060
+"&gt;&gt; And by stateless I mean, once you
+connect to a website, download some",00:09:12.060,00:09:15.510
+"HTMLs, some JavaScript, some CSS, your
+browser's icon stops spinning.",00:09:15.510,00:09:19.650
+"You don't have a constant connection
+to the server typically.",00:09:19.650,00:09:23.420
+That's it.,00:09:23.420,00:09:24.170
+"There's no state maintained
+constantly.",00:09:24.170,00:09:26.290
+"So how is SESSION implemented in such
+a way that every time you do visit a",00:09:26.290,00:09:30.510
+"new page, the website remembers
+who you are?",00:09:30.510,00:09:32.860
+"What's the underlying implementation
+detail?",00:09:36.150,00:09:38.195
+Shout it out.,00:09:40.810,00:09:41.490
+It's one word.,00:09:41.490,00:09:43.270
+&gt;&gt; Cookies.,00:09:43.270,00:09:43.640
+All right.,00:09:43.640,00:09:44.190
+So cookies.,00:09:44.190,00:09:44.800
+"Well, how are cookies used?",00:09:44.800,00:09:45.900
+"We'll recall that a cookie is generally
+just a piece of information.",00:09:45.900,00:09:48.870
+"And it's often a big random
+number, but not always.",00:09:48.870,00:09:51.590
+"And a cookie is planted on your hard
+drive or in your computer's RAM so",00:09:51.590,00:09:55.420
+"that every time you revisit that same
+website, your browser reminds the",00:09:55.420,00:09:59.070
+"server, I am user 1234567.",00:09:59.070,00:10:01.650
+I am user 1234567.,00:10:01.650,00:10:03.570
+"&gt;&gt; And so long as the server has remembered
+that user 1234567 is",00:10:03.570,00:10:07.590
+"JHarvard, the website will just assume
+that you are who you say you are.",00:10:07.590,00:10:11.300
+"And recall that we present these cookies
+sort of in the form of a",00:10:11.300,00:10:14.230
+virtual hand stand.,00:10:14.230,00:10:15.510
+"It's sent in the HTTP headers just to
+remind the server that you are who it",00:10:15.510,00:10:20.530
+thinks you are.,00:10:20.530,00:10:21.620
+"&gt;&gt; Of course, there's a threat.",00:10:21.620,00:10:23.320
+"What threat does this open us up to if
+we're essentially using sort of a club",00:10:23.320,00:10:27.530
+"or an amusement park mechanism
+for remembering who we are?",00:10:27.530,00:10:30.110
+"&gt;&gt; If you copy someone's cookie and hijack
+their session, so to speak, you",00:10:32.630,00:10:36.170
+"can pretend to be someone else and the
+website most likely is just going to",00:10:36.170,00:10:39.670
+believe you.,00:10:39.670,00:10:40.150
+So we'll come back to that.,00:10:40.150,00:10:41.030
+"Because the other theme for today beyond
+empowerment is also talking",00:10:41.030,00:10:44.240
+"about the very scary world we live in
+and just how much of what you do on",00:10:44.240,00:10:48.170
+"the web, how much of what you do even
+on your cell phones today can be",00:10:48.170,00:10:51.480
+"tracked really by anyone between
+you and point B.",00:10:51.480,00:10:55.170
+"&gt;&gt; And Ajax, recall.",00:10:55.170,00:10:56.240
+"We looked only briefly at this,
+although you've been using it",00:10:56.240,00:10:58.740
+"indirectly in pset8 because you're using
+Google Maps and because you're",00:10:58.740,00:11:02.660
+using Google Earth.,00:11:02.660,00:11:03.830
+"Google Maps and Google Earth don't
+download the entire world to your",00:11:03.830,00:11:07.780
+"desktop, obviously, the
+moment you load pset8.",00:11:07.780,00:11:10.490
+"It only downloads a square of the world
+or a bigger square of the earth.",00:11:10.490,00:11:15.020
+"And then every time you sort of steer
+out of range you might notice--",00:11:15.020,00:11:18.910
+"especially if on a slow connection-- you
+might see some gray for a moment",00:11:18.910,00:11:21.790
+"or a bit of fuzzy imagery as the
+computer downloads more such tiles,",00:11:21.790,00:11:26.440
+"more such imagery from the
+world or the earth.",00:11:26.440,00:11:29.190
+"&gt;&gt; And Ajax is generally the technique
+by which websites are doing that.",00:11:29.190,00:11:34.620
+"Once you need more of the map, your
+browser is going to use Ajax, which is",00:11:34.620,00:11:39.250
+"not itself a language or technology,
+it's just a technique.",00:11:39.250,00:11:42.240
+"It's the use of JavaScript to go get
+more information from a server that",00:11:42.240,00:11:47.390
+"allows your browser to go get what's to
+the east or what's to the west of",00:11:47.390,00:11:52.320
+"what's otherwise currently
+being shown in that map.",00:11:52.320,00:11:55.110
+"So this is a topic that many of you
+will encounter either directly or",00:11:55.110,00:11:58.520
+"indirectly via final projects if you
+choose to make something that's",00:11:58.520,00:12:01.180
+"similarly dynamic that's pulling data
+from some third party website.",00:12:01.180,00:12:05.020
+"&gt;&gt; So we've got a really exciting
+next Wednesday ahead.",00:12:05.020,00:12:07.390
+"Quiz one, the information for which
+is on CS50.net already.",00:12:07.390,00:12:12.280
+"Know that there'll be a review session
+this coming Monday at 5:30.",00:12:12.280,00:12:17.530
+"The date and time is already posted
+on CS50.net in that About sheet.",00:12:17.530,00:12:21.010
+"And do let us know you
+have any questions.",00:12:21.010,00:12:22.940
+"Pset8 meanwhile is already
+in your hands.",00:12:22.940,00:12:25.230
+"&gt;&gt; And let me just address one FAQ
+to save folks some stress.",00:12:25.230,00:12:29.210
+"For the most part a lot of the chatter
+we see at office hours and a lot of",00:12:29.210,00:12:32.530
+"the bugs we see reported on Discuss are
+indeed bugs in a student's code.",00:12:32.530,00:12:36.950
+"But when you've encountered something
+like the Google Earth plug-in crashing",00:12:36.950,00:12:41.360
+"or not even working and you are
+confident it's not you, it's not a",00:12:41.360,00:12:44.310
+"[? chamad ?] issue, it is not a
+bug you introduced into the",00:12:44.310,00:12:48.530
+distribution code.,00:12:48.530,00:12:49.820
+&gt;&gt; Realize just FYI--,00:12:49.820,00:12:51.250
+this is sort of plan Z--,00:12:51.250,00:12:53.130
+"that the last time we used this problem
+set and we ran into similar",00:12:53.130,00:12:57.100
+"issues, there's a line of code in
+service.js that essentially is this,",00:12:57.100,00:13:01.520
+"that says, turn buildings on.",00:13:01.520,00:13:03.580
+"And they work around the last time we
+did this in, again, corner cases where",00:13:03.580,00:13:07.100
+"students just couldn't get the darn
+thing to work is change true to false",00:13:07.100,00:13:11.660
+in that one line of code.,00:13:11.660,00:13:12.940
+"And you'll find it if you search
+through service.js.",00:13:12.940,00:13:15.520
+"&gt;&gt; I don't recommend this because you will
+create the most barren landscape",00:13:15.520,00:13:19.990
+"of Cambridge, Massachusetts.",00:13:19.990,00:13:21.720
+"This will literally flatten your world
+so that all you see are the teaching",00:13:21.720,00:13:24.930
+"fellows and course assistants on
+the horizon and no buildings.",00:13:24.930,00:13:28.610
+"But realize for whatever reason the
+Google Earth plug-in seems still to be",00:13:28.610,00:13:31.980
+"buggy a year later, so this
+might be your fail save.",00:13:31.980,00:13:35.290
+"So rather than resort to tears, resort
+to turning buildings off if you know",00:13:35.290,00:13:38.915
+"it's the plug-in that's not cooperating
+on your Mac or PC.",00:13:38.915,00:13:41.980
+"But, this is again last resort if
+you're sure it's not a bug.",00:13:41.980,00:13:46.060
+&gt;&gt; So the Hackathon.,00:13:46.060,00:13:46.890
+"A couple of teasers just
+to get you excited.",00:13:46.890,00:13:48.950
+We had quite a few RSVPs.,00:13:48.950,00:13:50.640
+"And just to paint a picture of what
+awaits, I thought I'd give you a few",00:13:50.640,00:13:54.230
+"seconds recall of this imagery
+from last year.",00:13:54.230,00:13:56.858
+&gt;&gt; [MUSIC],00:13:56.858,00:14:00.850
+"&gt;&gt; DAVID J. MALAN: Wait, oh.",00:14:00.850,00:14:02.240
+We even have our literal CS50 shuttles.,00:14:02.240,00:14:05.410
+&gt;&gt; [MUSIC],00:14:05.410,00:14:17.920
+"&gt;&gt; DAVID J. MALAN: So that's what awaits
+you in terms of the Hackathon.",00:14:17.920,00:14:20.620
+"And this will be an opportunity, to
+be clear, not to start your final",00:14:20.620,00:14:24.180
+"projects but to continue working on
+your final projects alongside",00:14:24.180,00:14:27.730
+classmates and staff and lots of food.,00:14:27.730,00:14:30.210
+"And again, if you're awake at 5:00 AM
+we'll take you down the road to IHOP.",00:14:30.210,00:14:34.340
+"&gt;&gt; The CS50 fair, meanwhile, is the climax
+for the entire class where",00:14:34.340,00:14:37.075
+"you'll bring your laptops and friends,
+maybe even family to a room on campus",00:14:37.075,00:14:41.160
+"down the street to exhibit your projects
+on laptops, on tall tables",00:14:41.160,00:14:44.530
+"like this with lots of food and friends
+and music in the background,",00:14:44.530,00:14:47.570
+as well as our friends from industry.,00:14:47.570,00:14:49.250
+"Companies like Facebook and Microsoft
+and Google and Amazon and bunches of",00:14:49.250,00:14:52.760
+"others so that if interested in just
+hearing about the real world or",00:14:52.760,00:14:55.750
+"chatting with folks about real world
+internship or full time opportunities,",00:14:55.750,00:14:59.570
+"know that some of our friends
+from industry will be there.",00:14:59.570,00:15:01.950
+"And a couple of pictures we can
+paint here are as follows.",00:15:01.950,00:15:04.970
+&gt;&gt; [MUSIC],00:15:04.970,00:15:24.400
+&gt;&gt; DAVID J. MALAN: All right.,00:15:24.400,00:15:24.920
+So that then is the CS50 fair.,00:15:24.920,00:15:27.060
+"So let's now proceed to tell a story
+that really will empower you hopefully",00:15:27.060,00:15:31.780
+for things like final projects.,00:15:31.780,00:15:33.230
+"So one of few little things to seed your
+mind, either for final projects",00:15:33.230,00:15:36.940
+"or just more generally for projects that
+you might decide to tackle after",00:15:36.940,00:15:40.470
+"the course, these are all documented
+on manual.cs50.net where the CS50",00:15:40.470,00:15:45.720
+"manual where we have lots of
+techniques documented.",00:15:45.720,00:15:48.010
+"&gt;&gt; And this is just shorthand notation for
+saying that there exists in the",00:15:48.010,00:15:51.080
+"world things called SMS to email
+gateways, which is a fancy way of",00:15:51.080,00:15:55.190
+"saying, there's servers in the world
+that know how to convert emails to",00:15:55.190,00:15:58.180
+text messages.,00:15:58.180,00:15:59.230
+"So if for your final project you want
+to create some sort of mobile themed",00:15:59.230,00:16:02.450
+"service that allows you to alert friends
+or users to events on campus",00:16:02.450,00:16:06.650
+"or what's being served in the D Hall
+that night or any such alert feature,",00:16:06.650,00:16:10.290
+"know that it's simple as sending an
+email as with PHPMailer which you",00:16:10.290,00:16:15.150
+"might have used for pset7 or we saw
+briefly a week or so ago, to",00:16:15.150,00:16:18.735
+addresses like this.,00:16:18.735,00:16:20.440
+"&gt;&gt; And in fact you can text this assuming
+your friend has an unlimited texting",00:16:20.440,00:16:26.040
+"plan and you don't want
+to charge them $0.10.",00:16:26.040,00:16:28.310
+"But if you send an email to your friend
+who you know to have Verizon or",00:16:28.310,00:16:31.920
+"AT&amp;T using Gmail and just sending it to
+their phone number at whatever the",00:16:31.920,00:16:35.870
+"sub domain there is, realize you
+will send a text message.",00:16:35.870,00:16:38.980
+"&gt;&gt; But this is one of those things
+to be careful of.",00:16:38.980,00:16:41.570
+"If you troll through last year's CS50
+videos I think it was, a horrific,",00:16:41.570,00:16:47.430
+"horrific, horrific bug I wrote in code
+ended up sending about 20,000 text",00:16:47.430,00:16:51.660
+"messages live to our
+students in class.",00:16:51.660,00:16:55.410
+"And only because someone noticed that
+they were getting multiple text",00:16:55.410,00:16:57.970
+"messages from me did I have the
+wherewithal to hit Control C quickly",00:16:57.970,00:17:01.860
+and stop that process.,00:17:01.860,00:17:03.210
+"Control C, you recall, is your friend
+in instances of infinite loop.",00:17:03.210,00:17:06.200
+"So beware the power we have just given
+to you rather irresponsibly, most",00:17:06.200,00:17:10.900
+"likely, based on my own experience.",00:17:10.900,00:17:12.950
+"But that's on the web and has
+been there for some time.",00:17:12.950,00:17:15.400
+&gt;&gt; All right.,00:17:15.400,00:17:15.810
+So textmarks.com.,00:17:15.810,00:17:17.064
+So this is a website.,00:17:17.064,00:17:18.040
+"And there's bunches of others out there
+as well that we've actually used",00:17:18.040,00:17:20.829
+"as a class for years to be able
+to receive text messages.",00:17:20.829,00:17:24.050
+"Unfortunately, sending text messages is
+easy as sending emails like that.",00:17:24.050,00:17:27.869
+"Receiving's a little harder, especially
+if you want to have one of",00:17:27.869,00:17:30.730
+"those sexy short codes that's only
+five or six digits long.",00:17:30.730,00:17:34.610
+"&gt;&gt; So for instance, for years you've been
+able to send a text message-- and you",00:17:34.610,00:17:37.720
+can try this as well--,00:17:37.720,00:17:39.200
+to 41411.,00:17:39.200,00:17:41.900
+"And that's the phone number for
+this particular startup.",00:17:41.900,00:17:44.300
+And if you send a message to 41411--,00:17:44.300,00:17:48.130
+"I'll just write it up here, so 41411--",00:17:48.130,00:17:51.190
+"and then send them a message
+like SBOY for Shuttle Boy.",00:17:51.190,00:17:54.290
+"And then type in something
+like mather quad.",00:17:54.290,00:17:56.370
+"So you send that text message
+to that phone number.",00:17:56.370,00:17:59.360
+"Within a few seconds you should get back
+a response from the CS50 Shuttle",00:17:59.360,00:18:02.630
+"Boy service, which is the shuttle
+scheduling software that we've had out",00:18:02.630,00:18:06.210
+there on the web for some time.,00:18:06.210,00:18:07.290
+"And it will respond to
+you via text message.",00:18:07.290,00:18:09.450
+"&gt;&gt; Because what we have done as a class, as
+a programmer, is to write software,",00:18:09.450,00:18:13.410
+"configured our free account with text
+marks to listen for text messages sent",00:18:13.410,00:18:18.760
+to SBOY at that number.,00:18:18.760,00:18:20.770
+"And what they do is forward those text
+messages to our PHP-based website as",00:18:20.770,00:18:25.210
+"HTTP parameters saying, here.",00:18:25.210,00:18:27.420
+"This user with this phone number
+sent you this text message.",00:18:27.420,00:18:30.380
+Do with it what you want.,00:18:30.380,00:18:31.850
+"&gt;&gt; So we wrote some software that upon
+receiving a string like SBOY mather",00:18:31.850,00:18:35.180
+"quad, we parse it.",00:18:35.180,00:18:38.420
+"We figure out where the spaces
+are between words.",00:18:38.420,00:18:41.210
+"And we as a class decide
+how to respond to that.",00:18:41.210,00:18:44.220
+"And if you try that now, for instance,
+you should see, via response within a",00:18:44.220,00:18:47.335
+"few seconds, the next few shuttles going
+from mather to the quad if any.",00:18:47.335,00:18:51.470
+And there's other stops.,00:18:51.470,00:18:52.260
+"You can type in Boylston or other such
+stops on campus, and it should",00:18:52.260,00:18:56.060
+recognize those words.,00:18:56.060,00:18:57.760
+&gt;&gt; So parse.com.,00:18:57.760,00:18:58.590
+"This is another service that we've been
+pointing some students at for",00:18:58.590,00:19:01.630
+"final projects that's wonderful
+in that it's free for a",00:19:01.630,00:19:04.390
+reasonable amount of usage.,00:19:04.390,00:19:05.660
+"And if I go to parse.com you'll see
+that this is an alternative to",00:19:05.660,00:19:08.820
+"actually having something like
+your own MySQL database.",00:19:08.820,00:19:13.230
+"And frankly, it's just
+kind of mesmerizing.",00:19:13.230,00:19:14.490
+"This is what's inside of the
+cloud even on a cloudy day.",00:19:14.490,00:19:17.450
+"&gt;&gt; So parse.com allows you to do a
+bunch of interesting things.",00:19:17.450,00:19:21.580
+"And there's other alternatives
+to this out there.",00:19:21.580,00:19:23.610
+"For instance, you can use them
+as your back end database.",00:19:23.610,00:19:26.870
+"So you don't need to have
+a web hosting company.",00:19:26.870,00:19:28.980
+"You don't need to have
+a MySQL database.",00:19:28.980,00:19:31.180
+You can instead use their back end.,00:19:31.180,00:19:32.850
+"&gt;&gt; If you're doing a mobile project for
+Android or iOS or the like, know that",00:19:32.850,00:19:36.350
+"there exists things like push services
+so you can push alerts to your friends",00:19:36.350,00:19:39.776
+or your users' home screens.,00:19:39.776,00:19:41.390
+"And then a bunch of other
+features as well.",00:19:41.390,00:19:43.600
+"&gt;&gt; So if you have interest, check out these
+websites and websites like them",00:19:43.600,00:19:47.200
+"to just see how many other peoples'
+shoulders you can stand on to make",00:19:47.200,00:19:50.720
+really cool software of your own.,00:19:50.720,00:19:53.350
+"&gt;&gt; Now in terms of authentication, an FAQ,
+is how do you actually guarantee",00:19:53.350,00:19:56.690
+"that your users are people on campus,
+Harvard students or faculty or staff?",00:19:56.690,00:20:01.220
+"So CS50 has its own authentication
+service called CS50 ID.",00:20:01.220,00:20:05.350
+"Go to that URL and you can restrict your
+website to anyone with a Harvard",00:20:05.350,00:20:09.940
+"ID, for instance.",00:20:09.940,00:20:11.340
+So know that we can handle that.,00:20:11.340,00:20:12.550
+"You guys should not be in the business
+of saying, what's your Harvard ID?",00:20:12.550,00:20:15.280
+What's your Harvard PIN?,00:20:15.280,00:20:16.160
+Let me now do something with it.,00:20:16.160,00:20:17.550
+We'll do all of that.,00:20:17.550,00:20:18.740
+"And what we'll give you back is
+someone's name and email address, but",00:20:18.740,00:20:21.710
+not anything sensitive.,00:20:21.710,00:20:23.010
+"&gt;&gt; An app on a mobile device, it can be
+made to work on a mobile device, but",00:20:26.240,00:20:30.380
+it's not quite designed for that.,00:20:30.380,00:20:32.630
+"So you'll end up spending a non trivial
+amount of time doing so.",00:20:32.630,00:20:35.640
+"So I would discourage
+that route for now.",00:20:35.640,00:20:38.040
+"This is really intended for
+web based applications.",00:20:38.040,00:20:41.570
+&gt;&gt; So web hosting.,00:20:41.570,00:20:42.650
+"So if you haven't seen on
+the course's homepage--",00:20:42.650,00:20:44.450
+and here's where we'll begin a story--,00:20:44.450,00:20:46.610
+"web hosting is all about paying for
+usually a service, host a server owned",00:20:46.610,00:20:50.900
+"by someone else on the web that has an
+IP address, and you then put your",00:20:50.900,00:20:54.800
+website on it.,00:20:54.800,00:20:55.880
+"And they usually give you email
+accounts and databases",00:20:55.880,00:20:58.620
+and other such features.,00:20:58.620,00:21:00.160
+"&gt;&gt; Know that if you don't want to actually
+pay for such, go to that URL",00:21:00.160,00:21:02.930
+"there and CS50 actually has a non-profit
+account that you can use to",00:21:02.930,00:21:06.280
+"actually have not http://project
+inside of the appliance",00:21:06.280,00:21:11.490
+for your final project.,00:21:11.490,00:21:12.470
+"If you actually want it to be something
+like, isawyouharvard.com,",00:21:12.470,00:21:16.465
+"you can buy that domain name-- although
+not that particular one-- and",00:21:16.465,00:21:19.730
+"then you can go about hosting it on a
+public web server like we can offer",00:21:19.730,00:21:24.070
+you guys through here.,00:21:24.070,00:21:25.170
+"&gt;&gt; And in fact if unfamiliar,
+if you've never been to",00:21:25.170,00:21:27.240
+"isawyouharvard.com, one, go there.",00:21:27.240,00:21:30.590
+"But two, know that that was a young
+woman's name by Tej To Toor Too two",00:21:30.590,00:21:37.310
+"years ago, three years ago, who was a
+CS50 alumni who happened a day or two",00:21:37.310,00:21:41.550
+"before the CS50 fair sent out an email
+to her house mailing list and voila.",00:21:41.550,00:21:46.280
+"Two days later by the CS50 fair, she had
+hundreds of users all creeping on",00:21:46.280,00:21:49.770
+"each other on her website and
+saying how they had seen",00:21:49.770,00:21:53.240
+her or him on campus.,00:21:53.240,00:21:55.250
+"So that's one of CS50's favorite
+success stories from",00:21:55.250,00:21:57.600
+a CS50 final project.,00:21:57.600,00:21:59.650
+"&gt;&gt; So how do you go about putting a website
+like that on the internet?",00:21:59.650,00:22:04.090
+"Well, there's a few such
+ingredients here.",00:22:04.090,00:22:07.140
+"So one, you have to buy a domain name.",00:22:07.140,00:22:09.310
+"There are bunches of places in
+the world from which you can",00:22:09.310,00:22:12.440
+buy a domain name.,00:22:12.440,00:22:13.940
+"And for instance, one that we recommend
+only because it's popular",00:22:13.940,00:22:16.660
+"and it's cheap is called
+namecheap.com.",00:22:16.660,00:22:18.855
+"But you can go godaddy.com and
+dozens of others out there.",00:22:18.855,00:22:22.860
+You can read up on reviews.,00:22:22.860,00:22:24.420
+"&gt;&gt; But for the most part it doesn't
+matter from whom you",00:22:24.420,00:22:26.250
+buy a domain name.,00:22:26.250,00:22:27.720
+"And they vary in price and
+they vary in suffix.",00:22:27.720,00:22:30.780
+"The suffixes like .com, .net,
+.org, .io, .tv, those",00:22:30.780,00:22:37.140
+actually vary in price.,00:22:37.140,00:22:38.650
+"But if we wanted to do something like
+cats.com we can go to this website,",00:22:38.650,00:22:43.630
+click Search.,00:22:43.630,00:22:44.280
+Presumably this one is taken.,00:22:44.280,00:22:46.370
+"But apparently, catsagainst.com
+is available.",00:22:46.370,00:22:50.170
+pluscats.com is available.,00:22:50.170,00:22:52.100
+"Lovecats, catscorner, dampcats.net.",00:22:52.100,00:22:53.780
+"All of this hopefully pseudo
+randomly generated.",00:22:56.320,00:22:59.135
+"If you want cats.pw, $1,500 only,
+which is a bit insane.",00:22:59.135,00:23:04.670
+"So someone has really snatched up all
+the cat related domain names here for",00:23:04.670,00:23:08.100
+varying prices.,00:23:08.100,00:23:09.840
+"&gt;&gt; As an aside, let's see.",00:23:09.840,00:23:12.360
+Who has cats.com?,00:23:12.360,00:23:13.710
+"Know that you guys have at
+your disposal fairly",00:23:13.710,00:23:16.290
+sophisticated commands now.,00:23:16.290,00:23:17.540
+"Like I can type literally
+who is cats.com?",00:23:17.540,00:23:20.592
+"And because of the way the internet is
+structured you can actually see who",00:23:20.592,00:23:23.730
+has registered this.,00:23:23.730,00:23:25.440
+"Apparently this person is [INAUDIBLE]
+using a proxy service.",00:23:25.440,00:23:30.240
+"So whoever owns cats.com doesn't want
+the world to know who they are.",00:23:30.240,00:23:33.900
+"So they've registered if through
+some random privacy service.",00:23:33.900,00:23:36.610
+"But sometimes you actually
+get actual owners.",00:23:36.610,00:23:39.100
+"&gt;&gt; And this is to say, especially if you're
+pursuing some startup and you",00:23:39.100,00:23:41.420
+"really want some domain name and you're
+willing to pay someone else for",00:23:41.420,00:23:44.640
+"it, you can figure out contact
+information in that way.",00:23:44.640,00:23:48.050
+&gt;&gt; But also interesting is this.,00:23:48.050,00:23:49.940
+Let me scroll up to this portion.,00:23:49.940,00:23:53.380
+So this is that same output.,00:23:53.380,00:23:55.330
+And this is just tacky.,00:23:55.330,00:23:56.990
+"So apparently cats.com can be
+yours for the right price.",00:23:56.990,00:24:00.740
+"But what's interesting here
+is that the name servers--",00:24:00.740,00:24:03.170
+"this is total abuse of what a name
+server's supposed to be-- your name",00:24:03.170,00:24:06.040
+"server is not supposed to be
+thisdomainforsale.com.",00:24:06.040,00:24:08.876
+If we actually choose something like--,00:24:08.876,00:24:11.050
+"let's choose something a little more
+legitimate like, who is google.com,",00:24:11.050,00:24:15.181
+and scroll up here.,00:24:15.181,00:24:17.030
+So here--,00:24:17.030,00:24:18.280
+what happened there?,00:24:20.600,00:24:21.740
+Interesting.,00:24:21.740,00:24:22.480
+Beyond who is--,00:24:22.480,00:24:25.290
+let's keep it more low key.,00:24:25.290,00:24:26.610
+&gt;&gt; Who is mit.edu?,00:24:26.610,00:24:28.370
+OK.,00:24:28.370,00:24:28.810
+This is helpful.,00:24:28.810,00:24:29.900
+So this is what I was hoping for.,00:24:29.900,00:24:31.400
+Legitimate use of the DNS service.,00:24:31.400,00:24:33.930
+"Name servers here indicate
+the following.",00:24:33.930,00:24:36.750
+"This is MIT's way of saying, whenever
+someone in the world, wherever they",00:24:36.750,00:24:40.880
+"are, types in mit.edu and hits Enter,
+your laptop, whether Mac or PC, will",00:24:40.880,00:24:46.950
+"somehow eventually figure out that the
+people in the world that know what the",00:24:46.950,00:24:51.830
+"IP address is for mit.edu or any of the
+sub domains at mit.edu or any of",00:24:51.830,00:24:58.130
+"these servers here-- and it actually
+looks like MITs infrastructure is",00:24:58.130,00:25:01.660
+pretty robust as you would expect.,00:25:01.660,00:25:03.370
+"They have multiple names servers
+which is good for redundancy.",00:25:03.370,00:25:07.050
+"And in fact, they seem to be globally
+distributed across the world.",00:25:07.050,00:25:09.840
+"A bunch of those seem to be in the US,
+a couple in Asia, one in Europe, two",00:25:09.840,00:25:13.250
+in somewhere else.,00:25:13.250,00:25:14.540
+"&gt;&gt; But the point here is that DNS that
+we've been taking for granted and",00:25:14.540,00:25:18.000
+"generally described as a big Excel table
+that has IP addresses and domain",00:25:18.000,00:25:21.990
+"names is actually fairly sophisticated
+hierarchical service so that in the",00:25:21.990,00:25:25.890
+"world there's actually a finite number
+of servers that essentially know where",00:25:25.890,00:25:29.170
+"all of the .coms are or all of
+the .nets are, all of the",00:25:29.170,00:25:32.880
+".orgs are, and so forth.",00:25:32.880,00:25:34.650
+"&gt;&gt; So when you go ahead and buy a domain
+name from a place like Name Cheap or",00:25:34.650,00:25:37.820
+"Go Daddy or any other website, one of
+the key steps that you'll have to do",00:25:37.820,00:25:41.450
+"you, if you do this even for your final
+project, is tell the registrar",00:25:41.450,00:25:45.180
+"from whom you're buying the domain
+name, who in the world knows your",00:25:45.180,00:25:49.020
+"website's IP addresses, who
+your name servers are.",00:25:49.020,00:25:52.310
+"&gt;&gt; So if you use, for instance CS50's
+hosting account-- we happen to have",00:25:52.310,00:25:55.750
+"this account through dreamhost.com
+which is a",00:25:55.750,00:25:57.760
+popular web hosting company--,00:25:57.760,00:25:59.560
+"they will tell you that you should buy
+your domain and tell the world that",00:25:59.560,00:26:03.530
+"your domain's name server is
+ns1.dreamhost.com, ns2.dreamhost.com,",00:26:03.530,00:26:09.410
+and ns3.dreamhost.com.,00:26:09.410,00:26:11.470
+&gt;&gt; But that's it.,00:26:11.470,00:26:12.600
+"Buying a domain name means giving them
+the money and getting ownership of the",00:26:12.600,00:26:15.480
+"domain, but it's more like
+a rental though.",00:26:15.480,00:26:17.190
+"You get it for a year and then they bill
+you recurringly for the rest of",00:26:17.190,00:26:20.060
+"your life until you cancel
+the domain name.",00:26:20.060,00:26:22.130
+"And then you tell them who
+the name servers are.",00:26:22.130,00:26:24.510
+"But then you're done with
+your registrar.",00:26:24.510,00:26:26.190
+"And from there you'll interact only with
+your web hosting company, which",00:26:26.190,00:26:30.130
+in CS50's case will be DreamHost.,00:26:30.130,00:26:32.030
+"But again, more documentation will be
+provided to you if you decide to go",00:26:32.030,00:26:36.080
+that route.,00:26:36.080,00:26:37.170
+"&gt;&gt; So if you do this after the course's
+end, simply googling web hosting",00:26:37.170,00:26:40.750
+"company will turn up thousands
+of options.",00:26:40.750,00:26:42.830
+"And I would generally encourage you to
+ask friends who might have used a",00:26:42.830,00:26:45.720
+"company before if they recommend
+them and had a good experience.",00:26:45.720,00:26:49.350
+"&gt;&gt; Because there's a lot of fly by night
+web hosting companies, like a guy in",00:26:49.350,00:26:52.680
+"his basement with a server
+that has an IP address.",00:26:52.680,00:26:55.220
+"He has some extra RAM and hard disk
+space and just sells web hosting",00:26:55.220,00:26:58.980
+"accounts even though there's no way that
+server could handle hundreds of",00:26:58.980,00:27:02.380
+users or thousands of users.,00:27:02.380,00:27:04.050
+"So realize you will get
+what you pay for.",00:27:04.050,00:27:06.260
+"&gt;&gt; For quite a while for my personal home
+page-- and this was totally acceptable",00:27:06.260,00:27:09.510
+"because I had, like, two
+visitors a month--",00:27:09.510,00:27:11.830
+"I was paying, like, $2.95 a month.",00:27:11.830,00:27:14.990
+"And I'm pretty sure it was
+in someone's basement.",00:27:14.990,00:27:17.230
+"But again, you don't get necessarily
+any guarantees of uptime or",00:27:17.230,00:27:20.800
+scalability.,00:27:20.800,00:27:21.840
+"So again, you're typically looking
+at something more than that.",00:27:21.840,00:27:24.560
+"&gt;&gt; Well, what about SSL?",00:27:24.560,00:27:26.220
+So what's SSL used for?,00:27:26.220,00:27:27.690
+"Let's now start to steer in the
+directions of security and things that",00:27:27.690,00:27:30.320
+can harm us.,00:27:30.320,00:27:32.330
+"Especially as you venture
+out on your own.",00:27:32.330,00:27:36.890
+"&gt;&gt; What's SSL, or what's SSL used for?",00:27:36.890,00:27:41.650
+"Security, OK.",00:27:41.650,00:27:42.660
+So it's used for security.,00:27:42.660,00:27:44.000
+What does that mean?,00:27:44.000,00:27:44.640
+So it stands for Secure Sockets Layer.,00:27:44.640,00:27:47.170
+"And it is indicated by a URL
+that starts with https://.",00:27:47.170,00:27:52.330
+"Many of us have probably never typed
+https://, but you'll often find that",00:27:52.330,00:27:58.410
+"your browser is redirected from HTTP to
+HTTPS so that everything is there",00:27:58.410,00:28:03.000
+after encrypted.,00:28:03.000,00:28:04.260
+"&gt;&gt; FYI, using SSL requires typically that
+you have a unique IP address.",00:28:04.260,00:28:10.810
+"And typically to get a unique IP address
+you need to pay a web hosting",00:28:10.810,00:28:13.940
+company a few dollars more per month.,00:28:13.940,00:28:15.850
+"So realize this is very easily
+implemented these days by buying an IP",00:28:15.850,00:28:19.850
+"address and by buying what's
+called an SSL certificate.",00:28:19.850,00:28:22.930
+"But realize that it does come
+at some additional cost.",00:28:22.930,00:28:26.520
+"And, as we'll try to scare in just a
+bit, it's not even necessarily 100%",00:28:26.520,00:28:30.880
+"protective of whatever it is
+you're trying to protect.",00:28:30.880,00:28:34.040
+"&gt;&gt; So for security, I'd thought I'd
+do sort of a random segue here.",00:28:34.040,00:28:38.620
+"As you might know from CS50's lecture
+videos, our production team has been a",00:28:38.620,00:28:42.820
+"fan as I have of taking really nice
+photography of campus, and aerial",00:28:42.820,00:28:46.770
+photography most recently.,00:28:46.770,00:28:48.370
+"If you ever look up and you see
+something flying with a little camera,",00:28:48.370,00:28:51.450
+it may actually be CS50.,00:28:51.450,00:28:53.410
+"And I just thought I'd share minute of
+some of the footage the team has",00:28:53.410,00:28:55.830
+"gathered, particularly as we look to
+the spring semester and next fall.",00:28:55.830,00:28:59.450
+"If any of you have a knack for
+photography, videography, we would",00:28:59.450,00:29:03.320
+"love to get you involved
+behind the scenes.",00:29:03.320,00:29:05.570
+But more on those details in a week.,00:29:05.570,00:29:07.595
+&gt;&gt; [MUSIC],00:29:07.595,00:29:18.560
+"&gt;&gt; DAVID J. MALAN: Turns out there's a
+miniature golf course on the top of",00:29:18.560,00:29:20.750
+the stadium that we never knew about.,00:29:20.750,00:29:22.754
+&gt;&gt; [MUSIC],00:29:22.754,00:30:06.150
+"&gt;&gt; DAVID J. MALAN: You can see the
+outline of the drone there.",00:30:06.150,00:30:08.440
+&gt;&gt; [MUSIC],00:30:08.440,00:30:24.160
+"&gt;&gt; DAVID J. MALAN: The best part here
+is, watch the jogger on the left.",00:30:24.160,00:30:26.280
+&gt;&gt; [MUSIC],00:30:26.280,00:30:52.900
+"&gt;&gt; DAVID J. MALAN: Another example of what
+you can do with technology that's",00:30:52.900,00:30:56.920
+"only tangentially, frankly,
+related to security.",00:30:56.920,00:30:58.900
+"But I thought that would be a more
+fun way of just saying, security.",00:30:58.900,00:31:01.710
+"So let's see if we can't scare you guys
+now with not only a bit of a few",00:31:01.710,00:31:07.780
+"threats, but also an underlying
+understanding of what these threats",00:31:07.780,00:31:10.590
+"are so that moving forward you can
+decide how and whether to defend",00:31:10.590,00:31:13.830
+"yourself against these things and at
+least to be mindful of them as you",00:31:13.830,00:31:17.290
+"make decisions as to whether or not to
+send that email, whether or not to log",00:31:17.290,00:31:20.530
+"into that website, whether or not to
+use that cyber cafe's Wi-Fi access",00:31:20.530,00:31:24.920
+"point so that you know what the
+threats are indeed around you.",00:31:24.920,00:31:28.210
+"&gt;&gt; So Jonathan referred to something
+like this on Monday.",00:31:28.210,00:31:30.990
+He had a window screen shot.,00:31:30.990,00:31:32.220
+This one is of a Mac.,00:31:32.220,00:31:33.630
+"How many of you have ever installed
+software on your Mac or PC?",00:31:33.630,00:31:36.850
+Obviously everyone.,00:31:36.850,00:31:38.420
+"How many of you have given much thought
+to typing in your password",00:31:38.420,00:31:41.590
+when prompted?,00:31:41.590,00:31:43.030
+"I mean, even I don't, frankly.",00:31:43.030,00:31:44.740
+"So a couple of us are good
+at being paranoid.",00:31:44.740,00:31:48.730
+"But consider what you're
+actually doing here.",00:31:48.730,00:31:50.490
+"&gt;&gt; On a typical Mac or PC you have
+an administrator account.",00:31:50.490,00:31:53.280
+"And typically you're the only one using
+a laptop at least these days.",00:31:53.280,00:31:56.450
+"So your account, Malan or JHarvard
+or whatever it is, is the",00:31:56.450,00:31:59.780
+administrator account.,00:31:59.780,00:32:00.830
+"And what that means is you have
+root access to your computer.",00:32:00.830,00:32:03.530
+"You can install anything you want,
+delete anything you want.",00:32:03.530,00:32:06.180
+"&gt;&gt; And typically these days, because of
+dated design decisions from years ago,",00:32:06.180,00:32:10.800
+"the way most software gets installed
+is as an administrator.",00:32:10.800,00:32:14.560
+"And even if your Mac or PC has at least
+gotten smart enough over the",00:32:14.560,00:32:18.180
+"years with the latest incarnations of
+Mac OS and Windows to not run your",00:32:18.180,00:32:22.010
+"username by default as the
+administrator, when you download some",00:32:22.010,00:32:26.130
+"new program off the internet and try to
+install it, you're probably going",00:32:26.130,00:32:29.160
+to be prompted for your password.,00:32:29.160,00:32:30.880
+"But the catch is at that point, you're
+literally handing the keys of your",00:32:30.880,00:32:34.790
+"computer over to whatever random
+program you just downloaded and",00:32:34.790,00:32:38.620
+"allowing it to install
+whatever it wants.",00:32:38.620,00:32:41.590
+"&gt;&gt; And as Jonathan alluded to, realize
+that it might say that it wants to",00:32:41.590,00:32:45.050
+"install your software that you care
+about, Spotify or iTunes or whatever",00:32:45.050,00:32:49.350
+it is you're trying to install.,00:32:49.350,00:32:50.900
+"But you're literally trusting the author
+or authors of the software to",00:32:50.900,00:32:54.710
+"only do what the program
+is supposed to do.",00:32:54.710,00:32:57.570
+"&gt;&gt; But there is absolutely nothing
+stopping most programs on most",00:32:57.570,00:33:02.320
+"operating systems from deleting files,
+from uploading them to some company's",00:33:02.320,00:33:06.910
+"website, from trolling around,
+for encrypting things.",00:33:06.910,00:33:10.040
+"And again, we've sort of built
+an entire infrastructure over",00:33:10.040,00:33:12.970
+the years on trust.,00:33:12.970,00:33:14.930
+"And so realize that you've just been
+trusting random people and random",00:33:14.930,00:33:18.690
+companies for the most part.,00:33:18.690,00:33:20.050
+"&gt;&gt; And Jonathan alluded to too, sometimes
+those companies themselves are sort of",00:33:20.050,00:33:24.860
+"knowingly malicious, all right?",00:33:24.860,00:33:26.410
+"Sony caught a lot of flack a few years
+ago for installing what was called a",00:33:26.410,00:33:30.200
+"rootkit kit on people's computers
+without their knowledge.",00:33:30.200,00:33:33.220
+"And the gist of this was that when you
+bought a CD for instance that they",00:33:33.220,00:33:36.570
+"didn't want you to be able to copy or
+rip the music off of, the CD would",00:33:36.570,00:33:40.050
+"install, without your knowing,
+a rootkit on your computer.",00:33:40.050,00:33:42.600
+"Rootkit just meaning software that runs
+as administrator that potentially",00:33:42.600,00:33:46.020
+does bad things.,00:33:46.020,00:33:47.260
+"&gt;&gt; But among the things this thing
+did was it hid itself.",00:33:47.260,00:33:50.780
+"So some of you might be pretty savvy
+with your computer and know, well, I",00:33:50.780,00:33:53.660
+"can just open the Task Manager or the
+Activity Monitor and I can look at all",00:33:53.660,00:33:57.310
+"of the arcanely named programs
+that are running.",00:33:57.310,00:33:59.150
+"And if anything looks suspicious
+I'll just kill it or delete it.",00:33:59.150,00:34:01.760
+But that's what the rootkit did.,00:34:01.760,00:34:02.980
+"It essentially said, if running Task
+Manager, don't show yourself.",00:34:02.980,00:34:07.070
+&gt;&gt; So the software was there.,00:34:07.070,00:34:08.500
+"And only if you really, really looked
+hard could you even find it.",00:34:08.500,00:34:12.710
+"And this was done in the name
+of copy protection.",00:34:12.710,00:34:15.670
+"But just imagine what could
+have been done otherwise.",00:34:15.670,00:34:18.230
+&gt;&gt; Now in terms of protecting yourself.,00:34:18.230,00:34:19.699
+"A lot of websites are wonderfully
+gracious in that they put these",00:34:19.699,00:34:22.190
+"padlock icons on their homepage which
+means that the website is secure.",00:34:22.190,00:34:26.480
+"This is from bankofamerica.com
+this morning.",00:34:26.480,00:34:28.870
+"So what does that little padlock icon
+there mean next to the Sign In button?",00:34:28.870,00:34:32.239
+&gt;&gt; Absolutely nothing.,00:34:35.699,00:34:36.790
+"It means someone knows how to use
+Photoshop to make a picture of a",00:34:36.790,00:34:39.560
+padlock icon.,00:34:39.560,00:34:40.590
+"Like quite literally, the fact that it's
+there is meant to be a positive",00:34:40.590,00:34:44.449
+"signal to the user like,
+ooh, secure website.",00:34:44.449,00:34:46.880
+"I should trust this website and now
+type in my username and password.",00:34:46.880,00:34:50.449
+"And this has been conventional for
+years, as recently as this morning.",00:34:50.449,00:34:53.870
+"&gt;&gt; But consider the habits that
+this is getting us into.",00:34:53.870,00:34:56.949
+"Consider the implicit message that all
+of these banks in this case have been",00:34:56.949,00:35:00.600
+sending us for years.,00:35:00.600,00:35:01.830
+"If you see padlock, then secure.",00:35:01.830,00:35:05.160
+All right?,00:35:05.160,00:35:05.340
+"&gt;&gt; So how can you abuse that system
+of trust if you're the bad guy?",00:35:05.340,00:35:10.520
+"Put a padlock on your website, and
+logically, the users have been",00:35:10.520,00:35:14.100
+"conditioned for years to assume
+padlock means secure.",00:35:14.100,00:35:17.260
+And it might actually be secure.,00:35:17.260,00:35:19.310
+"You might have a wonderfully secure
+SSL HTTPS connection to a",00:35:19.310,00:35:24.810
+fake website .com.,00:35:24.810,00:35:26.452
+"And no one else in the world can see
+that you're about to hand him or her",00:35:26.452,00:35:30.150
+"your username and password
+to your account.",00:35:30.150,00:35:32.790
+"&gt;&gt; This though, perhaps, is a
+little more reassuring.",00:35:32.790,00:35:35.110
+"So this is a screen shot of the top
+of my browser this morning at",00:35:35.110,00:35:38.600
+bankofamerica.com.,00:35:38.600,00:35:39.910
+"And notice here too we
+have a padlock icon.",00:35:39.910,00:35:43.270
+"What does it mean in this context
+in Chrome at least?",00:35:43.270,00:35:48.040
+&gt;&gt; So this is now using SSL.,00:35:48.040,00:35:49.520
+So this is actually a better thing.,00:35:49.520,00:35:51.220
+"And the fact that Chrome is making it
+green is meant to draw our attention",00:35:51.220,00:35:54.250
+"to the fact that this is
+not only over SSL.",00:35:54.250,00:35:56.750
+"This is a company that someone out
+there has verified is actually",00:35:56.750,00:36:01.400
+bankofamerica.com.,00:36:01.400,00:36:02.520
+"And that means that Bank of America,
+when buying their so-called SSL",00:36:02.520,00:36:05.970
+"certificate, essentially big random,
+somewhat random numbers that implement",00:36:05.970,00:36:09.680
+"security for them, they have been
+verified by some independent third",00:36:09.680,00:36:14.710
+"party that says, yep.",00:36:14.710,00:36:15.570
+"This is actually the CEO of Bank of
+America trying to buy the certificate.",00:36:15.570,00:36:19.240
+"Chrome will therefore trust that
+certification authority and say in",00:36:19.240,00:36:23.290
+"green, this is bankofamerica.com.",00:36:23.290,00:36:25.265
+"And Bank of America just pays a few
+hundred dollars for that or a few",00:36:25.265,00:36:27.997
+"thousand as opposed to a
+few tens of dollars.",00:36:27.997,00:36:30.800
+"&gt;&gt; But here too, how many of you have ever
+behaved any differently because",00:36:30.800,00:36:34.940
+"the URL in your browser is
+green instead of black?",00:36:34.940,00:36:38.576
+Right?,00:36:38.576,00:36:39.900
+So a couple of us.,00:36:39.900,00:36:40.600
+And that's good to be paranoid.,00:36:40.600,00:36:42.115
+"But even then, those of you who even
+notice these things, do you actually",00:36:42.115,00:36:45.910
+"stop logging into an otherwise secure
+website if the URL is not green?",00:36:45.910,00:36:50.720
+"All right, so probably not, right?",00:36:50.720,00:36:53.380
+"At least most of us, if it's not green,
+most likely you're just going",00:36:53.380,00:36:56.740
+"to be like, whatever.",00:36:56.740,00:36:57.440
+"Like, I want to log into this website.",00:36:57.440,00:36:58.950
+That's why I'm here.,00:36:58.950,00:37:00.200
+I'm going to log in nonetheless.,00:37:00.200,00:37:02.390
+"&gt;&gt; As an aside, Chrome is a little
+better about this.",00:37:02.390,00:37:04.500
+"But there's a lot of browsers like
+Firefox for instance, at least for",00:37:04.500,00:37:07.990
+"some time, where that padlock icon
+is, you can actually put any",00:37:07.990,00:37:12.190
+icon of your own.,00:37:12.190,00:37:13.250
+"Let me see what the latest version
+of Firefox looks like.",00:37:13.250,00:37:17.480
+So if we go to CS50.net.,00:37:17.480,00:37:20.040
+"&gt;&gt; OK, so they've gotten better as well.",00:37:20.040,00:37:21.580
+"What the browsers used to do is like,
+here's for instance [? SAAS's ?]",00:37:21.580,00:37:24.970
+crest up here.,00:37:24.970,00:37:25.790
+"That's the so-called favorite
+icon for a website.",00:37:25.790,00:37:29.240
+Years ago--,00:37:29.240,00:37:30.190
+"actually not that long ago-- that little
+shield would have been right",00:37:30.190,00:37:34.720
+here next to the URL.,00:37:34.720,00:37:36.560
+"Because some genius decided that it
+would just look pretty classy to have",00:37:36.560,00:37:40.300
+"your graphical logo right
+next to your URL.",00:37:40.300,00:37:43.150
+"And design wise, that actually
+is pretty compelling.",00:37:43.150,00:37:45.310
+&gt;&gt; So what did bad guy start doing?,00:37:45.310,00:37:47.240
+"They started changing their favorite
+icons, or their default icon for a",00:37:47.240,00:37:50.500
+"homepage to be not a crest
+but a padlock, which had",00:37:50.500,00:37:55.250
+absolutely no meaning.,00:37:55.250,00:37:56.600
+"Other than their favorite icon
+was a padlock it had no",00:37:56.600,00:37:59.760
+indications of security.,00:37:59.760,00:38:01.250
+"&gt;&gt; So the lessons here are
+a couple I think.",00:38:01.250,00:38:04.040
+"One is that there are actually some
+well intentioned mechanisms for",00:38:04.040,00:38:07.820
+"teaching us users about security even
+if you weren't even aware what green",00:38:07.820,00:38:12.850
+meant or what even HTTPS meant.,00:38:12.850,00:38:15.110
+"But if those mechanisms get us into
+the bad habit of trusting websites",00:38:15.110,00:38:19.130
+"when we see those positive signals,
+they're very easily abused as we saw",00:38:19.130,00:38:23.390
+"just a moment ago with something
+silly like this.",00:38:23.390,00:38:26.480
+"&gt;&gt; So session hijacking comes into
+play, as we said before,",00:38:26.480,00:38:29.100
+with cookies for instance.,00:38:29.100,00:38:30.510
+And what does this actually mean?,00:38:30.510,00:38:32.130
+"Well with session hijacking this is all
+about stealing someone's cookies.",00:38:32.130,00:38:35.930
+"So if I open up Chrome here, for
+instance, and I open up the Inspector",00:38:35.930,00:38:39.860
+"down here and I go to
+the Network Tab--",00:38:39.860,00:38:41.550
+and we've done this before--,00:38:41.550,00:38:42.830
+"and I go to something like
+http://facebook.com Enter, a whole",00:38:42.830,00:38:48.900
+"bunch of stuff goes across the screen
+because of all the images and CSS and",00:38:48.900,00:38:52.280
+JavaScript files.,00:38:52.280,00:38:53.490
+"&gt;&gt; But if I look at this one here notice
+that Facebook is indeed planting one",00:38:53.490,00:38:59.420
+"or more cookies on my
+browser right here.",00:38:59.420,00:39:02.310
+"So these are essentially the hand
+stamps that represent me.",00:39:02.310,00:39:05.610
+"And now hopefully my browser will
+present this again and again when",00:39:05.610,00:39:08.580
+revisiting that website.,00:39:08.580,00:39:10.560
+"But that only is secure, we said a
+couple weeks ago, if you're using SSL.",00:39:10.560,00:39:15.810
+"&gt;&gt; But even SSL itself can
+be compromised.",00:39:15.810,00:39:18.860
+Consider after all the way SSL works.,00:39:18.860,00:39:21.800
+"When your browser connects to a remote
+server via https://, long story short,",00:39:21.800,00:39:28.860
+cryptography is involved.,00:39:28.860,00:39:30.110
+"It's not as simple as Caesar or
+Visionaire or even DES, DES from a",00:39:30.110,00:39:34.750
+while back in pset2.,00:39:34.750,00:39:36.110
+It's more sophisticated than that.,00:39:36.110,00:39:37.410
+It's called public key cryptography.,00:39:37.410,00:39:39.110
+"But really big and really random
+numbers are used to scramble",00:39:39.110,00:39:42.845
+"information between point A, you,
+and point B, like facebook.com.",00:39:42.845,00:39:47.125
+"&gt;&gt; But the problem is, how many of us again
+ever type in https:// to start",00:39:47.125,00:39:52.570
+"our website connection
+in that secure mode?",00:39:52.570,00:39:55.790
+"I mean, how many of you even
+type http://facebook.com?",00:39:55.790,00:40:00.900
+"All right, if you do, like, hello.",00:40:00.900,00:40:02.290
+"You don't need to do that
+anymore, right?",00:40:02.290,00:40:03.510
+The browser will figure it out.,00:40:03.510,00:40:05.190
+"&gt;&gt; But most of us do indeed
+just type facebook.com.",00:40:05.190,00:40:08.070
+"Because if we're using a browser, the
+browsers have gotten smart enough by",00:40:08.070,00:40:10.960
+"2013 to assume if you're using a
+browser, you type in an address, you",00:40:10.960,00:40:14.920
+"probably want to access it not
+via email or instant message.",00:40:14.920,00:40:18.550
+You mean HTTP and Port 80.,00:40:18.550,00:40:21.250
+Those conventions have been adopted.,00:40:21.250,00:40:22.970
+&gt;&gt; But how does redirection work?,00:40:22.970,00:40:24.830
+"Well, notice what happens here.",00:40:24.830,00:40:26.170
+If I go back to Chrome--,00:40:26.170,00:40:27.590
+"and let's do this in incognito
+mode so that all of my",00:40:27.590,00:40:31.920
+cookies are thrown away.,00:40:31.920,00:40:33.620
+"And let me go here to,
+again, facebook.com.",00:40:33.620,00:40:38.130
+And let's see what happens.,00:40:38.130,00:40:39.490
+"&gt;&gt; Recall that the first request was
+indeed just for facebook.com.",00:40:39.490,00:40:43.372
+But what was the response that I got?,00:40:43.372,00:40:46.580
+It wasn't a 200 OK.,00:40:46.580,00:40:48.520
+"It was 300, or 301, which is a
+redirect telling me to go to",00:40:48.520,00:40:53.550
+"http://www.facebook.com, which is
+where Facebook wants me to go.",00:40:53.550,00:40:59.050
+"But then if we look at the next request,
+and we've seen this before,",00:40:59.050,00:41:01.900
+notice what their second response is.,00:41:01.900,00:41:04.370
+"Specifically that they want me now to
+go to the SSL version of Facebook.",00:41:04.370,00:41:10.280
+&gt;&gt; So here is an opportunity.,00:41:10.280,00:41:11.800
+"This is a wonderfully useful feature
+of just the web and HTTP.",00:41:11.800,00:41:15.440
+"If the end user like Facebook wants me
+to stay on the secure version of their",00:41:15.440,00:41:19.570
+"website, great.",00:41:19.570,00:41:20.850
+They will redirect me for myself.,00:41:20.850,00:41:23.130
+"And so I don't have to even
+think about that.",00:41:23.130,00:41:25.250
+"&gt;&gt; But what if between point A and B,
+between you and Facebook, there's some",00:41:25.250,00:41:29.200
+"bad guy, there's some system
+administrator at Harvard who's curious",00:41:29.200,00:41:32.220
+to see who your friends are.,00:41:32.220,00:41:34.240
+Or there's some--,00:41:34.240,00:41:36.760
+"years ago, this used to sound crazy--",00:41:36.760,00:41:38.340
+"but there's some government entity like
+the NSA who's actually interested",00:41:38.340,00:41:41.950
+in who you're poking on Facebook.,00:41:41.950,00:41:44.390
+Where's the opportunity there?,00:41:44.390,00:41:45.910
+"Well, so long as someone has enough
+technical savvy and they have access",00:41:45.910,00:41:49.305
+"to your actual network over Wi-Fi
+or some physical wire,",00:41:49.305,00:41:53.350
+what could they do?,00:41:53.350,00:41:54.570
+"&gt;&gt; Well, if they're on the same network as
+you and they know something about",00:41:54.570,00:41:57.520
+"TCP/IP and IP addresses and DNS and how
+all of that works, what if that",00:41:57.520,00:42:02.050
+"man in the middle, what if that National
+Security Agency, whatever it",00:42:02.050,00:42:05.970
+"may be, but what if that entity simply
+responds more quickly than Facebook to",00:42:05.970,00:42:11.480
+"your HTTP request and says,
+oh, I am Facebook.",00:42:11.480,00:42:15.820
+"Go ahead, and here's the
+HTML for facebook.com.",00:42:15.820,00:42:19.300
+&gt;&gt; Computers are pretty darn fast.,00:42:19.300,00:42:20.720
+"So you could write a program running on
+a server like nsa.gov that when it",00:42:20.720,00:42:25.990
+"hears a request from you for
+facebook.com, very quickly behind the",00:42:25.990,00:42:29.790
+"scenes gets the real facebook.com making
+a perfectly [? esque ?] secure",00:42:29.790,00:42:34.000
+"SSL connection between NSA and between
+Facebook, getting that HTML very",00:42:34.000,00:42:38.290
+"securely for the login page, and then
+the NSA server just responds to you",00:42:38.290,00:42:42.670
+with a login page for facebook.com.,00:42:42.670,00:42:44.942
+"&gt;&gt; Now how many of you would even notice
+that you're using Facebook over HTTP",00:42:44.942,00:42:49.120
+"still at that point because you've
+accidentally connected to nsa.gov and",00:42:49.120,00:42:53.375
+not Facebook?,00:42:53.375,00:42:53.870
+The URLs not changing.,00:42:53.870,00:42:54.980
+"All of this is being done
+behind the scenes.",00:42:54.980,00:42:57.040
+"But most of us, myself included,
+probably wouldn't notice",00:42:57.040,00:42:59.470
+such a minor detail.,00:42:59.470,00:43:00.800
+"&gt;&gt; So you might have a perfectly workable
+connection between you and what you",00:43:00.800,00:43:05.510
+"think is Facebook, but there's a
+so-called man in the middle.",00:43:05.510,00:43:08.660
+"And this is a general term for man in
+the middle attack where you have some",00:43:08.660,00:43:12.480
+"entity between you and point B that's
+somehow manipulating, stealing, or",00:43:12.480,00:43:17.670
+watching your data.,00:43:17.670,00:43:18.960
+"So even SSL is not surefire, especially
+if you've been tricked into",00:43:18.960,00:43:22.750
+"not turning it on because of how these
+underlying mechanisms actually work.",00:43:22.750,00:43:26.790
+"&gt;&gt; So a lesson today then too is if you
+really want to be paranoid--",00:43:26.790,00:43:30.670
+and even here there are threats--,00:43:30.670,00:43:32.110
+"you should really start getting into
+the habit of typing in https://www",00:43:32.110,00:43:37.112
+"whatever domain name you
+actually care about.",00:43:37.112,00:43:39.850
+"&gt;&gt; And as an aside too there's
+yet another threat with",00:43:39.850,00:43:41.820
+regard to session hijacking.,00:43:41.820,00:43:43.410
+"Very often when you first visit a
+website like facebook.com, unless the",00:43:43.410,00:43:47.440
+"server has been configured to say that
+that hand stamp it put on you",00:43:47.440,00:43:51.050
+"yesterday should be secure itself, your
+browser might very well, upon",00:43:51.050,00:43:56.140
+"visiting things like facebook.com
+google.com, twitter.com, your browser",00:43:56.140,00:44:00.620
+"might be presenting that hand stamp only
+to be slapped down and said, no.",00:44:00.620,00:44:04.280
+Use SSL.,00:44:04.280,00:44:05.660
+&gt;&gt; But it's too late at that point.,00:44:05.660,00:44:07.030
+"If you have already sent your hand
+stamp, your cookie, in the clear with",00:44:07.030,00:44:10.940
+"no SSL, you have a split second
+vulnerability where someone sniffing",00:44:10.940,00:44:15.180
+"your traffic, whether roommate or NSA,
+can then use that same cookie, and",00:44:15.180,00:44:19.530
+"with a bit of technical savvy,
+present it as his or her own.",00:44:19.530,00:44:23.860
+"&gt;&gt; Another attack you might
+not have thought about.",00:44:23.860,00:44:25.930
+"This one is really on you if you screw
+this up in writing some website that",00:44:25.930,00:44:30.120
+somehow uses SQL.,00:44:30.120,00:44:31.580
+"So here, for instance, is a screen
+shot of Harvard's login.",00:44:31.580,00:44:34.610
+"And this is a general example
+of something with a",00:44:34.610,00:44:36.380
+username and password.,00:44:36.380,00:44:37.480
+Super common.,00:44:37.480,00:44:38.440
+"So let's assume that SSL exists and
+there's no man in the middle or",00:44:38.440,00:44:41.310
+anything like that.,00:44:41.310,00:44:41.920
+"Now we're focusing on the server's
+code that you might write.",00:44:41.920,00:44:45.660
+"&gt;&gt; Well, when I type in a username and
+password, suppose that the PIN service",00:44:45.660,00:44:49.830
+is implemented in PHP.,00:44:49.830,00:44:51.740
+"And you might have some code
+on that server like this.",00:44:51.740,00:44:53.990
+"Get the user name from the post super
+global and get the password, and then",00:44:53.990,00:44:57.740
+"if they're using some pset7 like
+code there's a query function",00:44:57.740,00:45:01.130
+that might do this.,00:45:01.130,00:45:01.820
+"Select Star from users where username
+equals that and password equals that.",00:45:01.820,00:45:06.320
+"&gt;&gt; That looks, at first glance,
+totally reasonable.",00:45:06.320,00:45:08.120
+This is syntactically valid PHP code.,00:45:08.120,00:45:11.090
+"Logically there's nothing
+wrong with this.",00:45:11.090,00:45:13.160
+"Presumably there's some more lines that
+actually do something with the",00:45:13.160,00:45:15.710
+"result that comes back
+from the database.",00:45:15.710,00:45:18.150
+"But this is vulnerable for
+the following reason.",00:45:18.150,00:45:20.580
+"&gt;&gt; Notice that, like a good citizen,
+I have put in quotes, single",00:45:20.580,00:45:23.760
+"quotes, the user name.",00:45:23.760,00:45:25.380
+"And I put in single quotes
+the password.",00:45:25.380,00:45:26.980
+"And that's a good thing because they're
+not supposed to be numbers.",00:45:26.980,00:45:28.830
+Typically they're going to be text.,00:45:28.830,00:45:30.660
+So I'm quoting them like strings.,00:45:30.660,00:45:32.290
+"&gt;&gt; And if I now advance further what if--
+and I've removed the bullets from the",00:45:32.290,00:45:37.470
+PIN service temporarily--,00:45:37.470,00:45:38.870
+"what if I try to log in as
+President [? Scroob ?]",00:45:38.870,00:45:41.650
+"but I claim that my password is
+12345' OR '1'='1, and notice",00:45:41.650,00:45:52.540
+what I haven't done.,00:45:52.540,00:45:53.830
+"I did not close the other
+single quote.",00:45:53.830,00:45:56.140
+"Because I'm pretty sharp
+here as the bad guy.",00:45:56.140,00:45:58.500
+"And I'm assuming they're you're
+not very good with your",00:45:58.500,00:46:01.870
+PHP and MySQL code.,00:46:01.870,00:46:03.450
+"I'm guessing that you're not checking
+for the presence of quotes.",00:46:03.450,00:46:06.740
+"&gt;&gt; So what just happened is that when your
+user has typed in that string,",00:46:06.740,00:46:11.190
+"the query you're about to
+create looks like this.",00:46:11.190,00:46:15.060
+"And long story short, if you and
+something together or you or something",00:46:15.060,00:46:18.180
+"together this is going to return
+a row from the database.",00:46:18.180,00:46:21.740
+"Because it is always the
+case that 1 equals 1.",00:46:21.740,00:46:26.570
+"&gt;&gt; And just because you didn't anticipate
+that your users, good or bad, might",00:46:26.570,00:46:30.400
+"have an apostrophe in their name you
+have created a SQL query that's still",00:46:30.400,00:46:35.340
+"valid, and will return now more results
+than you might have intended.",00:46:35.340,00:46:39.040
+"And so this bad guy now has potentially
+logged in to your server",00:46:39.040,00:46:42.340
+"because your database is returning a row
+even if he or she has no idea what",00:46:42.340,00:46:47.060
+[? Scroob's ?] actual password is.,00:46:47.060,00:46:49.410
+"&gt;&gt; Oh, I realized a typo here.",00:46:49.410,00:46:50.640
+"I should've said password equals
+12345 like the previous",00:46:50.640,00:46:53.260
+example or 1 equals 1.,00:46:53.260,00:46:54.990
+I'll fix that online.,00:46:54.990,00:46:56.400
+"&gt;&gt; So why did we have you using the query
+function with question marks?",00:46:56.400,00:46:59.960
+"One of the things the query function
+does for you is it makes sure that",00:46:59.960,00:47:04.000
+"when you pass in arguments after the
+commas here like this that the query",00:47:04.000,00:47:07.660
+"that's actually sent to the
+database looks like this.",00:47:07.660,00:47:10.330
+"A lot uglier to look at, but back
+slashes have been automatically",00:47:10.330,00:47:13.830
+"inserted to avoid precisely that
+injection attack that I showed a",00:47:13.830,00:47:19.030
+moment ago.,00:47:19.030,00:47:20.270
+"&gt;&gt; Now a fun XKCD that I thought I'd pull
+up here that hopefully should now be a",00:47:20.270,00:47:24.930
+"little more understandable
+is this one here.",00:47:24.930,00:47:28.546
+&gt;&gt; A little bit?,00:47:39.460,00:47:40.265
+"Maybe we need a little more
+discussion on that.",00:47:40.265,00:47:42.370
+"So this is alluding to a little kid
+named Bobby who has somehow taken",00:47:42.370,00:47:47.810
+"advantage of a website that is just
+trusting that what the user has typed",00:47:47.810,00:47:52.250
+"in is not, in fact, SQL code,
+but is in fact a string.",00:47:52.250,00:47:55.100
+&gt;&gt; Now you may recall that drop--,00:47:55.100,00:47:56.830
+"you might have seen this-- drop means
+delete a table, delete a database.",00:47:56.830,00:48:00.190
+"So if you essentially claim that
+your name is Robert"";droptabl",00:48:00.190,00:48:02.235
+"estudentsomething, ]",00:48:02.235,00:48:03.485
+"you might very well trick the database
+not only into checking that you're",00:48:06.340,00:48:09.370
+"indeed Robert, but semicolon also
+proceed to drop the table.",00:48:09.370,00:48:13.530
+"&gt;&gt; And so SQL injection attacks can
+actually be as threatening as this",00:48:13.530,00:48:17.560
+"whereby you can delete someone's data,
+you can select more datas than",00:48:17.560,00:48:20.740
+"intended, you can insert
+or update data.",00:48:20.740,00:48:23.440
+"And you can actually see this upon at
+home exercise, not for malicious",00:48:23.440,00:48:26.520
+"purposes but just for instructional,
+is any time you're prompted to log",00:48:26.520,00:48:29.730
+"into website, especially some sort of
+non very public, very popular website,",00:48:29.730,00:48:35.180
+"try logging in as John O'Reilly
+or someone with an",00:48:35.180,00:48:38.630
+apostrophe in their name.,00:48:38.630,00:48:39.740
+"Or literally just type apostrophe,
+hit Enter, and see what happens.",00:48:39.740,00:48:42.990
+"&gt;&gt; And all too often, tragically, people
+have not sanitized their inputs and",00:48:42.990,00:48:47.990
+"made sure that things like quotes
+or semicolons are escaped.",00:48:47.990,00:48:51.690
+"Which is why in pset7 we give
+you this query function.",00:48:51.690,00:48:54.430
+"But do not under appreciate exactly
+what it is doing for you.",00:48:54.430,00:48:59.510
+"&gt;&gt; So with that said, enjoy using
+the web this week.",00:48:59.510,00:49:01.800
+And we will see you on Monday.,00:49:01.800,00:49:04.660
+&gt;&gt; At the next CD50.,00:49:04.660,00:49:06.180
+&gt;&gt; [MUSIC],00:49:06.180,00:49:18.614

@@ -1,0 +1,1235 @@
+text,start,stop
+Okay.,00:00:08.750,00:00:09.310
+"This is a lecture where
+complex numbers come in.",00:00:09.310,00:00:13.070
+"It's a -- complex numbers
+have slipped into this course",00:00:13.070,00:00:17.160
+"because even a real matrix
+can have complex eigenvalues.",00:00:17.160,00:00:23.480
+"So we met complex numbers
+there as the eigenvalues",00:00:23.480,00:00:27.420
+and complex eigenvectors.,00:00:27.420,00:00:30.030
+And we -- or --,00:00:30.030,00:00:33.560
+this is probably the last --,00:00:33.560,00:00:36.410
+"we have a lot of other things
+to do about eigenvalues",00:00:36.410,00:00:38.870
+and eigenvectors.,00:00:38.870,00:00:40.580
+And that will be mostly real.,00:00:40.580,00:00:43.610
+"But at one point
+somewhere, we have",00:00:43.610,00:00:46.090
+"to see what you do when the
+numbers become complex numbers.",00:00:46.090,00:00:51.140
+"What happens when the
+vectors are complex,",00:00:51.140,00:00:54.500
+"when the matrixes are
+complex, when the --",00:00:54.500,00:00:57.360
+"what's the inner product of two,
+the dot product of two complex",00:00:57.360,00:01:01.640
+vectors --,00:01:01.640,00:01:03.730
+"we just have to make
+the change, just see --",00:01:03.730,00:01:06.050
+"what is the change when
+numbers become complex?",00:01:06.050,00:01:09.340
+"Then, can I tell you about
+the most important example",00:01:09.340,00:01:14.360
+of complex matrixes?,00:01:14.360,00:01:17.270
+It comes in the Fourier matrix.,00:01:17.270,00:01:20.460
+"So the Fourier matrix,
+which I'll describe,",00:01:20.460,00:01:23.480
+is a complex matrix.,00:01:23.480,00:01:25.400
+"It's certainly the most
+important complex matrix.",00:01:25.400,00:01:28.850
+"It's the matrix that we
+need in Fourier transform.",00:01:28.850,00:01:34.770
+"And the -- really, the special
+thing that I want to tell you",00:01:34.770,00:01:37.930
+"about is what's called the
+fast Fourier transform,",00:01:37.930,00:01:42.340
+"and everybody refers to it
+as the FFT and it's in all",00:01:42.340,00:01:48.000
+computer and it's used --,00:01:48.000,00:01:50.500
+"it's being used as we
+speak in a thousand places,",00:01:50.500,00:01:54.010
+"because it has, like,
+transformed whole industries",00:01:54.010,00:01:59.510
+"to be able to do the
+Fourier transform fast,",00:01:59.510,00:02:03.090
+"which means multiplying --
+how do I multiply fast by that",00:02:03.090,00:02:09.270
+matrix -- by that n by n matrix?,00:02:09.270,00:02:11.730
+"Normally, multiplications
+by an n by n matrix --",00:02:11.730,00:02:16.380
+"would normally be n
+squared multiplications,",00:02:16.380,00:02:21.440
+"because I've got n squared
+entries and none of them is",00:02:21.440,00:02:24.460
+zero.,00:02:24.460,00:02:24.960
+This is a full matrix.,00:02:24.960,00:02:27.780
+"And it's a matrix with
+orthogonal columns.",00:02:27.780,00:02:30.700
+"I mean, it's just,
+like, the best matrix.",00:02:30.700,00:02:34.140
+"And this fast Fourier
+transform idea",00:02:34.140,00:02:37.700
+"reduces this n squared,
+which was slowing up",00:02:37.700,00:02:43.680
+"the calculation of Fourier
+transforms down to n log(n).",00:02:43.680,00:02:47.815
+"n log(n), log to the
+base two, actually.",00:02:51.000,00:02:54.480
+"And it's this --
+when that hit --",00:02:54.480,00:02:57.940
+"when that possibility hit,
+it made a big difference.",00:02:57.940,00:03:01.930
+"Everybody realized
+gradually what, --",00:03:01.930,00:03:08.430
+"that this simple idea -- you'll
+see it's just a simple matrix",00:03:08.430,00:03:11.800
+"factorization -- but
+it changed everything.",00:03:11.800,00:03:15.060
+Okay.,00:03:15.060,00:03:15.630
+"So I want to talk about
+complex vectors and matrixes",00:03:15.630,00:03:19.250
+"in general, recap a
+little bit from last time,",00:03:19.250,00:03:22.610
+"and the Fourier
+matrix in particular.",00:03:22.610,00:03:27.450
+Okay.,00:03:27.450,00:03:28.940
+So what's the deal?,00:03:28.940,00:03:31.360
+All right.,00:03:31.360,00:03:32.210
+"The main point is,
+what about length?",00:03:32.210,00:03:36.500
+"I'm given a vector,
+I have a vector x.",00:03:36.500,00:03:40.560
+"Or let me call it z as a
+reminder that it's complex,",00:03:40.560,00:03:44.310
+for the moment.,00:03:44.310,00:03:45.260
+"But I can -- later I'll
+call the components x.",00:03:45.260,00:03:48.950
+They'll be complex numbers.,00:03:48.950,00:03:50.740
+But it's a vector --,00:03:50.740,00:03:53.090
+"z1, z2 down to zn.",00:03:53.090,00:03:56.500
+"So the only novelty is
+it's not in R^n anymore.",00:03:56.500,00:04:01.590
+"It's in complex n
+dimensional space.",00:04:01.590,00:04:04.370
+"Each of those numbers
+is a complex number.",00:04:04.370,00:04:07.510
+"So this z,z1 is in C^n, n
+dimensional complex space",00:04:07.510,00:04:14.750
+instead of R^n.,00:04:14.750,00:04:17.700
+"So just a different letter
+there, but now the point",00:04:17.700,00:04:20.750
+about its length is what?,00:04:20.750,00:04:23.200
+"The point about its length is
+that z transpose z is no good.",00:04:23.200,00:04:29.190
+"z transpose z -- if I just
+put down z transpose here,",00:04:34.800,00:04:38.530
+"it would be z1, z2, to zn.",00:04:38.530,00:04:42.090
+"Doing that multiplication
+doesn't give me",00:04:45.580,00:04:47.990
+the right thing.,00:04:47.990,00:04:50.090
+W-Why not?,00:04:50.090,00:04:51.300
+"Because the length squared
+should be positive.",00:04:51.300,00:04:57.390
+"And if I multiply -- suppose
+this is, like, 1 and i.",00:04:57.390,00:05:01.930
+"What's the length of the
+vector with components 1 and i?",00:05:01.930,00:05:06.560
+"What if I do this,
+so n is just two.",00:05:06.560,00:05:08.550
+"I'm in C^2, two
+dimensional space,",00:05:08.550,00:05:11.380
+"complex space with the vector
+whose components are 1 and i.",00:05:11.380,00:05:16.510
+All right.,00:05:16.510,00:05:17.310
+"So if I took one times one
+and i times i and added,",00:05:17.310,00:05:23.320
+z transpose z would be zero.,00:05:23.320,00:05:27.150
+"But I don't -- that
+vector is not --",00:05:27.150,00:05:29.310
+"doesn't have length zero -- the
+vector with the components 1",00:05:29.310,00:05:32.030
+and i --,00:05:32.030,00:05:33.590
+"this multiplication -- what I
+really want is z1 conjugate z1.",00:05:33.590,00:05:41.710
+"You remember that z1
+conjugate z1 is --",00:05:41.710,00:05:46.510
+"so you see that first step
+will be z1 conjugate z1,",00:05:46.510,00:05:50.370
+"which is the magnitude of z1
+squared, which is what I want.",00:05:50.370,00:05:56.820
+"That's, like, three
+squared or five squared.",00:05:56.820,00:06:00.550
+"Now, if it's -- if z1 is i, then
+I multiplied by minus i gives",00:06:00.550,00:06:11.170
+"one plus one, so the component
+of length -- the component i,",00:06:11.170,00:06:19.290
+its modulus squared is plus,00:06:19.290,00:06:21.731
+one.,00:06:21.731,00:06:22.230
+That's great.,00:06:22.230,00:06:22.990
+"So what I want to do
+then is do that --",00:06:22.990,00:06:25.560
+"I want z1 bar z1, z2
+bar z2, zn bar zn.",00:06:25.560,00:06:30.680
+"And remember that -- you
+remember this complex",00:06:30.680,00:06:33.210
+conjugate.,00:06:33.210,00:06:33.900
+So -- so there's the point.,00:06:33.900,00:06:38.270
+"Now I can erase
+the no good and put",00:06:38.270,00:06:41.030
+"is good, because that now gives
+the answer zero for the zero",00:06:41.030,00:06:48.800
+"vector, of course, but it
+gives a positive length",00:06:48.800,00:06:52.590
+squared for any other vector.,00:06:52.590,00:06:55.780
+"So it's a -- it's the
+right definition of length,",00:06:55.780,00:06:58.890
+"and essentially the message is
+that we're always going to be",00:06:58.890,00:07:04.370
+taking --,00:07:04.370,00:07:06.750
+"when we transpose, we also
+take complex conjugate.",00:07:06.750,00:07:09.400
+"So let's -- let's find
+the length of one --",00:07:09.400,00:07:13.670
+"so the vector one i, that's
+z, that's that vector z.",00:07:13.670,00:07:19.890
+"Now I take the conjugate of one
+is one, the conjugate of i is",00:07:19.890,00:07:23.490
+minus i.,00:07:23.490,00:07:24.650
+"I take this vector,
+I get one plus one --",00:07:24.650,00:07:29.340
+I get,00:07:29.340,00:07:29.840
+two.,00:07:29.840,00:07:30.339
+"So that's a vector and that's a
+vector of length -- square root",00:07:33.050,00:07:36.810
+of two.,00:07:36.810,00:07:37.740
+"Square root of two is the
+length and not the zero",00:07:37.740,00:07:40.560
+"that we would have got
+from one minus i squared.",00:07:40.560,00:07:43.830
+Okay.,00:07:43.830,00:07:46.210
+"So the message really is
+whenever we transpose,",00:07:46.210,00:07:49.250
+we also take conjugates.,00:07:49.250,00:07:51.660
+"So here's a symbol --
+one symbol to do both.",00:07:51.660,00:07:57.300
+"So that symbol H, it stands
+for a guy named Hermite,",00:07:57.300,00:08:03.890
+"who didn't actually
+pronounce the H,",00:08:03.890,00:08:06.710
+but let's pronounce it --,00:08:06.710,00:08:09.630
+"so I would call
+that z Hermitian z.",00:08:09.630,00:08:14.040
+"I'll -- let me write that word,
+Herm- so his name was Hermite,",00:08:14.040,00:08:20.940
+"and then we make it into
+an adjective, Hermitian.",00:08:20.940,00:08:27.240
+So z Hermitian z. z H z.,00:08:27.240,00:08:32.000
+Okay.,00:08:32.000,00:08:34.360
+"So, that's the --",00:08:34.360,00:08:37.510
+"that's the, length squared.",00:08:37.510,00:08:40.730
+Now what's the inner product?,00:08:40.730,00:08:43.409
+"Well, it should match.",00:08:43.409,00:08:45.000
+"The inner product
+of two vectors --",00:08:45.000,00:08:49.850
+so inner product is no longer --,00:08:49.850,00:08:56.060
+used to be y transpose x.,00:08:56.060,00:08:59.230
+That's for real vectors.,00:08:59.230,00:09:01.680
+"For complex vectors,
+whenever we transpose,",00:09:01.680,00:09:04.970
+we also take the conjugate.,00:09:04.970,00:09:07.220
+So it's y Hermitian x.,00:09:07.220,00:09:12.110
+"Of course it's not
+real anymore, usually.",00:09:12.110,00:09:14.160
+"That -- the inner product will
+usually be complex number.",00:09:14.160,00:09:19.610
+"But if y and x are the
+same, if they're the same z,",00:09:19.610,00:09:24.100
+"then we have z -- z H z,
+we have the length squared,",00:09:24.100,00:09:29.240
+"and that's what we want, the
+inner product of a vector with",00:09:29.240,00:09:31.950
+"itself should be
+its length squared.",00:09:31.950,00:09:35.490
+"So this is, like, forced on us
+because this is forced on us.",00:09:35.490,00:09:40.230
+So -- so this z -- this --,00:09:40.230,00:09:43.750
+"everybody's picking
+up what this equals.",00:09:43.750,00:09:45.660
+"This is z1 squared
+plus zn squared.",00:09:45.660,00:09:52.170
+That's the length squared.,00:09:52.170,00:09:53.820
+"And that's the inner product
+that we have to go with.",00:09:53.820,00:09:57.080
+"So it could be a
+complex number now.",00:09:57.080,00:10:00.560
+One more change.,00:10:00.560,00:10:02.790
+"Well, two more changes.",00:10:02.790,00:10:04.750
+"We've got to change the
+idea of a symmetric matrix.",00:10:04.750,00:10:08.780
+"So I'll just recap on
+symmetric matrixes.",00:10:08.780,00:10:11.870
+"Symmetric means A transpose
+equals A, but not --",00:10:11.870,00:10:21.610
+no good if A is complex.,00:10:21.610,00:10:30.430
+So what do we instead --,00:10:30.430,00:10:33.890
+"that applies perfectly
+to real matrixes.",00:10:37.490,00:10:40.360
+"But now if my
+matrixes were complex,",00:10:40.360,00:10:42.760
+"I want to take the transpose
+and the conjugate to equal A.",00:10:42.760,00:10:51.910
+"So there's -- that's the --
+the right complex version",00:10:51.910,00:10:55.430
+of symmetry.,00:10:55.430,00:10:56.780
+"The com- the symmetry
+now means when",00:10:56.780,00:10:59.470
+"I transpose it, flip across the
+diagonal and take conjugates.",00:10:59.470,00:11:03.180
+"So, for example -- here
+would be an example.",00:11:03.180,00:11:07.250
+"On the diagonal, it
+had better be real,",00:11:07.250,00:11:09.480
+"because when I flip it, the
+diagonal is still there and it",00:11:09.480,00:11:15.760
+"has to -- and then when I take
+the complex conjugate it has",00:11:15.760,00:11:18.410
+"to be still there, so it
+better be a real number,",00:11:18.410,00:11:21.240
+let me say two and five.,00:11:21.240,00:11:24.580
+"What about entries
+off the diagonal?",00:11:24.580,00:11:27.790
+"If this entry is,
+say, three plus i,",00:11:27.790,00:11:32.200
+then this entry had better be --,00:11:32.200,00:11:36.630
+"because I want whatever
+this -- when I transpose,",00:11:36.630,00:11:40.070
+"it'll show up here
+and i conjugate.",00:11:40.070,00:11:42.790
+So I need three minus I there.,00:11:42.790,00:11:47.000
+So there's a matrix with --,00:11:47.000,00:11:51.400
+"that corresponds to
+symmetry, but it's complex.",00:11:51.400,00:11:55.640
+"And those matrixes are
+called Hermitian matrixes.",00:11:55.640,00:12:01.550
+Hermitian matrixes.,00:12:01.550,00:12:03.170
+A H equals A.,00:12:03.170,00:12:06.210
+Fine.,00:12:06.210,00:12:08.790
+"Okay, that's -- and those
+matrixes have real eigenvalues",00:12:08.790,00:12:13.140
+"and they have
+perpendicular eigenvectors.",00:12:13.140,00:12:15.950
+What does perpendicular mean?,00:12:15.950,00:12:18.760
+"Perpendicular means
+the inner product --",00:12:18.760,00:12:21.760
+so let's go on to perpendicular.,00:12:21.760,00:12:23.585
+"Well, when I had perpendicular
+vectors, for example,",00:12:28.180,00:12:31.410
+"they were like q1, q2 up to qn.",00:12:31.410,00:12:37.820
+"That's my -- q is my letter
+that I use for perpendicular.",00:12:37.820,00:12:41.630
+"Actually, I usually --",00:12:41.630,00:12:43.190
+I also mean unit length.,00:12:43.190,00:12:45.840
+"So those are perpendicular
+unit vectors.",00:12:45.840,00:12:49.010
+"But now what does
+-- so it's a --",00:12:49.010,00:12:51.030
+"orthonormal basis, I'll
+still use those words,",00:12:51.030,00:12:54.730
+"but how do I compute
+perpendicular?",00:12:54.730,00:12:58.560
+How do I check perpendicular?,00:12:58.560,00:13:00.770
+"This means that the inner
+product of qi with qj --",00:13:00.770,00:13:07.370
+"but now I not only transpose,
+I must conjugate, right,",00:13:07.370,00:13:11.510
+"to get zero if i is not
+j and one if i is j.",00:13:11.510,00:13:20.210
+"So it's a unit vector, meaning
+unit length, orthogonal --",00:13:20.210,00:13:25.950
+"all the angles are right
+angles, but these are angles",00:13:25.950,00:13:28.930
+in complex n dimensional space.,00:13:28.930,00:13:33.020
+"So it's q1, q on-
+qi bar transpose.",00:13:33.020,00:13:37.155
+"Or, for short, qi H qj.",00:13:39.790,00:13:44.310
+"So it will still be
+true -- so let me --",00:13:44.310,00:13:46.650
+"again I'll create a
+matrix out of those guys.",00:13:46.650,00:13:51.230
+"The matrix will have these
+q-s in its columns, q2 to qn.",00:13:51.230,00:13:56.090
+"And I want to turn that
+into matrix language,",00:14:00.320,00:14:03.400
+just like before.,00:14:03.400,00:14:05.130
+What does that mean?,00:14:05.130,00:14:06.690
+"That means I want all
+these inner products,",00:14:06.690,00:14:08.800
+"so I take these columns of
+Q, multiply by their rows --",00:14:08.800,00:14:13.920
+"so it was -- it used to be Q
+-- it used to be Q transpose Q",00:14:13.920,00:14:17.250
+"equals I, right?",00:14:17.250,00:14:18.160
+This was an orthogonal matrix.,00:14:20.840,00:14:22.535
+But what's changed?,00:14:27.100,00:14:30.490
+These are now complex vectors.,00:14:30.490,00:14:33.290
+"Their inner products are --
+involve conjugating the first",00:14:33.290,00:14:37.730
+factor.,00:14:37.730,00:14:39.920
+"So it's not -- it's the
+conjugate of Q transpose.",00:14:39.920,00:14:44.240
+It's Q bar transpose Q.,00:14:44.240,00:14:47.050
+Q H.,00:14:47.050,00:14:48.590
+"So can I call this -- let me
+call it Q H Q, which is I.",00:14:48.590,00:14:55.240
+So that's our new --,00:14:55.240,00:14:57.260
+"you -- you see I'm just
+translating, and the --",00:14:57.260,00:14:59.550
+"the book h- on one page gives a
+little dictionary of the right",00:14:59.550,00:15:07.300
+"words in the real case, R^n,
+and the corresponding words",00:15:07.300,00:15:12.900
+"in the complex case for
+the vector space C^n.",00:15:12.900,00:15:17.120
+"Of course, C^n is
+a vector space,",00:15:17.120,00:15:19.600
+"the numbers we multiply
+are now complex numbers --",00:15:19.600,00:15:22.650
+"we're just moving into
+complex n dimensional space.",00:15:22.650,00:15:27.770
+Okay.,00:15:27.770,00:15:29.700
+"Now -- actually, I have to say
+we changed the word symmet-",00:15:29.700,00:15:34.450
+"symmetric to Hermitian
+for those matrixes.",00:15:34.450,00:15:38.500
+"People also change this word
+orthogonal into another word",00:15:38.500,00:15:43.300
+"that happens to be unitary,
+as a word that applies --",00:15:43.300,00:15:52.730
+"that signals that we might be
+dealing with a complex matrix",00:15:52.730,00:15:56.540
+here.,00:15:56.540,00:15:57.320
+So what's a unitary matrix?,00:15:57.320,00:15:59.940
+"It's a -- it's just like
+an orthogonal matrix.",00:15:59.940,00:16:02.960
+"It's a square, n by n matrix
+with orthonormal columns,",00:16:02.960,00:16:10.800
+"perpendicular columns,
+unit vectors --",00:16:10.800,00:16:13.970
+"unit vectors computed by --
+and perpendicularity computed",00:16:13.970,00:16:20.010
+"by remembering that
+there's a conjugate as well",00:16:20.010,00:16:23.820
+as a transpose.,00:16:23.820,00:16:25.250
+Okay.,00:16:25.250,00:16:26.270
+So those are the words.,00:16:26.270,00:16:28.520
+"Now I'm ready to get into the
+substance of the lecture which",00:16:28.520,00:16:32.880
+"is the most famous complex
+matrix, which happens",00:16:32.880,00:16:38.290
+to be one of these guys.,00:16:38.290,00:16:41.500
+"It has orthogonal columns,
+and it's named after Fourier",00:16:41.500,00:16:50.240
+"because it comes into
+the Fourier transform,",00:16:50.240,00:16:52.800
+"so it's the matrix
+that's all around us.",00:16:52.800,00:16:55.380
+Okay.,00:16:55.380,00:16:55.880
+"Let me tell you what it is
+first of all in the n by n case.",00:16:58.450,00:17:05.660
+"Then often I'll let n be four
+because four is a good size",00:17:05.660,00:17:09.750
+to work with.,00:17:09.750,00:17:11.150
+"But here's the n by
+n Fourier matrix.",00:17:11.150,00:17:13.369
+"Its first column is
+the vector of ones.",00:17:17.790,00:17:20.319
+"It's n by n, of course.",00:17:24.310,00:17:26.319
+"Its second column is
+the powers, the --",00:17:26.319,00:17:30.420
+"actually, better if I move
+from the math department",00:17:30.420,00:17:35.370
+"to EE for this one half
+hour and then, please,",00:17:35.370,00:17:39.910
+let me move back again.,00:17:39.910,00:17:42.100
+Okay.,00:17:42.100,00:17:43.870
+"What's the difference between
+those two departments?",00:17:43.870,00:17:46.170
+"It's just math starts
+counting with one",00:17:46.170,00:17:50.640
+"and electrical engineers
+start counting at zero.",00:17:50.640,00:17:56.180
+"Actually, they're
+probably right.",00:17:56.180,00:17:57.840
+"So anyway, we'll give
+them -- humor them.",00:17:57.840,00:18:00.720
+"So this is really
+the zeroes column.",00:18:00.720,00:18:05.090
+"And the first column
+up to the n-1, that's",00:18:05.090,00:18:08.030
+"the one inconvenient spot
+in electrical engineering.",00:18:08.030,00:18:11.780
+"All these expressions
+start at zero, no problem,",00:18:11.780,00:18:14.760
+but they end at n-1.,00:18:14.760,00:18:16.720
+"Well, that's -- that's the
+difficulty of Course 6.",00:18:16.720,00:18:24.000
+"So what's -- they're the powers
+of a number that I'm going",00:18:24.000,00:18:27.750
+to call W --,00:18:27.750,00:18:28.660
+"W squared, W cubed, W to the
+-- now what is the W here?",00:18:28.660,00:18:34.840
+What's the power?,00:18:34.840,00:18:36.060
+"This was the zeroes power,
+first power, second power,",00:18:36.060,00:18:39.000
+"this will be n
+minus first power.",00:18:39.000,00:18:43.290
+That's the column.,00:18:43.290,00:18:45.130
+What's the next column?,00:18:45.130,00:18:46.500
+"It's the powers of W squared, W
+to the fourth, W to the sixth,",00:18:46.500,00:18:51.920
+W to the two n-1.,00:18:51.920,00:18:55.870
+"And then more columns
+and more columns",00:18:55.870,00:18:58.010
+"and more columns and
+what's the last column?",00:18:58.010,00:19:00.060
+It's the powers of --,00:19:02.790,00:19:07.361
+let's see.,00:19:07.361,00:19:07.860
+"We -- actually, if we
+look around rows, w-",00:19:07.860,00:19:10.860
+this matrix is symmetric.,00:19:10.860,00:19:12.520
+"It's symmetric in the old
+not quite perfect way,",00:19:12.520,00:19:17.220
+"not perfect because these
+numbers are complex.",00:19:17.220,00:19:21.100
+"And so it's -- that
+first row is all ones.",00:19:21.100,00:19:25.370
+"One W W squared up
+to W to the n-1.",00:19:25.370,00:19:28.740
+"That's the last column is
+the powers of W to the n-1,",00:19:28.740,00:19:34.500
+"so this guy matches that, and
+finally we get W to something",00:19:34.500,00:19:38.841
+here.,00:19:38.841,00:19:39.340
+"I guess we could actually figure
+out what that something is.",00:19:43.060,00:19:46.670
+"What are the entries
+of this matrix?",00:19:46.670,00:19:48.610
+"The i j entry of
+this matrix are --",00:19:48.610,00:19:57.490
+"I going to -- are you going to
+allow me to let i go from zero",00:19:57.490,00:20:00.420
+to n minus one?,00:20:00.420,00:20:01.890
+So i and g go from zero to n-1.,00:20:01.890,00:20:07.180
+"So the one -- the zero
+zero entry is a one --",00:20:07.180,00:20:10.870
+"it's just this same W guy
+to the power i times j.",00:20:10.870,00:20:15.670
+Let's see.,00:20:21.960,00:20:22.460
+"I'm jumping into formulas
+here and I have to tell you",00:20:22.460,00:20:24.690
+"what W is and then you know
+everything about this matrix.",00:20:24.690,00:20:27.903
+"So W is the -- well,
+shall we finish here?",00:20:30.960,00:20:34.520
+"What was this -- this is
+the (n-1) (n-1) entry.",00:20:34.520,00:20:37.890
+This is W to the n-1 squared.,00:20:37.890,00:20:41.380
+"Everything's looking like a
+mess here, because we have --",00:20:41.380,00:20:46.140
+"not too bad, because all
+the entries are powers of W.",00:20:46.140,00:20:51.890
+There -- none of them are zero.,00:20:51.890,00:20:53.830
+This is a full matrix.,00:20:53.830,00:20:56.600
+But W is a very special number.,00:20:56.600,00:20:59.840
+"W is the special number
+whose n-th power is one.",00:20:59.840,00:21:08.720
+"In fact -- well, actually,
+there are n numbers like that.",00:21:08.720,00:21:12.780
+"One of them is one, of course.",00:21:12.780,00:21:14.620
+"But the one we --
+the W we want is --",00:21:14.620,00:21:19.850
+the angle is two pi over n.,00:21:19.850,00:21:23.470
+Is that what I mean?,00:21:28.060,00:21:29.130
+n over two pi.,00:21:29.130,00:21:32.740
+"No, two pi over n.",00:21:32.740,00:21:34.310
+"W is E to the I and the
+angle is two pi over n.",00:21:34.310,00:21:42.540
+Right.,00:21:42.540,00:21:43.550
+"Where is this W in
+the complex plane?",00:21:43.550,00:21:47.590
+"It's -- it's on the
+unit circle, right?",00:21:47.590,00:21:49.870
+"This is -- it's the cosine
+of two pi over n plus I times",00:21:49.870,00:21:56.160
+the sine of two pi over n.,00:21:56.160,00:21:59.620
+"But actually, forget this.",00:21:59.620,00:22:02.840
+"It's never good to work with
+the real and imaginary parts,",00:22:02.840,00:22:09.050
+"the rectangular coordinates,
+when we're taking powers.",00:22:09.050,00:22:14.130
+"To take that to the tenth power,
+we can't see what we're doing.",00:22:14.130,00:22:17.770
+"To take this form
+to the tenth power,",00:22:17.770,00:22:19.890
+"we see immediately
+what we're doing.",00:22:19.890,00:22:22.350
+"It would be e to
+the i 20 pi over n.",00:22:22.350,00:22:26.480
+"So when our matrix is full of
+powers -- so it's this formula,",00:22:26.480,00:22:30.570
+"and where is this on
+the complex plain?",00:22:30.570,00:22:32.690
+"Here are the real numbers,
+here's the imaginary axis,",00:22:32.690,00:22:36.830
+"here's the unit
+circle of radius one,",00:22:36.830,00:22:40.410
+"and this number is
+on the unit circle",00:22:40.410,00:22:44.240
+"at this angle, which is one
+n-th of the full way round.",00:22:44.240,00:22:48.860
+"So if I drew, for
+example, n equals six,",00:22:48.860,00:22:52.700
+"this would be e to the
+two pi, two pi over six,",00:22:52.700,00:22:56.490
+"it would be one sixth of the way
+around, it would be 60 degrees.",00:22:56.490,00:22:59.160
+And where is W squared?,00:23:03.250,00:23:06.090
+"So I -- my W is e to the two
+pi I over six in this case,",00:23:06.090,00:23:13.120
+"in this six by -- for the
+six by six Fourier transform,",00:23:13.120,00:23:16.760
+"it's totally constructed out
+of this number and its powers.",00:23:16.760,00:23:22.800
+So what are its powers?,00:23:22.800,00:23:24.480
+"Well, its powers are on
+the unit circle, right?",00:23:24.480,00:23:27.470
+"Because when I square a
+number, a complex number,",00:23:27.470,00:23:32.680
+"I square its absolute value,
+which gives me one again.",00:23:32.680,00:23:37.740
+"All the powers have --
+are on the unit circle.",00:23:37.740,00:23:40.500
+"And the -- the angle
+gets doubled to a hundred",00:23:40.500,00:23:43.250
+"and twenty, so there's W
+squared, there's W cubed,",00:23:43.250,00:23:46.180
+"there's W to the fourth, there's
+W to the fifth and there is W",00:23:46.180,00:23:50.660
+"to the sixth, as we hoped, W to
+the sixth coming back to one.",00:23:50.660,00:23:57.070
+So those are the six --,00:23:57.070,00:24:01.080
+can I say this on TV?,00:24:01.080,00:24:02.620
+"The six sixth roots
+of one, and it's",00:24:02.620,00:24:07.130
+"this one, the primitive one we
+say, the first one, which is W.",00:24:07.130,00:24:14.560
+"Okay, so what -- let
+me change -- let me --",00:24:14.560,00:24:17.840
+"I said I would probably
+switch to n equal four.",00:24:17.840,00:24:21.440
+What's W for that?,00:24:21.440,00:24:24.130
+It's the fourth root of one.,00:24:24.130,00:24:25.970
+W to the fourth will be one.,00:24:25.970,00:24:28.590
+"W will be e to the two
+pi i over four now.",00:24:28.590,00:24:33.410
+What's that?,00:24:38.820,00:24:41.040
+This is e to the i pi over two.,00:24:41.040,00:24:43.270
+"This is a quarter of the
+way around the unit circle,",00:24:43.270,00:24:46.180
+"and that's exactly i, a
+quarter of the way around.",00:24:46.180,00:24:53.930
+"And sure enough, the
+powers are i, i squared,",00:24:53.930,00:24:58.660
+"which is minus
+one, i cubed, which",00:24:58.660,00:25:01.670
+"is minus i and finally i to
+the fourth which is one, right.",00:25:01.670,00:25:08.780
+"So there's W, W squared, W
+cubed, W to the fourth --",00:25:08.780,00:25:12.760
+"I'm really ready to
+write down this Fourier",00:25:12.760,00:25:15.050
+"matrix for the
+four by four case,",00:25:15.050,00:25:18.780
+just so we see that clearly.,00:25:18.780,00:25:21.790
+Let me do it here.,00:25:21.790,00:25:22.890
+"F4 is -- all right, one one one
+one one one one W -- it's I.",00:25:22.890,00:25:34.760
+I squared.,00:25:34.760,00:25:35.590
+That's minus one.,00:25:35.590,00:25:36.770
+i cubed is minus i.,00:25:36.770,00:25:38.520
+"I'll -- I could write
+i squared and i cubed.",00:25:41.350,00:25:43.490
+"Why don't I, just so we
+see the pattern for sure.",00:25:43.490,00:25:46.140
+"i squared, i cubed, i squared,
+i cubed, i fourth, i sixth --",00:25:46.140,00:25:54.040
+"i fourth, i sixth and i ninth.",00:25:54.040,00:25:58.690
+"You see the exponents
+fall in this nice --",00:25:58.690,00:26:01.970
+"the exponent is the row number
+times the column number,",00:26:01.970,00:26:05.760
+always starting at zero.,00:26:05.760,00:26:08.770
+Okay.,00:26:08.770,00:26:09.560
+"And now I can put in those
+numbers if you like --",00:26:09.560,00:26:12.910
+"one one one one, one i minus
+one minus i, one minus one,",00:26:12.910,00:26:20.520
+"one minus one and one
+minus i minus one i.",00:26:20.520,00:26:28.710
+No.,00:26:28.710,00:26:29.410
+Yes.,00:26:29.410,00:26:31.111
+Right.,00:26:31.111,00:26:31.610
+"What's -- why do I think
+that matrix is so remarkable?",00:26:38.260,00:26:40.965
+"It's the four by four matrix
+that comes into the four point",00:26:44.520,00:26:49.030
+Fourier transform.,00:26:49.030,00:26:52.020
+"When we want to find the Fourier
+transform, the four point",00:26:52.020,00:26:55.700
+"Fourier transform of a
+vector with four components,",00:26:55.700,00:27:01.380
+"we want to multiply
+by this F4 or we",00:27:01.380,00:27:05.540
+want to multiply by F4 inverse.,00:27:05.540,00:27:08.920
+"One way we're taking
+the transform,",00:27:08.920,00:27:10.840
+"one way we're taking
+the inverse transform.",00:27:10.840,00:27:13.820
+"Actually, they're so close that
+it's easy to confuse the two.",00:27:13.820,00:27:17.950
+"The inverse of this matrix
+will be a nice matrix also.",00:27:17.950,00:27:21.990
+"So -- and that's, of
+course, what makes it --",00:27:25.250,00:27:29.190
+"that -- I guess
+Fourier knew that.",00:27:29.190,00:27:32.370
+"He knew the inverse
+of this matrix.",00:27:32.370,00:27:34.200
+"A- as you'll see, it just comes
+from the fact that the columns",00:27:36.970,00:27:39.890
+are orthogonal --,00:27:39.890,00:27:41.640
+"from the fact that the
+columns are orthogonal,",00:27:41.640,00:27:44.050
+"we will quickly figure
+out what is the inverse.",00:27:44.050,00:27:51.220
+"What Fourier didn't
+know -- didn't notice --",00:27:51.220,00:27:53.910
+"I think Gauss noticed it but
+didn't make a point of it",00:27:53.910,00:27:58.180
+"and then it turned
+out to be really",00:27:58.180,00:28:00.020
+"important was the fact that this
+matrix is so special that you",00:28:00.020,00:28:04.770
+"can break it up into nice pieces
+with lots of zeroes, factors",00:28:04.770,00:28:10.340
+"that have lots of
+zeroes and multiply",00:28:10.340,00:28:13.360
+"by it or by its inverse
+very, very fast.",00:28:13.360,00:28:16.650
+Okay.,00:28:16.650,00:28:17.150
+"But how did it get into
+this lecture first?",00:28:19.740,00:28:22.850
+"Because the columns
+are orthogonal.",00:28:22.850,00:28:26.340
+"Can I just check that the
+columns of this matrix",00:28:26.340,00:28:29.130
+are orthogonal?,00:28:29.130,00:28:30.265
+"So the inner product of
+that column with that column",00:28:33.480,00:28:38.360
+is zero.,00:28:38.360,00:28:41.260
+"The inner product of column
+one with column three is zero.",00:28:41.260,00:28:48.250
+"How about the inner
+product of two and four?",00:28:48.250,00:28:55.850
+"Can I take the inner product
+of column two with column four?",00:28:55.850,00:29:01.280
+"Or even the inner product of two
+with three, let's -- let's see,",00:29:01.280,00:29:04.860
+does that --,00:29:04.860,00:29:06.820
+let me do two and,00:29:06.820,00:29:07.751
+four.,00:29:07.751,00:29:08.250
+Okay.,00:29:15.330,00:29:17.260
+"What -- oh, I see, yes, hmm.",00:29:17.260,00:29:19.110
+Hmm.,00:29:19.110,00:29:19.610
+"Let's see, I believe that those
+two columns are orthogonal.",00:29:19.610,00:29:30.060
+"So let me take their inner
+product and hope to get zero.",00:29:30.060,00:29:33.520
+"Okay, now if you hadn't
+listened to the first half",00:29:33.520,00:29:36.310
+"of this lecture, when you
+took the inner product of that",00:29:36.310,00:29:39.890
+"with that, you would have
+multiplied one by one,",00:29:39.890,00:29:42.760
+"i by minus i, and that
+would have given you one,",00:29:42.760,00:29:48.090
+"minus one by minus one
+would have given you",00:29:48.090,00:29:51.370
+"another one minus I by I would
+have been minus I squared,",00:29:51.370,00:29:55.940
+that's another one.,00:29:55.940,00:29:56.810
+"So do I conclude that the
+inner product of columns --",00:30:00.870,00:30:04.240
+"I said columns two
+and four, that's",00:30:04.240,00:30:05.920
+"because I forgot those
+are columns one and three.",00:30:05.920,00:30:08.550
+"I'm interested in
+their inner product",00:30:12.110,00:30:13.670
+"and I'm hoping it's zero, but
+it doesn't look like zero.",00:30:13.670,00:30:17.570
+"Nevertheless, it is zero.",00:30:17.570,00:30:19.090
+Those columns are perpendicular.,00:30:19.090,00:30:20.580
+Why?,00:30:20.580,00:30:21.500
+Because the inner product --,00:30:21.500,00:30:25.390
+we conjugate.,00:30:25.390,00:30:26.520
+"Do you remember that the --
+one of the vectors in the inner",00:30:26.520,00:30:29.150
+product has to get conjugated.,00:30:29.150,00:30:31.510
+"So when I conjugated, it
+changes that i to a minus i,",00:30:31.510,00:30:34.750
+"changes this to a plus
+i, changes those --",00:30:34.750,00:30:37.900
+"that second sine and that
+fourth sine and I do get zero.",00:30:37.900,00:30:44.060
+So those columns are orthogonal.,00:30:44.060,00:30:46.490
+So columns are orthogonal.,00:30:46.490,00:30:49.130
+They're not quite orthonormal.,00:30:51.780,00:30:55.630
+But I could fix that easily.,00:30:55.630,00:30:58.020
+"They -- all those
+columns have length two.",00:30:58.020,00:31:02.710
+"Length squared is four, like
+this -- the four I had there --",00:31:02.710,00:31:07.450
+"this length squared, one plus
+-- one squared one squared one",00:31:07.450,00:31:10.260
+"squared one squared is
+four, square root is two --",00:31:10.260,00:31:13.910
+"so if I really wanted them --
+suppose I really wanted to fix",00:31:13.910,00:31:17.420
+"life perfectly, I
+could divide by two,",00:31:17.420,00:31:21.300
+"and now I have columns that
+are actually orthonormal.",00:31:21.300,00:31:26.653
+So what?,00:31:33.420,00:31:35.560
+"So I can invert
+right away, right?",00:31:35.560,00:31:38.040
+"O- orthonormal columns means --
+now I'm keeping this one half",00:31:38.040,00:31:41.970
+in here for the moment --,00:31:41.970,00:31:43.820
+"c- means F4 Hermitian,
+can I use that,",00:31:43.820,00:31:48.060
+conjugate transpose times F4 is,00:31:48.060,00:31:51.620
+i.,00:31:51.620,00:31:52.120
+So I see what the inverse is.,00:31:56.230,00:31:59.150
+"The inverse of F4 is
+-- it's just like an --",00:31:59.150,00:32:01.840
+an orthogonal matrix.,00:32:01.840,00:32:03.180
+"The inverse is the transpose
+-- here the inverse is",00:32:03.180,00:32:06.230
+the conjugate transpose.,00:32:06.230,00:32:08.990
+"So, fine.",00:32:08.990,00:32:10.250
+"That -- that tells me that
+anything good that I learn",00:32:10.250,00:32:15.000
+about F4 I'll know the same --,00:32:15.000,00:32:19.610
+"I'll know a similar
+fact about its inverse,",00:32:19.610,00:32:21.710
+"because its inverse is just
+its conjugate transpose.",00:32:21.710,00:32:25.620
+"Okay, now -- so what's good?",00:32:25.620,00:32:28.080
+"Well, first, the
+columns are orthogonal.",00:32:28.080,00:32:30.430
+"That's a key fact, then.",00:32:30.430,00:32:33.870
+"That's the thing that
+makes the inverse easy.",00:32:33.870,00:32:36.670
+"But what property is it that
+leads to the fast Fourier",00:32:36.670,00:32:40.740
+transform?,00:32:40.740,00:32:41.460
+"So now I'm going to talk,
+in these last minutes,",00:32:41.460,00:32:44.000
+"about the fast
+Fourier transform.",00:32:44.000,00:32:48.010
+What -- here's the idea.,00:32:48.010,00:32:49.290
+"F6, our six by six
+matrix, will c-",00:32:51.980,00:32:56.030
+"there's a neat connection
+to F3, half as big.",00:32:56.030,00:33:02.250
+"There's a connection
+of F8 to F4.",00:33:02.250,00:33:05.200
+"There's a connection
+of F(64) to F(32).",00:33:05.200,00:33:09.690
+"Shall I write down what
+that connection is?",00:33:09.690,00:33:12.070
+"What's the connection
+of F(64) to F(32)?",00:33:12.070,00:33:15.190
+"So F(64) is a 64 by
+64 matrix whose W",00:33:15.190,00:33:22.950
+is the 64th root of one.,00:33:22.950,00:33:26.500
+"So it's one 64th of
+the way round in F(64).",00:33:26.500,00:33:31.870
+"And it -- do- and F(32)
+is a 32 by 32 matrix.",00:33:31.870,00:33:35.959
+"Remember, they're
+different sizes.",00:33:35.959,00:33:37.375
+"And the W in that 32 by 32
+matrix is the 32nd root of one,",00:33:40.450,00:33:45.680
+"which is twice as far -- that
+-- you sh- see that key point --",00:33:45.680,00:33:50.220
+"that's the -- that's how 32
+and 64 are connected in the Ws.",00:33:50.220,00:33:55.850
+"The W for 64 is one
+64th of the way --",00:33:55.850,00:33:59.380
+"so all I'm saying is
+that if I square the W --",00:33:59.380,00:34:05.610
+"W(64), that's what I'm using
+for the one over -- the --",00:34:05.610,00:34:09.219
+"W sixty f- this Wn is either
+the i two pi over n --",00:34:09.219,00:34:15.070
+"so W(64) is one 64th
+of the way around it.",00:34:15.070,00:34:18.690
+"When I square that,
+what do I get but W(32)?",00:34:18.690,00:34:24.139
+Right?,00:34:24.139,00:34:25.969
+"If I square this matrix,
+I double the angle --",00:34:25.969,00:34:31.060
+"if I square this number, I
+double the angle, I get, the --",00:34:31.060,00:34:36.300
+the W(32).,00:34:36.300,00:34:40.120
+"So somehow there's
+a little hope here",00:34:40.120,00:34:43.239
+to connect F(64) with F(32).,00:34:43.239,00:34:46.440
+And here's the connection.,00:34:46.440,00:34:49.400
+Okay.,00:34:49.400,00:34:49.980
+"Let me -- let me go back, --",00:34:49.980,00:34:53.530
+"yes, let me --",00:34:53.530,00:34:54.170
+I'll do it here.,00:34:54.170,00:34:58.780
+Here's the connection.,00:34:58.780,00:35:00.520
+F(64).,00:35:00.520,00:35:01.780
+"The 64 by 64 Fourier
+matrix is connected",00:35:01.780,00:35:06.530
+to two copies of F(32).,00:35:06.530,00:35:10.070
+"Let me leave a little
+space for the connection.",00:35:10.070,00:35:13.120
+So this is 64 by 64.,00:35:13.120,00:35:15.990
+"Here's a matrix
+of that same size,",00:35:15.990,00:35:18.980
+"because it's got two copies of
+F(32) and two zero matrixes.",00:35:18.980,00:35:25.640
+"Those zero matrixes are the key,
+because when I multiply by this",00:35:25.640,00:35:31.500
+"matrix, just as it is, regular
+multiplication, I would take --",00:35:31.500,00:35:35.570
+need 64 --,00:35:35.570,00:35:37.160
+"I would -- I would have 64
+squared little multiplications",00:35:37.160,00:35:40.320
+to do.,00:35:40.320,00:35:41.470
+But this matrix is half zero.,00:35:41.470,00:35:45.000
+"Well, of course, the
+two aren't equal.",00:35:45.000,00:35:46.600
+"I'm going to put an equals sign,
+but there has to be some fix up",00:35:46.600,00:35:52.010
+factors --,00:35:52.010,00:35:53.570
+one there and one there --,00:35:53.570,00:35:57.640
+to make it true.,00:35:57.640,00:36:00.620
+"The beauty is that these fix
+up factors will be really --",00:36:00.620,00:36:05.260
+almost all zeroes.,00:36:05.260,00:36:07.550
+"So that as soon as we
+get this formula right,",00:36:07.550,00:36:11.470
+"we've got a great idea for
+how to get from the sixty-",00:36:11.470,00:36:15.670
+"from the 64 squared calculations
+-- so this original --",00:36:15.670,00:36:21.180
+"originally we have 64 squared
+calculations from there,",00:36:21.180,00:36:25.110
+"but this one will give us
+-- this is -- this will --",00:36:25.110,00:36:29.570
+"we don't need that many -- we
+only need two times 32 squared,",00:36:29.570,00:36:34.660
+because we've got that twice.,00:36:34.660,00:36:38.120
+And -- plus the fix-up.,00:36:38.120,00:36:42.440
+"So I have to tell you what's
+in this fix-up matrix.",00:36:42.440,00:36:47.570
+"The one on the right is
+actually a permutation matrix,",00:36:47.570,00:36:50.370
+"a very simple odds and evens
+permutation matrix, the --",00:36:50.370,00:36:55.820
+ones show up --,00:36:55.820,00:36:58.260
+"I haven't put enough
+ones, I really need a --",00:36:58.260,00:37:00.820
+"32 of these guys at --
+double space and then --",00:37:00.820,00:37:05.106
+"you see it's -- it's
+a permutation matrix.",00:37:09.210,00:37:12.400
+What it does --,00:37:12.400,00:37:14.070
+"shall I call it P for
+permutation matrix?",00:37:14.070,00:37:18.430
+"So what that P does when
+it multiplies a vector,",00:37:18.430,00:37:23.920
+"it takes the odd -- the even
+numbered components first",00:37:23.920,00:37:28.770
+and then the odds.,00:37:28.770,00:37:30.580
+"You see this -- this one
+skipping every time is going",00:37:30.580,00:37:33.640
+"to pick out x0, x2, x4, x6 and
+then below that will come --",00:37:33.640,00:37:40.260
+"will pick out x1, x3, x5.",00:37:40.260,00:37:42.335
+"And of course, that can be
+hard wired in the computer",00:37:45.850,00:37:49.650
+to be instantaneous.,00:37:49.650,00:37:52.350
+"So that says -- so
+far, what have we said?",00:37:52.350,00:37:56.570
+"We're saying that the 64 by
+64 Fourier matrix is really",00:37:56.570,00:38:00.960
+"separated into -- separate
+your vector into the odd --",00:38:00.960,00:38:04.540
+"into the even components
+and the odd components,",00:38:04.540,00:38:07.430
+"then do a 32 size Fourier
+transform onto those",00:38:07.430,00:38:12.820
+"separately, and then put
+the pieces together again.",00:38:12.820,00:38:17.420
+"So the pieces -- putting them
+together turns them out to be I",00:38:17.420,00:38:21.890
+"and a diagonal matrix
+and I and a minus,",00:38:21.890,00:38:25.350
+that same diagonal matrix.,00:38:25.350,00:38:26.615
+"So the fix-up cost is really
+the cost of multiplying by D,",00:38:29.330,00:38:33.540
+"this diagonal matrix, because
+there's essentially no cost",00:38:33.540,00:38:38.120
+in --,00:38:38.120,00:38:39.020
+"in the I part or in
+the permutation part,",00:38:39.020,00:38:42.630
+"so really it's -- the fix-up
+cost is essentially because D",00:38:42.630,00:38:50.720
+is diagonal --,00:38:50.720,00:38:52.950
+is 32 multiplications.,00:38:52.950,00:38:54.160
+"That's the -- there
+you're seeing --",00:38:58.930,00:39:00.430
+"of course we didn't check the
+formula or we didn't even say",00:39:00.430,00:39:02.888
+"what D is yet, but I will --",00:39:02.888,00:39:05.030
+"this diagonal matrix
+D is powers of W --",00:39:05.030,00:39:08.900
+"one W W squared down
+to W to the 31st.",00:39:08.900,00:39:13.345
+"So you see that when I --
+to do a multiplication by D,",00:39:19.720,00:39:22.630
+I need to do 32 multiplications.,00:39:22.630,00:39:25.920
+There they are.,00:39:25.920,00:39:27.780
+"Then -- but the other, the more
+serious work is to do the F(32)",00:39:27.780,00:39:33.030
+twice on the --,00:39:33.030,00:39:34.910
+"separately on the
+even numbered and odd",00:39:34.910,00:39:37.300
+"numbered components,
+so twice 32 squared.",00:39:37.300,00:39:41.600
+So 64 squared is gone now.,00:39:41.600,00:39:45.970
+And that's the new count.,00:39:45.970,00:39:47.990
+"Okay, great, but what next?",00:39:50.580,00:39:54.500
+"So that's -- I -- we
+now have the key idea --",00:39:54.500,00:39:58.730
+"we would have to
+check the algebra,",00:39:58.730,00:40:01.110
+"but it's just checking a lot of
+sums that come out correctly.",00:40:01.110,00:40:06.770
+"This is right -- the right
+way to see the fast Fourier",00:40:06.770,00:40:10.290
+"transform, or one
+right way to see it.",00:40:10.290,00:40:15.010
+"Then you've got to see
+what's the next idea.",00:40:15.010,00:40:17.240
+"The next idea is to
+break the 32s down.",00:40:17.240,00:40:21.390
+Break those 32s down.,00:40:21.390,00:40:23.450
+"So we have this factor,
+and now we have the F(32),",00:40:23.450,00:40:27.430
+"but that breaks into
+some guy here --",00:40:27.430,00:40:32.630
+F thirty- F six- F(16) --,00:40:32.630,00:40:36.510
+F(16).,00:40:36.510,00:40:37.610
+"Each -- each F(32) is breaking
+into two copies of F(16),",00:40:37.610,00:40:43.320
+"and then we have a
+permutation and then the --",00:40:43.320,00:40:47.950
+"so this is a -- like, this
+was a 64 size permutation,",00:40:47.950,00:40:52.210
+this is a 32 size permutation --,00:40:52.210,00:40:55.410
+I guess I've got it twice.,00:40:55.410,00:40:57.252
+So it's -- I'm --,00:40:57.252,00:40:57.960
+"I'm just using the same
+idea recursively --",00:40:57.960,00:41:01.120
+"recursion is the key word --
+that on each of those F(32)s --",00:41:01.120,00:41:05.270
+"so here's zero zero -- it's
+just -- to get F(32) --",00:41:05.270,00:41:09.465
+"this is the odd
+even permutations --",00:41:13.810,00:41:16.980
+"so you see, we're --
+the combination of those",00:41:16.980,00:41:20.580
+"permutations, what's it doing?",00:41:20.580,00:41:24.210
+"This guy separates into odds
+-- in -- into evens and odds,",00:41:24.210,00:41:28.070
+"and then this guy separates
+the evens into the ones --",00:41:28.070,00:41:34.160
+"the numbers that are
+mult- the even evens,",00:41:34.160,00:41:37.430
+"which means zero
+four eight sixteen --",00:41:37.430,00:41:41.080
+"and even odds, which means
+two, six, ten, fourteen --",00:41:41.080,00:41:48.580
+and then odd evens and odd odds.,00:41:48.580,00:41:52.240
+"You see, together these
+permutations then break it --",00:41:52.240,00:41:55.930
+"break our vector down into
+x, even even and three other",00:41:55.930,00:42:00.630
+pieces.,00:42:00.630,00:42:02.090
+"Those are the four pieces
+that separately get multiplied",00:42:02.090,00:42:05.070
+by F(16) --,00:42:05.070,00:42:06.650
+"separately fixed up by these Is
+and Ds and Is and minus Ds --",00:42:06.650,00:42:12.808
+so this count is now reduced.,00:42:15.680,00:42:19.340
+"This count is now --
+what's it reduced to?",00:42:19.340,00:42:23.220
+"So that's going to be gone,
+because 32 squared -- that's --",00:42:23.220,00:42:28.490
+"that's the change
+I'm making, right?",00:42:28.490,00:42:30.680
+"The 32 squared -- w- so -- so
+it's this that's now reduced.",00:42:30.680,00:42:35.130
+"So I still have two times it,
+but now what's 32 squared?",00:42:35.130,00:42:40.150
+"It's gone in favor of two
+sixteen squareds plus sixteen.",00:42:40.150,00:42:47.710
+"That's -- and then the
+original 32 to fix.",00:42:47.710,00:42:54.055
+Maybe you see what's happening.,00:43:00.170,00:43:01.910
+"Even easier than this
+formula is w- what's --",00:43:01.910,00:43:04.580
+"when I do the recursion
+more and more times,",00:43:04.580,00:43:09.410
+"I get simpler and simpler
+factors in the middle.",00:43:09.410,00:43:12.670
+"Eventually I'll be down
+to two point or one point",00:43:12.670,00:43:15.330
+Fourier transforms.,00:43:15.330,00:43:18.320
+"But I get more and more
+factors piling up on the right",00:43:18.320,00:43:21.170
+and left.,00:43:21.170,00:43:21.720
+"On the right, I'm just
+getting permutation",00:43:21.720,00:43:23.650
+matrixes.,00:43:23.650,00:43:24.450
+"On the left, I'm getting
+these guys, these Is and Ds,",00:43:24.450,00:43:29.300
+"so that there was
+a 32 there and --",00:43:29.300,00:43:32.490
+each one of these is costing 32.,00:43:32.490,00:43:35.320
+"Each one of those is costing
+And how many will there be?",00:43:35.320,00:43:39.330
+"So you see the 32
+for this original fix",00:43:42.450,00:43:45.080
+"up, because D had 32
+numbers, 32 for this next fix",00:43:45.080,00:43:49.850
+"up, because D has
+16 and 16 more.",00:43:49.850,00:43:54.750
+I keep going.,00:43:54.750,00:43:56.920
+"So the count in the
+middle goes down to zip,",00:43:56.920,00:44:00.320
+"but these fix up counts
+are all that I'm left with,",00:44:00.320,00:44:04.080
+"and how many factors -- how many
+fix-ups have I got -- log in --",00:44:04.080,00:44:10.820
+"from 64, one step to 32, one
+step to 16, one step to eight,",00:44:10.820,00:44:15.740
+"four, two and one.",00:44:15.740,00:44:17.660
+Six steps.,00:44:17.660,00:44:19.030
+So I have six fix-up --,00:44:19.030,00:44:20.550
+six fix up factors.,00:44:20.550,00:44:23.540
+"Finally I get to six times
+the That's my final count.",00:44:23.540,00:44:33.380
+"Instead of 64 squared, this is
+log to the base two of 64 times",00:44:33.380,00:44:41.430
+64 --,00:44:41.430,00:44:42.960
+"actually, half of 64.",00:44:42.960,00:44:45.190
+"So actually, the final count is
+n log to the base two of n --",00:44:45.190,00:44:51.600
+that's the 32 --,00:44:51.600,00:44:52.815
+a half.,00:44:55.380,00:44:57.430
+"So can I put a box
+around that wonderful,",00:44:57.430,00:45:02.160
+"extremely important and
+satisfying conclusion --",00:45:02.160,00:45:07.210
+"that the fast Fourier transform
+multiplies by an n by n matrix,",00:45:07.210,00:45:12.400
+"but it does it not in n
+squared steps, but in one",00:45:12.400,00:45:16.110
+half n log n steps.,00:45:16.110,00:45:19.100
+And if we just --,00:45:19.100,00:45:21.130
+"complete by doing a
+count, let's suppose --",00:45:21.130,00:45:25.070
+"suppose -- a typical
+case would be two to the",00:45:25.070,00:45:31.680
+tenth.,00:45:31.680,00:45:32.180
+"Now n squared is
+bigger than a million.",00:45:35.540,00:45:39.760
+"So it's a thousand twenty four
+times a thousand twenty four.",00:45:44.560,00:45:47.910
+"But what is n --
+what is one half --",00:45:47.910,00:45:51.390
+"what is the new count,
+done the right way?",00:45:51.390,00:45:55.690
+"It's n -- the thousand
+twenty four times one half,",00:45:55.690,00:46:02.550
+and what's the logarithm?,00:46:02.550,00:46:04.640
+It's ten.,00:46:04.640,00:46:06.180
+So times ten over two.,00:46:06.180,00:46:08.540
+"So it's five times -- it's five
+times a thousand twenty four,",00:46:08.540,00:46:12.880
+"where this one was a thousand
+twenty four times a thousand",00:46:12.880,00:46:16.690
+twenty four.,00:46:16.690,00:46:17.460
+"We've reduced the calculation
+by a factor of 200 just",00:46:21.450,00:46:25.470
+"by factoring the
+matrix properly.",00:46:25.470,00:46:28.830
+"This was a thousand times n,
+we're now down to five times n.",00:46:28.830,00:46:34.580
+"So we can do 200
+Fourier transforms,",00:46:34.580,00:46:38.570
+"where before we
+could do one, and",00:46:38.570,00:46:42.160
+"in real scientific calculations
+where Fourier transforms are",00:46:42.160,00:46:45.720
+"happening all the
+time, we're saving",00:46:45.720,00:46:48.200
+"a factor of in one
+of the major steps",00:46:48.200,00:46:52.120
+of modern scientific computing.,00:46:52.120,00:46:55.960
+"So that's the idea of the
+fast Fourier transform,",00:46:55.960,00:46:58.280
+"and you see the
+whole thing hinged",00:46:58.280,00:47:00.020
+"on being a special matrix
+with orthonormal columns.",00:47:00.020,00:47:07.360
+"Okay, that's actually
+it for complex numbers.",00:47:07.360,00:47:13.020
+I'm back next time really to --,00:47:13.020,00:47:16.960
+"to real numbers,
+eigenvalues and eigenvectors",00:47:16.960,00:47:22.560
+"and the key idea of
+positive definite matrixes",00:47:22.560,00:47:27.190
+is going to show up.,00:47:27.190,00:47:28.790
+"What's a positive
+definite matrix?",00:47:28.790,00:47:30.660
+"And it's terrific
+that this course",00:47:30.660,00:47:32.550
+"is going to reach
+positive definiteness,",00:47:32.550,00:47:35.520
+"because those are
+the matrixes that you",00:47:35.520,00:47:37.840
+see the most in applications.,00:47:37.840,00:47:40.320
+"Okay, see you next time.",00:47:40.320,00:47:41.965
+Thanks.,00:47:46.240,00:47:47.790

@@ -1,0 +1,462 @@
+text,start,stop
+"In our previous lesson, we saw what binary
+search trees are, now in this lesson we are",00:00:00.420,00:00:04.860
+going to implement binary search tree.,00:00:04.860,00:00:06.940
+"We will be writing some code for binary search
+tree.",00:00:06.940,00:00:10.290
+"prerequisite for this lesson is that you must
+understand the concepts of pointers and dynamic",00:00:10.290,00:00:16.420
+memory allocation in C/C++.,00:00:16.420,00:00:19.680
+"If you have already followed this series and
+seen our lessons on linked list, then implementation",00:00:19.680,00:00:24.600
+"of binary search tree or binary tree in general
+is not going to be very different.",00:00:24.600,00:00:30.460
+We will have nodes and links here as well.,00:00:30.460,00:00:33.149
+"Ok, so lets get started.",00:00:33.149,00:00:35.719
+"Binary search tree or BST as we know is a
+binary tree in which for each node, value",00:00:35.719,00:00:40.929
+"of all the nodes in left subtree is lesser
+or equal and value of all the nodes in right",00:00:40.929,00:00:46.420
+subtree is greater.,00:00:46.420,00:00:47.899
+"We can draw BST as a recursive structure like
+this.",00:00:47.899,00:00:52.059
+"Value of all the nodes in left subtree must
+be lesser or equal and value of all the nodes",00:00:52.059,00:00:55.829
+"in right subtree must be greater and this
+must be true for all nodes and not just the",00:00:55.829,00:01:01.309
+root node.,00:01:01.309,00:01:02.309
+"So, in this recursive definition here, both
+left and right subtrees must also be binary",00:01:02.309,00:01:06.760
+search trees.,00:01:06.760,00:01:08.079
+"I have drawn a binary search tree of integers
+here.",00:01:08.079,00:01:10.649
+"Now, the question is, how can we create this
+non-linear logical structure in computer's",00:01:10.649,00:01:16.620
+memory.,00:01:16.620,00:01:17.630
+"I had talked about this briefly when we had
+discussed binary trees.",00:01:17.630,00:01:22.520
+"The most popular way is - dynamically created
+nodes linked to each other using pointers",00:01:22.520,00:01:28.750
+"or references just the way we do it for linked
+lists.",00:01:28.750,00:01:33.270
+"Because in a binary search tree, or in a binary
+tree in general, each node can have at most",00:01:33.270,00:01:38.719
+"2 children, we can define node as an object
+with 3 fields something like what I'm showing",00:01:38.719,00:01:44.749
+here.,00:01:44.749,00:01:45.749
+"We can have a field to store data, another
+to store address or reference of left child",00:01:45.749,00:01:51.479
+"and another to store address or reference
+to right child.",00:01:51.479,00:01:55.249
+"If there is no left or right child for a node,
+reference can be set as NULL.",00:01:55.249,00:01:59.710
+"In C or C++, we can define node like this.",00:01:59.710,00:02:03.229
+There is a field to store data.,00:02:03.229,00:02:05.340
+"Here the data type is integer, but it can
+be anything.",00:02:05.340,00:02:08.700
+There is one field which is pointer to node.,00:02:08.700,00:02:12.040
+Node asterisk means pointer to node.,00:02:12.040,00:02:14.519
+"This one is to store the address of left child
+and we have another one to store the address",00:02:14.519,00:02:19.150
+of right child.,00:02:19.150,00:02:21.110
+"This definition of node is very similar to
+definition of Node for doubly linked list.",00:02:21.110,00:02:27.110
+"Remember in doubly linked list also, each
+node had two links - one to previous node",00:02:27.110,00:02:32.370
+"and another to next node. but doubly linked
+list was a linear arrangement.",00:02:32.370,00:02:37.430
+This definition of node is for a binary tree.,00:02:37.430,00:02:40.709
+"We could also name this something like BstNode,
+but Node is also fine, lets go with Node.",00:02:40.709,00:02:45.780
+"Now, in our implementation, just like linked
+list, all the nodes will be created in dynamic",00:02:45.780,00:02:51.069
+"memory or heap section of application's memory
+using malloc function in 'C' or new operator",00:02:51.069,00:03:00.269
+in C++.,00:03:00.269,00:03:01.790
+We can use malloc in C++ as well.,00:03:01.790,00:03:03.959
+"Now, as we know any object created in dynamic
+memory or heap section of applications memory",00:03:03.959,00:03:10.340
+cannot have a name or identifier.,00:03:10.340,00:03:13.180
+It has to be accessed through a pointer.,00:03:13.180,00:03:15.990
+"malloc or new operator return us pointer to
+the object created in heap. if you want to",00:03:15.990,00:03:21.239
+"revise some of these concepts of dynamic memory
+allocation, you can check the description",00:03:21.239,00:03:25.590
+of this video for link to a lesson.,00:03:25.590,00:03:28.659
+"Its really important that you understand this
+concept of stack and heap in applications",00:03:28.659,00:03:33.010
+memory really well.,00:03:33.010,00:03:35.100
+"Now, for a linked list, if you remember, the
+information that we always keep with us is",00:03:35.100,00:03:40.730
+address of the head node.,00:03:40.730,00:03:43.069
+"If we know the head node, we can access all
+other nodes using links.",00:03:43.069,00:03:47.409
+"In case of trees, the information that we
+always keep with us is address of the root",00:03:47.409,00:03:52.989
+node.,00:03:52.989,00:03:53.989
+"If we know the root node, we can access all
+other nodes in the tree using links.",00:03:53.989,00:03:58.640
+"To create a tree, we first need to declare
+a pointer to BstNode.",00:03:58.640,00:04:03.010
+"I'll rather call node BstNode here, BST for
+binary search tree.",00:04:03.010,00:04:08.459
+"So, to create a tree, we first need to declare
+a pointer to BstNode that will always store",00:04:08.459,00:04:14.310
+the address of root node.,00:04:14.310,00:04:16.880
+"I have declared a pointer to Node here named
+rootPtr - Ptr for pointer.",00:04:16.880,00:04:22.910
+"In C, you can't just write BstNode asterisk
+rootPtr.",00:04:22.910,00:04:26.480
+"You will have to write struct space BstNode
+asterisk, you will have to write struct here",00:04:26.480,00:04:31.670
+as well.,00:04:31.670,00:04:32.670
+"I am gonna write C++ here, but anyway right
+now I'm trying to explain the logic.",00:04:32.670,00:04:37.010
+"we will not bother about minute details of
+implementation.",00:04:37.010,00:04:41.070
+"In this logical structure of tree that I'm
+showing here, each Node as you can see has",00:04:41.070,00:04:45.850
+"3 fields, 3 cells.",00:04:45.850,00:04:48.470
+"leftmost cell is to store the address of left
+child and rightmost cell is to store the address",00:04:48.470,00:04:53.800
+of right child.,00:04:53.800,00:04:55.350
+"Lets say root node is at address 200 in memory
+and I'll assume some random addresses for",00:04:55.350,00:05:01.030
+all other nodes as well.,00:05:01.030,00:05:02.730
+"Now, I can fill in these left and right cells
+in each node with addresses of left and right",00:05:02.730,00:05:09.460
+children.,00:05:09.460,00:05:10.460
+"In our definition, data is first field, but
+in this logical structure, I am showing data",00:05:10.460,00:05:15.350
+in the middle.,00:05:15.350,00:05:16.350
+"Ok, so for each Node, I have filled in addresses
+for both left and right child.",00:05:16.350,00:05:21.510
+Address is 0 or NULL if there is no child.,00:05:21.510,00:05:24.570
+"Now, as we were saying, identity of the tree
+is address of the root node.",00:05:24.570,00:05:29.340
+"We need to have a pointer to Node in which
+we can store the address of the root node.",00:05:29.340,00:05:34.270
+"We must have a variable of type pointer to
+node to store the address of root node.",00:05:34.270,00:05:39.450
+All these rectangles with 3 cells are Nodes.,00:05:39.450,00:05:43.230
+"They are created using malloc or new operator
+and live in heap section of application's",00:05:43.230,00:05:48.310
+memory.,00:05:48.310,00:05:49.310
+We cannot have name or identifier for them.,00:05:49.310,00:05:51.060
+They are always accessed through pointers.,00:05:51.060,00:05:53.860
+"This rootPtr, root pointer has to be a local
+or global variable.",00:05:53.860,00:05:58.660
+"We will discuss this in little more detail
+in some time.",00:05:58.660,00:06:01.130
+"Quite often, we like to name this root pointer,
+just root.",00:06:01.130,00:06:06.300
+"We can do so, but we must not confuse.",00:06:06.300,00:06:08.390
+This is pointer to root and not the root itself.,00:06:08.390,00:06:12.640
+"To create a BST, as I was saying, we first
+need to declare this pointer.",00:06:12.640,00:06:17.320
+"Initially, we can set this pointer as NULL
+to say that the tree is empty.",00:06:17.320,00:06:22.350
+"A tree with no node can be called empty tree
+and for empty tree, root pointer should be",00:06:22.350,00:06:28.760
+set as NULL.,00:06:28.760,00:06:30.030
+"We can do this declaration and setting the
+root as NULL in main function in our program.",00:06:30.030,00:06:36.260
+"Actually, lets just write this code in a real
+compiler.",00:06:36.260,00:06:39.510
+I am writing C++ here.,00:06:39.510,00:06:40.990
+"As you can see, in the main function I have
+declared this pointer to Node which will always",00:06:40.990,00:06:46.060
+"store the address of root node of my tree
+and I am initially setting this as NULL to",00:06:46.060,00:06:52.100
+say that the tree is empty.,00:06:52.100,00:06:54.520
+"With this much of code, we have created an
+empty tree.",00:06:54.520,00:06:57.660
+"But, whats the point of having an empty tree.",00:06:57.660,00:06:59.940
+We should have some data in it.,00:06:59.940,00:07:01.530
+"So, what I want to do now is I want to write
+a function to be able to insert a node in",00:07:01.530,00:07:07.040
+the tree.,00:07:07.040,00:07:08.040
+"I will write a function named Insert that
+will take address of the root node and data",00:07:08.040,00:07:13.650
+"to be inserted as argument and this function
+will Insert a node with this data at appropriate",00:07:13.650,00:07:20.840
+position in the tree.,00:07:20.840,00:07:22.450
+"In the main function, I'll make calls to this
+insert function passing it address of root",00:07:22.450,00:07:28.600
+"and the data to be inserted, lets say first
+I want to insert number 15 and then I want",00:07:28.600,00:07:36.140
+to insert number 10 and then number 20.,00:07:36.140,00:07:39.850
+"We can insert more, but lets first write the
+logic for Insert function.",00:07:39.850,00:07:44.430
+"Before I write the logic for Insert function,
+I want to write a function to create a new",00:07:44.430,00:07:49.570
+Node in dynamic memory or heap.,00:07:49.570,00:07:51.920
+"This function GetNewNode should take an integer,
+the data to be inserted as argument, create",00:07:51.920,00:07:57.651
+"a node in heap using new or malloc and return
+back the address of this new node.",00:07:57.651,00:08:03.730
+"I am creating a new node here using this new
+operator.",00:08:03.730,00:08:07.360
+"the operator will return me the address of
+the newly created node which I am collecting",00:08:07.360,00:08:11.460
+in this variable of type pointer to BstNode.,00:08:11.460,00:08:15.670
+"In C, instead of new operator, we will have
+to use malloc.",00:08:15.670,00:08:18.880
+We can use malloc in C++as well.,00:08:18.880,00:08:20.910
+"C++ is only a super-set of C. malloc will
+also do here.",00:08:20.910,00:08:25.350
+"Now, anything in dynamic memory or heap is
+always accessed through pointer.",00:08:25.350,00:08:29.740
+"Now, using this pointer - newNode, we can
+access the fields of newly created Node.",00:08:29.740,00:08:36.680
+"I will have to dereference this pointer using
+asterisk operator.",00:08:36.680,00:08:40.019
+"i am writing asterisk newNode and now I can
+access the fields.",00:08:40.019,00:08:44.509
+"We have 3 fields in node - data and 2 pointers
+to node , left and right;.",00:08:44.509,00:08:49.790
+i have set the data here.,00:08:49.790,00:08:52.019
+"Instead of writing asterisk newNode dot data,
+we have this alternate syntax that we could",00:08:52.019,00:08:58.269
+use.,00:08:58.269,00:08:59.269
+"We could simply write newNode-&gt;data and this
+will mean the same.",00:08:59.269,00:09:04.290
+"We have used this syntax quite a lot in our
+lessons on linked list.",00:09:04.290,00:09:07.870
+"Now, for the new node, we can set the left
+and right child as NULL and finally we can",00:09:07.870,00:09:15.629
+return the address of the new Node.,00:09:15.629,00:09:18.040
+"Ok, coming back to the insert function.",00:09:18.040,00:09:21.770
+We can have couple of cases in insertion.,00:09:21.770,00:09:24.740
+"First of all, tree may be empty.",00:09:24.740,00:09:26.600
+"For this first insertion, when we are inserting
+this number 15, tree will be empty.",00:09:26.600,00:09:31.720
+"if tree is empty, we can simply create a new
+node and set it as root.",00:09:31.720,00:09:36.649
+"With this statement, root equal GetNewNode,
+I am setting root as address of the new node.",00:09:36.649,00:09:43.110
+But there is something not alright here.,00:09:43.110,00:09:45.610
+"This root is local variable of Insert function
+and its scope is only within this function.",00:09:45.610,00:09:51.800
+"We want this root, root in main to be modified.",00:09:51.800,00:09:56.300
+This guy is a local variable of main function.,00:09:56.300,00:09:59.150
+There are 2 ways of doing this.,00:09:59.150,00:10:01.079
+"We can either return the address of the new
+root.",00:10:01.079,00:10:04.800
+"So, return type of insert function will be
+pointer to BstNode and not void.",00:10:04.800,00:10:10.269
+"And here, in the main function, we will have
+to write statement like root equal Insert",00:10:10.269,00:10:14.970
+and the arguments.,00:10:14.970,00:10:16.029
+"So, we will have to collect the return and
+update our root in main function.",00:10:16.029,00:10:22.790
+"Another way is that, we can pass the address
+of this root of main to the Insert function.",00:10:22.790,00:10:28.870
+This root is already a pointer to Node.,00:10:28.870,00:10:31.050
+"So, its address can be collected in a pointer
+to pointer.",00:10:31.050,00:10:35.029
+"So, Insert function , in insert function first
+argument will be a pointer to pointer and",00:10:35.029,00:10:40.750
+"here, we can pass the address.",00:10:40.750,00:10:42.100
+We will say ampersand root to pass the address.,00:10:42.100,00:10:45.339
+"We can name this argument root or we can name
+this argument rootPtr.",00:10:45.339,00:10:50.339
+We can name this whatever.,00:10:50.339,00:10:51.480
+"Now, what we need to do is, we need to dereference
+this using asterisk operator to access the",00:10:51.480,00:10:57.709
+"value in root of main and we can also set
+the value in root of main.",00:10:57.709,00:11:01.970
+"So, here with this statement, we are setting
+the value and the return type now can be void.",00:11:01.970,00:11:07.390
+"This pointer to pointer thing gets a little
+tricky.",00:11:07.390,00:11:10.180
+I'll go with the former approach.,00:11:10.180,00:11:12.350
+"Actually, there is another way.",00:11:12.350,00:11:14.970
+"instead of declaring root as a local variable
+in main function, we can declare root as global",00:11:14.970,00:11:20.920
+variable.,00:11:20.920,00:11:21.920
+"Global variable, as we know has to be declared
+outside all the functions.",00:11:21.920,00:11:25.839
+"if root would be global variable, it would
+be accessible to all the functions and we",00:11:25.839,00:11:30.180
+"will not have to pass the address stored in
+it as argument.",00:11:30.180,00:11:34.200
+"Anyway, coming back to the logic for insertion.",00:11:34.200,00:11:37.850
+"As we were saying, if the tree is empty, we
+can simply create a new node and we can simply",00:11:37.850,00:11:42.670
+set it as root.,00:11:42.670,00:11:44.660
+"At this stage, we wanted to insert 15.",00:11:44.660,00:11:47.410
+"If we will make call to the insert function,
+address of root is 0 or NULL.",00:11:47.410,00:11:52.270
+"NULL is only a macro for 0 and the second
+argument is the number to be inserted.",00:11:52.270,00:11:57.740
+"In this call to Insert function, we will make
+call to get new Node.",00:11:57.740,00:12:01.770
+"Lets say, we got this new Node at address
+200.",00:12:01.770,00:12:06.029
+"GetNewNode function will return us address
+200 which we can set as root here, but this",00:12:06.029,00:12:13.070
+root is a local variable.,00:12:13.070,00:12:14.240
+"We will return this address 200 back to the
+main function and in the main function, we",00:12:14.240,00:12:19.339
+are actually doing this root equal Insert.,00:12:19.339,00:12:21.860
+"So, in the main function we are building this
+link.",00:12:21.860,00:12:26.149
+"Ok, our next call in the main function was
+to insert number 10.",00:12:26.149,00:12:31.510
+"At this stage, root is 200.",00:12:31.510,00:12:33.410
+"the address in root is 200 and the value to
+be inserted is 10.",00:12:33.410,00:12:37.940
+"Now, the tree is not empty.",00:12:37.940,00:12:39.520
+"So, what do we do.",00:12:39.520,00:12:41.440
+"If the tree is not empty, we can basically
+have 2 cases.",00:12:41.440,00:12:45.389
+"If the data to be inserted is lesser or equal,
+we need to insert it in the left subtree of",00:12:45.389,00:12:51.930
+"root and if the data to be inserted is greater,
+we need to insert it in right subtree of the",00:12:51.930,00:12:57.449
+root.,00:12:57.449,00:12:58.449
+"So, we can reduce this problem in a self similar
+manner, in a recursive manner.",00:12:58.449,00:13:03.259
+"Recursion is one thing that we are going to
+use almost all the time while working with",00:13:03.259,00:13:06.480
+trees.,00:13:06.480,00:13:07.570
+"In this function, I'll say that if the data
+to be inserted is less than or equal to the",00:13:07.570,00:13:12.529
+"data in root, then make a recursive call to
+insert data in left subtree.",00:13:12.529,00:13:18.329
+"The root of the left subtree will be the left
+child.",00:13:18.329,00:13:21.050
+"So, in this recursive call, we are passing
+address of left child and data as argument",00:13:21.050,00:13:27.569
+"and after the data is inserted in left subtree,
+the root of the left subtree can change.",00:13:27.569,00:13:35.069
+"Insert function will return the address of
+the new root of the left subtree and we need",00:13:35.069,00:13:40.420
+to set it as left child of the current node.,00:13:40.420,00:13:43.570
+"In this example tree here, right now, both
+left and right subtree are empty.",00:13:43.570,00:13:47.550
+"We are trying to insert number 10, so we have
+made call to this function Insert.",00:13:47.550,00:13:52.670
+"From main function, we have called Insert
+passing it address 200 and value or data 10.",00:13:52.670,00:13:58.800
+"Now, 10 is lesser than 15, so control will
+come to this line and a call will be made",00:13:58.800,00:14:06.360
+to Insert data in left subtree.,00:14:06.360,00:14:09.230
+"Now, left subtree is empty.",00:14:09.230,00:14:10.959
+"So, address of root for left subtree is 0.",00:14:10.959,00:14:14.629
+"Data passed, data to be inserted passed as
+argument is 10.",00:14:14.629,00:14:18.670
+"Now, this first insert call will wait for
+this insert below to finish and return.",00:14:18.670,00:14:24.819
+"For this last, insert call, root is NULL.",00:14:24.819,00:14:27.439
+Lets say we got this node at address 150.,00:14:27.439,00:14:29.570
+"Now, this Insert call will return back 150
+and execution of first insert call will resume",00:14:29.570,00:14:37.089
+"at this line and now this particular address
+will be set as 150.",00:14:37.089,00:14:42.230
+"So, we will build this link and now this insert
+call can finish.",00:14:42.230,00:14:47.939
+It can return back the current root.,00:14:47.939,00:14:50.589
+"Actually this return root should be there
+for all cases, so I am taking it out and I",00:14:50.589,00:14:55.220
+have it after all these conditions.,00:14:55.220,00:14:57.149
+"Of course, we will have one more else here.",00:14:57.149,00:14:59.369
+"If the data is greater, we need to go Insert
+in right subtree.",00:14:59.369,00:15:04.399
+"the third call in Insert function was to Insert
+number 20.",00:15:04.399,00:15:07.880
+"Now this time, we will go to this else statement,
+this statement in else.",00:15:07.880,00:15:13.600
+"Lets say, we got this new Node at address
+300.",00:15:13.600,00:15:16.000
+"So, this guy will return 300.",00:15:16.000,00:15:18.699
+"For this node at 200, right child will be
+set as 300 and now this call to Insert can",00:15:18.699,00:15:26.260
+finish.,00:15:26.260,00:15:27.260
+The return will be 200.,00:15:27.260,00:15:28.540
+"Ok, at this stage what if a call is made to
+Insert number 25.",00:15:28.540,00:15:34.790
+"We are at root right now, the node with address
+200.",00:15:34.790,00:15:39.009
+"25 is greater, so we need to go and insert
+in right subtree.",00:15:39.009,00:15:43.369
+Right subtree is not empty this time.,00:15:43.369,00:15:45.149
+"So, once again, for this call also, we will
+come to this else, last else because 25 is",00:15:45.149,00:15:51.029
+greater than 20.,00:15:51.029,00:15:52.310
+"Now, in this call we will go tot the first
+if.",00:15:52.310,00:15:55.779
+"A node will be created, lets say, we got this
+Node in heap at address 500.",00:15:55.779,00:16:00.660
+"This particular call Insert(0,25) will return
+500 and finish.",00:16:00.660,00:16:04.300
+"Now, for the node at 300, right child will
+be set as 500.",00:16:04.300,00:16:09.550
+"So, this link will get built.",00:16:09.550,00:16:11.699
+"Now, this guy will return 300.",00:16:11.699,00:16:14.470
+The root for this subtree has not changed.,00:16:14.470,00:16:17.029
+"And this first call to Insert will also wrap
+up.",00:16:17.029,00:16:19.459
+It will return 200.,00:16:19.459,00:16:21.360
+"So, we are looking good for all cases.",00:16:21.360,00:16:24.250
+This Insert function will work for all cases.,00:16:24.250,00:16:26.369
+"We could write this Insert function without
+using recursion.",00:16:26.369,00:16:29.949
+I encourage you to do so.,00:16:29.949,00:16:31.529
+"You will have to use some temporary pointer
+to Node and loops.",00:16:31.529,00:16:36.720
+"Recursion is very intuitive here and recursion
+is intuitive in pretty much everything that",00:16:36.720,00:16:41.439
+we do with trees.,00:16:41.439,00:16:42.709
+"So, its really important that we understand
+recursion really well.",00:16:42.709,00:16:46.869
+"Ok, I will write one more function now to
+search some data in BST.",00:16:46.869,00:16:52.199
+"In the main function here, I have made some
+more calls to Insert.",00:16:52.199,00:16:55.519
+"Now, i want to write a function named Search
+that should take as argument, address of the",00:16:55.519,00:17:00.240
+"root node and the data to be searched and
+this function should return me true if data",00:17:00.240,00:17:06.280
+"is there in the tree, false otherwise.",00:17:06.280,00:17:08.610
+"Once again, we will have couple of cases.",00:17:08.610,00:17:10.900
+"If the root is NULL, then we can return false.",00:17:10.900,00:17:14.300
+"If the data in root is equal to the data that
+we are looking for, then we can return true.",00:17:14.300,00:17:18.840
+"Else, we can have 2 cases - either we need
+to go and search in the left subtree or we",00:17:18.840,00:17:24.330
+need to go in the right subtree.,00:17:24.330,00:17:25.900
+"So, once again, i am using recursion here.",00:17:25.900,00:17:28.630
+"I am making recursive call to search function
+in these two cases.",00:17:28.630,00:17:33.500
+"If you have understood the previous recursion,
+then this is very similar.Lets test this code",00:17:33.500,00:17:39.000
+now.,00:17:39.000,00:17:40.000
+"what I have dine here is I have asked the
+user to enter a number to be searched and",00:17:40.000,00:17:44.890
+"then I am making call to this search function
+and if this function is returning me true,",00:17:44.890,00:17:50.160
+"I am printing ""Found"", else I am printing
+""NotFound"".",00:17:50.160,00:17:54.040
+Lets run this code and see what happens.,00:17:54.040,00:17:55.620
+"I have moved multiple Insert statements in
+one line because I am short of space here.",00:17:55.620,00:18:01.170
+"Lets say, we want to search for number 8.",00:18:01.170,00:18:03.290
+8 is found.,00:18:03.290,00:18:05.000
+"And now lets say, we want to search for 22.",00:18:05.000,00:18:07.240
+22 is not found.,00:18:07.240,00:18:08.960
+"So, we are looking good.",00:18:08.960,00:18:10.460
+I'll stop here now.,00:18:10.460,00:18:11.830
+"You can check the description of this video
+for link to all the source code.",00:18:11.830,00:18:15.760
+"We will do a lot more with trees in coming
+lessons.",00:18:15.760,00:18:18.710
+"In our next lesson, we will go a little deeper
+and try to see how things move in various",00:18:18.710,00:18:23.200
+sections of application's memory.,00:18:23.200,00:18:25.640
+"How things move in stack and heap sections
+of memory when we execute these functions.",00:18:25.640,00:18:31.000
+It will give you a lot of clarity.,00:18:31.000,00:18:32.940
+This is it for this lesson.,00:18:32.940,00:18:34.070
+Thanks for watching !,00:18:34.070,00:18:34.980

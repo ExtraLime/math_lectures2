@@ -1,0 +1,630 @@
+text,start,stop
+"Let's say I've got some set
+A of the vectors a1, a2,",00:00:00.490,00:00:06.170
+all the way to an.,00:00:06.170,00:00:08.109
+"And I know for a fact that
+it's a basis for",00:00:08.109,00:00:12.620
+the subspace V.,00:00:12.620,00:00:14.990
+"What I want to show you in this
+video is that if this guy",00:00:14.990,00:00:18.400
+"has n elements right here, that
+any set that spans V has",00:00:18.400,00:00:25.210
+"to have at least n elements,
+[typing]",00:00:25.210,00:00:29.210
+"or n members, or cardinality
+of n.",00:00:43.070,00:00:46.160
+"There's all different ways
+of saying you had n",00:00:46.160,00:00:48.020
+vectors in this set.,00:00:48.020,00:00:49.270
+"I'm saying that every set that
+spans V must have at least n",00:00:52.700,00:00:56.920
+"elements, if the sum basis
+set has n elements for V.",00:00:56.920,00:01:01.340
+"Let's see if we can kind of run
+with the set that has less",00:01:01.340,00:01:04.959
+"than n elements and see if we
+reach any contradictions.",00:01:04.959,00:01:07.820
+"So let's say that I have sum set
+B here and it's equal to",00:01:07.820,00:01:13.155
+"the vectors b1, b2,
+all the way to bm.",00:01:13.155,00:01:18.330
+"And m is less than n, so I have
+sum set of vectors here",00:01:18.330,00:01:22.420
+"that have fewer elements
+than my set A.",00:01:22.420,00:01:27.060
+"So you come to me one day and
+say, look I found you this set",00:01:27.060,00:01:30.180
+of vectors right here.,00:01:30.180,00:01:31.390
+"And not only does it have
+fewer elements than A,",00:01:31.390,00:01:34.140
+but it spans V.,00:01:34.140,00:01:37.500
+"I look at you very suspiciously
+because I always",00:01:37.500,00:01:39.460
+"thought that this green
+statement was true.",00:01:39.460,00:01:41.440
+"So we start a little bit of
+a thought experiment.",00:01:41.440,00:01:43.860
+"And I say OK, you claim
+that your set spans",00:01:43.860,00:01:46.970
+"V, so let's do something.",00:01:46.970,00:01:48.900
+Let me define a new set.,00:01:48.900,00:01:50.500
+"Let me call this new set B1
+prime, and you'll see why I'm",00:01:50.500,00:01:55.080
+"doing this kind of
+strange notation.",00:01:55.080,00:01:57.430
+"What's essentially going to be
+is a set B plus my vector a1.",00:01:57.430,00:02:03.230
+"So it's a1, and then I have
+all of my elements of B.",00:02:03.230,00:02:07.070
+"So be b1, b2, all
+the way to bm.",00:02:07.070,00:02:12.350
+"Now I think you and I could both
+agree that this set is",00:02:12.350,00:02:15.390
+linearly dependent.,00:02:15.390,00:02:18.530
+How do I know that?,00:02:18.530,00:02:19.240
+"Linear dependence means that at
+least one of the elements",00:02:19.240,00:02:22.240
+"of the set can be represented
+as a linear",00:02:22.240,00:02:24.100
+combination of the others.,00:02:24.100,00:02:25.720
+"Well, we know that a1 is one of
+the basis vectors for V for",00:02:25.720,00:02:30.610
+this definition of a basis.,00:02:30.610,00:02:31.800
+"But all the basis vectors
+are members of V.",00:02:31.800,00:02:36.510
+"If this set is a basis for V,
+then this means that this set",00:02:41.520,00:02:44.970
+"spans V, or that every member
+of V can be represented as a",00:02:44.970,00:02:48.360
+"linear combination
+of these guys.",00:02:48.360,00:02:49.990
+"Or in other ways every
+linear combination of",00:02:49.990,00:02:51.980
+these guys is in V.,00:02:51.980,00:02:53.710
+"And one of the linear
+combinations of these guys is",00:02:53.710,00:02:55.600
+"you just set the coefficient
+on a1 to be 1, and the",00:02:55.600,00:03:01.280
+"coefficients on everyone
+else to be 0.",00:03:01.280,00:03:03.240
+"So obviously a1 is
+also in the set.",00:03:03.240,00:03:05.610
+"So if a1 is in V, and all
+of these guys span V, by",00:03:05.610,00:03:12.110
+"definition if these guys span
+V some linear combination of",00:03:12.110,00:03:15.680
+"these guys can be used to
+construct any member of V.",00:03:15.680,00:03:19.390
+"So you can take some linear
+combination of these guys to",00:03:19.390,00:03:21.910
+construct a1.,00:03:21.910,00:03:23.010
+"So you could say a1 is equal to
+d1, where the d's are the",00:03:23.010,00:03:29.590
+"constants, d1 b1 plus d2 b2, all
+the way to dm bm, and at",00:03:29.590,00:03:37.950
+"least one of these have
+to be non-zero.",00:03:37.950,00:03:40.080
+"We know that a is a
+non-zero vector.",00:03:40.080,00:03:42.010
+"If it was a 0 vector, this
+couldn't be a basis because it",00:03:42.010,00:03:44.800
+"wouldn't be linearly
+independent, because you can",00:03:44.800,00:03:47.570
+"always represent a 0 vector
+as really just 0",00:03:47.570,00:03:51.210
+times any other vector.,00:03:51.210,00:03:52.270
+So this won't be a 0 vector.,00:03:52.270,00:03:53.830
+"So at least one of these
+are non-zero.",00:03:53.830,00:03:56.390
+"So let's just say, for the sake
+of argument, that dj --",00:03:56.390,00:04:01.130
+"so the coefficient on
+bj is non-zero.",00:04:01.130,00:04:04.550
+So dj does not equal 0.,00:04:04.550,00:04:08.610
+"So we could actually solve
+for that term.",00:04:08.610,00:04:11.910
+"So over here someplace you have
+the term dj bj, plus a",00:04:11.910,00:04:16.959
+bunch of other stuff.,00:04:16.959,00:04:18.010
+"We can solve for this term if we
+subtract it from both sides",00:04:18.010,00:04:21.110
+"of the equation, and then divide
+both sides by minus dj,",00:04:21.110,00:04:25.070
+"and put this minus a1 on the
+other side, what do we get?",00:04:25.070,00:04:29.360
+"I know that was a lot of
+operations, but that's just",00:04:29.360,00:04:30.960
+straight up algebra.,00:04:30.960,00:04:31.750
+"I think you can say that we
+could rewrite this right here.",00:04:31.750,00:04:34.470
+We can solve for bj.,00:04:34.470,00:04:35.720
+"That should be equal to minus
+1 over its coefficient.",00:04:41.360,00:04:46.470
+"And, if we subtract the a1 from
+both sides and then plus",00:04:46.470,00:04:51.620
+"all of these guys, plus d1 b1
+plus all the way -- you're",00:04:51.620,00:04:57.640
+"going to have a little
+bit of a gap here.",00:04:57.640,00:04:59.300
+I'll just draw it like that.,00:04:59.300,00:05:00.080
+"It's very unconventional
+notation where this guy sat.",00:05:00.080,00:05:02.370
+All the way to dm bm.,00:05:02.370,00:05:06.090
+"I'm doing this all of this to
+show you that, by definition,",00:05:06.090,00:05:10.160
+"you can write a1 as a
+linear combination",00:05:10.160,00:05:12.240
+of these other guys.,00:05:12.240,00:05:13.050
+"But you can just rearrange
+things.",00:05:13.050,00:05:14.400
+"You can rearrange it so that you
+can write one of the other",00:05:14.400,00:05:18.160
+"guys as a linear combination
+of the rest of the",00:05:18.160,00:05:20.180
+other guys and a1.,00:05:20.180,00:05:21.910
+This guy's now redundant.,00:05:24.490,00:05:27.330
+"I don't need this guy any longer
+to continue to span V.",00:05:27.330,00:05:30.780
+"Clearly this set
+still spans V.",00:05:30.780,00:05:32.860
+I added an extra vector here.,00:05:32.860,00:05:35.270
+"But I can remove this guy right
+here from my set b1",00:05:35.270,00:05:41.390
+prime and still span V.,00:05:41.390,00:05:43.980
+And how do I know that?,00:05:43.980,00:05:45.080
+Because I can achieve him.,00:05:45.080,00:05:47.410
+"By removing him, I don't
+lose anything.",00:05:47.410,00:05:49.220
+"Because if I needed this vector
+to create some other",00:05:49.220,00:05:51.550
+"vector, I can construct him with
+a linear combination of",00:05:51.550,00:05:54.310
+"the rest of the b's,
+plus my a1.",00:05:54.310,00:05:59.180
+"So let's get rid of him,
+and call that set v1.",00:05:59.180,00:06:02.680
+"And actually, just for the sake
+of notation, let me just",00:06:02.680,00:06:05.270
+change his name.,00:06:05.270,00:06:07.600
+This is little unconventional.,00:06:07.600,00:06:08.840
+"You won't see it done like
+this in any textbook.",00:06:08.840,00:06:11.350
+"But I think it's a little bit
+easier, instead of having to",00:06:11.350,00:06:13.470
+"keep talking about these little
+guys that are embedded",00:06:13.470,00:06:16.420
+"someplace in the middle
+of the stream.",00:06:16.420,00:06:18.250
+"I mean these names, b1, b2, bn,
+they're arbitrary names.",00:06:18.250,00:06:24.380
+Let me swap the labels.,00:06:24.380,00:06:25.690
+"Let me just say that bj is equal
+to b1, and that b1 is",00:06:25.690,00:06:29.860
+equal to bj.,00:06:29.860,00:06:30.660
+I'm just swapping their names.,00:06:30.660,00:06:34.230
+"I took that guy, I
+renamed him b1.",00:06:34.230,00:06:36.590
+"I renamed b1, bj, so that
+I could swap them.",00:06:36.590,00:06:40.120
+"So I'm essentially just going
+to remove b1 one from the",00:06:40.120,00:06:42.610
+"vector just to make my
+notation easier.",00:06:42.610,00:06:44.210
+"You could just keep saying I'll
+remove this bj from the",00:06:44.210,00:06:46.490
+"middle, but it becomes
+very confusing then.",00:06:46.490,00:06:48.980
+"So let me call my new set after
+removing the bj that",00:06:48.980,00:06:53.150
+"I've renamed as b1, let me just
+call that straight up B1.",00:06:53.150,00:06:58.880
+"So my straight set B1 is equal
+to a1, and then remember I",00:06:58.880,00:07:06.470
+"removed the bj and I renamed
+that as b1, and then I",00:07:06.470,00:07:09.100
+renamed b1 as bj.,00:07:09.100,00:07:10.380
+"So now my set looks like
+this -- let me go",00:07:10.380,00:07:12.840
+to the other color.,00:07:12.840,00:07:14.900
+"b2 -- and for all we know
+bj might have been",00:07:14.900,00:07:18.130
+"b1, we don't know.",00:07:18.130,00:07:20.830
+"There are probably multiple of
+these that are non-zero, so we",00:07:20.830,00:07:23.930
+"could pick any of those
+to be our bj.",00:07:23.930,00:07:26.480
+"But anyway, we took our
+bj renamed it b1,",00:07:26.480,00:07:30.150
+and removed the b1.,00:07:30.150,00:07:31.590
+"So now out set looks like this:
+b3 all the way to bm.",00:07:31.590,00:07:36.130
+This set still spans V.,00:07:39.320,00:07:44.100
+"And we know that because the
+guy we removed can be",00:07:44.100,00:07:47.230
+"constructed with any linear
+combination of these guys.",00:07:47.230,00:07:50.270
+"So we haven't lost our ability
+to construct all of the",00:07:50.270,00:07:53.130
+vectors in V.,00:07:53.130,00:07:54.480
+"Now let me create
+another vector.",00:07:54.480,00:07:55.730
+We'll do a new color.,00:07:59.420,00:08:01.160
+"Let's say I have the
+vector B2 prime.",00:08:01.160,00:08:05.430
+"And what I'm going to do here
+is now I'm going to take",00:08:05.430,00:08:07.110
+"another element from
+our basis of V.",00:08:07.110,00:08:10.700
+"I'll take the second element;
+I'll take a2.",00:08:10.700,00:08:13.560
+"I'll take a2 and throw
+it on this guy.",00:08:13.560,00:08:15.820
+"So now we have the set B2 prime
+is equal to -- I'm going",00:08:15.820,00:08:23.970
+to add a2 to this guy.,00:08:23.970,00:08:25.220
+"So you have a1, a2, and then you
+have all the rest of these",00:08:25.220,00:08:31.090
+"guys, b2, b3 all the way bm.",00:08:31.090,00:08:36.360
+"Of course this still spans V,
+I just added something here.",00:08:36.360,00:08:39.169
+"But this is definitely
+linearly dependent.",00:08:39.169,00:08:41.460
+"Remember I didn't say in the
+beginning whether this was",00:08:41.460,00:08:43.240
+linear dependent or not.,00:08:43.240,00:08:44.710
+It may or may not be.,00:08:44.710,00:08:45.700
+"But when you add this other
+vector that's in V, you",00:08:45.700,00:08:47.650
+"definitely know that you're
+linear dependent, because",00:08:47.650,00:08:49.490
+"these guys can construct
+that guy.",00:08:49.490,00:08:51.730
+"Similarly we know that this
+vector B1 spans V.",00:08:51.730,00:08:56.380
+"So when we add this new element
+here, we know that it",00:08:56.380,00:09:01.550
+"can be written as a linear
+combination of the other one.",00:09:01.550,00:09:03.950
+"So we know that this right here
+is linearly dependent.",00:09:03.950,00:09:06.940
+"And we could say that a2 is
+equal to some constant times",00:09:06.940,00:09:12.770
+"c1 times a1 plus c2 b2 plus c3
+b3, all the way to cm bm.",00:09:12.770,00:09:28.260
+"Now what I'm going to claim is
+that at least one of these",00:09:28.260,00:09:32.240
+coefficients is non-zero.,00:09:32.240,00:09:33.610
+"So at least one of the ci's
+does not equal to 0.",00:09:33.610,00:09:37.160
+"And I'll make the further claim
+that there's at least",00:09:37.160,00:09:40.800
+"one that's outside
+of this one.",00:09:40.800,00:09:43.170
+"That at least one of the
+coefficients on these B terms",00:09:46.440,00:09:50.670
+has to be non-zero.,00:09:50.670,00:09:52.230
+"And the way you can think about
+is, what if all of these",00:09:52.230,00:09:55.350
+guys were 0?,00:09:55.350,00:09:56.750
+"If all of these guys were 0,
+then that means that a2 is a",00:09:56.750,00:10:00.070
+linear combination of a1.,00:10:00.070,00:10:01.490
+"All of these guys would cancel
+out, and you'd have a2 is",00:10:01.490,00:10:03.640
+"equal to some non-zero
+constant times a1.",00:10:03.640,00:10:06.440
+"We know that's not the case
+because these two guys come",00:10:06.440,00:10:09.440
+"from the same linearly
+independent set.",00:10:09.440,00:10:13.630
+"They both come from that
+spanning basis.",00:10:13.630,00:10:17.150
+"The fact that they are a basis
+-- the word spanning basis, I",00:10:17.150,00:10:20.180
+"shouldn't say it like that,
+because it's redundant.",00:10:20.180,00:10:21.600
+"A basis is a spanning set that
+is linearly independent.",00:10:21.600,00:10:25.710
+"If they're linearly independent
+we know that a2",00:10:25.710,00:10:28.140
+"cannot be represented as some
+linear combination of the rest",00:10:28.140,00:10:31.240
+of these guys.,00:10:31.240,00:10:32.310
+"So we know that one of the
+coefficients on the B terms",00:10:32.310,00:10:37.710
+has to be non-zero.,00:10:37.710,00:10:39.780
+"And let's just say that you're
+going to have a cj bj, this is",00:10:39.780,00:10:46.170
+"a different one than
+we had before.",00:10:46.170,00:10:47.930
+"And we know that this guy, at
+least one of them has to be",00:10:47.930,00:10:51.760
+"non-zero, because if all of
+these guys were non-zero, then",00:10:51.760,00:10:54.760
+"you wouldn't be able to say
+that this vector and that",00:10:54.760,00:10:56.910
+"vector are linearly independent,
+because they",00:10:56.910,00:10:58.780
+"would be scalar multiples
+of each other.",00:10:58.780,00:11:00.900
+"So we're going to do
+the same exercise.",00:11:00.900,00:11:03.050
+"This guy right here, cj bj,
+obviously this coefficient is",00:11:03.050,00:11:12.600
+"non-zero so we can
+solve for our bj.",00:11:12.600,00:11:14.920
+"Once again we can say that bj is
+equal minus 1 over cj times",00:11:14.920,00:11:20.500
+"minus a2 plus c1 a1, all
+the way to cm bm.",00:11:20.500,00:11:28.070
+"So we have some bj here that can
+be represented as a linear",00:11:28.070,00:11:31.860
+"combination of the rest of the
+people, including our new a2.",00:11:31.860,00:11:35.420
+"And so, just like we did before,
+let's remove him.",00:11:35.420,00:11:38.250
+Let's take him out of the set.,00:11:38.250,00:11:39.640
+"And before I take him
+out of the set, I'm",00:11:39.640,00:11:41.290
+going to rename him.,00:11:41.290,00:11:42.230
+"Just solely for the purpose of
+notational simplicity, I'm",00:11:42.230,00:11:46.750
+"just going to rename our bj, b2,
+and our b2 is equal to bj.",00:11:46.750,00:11:51.770
+"So I'm just rearranging
+the names.",00:11:51.770,00:11:53.600
+"And I'm going to
+remove our b2.",00:11:53.600,00:11:56.380
+"Or I'm going to remove
+what I now call b2.",00:11:56.380,00:11:58.700
+"It was whatever was out here
+that could be represented as a",00:11:58.700,00:12:02.260
+"linear combination of
+everything else,",00:12:02.260,00:12:04.340
+including our new a2.,00:12:04.340,00:12:05.590
+"When I remove one of those
+terms right here, and I",00:12:08.290,00:12:14.000
+renamed it B2.,00:12:14.000,00:12:15.250
+"And now it's equal to a1
+a2, and now I have the",00:12:18.210,00:12:25.670
+leftovers of my b's.,00:12:25.670,00:12:28.030
+"So I have b3, b4, all
+the way to bm.",00:12:28.030,00:12:33.290
+"Notice I still have exactly
+m elements, and",00:12:33.290,00:12:36.780
+this still spans V.,00:12:36.780,00:12:40.410
+"It spans V because the element
+that I took out of it can be",00:12:40.410,00:12:43.870
+"represented as a linear
+combination of these guys.",00:12:43.870,00:12:46.650
+"So if I ever want to construct
+anything that need that, I can",00:12:46.650,00:12:48.780
+construct that vector with some,00:12:48.780,00:12:50.750
+combination of these guys.,00:12:50.750,00:12:51.610
+So it wasn't necessary.,00:12:51.610,00:12:52.780
+It still spans V.,00:12:52.780,00:12:54.460
+"So this process I'm doing, I
+can just keep repeating it.",00:12:54.460,00:12:57.300
+I can add an a3.,00:12:57.300,00:13:00.700
+I can define B3 prime.,00:13:00.700,00:13:04.600
+"I can just add a3 to this
+set right here, a2 a3.",00:13:04.600,00:13:09.960
+"And then I have my b3, b4,
+all the way to bm.",00:13:09.960,00:13:17.350
+"And I'll say this is linearly
+dependent because",00:13:17.350,00:13:21.050
+this guy spans V.,00:13:21.050,00:13:22.830
+"So everything but this
+guy spans V.",00:13:22.830,00:13:25.130
+"So obviously you can construct
+this guy with a linear",00:13:25.130,00:13:27.750
+"combination of the
+rest of them.",00:13:27.750,00:13:29.460
+"So you could say a3 is equal to
+sum a1 plus sum a2 plus c3",00:13:29.460,00:13:37.610
+"b3, all the way to cm bm.",00:13:37.610,00:13:41.670
+"And we know that at least one
+of the coefficients on the B",00:13:41.670,00:13:44.310
+terms has to be non-zero.,00:13:44.310,00:13:48.190
+"Because if all of those were
+0, then you would be saying",00:13:48.190,00:13:51.040
+"that a3 could be a linear
+combination of the A terms.",00:13:51.040,00:13:54.060
+"And we know that a3 can't be
+a representative linear",00:13:54.060,00:13:57.640
+"combination of the A terms,
+because all these a terms come",00:13:57.640,00:14:00.570
+"from a linearly independent
+set.",00:14:00.570,00:14:02.900
+So you do the same operation.,00:14:02.900,00:14:06.430
+Let's say that cj is non-zero.,00:14:06.430,00:14:12.430
+"Then you could solve
+for that bj.",00:14:12.430,00:14:14.550
+"And then I do that little
+renaming thing I do, where I",00:14:14.550,00:14:17.650
+"rename the bj b3, and rename b3
+bj, and then I remove b3.",00:14:17.650,00:14:21.220
+"And I get the set B3 is
+equal to a1, a2, a3.",00:14:24.100,00:14:31.840
+"And I have b4 all
+the way to bm.",00:14:31.840,00:14:35.750
+And this still spans V.,00:14:35.750,00:14:39.200
+And I keep doing it.,00:14:39.200,00:14:40.640
+"So what's going to happen
+eventually?",00:14:40.640,00:14:42.500
+"What's going to happen if I keep
+doing this process over",00:14:42.500,00:14:46.210
+and over and over again?,00:14:46.210,00:14:48.600
+"Eventually I'll essentially
+replace all of the bm's.",00:14:48.600,00:14:53.460
+"Or I'll replace all of the n
+terms, so eventually I'll have",00:14:53.460,00:14:56.730
+a set that looks like this.,00:14:56.730,00:14:58.580
+"I'll have a set that looks Bm,
+where I will have replaced",00:14:58.580,00:15:02.470
+each of these guys with an a.,00:15:02.470,00:15:04.150
+"So I have a1, a2, a3,
+all the way to am.",00:15:07.060,00:15:12.480
+"You can always do this by
+definition if you started with",00:15:12.480,00:15:15.330
+"that initial set B that
+is a spanning set.",00:15:15.330,00:15:17.850
+"And once you do this process
+you'll get the same result",00:15:17.850,00:15:20.345
+that this also spans V.,00:15:20.345,00:15:24.090
+Now let me let me write this.,00:15:24.090,00:15:25.440
+"This is the result we got by
+starting off with a spanning",00:15:25.440,00:15:28.890
+"set B that has m elements,
+where we said that m",00:15:28.890,00:15:34.490
+is less than n.,00:15:34.490,00:15:36.190
+"So we always have enough a
+elements to do this, because",00:15:36.190,00:15:38.530
+"we have more a elements
+than there were b",00:15:38.530,00:15:40.260
+elements to begin with.,00:15:40.260,00:15:41.450
+"And we get result that
+this spans V.",00:15:41.450,00:15:44.370
+"But we already said that the
+set A which is equal to a1,",00:15:44.370,00:15:51.840
+"a2, all the way to am, and then
+am plus 1, I don't know",00:15:51.840,00:16:00.430
+"how many more terms there are
+between m and n, but then you",00:16:00.430,00:16:02.580
+go all the way to an.,00:16:02.580,00:16:03.610
+"Remember we said that
+n is greater than m.",00:16:03.610,00:16:07.000
+"Or when we defined B, we said
+that m is less than n.",00:16:07.000,00:16:10.610
+"Same thing, that this
+was a smaller set.",00:16:10.610,00:16:12.990
+"Now we're saying that this spans
+V, but at the same time",00:16:12.990,00:16:16.380
+we said this was a basis.,00:16:16.380,00:16:18.990
+"This is just our starting
+fact, that this",00:16:18.990,00:16:20.880
+is a basis for V.,00:16:20.880,00:16:24.410
+"Basis means two things: it means
+it spans V and it means",00:16:24.410,00:16:28.900
+it's linearly independent.,00:16:28.900,00:16:30.910
+"Now we just got this result by
+assuming that we had some set",00:16:30.910,00:16:35.430
+"B that's smaller than this
+set here that spans V.",00:16:35.430,00:16:38.100
+"We were able to construct this
+by saying that a1 through am",00:16:38.100,00:16:41.420
+also spans V.,00:16:41.420,00:16:44.350
+"The result we got is
+that this spans V.",00:16:44.350,00:16:48.250
+"But if this subset of A spans
+V, then A becomes linearly",00:16:48.250,00:16:53.440
+independent.,00:16:53.440,00:16:53.900
+"Because if this subset spans V,
+that means that an can be",00:16:53.900,00:17:00.260
+"represented as some linear
+combination of these guys.",00:17:00.260,00:17:05.240
+"So that implies that you're
+linearly dependent, which is a",00:17:05.240,00:17:08.560
+"contradiction with our original
+statement that set A",00:17:08.560,00:17:12.300
+"is a basis for V, because
+that means it's linearly",00:17:12.300,00:17:14.839
+independent.,00:17:14.839,00:17:15.869
+"If you're able to do this, then
+this means that there was",00:17:15.869,00:17:18.810
+"some smaller spanning set, you
+get the result that A has to",00:17:18.810,00:17:22.390
+"be linearly dependant, even
+though we said it was linearly",00:17:22.390,00:17:24.589
+independent.,00:17:24.589,00:17:25.700
+"So we now know, we get our
+contradiction, we say that",00:17:25.700,00:17:28.860
+there cannot be [typing],00:17:28.860,00:17:30.580
+"a spanning set B that has
+fewer elements than A.",00:17:43.480,00:17:59.640
+"And this is a pretty neat
+outcome, because now, if I",00:17:59.640,00:18:05.010
+"come up to you and say I
+found some set X spans",00:18:05.010,00:18:12.160
+the subspace V again.,00:18:12.160,00:18:16.960
+"Then you know that X
+has five elements.",00:18:16.960,00:18:22.550
+"You now know that no set that
+spans the subspace V can have",00:18:22.550,00:18:26.870
+fewer than five elements.,00:18:26.870,00:18:28.560
+"Even better, if I told you that
+X is a basis for V, and I",00:18:28.560,00:18:36.230
+"told you it has five elements,
+and Y is a basis for V.",00:18:36.230,00:18:42.370
+[typing],00:18:42.370,00:18:43.620
+"You know that Y also has to have
+exactly five elements.",00:18:58.130,00:19:01.320
+How do I know that?,00:19:05.460,00:19:07.310
+"Well, if Y is a basis, then that
+means that it spans V.",00:19:07.310,00:19:13.450
+"And we know it can't
+have anything",00:19:13.450,00:19:15.000
+less than five elements.,00:19:15.000,00:19:16.310
+We just proved that.,00:19:16.310,00:19:18.450
+"One way we know that Y has to
+have greater than or equal to",00:19:18.450,00:19:21.380
+five elements.,00:19:21.380,00:19:23.730
+"But on the other hand we know if
+Y is a basis for V and X is",00:19:23.730,00:19:30.430
+"a basis, X also spans V.",00:19:30.430,00:19:32.590
+"So we know that X has to have
+fewer elements than Y.",00:19:32.590,00:19:35.360
+So we know that [typing],00:19:35.360,00:19:37.395
+"Y's elements have to be greater
+than X's elements,",00:19:40.060,00:19:49.010
+"because any spanning set has to
+have more elements, or at",00:19:49.010,00:19:52.170
+"least as many elements, as a
+basis set, X's elements.",00:19:52.170,00:19:58.170
+"And then since X is a spanning
+set, X's elements have to be",00:19:58.170,00:20:03.570
+"greater than or equal
+to Y's elements,",00:20:03.570,00:20:05.310
+because why is a basis.,00:20:05.310,00:20:06.560
+"But if this guy's elements are
+less than this guy's elements,",00:20:11.650,00:20:15.530
+"but it's also greater than or
+equal to, we know that the",00:20:15.530,00:20:19.250
+"number of elements that X has--
+X's elements, or the",00:20:19.250,00:20:23.190
+"cardinality or the number of
+elements in it --is equal to",00:20:23.190,00:20:26.180
+Y's elements.,00:20:26.180,00:20:27.430
+"And so now that we know that any
+basis for a vector space--",00:20:30.200,00:20:39.190
+"Let me just go back
+to our set A.",00:20:39.190,00:20:40.610
+"A is equal to a1 a2,
+all the way to an.",00:20:40.610,00:20:45.080
+"We can now say that any basis
+for some vector, for some",00:20:45.080,00:20:51.040
+"subspace V, they all have the
+same number of elements.",00:20:51.040,00:20:54.700
+"And so we can define a
+new term called the",00:20:54.700,00:20:57.770
+dimension of V.,00:20:57.770,00:21:03.510
+"Sometimes it's written just as
+dimension of V, is equal to",00:21:03.510,00:21:07.270
+"the number of elements,
+sometimes called the",00:21:07.270,00:21:10.530
+"cardinality, of any
+basis of V.",00:21:10.530,00:21:17.670
+"And I went through great pains
+in this video to show that any",00:21:17.670,00:21:19.880
+"basis of V all has the same
+number of elements, so this is",00:21:19.880,00:21:22.740
+well-defined.,00:21:22.740,00:21:23.870
+"You can't have one basis that
+has five elements and",00:21:23.870,00:21:26.120
+one that has six.,00:21:26.120,00:21:26.900
+"By definition they would either
+both have to have five,",00:21:26.900,00:21:28.920
+"or they both would
+have to have six.",00:21:28.920,00:21:30.520
+"And so we can define
+our dimensionality.",00:21:30.520,00:21:32.550

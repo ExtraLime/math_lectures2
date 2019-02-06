@@ -1,0 +1,437 @@
+text,start,stop
+"In our previous lesson, we talked about
+level order traversal of binary tree",00:00:00.609,00:00:04.430
+"which is basically breadth-first
+traversal. Now in this lesson we are",00:00:04.430,00:00:08.450
+going to discuss,00:00:08.450,00:00:09.440
+"these three depth-first algorithms
+pre-order,",00:00:09.440,00:00:12.970
+"in-order and postorder. I have drawn a
+binary tree here",00:00:12.970,00:00:16.900
+"datatype filled in the nodes is
+character now as we had discussed in",00:00:16.900,00:00:20.890
+"earlier lessons,",00:00:20.890,00:00:21.760
+"in depth-first traversal of binary tree
+if we go in one direction",00:00:21.760,00:00:26.570
+"then we visit all the nodes in that
+direction or in other words",00:00:26.570,00:00:30.680
+we visit the complete sub-tree in that direction,00:00:30.680,00:00:33.729
+"and then only we go in other direction.
+In this example tree that i have drawn here",00:00:33.729,00:00:38.690
+if I'm at 'root' and I'm going left,00:00:38.690,00:00:42.370
+"then I'll visit all the nodes in this
+left subtree",00:00:42.370,00:00:45.819
+"and then only I can go right and once
+again",00:00:45.819,00:00:49.359
+"when I'll go right I'll visit all the nodes in
+this right subtree",00:00:49.359,00:00:53.100
+"if you can see in this approach we are
+reducing the problem in a",00:00:53.100,00:00:56.729
+self-similar,00:00:56.729,00:00:57.780
+"or recursive mannner, we can say that in total",00:00:57.780,00:01:00.789
+"visiting all the nodes in the tree is
+visiting the 'root' node",00:01:00.789,00:01:04.739
+"visiting the left subtree and visiting
+the right subtree",00:01:04.739,00:01:08.330
+"remember by visiting a node we mean
+reading or processing the data in that node",00:01:08.330,00:01:12.710
+and by visiting,00:01:12.710,00:01:14.600
+"a subtree we mean visiting all the
+nodes in the subtree",00:01:14.600,00:01:18.360
+"in-depth first strategy relative order of
+visiting the left subtree, right subtree",00:01:18.360,00:01:23.580
+and the root,00:01:23.580,00:01:24.460
+"can be different, for example we can
+first visit the right subtree",00:01:24.460,00:01:28.880
+"then the root and then the left subtree
+or we can first visit",00:01:28.880,00:01:32.370
+"the root and then left subtree and
+then the right subtree",00:01:32.370,00:01:35.480
+"conventionally left subtree is always
+visited before right subtree",00:01:35.480,00:01:39.500
+"we this constraint we will have three
+permutations, we can first visit the root",00:01:39.500,00:01:44.409
+"and then the left subtree and then the
+right subtree and such a traversal will",00:01:44.409,00:01:48.930
+be called,00:01:48.930,00:01:49.580
+"preorder traversal or we can first
+visit the left subtree",00:01:49.580,00:01:53.750
+"then the root and then the right
+subtree and such a traversal will be",00:01:53.750,00:01:57.130
+called,00:01:57.130,00:01:57.659
+in-order traversal and we can also go,00:01:57.659,00:02:00.900
+"left-right and then root and such a
+traversal will be called",00:02:00.900,00:02:04.610
+"post order traversal, left and right
+subtree will be visited recursively",00:02:04.610,00:02:09.789
+"in same manner as the original tree, so
+in pre-order",00:02:09.789,00:02:13.790
+"once again for the subtrees we will go
+root, left and then right",00:02:13.790,00:02:18.299
+"in in-order will keep going left, 
+root and then right.",00:02:18.299,00:02:21.959
+The actual implementation of these algorithms,00:02:21.959,00:02:25.049
+"really easy and intuitive let's first
+see",00:02:25.049,00:02:28.200
+"code for preorder traversal. I first
+written the algorithm in ",00:02:28.200,00:02:33.019
+"words here, in preorder traversal
+we first need to visit the root and then",00:02:33.019,00:02:37.120
+left subtree and then the right subtree,00:02:37.120,00:02:39.450
+"now I want to write a function that
+should take pointer",00:02:39.450,00:02:42.769
+"or reference to root node as argument
+and print data in all the nodes",00:02:42.769,00:02:47.409
+"in pre-order let's say visiting a node
+for us is printing the data in that node",00:02:47.409,00:02:52.420
+"in C or C++ my method signature
+will look something like this:",00:02:52.420,00:02:56.439
+"this function will take address of the 
+root node as argument,",00:02:56.439,00:03:00.129
+"argument type is pointer to Node. I'll
+define node as a structure",00:03:00.129,00:03:05.569
+"with three fields like this, data type
+in this definition is character",00:03:05.569,00:03:10.560
+"and there are two fields to store the addresses of left and right children
+ 
+55
+00:03:15,349 --&gt; 00:03:20,609
+now in pre-order function I'll first
+visit or print the data in root node",00:03:10.560,00:03:15.349
+"and now i'll make a recursive call to
+visit the left subtree",00:03:20.609,00:03:24.279
+I have made a recursive call here and to this call I'm passing,00:03:24.279,00:03:27.909
+"address of the left child of my current
+root because",00:03:27.909,00:03:31.609
+"left child will be the root of left
+subtree",00:03:31.609,00:03:34.709
+"and I'll have another call like this to
+visit the right subtree",00:03:34.709,00:03:38.569
+"there is one more thing that we need to
+add in this function and we will be done",00:03:38.569,00:03:43.120
+"we cannot go into recursion infinitely,
+we need to have",00:03:43.120,00:03:47.299
+"a base condition where we should exit if
+a tree or a subtree is empty or",00:03:47.299,00:03:52.879
+"in other words for any call if root is
+null",00:03:52.879,00:03:56.620
+"we can return or exit. Now with this much
+of code I'm done with my pre-order",00:03:56.620,00:04:01.699
+function.,00:04:01.699,00:04:02.400
+this will work fine in C or C++,00:04:02.400,00:04:05.519
+"actually in C make sure you right
+struct space node",00:04:05.519,00:04:09.819
+"instead of righting just 'node', rest of
+the things are fine",00:04:09.819,00:04:14.090
+"it will be good to visualize
+this recursion so let's now quickly see",00:04:14.090,00:04:18.390
+"how this pre-order function will work if
+this example tree",00:04:18.390,00:04:22.370
+"that I'm showing in right here is pass
+to it",00:04:22.370,00:04:25.440
+"I'll redraw this tree and show it like
+this",00:04:25.440,00:04:29.230
+"hear I'm depicting node as a structure
+with three fields",00:04:29.230,00:04:33.240
+"let's say the leftmost cell here is to
+store the address of left child",00:04:33.240,00:04:37.820
+"the cell in middle is to store the data
+and the right",00:04:37.820,00:04:41.450
+"most cell is to store the address of
+right child",00:04:41.450,00:04:46.320
+"Now let's assume some addresses for
+these nodes, let's say the root node ",00:04:46.320,00:04:50.310
+is at address 200,00:04:50.310,00:04:52.420
+"and I'll assume some random addresses
+for other notes as well",00:04:52.420,00:04:56.820
+"and now I can fill in left and right
+fields for each node",00:04:56.820,00:05:02.350
+"and as we know the identity of tree
+that we always keep with us",00:05:02.350,00:05:07.380
+is reference or address of the root node,00:05:07.380,00:05:10.600
+"this is what we pass to all the
+functions, in our implementation we often",00:05:10.600,00:05:14.990
+use,00:05:14.990,00:05:15.570
+"a variable of type pointer to node named
+root",00:05:15.570,00:05:19.290
+"to store the address of root node,
+we can name this variable",00:05:19.290,00:05:22.840
+"anything, we can name this variable root
+or we can name this variable",00:05:22.840,00:05:26.050
+rootPtr but this is just a pointer,00:05:26.050,00:05:29.400
+"this particular block that I'm showing here
+is for pointer to node",00:05:29.400,00:05:33.690
+and all these rectangles with three cells are,00:05:33.690,00:05:36.970
+"nodes, this is how things are organized
+in memory",00:05:36.970,00:05:41.280
+"now for this tree, let say we are making a
+call to this pre-order function",00:05:41.280,00:05:45.790
+"I'll make a call to pre-order passing it
+address 200",00:05:45.790,00:05:49.730
+"for this call root is not null so
+we will not return at first line in",00:05:49.730,00:05:53.950
+this function,00:05:53.950,00:05:55.050
+"we will go ahead and print the data in
+this node",00:05:55.050,00:05:58.380
+"at address 200. I'll write output for all
+print statements here",00:05:58.380,00:06:03.270
+"and now this function will make a recursive
+call",00:06:03.270,00:06:06.340
+"execution of this particular function
+call will pause,",00:06:06.340,00:06:09.680
+"it will resume only after this recursive
+call pre-order(150) finishes",00:06:09.680,00:06:14.380
+"this second call is to visit this
+left subtree",00:06:14.380,00:06:18.240
+"this call pre-order(150) is to visit this
+left subtree,",00:06:18.240,00:06:22.430
+"address of the left child of node at 200
+is 150",00:06:22.430,00:06:26.150
+"once again for this call root is not
+null,",00:06:26.150,00:06:29.370
+"so we will go ahead and print the data, data
+in node at",00:06:29.370,00:06:32.900
+"150 is D and now once again there will
+be a recursive call",00:06:32.900,00:06:38.470
+"with this call pre-order 400. We are saying that
+we are going to visit this subtree",00:06:38.470,00:06:43.350
+"once again we will print the data and
+make another recursive call",00:06:43.350,00:06:47.150
+"now we have made a call to visit this
+particular subtree with just one node",00:06:47.150,00:06:51.720
+"for this call we will print the data and
+now for node at 250 address of",00:06:51.720,00:06:55.980
+"left child is zero or null we will make
+a call",00:06:55.980,00:06:59.470
+"pre-order(0) but for this call
+we will simply return",00:06:59.470,00:07:03.050
+"because the address in this variable 
+root will be",00:07:03.050,00:07:06.120
+"null. We have hit the base condition for
+our recursion",00:07:06.120,00:07:09.990
+"call to pre-order(0) will finish and
+preorder(250) will",00:07:09.990,00:07:14.090
+"resume. Now in this particular function
+call will make another call",00:07:14.090,00:07:18.130
+"for right subtree for node at 250, even
+the right child is null",00:07:18.130,00:07:22.280
+"we will have another recursive call
+passing address 0 but this once again",00:07:22.280,00:07:25.820
+simply will return,00:07:25.820,00:07:27.300
+"and now call to pre-order(250) will
+finish and call to pre-order(400) will",00:07:27.300,00:07:32.040
+resume.,00:07:32.040,00:07:33.180
+"Now in call to pre-order(400) we will 
+make another recursive call",00:07:33.180,00:07:36.810
+"to pre-order(180) with this call 
+pre-order(180),",00:07:36.810,00:07:40.310
+"we are visiting this particular subtree
+with just one node",00:07:40.310,00:07:43.470
+"for this call first we will print the
+data and then we will make a recursive call to",00:07:43.470,00:07:47.610
+pre-order(0),00:07:47.610,00:07:48.760
+"now pre-order(0) will simply return
+and then we will have another call to ",00:07:48.760,00:07:52.590
+pre-order(0),00:07:52.590,00:07:53.780
+"for right child of 180, the recursion
+will go on like this",00:07:53.780,00:07:57.820
+"there's one thing that I want to talk
+about you that's happening in this whole",00:07:57.820,00:08:01.020
+process,00:08:01.020,00:08:02.290
+"even though we are not using any extra
+memory explicitly",00:08:02.290,00:08:05.490
+"in our function because of the recursion
+we are growing the function call stack",00:08:05.490,00:08:11.320
+"we have discussed memory management a
+number of times in our earlier lessons",00:08:11.320,00:08:15.210
+"you can check description of this video
+for link to one of those lessons.",00:08:15.210,00:08:19.040
+"As we know for each function call we
+allocate some amount of memory",00:08:19.040,00:08:23.170
+"in what we call stack section of
+applications memory",00:08:23.170,00:08:26.220
+"and this allocated memory is 
+reclaimed when the function call finishes",00:08:26.220,00:08:30.780
+"at this stage of execution of my recursion
+for this example my call stack",00:08:30.780,00:08:34.990
+"will look something like this:
+I'm writing P as",00:08:34.990,00:08:38.020
+"shortcut for pre-order because I'm
+short of space here let's say we made a",00:08:38.020,00:08:41.860
+"call to pre-order passing it address 200
+from main function,",00:08:41.860,00:08:45.320
+"main function will be at bottom of stack
+at any time",00:08:45.320,00:08:48.730
+"only the call at top of stack will be
+executing",00:08:48.730,00:08:51.800
+"and all other calls will be paused, call
+stack keeps growing and shrinking during",00:08:51.800,00:08:55.960
+execution of a program,00:08:55.960,00:08:57.770
+"because memory is allocated for a new
+function call",00:08:57.770,00:09:00.860
+"and its reclaimed when a function
+call finishes",00:09:00.860,00:09:04.180
+"so even though we are not using any
+extra memory explicitly here",00:09:04.180,00:09:08.100
+"we are using memory implicitly in the call
+stack",00:09:08.100,00:09:11.390
+so space complexity which is measure of,00:09:11.390,00:09:14.560
+"rate of growth of extra memory used with
+input",00:09:14.560,00:09:17.820
+"will depend upon the maximum amount of
+extra memory used",00:09:17.820,00:09:20.950
+"in the call stack. I'll talk about space
+complexity once more",00:09:20.950,00:09:24.410
+"later for now let's come back to this
+recursion that I was executing",00:09:24.410,00:09:28.300
+"called to this pre-order(0) will finish
+and pre-order(180) will resume",00:09:28.300,00:09:32.460
+"memory allocated for execution of
+pre-order(0) will be reclaimed",00:09:32.460,00:09:36.090
+"now for pre-order(180) both recursive
+calls have finished",00:09:36.090,00:09:39.870
+"so this guy will also finish even for 
+pre-order(400) both calls have finished",00:09:39.870,00:09:44.920
+so pre-order(150) will resume.,00:09:44.920,00:09:48.029
+"Now this guy will make a recursive call
+to pre-order function passing it address",00:09:48.029,00:09:51.950
+450,00:09:51.950,00:09:53.190
+"address of its right child, memory in
+the stack will be allocated for",00:09:53.190,00:09:57.240
+execution of,00:09:57.240,00:09:58.670
+"pre-order(450). Now in this call we will
+first print the data",00:09:58.670,00:10:03.140
+"and then we will make two recursive
+calls to pre-order passing",00:10:03.140,00:10:06.910
+"address 'zero' each time because for this
+node at 450",00:10:06.910,00:10:10.150
+"both children are null, both calls will
+simply return",00:10:10.150,00:10:13.820
+"and then pre-order(450) will finish and now
+pre-order(150) will also be done",00:10:13.820,00:10:19.270
+"if you can see the call stack will grow
+on till we reach ",00:10:19.270,00:10:22.720
+"a leaf node, a node with no children and
+then it will start shrinking",00:10:22.720,00:10:26.870
+"again maximum growth of call stack to do
+this recursion will depend upon",00:10:26.870,00:10:31.740
+"maximum depth or height of the tree.
+We can say that extra space used will be",00:10:31.740,00:10:36.930
+proportional to,00:10:36.930,00:10:38.210
+"height of the tree or in other words
+space complexity of this algorithm",00:10:38.210,00:10:43.420
+"is O(h), where h is height
+of the tree.",00:10:43.420,00:10:47.820
+"Okay coming back to the recursion we are done 
+with pre-order(150) so pre-order(200)",00:10:47.820,00:10:52.200
+will,00:10:52.200,00:10:52.660
+"resume and now we will make a call to
+visit",00:10:52.660,00:10:55.900
+"this particular subtree, in this call
+we will print J",00:10:55.900,00:10:59.920
+"and then we will make a call passing
+address 60",00:10:59.920,00:11:03.380
+"so now we are visiting this particular
+subtree, here we will first print",00:11:03.380,00:11:07.460
+"""G"" and then this guy will make a call
+to pre-order(0)",00:11:07.460,00:11:11.550
+"which will simply return and then there
+will be another call",00:11:11.550,00:11:15.200
+"to pre-order(500) here we will print ""I"" 
+ 
+187
+00:11:19,160 --&gt; 00:11:22,610
+and then we will two recursive calls
+passing address 'zero'",00:11:15.200,00:11:19.160
+"every time because node at 500 is a leaf
+node",00:11:22.610,00:11:25.880
+"with no children after this guy finishes
+pre-order(60) will resume,",00:11:25.880,00:11:29.870
+"now this guy will also finish and pre-order(350)
+will resume",00:11:29.870,00:11:33.420
+"and now we will have a call to pre-order(700)
+which once again is a leaf node,",00:11:33.420,00:11:38.450
+"so ""K"" which is data in this node will
+be printed",00:11:38.450,00:11:41.740
+"and then we will two calls passing
+address 'zero' which will simply return.",00:11:41.740,00:11:46.050
+"Now at this stage all these calls can
+finish, we are done visiting all the nodes",00:11:46.050,00:11:50.690
+"finally we will return back to the
+caller of pre-order(200)",00:11:50.690,00:11:54.290
+"which probably would be the main
+function",00:11:54.290,00:11:58.000
+"so this is preorder traversal for you I
+hope you got how this recursion works,",00:11:58.000,00:12:02.410
+"code for in-order and post-order will
+be very similar",00:12:02.410,00:12:05.930
+"in in-order traversal my base case will
+be the same",00:12:05.930,00:12:09.820
+"so I'll say if root is null then return or 
+exit",00:12:09.820,00:12:13.120
+"if root is not null I first need to
+visit the left subtree",00:12:13.120,00:12:17.290
+"I'm visiting the left subtree with this
+recursive call",00:12:17.290,00:12:20.460
+"then I need to visit the root so now
+I'm writing this printf statement to",00:12:20.460,00:12:24.610
+print the data,00:12:24.610,00:12:25.550
+"and now I can visit the right subtree so
+this second recursive call,",00:12:25.550,00:12:29.810
+"and this is my in-order function, 
+in-order traversal of this example tree",00:12:29.810,00:12:35.330
+that I have drawn here,00:12:35.330,00:12:36.300
+"will be this. This particular binary trees
+actually",00:12:36.300,00:12:39.920
+"also a binary search tree and in-order
+traversal of a binary search tree",00:12:39.920,00:12:44.640
+"would give us elements in the tree in
+sorted order. Okay let's now write",00:12:44.640,00:12:49.040
+code for,00:12:49.040,00:12:49.830
+"post-order. For this function once
+again the base case will be the same",00:12:49.830,00:12:53.730
+"so I'll say if root is null, return or
+exit",00:12:53.730,00:12:56.870
+"if root is not null. I first need to
+visit the left subtree",00:12:56.870,00:13:00.810
+"so I have made this recursive call, then the
+right subtree",00:13:00.810,00:13:04.700
+"so I'll have this another recursive call
+and now I can visit the root node",00:13:04.700,00:13:08.810
+post-order traversal for this example,00:13:08.810,00:13:11.990
+"tree will be this. So this is pre-order,
+in-order and post-order for you",00:13:11.990,00:13:17.590
+"you can check the description of this
+video for link to all the source code.",00:13:17.590,00:13:21.560
+"Let's now quickly talk about time and
+space complexity of these algorithms.",00:13:21.560,00:13:25.850
+"Time complexity of all these three
+algorithms",00:13:25.850,00:13:29.930
+"is O(n), if you could see",00:13:29.930,00:13:33.410
+"then there was one function call
+corresponding to each node",00:13:33.410,00:13:37.480
+"where we were actually visiting that node,
+where we were actually printing",00:13:37.480,00:13:41.080
+the data in that node,00:13:41.080,00:13:42.200
+"so running time should actually be
+proportional to number of nodes",00:13:42.200,00:13:45.600
+"there's a better formal and mathematical
+way of proving that",00:13:45.600,00:13:48.970
+"time complexity of these algorithms
+is O(n), you can check the",00:13:48.970,00:13:52.570
+description of this video for link to that,00:13:52.570,00:13:54.670
+"space complexity as we had discussed
+earlier will be O(h),",00:13:54.670,00:13:58.600
+"where h is height of the tree, height of a
+tree in worst-case will be",00:13:58.600,00:14:03.630
+"(n-1) so in worst-case space complexity
+of these algorithms",00:14:03.630,00:14:08.640
+"can be O(n) and in best or average
+case",00:14:08.640,00:14:12.140
+height of the tree will be O(log n),00:14:12.140,00:14:15.250
+"so we can say that
+in best or average case",00:14:15.250,00:14:18.880
+space complexity will be O(log n). ,00:14:18.880,00:14:22.160
+"I'll stop here now. In coming lessons we will
+solve some problems on binary tree.",00:14:22.160,00:14:27.380
+Thanks for Watching.,00:14:27.380,00:14:28.500

@@ -1,0 +1,2288 @@
+text,start,stop
+"ANNOUNCER: The following program
+is brought to you by Caltech.",00:00:00.580,00:00:03.270
+YASER ABU-MOSTAFA: Welcome back.,00:00:15.220,00:00:18.280
+"Last time, we talked about radial basis
+functions, and the functional",00:00:18.280,00:00:24.200
+"form of the hypothesis in that model
+is the superposition of a bunch of",00:00:24.200,00:00:29.470
+"Gaussians, centered around mu_k.",00:00:29.470,00:00:33.940
+"And we had two models, or two versions
+of that model, one of them where the",00:00:33.940,00:00:39.520
+"centers are fewer than the number of
+data points, which is the most common",00:00:39.520,00:00:43.580
+"one, in which case we need to come up
+with the value of the centers, mu_k,",00:00:43.580,00:00:47.890
+and learn the values of w_k.,00:00:47.890,00:00:50.950
+"And it turned out to be a very simple
+algorithm in that case, where you use",00:00:50.950,00:00:54.750
+"unsupervised learning to get the mu_k's,
+the centers, by clustering the input",00:00:54.750,00:00:59.700
+"points without reference to
+the label that they have.",00:00:59.700,00:01:03.180
+"And after you do that, it becomes a very
+simple linear model where you get",00:01:03.180,00:01:07.770
+"the w_k's, the parameters, using
+the usual pseudo-inverse.",00:01:07.770,00:01:11.355
+"And in the other case, where we used
+as many centers as there are data",00:01:11.355,00:01:15.180
+"points, and the centers were
+the data points, there was",00:01:15.180,00:01:17.580
+obviously no first step.,00:01:17.580,00:01:18.810
+"And in that case, in order to get the
+w_k, we actually used the real inverse",00:01:18.810,00:01:24.070
+rather than the pseudo-inverse.,00:01:24.070,00:01:26.810
+"One of the interests of radial basis
+functions-- they are very popular",00:01:26.810,00:01:31.670
+"functions to use in machine learning,
+but one of the most important features",00:01:31.670,00:01:35.550
+"about them is how they relate to so
+many aspects of machine learning.",00:01:35.550,00:01:41.030
+"So I'd like to go through this, because
+it's actually very instructive and it",00:01:41.030,00:01:44.150
+"puts together some of
+the notions we had.",00:01:44.150,00:01:46.820
+So let me magnify this a bit.,00:01:46.820,00:01:48.700
+"Radial basis functions have this as
+the building block, the Gaussian, and",00:01:51.640,00:01:56.550
+"they are related to
+nearest neighbor.",00:01:56.550,00:01:57.900
+"In the case of nearest neighbor, you
+have a data point, one of your points",00:01:57.900,00:02:01.570
+"in the training set, and it influences
+the region around it.",00:02:01.570,00:02:04.980
+"So everything in the region around it in
+the input space inherits the label",00:02:04.980,00:02:09.340
+"of that point, until you get to a point
+which is closer to another data point,",00:02:09.340,00:02:13.170
+and then you switch to that point.,00:02:13.170,00:02:14.970
+"So you can think now of RBF
+as a soft version of that.",00:02:14.970,00:02:18.400
+"The point affects the points around
+it, but it's not black and white.",00:02:18.400,00:02:22.040
+"It's not full effect and
+then zero effect.",00:02:22.040,00:02:24.320
+It's gradually diminishing effect.,00:02:24.320,00:02:27.830
+"It's also related to neural networks,
+thinking of this as the activation in",00:02:27.830,00:02:33.650
+"the hidden layer, as we saw last time.",00:02:33.650,00:02:36.120
+"And the activation for the
+neural networks in the",00:02:36.120,00:02:38.550
+hidden layer was a sigmoid.,00:02:38.550,00:02:40.820
+"And the main conceptual difference
+between the two in this case is that",00:02:40.820,00:02:43.670
+"this is local. It takes care of one
+region of the space at the time,",00:02:43.670,00:02:47.480
+whereas this is global.,00:02:47.480,00:02:49.220
+"That thing affects points regardless
+of the value of the signal, and you",00:02:49.220,00:02:54.330
+"get the effect of a function by getting
+the differences between these",00:02:54.330,00:02:58.800
+different sigmoids.,00:02:58.800,00:03:01.020
+"Then we had the relationship to SVM,
+which is very easy because in the",00:03:01.020,00:03:05.670
+"case of SVM, we had
+an outright RBF kernel.",00:03:05.670,00:03:09.390
+"So there was simply a very easy way to
+compare them because they use the same",00:03:09.390,00:03:13.370
+"kernel, except that there were
+many interesting differences.",00:03:13.370,00:03:17.040
+"For example, when we use the RBF, we
+cluster the points, we determine the",00:03:17.040,00:03:20.660
+"centers according to an unsupervised
+learning criterion.",00:03:20.660,00:03:24.400
+"And in the case of SVM, the centers,
+if you're going to call them that,",00:03:24.400,00:03:28.400
+"happen to be the support vectors in
+which the output is very much",00:03:28.400,00:03:31.930
+"consulted in deciding what these
+support vectors are.",00:03:31.930,00:03:34.880
+"And the support vectors happen to be
+around the separating boundary,",00:03:34.880,00:03:38.360
+"whereas the centers here happen to be
+all over the input space, in order to",00:03:38.360,00:03:41.550
+"represent different clusters
+of the inputs.",00:03:41.550,00:03:45.330
+"The two remaining relations as far as
+RBF are concerned are regularization",00:03:45.330,00:03:49.530
+and unsupervised learning.,00:03:49.530,00:03:52.350
+"Unsupervised learning is easy, because
+that is the utility we had in order to",00:03:52.350,00:03:56.410
+"cluster the points and
+find the centers.",00:03:56.410,00:03:58.360
+"So you look at the points, and then
+you try to find the representative",00:03:58.360,00:04:01.690
+"center for them such that when you put
+a radial basis function around that",00:04:01.690,00:04:06.150
+"point, it captures the contribution of
+those points, and then more or less",00:04:06.150,00:04:10.480
+"dies out, or at least is not as
+effective when it goes far away, and",00:04:10.480,00:04:13.580
+"this is another center
+that does the same.",00:04:13.580,00:04:15.780
+"The interesting aspect was
+regularization because, it seems on",00:04:15.780,00:04:19.899
+"face value, it's a completely
+different concept.",00:04:19.899,00:04:22.530
+"RBF is a model. Regularization
+is a method that we apply",00:04:22.530,00:04:26.490
+on top of any model.,00:04:26.490,00:04:27.860
+"But it turns out that RBF's were derived
+in the first place in function",00:04:27.860,00:04:30.980
+"approximation using just a consideration
+of regularization.",00:04:30.980,00:04:34.340
+"So you have a bunch of points, you want
+to interpolate and extrapolate",00:04:34.340,00:04:36.980
+"them, and you don't want the
+curve to be too wiggly.",00:04:36.980,00:04:40.840
+"So you capture a smoothness criterion
+using a function of derivatives, and",00:04:40.840,00:04:44.880
+"then when you solve for them, you find
+that the interpolation is done by",00:04:44.880,00:04:47.460
+"Gaussians, which gives you the RBF's.",00:04:47.460,00:04:51.930
+So this is what this model does.,00:04:51.930,00:04:54.690
+"Today, we're going to switch gears
+completely and in a very pleasant way.",00:04:54.690,00:05:01.210
+"If you think about it, we have gone
+through lots of math, and lots of",00:05:01.210,00:05:05.220
+"algorithms, and lots of homework, and
+all of that, and I think we paid",00:05:05.220,00:05:09.350
+"our dues and we earned the ability to
+do some philosophy, if you will.",00:05:09.350,00:05:15.680
+"So we're going to look at learning
+principles without very strong appeal",00:05:15.680,00:05:20.740
+"to math, because we have very strong math
+foundation to stand on already.",00:05:20.740,00:05:25.740
+"And we'll try to understand the concepts,
+and relate these concepts as",00:05:25.740,00:05:28.810
+"they appear in machine learning, because
+they also appear in other",00:05:28.810,00:05:33.390
+"fields in science in general, and
+they are fascinating concepts",00:05:33.390,00:05:36.650
+in their own right.,00:05:36.650,00:05:37.760
+"And when we put them in the context of
+machine learning, they assume a real",00:05:37.760,00:05:41.570
+"meaning and a real understanding that
+will help us understand the principles",00:05:41.570,00:05:45.830
+in general.,00:05:45.830,00:05:47.450
+"So the three principles, the usual
+label for them is Occam's razor,",00:05:47.450,00:05:53.180
+"sampling bias, and data snooping.",00:05:53.180,00:05:56.180
+"And you may be familiar with some of
+them, and we have already alluded to",00:05:56.180,00:05:59.290
+data snooping in one of the lectures.,00:05:59.290,00:06:01.210
+"And if you look at them, Occam's
+razor relates to the model.",00:06:01.210,00:06:07.460
+Both of these guys relate to the data.,00:06:07.460,00:06:10.770
+"One of them has to do with collecting
+the data, and the other one has to do with",00:06:10.770,00:06:15.320
+handling the data.,00:06:15.320,00:06:17.750
+"And we'll take them one at a time, and
+see what they are about and how they",00:06:17.750,00:06:20.900
+apply to machine learning and so on.,00:06:20.900,00:06:24.620
+So let's start with Occam's razor.,00:06:24.620,00:06:26.890
+"There is a recurring theme in machine
+learning, and in science, and in life",00:06:26.890,00:06:30.660
+in general that less is more.,00:06:30.660,00:06:33.050
+"Simpler is better, and so on.",00:06:33.050,00:06:35.330
+"And there are so many manifestations of
+that, and I just chose one of the",00:06:35.330,00:06:39.760
+"most famous quotes. I put ""quote""
+between quotes because it's",00:06:39.760,00:06:43.840
+not really a quote.,00:06:43.840,00:06:46.270
+"He didn't say that in so many words, but
+at least, that's what people keep",00:06:46.270,00:06:49.900
+quoting Einstein as saying.,00:06:49.900,00:06:51.560
+"And it says that an explanation of
+the data-- so you are running",00:06:51.560,00:06:56.590
+"an experiment, you collect the data,
+and you want to make",00:06:56.590,00:06:59.220
+an explanation of the data.,00:06:59.220,00:07:00.680
+"The explanation could be E equals
+M C squared, or something else.",00:07:00.680,00:07:05.530
+"So you are trying to find an explanation
+of the data, and here is",00:07:05.530,00:07:08.560
+"a condition about what
+the explanation should be like.",00:07:08.560,00:07:11.320
+"It should be as simple as possible,
+but no simpler.",00:07:11.320,00:07:17.740
+Very wise words.,00:07:17.740,00:07:20.310
+"As simple as possible, that's
+the Occam's razor part.",00:07:20.310,00:07:22.870
+"No simpler, because now you
+are violating the data.",00:07:22.870,00:07:25.410
+"You have to be able to
+explain the data.",00:07:25.410,00:07:27.120
+So this is the rule.,00:07:27.120,00:07:28.590
+"And that quote, in one manifestation or
+another, has occurred in history.",00:07:28.590,00:07:32.990
+"Isaac Newton has something that is
+similar, and a bunch of them, but I'm",00:07:32.990,00:07:36.540
+"going to quote the one that
+survived the test of time,",00:07:36.540,00:07:39.450
+which is Occam's razor.,00:07:39.450,00:07:40.710
+"So let's first explain
+what the razor is.",00:07:40.710,00:07:43.390
+"Well, a razor is this.",00:07:43.390,00:07:47.270
+"You have to write ""Occam"" on it in
+order to become Occam's razor!",00:07:47.270,00:07:50.180
+And the idea here is symbolic.,00:07:50.180,00:07:52.520
+"So the notion of the razor
+is the following.",00:07:52.520,00:07:54.910
+"You have an explanation of the
+data, and you have your razor.",00:07:54.910,00:07:58.300
+"So what you do, you keep trimming the
+explanation to the bare minimum that",00:07:58.300,00:08:03.140
+"is still consistent with the data, and
+when you arrive at that, then you have",00:08:03.140,00:08:07.920
+the best possible explanation.,00:08:07.920,00:08:10.270
+"And it's attributed to William of Occam
+in the 14th century, so it goes",00:08:10.270,00:08:15.230
+back quite a bit.,00:08:15.230,00:08:17.660
+"What we would like to do, we'd like
+to state the principle of Occam's",00:08:17.660,00:08:24.550
+"razor, and then zoom in, in order
+to make it concrete.",00:08:24.550,00:08:28.520
+"Rather than just a nice thing to have,
+we'd like to really understand",00:08:28.520,00:08:31.710
+what is going on.,00:08:31.710,00:08:33.570
+So let's look at the statement.,00:08:33.570,00:08:35.820
+"The statement, in English, not in
+mathematics, says that the simplest",00:08:35.820,00:08:40.919
+"model that fits the data
+is also the most plausible.",00:08:40.919,00:08:50.460
+"And we put it in a box, because
+it's important.",00:08:50.460,00:08:54.290
+"So, first thing to realize about this
+statement is that it is neither",00:08:54.290,00:09:00.470
+precise nor self-evident.,00:09:00.470,00:09:05.670
+"It's not precise, because I really
+don't know what simplest means.",00:09:05.670,00:09:09.110
+We need to pin that down.,00:09:09.110,00:09:10.570
+Right?,00:09:10.570,00:09:13.870
+"I know that the simplest model is nice,
+but I'm saying something more",00:09:13.870,00:09:18.160
+than just nice.,00:09:18.160,00:09:18.830
+I'm saying it's most plausible.,00:09:18.830,00:09:20.170
+"It is the most likely to be true
+for explaining the data.",00:09:20.170,00:09:24.130
+"That is a statement, and you actually
+need to argue why this is true.",00:09:24.130,00:09:28.180
+"It's not wishful thinking that we just
+use the simple, and things will be fine.",00:09:28.180,00:09:32.950
+There is something said here.,00:09:32.950,00:09:34.280
+"So there are two questions to answer,
+in order to make this concrete.",00:09:34.280,00:09:38.480
+"The two questions are, the first one
+is, what does it mean for a model",00:09:38.480,00:09:41.910
+to be simple?,00:09:41.910,00:09:43.450
+"It turns out to be a complex question,
+but we will see that it's actually",00:09:43.450,00:09:47.880
+manageable in very concrete terms.,00:09:47.880,00:09:50.940
+"The second question is, how do we
+know that this is the case?",00:09:50.940,00:09:55.140
+"How do we know that simpler is better,
+in terms of performance?",00:09:55.140,00:09:58.740
+"So we'll take one question
+at a time, and address it.",00:09:58.740,00:10:02.460
+"First question, simple
+means exactly what?",00:10:02.460,00:10:06.840
+"Now, you look at the literature and
+complexity is all over the place.",00:10:06.840,00:10:10.490
+"It's a very appealing concept with very
+big variety of definitions, but",00:10:10.490,00:10:17.090
+"the definitions basically belong
+to two categories.",00:10:17.090,00:10:21.150
+"When you measure the complexity,
+there are basically two types of",00:10:21.150,00:10:24.920
+measures of complexity.,00:10:24.920,00:10:26.870
+"And my goal here is to be able to
+convince you that they actually are",00:10:26.870,00:10:30.410
+"talking about more or less the same
+thing, in spite of being inherently",00:10:30.410,00:10:33.550
+different conceptually.,00:10:33.550,00:10:36.840
+"The first one is a complexity of
+an object, in our case, a hypothesis h",00:10:36.840,00:10:42.500
+or the final hypothesis g.,00:10:42.500,00:10:44.060
+"That is one object, and we can say that
+this is a complex hypothesis or",00:10:44.060,00:10:47.930
+a simple hypothesis.,00:10:47.930,00:10:50.630
+"The other set of definitions
+have to do with the",00:10:50.630,00:10:52.460
+complexity of a set of objects.,00:10:52.460,00:10:55.760
+"In our case, the hypothesis set. We say
+that this is a complex hypothesis",00:10:55.760,00:10:59.240
+"set, complex model, and so on.",00:10:59.240,00:11:02.730
+"And we did have concretely a measure of
+complexity of small h and a measure",00:11:02.730,00:11:07.120
+"of complexity of big H, and if you
+remember, we actually used the",00:11:07.120,00:11:11.600
+same symbol for them.,00:11:11.600,00:11:12.960
+It was Omega.,00:11:12.960,00:11:14.770
+"Omega here was the penalty for
+model complexity when we did the VC",00:11:14.770,00:11:18.530
+"analysis, and Omega here was
+the regularization term.",00:11:18.530,00:11:23.130
+"This is the one we add in the augmented
+error, in order to capture the",00:11:23.130,00:11:26.250
+complexity of what we end up with.,00:11:26.250,00:11:28.080
+"So we already have a feel that there is
+some kind of correspondence, and if",00:11:28.080,00:11:32.450
+"you look at the different definitions
+outside, there are many definitions of",00:11:32.450,00:11:36.340
+"the complexity of an object, and
+I'm going to give you two",00:11:36.340,00:11:39.500
+from different worlds.,00:11:39.500,00:11:42.020
+"One of them is MDL, stands for
+Minimum Description Length.",00:11:42.020,00:11:47.750
+"And the other one, which is simple,
+is the order of a polynomial.",00:11:47.750,00:11:50.690
+"Let me take the minimum
+description length.",00:11:50.690,00:11:53.140
+"So the idea is that I give you an object
+and you try to specify the",00:11:53.140,00:11:56.490
+"object, and you try to specify it
+with as few bits as possible.",00:11:56.490,00:12:01.570
+"The fewer the bits you can get
+away with, the simpler the",00:12:01.570,00:12:05.440
+object in your mind.,00:12:05.440,00:12:06.870
+"So the measure of complexity here is
+how few bits can I get away with, in",00:12:06.870,00:12:12.990
+specifying that object?,00:12:12.990,00:12:14.890
+"And let's take just an example, in order
+to be able to relate to that.",00:12:14.890,00:12:18.740
+"Let's say I'm looking at an integer that
+happens to be a million digits,",00:12:18.740,00:12:23.790
+a million decimal digits.,00:12:23.790,00:12:25.370
+"Huge numbers, any numbers.",00:12:25.370,00:12:28.420
+"Now, I'm trying to find the complexity
+of individual numbers of that length.",00:12:28.420,00:12:34.540
+There will be different complexities.,00:12:34.540,00:12:35.890
+"So let me give you one number which is,
+let's say, 10 to the million",00:12:35.890,00:12:40.930
+"minus 1, in order to make
+it a million digits.",00:12:40.930,00:12:43.050
+"So let's say 10 to the
+million minus 1.",00:12:43.050,00:12:46.390
+"Now, 10 to the million minus 1 is
+99999999, a million times, right?",00:12:46.390,00:12:51.850
+"In spite of the fact that this is
+a million in length, it is a simple",00:12:51.850,00:12:55.640
+"object because you were able to
+describe it as ""10 to the",00:12:55.640,00:13:00.060
+"million minus 1"".",00:13:00.060,00:13:02.000
+"That is not a very long
+description, right?",00:13:02.000,00:13:04.990
+"And therefore, because you managed to
+get a short description, the object is",00:13:04.990,00:13:08.240
+simple in your mind.,00:13:08.240,00:13:09.980
+This is very much related to,00:13:09.980,00:13:11.680
+Kolmogorov complexity.,00:13:11.680,00:13:12.560
+"The only difference between Kolmogorov
+complexity and minimum",00:13:12.560,00:13:15.490
+"description length is that minimum
+description length is more friendly.",00:13:15.490,00:13:18.310
+"It doesn't depend on computability
+and other issues.",00:13:18.310,00:13:21.070
+But this is the notion.,00:13:21.070,00:13:22.620
+"And you can see that when we describe
+the complexity of an object, that",00:13:22.620,00:13:25.760
+"complexity is an intrinsic
+property of the object.",00:13:25.760,00:13:29.860
+"Order of a polynomial is
+simpler to understand.",00:13:29.860,00:13:31.570
+"I tell you there is a 17th-order
+polynomial versus a 100th-order",00:13:31.570,00:13:34.400
+"polynomial, and you already can see that
+the object is more complex when",00:13:34.400,00:13:37.980
+you have a higher order.,00:13:37.980,00:13:39.160
+"And indeed, this was our definition of
+the complexity of the target, if you",00:13:39.160,00:13:43.230
+"recall, when we were running the
+experiments of deterministic noise.",00:13:43.230,00:13:47.280
+"In that case, we needed to generate
+target functions of different",00:13:47.280,00:13:50.500
+"complexity, and the way we did it, we
+just increased the order of the",00:13:50.500,00:13:53.560
+"polynomial as our measure of the
+complexity of that object.",00:13:53.560,00:13:58.890
+"Now we come to the complexity
+of a class of objects.",00:13:58.890,00:14:01.490
+"Well, there are notions running around
+that actually define that, and I'm",00:14:01.490,00:14:07.130
+"going to quote two of
+them, very famous.",00:14:07.130,00:14:09.580
+"The entropy is one, and the one
+we are most familiar with,",00:14:09.580,00:14:12.850
+which is the VC dimension.,00:14:12.850,00:14:14.710
+"Now, these guys apply
+to a set of objects.",00:14:14.710,00:14:17.860
+"For example, the entropy.",00:14:17.860,00:14:18.690
+"You run an experiment, you consider
+all possible outcomes of the",00:14:18.690,00:14:21.790
+"experiment, the probabilities that go
+with them, and you find one collective",00:14:21.790,00:14:25.850
+"function that captures
+the probability,",00:14:25.850,00:14:28.470
+"sum of p logarithm of 1 over p,",00:14:28.470,00:14:30.310
+"and that becomes your entropy and
+that describes the disorder, the",00:14:30.310,00:14:33.300
+"complexity, whatever you want, of the
+class of objects, each outcome being",00:14:33.300,00:14:37.720
+one object.,00:14:37.720,00:14:39.160
+"In the case of the VC dimension, it
+applies directly to the notion we are",00:14:39.160,00:14:41.960
+most familiar with.,00:14:41.960,00:14:42.650
+"It applies to a hypothesis set, and it
+looks at the hypothesis set as a whole,",00:14:42.650,00:14:48.030
+"and produces one number that describes
+the diversity of that hypothesis set.",00:14:48.030,00:14:52.880
+"And the diversity in that case
+we measure as the complexity.",00:14:52.880,00:14:55.880
+"So if you look at one object from that
+set, and you look at this measure of",00:14:55.880,00:15:00.810
+"complexity, now that measure of
+complexity is extrinsic with respect",00:15:00.810,00:15:04.370
+to that object.,00:15:04.370,00:15:05.430
+"It depends on what other guys
+belong to the same category.",00:15:05.430,00:15:09.760
+"That's how I measure the complexity of
+it, whereas in the first one, I didn't",00:15:09.760,00:15:13.020
+want to be a member of anything.,00:15:13.020,00:15:14.230
+"I just looked at that object, and tried
+to find an intrinsic property of that",00:15:14.230,00:15:17.650
+object that captures the complexity.,00:15:17.650,00:15:19.790
+"So these are the two categories
+you will find in the literature.",00:15:19.790,00:15:24.190
+"Now, when we think of simple as far as
+Occam's razor, as far as different",00:15:24.190,00:15:27.670
+"quotes are concerned, we are thinking
+of a single object.",00:15:27.670,00:15:32.620
+"I tell you E equals M C squared, or I looked
+at the board, P V equals n R T, and",00:15:32.620,00:15:38.830
+that is a simple statement.,00:15:38.830,00:15:40.830
+"You don't look at what other
+alternatives were there",00:15:40.830,00:15:43.430
+to explain the data.,00:15:43.430,00:15:44.120
+"You just look at that object
+intrinsically, and that is what you",00:15:44.120,00:15:46.880
+think of as the measure of complexity.,00:15:46.880,00:15:49.670
+"When you do the math in order to prove
+Occam's razor in one version or",00:15:49.670,00:15:53.200
+"another, the complexity you are using is
+actually the complexity of the set",00:15:53.200,00:15:57.480
+of objects.,00:15:57.480,00:15:58.870
+And we have seen that already.,00:15:58.870,00:16:01.230
+"We looked at the VC dimension, for
+example, in order to prove something",00:16:01.230,00:16:04.520
+"of an Occam's nature in this course
+already, and that captured the",00:16:04.520,00:16:08.290
+complexity of a set of objects.,00:16:08.290,00:16:10.120
+"So this is a little bit worrying,
+because the intuitive concept is one",00:16:10.120,00:16:14.250
+"thing, and the mathematical
+proofs deal with another.",00:16:14.250,00:16:16.800
+"But the good news is that the complexity
+of an object and the",00:16:16.800,00:16:19.730
+"complexity of a set of objects, as we
+described in this slide, are very much",00:16:19.730,00:16:23.550
+"related, almost identical.",00:16:23.550,00:16:26.910
+And here is the link between them:,00:16:26.910,00:16:31.240
+counting.,00:16:31.240,00:16:32.490
+Couldn't be simpler.,00:16:32.490,00:16:34.160
+Here is the idea.,00:16:34.160,00:16:35.770
+"Let's say we are using the minimum
+description length, which is very",00:16:35.770,00:16:38.480
+popular and versatile.,00:16:38.480,00:16:41.270
+"So it takes l bits to specify
+a particular object, h.",00:16:41.270,00:16:47.300
+"I'm taking the objects here to be h,
+because I'm in machine learning.",00:16:47.300,00:16:49.940
+"The objects are hypotheses,
+so I use that.",00:16:49.940,00:16:53.280
+"Now, the measure of complexity in this
+term is that the complexity of",00:16:53.280,00:16:57.790
+"this fellow is l bits, because
+that is my definition.",00:16:57.790,00:17:02.620
+"Now, this implies something.",00:17:02.620,00:17:05.520
+"This implies that if I look at all the
+guys that are similar to this object",00:17:05.520,00:17:09.450
+"in terms of complexity, they also happen
+to have l bits worth of minimum",00:17:09.450,00:17:13.849
+description.,00:17:13.849,00:17:15.240
+How many of them are there?,00:17:15.240,00:17:17.440
+"Well, 2^l, right?",00:17:17.440,00:17:20.000
+"And now you can look at the set of all
+similar objects, and you call it",00:17:20.000,00:17:24.200
+"H, and you have one of 2^l as
+the description of an object",00:17:24.200,00:17:30.450
+"here, and you can take the ""1 of 2^l"" as
+the description of the complexity",00:17:30.450,00:17:35.720
+of that set.,00:17:35.720,00:17:38.130
+"So now we are establishing
+something in our mind.",00:17:38.130,00:17:41.730
+"Something is being complex in its
+own right, when it's one of many.",00:17:41.730,00:17:47.710
+"Something is simple in its own
+right, when it's one of few.",00:17:47.710,00:17:52.250
+"That is the link that makes us able
+to use this side for the proofs, and",00:17:52.250,00:17:57.030
+make a claim on this side.,00:17:57.030,00:17:58.600
+"It is not an exact correspondence,
+but it is an overwhelmingly valid",00:17:58.600,00:18:03.360
+correspondence.,00:18:03.360,00:18:04.610
+"Now these are with bits, and
+I can pin it down exactly.",00:18:07.290,00:18:09.870
+How about real-valued parameters?,00:18:09.870,00:18:11.630
+Let's look at our 17th-order polynomial.,00:18:11.630,00:18:14.620
+"You can look at a 17th-order polynomial,
+and you can see that",00:18:14.620,00:18:18.140
+"because it's 17th order, it goes up
+and down and up and down, and that",00:18:18.140,00:18:21.420
+looks complex.,00:18:21.420,00:18:23.520
+"But also, because if it's a 17th order
+polynomial, it's one of many, in the",00:18:23.520,00:18:30.060
+"realm of infinity in this case, because
+having 17 parameters to choose",00:18:30.060,00:18:34.890
+"makes me able to choose
+a whole bunch of guys that",00:18:34.890,00:18:37.570
+belong to the same category.,00:18:37.570,00:18:39.150
+"So the class of 17th-order polynomials
+is big, and therefore, it's not only",00:18:39.150,00:18:42.770
+"that the individual is complex,
+the set is also complex.",00:18:42.770,00:18:47.640
+"There are exceptions to this rule,
+and one notable exception was",00:18:47.640,00:18:50.810
+a deliberate exception.,00:18:50.810,00:18:52.570
+"And we wanted something that looks
+complex, so that it does our job of",00:18:52.570,00:18:56.700
+"fitting, but is one of few.",00:18:56.700,00:18:59.430
+"And therefore, we are not going to pay
+the full price for it being complex,",00:18:59.430,00:19:02.720
+and that was our good old friend SVM.,00:19:02.720,00:19:06.770
+Remember this fellow?,00:19:06.770,00:19:08.750
+"This looks complex all right, but it's
+actually not really complex because",00:19:08.750,00:19:12.250
+"it's defined only by very
+few support vectors.",00:19:12.250,00:19:15.670
+"And therefore in spite of the fact that
+it looks complex, it's really one",00:19:15.670,00:19:18.930
+"of few, and that is what we achieve
+by the support vector machines.",00:19:18.930,00:19:24.850
+"Now, let us take this in our mind,
+that we are going to use the",00:19:24.850,00:19:30.630
+"complexity of an object as the same as
+the complexity of the set of objects",00:19:30.630,00:19:35.880
+"that the object naturally belongs to,
+and we will see some ramifications.",00:19:35.880,00:19:40.920
+"So now I'm going to give you the
+first puzzle of the lecture.",00:19:40.920,00:19:43.730
+"There are 5 puzzles in this lecture,
+so you need to pay attention,",00:19:43.730,00:19:47.660
+and each puzzle makes a point.,00:19:47.660,00:19:49.940
+"And the first one has to do
+with this complexity, so",00:19:49.940,00:19:52.690
+let's look at the puzzle.,00:19:52.690,00:19:55.310
+"The puzzle has to do with a football
+oracle, someone who can predict",00:19:55.310,00:20:01.130
+football games perfectly.,00:20:01.130,00:20:03.190
+"You watch Monday night football, you
+want to know the result, and something",00:20:03.190,00:20:07.560
+happens Monday morning.,00:20:07.560,00:20:09.660
+You get a letter in the mail.,00:20:09.660,00:20:11.225
+You open the letter.,00:20:11.225,00:20:13.010
+Hi.,00:20:13.010,00:20:14.040
+"Today, the home team will win.
+Or, the home team will lose.",00:20:14.040,00:20:19.150
+"You don't make much of it, just
+some character sent something.",00:20:19.150,00:20:23.360
+It's not a big deal.,00:20:23.360,00:20:24.610
+"You watch the game, and
+it's a good call.",00:20:27.490,00:20:30.280
+"OK, interesting.",00:20:30.280,00:20:32.330
+"50%, lucky.",00:20:32.330,00:20:33.580
+"Next Monday, another letter,
+another prediction.",00:20:36.130,00:20:40.830
+"And the funny thing is that he predicted
+either the home team will",00:20:40.830,00:20:44.880
+"win or not, and it was very long odds.",00:20:44.880,00:20:49.030
+"Everybody thought the
+other way around.",00:20:49.030,00:20:51.190
+"And at the end of the game, the guy was
+right, and the guy was right for",00:20:51.190,00:20:55.900
+5 weeks in a row.,00:20:55.900,00:20:59.130
+"Now you are really very curious, and you
+are eagerly waiting in the 6th",00:20:59.130,00:21:02.760
+"week in the morning of Monday
+to see where the letter is.",00:21:02.760,00:21:07.630
+You have a perfect record.,00:21:07.630,00:21:09.360
+Now comes the letter.,00:21:09.360,00:21:12.500
+"The letter says: you want
+more predictions?",00:21:12.500,00:21:14.645
+Pay me $50.,00:21:17.390,00:21:18.640
+Very simple question:,00:21:22.860,00:21:25.240
+Should you pay?,00:21:25.240,00:21:26.510
+"The question is easily answered, because
+now the scams are so many that",00:21:26.510,00:21:30.190
+"the default, I just don't
+look at anything.",00:21:30.190,00:21:32.170
+There must be something to it.,00:21:32.170,00:21:33.870
+"But I really want to pin down what is
+it, because that is the message we are",00:21:33.870,00:21:37.530
+carrying out.,00:21:37.530,00:21:38.780
+"So the idea here is that no, you
+shouldn't, and the guy is really not",00:21:40.320,00:21:45.070
+predicting anything.,00:21:45.070,00:21:46.040
+"And the reason for that
+is the following.",00:21:46.040,00:21:49.170
+He's not sending letters to you only.,00:21:49.170,00:21:51.355
+He's sending letters to 32 people.,00:21:51.355,00:21:55.690
+"In the first game, for half of them, he
+said that the home team will lose.",00:21:59.160,00:22:05.390
+"The second one, he said the
+home team will win.",00:22:05.390,00:22:07.880
+"Now, because he did that, he is sure
+that some of the guys will get the",00:22:10.510,00:22:13.790
+correct answer.,00:22:13.790,00:22:16.010
+"So the game is played, and
+the home team loses.",00:22:16.010,00:22:21.850
+"So in the second week, he goes for the
+guys where he was right, and sends half",00:22:21.850,00:22:28.840
+"of them that the home team will
+lose, and the other half, the",00:22:28.840,00:22:32.880
+home team will win.,00:22:32.880,00:22:34.980
+"Now, he had plans to send the other guys
+as well something similar, except",00:22:34.980,00:22:39.330
+"that it's hopeless now because he
+already lost with them, so they're not",00:22:39.330,00:22:41.970
+going to pay him the $50.,00:22:41.970,00:22:44.390
+"So just for the memory, this is
+what would have been sent.",00:22:44.390,00:22:47.390
+"There are no letters sent here, but he
+would have gone zero one, zero one.",00:22:47.390,00:22:52.080
+"And he waits for the game, and
+out comes: the home team won.",00:22:52.080,00:22:58.730
+"So you can see who he's going to
+send letters to now, right?",00:22:58.730,00:23:04.790
+The other guys are a lost cause.,00:23:04.790,00:23:07.380
+"This would have been sent
+to them, but that's OK.",00:23:07.380,00:23:10.250
+"And he waits, and what
+happens this time?",00:23:10.250,00:23:12.700
+The home team lost.,00:23:12.700,00:23:14.890
+"And therefore, here is
+your next letter.",00:23:14.890,00:23:16.690
+"Home team won. Here is
+your next letter.",00:23:21.380,00:23:25.570
+"Only two people are surviving
+from this thing.",00:23:25.570,00:23:28.330
+"And here is the result,
+the home team won.",00:23:28.330,00:23:31.980
+"Now at that point, the guy
+sent how many letters?",00:23:31.980,00:23:35.570
+"32 plus 16 plus 8 plus 4 plus 2,
+so about 64, 63 to be exact.",00:23:35.570,00:23:41.810
+"The postage on that, writing the letter,
+he probably spent $30 on that.",00:23:41.810,00:23:47.430
+"And he's charging you, the lucky
+guy out of the 32, $50.",00:23:47.430,00:23:52.120
+That's a money making proposition.,00:23:52.120,00:23:55.190
+"Very nice, and it's understood
+and illegal, by the way!",00:23:55.190,00:23:59.310
+"But the interesting thing here is to
+understand, why is this related to",00:23:59.310,00:24:02.580
+what we've just talked about?,00:24:02.580,00:24:05.746
+"You thought the prediction ability
+was great because you",00:24:05.746,00:24:09.230
+only saw your letters.,00:24:09.230,00:24:11.030
+"There is one hypothesis, and
+it got it right perfectly.",00:24:11.030,00:24:15.830
+"The problem is that actually, the
+hypothesis set is very complex, and",00:24:15.830,00:24:20.910
+"therefore the prediction
+value is meaningless.",00:24:20.910,00:24:23.660
+You just didn't know.,00:24:23.660,00:24:24.672
+You didn't see the hypothesis set.,00:24:24.672,00:24:26.380
+"So now we understand what is the
+complexity of an object.",00:24:31.090,00:24:34.110
+"Now we go to the question,
+why is simpler better?",00:24:34.110,00:24:38.850
+"So the first thing to understand is that
+we are not saying that simpler is",00:24:38.850,00:24:43.200
+more elegant.,00:24:43.200,00:24:44.630
+"Simpler is more elegant, but this is
+not the statement of Occam's razor.",00:24:44.630,00:24:49.460
+"Occam's razor is stating that simpler
+will have better out-of-sample",00:24:49.460,00:24:53.930
+performance.,00:24:53.930,00:24:54.510
+That's a concrete statement.,00:24:54.510,00:24:56.550
+"In all honesty, if Occam said that you
+take the more complex guy and it will",00:24:56.550,00:25:00.130
+"give you better out-of-sample
+error, I will take the more",00:25:00.130,00:25:03.220
+"complex one, thank you.",00:25:03.220,00:25:04.640
+I am after performance.,00:25:04.640,00:25:05.730
+I'm not after elegance here.,00:25:05.730,00:25:07.210
+"It's nice that the elegant guy happens
+also to be better, but we need to",00:25:07.210,00:25:10.290
+establish that it is actually better.,00:25:10.290,00:25:11.870
+"And there is a basic argument. It
+manifests itself in many ways, and we",00:25:14.750,00:25:18.460
+"have already run one in this
+course during the theory.",00:25:18.460,00:25:21.520
+"And you put some assumptions, and
+there's a formal proof under idealized",00:25:21.520,00:25:26.300
+conditions of the following.,00:25:26.300,00:25:27.740
+"Instead of going through any formal
+proofs-- quite a variety of them, I",00:25:27.740,00:25:31.520
+am extracting the crux of the proof.,00:25:31.520,00:25:33.580
+What is the point being made?,00:25:33.580,00:25:35.190
+"And I'm going to relate it to the
+proof that we ourselves ran.",00:25:35.190,00:25:39.280
+So here is high-order steps.,00:25:39.280,00:25:42.430
+"There are fewer simple hypotheses
+than complex ones.",00:25:42.430,00:25:46.080
+"That is what we established from
+the definition of complexity.",00:25:46.080,00:25:49.470
+"And in our case, that was captured
+by the growth function.",00:25:49.470,00:25:52.870
+"You probably have forgotten
+what this is, long ago.",00:25:52.870,00:25:55.840
+"This was taking N points, finding what
+your hypothesis set can generate",00:25:55.840,00:25:59.960
+"in terms of different patterns on those
+N points, we call dichotomies.",00:25:59.960,00:26:03.870
+"So if it can generate everything like
+the postal guy, then it's a huge",00:26:03.870,00:26:08.080
+hypothesis set.,00:26:08.080,00:26:08.970
+"If it can generate few of them, then
+it's a simple hypothesis, and it's",00:26:08.970,00:26:12.220
+"measured by that growth function, and
+that resulted in the VC dimension.",00:26:12.220,00:26:15.440
+Remember all of that?,00:26:15.440,00:26:17.600
+"So now, fine.",00:26:17.600,00:26:18.860
+"Fewer simple hypotheses
+than complex ones.",00:26:18.860,00:26:21.350
+"OK, then what?",00:26:21.350,00:26:23.350
+"The next thing is because there are
+fewer ones, it is less likely to fit",00:26:23.350,00:26:27.940
+a given data set.,00:26:27.940,00:26:29.680
+"That is, you have N points, and
+you're going to generate labels.",00:26:29.680,00:26:33.700
+"Let's say you generate them at random,
+and you ask yourself, what are the",00:26:33.700,00:26:36.500
+"chances that my hypothesis
+set will fit?",00:26:36.500,00:26:39.860
+"Well, if it has few of those guys,
+obviously that goes down, and the",00:26:39.860,00:26:42.860
+"probability, if you take it uniformly,
+simply would be the growth function",00:26:42.860,00:26:46.240
+divided by 2^N.,00:26:46.240,00:26:47.770
+"If my growth function is polynomial, then
+very quickly, the probability of",00:26:47.770,00:26:51.610
+"fitting a given data
+set is very small.",00:26:51.610,00:26:53.960
+"OK, fine, I can buy that.",00:26:53.960,00:26:56.470
+"So now that's nice, but you want
+to convince me now that simpler",00:26:56.470,00:27:00.760
+is better in fit.,00:27:00.760,00:27:01.710
+"Here, you told me that I cannot fit.",00:27:01.710,00:27:03.290
+So what is the point?,00:27:03.290,00:27:05.180
+"The punchline in all of those is that if
+something is less likely, then when",00:27:05.180,00:27:12.890
+"it does happen, it's more significant.",00:27:12.890,00:27:17.090
+"And there are many manifestations of
+this, even when you define the entropy",00:27:17.090,00:27:20.920
+that I alluded to.,00:27:20.920,00:27:22.480
+A probability of an event is p.,00:27:22.480,00:27:25.110
+"What is the information associated
+with that particular point?",00:27:25.110,00:27:29.592
+"The smaller the probability, the bigger
+the information, the bigger the",00:27:29.592,00:27:33.140
+surprise when it happens.,00:27:33.140,00:27:34.510
+"And indeed, you define the term
+as being logarithm 1 over p.",00:27:34.510,00:27:37.790
+"So if p is very small, tons
+of bits of information.",00:27:37.790,00:27:40.810
+"If something half the time will happen,
+half the time will not happen,",00:27:40.810,00:27:43.940
+it's just 1 bit.,00:27:43.940,00:27:44.710
+It's not a big deal.,00:27:44.710,00:27:46.490
+"And, looking back at the postal
+scam, the only difference between",00:27:46.490,00:27:52.590
+"someone believing in the scam and
+someone having the big picture is the",00:27:52.590,00:27:56.140
+"fact that the growth function, from your
+point of view when you received the",00:27:56.140,00:27:59.510
+"letters, was 1.",00:27:59.510,00:28:00.600
+"You thought you were the only person.
+Here is one hypothesis, and you got it",00:28:00.600,00:28:03.780
+"right, and you gave a lot of
+value for that because this",00:28:03.780,00:28:06.540
+is unlikely to happen.,00:28:06.540,00:28:08.750
+"On the other hand, the reality of it is
+that the growth function is actually",00:28:08.750,00:28:11.420
+"2^N and this is certain to happen,
+so when it happens, it's meaningless.",00:28:11.420,00:28:16.830
+"Let's look at a scientific experiment,
+where a fit is meaningless.",00:28:16.830,00:28:23.590
+"So you are running an experiment, or you
+ask people to run an experiment,",00:28:23.590,00:28:26.490
+"to establish whether conductivity of
+a particular metal is linear in the",00:28:26.490,00:28:31.060
+temperature.,00:28:31.060,00:28:32.960
+I can design an experiment for that.,00:28:32.960,00:28:35.520
+"So you go and you ask two scientists to
+conduct experiments, and they",00:28:35.520,00:28:41.040
+"go, and they come back with
+the following results.",00:28:41.040,00:28:44.230
+Here is the first scientist.,00:28:44.230,00:28:45.480
+"Took the metal, but they had a dinner
+appointment, so they were in a hurry,",00:28:47.980,00:28:53.900
+"so they got 2 points and drew
+the line and gave you this.",00:28:53.900,00:28:58.840
+"The second guy had a supper appointment,
+so had more time to do it,",00:28:58.840,00:29:05.270
+"so did it 3 times,
+and then the line.",00:29:05.270,00:29:10.650
+"I have a very specific question, which
+is: what evidence do they provide for",00:29:10.650,00:29:15.660
+"the hypothesis that conductivity is
+indeed linear in the temperature?",00:29:15.660,00:29:19.490
+"What is clear without thinking too much
+is that this guy provided more",00:29:19.490,00:29:22.910
+evidence than this guy.,00:29:22.910,00:29:25.520
+"It is interesting to realize that this
+guy provided nil, none, nada.",00:29:25.520,00:29:33.640
+Why is that?,00:29:33.640,00:29:35.260
+"Because obviously, 2 points can
+always be connected by a line.",00:29:35.260,00:29:39.890
+"So the notion that goes with this
+is called falsifiability.",00:29:39.890,00:29:43.290
+"If your data has no chance of falsifying
+your assertion, then by the",00:29:47.120,00:29:53.690
+"same token, it does not provide any
+evidence for that assertion.",00:29:53.690,00:29:59.290
+"You have to have a chance of falsifying
+your assertion, in order to",00:29:59.290,00:30:03.150
+be able to draw the evidence.,00:30:03.150,00:30:04.680
+"This is called the axiom of
+non-falsifiability, and in some sense,",00:30:04.680,00:30:07.850
+"it's equivalent to the arguments
+we have done so far.",00:30:07.850,00:30:11.330
+"And in our terms, the linear model is
+just way too complex for the size of",00:30:11.330,00:30:18.470
+"the data set, which is 2, to
+be able to generalize at all.",00:30:18.470,00:30:23.730
+"And therefore, there is
+no evidence here.",00:30:23.730,00:30:25.320
+"In this case, this guy could
+have been falsified if the",00:30:31.630,00:30:35.780
+red point came here.,00:30:35.780,00:30:36.480
+"Therefore, he actually provides
+an evidence. This is the point.",00:30:36.480,00:30:38.850
+"This guy could not have
+been falsified.",00:30:38.850,00:30:40.230
+"So now we go to the next notion, which
+is sampling bias. It's a very interesting",00:30:43.290,00:30:48.520
+"notion, and it's tricky.",00:30:48.520,00:30:50.360
+"And by the way, if you look at all of
+these principles, it's not like",00:30:50.360,00:30:53.800
+"they're just concepts, and nice,
+and relate to other fields.",00:30:53.800,00:30:57.340
+"They also provide you with red flags
+when you're doing machine learning.",00:30:57.340,00:31:02.780
+"For example, when you use Occam's
+razor, what does it mean?",00:31:02.780,00:31:05.900
+"It means that beware of fitting the data
+with complex models, because it",00:31:05.900,00:31:10.620
+"looks great in sample and you are very
+encouraged, and when you go out of",00:31:10.620,00:31:14.770
+"sample, you know what happens.",00:31:14.770,00:31:16.230
+"You know all too well by the
+theory we have done.",00:31:16.230,00:31:18.840
+"Similarly, when we talk about sampling
+bias and later, data snooping, there",00:31:18.840,00:31:22.190
+"are traps that we need to avoid when
+we practice machine learning.",00:31:22.190,00:31:26.120
+"So let's look at sampling bias,
+and we start with a puzzle.",00:31:26.120,00:31:30.640
+Here is the puzzle.,00:31:30.640,00:31:31.580
+"It has to do with the presidential
+election, not this one.",00:31:31.580,00:31:36.730
+"But in 1948, this was the first
+presidential election after World War",00:31:36.730,00:31:43.290
+"II, which was a big deal, and the two
+people who ran was Truman, who was",00:31:43.290,00:31:48.230
+"currently President, and
+he ran against Dewey.",00:31:48.230,00:31:51.540
+"And it was very close in terms of--
+people will take opinion polls,",00:31:51.540,00:31:56.630
+and it's not clear who is going to win.,00:31:56.630,00:32:00.790
+"So now, one newspaper ran a phone poll,
+and what they did is ask people",00:32:00.790,00:32:08.820
+how they actually voted.,00:32:08.820,00:32:10.260
+"So this is not before the election
+asking, what do you think?",00:32:10.260,00:32:13.790
+"This is the night of the election,
+after the election closed, they",00:32:13.790,00:32:17.430
+"actually called people picked at random
+at their home, asked them: who",00:32:17.430,00:32:21.550
+did you vote for?,00:32:21.550,00:32:22.760
+Black and white.,00:32:22.760,00:32:24.090
+"Dewey or Truman, et cetera?",00:32:24.090,00:32:26.420
+"They collected the thing, and they
+applied some statistical thing or",00:32:26.420,00:32:30.280
+"Hoeffding or some other quantity,
+and came with the conclusion",00:32:30.280,00:32:33.950
+that Dewey has won decisively.,00:32:33.950,00:32:35.760
+Decisively doesn't mean he won by 60%.,00:32:35.760,00:32:37.880
+"Decisively means that he won
+above the error bar.",00:32:37.880,00:32:40.740
+"The probability that the opposite
+is true is diminishingly small.",00:32:40.740,00:32:45.280
+"And the result was so obvious that they
+decided to be the first to break",00:32:45.280,00:32:49.200
+"the news, and they printed their
+newspaper declaring:",00:32:49.200,00:32:52.906
+"Great. OK, so Dewey won.",00:32:58.040,00:32:59.680
+"What happens when someone
+wins an election?",00:32:59.680,00:33:01.900
+They have a victory rally.,00:33:01.900,00:33:03.590
+So let's look at the victory rally.,00:33:03.590,00:33:07.110
+One problem.,00:33:07.110,00:33:09.350
+"Victory rally was Truman, and you can
+see the big smile on the guy's face.",00:33:09.350,00:33:14.700
+So what happened?,00:33:21.430,00:33:23.470
+"Well, polls are polls and there
+is always a probability,",00:33:23.470,00:33:26.440
+and this and that.,00:33:26.440,00:33:27.560
+"No, that's not the issue here.",00:33:27.560,00:33:29.200
+That's the key.,00:33:29.200,00:33:30.980
+So don't blame delta for it.,00:33:30.980,00:33:34.340
+delta?,00:33:34.340,00:33:34.880
+What was delta again?,00:33:34.880,00:33:36.550
+"We've been doing techniques
+for a while.",00:33:36.550,00:33:38.010
+I forgot all about the theory.,00:33:38.010,00:33:39.660
+So let's remind you what delta was.,00:33:39.660,00:33:43.050
+"We were talking about the discrepancy
+between in-sample, the poll, out-of-",00:33:43.050,00:33:47.350
+"sample, the general population, the
+actual vote, and we were asking",00:33:47.350,00:33:50.900
+"ourselves, what is the probability
+that this will be bigger than",00:33:50.900,00:33:54.160
+"something, such that the
+result is flipped?",00:33:54.160,00:33:56.210
+"You thought it was Dewey winning,
+and it turned out to be Truman.",00:33:56.210,00:33:59.230
+"And that turned out to be less than or
+equal to delta, and delta is expressed",00:33:59.230,00:34:02.165
+"in terms of epsilon, N, and whatnot.",00:34:02.165,00:34:05.290
+"So in principle, it is possible,
+although not very probable, that the",00:34:05.290,00:34:11.639
+newspaper was just incredibly unlucky.,00:34:11.639,00:34:15.580
+"Now, the statement is
+very interesting.",00:34:15.580,00:34:17.199
+"No, the newspaper was not unlucky.",00:34:17.199,00:34:21.010
+"If they did the poll again and again and
+again, with 10 times the sample, or",00:34:21.010,00:34:27.739
+"100 times the sample, they will
+get exactly the same thing.",00:34:27.739,00:34:33.110
+OK?!,00:34:33.110,00:34:34.610
+So what is the problem?,00:34:34.610,00:34:37.969
+The problem is the following.,00:34:37.969,00:34:40.840
+"There is a bias in the poll they
+conducted and it is because of",00:34:40.840,00:34:45.530
+a rather laughable reason.,00:34:45.530,00:34:46.880
+"In 1948, phones were expensive.",00:34:49.510,00:34:54.940
+"That means that households that had
+phones used to be richer, and richer",00:34:54.940,00:35:01.650
+"people at that point favored Dewey more
+than the general population did.",00:35:01.650,00:35:08.040
+So there was a sampling bias.,00:35:08.040,00:35:11.150
+"There was always the case-- the
+population they were asking actually",00:35:11.150,00:35:17.030
+favored Dewey.,00:35:17.030,00:35:18.180
+"The sample was very reflective of the
+general population, of that mini",00:35:18.180,00:35:22.190
+general population.,00:35:22.190,00:35:23.470
+"The problem is that, that general
+population is not the overall general",00:35:23.470,00:35:27.060
+population.,00:35:27.060,00:35:28.460
+"And that brings us to the statement
+of the sampling bias principle.",00:35:28.460,00:35:33.710
+"It says that if the data is sampled in
+a biased way, then learning will",00:35:33.710,00:35:41.160
+produce a similarly biased outcome.,00:35:41.160,00:35:44.880
+"Learning is not an oracle, not
+like the football oracle.",00:35:44.880,00:35:48.190
+"Learning sees the world through
+the data you give it.",00:35:48.190,00:35:51.470
+"I'm a learning algorithm,
+here is the data.",00:35:51.470,00:35:53.680
+"You give me skewed data, I'm going
+to give you a skewed hypothesis.",00:35:53.680,00:35:56.870
+I'm doing my job.,00:35:56.870,00:35:58.020
+I'm trying to fit the data.,00:35:58.020,00:35:59.980
+"So this is always the case, and then
+you realize that there is always",00:35:59.980,00:36:03.450
+"a problem in terms of making sure that
+the data is actually representative of",00:36:03.450,00:36:07.670
+what you want.,00:36:07.670,00:36:09.210
+"So again, we put this in a box.",00:36:09.210,00:36:11.230
+"That's the second principle,
+so it's important.",00:36:11.230,00:36:14.550
+"And let's look at a practical
+example in learning.",00:36:14.550,00:36:17.625
+"In financial forecasting, people use
+machine learning a lot, and sometimes",00:36:20.240,00:36:24.700
+"when you look at the markets, the
+markets are completely crazy.",00:36:24.700,00:36:27.750
+"A rumor comes out and the market
+goes this way, et cetera.",00:36:27.750,00:36:31.310
+"And you are a technical person, you
+are trying to find an intrinsic",00:36:31.310,00:36:34.740
+pattern in the time series.,00:36:34.740,00:36:37.320
+"So you decide, I'm going to use the
+normal conditions of the market.",00:36:37.320,00:36:43.890
+"So I'm going to take periods of the
+market where the market was normal,",00:36:43.890,00:36:47.320
+"and then there is actually a pattern
+when people buy, buy, buy, and sell,",00:36:47.320,00:36:50.830
+"sell, sell, something happens, or
+whatever you are going to discover",00:36:50.830,00:36:53.070
+"using your linear regression or
+other learning algorithm.",00:36:53.070,00:36:57.850
+And you do this.,00:36:57.850,00:36:59.130
+"And then you deploy it, and when you
+test it, you test it in the real",00:36:59.130,00:37:03.390
+"market, and realize that now
+there is a sampling bias.",00:37:03.390,00:37:06.710
+"In spite of the fact that you were very
+happy in-sample, you actually",00:37:06.710,00:37:09.940
+"forgot a part of the market, and you
+don't know whether that part will be",00:37:09.940,00:37:15.180
+"terrible for you, great for
+you, or neutral for you.",00:37:15.180,00:37:18.290
+You just don't know.,00:37:18.290,00:37:18.940
+That's what sampling bias does.,00:37:18.940,00:37:20.370
+"The newspaper could have done this poll
+and, by their sheer luck, the",00:37:20.370,00:37:24.480
+"general population thinks the same of
+Truman and Dewey as the small sample",00:37:24.480,00:37:29.080
+"they talked about, in which case the
+result would have come out and they",00:37:29.080,00:37:31.600
+"would have never discovered
+that they made a mistake.",00:37:31.600,00:37:33.970
+"So sampling bias makes you vulnerable,
+at the mercy of the part that you",00:37:33.970,00:37:38.400
+didn't touch.,00:37:38.400,00:37:39.420
+"In this case, you didn't touch the
+market in certain conditions, and if",00:37:39.420,00:37:42.430
+"it does happen, all bets are off.",00:37:42.430,00:37:44.250
+"One way to deal with sampling bias
+is matching the distributions.",00:37:47.010,00:37:52.650
+"It's a very interesting technique, and
+it's actually applied in practice.",00:37:52.650,00:37:55.850
+I'm going to mention that.,00:37:55.850,00:37:56.950
+So what is the idea?,00:37:56.950,00:37:58.210
+"The idea is that you have a distribution
+on the input space, in",00:37:58.210,00:38:02.750
+"your mind, and there was one assumption
+in Hoeffding and VC",00:38:02.750,00:38:08.000
+inequality and all of that.,00:38:08.000,00:38:09.280
+"They didn't make too many assumptions,
+but one assumption they certainly made",00:38:09.280,00:38:13.400
+"is that you pick the points for training
+from the same distribution",00:38:13.400,00:38:17.810
+you pick for testing.,00:38:17.810,00:38:19.230
+"That was the only thing
+that they require.",00:38:19.230,00:38:21.770
+"So when you have sampling
+bias, that is violated.",00:38:21.770,00:38:24.520
+"And therefore, you try to say
+I don't have the same distribution.",00:38:24.520,00:38:27.470
+"I have data picked from some
+distribution, and I'm going to deliver",00:38:27.470,00:38:32.070
+"the hypothesis to the customer, and
+they're going to test it in other",00:38:32.070,00:38:34.800
+conditions.,00:38:34.800,00:38:35.480
+What do I do?,00:38:35.480,00:38:36.800
+"What you do, you try to
+match the distributions.",00:38:36.800,00:38:41.340
+"You don't reach for the distributions
+and match them.",00:38:41.340,00:38:42.780
+"You do something that will effectively
+make them match.",00:38:42.780,00:38:45.830
+"And you look at this, and let's
+say that this is the training",00:38:45.830,00:38:48.320
+"distribution, and the test distribution
+is off a little bit.",00:38:48.320,00:38:51.530
+This is a probability density function.,00:38:51.530,00:38:52.270
+Both of them are Gaussian.,00:38:52.270,00:38:53.610
+"One of them is off and with
+a different sigma.",00:38:53.610,00:38:57.170
+"So what you do,",00:38:57.170,00:38:59.040
+"if you have access to those-- if
+someone tells you what the",00:38:59.040,00:39:01.380
+"distributions are and then gives you
+a sample, there is a way by either",00:39:01.380,00:39:05.010
+"giving different weights for the
+training data, or re-sampling the",00:39:05.010,00:39:08.520
+"training data, to get another set as
+if it was pulled from the other",00:39:08.520,00:39:13.810
+distribution.,00:39:13.810,00:39:15.680
+It's a fairly simple method.,00:39:15.680,00:39:19.900
+"Very seldom that you actually have the
+explicit knowledge of the probability",00:39:19.900,00:39:22.980
+"distributions, so it's not that useful in
+practice, but in principle, you can",00:39:22.980,00:39:26.200
+see that it can be done.,00:39:26.200,00:39:27.370
+"And the price you pay for it is
+that you had 100 examples.",00:39:27.370,00:39:30.410
+"When you are done with this scaling and
+re-sampling or whatever method you",00:39:30.410,00:39:34.290
+"use, the effective size now is 90.",00:39:34.290,00:39:37.690
+"So you lose a little bit in terms of
+the independence of the points, and",00:39:37.690,00:39:40.960
+"therefore, you get effectively
+a smaller sample because of it.",00:39:40.960,00:39:44.210
+"But at least, you deal with the
+sampling bias that you",00:39:44.210,00:39:46.580
+wanted to deal with.,00:39:46.580,00:39:49.150
+"Now, this method works, and even if you
+don't know the distribution, there",00:39:49.150,00:39:55.270
+"are ways to try to infer
+the distribution that work.",00:39:55.270,00:39:59.160
+"But it doesn't work if there is a region
+in the input space where the",00:39:59.160,00:40:02.690
+"probability is zero for training, nothing
+will be sampled from that part, but",00:40:02.690,00:40:07.340
+you are going to test on it.,00:40:07.340,00:40:08.770
+"There is a probability of getting
+a point there, very much like",00:40:08.770,00:40:12.450
+guys without a phone.,00:40:12.450,00:40:14.880
+"That happened to have zero probability
+in the sample, but they don't have",00:40:14.880,00:40:18.260
+"zero probability in the
+general population.",00:40:18.260,00:40:20.010
+"And in that case, there is nothing that
+can be done in terms of matching,",00:40:20.010,00:40:22.290
+"because obviously you don't know
+what happened in that part.",00:40:22.290,00:40:25.190
+"On the other hand, in many other cases,
+there is a simple procedure,",00:40:25.190,00:40:29.090
+"which is actually very
+useful in practice.",00:40:29.090,00:40:30.540
+"If you look at, for example, the Netflix
+competition, one of the things",00:40:30.540,00:40:36.200
+"you realize is that I have the
+data set, it's a huge data",00:40:36.200,00:40:38.875
+"set, 100 million points.",00:40:38.875,00:40:40.390
+"And then I'm going to test your
+hypothesis on the final guys, the",00:40:40.390,00:40:45.090
+final ratings.,00:40:45.090,00:40:46.540
+So it's a much smaller set.,00:40:46.540,00:40:49.620
+"And the interesting aspect about it is
+that if you look at the distribution of the",00:40:49.620,00:40:54.290
+"general ratings, the 100 million,
+it really is different from the",00:40:54.290,00:40:57.470
+distribution of these guys.,00:40:57.470,00:41:00.150
+"Therefore, the question came up, can I
+do something during the training such",00:41:00.150,00:41:04.240
+"that I make the 100 million look as if
+they were pulled from the distribution",00:41:04.240,00:41:09.790
+of the last guys?,00:41:09.790,00:41:10.980
+"Very interesting question, has a very
+concrete answer, and the 100 million",00:41:10.980,00:41:14.450
+"become 10 million, not that you are
+throwing away points, but you are",00:41:14.450,00:41:18.720
+"weighting them such that when you are
+done, they look smaller than a set.",00:41:18.720,00:41:22.980
+"But then you are actually matched to
+that, and you can get a dividend in",00:41:22.980,00:41:26.100
+performance.,00:41:26.100,00:41:27.830
+"So there is a cure for sampling bias in
+certain cases, and there is no cure",00:41:27.830,00:41:33.300
+"in other cases, in which all you can
+do is admit that you don't know how",00:41:33.300,00:41:37.490
+"your system will perform in the
+parts that were not sampled.",00:41:37.490,00:41:40.860
+"That would be fatal if you are doing
+a presidential poll, but may not be as",00:41:40.860,00:41:44.350
+"fatal when you are doing machine
+learning, because all you are going to",00:41:44.350,00:41:48.540
+"do, you are going to warn against
+using this system within that",00:41:48.540,00:41:51.820
+particular sub-domain.,00:41:51.820,00:41:54.820
+"Third puzzle, try to detect
+sampling bias here.",00:41:54.820,00:42:01.620
+Credit approval.,00:42:01.620,00:42:02.560
+"We have seen that before. That's
+a running example in the course, so let",00:42:02.560,00:42:06.400
+me remind you what that was.,00:42:06.400,00:42:08.240
+"The bank wants to approve
+credit automatically.",00:42:08.240,00:42:10.170
+"It goes for the historical records of
+customers who applied before, and they",00:42:10.170,00:42:14.360
+"were given credit cards, so you have
+a benefit of, let's say, 3 or 4",00:42:14.360,00:42:18.480
+years worth of credit behavior.,00:42:18.480,00:42:20.210
+"And you look back at their inputs, and
+the inputs in those cases were simply",00:42:20.210,00:42:25.440
+"the information they provided at the
+time they applied for credit, because",00:42:25.440,00:42:28.760
+"this is the information that will
+be available from a new customer.",00:42:28.760,00:42:32.580
+"And you get something like that.
+This is the application.",00:42:32.580,00:42:35.620
+"You also have the output, which is
+simply-- you go back and see whatever",00:42:35.620,00:42:38.840
+"the credit behavior is and you ask
+yourself, did they make money for me?",00:42:38.840,00:42:43.180
+"Because it's not only credit
+worthiness, that you",00:42:43.180,00:42:45.020
+are a reliable person.,00:42:45.020,00:42:45.810
+"It's also that some people who are
+flirting with disaster are very",00:42:45.810,00:42:49.360
+"profitable for the bank, because they max
+out and they pay this ridiculous",00:42:49.360,00:42:53.180
+"percentage, so they make a lot of money
+as long as they don't default.",00:42:53.180,00:42:55.680
+"Once they default, it's a problem.",00:42:55.680,00:42:57.540
+"So there's a question of just,
+did you make profit or not?",00:42:57.540,00:42:59.950
+That's a question.,00:42:59.950,00:43:00.770
+"And I'm going to approve future
+customers if I expect that they will",00:43:00.770,00:43:03.970
+make profit for me.,00:43:03.970,00:43:04.930
+That's the deal.,00:43:04.930,00:43:07.830
+Where is the sampling bias?,00:43:07.830,00:43:09.170
+"We probably alluded to it
+in one form or another.",00:43:13.970,00:43:17.250
+"The problem is that you're using
+historical data of customers you",00:43:17.250,00:43:21.710
+"approved, because these are the
+only ones you actually have",00:43:21.710,00:43:24.820
+credit behavior on.,00:43:24.820,00:43:27.220
+"So the guys who applied, and
+you rejected them, are not",00:43:27.220,00:43:31.220
+part of this sample.,00:43:31.220,00:43:33.270
+"And when you are done, you are
+going to have a system that",00:43:33.270,00:43:35.650
+applies to a new applicant.,00:43:35.650,00:43:37.340
+"You do not know a priori whether that
+applicant will be approved or not,",00:43:37.340,00:43:40.430
+according to your old criteria.,00:43:40.430,00:43:42.120
+"So it could belong to the population
+that was never part of",00:43:42.120,00:43:45.290
+your training sample.,00:43:45.290,00:43:48.420
+"Now, this is one case where the sampling
+bias is not that terrible in",00:43:48.420,00:43:53.360
+"terms of effect, not in terms of
+characterizing what is going on.",00:43:53.360,00:43:57.710
+"You have a part of the population, and
+they have zero probability in terms of",00:43:57.710,00:44:01.530
+"training, and nonzero probability
+in terms of testing.",00:44:01.530,00:44:04.260
+"It's good, old-fashioned
+sampling bias.",00:44:04.260,00:44:07.090
+"But the point is that banks tend to be
+a bit aggressive in providing credit",00:44:07.090,00:44:12.760
+"because, as I mentioned, the borderline
+guys are very profitable.",00:44:12.760,00:44:16.280
+"So you don't want to just be
+conservative and cut them off, because",00:44:16.280,00:44:18.810
+you're going to be losing revenue.,00:44:18.810,00:44:20.720
+"Because of this, the boundary that you
+are talking about is pretty much",00:44:20.720,00:44:25.110
+"represented by the guys
+you already accepted.",00:44:25.110,00:44:27.600
+"You already made mistakes
+in what you accepted.",00:44:27.600,00:44:30.440
+"So when you get that boundary, the
+chances are the guys you missed out",00:44:30.440,00:44:33.930
+will be deep on one side.,00:44:33.930,00:44:36.770
+"You got all the support vectors,
+if you want, so the interior",00:44:36.770,00:44:39.600
+points don't matter.,00:44:39.600,00:44:40.920
+"They matter a little bit, but
+actually, that system with the",00:44:40.920,00:44:44.670
+"sampling bias does pretty
+good on future guys.",00:44:44.670,00:44:48.050
+"By evidence that you reject someone, how
+do you know that it's good because",00:44:48.050,00:44:51.440
+you rejected it?,00:44:51.440,00:44:52.060
+"They apply somewhere else, and they make
+the other guy lose money, so you",00:44:52.060,00:44:54.950
+realize that your decision was good.,00:44:54.950,00:44:56.420
+"So you can verify, if you have
+a consortium of banks, whether actually",00:44:56.420,00:45:00.750
+"that sampling bias here has an impact,
+or doesn't have an impact.",00:45:00.750,00:45:06.890
+"Final topic, data snooping,
+the sweetest of all.",00:45:06.890,00:45:10.490
+"Well, it's the sweetest because it
+is so tricky, and manifests",00:45:10.490,00:45:14.980
+itself in so many ways.,00:45:14.980,00:45:17.390
+Let me first state the principle.,00:45:17.390,00:45:21.010
+"The principle says, if a data set has
+affected any step of the learning",00:45:21.010,00:45:29.250
+"process, then the ability of the same
+data set to assess the outcome has",00:45:29.250,00:45:38.360
+been compromised.,00:45:38.360,00:45:40.140
+Very simply stated.,00:45:40.140,00:45:41.900
+"The principle doesn't forbid
+you from doing anything.",00:45:41.900,00:45:44.020
+You can do whatever you want.,00:45:44.020,00:45:44.780
+"Just realize that if you use
+a particular data set, whether it's the",00:45:44.780,00:45:48.210
+"whole, or a subset or whatever, use it
+to navigate into-- I'm going to do",00:45:48.210,00:45:53.330
+"this, I'm going to choose this model,
+I'm going to choose this lambda, I'm",00:45:53.330,00:45:55.730
+"going to do this, I'm going to
+reject this, whatever it is.",00:45:55.730,00:45:58.210
+"You made a decision, then when you
+have an outcome from the learning",00:45:58.210,00:46:02.140
+"process and you use the same data set
+that affected the choice of that, the",00:46:02.140,00:46:07.060
+"ability to fairly assess the performance
+of the outcome has been",00:46:07.060,00:46:10.670
+"compromised by the fact that this was
+chosen according to the data set.",00:46:10.670,00:46:14.410
+"I think this is completely understood by
+us, having gone through the course.",00:46:14.410,00:46:19.180
+"We put it in a box, and then we make
+the statement that this is the most",00:46:19.180,00:46:25.530
+"common trap for practitioners,
+by and large.",00:46:25.530,00:46:28.390
+"I've dealt with Wall Street firms
+quite a bit in my career, and",00:46:28.390,00:46:32.540
+"there are lots of people who are using
+machine learning, and it is rather",00:46:32.540,00:46:35.950
+"incredible how they manage
+to data-snoop.",00:46:35.950,00:46:39.390
+"And there is a good reason for it,
+because when you data-snoop, you end",00:46:39.390,00:46:44.180
+"up with better performance, you think,
+because that's why you snooped.",00:46:44.180,00:46:49.500
+"I looked at the data, I
+chose a better model.",00:46:49.500,00:46:51.790
+"The other guy didn't look at the data,
+and they are struggling with the",00:46:51.790,00:46:54.340
+"model, and they are not getting the
+same in-sample, and I am ahead.",00:46:54.340,00:46:57.230
+It looks very tempting to do.,00:46:57.230,00:46:59.420
+And it's not just looking at the data.,00:46:59.420,00:47:02.560
+"The problem is that there are many ways
+to fall into the trap, and they",00:47:02.560,00:47:06.765
+are all happy ways.,00:47:06.765,00:47:09.410
+"So if you think of it as landmines,
+it is actually happy landmines.",00:47:09.410,00:47:19.620
+"You very cheerfully step on the mine,
+because you think you are doing well.",00:47:19.620,00:47:25.290
+So you need to be very careful.,00:47:25.290,00:47:27.140
+"And because it has different
+manifestations, what I'm going to do",00:47:27.140,00:47:29.780
+"now, I'm going to go through examples of
+data snooping. Some of them we have",00:47:29.780,00:47:34.200
+"seen before, and some
+of them we haven't.",00:47:34.200,00:47:36.400
+"And then you will get the idea. What
+should I avoid, and what kind of",00:47:36.400,00:47:40.710
+"discipline or compensation should I have,
+in order to be able not to suffer",00:47:40.710,00:47:45.040
+"from the consequences
+of data snooping?",00:47:45.040,00:47:46.870
+"So the first way of data snooping,
+we have seen before, is",00:47:50.320,00:47:53.420
+looking at the data.,00:47:53.420,00:47:54.130
+"So I'm borrowing something
+from our experience.",00:47:54.130,00:47:57.280
+Remember the nonlinear transform?,00:47:57.280,00:47:59.630
+Yeah.,00:47:59.630,00:48:00.450
+"So you have a data set like this, and
+let's say you didn't even look at the",00:48:00.450,00:48:04.975
+"data and you decided that, I'm going
+to use a 2nd-order transform.",00:48:04.975,00:48:11.140
+"So this is the transform, you
+take a full 2nd order.",00:48:11.140,00:48:14.860
+"You apply it, and you look at the
+outcome, and this is good.",00:48:14.860,00:48:18.530
+I managed to get zero in-sample error.,00:48:18.530,00:48:22.030
+"What is the price I'm paying
+for generalization?",00:48:22.030,00:48:24.150
+"One, two, three, four, five, six.",00:48:24.150,00:48:26.370
+"That's an estimate for the VC dimension,
+so that's the compromise",00:48:26.370,00:48:29.130
+"between this six and however
+many points, et cetera.",00:48:29.130,00:48:31.770
+"So you realize, I fit the data
+well but I don't like the",00:48:31.770,00:48:34.680
+fact that it's six.,00:48:34.680,00:48:35.650
+"I don't have too many points, so my
+handle on generalization is not good.",00:48:35.650,00:48:41.010
+"So let me try to do better,
+at least in your mind.",00:48:41.010,00:48:44.610
+"So what you do is say, wait a minute,
+I didn't need all of these guys.",00:48:44.610,00:48:48.830
+"I could have gone with just this guy,
+knowing that this is the origin.",00:48:48.830,00:48:53.900
+"All you need to do is just x_1
+squared and x_2 squared.",00:48:53.900,00:48:56.000
+"This is just a circle centered
+at the origin.",00:48:56.000,00:48:57.820
+Why do I need the other funny stuff?,00:48:57.820,00:49:00.300
+"This would be if I'm going
+for a more elaborate set.",00:49:00.300,00:49:04.230
+"So now one, two, three, now I have VC
+dimension of three, so I'm better.",00:49:04.230,00:49:08.090
+"Of course, we know better, but
+I'm just playing along.",00:49:08.090,00:49:11.860
+"And then you get carried away and
+say, I can even do this.",00:49:11.860,00:49:15.130
+"It's not an ellipse, it's a circle, so
+I can just add up x_1 squared and x_2",00:49:15.130,00:49:20.050
+"squared as one coordinate,
+and then I have two.",00:49:20.050,00:49:22.590
+"And you see what the problem
+is, and the problem is what",00:49:22.590,00:49:24.720
+we mentioned before.,00:49:24.720,00:49:26.410
+"What you are really doing, you are
+a learning algorithm in your own right,",00:49:26.410,00:49:31.220
+but free of charge.,00:49:31.220,00:49:32.500
+That's the problem.,00:49:32.500,00:49:33.760
+"You are looking at the data, and you are
+zooming in, and you're zooming in.",00:49:33.760,00:49:36.050
+You're learning.,00:49:36.050,00:49:36.630
+You're learning.,00:49:36.630,00:49:37.330
+"You are narrowing down the hypotheses, and
+then leaving the final learning algorithm",00:49:37.330,00:49:40.680
+just to get you the radius.,00:49:40.680,00:49:41.800
+"Yeah, big deal.",00:49:41.800,00:49:43.070
+"Well, the problem is that you are
+charging now for a VC dimension of",00:49:43.070,00:49:47.360
+"two, which is the last part of the
+learning cost, which is choosing",00:49:47.360,00:49:52.980
+the coefficients here.,00:49:52.980,00:49:55.670
+"But you didn't charge for the fact that
+you are a learning algorithm, and",00:49:55.670,00:49:58.680
+"you took the data into consideration,
+and you kept zooming in from a bigger",00:49:58.680,00:50:02.740
+hypothesis set.,00:50:02.740,00:50:03.350
+"You didn't charge for the full
+VC dimension of that.",00:50:03.350,00:50:07.250
+"Now, it is very important to realize
+that the problem here is that the",00:50:07.250,00:50:13.050
+snooping here involves the data set.,00:50:13.050,00:50:15.610
+"Because what happens when you
+look at the data set?",00:50:15.610,00:50:18.700
+"You are vulnerable to designing your
+model, or your choices in the learning,",00:50:18.700,00:50:24.380
+"according to the idiosyncrasies
+of the data set.",00:50:24.380,00:50:28.660
+"And therefore, you may be doing well on
+that data set, but you don't know",00:50:28.660,00:50:33.080
+"whether you will be doing in another,
+independently generated data set from",00:50:33.080,00:50:36.460
+"the same distribution, which would be
+your out-of-sample, so that's the key.",00:50:36.460,00:50:40.610
+"On the other hand, you are completely
+allowed, encouraged, ordered to look",00:50:40.610,00:50:46.810
+"at all other information related to your
+target function and input space,",00:50:46.810,00:50:51.590
+"except for the realization of the data
+set that you are going to use for",00:50:51.590,00:50:55.240
+"training, unless you are going
+to charge accordingly.",00:50:55.240,00:50:58.650
+So here is the deal.,00:50:58.650,00:50:59.970
+"Someone comes in, I ask him, how
+many inputs do you have?",00:50:59.970,00:51:02.730
+What is the range of the inputs?,00:51:02.730,00:51:03.970
+How did you measure the inputs?,00:51:03.970,00:51:06.320
+Are they physically correlated?,00:51:06.320,00:51:08.700
+"Do you know of any properties
+that I can apply?",00:51:08.700,00:51:11.110
+Is it monotonic in this?,00:51:11.110,00:51:13.000
+"All of this is completely valid and
+completely important for you in order",00:51:13.000,00:51:19.170
+"to zoom in correctly, because right
+now, you are not using the data.",00:51:19.170,00:51:22.400
+"You are not subject to
+overfitting the data.",00:51:22.400,00:51:24.310
+"You are using properties of the target
+function and the input space proper,",00:51:24.310,00:51:27.940
+"and therefore improving your chances
+of picking a correct model.",00:51:27.940,00:51:31.330
+"The problem starts when you look
+at the data set and not charge",00:51:31.330,00:51:36.470
+"accordingly, very specifically.",00:51:36.470,00:51:38.695
+Here is another puzzle.,00:51:43.260,00:51:44.510
+"This one is financial forecasting.
+Befitting.",00:51:46.720,00:51:49.450
+"So right now, there will be data
+snooping somewhere here, and you need",00:51:49.450,00:51:52.550
+to look out for it.,00:51:52.550,00:51:55.120
+"In this case, this is a real
+situation with real data.",00:51:55.120,00:51:58.020
+"You are predicting the exchange rate
+between the US dollar versus the",00:51:58.020,00:52:01.100
+British pound.,00:52:01.100,00:52:03.010
+"So you have eight years worth of daily
+trading, where you just simply take",00:52:03.010,00:52:07.360
+the change from day to day.,00:52:07.360,00:52:09.480
+"And eight years would be
+about 2,000 points.",00:52:09.480,00:52:11.960
+"There are about 250 trading days
+per year, at least when",00:52:11.960,00:52:15.140
+the data was collected.,00:52:15.140,00:52:17.290
+"And what you are planning
+to do is the following.",00:52:17.290,00:52:21.000
+You look here. Let me magnify it.,00:52:21.000,00:52:25.960
+"This is your input for the prediction,
+and this is your output.",00:52:25.960,00:52:29.440
+So r is the rate.,00:52:29.440,00:52:32.110
+"So you don't look at the rate in the
+absolute, you look at delta rate, the",00:52:32.110,00:52:35.220
+"difference between the rate today
+and the rate yesterday.",00:52:35.220,00:52:37.900
+That's what you're trying to predict.,00:52:37.900,00:52:39.040
+"You're asking yourself whether
+it's going up or down every",00:52:39.040,00:52:40.690
+"day, and by how much.",00:52:40.690,00:52:42.380
+"So you get delta, and you get delta for
+the 20 days before, hoping that",00:52:42.380,00:52:47.740
+"a particular pattern of up and down in
+the exchange rate will make it more",00:52:47.740,00:52:51.810
+"likely that today's change, which hasn't
+happened yet-- you are deciding",00:52:51.810,00:52:56.990
+to either buy or sell at the open--,00:52:56.990,00:52:59.690
+"whether this will be positive
+or negative and by how much.",00:52:59.690,00:53:03.040
+"So if you make a certain prediction,
+then you can obviously capitalize on",00:53:03.040,00:53:05.700
+"that, and make predictions
+according to that.",00:53:05.700,00:53:07.790
+"And if you are right more often than
+not, you will be making money because",00:53:07.790,00:53:10.580
+"you are losing less often than
+winning if you have the",00:53:10.580,00:53:16.960
+right objective function.,00:53:16.960,00:53:18.830
+"So this is the case. What happens
+here is that now you have the 2,000",00:53:18.830,00:53:23.180
+"points, so for every day, there
+is a change, delta r.",00:53:23.180,00:53:27.530
+"And what you do first, you normalize
+the data to zero",00:53:27.530,00:53:31.500
+mean and unit variance.,00:53:31.500,00:53:33.840
+"And then after that, you have
+this array of 2,000 points.",00:53:33.840,00:53:37.000
+You create training set and test set.,00:53:37.000,00:53:40.420
+"So the training set in this case, you
+take 1,500 points, 1,500 days.",00:53:40.420,00:53:44.870
+"So every day now, you take the day, and
+you take the previous 20 days as",00:53:44.870,00:53:48.210
+their input.,00:53:48.210,00:53:49.160
+That becomes your training.,00:53:49.160,00:53:50.530
+"And for the test, you picked it at
+random, not the last ones, just to make",00:53:50.530,00:53:54.110
+"sure that there is no funny stuff,
+change in this or that.",00:53:54.110,00:53:57.520
+"You just want to see if something is
+inherent, so just to be on the safe",00:53:57.520,00:54:00.040
+"side, you did it randomly.",00:54:00.040,00:54:01.540
+"And then you take 500 points
+in order to test on.",00:54:01.540,00:54:04.450
+"So right now, out of the 2,000 array of
+points, you have a big array of 20",00:54:04.450,00:54:11.200
+"points input, one output, 20 points
+input, one output, 1,500 of those.",00:54:11.200,00:54:16.070
+"And on the other side on the test, 20
+points input, one output, 20 inputs,",00:54:16.070,00:54:19.740
+"one output, 500 of those.",00:54:19.740,00:54:20.630
+This is for the test.,00:54:20.630,00:54:21.680
+That's the game.,00:54:21.680,00:54:23.460
+So you go on with the training.,00:54:23.460,00:54:25.200
+"You train your system on the training
+set, and to make sure, because",00:54:25.200,00:54:28.460
+"you heard of data snooping,
+these guys are in a lock.",00:54:28.460,00:54:32.320
+"You didn't look at the
+data at any point.",00:54:32.320,00:54:35.235
+"You just carried all of this
+automatically, and then when you are",00:54:35.235,00:54:38.330
+"done and you froze the final hypothesis,
+you open the safe, you get",00:54:38.330,00:54:42.760
+"the test data, and you
+see how you did.",00:54:42.760,00:54:45.400
+And this is how you did.,00:54:45.400,00:54:48.280
+"You train only on D_train, you test on
+D_test, and this is what you get.",00:54:48.280,00:54:53.240
+"I'm not saying how often you got it
+right, but I'm actually saying that",00:54:55.840,00:54:58.230
+"you put a trade according to the
+prediction, and I'm asking you how",00:54:58.230,00:55:01.100
+much money you made.,00:55:01.100,00:55:03.340
+"So for the 500 points, sometimes you
+win, sometimes you lose, but you win",00:55:03.340,00:55:08.800
+"more often than you lose,
+which is good.",00:55:08.800,00:55:10.970
+"And at the end of two years worth--
+that's what 500 days would be-- you",00:55:10.970,00:55:14.870
+"would have made a respectable 22%
+unleveraged, so that's pretty good.",00:55:14.870,00:55:21.070
+"So you are very happy, and now having
+done that, you go to the bank and tell",00:55:21.070,00:55:26.585
+"them I have this great
+prediction system.",00:55:26.585,00:55:29.360
+Here is the system.,00:55:29.360,00:55:29.950
+"I'm going to sell it for you, and I
+guarantee that it will be--",00:55:29.950,00:55:32.560
+you do the error bars and whatever.,00:55:32.560,00:55:34.540
+"And they go, and they go live, and they
+lose money, and they sue you, and",00:55:34.540,00:55:38.280
+all of that.,00:55:38.280,00:55:39.670
+"So you ask yourself,
+what went wrong?",00:55:39.670,00:55:42.220
+"What went wrong is that
+there is snooping.",00:55:42.220,00:55:48.470
+"And what's interesting is, where
+exactly is the snooping?",00:55:48.470,00:55:53.290
+"So there are many things: random, the
+fact that I used inputs that happened",00:55:53.290,00:55:59.150
+to be outputs to the other guy?,00:55:59.150,00:56:00.770
+"No, no, that's legitimate.",00:56:00.770,00:56:01.800
+I'm just really getting the pattern.,00:56:01.800,00:56:03.910
+"You just go around it, and it is really
+remarkably subtle, to the level",00:56:03.910,00:56:07.730
+"where you can fall into that very, very
+easily, and here is where the",00:56:07.730,00:56:14.470
+snooping happened.,00:56:14.470,00:56:16.900
+"The snooping happened
+when you normalized.",00:56:16.900,00:56:19.885
+What?,00:56:22.470,00:56:24.510
+"I had the daily rates, right?",00:56:24.510,00:56:26.370
+"2,000 of them.",00:56:26.370,00:56:28.860
+I have the change.,00:56:28.860,00:56:29.690
+All of that is legitimate.,00:56:29.690,00:56:31.610
+"Now, I slipped a fast one by you--",00:56:31.610,00:56:33.780
+I hope I did--,00:56:33.780,00:56:35.550
+"when I told you, first you
+normalize this to zero",00:56:35.550,00:56:39.420
+mean and unit variance.,00:56:39.420,00:56:40.810
+"It looked like an innocent step, because
+you get them to a nice numerical",00:56:40.810,00:56:43.780
+"range, and some methods will actually
+ask you to please put the data",00:56:43.780,00:56:47.580
+"normalized, because it's sensitive to
+the dynamic range of the data.",00:56:47.580,00:56:51.660
+"The problem is that I did this
+before I separated the",00:56:51.660,00:56:54.170
+training from the testing.,00:56:54.170,00:56:56.420
+"So I took into consideration the mean
+and variance of the test set.",00:56:56.420,00:57:02.600
+"That extremely slight snooping into
+what's supposed to be the test set,",00:57:02.600,00:57:09.830
+"supposed not to affect anything, has
+affected me, but by just a mean and--",00:57:09.830,00:57:14.660
+"How could it possibly
+make a difference?",00:57:14.660,00:57:17.270
+"Well, if you didn't do that,
+you split the data first.",00:57:17.270,00:57:21.520
+"You took the training set only,
+and you did the normalization.",00:57:21.520,00:57:25.710
+"And whatever the mu and sigma squared
+that did the normalization for the",00:57:25.710,00:57:29.390
+"training set, you took them frozen and
+applied them to the test set so that",00:57:29.390,00:57:34.190
+they live in the same range of values.,00:57:34.190,00:57:36.670
+"And you did the training now and
+the test without any snooping.",00:57:36.670,00:57:40.210
+"Under those conditions, this is
+what you would have gotten.",00:57:40.210,00:57:42.660
+So no wonder you lost money.,00:57:45.690,00:57:47.490
+"All the money you made is because you
+sniffed on the average of the",00:57:47.490,00:57:55.410
+out-of-sample.,00:57:55.410,00:57:56.560
+"And the average matters, because if you
+think about it, let's say that the",00:57:56.560,00:57:59.150
+US dollar had a trend of going up.,00:57:59.150,00:58:01.760
+"That will affect the mean,
+but you don't know that--",00:58:01.760,00:58:05.030
+"at least, you don't know it for the
+out-of-sample unless you got something",00:58:05.030,00:58:07.870
+out-of-sample.,00:58:07.870,00:58:09.300
+"So I'm not saying normalization
+is a bad idea.",00:58:09.300,00:58:12.350
+Normalization is a super idea.,00:58:12.350,00:58:15.400
+"Just make sure that whatever parameters
+you use for normalization",00:58:15.400,00:58:18.535
+"are extracted exclusively from what
+you call a training set, and",00:58:18.535,00:58:23.930
+then you are safe.,00:58:23.930,00:58:25.610
+"Otherwise, you will be getting
+something that you are",00:58:25.610,00:58:27.380
+not entitled to get.,00:58:27.380,00:58:29.440
+"Easy to think about, if you are actually
+thinking: I'm going to deploy",00:58:29.440,00:58:32.130
+this system.,00:58:32.130,00:58:33.810
+I don't have the test set.,00:58:33.810,00:58:35.620
+"So if you don't have the test set, you
+cannot possibly use those points in",00:58:35.620,00:58:38.630
+order to normalize.,00:58:38.630,00:58:40.020
+"So use only things that you will
+actually be able to use when you",00:58:40.020,00:58:43.230
+deploy the system.,00:58:43.230,00:58:44.650
+"In this case, you have
+only the training.",00:58:44.650,00:58:46.370
+"Now, the third manifestation of
+data snooping comes from the",00:58:49.130,00:58:53.170
+reuse of the data set.,00:58:53.170,00:58:54.840
+That is also very common.,00:58:54.840,00:58:57.060
+"So what you do, I give you
+a homework problem.",00:58:57.060,00:58:58.950
+"Oh, I am very excited about
+neural networks.",00:58:58.950,00:59:00.850
+Let me try neural networks.,00:59:00.850,00:59:01.910
+"Oops, they didn't work.",00:59:01.910,00:59:03.580
+"I heard support vector
+machines are better.",00:59:03.580,00:59:04.670
+Let me try them.,00:59:04.670,00:59:05.900
+"Yeah, I did, but it was
+the wrong kernel.",00:59:05.900,00:59:08.050
+Let me use the RBF kernel.,00:59:08.050,00:59:09.790
+"Oh, maybe I'm just using too
+sophisticated a model.",00:59:09.790,00:59:11.740
+"Let me go back to the linear models,
+and just use a nonlinear",00:59:11.740,00:59:13.980
+transformation.,00:59:13.980,00:59:14.960
+"And eventually, using the same
+data set, you will succeed.",00:59:14.960,00:59:22.855
+"And the best way to describe it is
+a very nice quote in machine learning.",00:59:25.690,00:59:30.160
+"It says, ""If you torture the data long
+enough, it will confess"", but exactly",00:59:30.160,00:59:42.740
+"the same way that a confession would
+mean nothing in this case.",00:59:42.740,00:59:48.760
+"So the problem here is that when you
+do this, you are increasing the VC",00:59:48.760,00:59:55.940
+dimension without realizing it.,00:59:55.940,00:59:57.400
+"I used neural networks and it didn't
+work, and then I used support vector",00:59:57.400,01:00:01.020
+machines with this and that.,01:00:01.020,01:00:02.140
+"Guess what is the final model
+you used in order to learn?",01:00:02.140,01:00:06.170
+The union of all of the above.,01:00:06.170,01:00:08.610
+"It's just that some of them
+happened to be rejected by",01:00:08.610,01:00:10.850
+the learning algorithm.,01:00:10.850,01:00:11.700
+"That's fine, but this is
+the resource you had.",01:00:11.700,01:00:14.540
+"So you think of the VC dimension, and
+the VC dimension is of the total",01:00:14.540,01:00:19.140
+learning model.,01:00:19.140,01:00:20.890
+"Again, as we will see, there will
+be remedies for data snooping, and",01:00:20.890,01:00:24.410
+"there is a question of-- it's not like I
+have to try a system, and when I fail,",01:00:24.410,01:00:28.690
+I just quit.,01:00:28.690,01:00:29.770
+That's not what is being said.,01:00:29.770,01:00:31.200
+"It's just asking you to account
+for what you have been doing.",01:00:31.200,01:00:33.830
+"Don't be fooled into thinking that I
+can do whatever, and then the final",01:00:33.830,01:00:37.920
+"guy that I use with a very simple model,
+after all the wisdom that I",01:00:37.920,01:00:40.760
+"accumulated from the data, is the VC
+dimension that I'm going to charge.",01:00:40.760,01:00:43.770
+That just doesn't work.,01:00:43.770,01:00:46.010
+"The interesting thing is that this could
+happen, not because you used",01:00:46.010,01:00:51.520
+"the data, but because others
+used the data.",01:00:51.520,01:00:53.620
+"Oh my God, it's really terrible here.",01:00:53.620,01:00:56.090
+Here's the deal.,01:00:56.090,01:00:57.330
+"You decide to try your methods
+on some data set.",01:00:57.330,01:01:00.720
+"So you go to one of the data sets
+available on the internet, let's say",01:01:00.720,01:01:03.420
+"for heart attacks or something, and
+you say, I am very aware of data",01:01:03.420,01:01:08.130
+"snooping, right?",01:01:08.130,01:01:09.120
+"I'm not going to look at the data, I'm
+not going to normalize using the data.",01:01:09.120,01:01:12.680
+"I'm going to get the data, and put them
+in a safe, and close the safe,",01:01:12.680,01:01:16.250
+"and I will just do my homework
+before I even touch the data.",01:01:16.250,01:01:20.160
+"And your homework is in the form of
+reading papers about other people who",01:01:20.160,01:01:24.480
+used the data set.,01:01:24.480,01:01:25.320
+"You want to get the wisdom, so
+you use this, and you find that",01:01:25.320,01:01:28.790
+"people realize that Boltzmann machines
+don't work in this case.",01:01:28.790,01:01:33.040
+"The best kernel for the SVM happens
+to be polynomial of order",01:01:33.040,01:01:38.550
+"three, whatever it is.",01:01:38.550,01:01:40.040
+"So you collect it, and you look
+at it, and then you have",01:01:40.040,01:01:42.160
+your own arsenal of things.,01:01:42.160,01:01:43.680
+"So as a starting point, you put
+a baseline based on the experience you",01:01:43.680,01:01:48.010
+"got, and you say that I'm
+going now to modify it.",01:01:48.010,01:01:50.150
+"Now you open the safe
+and get the data.",01:01:50.150,01:01:53.400
+Now you realize what happened.,01:01:53.400,01:01:55.590
+"You didn't look at the data, but you
+used something that was affected by",01:01:55.590,01:01:59.160
+"the data, through the work of others.",01:01:59.160,01:02:02.250
+"So in that case, don't be surprised that
+if all you did was determine",01:02:02.250,01:02:06.260
+"a couple of parameters, that's the only
+thing you added to the deal, and you",01:02:06.260,01:02:10.020
+got a great performance.,01:02:10.020,01:02:11.030
+"And you say, I have two parameters,
+VC dimension is 2, I have",01:02:11.030,01:02:14.660
+"7,000 points.",01:02:14.660,01:02:15.660
+"I must be doing great out of sample,
+and you go out of sample, and it",01:02:15.660,01:02:17.970
+doesn't happen.,01:02:17.970,01:02:19.550
+"Doesn't happen because actually, it's
+not the two parameters, it's all the",01:02:19.550,01:02:23.110
+decisions that led to that model.,01:02:23.110,01:02:24.793
+"And the key problem in all of those
+is always to remember that you are",01:02:27.530,01:02:30.560
+"matching a particular
+data set too well.",01:02:30.560,01:02:33.940
+You are now married to that data set.,01:02:33.940,01:02:35.990
+"You kept trying things, et cetera, and
+after a while, you know exactly what",01:02:35.990,01:02:40.010
+to do with this data set.,01:02:40.010,01:02:41.370
+"If someone comes and generates another
+data set from the same distribution,",01:02:41.370,01:02:44.220
+"and you look at it, it will look
+completely foreign to you.",01:02:44.220,01:02:46.490
+What happens?,01:02:46.490,01:02:48.200
+"It used to be that whenever these two
+points are close, there is always",01:02:48.200,01:02:50.700
+a point in the same line far away.,01:02:50.700,01:02:53.320
+"That's obviously an idiosyncrasy
+of the thing.",01:02:53.320,01:02:55.680
+"Now you give me a data set
+that doesn't have that.",01:02:55.680,01:02:57.170
+"That must be generated from
+a different distribution.",01:02:57.170,01:02:59.250
+"No, it's generated from
+the same distribution.",01:02:59.250,01:03:01.180
+"You just got too much into this data
+set, to the level where you are",01:03:01.180,01:03:04.550
+"starting to fit funny stuff,
+fitting the noise.",01:03:04.550,01:03:07.423
+"There are two remedies for data
+snooping, and I'm going to do this,",01:03:10.140,01:03:13.370
+"and then give you the final
+puzzle, and call it a day.",01:03:13.370,01:03:17.390
+"You avoid it, or you account for it.",01:03:17.390,01:03:22.080
+That's it.,01:03:22.080,01:03:23.820
+So avoiding it is interesting.,01:03:23.820,01:03:25.870
+It really requires strict discipline.,01:03:25.870,01:03:28.560
+"So I'll tell you a story
+from my own lab.",01:03:28.560,01:03:30.520
+"We were working on a problem, and
+performance was very critical, and we",01:03:30.520,01:03:33.320
+"were very excited about what we are
+having, all the ingredients that make",01:03:33.320,01:03:36.930
+you go for data snooping.,01:03:36.930,01:03:38.340
+You just want to push it a little bit.,01:03:38.340,01:03:40.355
+"We realized that this is the case,
+so we had that discipline that",01:03:40.355,01:03:43.100
+we'll take the data--,01:03:43.100,01:03:44.010
+"the first thing we did, we sampled
+points at random, put them in the",01:03:44.010,01:03:46.750
+"safe, and then the rest of the guys
+you can use for your training,",01:03:46.750,01:03:50.310
+"validation, whatever you want.",01:03:50.310,01:03:52.360
+"So at some point, one of my colleagues
+who was working on the problem",01:03:52.360,01:03:55.460
+"declared that they already have
+the final hypothesis ready.",01:03:55.460,01:03:57.290
+It was a neural network at that point.,01:03:57.290,01:03:59.570
+"So now I was the safe keeper, so now
+I'm supposed to give them the test",01:03:59.570,01:04:03.990
+"points, in order to see what
+the performance is like.",01:04:03.990,01:04:07.260
+"I smelled a rat, so what I decided, I
+asked them, could you please send me",01:04:07.260,01:04:12.760
+"the weights of the final hypothesis
+before I send you the data set?",01:04:12.760,01:04:17.500
+"That was the requirement, because
+now it's completely clear.",01:04:17.500,01:04:20.360
+"He's committed to one
+final hypothesis.",01:04:20.360,01:04:22.880
+"If I send him the data set and he says
+it performed great, I can verify that",01:04:22.880,01:04:26.480
+because he has already sent me that.,01:04:26.480,01:04:27.780
+"It's a question of causality
+in this case.",01:04:27.780,01:04:30.170
+"And the problem is that it is
+not that difficult to come--",01:04:30.170,01:04:32.930
+"Here is the data set, and what you
+really had, you had the candidate, but",01:04:32.930,01:04:37.230
+"you had three other guys that
+are in the running.",01:04:37.230,01:04:40.420
+"And then you look at the data, and you
+decide, maybe I get one from the",01:04:40.420,01:04:43.940
+"running, et cetera.",01:04:43.940,01:04:45.280
+You can do very little.,01:04:45.280,01:04:47.070
+"And in particular, in financial
+applications, it's extremely",01:04:47.070,01:04:50.086
+"vulnerable, because it's so noisy.",01:04:50.086,01:04:52.180
+"It is very easy when you fit the noise
+a little bit, you will make much",01:04:52.180,01:04:56.380
+"better performance than you will ever
+get from the pattern, so you had",01:04:56.380,01:04:59.590
+better be extremely careful.,01:04:59.590,01:05:01.630
+"And therefore, you have a discipline
+that really is completely waterproof",01:05:01.630,01:05:05.890
+that you did not data-snoop.,01:05:05.890,01:05:08.400
+"Accounting for data snooping is not
+that bad, because we already did",01:05:08.400,01:05:11.070
+"a theory, and when we have a finite number
+of hypotheses we are choosing",01:05:11.070,01:05:14.560
+"from for validation, we know
+the level of contamination.",01:05:14.560,01:05:17.540
+"Even if it's an infinite one,
+we have the VC dimension.",01:05:17.540,01:05:19.840
+"We had very nice guidelines to tell us
+how much contamination happened.",01:05:19.840,01:05:24.150
+"The most vulnerable part is looking at
+the data, because it's very difficult",01:05:24.150,01:05:29.340
+"to model yourself and say, what is the
+hypothesis set that I explored, in",01:05:29.340,01:05:33.630
+"order to come up with that model
+by looking at the data?",01:05:33.630,01:05:36.320
+"So because accounting is very difficult,
+that's why I keep raising",01:05:36.320,01:05:39.570
+a flag about looking at the data.,01:05:39.570,01:05:41.230
+"But if you can account, by all means,
+that's all you need to do.",01:05:41.230,01:05:44.280
+"Look at the data all you want, just
+charge accordingly, and you will be",01:05:44.280,01:05:47.530
+"completely safe as far as machine
+learning is concerned.",01:05:47.530,01:05:50.400
+"Final puzzle, and we call it a day.",01:05:50.400,01:05:53.960
+"And we are still in data snooping,
+so maybe this has to do with data",01:05:53.960,01:05:58.050
+"snooping, but it also has to do
+with sampling bias, so it's",01:05:58.050,01:06:00.980
+an interesting puzzle.,01:06:00.980,01:06:03.500
+"This is a case where you are testing
+the long-term performance of",01:06:03.500,01:06:07.740
+"a famous strategy in trading, which
+is called ""buy and hold"".",01:06:07.740,01:06:13.760
+What does it mean?,01:06:13.760,01:06:14.360
+You buy and hold.,01:06:14.360,01:06:16.230
+"You don't keep-- I'm going to sell
+today, because it's going down.",01:06:16.230,01:06:18.640
+"No, you just buy, and sit
+on it, forget about it.",01:06:18.640,01:06:20.610
+It's like a pension plan or something.,01:06:20.610,01:06:22.530
+"And five years later, you look
+at it and see what happens.",01:06:22.530,01:06:25.630
+"So you want to see how much money
+you make out of this.",01:06:25.630,01:06:28.110
+"So what you do is you decide to
+use 50 years worth of data.",01:06:28.110,01:06:31.890
+"That's usually a good life span in
+a professional life, so that will cover",01:06:31.890,01:06:34.930
+"how much money you make at the time
+you retire, from the time you start",01:06:34.930,01:06:37.620
+contributing to it.,01:06:37.620,01:06:39.090
+So here is the way you do the test.,01:06:39.090,01:06:41.140
+"You want the test to be as broad as
+possible, so you go for the S&amp;P 500.",01:06:41.140,01:06:44.170
+"You take all currently traded
+stocks, the 500 of them.",01:06:44.170,01:06:48.720
+"And then you go back, and you assume that
+you strictly applied a buy and",01:06:48.720,01:06:52.200
+hold for all of them.,01:06:52.200,01:06:54.670
+"So don't be tempted to say that I'm
+going now to modify it, because this",01:06:54.670,01:06:58.570
+"guy crashed at some point, so if I sold
+and then bought again, I would",01:06:58.570,01:07:01.720
+make more money.,01:07:01.720,01:07:02.040
+"No, no, no.",01:07:02.040,01:07:02.420
+It's buy and hold we are testing.,01:07:02.420,01:07:04.050
+That was frozen.,01:07:04.050,01:07:05.110
+"So you do this, and then you compute,
+and you find that you will make",01:07:05.110,01:07:08.050
+fantastic profit.,01:07:08.050,01:07:09.230
+"And you compute, if I do this-- you are
+now young in your career-- and",01:07:09.230,01:07:12.060
+"apply it, by the time I retire,
+I will have a couple of yachts",01:07:12.060,01:07:15.060
+and I will do this.,01:07:15.060,01:07:15.910
+It's a wonderful thing.,01:07:15.910,01:07:17.160
+Can you see the problem?,01:07:19.430,01:07:22.060
+"You are very well trained now,
+so you can detect it.",01:07:22.060,01:07:25.380
+"The problem is there is a sampling bias,
+formally speaking, because you",01:07:25.380,01:07:29.530
+looked at the currently traded stock.,01:07:29.530,01:07:34.210
+"That obviously excludes the guys that
+were there and took a dive, and that",01:07:34.210,01:07:39.870
+"obviously puts you at
+a very unfair advantage.",01:07:39.870,01:07:43.290
+"And it's interesting that people do
+treat this not as a sampling bias but",01:07:43.290,01:07:47.250
+"as a data snooping, in spite of the
+fact that it doesn't fit our",01:07:47.250,01:07:50.210
+definition of data snooping.,01:07:50.210,01:07:51.890
+"It does fit the definition of snooping,
+because you looked at the",01:07:51.890,01:07:56.400
+future when you are here.,01:07:56.400,01:07:57.340
+"It's as if you are looking 50 years from
+now, and someone tells you which",01:07:57.340,01:08:01.380
+stocks will be traded at that point.,01:08:01.380,01:08:03.450
+So that's not allowed.,01:08:03.450,01:08:04.950
+"But nonetheless, some people will
+treat this as data snooping.",01:08:04.950,01:08:07.510
+"In our context, this is formally just
+sampling bias, and sampling bias that",01:08:07.510,01:08:12.260
+"happens to be created or caused
+by a form of snooping.",01:08:12.260,01:08:16.779
+"I will stop here, and we will take
+questions after a short break.",01:08:16.779,01:08:20.350
+Let's start the Q&amp;A.,01:08:30.050,01:08:34.359
+"MODERATOR: In the last one homework
+that people were using LIBSVM, it",01:08:34.359,01:08:37.770
+"emphasized the fact that data should be
+scaled, so why did we not discuss",01:08:37.770,01:08:42.220
+"this in the course, or what?",01:08:42.220,01:08:46.279
+"PROFESSOR: There are
+many things I did not",01:08:46.279,01:08:47.370
+discuss in the course.,01:08:47.370,01:08:48.399
+"I had a budget of 18 lectures,
+and I chose what I consider",01:08:48.399,01:08:53.590
+to be the most important.,01:08:53.590,01:08:55.090
+"There is a question of input data
+processing, and there is a question",01:08:55.090,01:09:00.700
+"not only of normalization, it's also
+a question of de-correlation of inputs",01:09:00.700,01:09:03.700
+"and whatnot, which is
+a practical matter.",01:09:03.700,01:09:06.680
+"And the fact that I did not cover
+something doesn't mean",01:09:09.210,01:09:11.420
+that it's not important.,01:09:11.420,01:09:12.330
+"It just means that it's a constrained
+optimization problem, and you have the",01:09:12.330,01:09:17.540
+"solution, and I have to have
+a feasible solution.",01:09:17.540,01:09:20.340
+So that's what I have.,01:09:20.340,01:09:21.990
+I think we have an in-house question.,01:09:21.990,01:09:25.330
+STUDENT: Thanks.,01:09:25.330,01:09:26.120
+"Professor, you mentioned that if you
+reuse the same data set to compare",01:09:26.120,01:09:29.819
+"between different models, it's
+a form of data snooping.",01:09:29.819,01:09:34.380
+"So how do we know what form
+of model is better?",01:09:34.380,01:09:38.680
+"PROFESSOR: The part of it which
+is formally data snooping is the",01:09:38.680,01:09:41.359
+"part where you used the failure of the
+previous model to direct you to the",01:09:41.359,01:09:47.370
+"choice of the new model, without
+accounting for the VC dimension of",01:09:47.370,01:09:51.930
+having done that.,01:09:51.930,01:09:53.640
+"So effectively, it's not you that looked
+at the data, but the previous",01:09:53.640,01:09:57.400
+"model looked at the data and made
+a decision, and you didn't charge for it.",01:09:57.400,01:10:01.970
+"So that is the data-snooping
+aspect of it.",01:10:01.970,01:10:05.190
+If you did this as a formal hierarchy.,01:10:05.190,01:10:07.820
+"You start out, here is the data
+set, I don't look at it.",01:10:07.820,01:10:10.620
+"I'm going to start with support vector
+machines with RBF, and then if I fail,",01:10:10.620,01:10:14.750
+"I'm going to do this, et cetera.",01:10:14.750,01:10:16.410
+"And given that this is my hierarchy,
+the effective VC dimension is",01:10:16.410,01:10:20.560
+"whatever, this is completely
+legitimate.",01:10:20.560,01:10:22.820
+"The snooping part is using the data for
+something without accounting for",01:10:22.820,01:10:28.910
+"it-- in this case, using the data for
+rejecting certain models and directing",01:10:28.910,01:10:32.750
+yourself to other models.,01:10:32.750,01:10:34.410
+STUDENT: Yes.,01:10:34.410,01:10:34.800
+"So by accounting for the data snooping,
+do you mean you consider the",01:10:34.800,01:10:42.030
+"effective VC dimension of your entire
+model, and use a much larger data set",01:10:42.030,01:10:46.870
+for your entire model?,01:10:46.870,01:10:47.840
+"PROFESSOR: You'll get the VC dimension,
+so if the VC",01:10:47.840,01:10:50.460
+"dimension is so big that the current
+number, the amount of data set, won't",01:10:50.460,01:10:53.560
+"give you any generalization, the
+conclusion is that I won't be able to",01:10:53.560,01:10:56.560
+"generalize unless I get more data,
+which is what you're suggesting.",01:10:56.560,01:10:59.330
+"So the basic thing is that you are going
+to learn, and you are going to",01:10:59.330,01:11:03.300
+finally hand a hypothesis to someone.,01:11:03.300,01:11:07.360
+"What do you expect in terms
+of performance?",01:11:07.360,01:11:10.150
+"Data snooping makes you much more
+optimistic than you should, because",01:11:10.150,01:11:13.920
+"you didn't charge for things that
+you should have charged for.",01:11:13.920,01:11:16.500
+That's the only statement being made.,01:11:16.500,01:11:18.180
+"STUDENT: Is there a possibility that
+data snooping will make you",01:11:18.180,01:11:20.970
+"pessimistic, will make you
+more conservative?",01:11:20.970,01:11:26.370
+"PROFESSOR: I can probably construct
+deliberate scenarios under",01:11:26.370,01:11:31.470
+"which this is the case, but in all the
+problems that I have seen, people are",01:11:31.470,01:11:38.090
+always eager to get good performance.,01:11:38.090,01:11:41.900
+"That is the inherent bias, and that is
+what directs you toward something",01:11:41.900,01:11:45.090
+"optimistic, because you do something
+that gets you smaller in-sample error,",01:11:45.090,01:11:48.720
+"and you think now that this in-sample
+error is relevant, but you didn't",01:11:48.720,01:11:52.290
+"account for what it cost you to
+get to that in-sample error.",01:11:52.290,01:11:54.490
+"So it's always in the optimistic
+direction.",01:11:54.490,01:11:56.300
+STUDENT: Yes.,01:11:56.300,01:11:56.670
+Thank you.,01:11:56.670,01:11:57.310
+PROFESSOR: Sure.,01:11:57.310,01:11:58.560
+"MODERATOR: Assuming that there is
+sampling bias, can you discuss how can",01:12:02.850,01:12:07.030
+you get around it?,01:12:07.030,01:12:08.540
+"PROFESSOR: So we discussed
+it a little bit.",01:12:08.540,01:12:10.720
+"If there is a sampling bias, if you
+know the distributions, you can--",01:12:10.720,01:12:16.166
+let me look at the--,01:12:16.166,01:12:19.090
+"so in this case, let's say that I
+give you these distributions.",01:12:19.090,01:12:23.370
+"What this means, you generated the data
+according to the blue curve, and",01:12:23.370,01:12:27.970
+"therefore, you will get
+some data here.",01:12:27.970,01:12:30.470
+"So what is clear, for example, is that
+the data that correspond to the center",01:12:30.470,01:12:35.600
+"of the red curve, which is the
+test, are under-represented in",01:12:35.600,01:12:38.670
+the training set.,01:12:38.670,01:12:40.630
+"And on the other hand, the data that
+are here are over-represented.",01:12:40.630,01:12:44.390
+"The blue curve is much bigger, it
+will give you some samples.",01:12:44.390,01:12:47.200
+"It will hardly ever be the case
+that you will get that",01:12:47.200,01:12:49.200
+sample from the testing.,01:12:49.200,01:12:51.880
+"So what you do,",01:12:51.880,01:12:52.840
+"you devise a way of scaling,
+or giving importance--",01:12:52.840,01:12:56.700
+"not scaling the y value, just scaling
+the emphasis of the examples--",01:12:56.700,01:13:01.100
+"such that you compensate for this
+discrepancy, as if you are coming from",01:13:01.100,01:13:04.390
+"here, and there are some re-sampling
+methods to do the same effect.",01:13:04.390,01:13:07.400
+So this is one approach.,01:13:07.400,01:13:09.760
+"The other approach, which is in the
+absence of those guys, is to look at",01:13:09.760,01:13:14.100
+"the input space in terms
+of coordinates.",01:13:14.100,01:13:17.510
+"Let's say that with the case of the
+Netflix, you look at, for example,",01:13:17.510,01:13:22.530
+"users rated a certain
+number of movies.",01:13:22.530,01:13:25.760
+"Some of them are heavy users, and
+some of them are light users.",01:13:25.760,01:13:28.690
+"So you put how many movies a user rated,
+and you try to see that in the",01:13:28.690,01:13:35.450
+"training and in the test, you have
+equivalent distribution as far as the",01:13:35.450,01:13:40.280
+number of ratings are concerned.,01:13:40.280,01:13:41.970
+"And you look for another coordinate and
+a third coordinate, and you try to",01:13:41.970,01:13:45.550
+match these coordinates.,01:13:45.550,01:13:46.910
+"This is an attempt to basically take
+a peek at the distribution, the real",01:13:46.910,01:13:51.160
+"distributions that we don't know, in
+terms of the realization along",01:13:51.160,01:13:53.960
+coordinates that we can relate to.,01:13:53.960,01:13:55.700
+"So there are some methods to do that.
+Basically, you are compensating by",01:13:55.700,01:14:00.380
+"doing something to the training set you
+have, to make it look more like it",01:14:00.380,01:14:03.910
+was coming from the test distribution.,01:14:03.910,01:14:06.420
+"MODERATOR: Is there any counter
+example to Occam's razor?",01:14:09.710,01:14:13.430
+PROFESSOR: Is there--,01:14:13.430,01:14:14.790
+"MODERATOR: Counter example
+to Occam's razor or not?",01:14:14.790,01:14:17.740
+"PROFESSOR: It's statistically
+speaking in what we--",01:14:17.740,01:14:20.650
+"I can take a case where I violate
+the marriage between the",01:14:20.650,01:14:28.000
+"complexity of an object and the
+complexity of the set that belongs to",01:14:28.000,01:14:32.190
+the object.,01:14:32.190,01:14:32.620
+"So I can take one hypothesis which is
+extremely sophisticated in terms of",01:14:32.620,01:14:37.930
+"the minimum description length or the
+order of the polynomial, but it",01:14:37.930,01:14:41.280
+"happens to be the only hypothesis
+in my hypothesis set.",01:14:41.280,01:14:48.480
+"Now, if this happens to be close to
+your target function, you will be",01:14:48.480,01:14:52.170
+"doing great, in spite of
+the fact that it's complex.",01:14:52.170,01:14:54.970
+"So I can create things where I start
+violating certain things like that.",01:14:54.970,01:14:59.530
+"But in the absence of further
+knowledge, and in very concrete",01:14:59.530,01:15:05.060
+"statistical terms, Occam's
+razor holds.",01:15:05.060,01:15:08.900
+"So the idea is that when you use
+something simpler, on average, you",01:15:08.900,01:15:14.860
+will be getting a better performance.,01:15:14.860,01:15:16.190
+That's the conclusion here.,01:15:16.190,01:15:19.200
+"MODERATOR: Specifically talking about
+applications in computer vision and",01:15:19.200,01:15:23.125
+"the idea of sampling bias comes to mind,
+is there any particular method",01:15:23.125,01:15:27.870
+"used there to correct this, or just
+any of the things we discussed?",01:15:27.870,01:15:32.600
+"PROFESSOR: I think it's the same
+as discussed, just",01:15:32.600,01:15:34.780
+applied to the domain.,01:15:34.780,01:15:37.870
+"Sometimes the method becomes very
+particular when you look at what type",01:15:37.870,01:15:40.630
+"of features you extract in
+a particular domain, and",01:15:40.630,01:15:43.810
+"therefore, it gets modified
+in that way.",01:15:43.810,01:15:45.730
+"But the principle of it is that you take
+the data points from your sample,",01:15:45.730,01:15:50.590
+"and give them either different weight
+or different re-sampling, such that",01:15:50.590,01:15:54.000
+"you replicate what would have happened
+if you were sampling from the test",01:15:54.000,01:15:58.390
+distribution.,01:15:58.390,01:15:59.640
+MODERATOR: I think that's it.,01:16:02.110,01:16:03.870
+"PROFESSOR: Very good.
+We'll see you on Thursday.",01:16:03.880,01:16:05.910

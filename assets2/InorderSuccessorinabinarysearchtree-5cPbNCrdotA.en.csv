@@ -1,0 +1,511 @@
+text,start,stop
+"In this lesson, we're going to solve
+another interesting problem on binary",00:00:00.420,00:00:03.459
+search tree,00:00:03.459,00:00:04.460
+"and the problem is, given a node in a
+binary search tree",00:00:04.460,00:00:08.830
+"we need to find its inorder successor
+i.e. the node that would come",00:00:08.830,00:00:13.030
+"immediately after the given node in
+inorder traversal of the binary search",00:00:13.030,00:00:17.270
+tree.,00:00:17.270,00:00:17.980
+"As we know, in inorder traversal of a
+binary tree",00:00:17.980,00:00:21.500
+"we first visit the left subtree then
+that root",00:00:21.500,00:00:24.740
+"and then the right subtree. Left and
+right subtrees are visited recursively",00:00:24.740,00:00:29.029
+"in same manner. So for each node, we
+first visit its left subtree",00:00:29.029,00:00:33.460
+"then the node itself and then its right
+subtree.",00:00:33.460,00:00:36.649
+"We have already thiscussed inorder
+traversal in detail in a previous lesson",00:00:36.649,00:00:41.010
+in the series.,00:00:41.010,00:00:41.769
+"You can check the description of the
+video of a link to it.",00:00:41.769,00:00:45.030
+"Inorder implementation will basically
+be a recursive function",00:00:45.030,00:00:49.219
+"something like what I'am showing in right
+here. There are two recursive calls in",00:00:49.219,00:00:54.089
+this function.,00:00:54.089,00:00:54.819
+"One to visit the left subtree had
+another to visit the right subtree.",00:00:54.819,00:00:59.289
+"Time complexity of inorder traversal is
+O(N)",00:00:59.289,00:01:03.059
+where n is number of nodes in the tree.,00:01:03.059,00:01:06.220
+We visit each not exactly once. So,00:01:06.220,00:01:09.580
+"time taken is proportional to a
+number of nodes in the tree.",00:01:09.580,00:01:13.160
+"I have drawn a binary search tree of
+integers here.",00:01:13.160,00:01:16.160
+"Binary search tree, as we know is a
+binary tree",00:01:16.160,00:01:19.420
+"in which for each node value of nodes and
+left his lesser",00:01:19.420,00:01:23.250
+"and value of nodes in right is greater.
+Let's quickly see what will be",00:01:23.250,00:01:27.760
+"the inorder traversal for this binary
+search tree. We will start at root of the",00:01:27.760,00:01:31.930
+tree.,00:01:31.930,00:01:32.330
+"Now for any node, we first need to visit",00:01:32.330,00:01:35.590
+"all nodes in its left and then only we
+can visit that node",00:01:35.590,00:01:39.260
+"so we'll have to go left. Basically,",00:01:39.260,00:01:42.510
+"we will make a recursive calls to
+go to left child of this node.",00:01:42.510,00:01:45.930
+"For this guy once again we have
+something left,",00:01:45.930,00:01:49.010
+"so we will make another recursive call and
+go to its left child.",00:01:49.010,00:01:53.170
+Now we are at this node with value 8,00:01:53.170,00:01:56.440
+"and they will have to go left one more
+time",00:01:56.440,00:01:59.460
+"and now for this node with value 6 which
+is a leaf node",00:01:59.460,00:02:03.220
+"we have nothing left. So they can
+simply say that it's left subtree is",00:02:03.220,00:02:07.520
+done,00:02:07.520,00:02:08.149
+"and hence we can visit the guy. Visiting
+for me",00:02:08.149,00:02:12.280
+"is reading the data in that node. I'll
+write to data here",00:02:12.280,00:02:16.310
+"and now for this node, there is nothing in right
+as well",00:02:16.310,00:02:20.010
+"so we can simply say that it's right is also
+done and now we're completely done for",00:02:20.010,00:02:25.010
+this guy.,00:02:25.010,00:02:25.719
+"So recursive call corresponding to
+this node",00:02:25.719,00:02:29.469
+will finish and we will go back to,00:02:29.469,00:02:32.760
+call corresponding to its parent.,00:02:32.760,00:02:36.370
+"If we will come back to a node from its
+left child",00:02:36.370,00:02:40.090
+"then it would be unvisited because
+we can't visit a node until its left is",00:02:40.090,00:02:44.920
+done.,00:02:44.920,00:02:45.510
+"So when you coming back to 8, 8 is
+unvisited",00:02:45.510,00:02:48.850
+so we can simply visit this node that is,00:02:48.850,00:02:52.380
+"read the data in this node. When I'll 
+visit a node, I'll",00:02:52.380,00:02:55.700
+"paint it in yellow and now there's
+nothing in right of this node",00:02:55.700,00:02:59.670
+"so we can simply say that right is done.
+Now we are done with this nodes, so",00:02:59.670,00:03:03.980
+"call corresponding to this node will
+finish and we will go back",00:03:03.980,00:03:08.690
+"to its parent. Once again we're
+coming back to the parent",00:03:08.690,00:03:13.000
+"from the left, so the parent that
+is this node with value 10 is",00:03:13.000,00:03:17.530
+unvisited.,00:03:17.530,00:03:18.280
+"If we would come back to a node from
+right then it would already be visited,",00:03:18.280,00:03:23.040
+"so I'm visiting 10 and now we can go
+to right of 10.",00:03:23.040,00:03:27.020
+So far we have visited 3 nodes.,00:03:27.020,00:03:30.250
+"We first visited node with value 6 and
+then be visited node to value",00:03:30.250,00:03:35.080
+"8, so 8 is successor of 6",00:03:35.080,00:03:38.800
+and then 10 is successor of 8.,00:03:38.800,00:03:42.780
+"Now let's see what will be the successor
+of 10. For nodes with values",00:03:42.780,00:03:47.040
+"6 and 8 there was nothing in right, so",00:03:47.040,00:03:50.340
+"we were unwinding and going to the 
+parent but for a node if there would be",00:03:50.340,00:03:55.120
+"something in right that is if there
+would be a right subtree",00:03:55.120,00:03:58.650
+"and then its successor would definitely
+be in its right subtree",00:03:58.650,00:04:02.870
+"because after visiting that node
+we will go right. Now at the stage, we",00:04:02.870,00:04:07.490
+are at this node with value 12. For this guy,00:04:07.490,00:04:10.860
+"we will first go left and now we are
+at node with value 11 which is",00:04:10.860,00:04:15.310
+"a leaf node. There's nothing left so we
+can simply say that left is done",00:04:15.310,00:04:20.489
+"and we can print the data that is visit
+this node so",00:04:20.489,00:04:24.400
+"inorder successor of 10 is 11. Now
+for node with value 11, there is nothing",00:04:24.400,00:04:29.250
+in right.,00:04:29.250,00:04:29.880
+"So we will go back to this parent and
+now we can visit this guy.",00:04:29.880,00:04:34.410
+"So after 11, we have 12. There's nothing
+in right of 12",00:04:34.410,00:04:39.440
+"so called for this guy will finish and we
+will go to its parent.",00:04:39.440,00:04:43.450
+"Now we're coming back to 10 again but
+this time from",00:04:43.450,00:04:46.970
+right so this guy is already visited. So,00:04:46.970,00:04:51.080
+"we need not do anything. We can simply go to
+its parent and now we are at this node",00:04:51.080,00:04:55.990
+with,00:04:55.990,00:04:56.270
+"value 15. We are coming from left. This
+guy is",00:04:56.270,00:04:59.800
+"unvisited so we can visit it and now
+we can go to its right.",00:04:59.800,00:05:06.800
+"We will go on like this.Successor of 15
+would be",00:05:07.830,00:05:12.070
+16 and after 16,00:05:12.070,00:05:15.890
+we will print 17 and then,00:05:15.890,00:05:19.650
+after 17 we will print 20,00:05:19.650,00:05:22.720
+then 25 and the last element would be,00:05:22.720,00:05:27.080
+"27. So this is an inorder traversal of this
+binary search tree.",00:05:27.080,00:05:32.710
+"Noticed that we have printed the
+integers in sorted order.",00:05:32.710,00:05:35.970
+"When we perform inorder traversal on
+a binary search tree",00:05:35.970,00:05:40.290
+"then elements are visited in sorted
+order. Now the problem is that we want to",00:05:40.290,00:05:45.150
+solve this given,00:05:45.150,00:05:46.440
+"a value in the tree, we want to find
+its",00:05:46.440,00:05:49.730
+"inorder successor. In a binary search
+tree,",00:05:49.730,00:05:52.950
+"it would be the next higher value in the
+tree",00:05:52.950,00:05:55.970
+"but what's the big deal here.
+Can't we just perform inorder traversal",00:05:55.970,00:06:00.050
+"and while performing the traversal
+figure out the successor.",00:06:00.050,00:06:03.330
+"Well we can do so but it will be
+expensive.",00:06:03.330,00:06:07.010
+"Running time of inorder is 
+O(N)",00:06:07.010,00:06:10.310
+"and we may want to do better. Finding
+next and previous element in some data",00:06:10.310,00:06:15.350
+"could be a frequently performed
+operation and good thing about binary",00:06:15.350,00:06:20.090
+"search tree is that frequently performed
+operations like",00:06:20.090,00:06:23.150
+"insertion and deletion and search happen
+in",00:06:23.150,00:06:26.930
+"O(H) where H is height of the tree. So it
+would be good if we are able to find a",00:06:26.930,00:06:32.450
+successor,00:06:32.450,00:06:33.250
+"and predecessor in O(H). We always
+try to keep",00:06:33.250,00:06:37.880
+"a tree balanced to minimize its height.
+Height of",00:06:37.880,00:06:41.690
+up balanced binary tree is log,00:06:41.690,00:06:44.900
+N to base 2 and O(log N),00:06:44.900,00:06:48.000
+"running time for any operation is
+almost",00:06:48.000,00:06:51.390
+"the best running time that we can have.
+So can we find inorder successor in",00:06:51.390,00:06:56.030
+O(H).,00:06:56.030,00:06:56.860
+"I have redrawn example tree here.
+Let's see what we can to do in",00:06:56.860,00:07:01.950
+various cases.,00:07:01.950,00:07:02.600
+"What node would we visit after this
+node with value 10.",00:07:02.600,00:07:06.080
+"Can we deduced this logically. Well, if
+you remember the simulation of inorder",00:07:06.080,00:07:10.940
+traversal that we had done earlier,00:07:10.940,00:07:12.970
+"and then if we have already visited this
+node",00:07:12.970,00:07:16.210
+"then we are done with its left subtree and
+we have",00:07:16.210,00:07:19.780
+"read the data in this node and we need to
+go right.",00:07:19.780,00:07:23.220
+"Now in the right subtree, we will have
+to go left",00:07:23.220,00:07:27.990
+"as long as it's possible to go and if we
+can't go left anymore",00:07:27.990,00:07:32.940
+"like here, there's nothing left of this
+node with value 11",00:07:32.940,00:07:36.690
+"then this is the node that I am visiting next.
+So for a node if there",00:07:36.690,00:07:41.460
+"is rightsubtree then inorder successor
+would be to left most node",00:07:41.460,00:07:46.530
+in its right subtree. In a BST it would be,00:07:46.530,00:07:50.460
+"the node with minimum value in its right
+subtree. I would say this is case one.",00:07:50.460,00:07:55.560
+"In this case, all we need to do is we
+need to go as left as possible in right",00:07:55.560,00:08:01.080
+subtree.,00:08:01.080,00:08:01.870
+"In a BST it will also mean finding the
+minimum in right subtree",00:08:01.870,00:08:06.080
+"left most node will also be the minimum
+in the subtree.",00:08:06.080,00:08:10.270
+"Now this is one case our node here has
+right subtree.",00:08:10.270,00:08:14.030
+"What would be the successor if there
+would be no right subtree.",00:08:14.030,00:08:17.740
+"What node would we visit after this
+node with",00:08:17.740,00:08:21.140
+"value 8. This guy does not have right
+subtree.",00:08:21.140,00:08:24.680
+"If we have already visited this guy,
+then we have already visited its left",00:08:24.680,00:08:28.750
+"and this node itself and there is
+nothing in right, so we can see that",00:08:28.750,00:08:33.160
+right is also visited,00:08:33.160,00:08:34.500
+"but we have not found a successor yet.
+Now where do we go from here.",00:08:34.500,00:08:39.140
+"Well, if you remember the simulation that
+we had done",00:08:39.140,00:08:42.610
+"earlier. We need to go to the parent of
+this node",00:08:42.610,00:08:45.760
+"and if we are going to the parent from
+left",00:08:45.760,00:08:49.000
+"which is the case here then the
+parent would be unvisited.",00:08:49.000,00:08:52.850
+"For this node with value 10, we just
+finished its left subtree and we're coming",00:08:52.850,00:08:58.080
+back.,00:08:58.080,00:08:58.610
+"So now we can visit to node. So this
+is my successor.",00:08:58.610,00:09:02.690
+"Let's now pick another node with no
+right subtree.",00:09:02.690,00:09:06.560
+"What would be inorder successor of this
+node that value 12.",00:09:06.560,00:09:10.250
+"What node would be visit next. Now here,
+once again",00:09:10.250,00:09:14.350
+"we donot have a right subtree for this
+node so",00:09:14.350,00:09:18.220
+"we must go back to its parent and see
+if it's",00:09:18.220,00:09:21.730
+"unvisited. But if we're going to
+the parent from",00:09:21.730,00:09:24.970
+"right, if the node that we just visited is
+the right child",00:09:24.970,00:09:29.380
+"which is the case here, then the 
+parent would already be visited",00:09:29.380,00:09:33.820
+"because we are coming back after
+visiting its right subtree.",00:09:33.820,00:09:37.320
+"This node must have been visited before
+going right.",00:09:37.320,00:09:40.680
+"So what should we do. Now the recursion
+will",00:09:40.680,00:09:43.839
+"rollback further and we need to go to
+parent of 10",00:09:43.839,00:09:47.930
+"and now we're going to 15 from left. So
+this guy is",00:09:47.930,00:09:51.360
+"unvisited. So we can visit this node
+and this is my successor.",00:09:51.360,00:09:56.360
+"If the node does not have the right
+subtree, we need to go to the nearest",00:09:56.360,00:10:00.340
+ancestor for which given node would be,00:10:00.340,00:10:04.110
+in its left subtree. Here for 12,00:10:04.110,00:10:07.480
+"the first went to 10 but 12 is in right
+subtree of 10",00:10:07.480,00:10:11.380
+so we went the next ancestor 15,00:10:11.380,00:10:14.520
+"and 12 is in left of 15, so",00:10:14.520,00:10:17.880
+"this is the nearest ancestor for a
+which 12",00:10:17.880,00:10:20.960
+"is in left and hence this is my inorder
+successor.",00:10:20.960,00:10:24.300
+"This algorithm works fine but there is an
+issue.",00:10:24.300,00:10:27.680
+how do we go from a node to its parent.,00:10:27.680,00:10:30.740
+"Well, we can design a tree such that node
+can have",00:10:30.740,00:10:35.110
+"reference to its parent. So far in most
+lessons, we have defined",00:10:35.110,00:10:39.990
+"node as a structure with 3 fields
+something like this.",00:10:39.990,00:10:44.560
+"This is how we would define node in C or
+C++.",00:10:44.560,00:10:48.150
+"We have one field to store data and we
+have two pointers to node",00:10:48.150,00:10:52.280
+to store reference or addresses,00:10:52.280,00:10:55.780
+"of left and right children. Often it
+makes a lot of sense to have",00:10:55.780,00:11:00.090
+one more feed to store the address of,00:11:00.090,00:11:03.210
+"parent. We can design a tree like this
+and then they will not have",00:11:03.210,00:11:06.850
+"problem walking the tree up using parent
+link.",00:11:06.850,00:11:10.670
+"We can easily go to the ancestors but
+what if there is no link to parent.",00:11:10.670,00:11:15.840
+"In this case what we can do is we can
+start at root and",00:11:15.840,00:11:19.750
+"walk the tree from root to the given
+node.",00:11:19.750,00:11:23.080
+"In a BST this is really easy. For 12
+we will start at root.",00:11:23.080,00:11:28.000
+"12 is lesser than value in root so we 
+need to go left",00:11:28.000,00:11:32.890
+"and now we are 10. Now 12 is greater
+than 10, so we need to go right",00:11:32.890,00:11:37.720
+"and now we are 12. If we will walk the
+tree",00:11:37.720,00:11:42.020
+"from root to the given node. We will go through
+all the ancestors of two given node.",00:11:42.020,00:11:46.810
+"Inorder successor would be the deepest
+node or deepest ancestors in this path",00:11:46.810,00:11:52.530
+"for which given node would be in left
+subtree.",00:11:52.530,00:11:56.490
+12 has only two ancestors. We have 10,00:11:56.490,00:12:00.050
+"but 12 is in right of 10 and then the
+15 and 12 is in left of 15",00:12:00.050,00:12:05.600
+"so 15 as my successor. Now let's use this
+technique to find successor of",00:12:05.600,00:12:11.270
+"6. We will first walk down from root to
+this node.",00:12:11.270,00:12:15.240
+"6 is in left for all the ancestors but the
+deepest ancestor for which 6 in left",00:12:15.240,00:12:21.730
+"is this node with value 8. So this is my
+successor.",00:12:21.730,00:12:25.910
+Remember we need to look at ancestors,00:12:25.910,00:12:30.060
+"only if the is no right subtree. For 6
+that is no right subtree.",00:12:30.060,00:12:34.560
+"Okay so algorithm looks good. Let's now
+write code for this.",00:12:34.560,00:12:39.000
+"In my C++ code here, I am going
+to write a function named",00:12:39.000,00:12:42.720
+"Getsuccessor that will take address of
+root",00:12:42.720,00:12:46.010
+"node and address of another node for
+which we need to find a successor",00:12:46.010,00:12:50.970
+and this function will return address,00:12:50.970,00:12:54.040
+"of the successor node. We could
+design this function differently.",00:12:54.040,00:12:58.860
+"Instead of taking pointer to the node
+for which we want to find a successor as",00:12:58.860,00:13:03.120
+"argument, we could",00:13:03.120,00:13:04.170
+"just take that data as argument and
+for this data",00:13:04.170,00:13:08.450
+"for this element we can find a successor
+node and",00:13:08.450,00:13:12.020
+"return its address and that's why the
+return type here is",00:13:12.020,00:13:16.010
+struct node* because we will be,00:13:16.010,00:13:19.860
+"returning address in a pointer or what
+we can also do is, we can return",00:13:19.860,00:13:24.980
+"the element itself the successor element
+itself.",00:13:24.980,00:13:28.120
+"We can implement with to any of these
+signatures. Let's implement this one.",00:13:28.120,00:13:33.090
+"We will pass the data in current node
+and we will return back to address of",00:13:33.090,00:13:38.180
+the successor.,00:13:38.180,00:13:39.000
+"Now the first thing that we need to do
+is, we need to search the node with this",00:13:39.000,00:13:42.960
+data.,00:13:42.960,00:13:43.440
+"I'm going to make call to a function
+named Find",00:13:43.440,00:13:47.280
+"that will take address of the root node
+and the data and return me",00:13:47.280,00:13:51.090
+"pointer to the node with this data. If
+this function returns me null",00:13:51.090,00:13:55.490
+"that is if the data not found in the
+tree. We can simply",00:13:55.490,00:13:59.920
+return null else we have address of the,00:13:59.920,00:14:03.240
+"current node in this pointer to node
+that we have named current.",00:14:03.240,00:14:06.570
+"Now in a BST this search operation will
+cost us O(H)",00:14:06.570,00:14:10.710
+where H is height of the tree.,00:14:10.710,00:14:14.380
+Search in a BST is not very expensive.,00:14:14.380,00:14:17.640
+"We could have avoided this search if
+we would have passed",00:14:17.640,00:14:21.180
+"address of the current node instead of
+passing the data",00:14:21.180,00:14:24.970
+"as to second argument but let's go
+with this.",00:14:24.970,00:14:28.730
+"Let's now find the successor of this node.
+If this node has right subtree",00:14:28.730,00:14:33.560
+"that is if right subtree is not null, we
+need to go to the left",00:14:33.560,00:14:37.530
+"most node in the right subtree. I have
+declared a temporary pointer to node here",00:14:37.530,00:14:42.200
+"and initially, I have set it to
+current-&gt;right and with this",00:14:42.200,00:14:46.190
+while loop I'll you go to the leftmost node.,00:14:46.190,00:14:50.220
+"While there is something in the left
+keep going",00:14:50.220,00:14:53.240
+"and finally when I'll come out of this
+loop, I'll have address of left most node in",00:14:53.240,00:14:57.810
+"the right subtree and I can return this
+address.",00:14:57.810,00:15:00.839
+"This particular node will also be the node
+with minimum value in right subtree.",00:15:00.839,00:15:05.560
+"I'll move this code in another function. I
+have written this function name",00:15:05.560,00:15:10.380
+FindMin,00:15:10.380,00:15:11.200
+"that will return node with minimum
+value in a tree or subtree.",00:15:11.200,00:15:15.140
+"In Getsuccessor function, I'll simply
+say return",00:15:15.140,00:15:19.110
+FindMin and I'll pass the address,00:15:19.110,00:15:23.089
+of right child of current node.,00:15:23.089,00:15:26.980
+"So basically, I'm passing the right
+subtree here.",00:15:26.980,00:15:30.920
+Okay now let's talk about case 2.,00:15:30.920,00:15:33.290
+"If they're is no right subtree, what we need
+to do is we need",00:15:33.290,00:15:37.430
+"to walked the tree from root till
+current",00:15:37.430,00:15:40.910
+"node and we need to find the deepest
+ancestor for which",00:15:40.910,00:15:44.720
+"current node will be in its left
+subtree. What I'm going to do here is, I'm",00:15:44.720,00:15:49.430
+going to declare,00:15:49.430,00:15:50.570
+a pointer to node named successor,00:15:50.570,00:15:53.670
+and initially I'll set it as null,00:15:53.670,00:15:57.160
+"and I'll have another pointer to node
+named ancestor",00:15:57.160,00:16:01.230
+"and initially as set this as root, and
+with this while loop we will walked a tree",00:16:01.230,00:16:06.580
+"till we have not reached the current
+node. To walk the tree, we will use the",00:16:06.580,00:16:11.020
+property of binary search tree that for,00:16:11.020,00:16:13.540
+"each node value of nodes in left is lesser
+and value of nodes right is greater.",00:16:13.540,00:16:17.760
+"If data in current node is less than
+the data in ancestor",00:16:17.760,00:16:21.120
+"then first of all this ancestor may be
+my inorder successor",00:16:21.120,00:16:25.870
+"because the current node is in its left.
+So",00:16:25.870,00:16:29.520
+"what we can do is, we can set the guy as
+successor and we can go left.",00:16:29.520,00:16:34.560
+"While traversing if we will find a
+deeper node",00:16:34.560,00:16:37.840
+"with this property that current node
+will be in its left subtree",00:16:37.840,00:16:42.540
+"then successor will be updated else
+if the current node lies",00:16:42.540,00:16:46.830
+"in right, we simply need to move right.
+When",00:16:46.830,00:16:50.660
+"will come out of this while loop, successor
+will either been null",00:16:50.660,00:16:54.140
+"or it will the address of some node. Not
+all nodes in the tree will have a",00:16:54.140,00:16:58.460
+successor.,00:16:58.460,00:16:59.340
+"Node with maximum value will not have a
+successor.",00:16:59.340,00:17:02.480
+"After coming out this while loop, we can
+return the successor.",00:17:02.480,00:17:06.720
+"So this is my get successor function and
+I",00:17:06.720,00:17:09.860
+"think this should work. You can find link
+to complete source code and description",00:17:09.860,00:17:13.740
+of this video.,00:17:13.740,00:17:14.820
+"Overall time complexity of this function
+will be",00:17:14.820,00:17:17.900
+"O(H) and this is what you wanted. We
+wanted to find successor in O(H).",00:17:17.900,00:17:22.680
+"Here we're already performing the
+search in O(H).",00:17:22.680,00:17:26.260
+"Finding minimum will also take 
+O(H)",00:17:26.260,00:17:30.190
+and walking the tree from,00:17:30.190,00:17:33.220
+"root to a node in BST will also take
+O(H). So, overall this is",00:17:33.220,00:17:37.860
+O(H).,00:17:37.860,00:17:38.320
+"If you have understood this code
+this logic it then it should be very",00:17:38.320,00:17:41.950
+easy for you,00:17:41.950,00:17:42.990
+writing function to find inorder,00:17:42.990,00:17:46.220
+"predecessor. I encourage you to write it.
+I'll stop here. Incoming lessons, we",00:17:46.220,00:17:51.180
+"will solve some more interesting
+problems on binary trees and binary",00:17:51.180,00:17:54.630
+search trees.,00:17:54.630,00:17:55.500
+Thanks for watching.,00:17:55.500,00:17:56.670

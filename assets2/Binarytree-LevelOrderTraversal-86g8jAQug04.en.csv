@@ -1,0 +1,275 @@
+text,start,stop
+"In this lesson, we are going to write code
+for level order traversal of a binary tree.",00:00:00.310,00:00:04.240
+"As we had discussed in our previous lesson,
+in level order traversal, we visit all nodes",00:00:04.240,00:00:09.980
+"at a particular depth or level before visiting
+the nodes at next deeper level.",00:00:09.980,00:00:16.960
+"For this binary tree that I am showing here,
+if I have to traverse the tree and print the",00:00:16.960,00:00:21.269
+"data in nodes in level order, then this is
+how we will go.",00:00:21.269,00:00:24.960
+"We will start at level 0 and print F and now
+we are done with level-0, so we can go to",00:00:24.960,00:00:30.810
+"level 1 and we can visit the nodes at level
+1 from left to right.",00:00:30.810,00:00:36.590
+"From F we will go to D and from D we will
+go to J. Now level 1 is done, so we can go",00:00:36.590,00:00:41.710
+to level 2.,00:00:41.710,00:00:43.260
+"So, we will go like B, E, G and then K and
+now we can go to next level.",00:00:43.260,00:00:50.380
+"A, C, I and finally we will be done at H.
+his is the order in which we should visit",00:00:50.380,00:00:57.350
+"the nodes, but the question is, how can we
+visit the nodes in this order in a program.",00:00:57.350,00:01:02.350
+"Like linked list, we can't just have one pointer
+and keep moving it.",00:01:02.350,00:01:05.829
+"If I'll start with a pointer at root, lets
+say I have a pointer named current to point",00:01:05.829,00:01:11.689
+"to the current node that I am visiting, then
+its possible for me to go from F to D using",00:01:11.689,00:01:17.210
+this pointer because there is a link.,00:01:17.210,00:01:19.130
+"So, I can go left to D. But from D, I cannot
+go to J because there is no link from D to",00:01:19.130,00:01:25.429
+"J. The only way we can go to J is from F and
+once we have moved the pointer to D, we can't",00:01:25.429,00:01:31.631
+"even go back to F because there is no backward
+link from D to F. So, what can we do to traverse",00:01:31.631,00:01:38.159
+the nodes in level order.,00:01:38.159,00:01:40.250
+"Clearly, we cant go with just one pointer.",00:01:40.250,00:01:43.170
+"What we can do is, as we visit a node, we
+can reference or address of all its children",00:01:43.170,00:01:48.990
+"in a queue, so we can visit them later.",00:01:48.990,00:01:51.920
+"A node in the queue can be called discovered
+node whose address is known to us, but we",00:01:51.920,00:01:56.909
+have not visited it yet.,00:01:56.909,00:01:58.759
+"Initially, we can start with address of root
+node in the queue to mean that initially this",00:01:58.759,00:02:03.970
+is the only discovered node.,00:02:03.970,00:02:06.249
+"Lets say for this example tree, address of
+the root node is 400.",00:02:06.249,00:02:11.330
+"And I'll assume some random addresses for
+other nodes as well.",00:02:11.330,00:02:15.160
+I will mark a discovered node in yellow.,00:02:15.160,00:02:17.500
+"Ok, now initially I am enqueuing the root
+node and by storing a node in the queue, I'll",00:02:17.500,00:02:23.110
+"mean storing the address of the node in the
+queue.",00:02:23.110,00:02:25.590
+"So, initially, we are starting with one discovered
+node.",00:02:25.590,00:02:29.490
+"Now as long as the queue has some discovered
+node, at least one discovered node i.e as",00:02:29.490,00:02:34.671
+"long as the queue is not empty, we can take
+out a node from the front, visit it and then",00:02:34.671,00:02:40.750
+enqueue its children.,00:02:40.750,00:02:43.049
+"Visiting a node for us is printing the value
+in that node, so I'll write F here.",00:02:43.049,00:02:47.989
+"And now, I'll enqueue the children of this
+root node.",00:02:47.989,00:02:52.079
+"First I'll enqueue the left child and then
+the right child.",00:02:52.079,00:02:56.739
+I'll mark visited node in another color.,00:02:56.739,00:02:59.020
+"Ok, now we have one visited node and 2 discovered
+nodes.",00:02:59.020,00:03:03.439
+"And now once again, we can take out the node
+at front of the queue, visit it and enqueue",00:03:03.439,00:03:08.500
+its children.,00:03:08.500,00:03:09.799
+"By using a queue, we are doing 2 things here.",00:03:09.799,00:03:12.560
+"First of all, as we are moving from a node,
+we are not loosing reference to its children",00:03:12.560,00:03:17.430
+"because we are storing the references and
+then because queue is a first in first out",00:03:17.430,00:03:22.810
+"structure, so a node that is discovered first,
+that is inserted first will be visited first.",00:03:22.810,00:03:29.310
+"So, we will get this order that we are desiring.",00:03:29.310,00:03:32.290
+"Give this some thought and its not very difficult
+to see.",00:03:32.290,00:03:35.410
+"Ok, so now we can dequeue and visit this node
+at address 200.",00:03:35.410,00:03:41.180
+"And once again, before I move on from this
+node, I need to enqueue its children.",00:03:41.180,00:03:45.830
+"So, now at this stage we have 2 visited nodes,
+3 discovered nodes and 6 undiscovered nodes.",00:03:45.830,00:03:54.099
+"And now we can take out the next node from
+front of queue.",00:03:54.099,00:03:57.020
+We'll visit it and enqueue its children.,00:03:57.020,00:04:01.769
+"If we will go on like this, all the nodes
+will be visited in the order that we are desiring.",00:04:01.769,00:04:07.680
+"At this stage, we can dequeue node at 120,
+visit it and enqueue its children.",00:04:07.680,00:04:13.690
+"So, we will go on like this until all the
+nodes are visited and the queue is empty.",00:04:13.690,00:04:19.209
+"After B, we will have E here.",00:04:19.209,00:04:21.620
+Nothing will go into the queue this time.,00:04:21.620,00:04:24.440
+"Next we will have G here and the address of
+I will go into the queue.",00:04:24.440,00:04:28.680
+"Now, K will be visited.",00:04:28.680,00:04:31.790
+"Now at this stage, we have reference to 3
+Nodes in the queue.",00:04:31.790,00:04:34.710
+"Now, we will visit this node at 320 with value
+A. Then we have C and now we will print I",00:04:34.710,00:04:44.330
+"and the node with value H, the node with data
+H will go into the queue.",00:04:44.330,00:04:49.630
+"Finally, we will visit this node and now we
+are done with all the nodes, the queue is",00:04:49.630,00:04:54.690
+empty.,00:04:54.690,00:04:56.530
+"Once the queue is empty, we are done with
+our traversal.",00:04:56.530,00:04:59.530
+"So, this is the algorithm for level order
+traversal of a binary tree.",00:04:59.530,00:05:04.009
+"As you saw, in this approach, at any time,
+we are keeping a bunch of addressees in the",00:05:04.009,00:05:09.080
+"memory, in the queue instead of using just
+one pointer to move around.",00:05:09.080,00:05:13.870
+"So, of course we are using a lot of extra
+memory and I'll talk about the space complexity",00:05:13.870,00:05:19.240
+of this algorithm in some time.,00:05:19.240,00:05:21.220
+I hope you got the core logic right.,00:05:21.220,00:05:23.949
+Lets now write code for this algorithm.,00:05:23.949,00:05:26.000
+I am going to write C++ here.,00:05:26.000,00:05:28.240
+"This is how I am defining node for my binary
+tree.",00:05:28.240,00:05:31.360
+"I have a structure here with 3 fields, one
+to store data and the data-type is character",00:05:31.360,00:05:36.080
+"this time, because in the example tree that
+we were showing earlier, data type was character",00:05:36.080,00:05:41.770
+"and we have 2 more fields that are pointers
+to node - one to store the address of left",00:05:41.770,00:05:46.160
+"child and another to store the address of
+right child.",00:05:46.160,00:05:48.770
+"Now, what I want to do here is I want to write
+a function named LevelOrder that should take",00:05:48.770,00:05:54.940
+"address of the root node as argument and print
+the data in the nodes in level order.",00:05:54.940,00:06:00.340
+"Now, to test this function, I'll have to write
+a lot of code to create and insert nodes in",00:06:00.340,00:06:05.720
+a binary tree.,00:06:05.720,00:06:06.720
+I'll have to write some more functions.,00:06:06.720,00:06:08.970
+I'll skip writing all that code.,00:06:08.970,00:06:10.889
+"You can pick the code for creation and insertion
+from previous lessons.",00:06:10.889,00:06:15.330
+All I'll write is this function LevelOrder.,00:06:15.330,00:06:18.240
+"Now, in this function here, I'll first take
+care of one corner case.",00:06:18.240,00:06:23.419
+"If the tree is empty i.e if root is NULL,
+we can simply return, else if the tree is",00:06:23.419,00:06:30.900
+"not empty, we need to create a queue.",00:06:30.900,00:06:33.680
+"I'm not going to write my own implementation
+of queue here.",00:06:33.680,00:06:36.880
+"In C++, we can use the queue in standard template
+library and to use it, first we will have",00:06:36.880,00:06:43.020
+"to write a statement like #include&lt;queue&gt;
+here.",00:06:43.020,00:06:48.360
+"And now, I can create a queue of any type.",00:06:48.360,00:06:50.940
+"In this function, I'll create a queue of pointer
+to node with a statement like this.",00:06:50.940,00:06:57.940
+"Now, as we had discussed earlier, initially,
+we start with one discovered node in the queue.",00:06:57.940,00:07:04.280
+"The only node known to us initially is the
+root node.",00:07:04.280,00:07:07.710
+"With this statement, queue.push(root), I have
+inserted the address of root node in the queue.",00:07:07.710,00:07:13.919
+"And now, I will run this while loop for which
+the condition is that queue should not be",00:07:13.919,00:07:18.960
+"empty and what I really mean here is that
+while there is at least one discovered node,",00:07:18.960,00:07:25.400
+"we should go inside the loop and inside the
+loop, we should take out a node from the front.",00:07:25.400,00:07:31.099
+"This function front returns the element at
+front of the queue and because the data-type",00:07:31.099,00:07:35.729
+"is pointer to node, I'm collecting the return
+of this function in this pointer to node named",00:07:35.729,00:07:41.039
+current.,00:07:41.039,00:07:42.039
+"Now, I can visit this node being pointed by
+current and by visiting, we mean reading the",00:07:42.039,00:07:47.599
+data in that node.,00:07:47.599,00:07:48.879
+I'll simple print the data.,00:07:48.879,00:07:50.870
+"And now, we want to push the addresses of
+children of this node into the queue.",00:07:50.870,00:07:56.639
+"So, I'll say that if the left child is not
+NULL, insert it into the queue and similarly,",00:07:56.639,00:08:03.479
+"if right child is not NULL, push it into the
+queue or rather push its address into the",00:08:03.479,00:08:08.229
+queue.,00:08:08.229,00:08:09.229
+"And I'll write one more statement to remove
+the element from front of the queue.",00:08:09.229,00:08:13.069
+"With call to front, the element is not removed
+from the queue.",00:08:13.069,00:08:17.419
+"With this call pop, we are removing the element.",00:08:17.419,00:08:20.620
+"Ok, so this is implementation of level order
+traversal in C++.",00:08:20.620,00:08:26.330
+"You can check the description of this video
+for link to source code and there you can",00:08:26.330,00:08:31.009
+"also find all the extra code to test this
+function.",00:08:31.009,00:08:34.919
+"Lets now talk about time and space complexity
+of level order traversal.",00:08:34.919,00:08:39.640
+"If there are n Nodes in the tree and in this
+algorithm, visit to a node is reading the",00:08:39.640,00:08:45.130
+"data in that node and inserting its children
+in the queue, then a visit to a node will",00:08:45.130,00:08:51.079
+"take constant time and each node will be visited
+exactly once.",00:08:51.079,00:08:55.899
+"So, time taken will be proportional to the
+number of nodes.",00:08:55.899,00:08:59.510
+"Or in other words, we can say that the time
+complexity is big-oh of n.",00:08:59.510,00:09:05.769
+"For all cases, irrespective of the shape of
+the tree, time complexity of level order traversal",00:09:05.769,00:09:11.209
+will be big-oh of n.,00:09:11.209,00:09:13.410
+Now lets talk about space complexity.,00:09:13.410,00:09:16.980
+"Space complexity, as we know is the measure
+of rate of growth of extra memory used with",00:09:16.980,00:09:22.870
+input size.,00:09:22.870,00:09:24.290
+"We are not using constant amount of extra
+memory in this algorithm.",00:09:24.290,00:09:27.839
+"We have this queue that will grow and shrink
+while executing this algorithm.",00:09:27.839,00:09:33.760
+"Assuming that the queue is dynamic, maximum
+amount of extra memory used will depend upon",00:09:33.760,00:09:39.420
+"maximum number of elements in the queue at
+any time.",00:09:39.420,00:09:42.610
+We can have couple of cases.,00:09:42.610,00:09:43.810
+"In some cases, extra memory used will be lesser
+and in some cases, extra memory used will",00:09:43.810,00:09:49.230
+be greater.,00:09:49.230,00:09:50.610
+"For a tree like this where each node has only
+one child, we will have maximum one element",00:09:50.610,00:09:56.140
+in the queue at any time.,00:09:56.140,00:09:57.950
+"During each visit, one node will be taken
+out from the queue and one node will be inserted.",00:09:57.950,00:10:03.019
+"So, the amount of extra memory taken will
+not depend upon the number of nodes.",00:10:03.019,00:10:08.019
+Space complexity will be big-oh of 1.,00:10:08.019,00:10:11.399
+"But for a tree like this, the amount of extra
+memory used will depend upon number of nodes",00:10:11.399,00:10:15.900
+in the tree.,00:10:15.900,00:10:17.130
+This is a perfect binary tree.,00:10:17.130,00:10:18.680
+All the levels are full.,00:10:18.680,00:10:20.329
+"If you can see, as the algorithm will execute,
+at some point for each level, all the nodes",00:10:20.329,00:10:25.540
+in that level will be in the queue.,00:10:25.540,00:10:28.110
+"In a perfect binary tree, we will have n/2
+nodes at the deepest level.",00:10:28.110,00:10:32.960
+"So, maximum number of nodes in the queue is
+going to be at least n/2.",00:10:32.960,00:10:37.140
+"So, basically extra memory used is proportional
+to n - the number of nodes.",00:10:37.140,00:10:42.490
+"So, space complexity will be big-oh of n for
+this case.",00:10:42.490,00:10:46.370
+"I'm not going to prove it, but for average
+case, space complexity will be O(n).",00:10:46.370,00:10:52.580
+"So, for both worst and average cases, we will
+be big-oh of n in terms of space complexity",00:10:52.580,00:10:58.459
+"and when we are saying best, average and worst
+cases here, its only going by space complexity.",00:10:58.459,00:11:03.970
+"Time complexity will be big-oh of n for all
+cases.",00:11:03.970,00:11:06.870
+"So, this is time and space complexity analysis
+of level order traversal.",00:11:06.870,00:11:11.899
+I'll stop here now.,00:11:11.899,00:11:13.040
+"In next lesson, we will discuss depth first
+traversal algorithms - Preorder, Inorder and",00:11:13.040,00:11:18.950
+PostOrder.,00:11:18.950,00:11:20.180
+This is it for this lesson.,00:11:20.180,00:11:21.180
+Thanks for watching !,00:11:21.180,00:11:21.700

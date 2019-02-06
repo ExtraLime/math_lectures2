@@ -1,0 +1,394 @@
+text,start,stop
+"In our previous lesson, we introduced you
+to the concept of data structures",00:00:00.530,00:00:05.320
+"and we saw how we can talk about data
+structures",00:00:05.320,00:00:08.429
+"in two ways, one as a mathematical and logical model ",00:00:08.429,00:00:12.479
+"that we also call,",00:00:12.479,00:00:13.309
+that we also term as,00:00:13.309,00:00:14.919
+an abstract data type,00:00:14.919,00:00:17.029
+or ADT,00:00:17.029,00:00:18.740
+and then we also study data structures as concrete implementations.,00:00:18.740,00:00:22.789
+"In this lesson, we will study one simple
+data structure",00:00:22.789,00:00:25.880
+we will first define an abstract view of it,00:00:25.880,00:00:28.880
+"we will first define it as an abstract data
+type and then we will see",00:00:28.880,00:00:32.570
+uh... the possible implementations,00:00:32.570,00:00:34.980
+and this data structure is list.,00:00:34.980,00:00:37.650
+List is a common,00:00:37.650,00:00:38.940
+real world entity.,00:00:38.940,00:00:40.850
+"List is nothing but a collection of
+objects of the same type.",00:00:40.850,00:00:44.620
+"we can have a list of words, we can
+have a list of names",00:00:44.620,00:00:48.330
+"or, we can have a list of numbers",00:00:48.330,00:00:50.250
+"so let us first define list as an
+abstract data type. So,",00:00:50.250,00:00:54.590
+"when we define abstract data type, we just",00:00:54.590,00:00:56.950
+"define the data that we'll store and then
+we define the operations",00:00:56.950,00:01:00.800
+"available with the type and we do not
+go into the implementation details",00:01:00.800,00:01:05.630
+let us first define a very basic list.,00:01:05.630,00:01:08.210
+I want a list that can store a,00:01:08.210,00:01:10.470
+given number of elements,00:01:10.470,00:01:12.440
+of a given data type,00:01:12.440,00:01:14.450
+"this would be a static list as the
+number of elements in the list will not",00:01:14.450,00:01:17.670
+"change and we will know the number of
+elements before creating the list",00:01:17.670,00:01:21.770
+We should be able to write or modify,00:01:21.770,00:01:25.460
+element at,00:01:25.460,00:01:26.460
+any position in the list,00:01:26.460,00:01:28.520
+"and of course we should be able to read
+element at a particular position in",00:01:28.520,00:01:31.750
+the list,00:01:31.750,00:01:32.610
+"so if i ask you for an implementation
+of such a list",00:01:32.610,00:01:36.380
+and you have taken a basic course,00:01:36.380,00:01:38.679
+"in programming,",00:01:38.679,00:01:40.030
+"a basic introductory course then you
+will be like",00:01:40.030,00:01:42.670
+"hey i know this,",00:01:42.670,00:01:43.900
+"an array gives us all these features,",00:01:43.900,00:01:46.520
+"all these operations are available with
+an array,",00:01:46.520,00:01:49.300
+"we can create an array of any data type. So, let's say if we want to create a",00:01:49.300,00:01:53.080
+list of,00:01:53.080,00:01:54.000
+"integers,",00:01:54.000,00:01:55.190
+then we,00:01:55.190,00:01:56.790
+declare the array type,00:01:56.790,00:01:58.200
+as integer and then we can,00:01:58.200,00:02:00.230
+give the size as a parameter in declaration,00:02:00.230,00:02:03.430
+i can write,00:02:03.430,00:02:04.350
+"or modify element at a particular
+position",00:02:04.350,00:02:07.210
+"The elements are A[0], A[1] and are accessed something like this",00:02:07.210,00:02:11.290
+we all know about arrays,00:02:11.290,00:02:12.389
+and then you can also read ,00:02:12.389,00:02:13.700
+elements at particular position.,00:02:13.700,00:02:17.169
+The element at i-th postion is accessed as,00:02:17.169,00:02:20.000
+A[i].,00:02:20.000,00:02:22.159
+"So, array is a data structure that gives
+us implementation for this list",00:02:22.159,00:02:26.519
+"now i want a list and that should have
+many more features. I want it to handle",00:02:26.519,00:02:31.249
+more scenarios for me,00:02:31.249,00:02:32.799
+so i'll redefine this list here,00:02:32.799,00:02:35.059
+"i don't want a static list, a static collection of fixed size. I want a",00:02:35.059,00:02:38.900
+dynamic list,00:02:38.900,00:02:40.190
+that should grow as per my need,00:02:40.190,00:02:41.999
+so the features of my list are that,00:02:41.999,00:02:44.979
+i will call my list,00:02:44.979,00:02:46.430
+empty,00:02:46.430,00:02:47.790
+if there are no elements in the list,00:02:47.790,00:02:49.640
+i'll  say the size of the list is zero when it is empty,00:02:49.640,00:02:52.949
+and then,00:02:52.949,00:02:53.989
+i can insert an element into the list,00:02:53.989,00:02:57.229
+"and i can insert an element at any
+position in the list, in an existing",00:02:57.229,00:03:00.909
+list,00:03:00.909,00:03:01.859
+i can remove element from the list,00:03:01.859,00:03:04.419
+"i can count the number of elements in
+the list",00:03:04.419,00:03:07.819
+and i should be able to read or write,00:03:07.819,00:03:10.859
+"or rather, read or modify",00:03:10.859,00:03:12.950
+"element at a particular position in
+the list",00:03:12.950,00:03:16.609
+"and i should also be able to specify the
+date type for the list so i should be",00:03:16.609,00:03:20.699
+"able to while creating the list i should
+be",00:03:20.699,00:03:23.120
+able to say,00:03:23.120,00:03:24.140
+whether this is a list of integers or whether this is a list of string,00:03:24.140,00:03:28.089
+or float or whatever.,00:03:28.089,00:03:30.819
+"Now, i want a data structure which is implementation of this dynamic list",00:03:30.819,00:03:35.769
+so how do i get it?,00:03:35.769,00:03:37.439
+"Well, actually we can implement such a
+dynamic list using arrays. ",00:03:37.439,00:03:42.109
+"It's just that we will have to
+write some more operations on top of",00:03:42.109,00:03:45.729
+arrays,00:03:45.729,00:03:46.599
+"to provide for all these
+functionalities.",00:03:46.599,00:03:49.449
+"So, let us see how we can implement this
+particular list using arrays",00:03:49.449,00:03:53.679
+"Let's for the sake of simplicity of
+design uh... assume that",00:03:53.679,00:03:57.230
+"that the data type for the list is integer.So, we are creating a list of,",00:03:57.230,00:04:01.580
+a dynamic list of integers.,00:04:01.580,00:04:03.519
+"What we can do is to implement such a list
+we can declare",00:04:03.519,00:04:07.249
+a really large array,00:04:07.249,00:04:09.400
+"We will define some max size and declare an
+array",00:04:09.400,00:04:12.569
+of this max size.,00:04:12.569,00:04:14.669
+"Now, as we know the elements in the",00:04:14.669,00:04:16.790
+array are indexed as,00:04:16.790,00:04:18.689
+"A[0], A[1]",00:04:18.689,00:04:20.379
+A[2],00:04:20.379,00:04:21.669
+and we go on like this,00:04:21.669,00:04:23.470
+uh... so what i'll do is i will define a,00:04:23.470,00:04:25.970
+variable,00:04:25.970,00:04:26.919
+that will mark the end of the list,00:04:26.919,00:04:29.539
+in this array.,00:04:29.539,00:04:30.779
+"So, if the list is empty, we can",00:04:30.779,00:04:33.380
+"initialize this variable or we can set
+this variable as minus one",00:04:33.380,00:04:37.360
+because the lowest index possible is 0,00:04:37.360,00:04:39.740
+"so if end is minus one the list is
+empty",00:04:39.740,00:04:42.210
+at anytime,00:04:42.210,00:04:43.400
+a part of the,00:04:43.400,00:04:45.110
+array will store the list,00:04:45.110,00:04:46.450
+"Okay, so let's say initially when the list is empty",00:04:46.450,00:04:49.160
+this pointer end is pointing to,00:04:49.160,00:04:51.550
+index minus one which is not valid,00:04:51.550,00:04:53.630
+which does not exist,00:04:53.630,00:04:54.990
+and now,00:04:54.990,00:04:55.930
+i insert,00:04:55.930,00:04:57.419
+an integer into this array,00:04:57.419,00:04:59.489
+and let's say if we,00:04:59.489,00:05:01.250
+do not give the postion at which the number is to be inserted,00:05:01.250,00:05:04.280
+the number is always inserted towards the tail of the,00:05:04.280,00:05:06.990
+"list, towards the end of the list",00:05:06.990,00:05:09.150
+"so the list will be like we'll have an
+element at position zero",00:05:09.150,00:05:13.210
+and now end is index zero,00:05:13.210,00:05:15.930
+"So, at anytime end marks the",00:05:15.930,00:05:18.889
+"this variable end, marks the end of the list in this array",00:05:18.889,00:05:22.770
+"Now, if i want to insert something",00:05:22.770,00:05:24.580
+in the list at a particular position,00:05:24.580,00:05:27.330
+"let's say i want to insert number five at
+index two",00:05:27.330,00:05:30.759
+"Then, to accommodate five here at this
+particular position",00:05:30.759,00:05:34.139
+we will have to shift all the elements,00:05:34.139,00:05:37.080
+one unit towards the right,00:05:37.080,00:05:40.830
+all the elements starting index two,00:05:40.830,00:05:43.269
+"we need to shift all the elements starting index
+two towards the right",00:05:43.269,00:05:46.699
+"okay i just inserted some elements into
+the list let me also write the",00:05:46.699,00:05:50.469
+uh... function call for these,00:05:50.469,00:05:51.879
+"let's say we went in this order, we inserted
+two then we inserted four and then inserted",00:05:51.879,00:05:56.340
+"in the end we are inserting five and we will also give the position at which we want to insert,",00:05:56.340,00:06:00.959
+"so this insert with two arguments would
+be",00:06:00.959,00:06:03.680
+"the call to insert element at a
+particular position.",00:06:03.680,00:06:07.189
+"So, after all these operations, after",00:06:07.189,00:06:09.100
+"all these insertions this is what
+the list will look like",00:06:09.100,00:06:12.419
+"this uh... arrow here marks the end of
+the list in the array.",00:06:12.419,00:06:15.639
+"Now, if i want to remove an element from
+a particular position. Let's say i make ",00:06:15.639,00:06:19.240
+a call to something,00:06:19.240,00:06:21.210
+to the remove function i want to remove,00:06:21.210,00:06:23.309
+"the element two so, i will pass the index zero here",00:06:23.309,00:06:26.589
+i want to remove the,00:06:26.589,00:06:28.330
+element at index zero.,00:06:28.330,00:06:29.969
+"So, to do so, all these elements after index zero will be shifted one unit",00:06:29.969,00:06:35.219
+towards the left or towards the lower indices,00:06:35.219,00:06:38.830
+and two will go away,00:06:38.830,00:06:41.229
+that this end variable here ,00:06:41.229,00:06:43.169
+"is being adjusted after each insertion
+that we are making. So, after each",00:06:43.169,00:06:46.129
+insertion,00:06:46.129,00:06:47.189
+"end will be zero after this one,",00:06:47.189,00:06:49.719
+"two, three and so on.",00:06:49.719,00:06:51.719
+"After this remove, end will be four
+again. ",00:06:51.719,00:06:54.909
+"Okay, looks like we pretty much have an
+implementation of this uh... list in the",00:06:54.909,00:06:59.189
+left,00:06:59.189,00:06:59.880
+that is described as an abstract data type,00:06:59.880,00:07:02.650
+"we have a logic of calling the list
+empty when we have",00:07:02.650,00:07:06.019
+this variable end equal to minus one,00:07:06.019,00:07:08.559
+"We can insert element at the
+particular position in the list. We can",00:07:08.559,00:07:12.119
+remove element,00:07:12.119,00:07:13.319
+"it's just that we have to perform some
+shifts in the array, ",00:07:13.319,00:07:17.339
+"they can count the number of elements in
+the list",00:07:17.339,00:07:19.540
+"it will be equal to end plus one the
+value in the variable end plus one. We ",00:07:19.540,00:07:23.850
+can read and modify,00:07:23.850,00:07:25.949
+"element at a position. Well, this
+is an array, so we can definitely",00:07:25.949,00:07:30.849
+"read or modify element at a particular
+position",00:07:30.849,00:07:34.069
+"uh... if we wanted to choose the data type
+it was just choosing the array of",00:07:34.069,00:07:37.599
+"that particular data type, ",00:07:37.599,00:07:39.149
+"but this looks like a cool
+implementation except that we have one",00:07:39.149,00:07:42.009
+problem,00:07:42.009,00:07:42.930
+"uh... we said that the array will be
+of some",00:07:42.930,00:07:45.899
+"large size, some max size.",00:07:45.899,00:07:48.449
+"But what is a good max size? We can
+always exhaust the array, the list can",00:07:48.449,00:07:52.569
+"grow to exhaust the array,",00:07:52.569,00:07:54.919
+there is no good max size.,00:07:54.919,00:07:57.039
+"So,we need to have a strategy for
+the scenario when the list will",00:07:57.039,00:08:01.559
+fill up the whole array.,00:08:01.559,00:08:03.110
+"So, what do we do in that case?",00:08:03.110,00:08:05.159
+"We need to keep that into our
+design.",00:08:05.159,00:08:07.599
+"We cannot extend the same array it is
+not possible to do so.",00:08:07.599,00:08:11.249
+"So, we will have to create a new array, a larger array",00:08:11.249,00:08:14.409
+"So,  when the array is full, we will create a ",00:08:14.409,00:08:16.879
+new larger array,00:08:16.879,00:08:18.020
+"and copy all the elements from the
+previous array",00:08:18.020,00:08:21.569
+into the new array,00:08:21.569,00:08:24.089
+"and then we can free the memory for the
+previous array",00:08:24.089,00:08:28.110
+now the question is,00:08:28.110,00:08:29.240
+"by how much should we increase the size
+of the new array",00:08:29.240,00:08:32.870
+"this whole operation of creating a new array
+and copying all the elements from the",00:08:32.870,00:08:36.440
+previous array into the new array is,00:08:36.440,00:08:39.080
+costly,00:08:39.080,00:08:40.170
+"in terms of time and definitely a good
+design would be",00:08:40.170,00:08:43.540
+to avoid such big cost.,00:08:43.540,00:08:45.960
+"So, the strategy that we choose",00:08:45.960,00:08:48.620
+"is that uh... each time the array is
+full, we create a new larger array",00:08:48.620,00:08:52.740
+"of double the size of the previous
+array",00:08:52.740,00:08:55.370
+"and why this is the best strategy is
+something that we will not discuss in",00:08:55.370,00:08:58.870
+this lesson,00:08:58.870,00:08:59.920
+so we will create a larger array of double size and copy,00:08:59.920,00:09:03.100
+elements from previous array into,00:09:03.100,00:09:05.170
+this new array.,00:09:05.170,00:09:07.290
+This looks like a cool implementation,00:09:07.290,00:09:09.950
+The study of data structures is not just about studying the operations,00:09:09.950,00:09:14.130
+"and the implementation of these
+operations",00:09:14.130,00:09:16.379
+"it's also about analyzing the cost of
+these operations",00:09:16.379,00:09:19.800
+"so let us see what are the costs in
+terms of time for all these operations",00:09:19.800,00:09:24.730
+that we have in the dynamic list.,00:09:24.730,00:09:26.950
+"The access to any element in this
+dynamic list,",00:09:26.950,00:09:30.160
+if we want to acces,00:09:30.160,00:09:31.730
+"it using index for read or write,",00:09:31.730,00:09:34.690
+"then this will take constant time
+because",00:09:34.690,00:09:37.510
+we have an array here,00:09:37.510,00:09:39.130
+"and in array, elements are arranged in one contiguous",00:09:39.130,00:09:43.480
+block of memory,00:09:43.480,00:09:44.930
+"using the starting address or the base
+address of the block of the memory of",00:09:44.930,00:09:48.950
+the block of memory,00:09:48.950,00:09:50.430
+"and the index on the position of the
+element can",00:09:50.430,00:09:53.760
+"calculate the address of that particular
+element and excessive",00:09:53.760,00:09:57.070
+in constant time.,00:09:57.070,00:09:58.460
+"Big oh notation, that is used to describe
+the time complexity of operations",00:09:58.460,00:10:03.350
+"for constant time,it is written as in terms of big oh,",00:10:03.350,00:10:07.080
+"the time complexity is written as Big Oh of
+one.",00:10:07.080,00:10:10.480
+If we wanted to insert element,00:10:10.480,00:10:13.320
+if we wanted to insert element at the end of the array,00:10:13.320,00:10:16.109
+uh... end of the list,00:10:16.109,00:10:17.800
+"then that again will be cost in time but
+if we would insert element at a",00:10:17.800,00:10:21.680
+particular position in the list,00:10:21.680,00:10:24.300
+then we will have to shift,00:10:24.300,00:10:26.300
+elements towards,00:10:26.300,00:10:27.870
+"higher indices. In the worst case
+we will have to shift",00:10:27.870,00:10:30.580
+all the elements to the right when we will be,00:10:30.580,00:10:33.190
+"inserting at the first position,",00:10:33.190,00:10:35.350
+so the time taken for insertion,00:10:35.350,00:10:37.710
+uh... will be proportional to,00:10:37.710,00:10:39.600
+"the length of the list let's say the
+length of the list is n",00:10:39.600,00:10:43.940
+"or, in other words, we will say that insertion will be Big Oh of n ",00:10:43.940,00:10:47.840
+in terms of time complexity,00:10:47.840,00:10:49.360
+"if you do not know about Big Oh notation, do not bother, just understand that,",00:10:49.360,00:10:53.620
+"inserting an element at the
+particular position will be",00:10:53.620,00:10:57.040
+"a linear function in terms of the size of
+the list.",00:10:57.040,00:11:00.550
+Removing,00:11:00.550,00:11:01.710
+an element will again be big oh of n,00:11:01.710,00:11:05.430
+Time taken will be,00:11:05.430,00:11:07.110
+proportional to,00:11:07.110,00:11:08.330
+the current size of the list.,00:11:08.330,00:11:10.910
+n is the size of the list here.,00:11:10.910,00:11:13.030
+"ok now, inserting an element at the
+end we just said that",00:11:13.030,00:11:16.770
+"it will happen in constant time it is not
+so if the array is full",00:11:16.770,00:11:20.730
+then we will create a new array,00:11:20.730,00:11:23.180
+uh... lets call,00:11:23.180,00:11:24.390
+inserting,00:11:24.390,00:11:25.450
+element at the end as adding an element,00:11:25.450,00:11:28.090
+adding an element will take constant time,00:11:28.090,00:11:30.110
+if the list is not full but it will take,00:11:30.110,00:11:32.290
+"time proportional  to the size of the list,
+size of the array, if",00:11:32.290,00:11:37.110
+array is full.,00:11:37.110,00:11:38.330
+"So, adding in the worst case",00:11:38.330,00:11:40.020
+will be big oh of n again,00:11:40.020,00:11:43.830
+"as we said when the list is full
+we create a new copy double the size of the",00:11:43.830,00:11:47.700
+previous array and when we copy ,00:11:47.700,00:11:49.850
+"the previous array, elements from previous array
+into the new array,",00:11:49.850,00:11:53.970
+so primafacy what loooks like,00:11:53.970,00:11:56.720
+"the good thing with this kind of
+implementation",00:11:56.720,00:11:59.400
+"Well, the good thing is that we can
+access elements at any index in",00:11:59.400,00:12:03.860
+constant time,00:12:03.860,00:12:05.230
+which is the property of the array,00:12:05.230,00:12:07.370
+"but if we have to insert some element
+in between and if we have to remove",00:12:07.370,00:12:11.590
+element from the list then it is costly.,00:12:11.590,00:12:14.360
+"if the list grows and shrinks
+a lot",00:12:14.360,00:12:17.870
+"then we will also have to create a new array
+and have all this thing of copying",00:12:17.870,00:12:22.280
+"elements from previous array to a new
+array again and again",00:12:22.280,00:12:25.980
+and one more problem is that,00:12:25.980,00:12:28.070
+a lot of time,00:12:28.070,00:12:29.390
+a lot of the array would be unused.,00:12:29.390,00:12:32.280
+"The memory there, ",00:12:32.280,00:12:34.150
+is of no use,00:12:34.150,00:12:35.680
+Definitely the use of,00:12:35.680,00:12:37.269
+array as,00:12:37.269,00:12:38.170
+"dynamic list is not efficient in
+terms of memory this kind of",00:12:38.170,00:12:41.160
+"implementation is not efficient in terms
+of memory",00:12:41.160,00:12:44.000
+This leads us to think- can we,00:12:44.000,00:12:46.210
+"have a data structure that will give
+us a dynamic list",00:12:46.210,00:12:49.830
+and use the memory more efficiently,00:12:49.830,00:12:52.160
+"we have one data structure that gives us
+good",00:12:52.160,00:12:55.020
+utilization of the memory,00:12:55.020,00:12:56.830
+and this data structure is linked list,00:12:56.830,00:12:59.640
+and we will study about the linked list,00:12:59.640,00:13:02.770
+in the next lesson.,00:13:02.770,00:13:04.320
+"So that's it for this lesson. Thanks for
+watching!",00:13:04.320,00:13:06.180

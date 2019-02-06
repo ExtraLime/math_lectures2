@@ -1,0 +1,2693 @@
+text,start,stop
+"&gt;&gt; SPEAKER 1: All, right welcome back.",00:00:11.470,00:00:12.764
+This is CS50.,00:00:12.764,00:00:14.140
+And this is the start of week nine.,00:00:14.140,00:00:16.800
+"And this is the start of the rest of
+your time in CS50, in which we",00:00:16.800,00:00:19.960
+"transition now, finally, to the web
+aspect of the course, where you'll",00:00:19.960,00:00:23.170
+"find that a lot of the fundamentals that
+we've been exporting for weeks",00:00:23.170,00:00:26.200
+"still come back to visit,
+or haunt, us.",00:00:26.200,00:00:29.270
+"But now, you'll find that it's an
+order of magnitude easier to",00:00:29.270,00:00:33.440
+"accomplish certain tasks and
+solve certain problems--",00:00:33.440,00:00:36.540
+"so much so that even if you thought
+certain problem sets were fun in their",00:00:36.540,00:00:41.050
+"own way, I think that you'll find
+that p set 7, p set 8, and then,",00:00:41.050,00:00:44.200
+"ultimately, the final project will be
+all the more gratifying because you'll",00:00:44.200,00:00:47.990
+"find that we begin to take for granted
+now things like memory management, and",00:00:47.990,00:00:51.830
+"pointers, and what's going
+on underneath the hood.",00:00:51.830,00:00:54.190
+"And again, thematic, all throughout the
+semester has been this layering",00:00:54.190,00:00:57.310
+and layering.,00:00:57.310,00:00:58.030
+"And now we're sort of up
+here, standing on the",00:00:58.030,00:01:00.530
+shoulders of weeks past.,00:01:00.530,00:01:01.930
+"&gt;&gt; Now, recall from last time that we
+talked about how the internet worked.",00:01:01.930,00:01:05.360
+"And this was perhaps an
+oversimplification, but remember that",00:01:05.360,00:01:08.120
+"every computer in the world has an IP
+address, although that's a bit of an",00:01:08.120,00:01:12.960
+oversimplification still.,00:01:12.960,00:01:14.570
+"And those addresses are used to uniquely
+identify machines so that",00:01:14.570,00:01:18.180
+"when you send information, or packets,
+so to speak, they can have an origin",00:01:18.180,00:01:22.010
+address and a destination address.,00:01:22.010,00:01:24.000
+"And those same IP addresses can be used
+both for good and also for evil,",00:01:24.000,00:01:27.830
+"to track you, for instance.",00:01:27.830,00:01:29.270
+"In fact, every one of you with a laptop
+open now, or a phone in your",00:01:29.270,00:01:32.200
+"pocket, has an IP address
+on Harvard's network.",00:01:32.200,00:01:35.070
+"And it's not all that difficult to
+correlate that to who and where you",00:01:35.070,00:01:39.120
+are these days.,00:01:39.120,00:01:40.180
+"But more on that perhaps
+in the future.",00:01:40.180,00:01:42.090
+"&gt;&gt; Now I thought I'd bring back some
+memories of [? enhance ?] and give you",00:01:42.090,00:01:46.510
+"another clip from a show you
+might find familiar.",00:01:46.510,00:01:49.360
+"If we could dim the lights
+for just a few seconds.",00:01:49.360,00:01:52.710
+The show Numb3rs.,00:01:52.710,00:01:53.960
+&gt;&gt; SPEAKER 2: It's a 32-bit IPP4 address.,00:01:57.510,00:02:00.540
+"&gt;&gt; SPEAKER 3: IPP, as in internet?",00:02:00.540,00:02:01.610
+&gt;&gt; SPEAKER 2: Private network.,00:02:01.610,00:02:02.968
+To Amita's private network.,00:02:02.968,00:02:04.960
+She is so amazing.,00:02:16.930,00:02:19.602
+"&gt;&gt; SPEAKER 3: Come on, Charlie.",00:02:19.602,00:02:21.030
+&gt;&gt; SPEAKER 2: It's.,00:02:21.030,00:02:21.490
+A mirror IP address.,00:02:21.490,00:02:22.470
+"She's letting us watch what
+she's doing in real time.",00:02:22.470,00:02:27.680
+"&gt;&gt; SPEAKER 1: OK, so a few things
+wrong with this picture.",00:02:27.680,00:02:30.930
+"So one, and this one is acceptable,
+this is actually",00:02:30.930,00:02:32.920
+not a valid IP address.,00:02:32.920,00:02:34.400
+"A valid IP address has to be numbers
+of the form w.x.y.z, where each of",00:02:34.400,00:02:38.190
+those letters is 0 to 255.,00:02:38.190,00:02:40.000
+"But that's fine because just like the
+movies where they fake phone numbers,",00:02:40.000,00:02:42.330
+they fake IP addresses.,00:02:42.330,00:02:43.520
+You don't actually hit real servers.,00:02:43.520,00:02:45.230
+"&gt;&gt; But mind you, this is a browser.",00:02:45.230,00:02:46.760
+"And browsers do not start outputting
+computer code like this.",00:02:46.760,00:02:50.760
+"And if we look a little deeper, notice
+that the language that they're seeing",00:02:50.760,00:02:54.230
+"on the screen is a language called
+Objective C, which is the language in",00:02:54.230,00:02:57.040
+"which iPhone apps are written,
+particularly the ones involving",00:02:57.040,00:02:59.520
+"crayons, as you can see from
+the source code here.",00:02:59.520,00:03:03.540
+"&gt;&gt; OK, I thought this was funny.",00:03:06.600,00:03:07.560
+"So this snippet of code has absolutely
+nothing to do with whatever this",00:03:07.560,00:03:12.240
+particular episode was about.,00:03:12.240,00:03:13.940
+"So the joke is sort of on the folks
+taking for this granted.",00:03:13.940,00:03:17.590
+"But this is not all that hard to get
+these technical details right.",00:03:17.590,00:03:20.220
+And I would encourage you.,00:03:20.220,00:03:21.980
+"And actually, 50 might very well spoil
+a lot of TV shows and movies or you",00:03:21.980,00:03:25.530
+"because you'll find that it's just
+not possible what they're",00:03:25.530,00:03:27.320
+doing on the screen.,00:03:27.320,00:03:28.630
+"But indeed, this is the code that you
+might see it in an iPhone application",00:03:28.630,00:03:31.750
+or Mac OS application.,00:03:31.750,00:03:33.640
+"It has nothing at all
+to do with security.",00:03:33.640,00:03:35.685
+"So keep an eye out for more
+such fun things like that.",00:03:35.685,00:03:38.610
+"&gt;&gt; But today we begin to dive in really
+deeply to a whole range of languages.",00:03:38.610,00:03:42.720
+"An indeed, one of the overarching
+takeaways of this portion of the",00:03:42.720,00:03:45.410
+"course is not to learn how to program
+in PHP, not to learn SQL per se, not",00:03:45.410,00:03:51.815
+"to learn JavaScript per se, but rather
+to teach yourself how to teach",00:03:51.815,00:03:58.100
+"yourself new languages because, indeed,
+we begin to take now the",00:03:58.100,00:04:02.030
+"training wheels off so that after
+course's end, you don't expect a 20",00:04:02.030,00:04:06.020
+"page specification to tell you how
+to implement some program.",00:04:06.020,00:04:08.890
+"You have enough ingredients in your
+mind, and enough tools in your tool",00:04:08.890,00:04:12.970
+"kit, with which to start building
+solutions to problems of interest to",00:04:12.970,00:04:15.750
+"you for some students group, for some
+research project, or really anything",00:04:15.750,00:04:19.130
+of interest to you.,00:04:19.130,00:04:20.140
+"&gt;&gt; So toward that end, recall that this was
+the picture we drew it last time.",00:04:20.140,00:04:24.150
+"And this is two computers, client and
+sever, talking to one another.",00:04:24.150,00:04:27.620
+"And the protocol, the language, so to
+speak, that these two computers happen",00:04:27.620,00:04:31.130
+to be speaking is called HTTP.,00:04:31.130,00:04:33.220
+"And that's just the protocol used by
+computers to transfer information over",00:04:33.220,00:04:37.730
+the world wide web.,00:04:37.730,00:04:38.710
+"The web, of course, is just one service
+that runs on top of the",00:04:38.710,00:04:41.770
+so-called internet.,00:04:41.770,00:04:43.000
+"What's another service available on
+top of the internet these days?",00:04:43.000,00:04:48.660
+Some other protocol or-- what's that?,00:04:48.660,00:04:51.600
+&gt;&gt; AUDIENCE: FTP.,00:04:51.600,00:04:52.300
+&gt;&gt; SPEAKER 1: FTP.,00:04:52.300,00:04:52.790
+So File Transfer Protocol is another.,00:04:52.790,00:04:54.630
+Most of you probably haven't used it.,00:04:54.630,00:04:56.050
+"But most of you probably have used
+things like Gchat, or instant",00:04:56.050,00:04:58.830
+"messaging more generally,
+certainly email.",00:04:58.830,00:05:00.970
+"And those, too, are services that run on
+top of the internet because, at the",00:05:00.970,00:05:04.470
+"end of the day, the internet itself
+really just get data from point A to",00:05:04.470,00:05:08.180
+"point B. And it uses a number of
+particles itself, one of them or two",00:05:08.180,00:05:12.480
+"of them most generally called TCP/IP,
+which is to say that one computer on",00:05:12.480,00:05:17.340
+"the internet can actually be doing
+different things, email,",00:05:17.340,00:05:19.960
+"and web, and so forth.",00:05:19.960,00:05:20.980
+Google does a lot of this.,00:05:20.980,00:05:22.220
+"So how are those services uniquely
+identified, did we say, on a computer",00:05:22.220,00:05:26.310
+"that might actually be doing
+multiple things?",00:05:26.310,00:05:29.080
+&gt;&gt; The port number.,00:05:29.080,00:05:29.860
+"And these are just arbitrary human
+conventions like 80 is web, 443 is",00:05:29.860,00:05:34.180
+"encrypted web, 25 is email.",00:05:34.180,00:05:36.580
+And there's a bunches of others.,00:05:36.580,00:05:38.230
+"And those numbers are simply included in
+those packets of information, those",00:05:38.230,00:05:41.860
+"virtual envelope, that actually
+contained a request or a response.",00:05:41.860,00:05:46.230
+"&gt;&gt; So when you get back a response from the
+web, typically, you don't see any",00:05:46.230,00:05:51.300
+"numbers whatsoever in terms of the
+status code of the response.",00:05:51.300,00:05:54.780
+"You don't actually see the
+inner workings of the",00:05:54.780,00:05:56.770
+packets that come back.,00:05:56.770,00:05:58.090
+But 200 does indeed mean OK.,00:05:58.090,00:05:59.860
+And that means all is well.,00:05:59.860,00:06:01.530
+You might have seen a bunch of these.,00:06:01.530,00:06:02.870
+"Which is probably the most common
+you've seen on the web?",00:06:02.870,00:06:05.710
+&gt;&gt; 404.,00:06:05.710,00:06:05.980
+It just means file not found.,00:06:05.980,00:06:07.330
+It means someone screwed up.,00:06:07.330,00:06:08.270
+"You did by mistyping the URL, or someone
+else did by giving you an",00:06:08.270,00:06:11.450
+"invalid URL, or they deleted the
+file and the URL is still",00:06:11.450,00:06:15.100
+being used by people.,00:06:15.100,00:06:16.130
+"So any number of reasons can explain
+why a file is not found.",00:06:16.130,00:06:19.670
+"And you'll see, in the weeks to come,
+these other error codes, and you'll",00:06:19.670,00:06:22.990
+take advantage of some of them.,00:06:22.990,00:06:24.195
+The worst is 500.,00:06:24.195,00:06:25.760
+"If you get a 500 error in code you've
+written, think of that as sort of the",00:06:25.760,00:06:29.820
+"analog of seg faults in the
+world of web programming.",00:06:29.820,00:06:33.290
+It's not quite as dire.,00:06:33.290,00:06:34.560
+"But it just means that, somewhere,
+you screwed up.",00:06:34.560,00:06:36.660
+So look forward to those.,00:06:36.660,00:06:38.260
+"&gt;&gt; But let's see if we can
+see these in context.",00:06:38.260,00:06:39.910
+"Let me go to a browser here
+and do the following.",00:06:39.910,00:06:43.460
+"So this is Chrome, which happens to
+be installed in the appliance.",00:06:43.460,00:06:45.710
+"But most every browser these days has
+some equivalent functionality.",00:06:45.710,00:06:49.410
+"I'm going to go up the Chrome's menu,
+and go to Tools, and I'm going to go",00:06:49.410,00:06:52.610
+to Developer Tools.,00:06:52.610,00:06:53.990
+"And you'll see that this little panel
+opens in the bottom of the window.",00:06:53.990,00:06:57.040
+"Another shortcut, to be honest, that I
+usually use myself is to Right click",00:06:57.040,00:07:00.190
+"or Control click anywhere on the web
+page and just go to Inspect Element.",00:07:00.190,00:07:04.370
+"And that will not only open
+this have for you.",00:07:04.370,00:07:07.440
+"It will also open, specifically,
+the Elements portion on",00:07:07.440,00:07:10.230
+the left hand side.,00:07:10.230,00:07:11.430
+&gt;&gt; So we're of course seeing Google.,00:07:11.430,00:07:12.460
+They changed their logo today.,00:07:12.460,00:07:13.930
+"But on if I scroll down up here, notice
+that under Elements, you see",00:07:13.930,00:07:20.200
+"what's called HTML, HyperText Markup
+Language, and this is the language",00:07:20.200,00:07:23.460
+"that this and all web pages,
+really, are written in.",00:07:23.460,00:07:26.000
+"But it's actually formatted for
+us so much more readably",00:07:26.000,00:07:28.950
+than it normally is.,00:07:28.950,00:07:29.970
+"In fact, if I zoom out, and I instead
+just Right click or Control Click",00:07:29.970,00:07:34.810
+"click on the page, and then go to View
+Page Source, this is literally what",00:07:34.810,00:07:39.630
+Google sent down to my browser.,00:07:39.630,00:07:42.150
+"&gt;&gt; So some person or persons wrote
+Google.com using this source code.",00:07:42.150,00:07:46.480
+Most of this is not HTML.,00:07:46.480,00:07:47.790
+"It's actually a language called
+JavaScript, which",00:07:47.790,00:07:49.340
+we'll come to on Wednesday.,00:07:49.340,00:07:50.880
+"But what Chrome, and what every browser
+can do for us, is kind of see",00:07:50.880,00:07:55.580
+"past all of the distractions of the
+crazy syntax, and reinsert white space",00:07:55.580,00:07:59.610
+"for us, and even syntax highlight,
+or colorize things for us.",00:07:59.610,00:08:02.940
+"So you'll find that these so-called
+developer tools built into browsers",00:08:02.940,00:08:06.470
+"will make your life so, so much easier
+because you can explore, via this menu",00:08:06.470,00:08:10.830
+"interface, exactly what the underlying
+source code is for",00:08:10.830,00:08:13.940
+any page on the internet.,00:08:13.940,00:08:15.750
+"And indeed, this is one of the most
+effective ways to learn how to do",00:08:15.750,00:08:19.070
+"something new, at least if the page
+isn't so complex as to overwhelm, is",00:08:19.070,00:08:22.860
+"to start poking around it's HTML, look
+at its so-called CSS, which we'll come",00:08:22.860,00:08:26.700
+"to a bit as well, to get an
+understanding of how that programmer",00:08:26.700,00:08:30.310
+"implemented some particular
+feature of the page.",00:08:30.310,00:08:33.480
+"&gt;&gt; But more technically interesting right
+now it's going to be this.",00:08:33.480,00:08:36.530
+"If I go to the Network tab,
+let's now clear this.",00:08:36.530,00:08:39.429
+"I'm going to click the little
+cross symbol here, and then",00:08:39.429,00:08:43.429
+go to another website.,00:08:43.429,00:08:45.630
+"And I'm just going to type
+in Facebook.com.",00:08:45.630,00:08:48.430
+"No HTTP, no HTTPS, no WWW.",00:08:48.430,00:08:51.940
+Let's actually see what happens here.,00:08:51.940,00:08:53.850
+&gt;&gt; Enter.,00:08:53.850,00:08:55.030
+"Now notice a whole bunch of stuff just
+appeared in this bottom panel, in",00:08:55.030,00:08:58.480
+"addition to the web page
+appearing in the top.",00:08:58.480,00:09:00.285
+"I'm going to scroll back up into the
+Network tab here, and I'm going to",00:09:00.285,00:09:04.890
+click on the first row.,00:09:04.890,00:09:06.080
+"What this tool is going to reveal to us
+is every one of the HTTP requests",00:09:06.080,00:09:10.580
+"that rapidly just went back and
+forth between my browser",00:09:10.580,00:09:13.550
+and Facebook's server.,00:09:13.550,00:09:14.930
+"And so every one of those rows
+represents one such request or",00:09:14.930,00:09:17.830
+"response, one or more of
+those virtual envelope.",00:09:17.830,00:09:20.970
+"Or more casually, it's like a person
+like a person, a customer in a",00:09:20.970,00:09:24.080
+"restaurant, asking for something
+again, and again, and again.",00:09:24.080,00:09:26.710
+"And the waiter keeps bringing
+it back one at a time.",00:09:26.710,00:09:29.400
+"&gt;&gt; So now, if I zoom in on this, notice
+and this will be the sort of thing",00:09:29.400,00:09:33.850
+"that you're welcome to and encouraged
+to play with on your own, because we",00:09:33.850,00:09:36.600
+"won't go through everything
+in great detail.",00:09:36.600,00:09:38.150
+"But notice there's a
+few sub tabs here--",00:09:38.150,00:09:40.070
+"Headers, Preview, Response,
+Cookies, and timing.",00:09:40.070,00:09:43.700
+"I'm just going to look at headers
+for now because these are little",00:09:43.700,00:09:48.280
+"ingredients inside of the envelope that
+help data get to and from places.",00:09:48.280,00:09:53.600
+"&gt;&gt; So first, let me click this, View
+Source next to Request Headers.",00:09:53.600,00:09:57.590
+"There is the request that my browser,
+Chrome, in this case, sent inside of",00:09:57.590,00:10:01.910
+that virtual envelope.,00:10:01.910,00:10:02.910
+"You'll recall last week I
+manually typed it while",00:10:02.910,00:10:04.800
+pretending to be a browser.,00:10:04.800,00:10:06.380
+"Then it reminded the server that it's
+looking for the host called",00:10:06.380,00:10:09.980
+Facebook.com.,00:10:09.980,00:10:10.835
+"And then there's a bit more arcane
+information that we'll wave",00:10:10.835,00:10:13.630
+our hands for now.,00:10:13.630,00:10:14.830
+"&gt;&gt; But if I start to scroll down now in
+this window, let me get to the",00:10:14.830,00:10:18.640
+response headers.,00:10:18.640,00:10:19.980
+"This was what's in the virtual
+envelope that came back from",00:10:19.980,00:10:23.270
+Facebook.com.,00:10:23.270,00:10:24.095
+"And if I click View Source just
+to see the raw text of it,",00:10:24.095,00:10:27.390
+notice a few things.,00:10:27.390,00:10:28.400
+"One, Facebook also speaks the same
+protocol, version 1.1 thereof.",00:10:28.400,00:10:32.130
+So that's nice.,00:10:32.130,00:10:33.390
+"But status code 301,
+moved permanently.",00:10:33.390,00:10:36.820
+"&gt;&gt; Well, where the heck did Facebook go?",00:10:36.820,00:10:38.880
+What's this trying to convey to us?,00:10:38.880,00:10:40.430
+"Well, notice down here there's another
+header called Location.",00:10:40.430,00:10:44.310
+"So why is Facebook telling me that they
+moved permanently to that URL",00:10:44.310,00:10:51.050
+next to Location?,00:10:51.050,00:10:53.580
+I forgot the www.,00:10:53.580,00:10:54.962
+&gt;&gt; So that was my choice.,00:10:54.962,00:10:56.250
+"In fact, most of us rarely, probably,
+type www.whatever.com these days.",00:10:56.250,00:11:00.450
+"But it turns out a system administrator,
+like Facebook's, can",00:11:00.450,00:11:03.390
+"configure their servers in such a way
+that either Facebook.com works, or",00:11:03.390,00:11:06.800
+"www.Facebook.com works, or, really,
+any such prefix in front of their",00:11:06.800,00:11:12.450
+domain name.,00:11:12.450,00:11:13.210
+So they've done that for us.,00:11:13.210,00:11:14.500
+"And they are redirecting us, probably
+for some technical,",00:11:14.500,00:11:16.910
+some marketing reasons.,00:11:16.910,00:11:18.100
+"They just want to canonicalize
+on www.Facebook.com.",00:11:18.100,00:11:21.570
+&gt;&gt; But that's not quite it.,00:11:21.570,00:11:24.040
+"If I scroll down here, let's
+see what happens.",00:11:24.040,00:11:28.560
+"This is telling me we
+moved permanently to",00:11:28.560,00:11:30.810
+http://www.Facebook.com.,00:11:30.810,00:11:33.450
+"So let's look at the second request
+that my browser sends.",00:11:33.450,00:11:36.620
+"Unfortunately, it looks like Facebook
+has moved again because the second",00:11:36.620,00:11:40.070
+"request, by selecting that URL instead,
+says that, too, moved",00:11:40.070,00:11:44.420
+permanently.,00:11:44.420,00:11:45.010
+"And let me scroll down here
+to the response headers.",00:11:45.010,00:11:48.140
+Where has Facebook gone now?,00:11:48.140,00:11:51.530
+&gt;&gt; So HTTPS.,00:11:51.530,00:11:52.680
+"So now Facebook has started,
+particularly in light of current",00:11:52.680,00:11:56.130
+"events in recent months, especially and
+also in the past couple of years",00:11:56.130,00:11:59.750
+"to compel all of their users, in a good
+way, to use HTTPS, which is more",00:11:59.750,00:12:03.670
+"secure, although not entirely secure.",00:12:03.670,00:12:06.210
+"And so now my page, my browser is
+going to request this third URL.",00:12:06.210,00:12:10.000
+"And now, finally, we get the
+otherwise unseen 200 OK.",00:12:10.000,00:12:14.710
+"&gt;&gt; So what in the world or all of
+these other rows down here.",00:12:14.710,00:12:18.830
+"I literally typed one thing, and my
+browser seems to have requested like",00:12:18.830,00:12:22.630
+20 some odd things.,00:12:22.630,00:12:23.840
+What is that?,00:12:23.840,00:12:24.640
+&gt;&gt; AUDIENCE: Scripts?,00:12:24.640,00:12:25.810
+"&gt;&gt; SPEAKER 1: Scripts, so other files
+written in a language called",00:12:25.810,00:12:28.460
+"JavaScript, which, again, we'll
+see a bit of on Wednesday.",00:12:28.460,00:12:30.780
+What else?,00:12:30.780,00:12:32.760
+Style sheets.,00:12:32.760,00:12:33.390
+"So something in a language called
+CSS, which we'll see in a bit.",00:12:33.390,00:12:36.350
+"Gifs, and jpegs, and pngs, and images,
+and movie files-- whatever a web page",00:12:36.350,00:12:40.690
+"has is most likely in
+the form of a file.",00:12:40.690,00:12:43.280
+"And so what we're seeing on the left
+hand side there is all of the files",00:12:43.280,00:12:46.750
+"that Chrome had to download,
+recursively, if you will, in order to",00:12:46.750,00:12:50.280
+compose the entirety of the page.,00:12:50.280,00:12:52.430
+"&gt;&gt; So what we saw a moment ago with Google,
+if I click on the Elements",00:12:52.430,00:12:56.210
+"tab, this, sure, is the HTML, the
+language that composes this page.",00:12:56.210,00:13:00.470
+But there's bunches of other things.,00:13:00.470,00:13:01.890
+There's a logo.,00:13:01.890,00:13:02.640
+"There's those blue-ish
+icons over there.",00:13:02.640,00:13:04.680
+"And there's other elements still on
+the page that themselves might be",00:13:04.680,00:13:07.610
+separate files.,00:13:07.610,00:13:08.610
+"&gt;&gt; So what's nice about a browser is that
+it looks at the language we're going",00:13:08.610,00:13:11.860
+"to start writing, or you've already
+started writing in P set 7, figures",00:13:11.860,00:13:14.690
+"out where those files live, and
+goes and grabs them as well.",00:13:14.690,00:13:17.970
+"And I can't emphasize enough, even
+though some of this might look a bit",00:13:17.970,00:13:21.010
+"arcane or overwhelming at first glance,
+learning how to program",00:13:21.010,00:13:24.820
+"applications for the web, it's
+invaluable to understand how these",00:13:24.820,00:13:28.500
+little tools work.,00:13:28.500,00:13:29.410
+"These are sort of like GDB like tools,
+but much simpler, ultimately, to use--",00:13:29.410,00:13:33.830
+"and really gives you eyes into what
+we've been taking for granted for",00:13:33.830,00:13:37.690
+quite some time now.,00:13:37.690,00:13:39.170
+"&gt;&gt; So what can we now do with
+this information?",00:13:39.170,00:13:42.270
+"Well, let's actually take a look at
+the concepts underlying HTML.",00:13:42.270,00:13:44.875
+"And we'll defer, as we already have, to
+sections this week, to the problem",00:13:44.875,00:13:49.025
+"set 7 specification, to some of the more
+particulars of these languages.",00:13:49.025,00:13:53.260
+"But let's see if we can't paint a
+picture of what you should understand",00:13:53.260,00:13:57.020
+overall here.,00:13:57.020,00:13:57.940
+"&gt;&gt; So HTML, HyperText Markup Language,
+is not a programming language.",00:13:57.940,00:14:02.280
+What does that really mean?,00:14:02.280,00:14:03.520
+So HTML looks like this.,00:14:03.520,00:14:05.690
+And some of you already know this.,00:14:05.690,00:14:06.810
+"Some of you have been doing
+this for some time.",00:14:06.810,00:14:08.130
+"But let's see if we can't fill
+in some blanks as well.",00:14:08.130,00:14:10.270
+So notice a couple of things here.,00:14:10.270,00:14:11.760
+"One, it's just text.",00:14:11.760,00:14:13.030
+"So it's just like source code in
+C, or some other language.",00:14:13.030,00:14:15.960
+"&gt;&gt; Notice that there seems
+to be a pattern here.",00:14:15.960,00:14:17.750
+"There's indentation, but technically
+the indentation is just human",00:14:17.750,00:14:20.870
+convention.,00:14:20.870,00:14:21.205
+"A browsers doesn't care if there's new
+lines and tabs like we see there.",00:14:21.205,00:14:24.980
+"But notice that there's
+symmetries here.",00:14:24.980,00:14:27.410
+"There's what I'll call, at the top of
+this file, the open tag, or the start",00:14:27.410,00:14:31.180
+"tag, called HTML.",00:14:31.180,00:14:33.030
+"And then, down below, perfectly lined
+up, much like we do with curly braces,",00:14:33.030,00:14:36.800
+"we see open bracket, forward
+slash, HTML, close bracket.",00:14:36.800,00:14:40.910
+"So that's the corresponding close
+tag, or end tag, for that thing.",00:14:40.910,00:14:44.610
+"&gt;&gt; Together, everything inside of the
+so-called open tag and close tag",00:14:44.610,00:14:47.990
+compose what we'll call an element.,00:14:47.990,00:14:50.440
+"And we'll see, in just a moment, it's
+really like a node in a trees.",00:14:50.440,00:14:53.910
+"Because if you think about now the
+indentation that's implied here, you",00:14:53.910,00:14:57.470
+"kind of have, like, a grandparent
+node called HTML.",00:14:57.470,00:15:00.780
+"How many children might you say, based
+on this picture, the HTML element has?",00:15:00.780,00:15:06.870
+&gt;&gt; So probably two.,00:15:06.870,00:15:07.720
+"One is the head element, apparently.",00:15:07.720,00:15:10.240
+And one is the body element.,00:15:10.240,00:15:11.710
+And why two children?,00:15:11.710,00:15:12.555
+"Well, I'm just kind of inferring that if
+I have an open head tag and then a",00:15:12.555,00:15:15.840
+"close head tag, that's an element.",00:15:15.840,00:15:17.820
+"And then, if there's another open body
+tag and a close body tag, that's like",00:15:17.820,00:15:21.200
+another element.,00:15:21.200,00:15:22.340
+"So in the sense that if I kind of rotate
+the picture on its side, it's",00:15:22.340,00:15:26.000
+"like having an HTML tag, and then a
+head tag, and then a body tag, and",00:15:26.000,00:15:29.910
+"then some text, hello world, dangling
+off of the body tag itself.",00:15:29.910,00:15:34.290
+"&gt;&gt; So we can draw a picture that
+might look like this.",00:15:34.290,00:15:36.620
+The shapes are arbitrary.,00:15:36.620,00:15:38.020
+"But notice that I've used sort of an
+ellipse at the top to represent the",00:15:38.020,00:15:40.870
+document itself.,00:15:40.870,00:15:41.860
+"It turns out there can be other stuff
+inside of a web page that I've not",00:15:41.860,00:15:45.980
+drawn here.,00:15:45.980,00:15:46.940
+"So we're going to even hang the HTML
+node off of a so-called document node.",00:15:46.940,00:15:50.800
+"And then we have head and
+body and title, notice,",00:15:50.800,00:15:53.730
+which is nested further.,00:15:53.730,00:15:55.360
+"I didn't bother putting additional line
+breaks inside of the title tag.",00:15:55.360,00:15:58.650
+"It just felt like it was getting
+a little too verbose.",00:15:58.650,00:16:02.710
+"So I left it in one line there, with
+open title, hello world, close title.",00:16:02.710,00:16:07.000
+"And then we have some text
+dangling off of here.",00:16:07.000,00:16:09.380
+"&gt;&gt; So this picture will come back to
+us when we dive into JavaScript.",00:16:09.380,00:16:12.200
+"And understanding that when you
+write HTML like this, what",00:16:12.200,00:16:15.110
+is a browser doing?,00:16:15.110,00:16:16.250
+"Well, we don't have to worry about
+how it's doing this, or with what",00:16:16.250,00:16:19.290
+"algorithm, but at the end of the day,
+when a browser receives HTML like",00:16:19.290,00:16:23.090
+"that, from Facebook or Google, it parses
+it, so to speak, it reads it,",00:16:23.090,00:16:27.510
+"with something like fread, top to
+bottom, left to right, and as it",00:16:27.510,00:16:31.160
+"realizes, oh, open tag, and then close
+tag, it starts to malloc, so to speak,",00:16:31.160,00:16:36.300
+a node in a tree.,00:16:36.300,00:16:37.800
+"And when it encounters, as we've implied
+here with the indentation, a",00:16:37.800,00:16:41.130
+"child node, it mallocs a node for that
+and attached that to the tree.",00:16:41.130,00:16:45.400
+"&gt;&gt; So the tree structures, binary trees,
+ternary trees, and bigger trees, that",00:16:45.400,00:16:49.150
+"we glanced at a week or two ago, notice
+that the same principle is",00:16:49.150,00:16:53.380
+coming back to us.,00:16:53.380,00:16:54.220
+"And whoever implemented, Chrome whatever
+team did that, presumably had",00:16:54.220,00:16:57.590
+"to implement some kind of tree structure
+underneath the hood.",00:16:57.590,00:17:00.800
+"And that itself is probably in a
+language like C, or C++, or a lower",00:17:00.800,00:17:05.329
+"level language that we'll
+now use atop the web.",00:17:05.329,00:17:08.540
+"&gt;&gt; So now, maybe, this will
+make more sense.",00:17:08.540,00:17:11.200
+"Actual tattoo from some guy who might
+regret it eventually, kind of.",00:17:11.200,00:17:15.420
+"OK, all right, so a lot of web humor.",00:17:15.420,00:17:17.359
+"It's not really going
+over so well today.",00:17:17.359,00:17:18.599
+So we'll move on.,00:17:18.599,00:17:19.560
+All right.,00:17:19.560,00:17:20.180
+"&gt;&gt; So let's take a look now
+at a few examples.",00:17:20.180,00:17:22.760
+"The simplest possible
+thing might be this.",00:17:22.760,00:17:24.660
+"I'm going to go ahead and open up in
+gedit a file called hello.php.",00:17:24.660,00:17:29.170
+"And inside of here, I'm going to quickly
+just do this, printf, quote",00:17:31.730,00:17:36.330
+"unquote, ""hello world.""",00:17:36.330,00:17:38.590
+"&gt;&gt; So notice, and I'll do my backslash n,
+I've not bothered to declare main.",00:17:38.590,00:17:42.460
+"It turns out, in php, and a lot of
+languages, you don't need a main",00:17:42.460,00:17:45.310
+function per se.,00:17:45.310,00:17:46.090
+"You can just start writing
+your program.",00:17:46.090,00:17:47.720
+"Now, when I save this file, notice I'm
+going to have to do the following.",00:17:47.720,00:17:51.210
+"I'm not going to use make, and I'm not
+going to use clang because PHP, unlike",00:17:51.210,00:17:55.360
+"C, is not a compiled language.",00:17:55.360,00:17:57.400
+"It's what's called an interpreted
+language, which means that you run it",00:17:57.400,00:18:01.400
+"as an input through another program
+called an interpreter.",00:18:01.400,00:18:04.650
+"And that program reads it, top to
+bottom, left to right, and does",00:18:04.650,00:18:08.150
+whatever you tell it to do.,00:18:08.150,00:18:09.290
+"&gt;&gt; So in this case here I have
+one line that says printf.",00:18:09.290,00:18:12.920
+"So when I run this source code,
+hello.php, though a program that",00:18:12.920,00:18:17.990
+"happens, conveniently, to be called PHP,
+that program PHP is going to read",00:18:17.990,00:18:22.830
+"this file, top to bottom, left to right,
+and it's going to do what I",00:18:22.830,00:18:26.120
+"tell it to do-- executing code, and if
+it doesn't recognize something, just",00:18:26.120,00:18:30.110
+spitting it out.,00:18:30.110,00:18:31.320
+"So I'm going to go ahead and
+run PHP of hello.php.",00:18:31.320,00:18:34.940
+Enter.,00:18:34.940,00:18:37.110
+&gt;&gt; And that's not quite what I intended.,00:18:37.110,00:18:39.690
+"Well, why is that?",00:18:39.690,00:18:40.530
+"Well, PHP is a language that's actually
+designed to be fairly",00:18:40.530,00:18:43.910
+intertwined with the web.,00:18:43.910,00:18:46.150
+"When making web pages with this language
+PHP, as we'll soon see, we'll",00:18:46.150,00:18:50.460
+"want to do something like print
+out lines like this.",00:18:50.460,00:18:54.560
+&gt;&gt; So I'm going to do this.,00:18:54.560,00:18:55.940
+"Open bracket, question mark, PHP, and
+now I'm just going indent just to keep",00:18:55.940,00:19:00.810
+things nice.,00:19:00.810,00:19:01.960
+"And now I'm going to do a question
+mark close bracket.",00:19:01.960,00:19:04.910
+So there's a bit of asymmetry here.,00:19:04.910,00:19:06.270
+You don't do this.,00:19:06.270,00:19:07.490
+"And you don't do a slash, so
+PHP is a little different.",00:19:07.490,00:19:10.530
+"&gt;&gt; But now, if I rerun this program,
+PHP hello.php, now I",00:19:10.530,00:19:14.610
+actually get Hello World.,00:19:14.610,00:19:16.090
+And we'll see why this is valuable.,00:19:16.090,00:19:17.750
+"One, it allows me to specify,
+super explicitly, this is",00:19:17.750,00:19:20.960
+"code, execute this.",00:19:20.960,00:19:22.480
+"And that's indeed what these
+special tags imply here.",00:19:22.480,00:19:25.480
+"&gt;&gt; But it also means that if I just do
+something like I aim over here, that",00:19:25.480,00:19:30.330
+"means that, literally, that will just
+be printed out without the need to",00:19:30.330,00:19:34.000
+"actually call printf, or print,
+or any similar function.",00:19:34.000,00:19:36.850
+"So we'll come back to that
+in just a moment.",00:19:36.850,00:19:39.445
+"&gt;&gt; First, let's do this.",00:19:39.445,00:19:40.470
+"Inside of the appliance, we have a
+directory called Vhosts, for virtual",00:19:40.470,00:19:43.950
+"hosts, slash local host, slash public.",00:19:43.950,00:19:47.000
+"So it's a bit verbose, but long story
+short, the appliance is designed not",00:19:47.000,00:19:50.240
+"only to support C. It's also
+designed to support PHP.",00:19:50.240,00:19:53.770
+"But it's also designed to be a web
+server, and a database server.",00:19:53.770,00:19:57.440
+"And it's designed, and truly configured,
+to be reminiscent of any",00:19:57.440,00:20:00.230
+"commercial web hosting company that
+you might pay $5 a month for,",00:20:00.230,00:20:04.230
+$100 a month for.,00:20:04.230,00:20:05.040
+"Whatever the service is, it's configured
+to be very similar to a",00:20:05.040,00:20:08.200
+real world production server.,00:20:08.200,00:20:10.170
+"&gt;&gt; And what that means is that running on
+the appliance is web server software.",00:20:10.170,00:20:13.485
+It happens to be called Apache.,00:20:13.485,00:20:15.060
+"It's just free, and open source,
+and very popular.",00:20:15.060,00:20:17.790
+"And we have configured Apache to know
+that if I visit a certain URL, with",00:20:17.790,00:20:23.260
+"Chrome or any browser inside of the
+appliance, to look into this directory",00:20:23.260,00:20:28.060
+"for the files that the
+user is requesting.",00:20:28.060,00:20:31.030
+"&gt;&gt; In other words, let me
+go ahead and do this.",00:20:31.030,00:20:32.790
+"Inside of my public directory, I'm going
+to go ahead and create a file",00:20:32.790,00:20:36.890
+called index.html.,00:20:36.890,00:20:39.580
+That gives me the tab here.,00:20:39.580,00:20:41.000
+"And I'm going to go very quickly
+and go ahead and bang out",00:20:41.000,00:20:44.210
+this program here.,00:20:44.210,00:20:45.010
+"Doctype HTML, which for now, just
+assume you have to type.",00:20:45.010,00:20:48.410
+"It's just an arcane tag, that's not
+truly an HTML tag, that specifies that",00:20:48.410,00:20:53.490
+here comes some HTML.,00:20:53.490,00:20:55.050
+"&gt;&gt; I'm going to go ahead and recreate
+what we saw a moment ago.",00:20:55.050,00:20:57.400
+Here's the head of the page.,00:20:57.400,00:20:58.650
+Inside of the head was the--,00:20:58.650,00:21:01.170
+so title.,00:21:01.170,00:21:01.890
+"So we'll say hello, world.",00:21:01.890,00:21:04.340
+And then down here was the body tag.,00:21:04.340,00:21:06.570
+Let me close the body tag.,00:21:06.570,00:21:08.580
+"And then in here I'll also say,
+just for clarity, hello world.",00:21:08.580,00:21:12.280
+"&gt;&gt; So this is, arguably, the simplest
+possible web page you",00:21:12.280,00:21:14.770
+can make that's valid.,00:21:14.770,00:21:15.770
+It's syntactically valid.,00:21:15.770,00:21:17.030
+Everything that's opened is closed.,00:21:17.030,00:21:18.620
+"Everything's nicely in
+styled and indented.",00:21:18.620,00:21:20.910
+"So let's see now how I
+can access this file.",00:21:20.910,00:21:23.600
+"&gt;&gt; Well, let me go to Chrome here.",00:21:23.600,00:21:25.540
+"And let me go to
+http://localhost/index.html.",00:21:25.540,00:21:35.050
+So what's local host?,00:21:35.050,00:21:36.200
+"Well, most any computer in the world,
+Linux, Mac OS, Windows, has a nickname",00:21:36.200,00:21:39.400
+called local host.,00:21:39.400,00:21:40.680
+"So if you ever want to talk
+to your own computer--",00:21:40.680,00:21:42.900
+"albeit, oddly reflexively--",00:21:42.900,00:21:45.140
+you call yourself local host.,00:21:45.140,00:21:47.080
+"No matter what your actual computer is
+called, whether it's David's MacBook",00:21:47.080,00:21:50.390
+"Air, or something more
+verbose like that.",00:21:50.390,00:21:52.490
+"&gt;&gt; So this URL is apparently going to use
+the HTTP to talk to the local host,",00:21:52.490,00:21:57.760
+"the same computer, the appliance, and
+it's going to ask for, just take a",00:21:57.760,00:22:00.800
+"guess, what file?",00:22:00.800,00:22:02.570
+Index.html.,00:22:02.570,00:22:04.460
+"So the appliance has been configured in
+advance to know that if I'm asking",00:22:04.460,00:22:08.650
+"for something like index.html, look for
+in a folder called Vhosts, in a",00:22:08.650,00:22:13.460
+"folder called localhost, in a folder
+therein called public.",00:22:13.460,00:22:17.950
+"That's where all of my public
+files are going to be.",00:22:17.950,00:22:20.400
+So I'm now going to hit Enter.,00:22:20.400,00:22:22.610
+"&gt;&gt; And damn, there is that forbidden
+message, otherwise known as 403, the",00:22:22.610,00:22:27.100
+numeric code for it.,00:22:27.100,00:22:28.490
+So what's wrong here?,00:22:28.490,00:22:30.130
+"Well, it's not enough to just put
+the file inside of my folder.",00:22:30.130,00:22:33.210
+I need to actually do the following.,00:22:33.210,00:22:35.790
+"&gt;&gt; Let me go into my Vhosts directory, into
+localhost, into public, and let",00:22:35.790,00:22:40.210
+me do ls dash l.,00:22:40.210,00:22:41.680
+"And there's a few other things
+in here for today's purposes.",00:22:41.680,00:22:44.510
+"But notice on the left hand side, next
+to index.html, we only see one RW.",00:22:44.510,00:22:50.540
+"And in the past, what
+has RW stood for?",00:22:50.540,00:22:53.560
+&gt;&gt; Just read or write.,00:22:53.560,00:22:54.240
+"The fact that it says rw on the left
+means I, the owner of this file, can",00:22:54.240,00:22:58.000
+read or write it.,00:22:58.000,00:22:59.020
+"But I need to let all people in the
+world read this, though not write it.",00:22:59.020,00:23:05.010
+"So I'm going to change the mode of the
+file, chmod, all plus r to give",00:23:05.010,00:23:09.650
+"everyone read permission on the
+file called index.html.",00:23:09.650,00:23:13.910
+"&gt;&gt; And if I now retype ls dash l, notice
+that, over here, some more",00:23:13.910,00:23:18.040
+R's have popped up.,00:23:18.040,00:23:19.160
+"And for now, the spec goes
+into more detail.",00:23:19.160,00:23:21.090
+"For P set 7, that just means everyone
+can now read this file.",00:23:21.090,00:23:24.450
+"If I go back to my browser
+now and reload, voila.",00:23:24.450,00:23:27.790
+Hello world.,00:23:27.790,00:23:28.750
+"&gt;&gt; And I can even open my Chrome tools
+and see, just like with Google and",00:23:28.750,00:23:32.260
+"Facebook that there's my HTML,
+formatted a little",00:23:32.260,00:23:34.590
+differently and colorized.,00:23:34.590,00:23:35.930
+"If I go to the network tab and reload
+the page, notice that there is the get",00:23:35.930,00:23:40.450
+"request that Chrome is sending
+to the appliance.",00:23:40.450,00:23:42.900
+"There's the 200 for that
+particular file.",00:23:42.900,00:23:46.020
+"So in short, this is how all these
+various pieces are coming together.",00:23:46.020,00:23:49.340
+"It just so happens that the web server
+we're using right now isn't remote,",00:23:49.340,00:23:53.530
+like Facebook.,00:23:53.530,00:23:54.210
+"It's literally on the same computer,
+which is perfectly OK.",00:23:54.210,00:23:58.330
+&gt;&gt; So what more can we do in a web page?,00:23:58.330,00:24:00.590
+"Well, just, let's breeze through
+a couple of these things.",00:24:00.590,00:24:03.110
+"But let me go ahead and reopen
+Gedit with index.html.",00:24:03.110,00:24:07.860
+"And let me go ahead and say hello CS50,
+save this file, go back to the",00:24:07.860,00:24:13.980
+"browser, really underwhelming change.",00:24:13.980,00:24:16.260
+"&gt;&gt; But what if we want to actually
+link to something now?",00:24:16.260,00:24:19.130
+"So it turns out that we can have the
+links in HTML that are just tags",00:24:19.130,00:24:23.480
+themselves.,00:24:23.480,00:24:24.140
+"It happens to be called the
+anchor tag. a href equals",00:24:24.140,00:24:27.320
+"https://www.cs50.net, www.cs50.net
+close quote, close bracket.",00:24:27.320,00:24:33.190
+"And now let's see what
+else comes next.",00:24:33.190,00:24:35.230
+&gt;&gt; I've opened the tag.,00:24:35.230,00:24:36.500
+"I now need to give it
+a phrase like CS50.",00:24:36.500,00:24:38.990
+Let me close the tag.,00:24:38.990,00:24:40.600
+And notice a few things.,00:24:40.600,00:24:42.010
+"Even though there's this cryptic thing
+here, I have not repeated it when you",00:24:42.010,00:24:45.270
+close the tag.,00:24:45.270,00:24:46.010
+"You just close the tag
+with its name alone.",00:24:46.010,00:24:48.230
+"And this is what's known as
+an attribute with a value.",00:24:48.230,00:24:50.940
+"Attributes just modify the behavior
+of some tag inside of a page.",00:24:50.940,00:24:56.070
+"&gt;&gt; So this is specifying that the hyper
+reference, the fancy way of saying the",00:24:56.070,00:24:59.150
+"URL for this anchor, for this
+link, should be CS50.net.",00:24:59.150,00:25:03.660
+"And the text that we want to show the
+user isn't that raw URL, but rather",00:25:03.660,00:25:07.440
+the word CS50.,00:25:07.440,00:25:08.730
+"&gt;&gt; So if now I reload, let me zoom in for
+clarity, let me reload the page,",00:25:08.730,00:25:13.710
+"notice that we have this old school
+blue underlined link.",00:25:13.710,00:25:16.460
+"And if I hover over it, and it's going
+to be tough to see, in the bottom left",00:25:16.460,00:25:20.000
+"hand corner of the screen, notice
+that it says the URL to which",00:25:20.000,00:25:23.690
+I'm going to go.,00:25:23.690,00:25:24.430
+"And if I click there, voila,
+now I'm making web pages.",00:25:24.430,00:25:27.940
+"And we've led ourselves
+to the home page.",00:25:27.940,00:25:30.140
+"&gt;&gt; But notice what potential
+this offers us.",00:25:30.140,00:25:32.670
+"Security is very much
+in vogue these days.",00:25:32.670,00:25:34.890
+"What if I instead say something like
+this, and I instead go to, say, let's",00:25:34.890,00:25:41.210
+"see, fakeCS50.net.",00:25:41.210,00:25:42.460
+Reload this page.,00:25:44.660,00:25:46.360
+"&gt;&gt; OK, so notice it still looks like I'm
+going to CS50, unless an astute eye",00:25:46.360,00:25:50.180
+will notice I'm going to fake CS50.,00:25:50.180,00:25:51.560
+I'm guessing this domain is not taken.,00:25:51.560,00:25:54.550
+"OK, so it's not available.",00:25:54.550,00:25:55.960
+So that's good.,00:25:55.960,00:25:56.600
+No one actually has that domain.,00:25:56.600,00:25:57.900
+"&gt;&gt; But let's be a little more malicious
+because that's kind of stupid.",00:25:57.900,00:26:00.380
+What if we change this to Paypal.,00:26:00.380,00:26:02.240
+"And what if we call this, like,
+www.paypal.badguy.com,",00:26:02.240,00:26:09.960
+whatever the domain is.,00:26:09.960,00:26:12.070
+That probably exists.,00:26:12.070,00:26:13.700
+So now let me reload the page.,00:26:13.700,00:26:16.260
+"And here we have sort of a phishing
+attack, P-H-I-S-H-I-N-G, which is the",00:26:16.260,00:26:22.890
+"silly word given for an attack that
+tries to fish information, or, better",00:26:22.890,00:26:26.760
+"yet, money, out of people by tricking
+them into providing information that",00:26:26.760,00:26:30.450
+they might not otherwise do.,00:26:30.450,00:26:31.990
+"This looks totally legit, right?",00:26:31.990,00:26:33.500
+I must have a link here to Paypal.com.,00:26:33.500,00:26:34.930
+"In fairness, if I sexed it up with some
+graphics, we can make it look",00:26:37.700,00:26:40.430
+more like PayPal.,00:26:40.430,00:26:41.310
+Right?,00:26:41.310,00:26:41.510
+"Because I could, as an aside,
+I could go to Paypal.com.",00:26:41.510,00:26:43.815
+"And we've just seen how I can
+see all of their HTML.",00:26:43.815,00:26:47.110
+"I could just copy it and recreate the
+aesthetics of Paypal rather than go",00:26:47.110,00:26:50.560
+old school here.,00:26:50.560,00:26:51.490
+"But notice, of course, and it's a little
+small still, only in the bottom",00:26:51.490,00:26:55.010
+"left hand corner, in like a 10 point
+font, do you see what URL you're",00:26:55.010,00:26:59.190
+actually going to be led to.,00:26:59.190,00:27:01.310
+"&gt;&gt; And so if you've ever gotten spam saying
+go ahead, and you're account",00:27:01.310,00:27:06.580
+has been compromised.,00:27:06.580,00:27:07.420
+"Please click this link and let us know
+your password so we can ensure you're",00:27:07.420,00:27:10.615
+"you, don't ever do that.",00:27:10.615,00:27:13.010
+These things should go without saying.,00:27:13.010,00:27:14.180
+"But it's wonderfully amusing, and
+tragic, how every year this seems to",00:27:14.180,00:27:17.670
+"happen to some non-zero
+number of people.",00:27:17.670,00:27:19.660
+"&gt;&gt; And that's the beauty
+of phishing attacks.",00:27:19.660,00:27:21.400
+You can send out a million emails.,00:27:21.400,00:27:23.160
+"And even if 0.01% of people actually
+click on Paypal and give you your",00:27:23.160,00:27:27.720
+"password, that's still a non-zero number
+of people who've just giving",00:27:27.720,00:27:31.040
+you their money.,00:27:31.040,00:27:32.200
+"And sending emails, of course, is quite
+easy and, essentially, free",00:27:32.200,00:27:36.170
+these days.,00:27:36.170,00:27:36.970
+"&gt;&gt; So long story short, wonderfully
+beautiful idea, right?",00:27:36.970,00:27:40.410
+"Years ago, this was the earliest
+web, enabling a web of",00:27:40.410,00:27:44.620
+hyperlinks among resources.,00:27:44.620,00:27:46.330
+"But so quickly could it be
+used for ill purposes.",00:27:46.330,00:27:49.520
+"And email, suffice it to say, these
+days, have HTML embedded inside.",00:27:49.520,00:27:54.100
+"&gt;&gt; Well, let me just one other thing.",00:27:54.100,00:27:55.410
+"And we'll defer largely to section in
+problem set seven to allow you to",00:27:55.410,00:27:58.640
+explore the particulars.,00:27:58.640,00:28:00.000
+"But let me go ahead and
+do a few things here.",00:28:00.000,00:28:01.990
+"I'm going to go in and declare
+what's called a div, or",00:28:01.990,00:28:04.840
+"division, of the page.",00:28:04.840,00:28:06.080
+Let me close that div tag.,00:28:06.080,00:28:07.770
+"&gt;&gt; And I'm going to say up
+here top of page.",00:28:07.770,00:28:11.460
+"And then below this, I'm going to do
+something like another div, close this",00:28:11.460,00:28:14.940
+"tag, and do bottom of page.",00:28:14.940,00:28:17.800
+And let's save it.,00:28:17.800,00:28:18.840
+&gt;&gt; So now let's go back to my file.,00:28:18.840,00:28:21.040
+Very underwhelming.,00:28:21.040,00:28:22.120
+"But what division is used for,
+underneath the hood, is it's actually",00:28:22.120,00:28:25.520
+a nice structural element.,00:28:25.520,00:28:26.920
+"It doesn't have any aesthetics so far as
+we can see, other than, apparently,",00:28:26.920,00:28:30.300
+putting things on new lines.,00:28:30.300,00:28:31.890
+"&gt;&gt; But notice, as an aside, just hitting
+Enter does not cut it in HTML like it",00:28:31.890,00:28:36.290
+"does in C. You might think that that's
+going to put a nice big gap between",00:28:36.290,00:28:39.840
+the top and bottom of the page.,00:28:39.840,00:28:41.300
+But it's ignored.,00:28:41.300,00:28:43.420
+"White space is essentially ignored in
+web pages other than the very first",00:28:43.420,00:28:48.040
+"space bar character, or carriage return,
+that you hit on the keyboard.",00:28:48.040,00:28:51.530
+"If you want more line breaks, you
+have to specify it yourself.",00:28:51.530,00:28:55.370
+"&gt;&gt; So I'm going to do a few things
+here to show what's going on.",00:28:55.370,00:28:59.080
+"I'm going to add an attribute that
+exists And again, the way you learn",00:28:59.080,00:29:02.700
+"what attributes exist, what tags exist,
+really, is online references.",00:29:02.700,00:29:07.110
+"HTML is the sort of language-- it's
+not a programming language.",00:29:07.110,00:29:09.750
+"It's a markup language-- that after a
+good half hour, maybe, an hour with",00:29:09.750,00:29:12.460
+"it, you'll certainly grasp, most
+likely, the basic idea.",00:29:12.460,00:29:15.930
+"And then a Google search away is all
+the possible tags that you might be",00:29:15.930,00:29:20.350
+interested in.,00:29:20.350,00:29:21.170
+"And per the spec, that is quite
+welcome and encouraged here.",00:29:21.170,00:29:24.290
+"&gt;&gt; So now let me go ahead and
+do something like this.",00:29:24.290,00:29:26.120
+Background-color.,00:29:26.120,00:29:28.690
+"And now, I'm going to do something
+like red, semicolon.",00:29:28.690,00:29:32.060
+"And you can do this in
+a few different ways.",00:29:32.060,00:29:33.970
+"I'm just kind of typing it as super
+explicitly as possible.",00:29:33.970,00:29:36.770
+"&gt;&gt; But it turns out that this value here is
+what's called CSS, Cascading Style",00:29:36.770,00:29:41.960
+"Sheets, which is another
+language altogether.",00:29:41.960,00:29:43.700
+"CSS has nothing to do with
+open tags and close tags.",00:29:43.700,00:29:46.770
+It has to do with properties.,00:29:46.770,00:29:48.230
+"&gt;&gt; And properties are simply key value
+pairs, which just means some word,",00:29:48.230,00:29:52.660
+"colon, and then some other word.",00:29:52.660,00:29:54.680
+"And if you have multiple ones, or just
+one here, you can end it with a",00:29:54.680,00:29:57.940
+"semicolon, just for clarity.",00:29:57.940,00:29:59.390
+"But that, too, will work here.",00:29:59.390,00:30:01.370
+&gt;&gt; Now what's this going to do?,00:30:01.370,00:30:02.500
+You can probably guess.,00:30:02.500,00:30:03.610
+Let me go ahead and reload this page.,00:30:03.610,00:30:05.930
+And now it's really coming along.,00:30:05.930,00:30:07.300
+So top of my page is red.,00:30:07.300,00:30:09.150
+"But what's key here is that, I mentioned
+earlier, that div gives you",00:30:09.150,00:30:12.380
+a division of the page.,00:30:12.380,00:30:13.220
+And that's indeed what it does.,00:30:13.220,00:30:14.410
+"It essentially divides the page into
+a rectangle that you can then",00:30:14.410,00:30:17.920
+manipulate.,00:30:17.920,00:30:18.720
+"&gt;&gt; And this notion of rectangles is kind of
+compelling in that, if you think of",00:30:18.720,00:30:22.330
+"most any website, there's probably
+some structure to it.",00:30:22.330,00:30:26.410
+"Most of you have probably rarely seen
+Facebook's homepage if you're logged",00:30:26.410,00:30:29.620
+in all the time.,00:30:29.620,00:30:30.440
+"&gt;&gt; But on Facebook's home page, there's
+some kind of div along the top.",00:30:30.440,00:30:33.920
+"And it might not be as simple
+as one div, but there's a",00:30:33.920,00:30:36.140
+rectangular region there.,00:30:36.140,00:30:37.560
+"The rest of the page is like
+a huge div, like a much",00:30:37.560,00:30:40.290
+bigger rectangular region.,00:30:40.290,00:30:41.910
+"So long story short, just by having
+these little building blocks, the",00:30:41.910,00:30:44.540
+"ability to model things as rectangles,
+whether wide or narrow, you can also",00:30:44.540,00:30:49.250
+"make columns potentially, allows you to
+lay out pages, really, however you",00:30:49.250,00:30:53.680
+would like.,00:30:53.680,00:30:54.100
+"We're really just scratching
+the surface here.",00:30:54.100,00:30:56.170
+"&gt;&gt; Indeed, if I do one other one,
+let me go ahead and do style,",00:30:56.170,00:30:59.820
+"background-color, we'll do something
+like blue, close quotes.",00:30:59.820,00:31:05.410
+Let's reload this.,00:31:05.410,00:31:06.620
+So now it's getting even uglier.,00:31:06.620,00:31:08.260
+"But now I can kind of show off
+my P set five skills, right?",00:31:08.260,00:31:11.520
+Red.,00:31:11.520,00:31:12.690
+"It reminds me of RGB, Red
+Green Blue triples.",00:31:12.690,00:31:15.640
+"Well, it turns out in web programming,
+or web design, which is this, we've",00:31:15.640,00:31:19.330
+"not yet programmed anything
+per se, you can actually",00:31:19.330,00:31:21.650
+have hexadecimal code.,00:31:21.650,00:31:22.880
+"So something something, something
+something, something something.",00:31:22.880,00:31:26.480
+"So you can have six hexadecimal
+characters, or three, in some cases,",00:31:26.480,00:31:30.650
+"and each of those question marks
+has to be a hexadecimal digits,",00:31:30.650,00:31:33.480
+zero through f.,00:31:33.480,00:31:34.985
+"&gt;&gt; If I want to have a lot of red, and
+no green, and no blue, what's the",00:31:34.985,00:31:41.000
+opposite of zero when using hex?,00:31:41.000,00:31:43.740
+It's f.,00:31:43.740,00:31:44.480
+"So I can do ff, zero zero, zero zero,
+save this, and now come down here.",00:31:44.480,00:31:51.130
+And I don't actually see a change.,00:31:51.130,00:31:52.700
+"So quote unquote ""red"" is apparently
+synonymous for all red,",00:31:52.700,00:31:56.230
+"no green, no blue.",00:31:56.230,00:31:57.610
+"Meanwhile, let's deliberately change
+this one to be something",00:31:57.610,00:31:59.960
+"random, like ABCDF.",00:31:59.960,00:32:01.210
+&gt;&gt; Let's see what that is.,00:32:03.790,00:32:05.860
+"It's a really nice blue,
+actually, baby blue.",00:32:05.860,00:32:08.530
+"All right, so these are just now
+somewhat random combinations of",00:32:08.530,00:32:11.820
+characters.,00:32:11.820,00:32:12.210
+So we won't get bogged down in here.,00:32:12.210,00:32:13.410
+"But again, this speaks to the precision
+that you can begin to",00:32:13.410,00:32:15.930
+"apply-- even if you're very overwhelmed
+by the aesthetics.",00:32:15.930,00:32:19.090
+"In fact, if you really want to be
+impressed, let me go ahead and change",00:32:19.090,00:32:21.750
+"the font size, for instance.",00:32:21.750,00:32:23.500
+"And notice the semicolon, which
+is necessary there.",00:32:23.500,00:32:25.960
+"&gt;&gt; Font size, we can be just ridiculous
+here, 96 point.",00:32:25.960,00:32:29.570
+Save that.,00:32:29.570,00:32:31.280
+"Wow, that's a big font size.",00:32:31.280,00:32:33.670
+"All right, so it's very easy.",00:32:33.670,00:32:35.490
+"And actually, you're essentially seeing
+the very first web page I made",00:32:35.490,00:32:38.260
+"years ago, when I first
+learned this stuff.",00:32:38.260,00:32:40.060
+"It's very easy to make very
+hideous things quickly.",00:32:40.060,00:32:42.190
+"&gt;&gt; And if you're familiar with the Wayback
+Machine on archive.org, you",00:32:42.190,00:32:46.115
+"can find all my hideous
+undergrad web pages.",00:32:46.115,00:32:48.210
+One had Kermit the Frog on the front.,00:32:48.210,00:32:50.090
+"I went through a phase where I thought
+it was cool to take the background of",00:32:50.090,00:32:53.150
+"a red curtain, when I learned how you
+can tile images again, and again, and",00:32:53.150,00:32:56.320
+"again, to fill a page with
+a big tacky red curtain.",00:32:56.320,00:32:59.540
+"And then, on top of this, was an icon
+that you had to click to enter my home",00:32:59.540,00:33:03.120
+"page because that was
+very much in vogue.",00:33:03.120,00:33:04.960
+"&gt;&gt; And then my first program I ever wrote
+wasn't in PHP, but in a language",00:33:04.960,00:33:08.870
+"called Pearl, wrote a guest book, which
+is a really cool thing that a",00:33:08.870,00:33:12.260
+"lot of people expect you
+to have on a home page.",00:33:12.260,00:33:14.250
+"When you get to the page, they want you
+to sign in, and say who you are,",00:33:14.250,00:33:17.510
+and why you're there.,00:33:17.510,00:33:18.720
+This is very 1990s style web design.,00:33:18.720,00:33:21.320
+"&gt;&gt; But these days, surely, we've
+come a lot farther.",00:33:21.320,00:33:24.130
+"And you'll see, in section, and even
+in the problem set seven, by",00:33:24.130,00:33:27.560
+"leveraging libraries these days,
+it's so much easier to make",00:33:27.560,00:33:31.570
+prettier things quickly.,00:33:31.570,00:33:33.400
+"Really here, we're just scratching
+the surface of what you can do",00:33:33.400,00:33:36.550
+stylistically.,00:33:36.550,00:33:37.400
+"&gt;&gt; And in fact, already, let me emphasize
+that this is already getting ugly, not",00:33:37.400,00:33:41.660
+"just aesthetically, but in terms
+of style of my code, or the",00:33:41.660,00:33:46.030
+design of my code.,00:33:46.030,00:33:47.260
+"I have currently comingled HTML, which
+is the greenish open tags there, with",00:33:47.260,00:33:52.350
+"CSS properties, which
+is totally legit.",00:33:52.350,00:33:55.160
+"This is really where the language
+had its origins.",00:33:55.160,00:33:57.200
+"&gt;&gt; But in the interest of clean design,
+much like we started factoring stuff",00:33:57.200,00:34:01.030
+"out from C files into .h files, let
+me actually practice that kind of",00:34:01.030,00:34:05.370
+"principle and start doing
+this instead.",00:34:05.370,00:34:07.990
+"Let me put a style tag up here, which
+also exists in HTML, and let me",00:34:07.990,00:34:13.280
+specify the following.,00:34:13.280,00:34:15.330
+Let me delete this.,00:34:15.330,00:34:16.360
+Background color is going to be red.,00:34:16.360,00:34:18.110
+I'm going to delete this entirely.,00:34:18.110,00:34:19.800
+"I'm going to get rid of the style
+attribute, and I'm going to uniquely",00:34:19.800,00:34:22.580
+identify this div with a word--,00:34:22.580,00:34:24.620
+"arbitrarily, but reasonably, quote
+unquote ""top."" And id is a special",00:34:24.620,00:34:28.750
+"attribute that uniquely defines
+a certain HTML element",00:34:28.750,00:34:32.530
+as having that id.,00:34:32.530,00:34:33.850
+"&gt;&gt; If I now want to stylized it, up here in
+the head of my page, inside of the",00:34:33.850,00:34:37.969
+"style tag, notice that
+I can do hash top.",00:34:37.969,00:34:41.730
+"And then I can put a couple of curly
+braces, reminiscent of C, and then let",00:34:41.730,00:34:45.300
+me paste in that stylization.,00:34:45.300,00:34:47.130
+"And let me go ahead here and anticipate
+where I'm going with this.",00:34:47.130,00:34:49.929
+"Let me also create one
+for the bottom div.",00:34:49.929,00:34:53.380
+"Let me grab this hideous code from down
+here, put it in here, and I'll be",00:34:53.380,00:34:58.010
+"a little more anal now and stylized it
+by just putting things on their own",00:34:58.010,00:35:00.770
+"line, ending with semicolons.",00:35:00.770,00:35:02.540
+Let me get rid of the style tag.,00:35:02.540,00:35:04.430
+&gt;&gt; But I'm not done yet.,00:35:04.430,00:35:05.320
+I need to do one other thing.,00:35:05.320,00:35:07.406
+"Yeah, id equals quote unquote, ""bottom,""
+or whatever id I want to",00:35:07.406,00:35:10.070
+give that element.,00:35:10.070,00:35:11.740
+"Now, let me go back over here.",00:35:11.740,00:35:13.420
+And this is atrocious.,00:35:13.420,00:35:14.360
+I can't deal with 96 point.,00:35:14.360,00:35:15.805
+Let's do 24 point.,00:35:15.805,00:35:16.960
+Or you could be more precise.,00:35:16.960,00:35:18.320
+"You can actually use pixels, px, so
+that you really get finer grain",00:35:18.320,00:35:21.800
+control over your page.,00:35:21.800,00:35:23.220
+"&gt;&gt; As an aside, that's not necessarily
+the best thing if users, for",00:35:23.220,00:35:26.860
+"accessibility reasons, want to
+be able to increase sizes.",00:35:26.860,00:35:29.650
+"So realize that there are ways of doing
+things that don't necessarily",00:35:29.650,00:35:32.650
+hard code everything.,00:35:32.650,00:35:34.230
+"&gt;&gt; All right, so it's bigger, 24 point,
+than whatever the default is.",00:35:34.230,00:35:37.220
+But now it's a little cleaner.,00:35:37.220,00:35:38.630
+And let me take this one step further.,00:35:38.630,00:35:40.230
+"Just like the idea of header files,
+notice we're one step closer to that.",00:35:40.230,00:35:47.220
+"I have factored out, but still left,
+inside of my page, those CSS rules.",00:35:47.220,00:35:52.000
+"Why might I want to take this one step
+further, remove this altogether, and",00:35:52.000,00:35:56.200
+put it in a separate file?,00:35:56.200,00:35:59.860
+"&gt;&gt; So I can reuse it, right?",00:35:59.860,00:36:01.070
+"This is just kind of intuition
+right now.",00:36:01.070,00:36:03.155
+"Before, I claimed that it was just
+getting ugly having the style",00:36:03.155,00:36:06.340
+"attributes inside of the
+divs themselves.",00:36:06.340,00:36:08.480
+But just kind of think that through.,00:36:08.480,00:36:09.750
+"As your page gets longer and longer, if
+you're putting here, and here, and",00:36:09.750,00:36:13.560
+"here, and here, all of these different
+colors, and font sizes, and other such",00:36:13.560,00:36:18.350
+"attributes, your page is very quickly
+going to become unmanageable for you.",00:36:18.350,00:36:22.550
+"&gt;&gt; If someone comes up to you and
+says, oh, you know what?",00:36:22.550,00:36:24.570
+"I'd really like to change the font size
+by two additional points, you",00:36:24.570,00:36:28.070
+"might have to go and find and replace
+a huge number of lines of code.",00:36:28.070,00:36:31.275
+"It's much more compelling to centralize
+all such aesthetics here.",00:36:31.275,00:36:35.170
+"But if you'd like to reuse those
+aesthetics in multiple web pages, all",00:36:35.170,00:36:38.850
+"the more compelling to, for
+instance, create a file",00:36:38.850,00:36:41.100
+called with those contents.,00:36:41.100,00:36:45.290
+&gt;&gt; And let me do this.,00:36:45.290,00:36:46.680
+Save this file.,00:36:51.150,00:36:51.920
+"I say styles.css, arbitrary,
+but conventional.",00:36:51.920,00:36:55.580
+"I'll put it in John Harvard's home
+directory now for simplicity.",00:36:55.580,00:36:58.770
+"And what I can do in my web page is get
+rid of the style tag altogether,",00:36:58.770,00:37:03.880
+"and somewhat unintuitively, use a link
+tag, which does not give you a link in",00:37:03.880,00:37:08.270
+"the hyperlink, clickable sense, but
+where I say link, href equals",00:37:08.270,00:37:13.140
+styles.css.,00:37:13.140,00:37:15.120
+"And the relationship that this element
+has with the web page is to serve as",00:37:15.120,00:37:20.050
+its style sheet.,00:37:20.050,00:37:21.280
+&gt;&gt; So how did I know this?,00:37:21.280,00:37:22.670
+"One, you just read the manual,
+or you Google around, and you",00:37:22.670,00:37:25.950
+look at various resources.,00:37:25.950,00:37:27.000
+"I mean, that truly is how you pick up
+techniques like this, and, consistent",00:37:27.000,00:37:30.520
+"with this idea of teaching oneself new
+languages, again, you'll find that",00:37:30.520,00:37:34.720
+"there's only a finite number of things
+to any language that, once you get",00:37:34.720,00:37:38.830
+"them, you'll find that it gets
+faster and faster to write.",00:37:38.830,00:37:41.310
+"Indeed, learning a new programming
+language is so much faster than a new",00:37:41.310,00:37:44.180
+"spoken language because these things
+are much smaller and much more",00:37:44.180,00:37:47.380
+precisely defined.,00:37:47.380,00:37:48.820
+"&gt;&gt; But I've highlighted a bit
+of an anomaly here.",00:37:48.820,00:37:51.590
+"Why have I highlighted this
+forward slash here?",00:37:51.590,00:37:57.750
+Because I have to close the tag.,00:37:57.750,00:37:59.420
+I should close the tag.,00:37:59.420,00:38:00.530
+"And you'll find innumerable resources
+online that don't",00:38:00.530,00:38:02.750
+necessarily close tags.,00:38:02.750,00:38:04.080
+"And realistically, it's not strictly
+necessary for technical and there are",00:38:04.080,00:38:08.770
+"reasons of reality, browsers are just
+fairly tolerant of mistakes in web",00:38:08.770,00:38:11.950
+"pages, for better or for worse,
+but mostly worse.",00:38:11.950,00:38:14.360
+"&gt;&gt; So this here is just a cleaner way of
+saying something stupid like this,",00:38:14.360,00:38:18.830
+"where if you want to open the link tag
+but close it, there's really no notion",00:38:18.830,00:38:22.330
+of content for a link tag.,00:38:22.330,00:38:23.720
+"It just means load this
+file and put it here.",00:38:23.720,00:38:26.000
+"It's like sharp include in C. You can
+open and close a tag all at once",00:38:26.000,00:38:30.610
+within the same tag.,00:38:30.610,00:38:31.660
+And there's other examples of this.,00:38:31.660,00:38:33.520
+"This is not the way to do this, but
+the br tag, for line breaks, if I",00:38:33.520,00:38:37.280
+"really wanted to achieve what I was
+trying to before by hitting Enter, if",00:38:37.280,00:38:41.780
+"I explicitly say line break, line break,
+line break, line break, and",00:38:41.780,00:38:45.380
+"then reload this page, now you'll notice
+that bottom of the page is,",00:38:45.380,00:38:49.100
+"indeed, much farther down in
+the bottom of the page.",00:38:49.100,00:38:51.940
+"But even that can be done much more
+cleanly with CSS, and with margins,",00:38:51.940,00:38:55.840
+"and with other such aesthetic
+techniques.",00:38:55.840,00:38:58.120
+"&gt;&gt; So for now, the takeaways are this.",00:38:58.120,00:38:59.940
+"In HTML, we have these
+things called tags.",00:38:59.940,00:39:02.320
+"In CSS, we have these things
+called properties.",00:39:02.320,00:39:04.830
+"We can comingle these two languages,
+either by using the style attribute,",00:39:04.830,00:39:08.700
+"or the style tag, or best yet, factoring
+it out altogether, as we do",00:39:08.700,00:39:14.240
+in problem set 7.,00:39:14.240,00:39:17.270
+"Questions, then, about the
+conceptual basics here?",00:39:17.270,00:39:23.820
+&gt;&gt; AUDIENCE: I have a question.,00:39:23.820,00:39:24.740
+"&gt;&gt; SPEAKER 1: Oh, sorry.",00:39:24.740,00:39:25.630
+&gt;&gt; AUDIENCE: Why wasn't it colored--,00:39:25.630,00:39:28.880
+"&gt;&gt; SPEAKER 1: Oh, in the other tab?",00:39:28.880,00:39:31.410
+This here?,00:39:31.410,00:39:32.232
+"&gt;&gt; AUDIENCE: No, it's like the--",00:39:32.232,00:39:33.482
+"&gt;&gt; SPEAKER 1: Oh, that's because
+I was being sloppy.",00:39:35.330,00:39:39.480
+I put the file in the wrong place.,00:39:39.480,00:39:41.350
+"So if I actually put it here, and I
+chmod it, all + r for styles.css, and",00:39:41.350,00:39:47.840
+"now reload the page, now we
+get the stylization back.",00:39:47.840,00:39:52.050
+"And because the font sizes are
+different, we don't see quite as much",00:39:52.050,00:39:54.530
+white space.,00:39:54.530,00:39:55.010
+"We instead see what's the
+default is instead.",00:39:55.010,00:39:58.240
+Good question.,00:39:58.240,00:40:00.050
+Yes?,00:40:00.050,00:40:00.846
+"&gt;&gt; AUDIENCE: Why is the link
+tag inside the header?",00:40:00.846,00:40:02.630
+"&gt;&gt; SPEAKER 1: Why is the links
+tag inside of the header--",00:40:02.630,00:40:06.270
+"short answer, just because.",00:40:06.270,00:40:07.650
+That is what was decided.,00:40:07.650,00:40:08.930
+"That's where the link tags go when
+you have what's called an",00:40:08.930,00:40:10.720
+external style sheet.,00:40:10.720,00:40:13.650
+Other questions?,00:40:13.650,00:40:16.430
+"&gt;&gt; All right, well let's do this.",00:40:16.430,00:40:17.770
+We have so much fun ahead of us today.,00:40:17.770,00:40:20.500
+"That's just scratching
+the surface of CSS.",00:40:20.500,00:40:22.480
+Let's do this.,00:40:22.480,00:40:23.010
+"Let's take a five minute break here
+because, per my email, let's hang in",00:40:23.010,00:40:25.980
+there till 2:30-ish today.,00:40:25.980,00:40:27.200
+"But if you do have to
+leave, that's fine.",00:40:27.200,00:40:28.540
+"But we'll forge ahead after
+a five minute break.",00:40:28.540,00:40:30.380
+"And we'll learn a little something
+about PHP, MySQL, and more.",00:40:30.380,00:40:35.930
+"&gt;&gt; All right, so let's try, now, to tie a
+few of these ideas together and make,",00:40:35.930,00:40:44.520
+"say, our own search engine.",00:40:44.520,00:40:46.180
+"I noticed, rather curiously,
+the following.",00:40:46.180,00:40:48.570
+"When you are at Google.com, you're
+typically at a URL like this one here",00:40:48.570,00:40:52.610
+with nothing after the dot com.,00:40:52.610,00:40:54.870
+"But if I search something stupid like
+cats, and hit Enter, we'll get-- not",00:40:54.870,00:40:59.760
+"stupid, but you know.",00:40:59.760,00:41:01.300
+"&gt;&gt; OK, so notice, at the top of the page,
+now, the URL has, of course, changed.",00:41:01.300,00:41:05.410
+"And this is not anything
+new to any of us.",00:41:05.410,00:41:07.190
+"You click links and stuff
+happens on the web.",00:41:07.190,00:41:09.290
+"But what's interesting here
+is the following.",00:41:09.290,00:41:11.420
+"There's a whole lot of clutter, but let
+me throw away stuff that I don't",00:41:11.420,00:41:14.500
+"quite understand or doesn't
+really look relevant.",00:41:14.500,00:41:16.600
+&gt;&gt; Let me get rid of this.,00:41:16.600,00:41:18.490
+Let me get rid of this.,00:41:18.490,00:41:20.030
+"And let me just get rid
+of all of this.",00:41:20.030,00:41:22.630
+"And now notice that cats is in the URL,
+followed with a q, then an equal",00:41:22.630,00:41:28.840
+sign in front of it.,00:41:28.840,00:41:29.710
+"So it turns out this is how the
+way it works when it comes",00:41:29.710,00:41:32.110
+to input and output.,00:41:32.110,00:41:33.360
+"&gt;&gt; We've long talked about
+black boxes, right?",00:41:33.360,00:41:37.510
+"So if this is a function implemented
+here as a black box, it takes input",00:41:37.510,00:41:41.650
+"and produces output, well, the means
+by which you provide input to a",00:41:41.650,00:41:45.290
+"website is by way, often, of its URLs.",00:41:45.290,00:41:49.270
+"You simply put a question mark
+and then a key equals value.",00:41:49.270,00:41:52.850
+"And then maybe an ampersand, and then
+another key equals value, then maybe",00:41:52.850,00:41:56.740
+"another ampersand, key equals value.",00:41:56.740,00:41:58.810
+"That's how you pass in keys and
+values, pairs of inputs.",00:41:58.810,00:42:03.030
+"&gt;&gt; So if I hit Enter now, what's
+interesting about Google is that all",00:42:03.030,00:42:07.050
+"that clutter I deleted doesn't appear
+to be strictly necessary.",00:42:07.050,00:42:10.420
+"All I need to send to Google is question
+mark q equals cats to get",00:42:10.420,00:42:15.120
+back some cats.,00:42:15.120,00:42:16.160
+"Well, the implication of that, then,
+is if I pull up gedit, I've started",00:42:16.160,00:42:20.160
+"making my own search engine here
+in a file called seach0.html.",00:42:20.160,00:42:24.360
+"&gt;&gt; And let me go ahead and delete
+one more line that you",00:42:24.360,00:42:26.750
+weren't supposed to see.,00:42:26.750,00:42:27.910
+"And now, let me go into my own browser,
+so not to Google, and go to",00:42:27.910,00:42:31.070
+http://localhost.,00:42:31.070,00:42:34.900
+And that's going to get in the way.,00:42:34.900,00:42:36.220
+"So we're going to have to say goodbye to
+that for now, move this over here,",00:42:36.220,00:42:43.240
+"oh, now we're going to have to
+say goodbye to that file.",00:42:43.240,00:42:46.270
+"&gt;&gt; Whenever you have a file called
+index.html or index.php in a",00:42:46.270,00:42:51.700
+"directory, if the web server is
+configured in this way, what you'll",00:42:51.700,00:42:54.980
+"see, by default, is the contents of that
+file rather than a listing of the",00:42:54.980,00:42:59.600
+"directory, as I wanted here.",00:42:59.600,00:43:02.330
+More on this in the spec.,00:43:02.330,00:43:03.750
+You didn't see that.,00:43:03.750,00:43:04.610
+&gt;&gt; So this is what I actually wanted.,00:43:04.610,00:43:06.360
+"But a moment ago, there was a
+file in this folder called",00:43:06.360,00:43:08.810
+index.html and index.php.,00:43:08.810,00:43:11.290
+"And so the web server was
+showing me those files.",00:43:11.290,00:43:13.380
+"Instead, I want this directory
+listing here.",00:43:13.380,00:43:15.900
+"&gt;&gt; So I'm going to go into
+CSS and go to search0.",00:43:15.900,00:43:18.340
+"And I claim that this is it going to be
+the beginning of my own competitive",00:43:18.340,00:43:21.770
+search engine.,00:43:21.770,00:43:22.490
+"And to do this, I'm going to go in
+here, into CSS, and open up with",00:43:22.490,00:43:27.630
+"gedit, search 0.",00:43:27.630,00:43:30.190
+"But unfortunately, there's
+not much going on here.",00:43:30.190,00:43:32.280
+"All I did was use a heading tag, which
+happens to be called h1, which",00:43:32.280,00:43:35.690
+"essentially means big and
+bold, and that's it.",00:43:35.690,00:43:38.180
+"But the means by which we can
+provide inputs are via these",00:43:38.180,00:43:40.810
+things called forms.,00:43:40.810,00:43:42.180
+"&gt;&gt; So let me go ahead and open and close,
+preemptively, a form tag there.",00:43:42.180,00:43:46.040
+"And let me go ahead and do
+something like this.",00:43:46.040,00:43:48.060
+"Input, type equals text.",00:43:48.060,00:43:51.430
+"And then let's close the tag within
+the brackets themselves.",00:43:51.430,00:43:56.320
+"I don't need to start a text field
+and stop a text field.",00:43:56.320,00:43:58.800
+It's just going to be there or not.,00:43:58.800,00:44:01.080
+"&gt;&gt; And then below that, let's do
+input type equals submit.",00:44:01.080,00:44:06.210
+Save this.,00:44:06.210,00:44:06.870
+"And now let's just do a
+quick sanity check.",00:44:06.870,00:44:08.630
+Let's reload.,00:44:08.630,00:44:09.820
+"&gt;&gt; OK, so it's not bad.",00:44:09.820,00:44:10.890
+"It's not Google's style,
+but it's pretty close.",00:44:10.890,00:44:13.260
+There's a text field.,00:44:13.260,00:44:13.920
+"I can type some stuff in, hit Enter,
+but nothing happens yet.",00:44:13.920,00:44:17.190
+"And that's because I haven't specified
+an action for this form, so to speak.",00:44:17.190,00:44:21.090
+"So if I go back to the form element,
+it turns out, and I know this only",00:44:21.090,00:44:23.860
+"from having read the documentation, that
+the form tag takes an attribute",00:44:23.860,00:44:27.460
+"called action that is the URL
+of the website to which you",00:44:27.460,00:44:31.880
+want to send the form.,00:44:31.880,00:44:34.790
+"&gt;&gt; I don't really think we have time to
+implement the whole back end for a",00:44:34.790,00:44:37.610
+search engine today.,00:44:37.610,00:44:38.570
+"So we're just going to say, eh,
+go to google.com/search.",00:44:38.570,00:44:41.900
+And now let me close my quotes.,00:44:41.900,00:44:43.450
+"And let me further specify that
+the method to use is going",00:44:43.450,00:44:46.070
+to be called get.,00:44:46.070,00:44:47.120
+"&gt;&gt; Long story short, there's two ways, at
+least, that you can submit information",00:44:47.120,00:44:50.650
+from browser to server.,00:44:50.650,00:44:51.880
+"One is get, and, for today's purposes,
+that just means in the URL.",00:44:51.880,00:44:55.340
+"You see exactly the question marks, the
+equals signs, and ampersands that",00:44:55.340,00:44:58.730
+we saw earlier.,00:44:58.730,00:44:59.780
+Or there's an alternative called post.,00:44:59.780,00:45:02.890
+"For now, know that post is often used
+when you want to upload files, like",00:45:02.890,00:45:06.490
+"images and so forth, or when you want to
+submit credit card information, or",00:45:06.490,00:45:09.820
+"passwords, anything that it doesn't
+really make sense, conceptually, or",00:45:09.820,00:45:13.810
+"security wise, to end up in the URL of
+your browser, where snooping parents,",00:45:13.810,00:45:18.020
+"or roommates, or anyone with access
+to your computer might see.",00:45:18.020,00:45:21.520
+&gt;&gt; So let's save that here.,00:45:21.520,00:45:23.110
+And I need to do one other thing.,00:45:23.110,00:45:24.480
+"It doesn't suffice just to
+say give me a text field.",00:45:24.480,00:45:27.250
+"I have to give that field's
+value a name.",00:45:27.250,00:45:29.850
+"So let me borrow Google's choice of
+names, q, and specify that second",00:45:29.850,00:45:34.500
+"attribute I don't really care about
+the name of the Submit button.",00:45:34.500,00:45:38.150
+"All I care about is submitting
+what the user types in.",00:45:38.150,00:45:40.890
+&gt;&gt; And now this is kind of ugly.,00:45:40.890,00:45:41.940
+It just says submit.,00:45:41.940,00:45:42.820
+"It turns out, and I know this from the
+documentation, I can actually say",00:45:42.820,00:45:46.350
+"value equals quote unquote ""cs50
+seach,"" close quote.",00:45:46.350,00:45:51.710
+Then let's reload again.,00:45:51.710,00:45:53.030
+"So I keep hitting Command-R, or
+Control-R on my keyboard to reload.",00:45:53.030,00:45:57.020
+"&gt;&gt; Now we have a more interesting
+search engine.",00:45:57.020,00:45:58.605
+"It doesn't quite look like
+Google yet, though.",00:45:58.605,00:46:00.340
+"So let's go ahead in here and
+do a little line break.",00:46:00.340,00:46:04.100
+"&gt;&gt; OK, so now we have Google.",00:46:04.100,00:46:06.066
+We actually almost do have Google.,00:46:06.066,00:46:08.260
+So now what's going to happen?,00:46:08.260,00:46:10.460
+"I'm going to type in something
+like Cats.",00:46:10.460,00:46:12.220
+"And the browser is going to parse
+that form that I defined.",00:46:12.220,00:46:16.570
+"And it's going to send
+the user to that URL.",00:46:16.570,00:46:19.470
+"So this time, for some curious reason,
+I got more information about stocks",00:46:19.470,00:46:23.420
+than about actual cats.,00:46:23.420,00:46:24.410
+"But that's fine because notice we still
+ended up here, q equals cats.",00:46:24.410,00:46:30.580
+"&gt;&gt; So long story short, it seems fairly
+trivial to get input from the user.",00:46:30.580,00:46:35.200
+"And to be fair, there's bunches
+of other types of form fields.",00:46:35.200,00:46:38.190
+"There's check boxes, and little mutually
+exclusive radio buttons, and",00:46:38.190,00:46:41.510
+"drop down menus, and more.",00:46:41.510,00:46:42.960
+"But all of those are as relatively
+easily implemented as",00:46:42.960,00:46:46.160
+this text field was.,00:46:46.160,00:46:48.040
+"And ultimately, we just have to make
+sure someone is listening on the other",00:46:48.040,00:46:52.050
+"end of the line in order to get that
+information processed, somehow, and",00:46:52.050,00:46:56.490
+give us back our cats.,00:46:56.490,00:46:58.440
+"&gt;&gt; Let's look at a slightly
+more involved example.",00:46:58.440,00:47:00.840
+"Let me go into my Vhost's directory,
+into local host, public, and where I",00:47:00.840,00:47:06.020
+put today's source code.,00:47:06.020,00:47:06.980
+"All of this will be on the course's
+website for you to tinker with.",00:47:06.980,00:47:09.800
+"And if I go into froshims, let me open
+up this file now, froshim0.php.",00:47:09.800,00:47:15.420
+"This one's a little more verbose, so
+we won't write this from scratch.",00:47:15.420,00:47:18.460
+"But just notice now a few somewhat
+familiar characteristics.",00:47:18.460,00:47:21.970
+"&gt;&gt; One, form tag, different action.",00:47:21.970,00:47:24.550
+It's not a full URL.,00:47:24.550,00:47:25.670
+"Now, it's apparently to file called
+register0.php because, in a moment,",00:47:25.670,00:47:29.930
+"I'm going to teach myself a little
+something about PHP, a programming",00:47:29.930,00:47:32.660
+"language, because PHP can be used to
+implement what Google implemented as",00:47:32.660,00:47:37.360
+the back end of their search engines.,00:47:37.360,00:47:39.650
+"&gt;&gt; Google, in reality, probably uses
+some Python, some C++, and",00:47:39.650,00:47:42.890
+bunches of other languages.,00:47:42.890,00:47:44.230
+"But we could certainly implement search
+results using PHP if we wanted.",00:47:44.230,00:47:48.230
+"But for now, we'll keep it simple.",00:47:48.230,00:47:49.610
+"And this is actually reminiscent of one
+of the other very first websites I",00:47:49.610,00:47:53.320
+made years ago.,00:47:53.320,00:47:54.490
+"&gt;&gt; Back in my day, you registered for
+intramural sports as a freshman by",00:47:54.490,00:47:58.160
+"filling out a piece of paper, walking
+across the yard, and dropping it in",00:47:58.160,00:48:00.880
+"the mailbox of a Proctor in
+Wigglesworth, and that was how you",00:48:00.880,00:48:04.890
+registered.,00:48:04.890,00:48:05.460
+"And so my project shortly after CS50,
+was to put that, which makes perfect",00:48:05.460,00:48:09.650
+"sense, onto the web, which wasn't
+as in vogue then as it is now.",00:48:09.650,00:48:13.460
+"But all we had to do was create,
+essentially, an HTML form.",00:48:13.460,00:48:17.510
+"&gt;&gt; And that form looked
+roughly like this.",00:48:17.510,00:48:19.640
+"I had an input for the
+freshman's name.",00:48:19.640,00:48:22.480
+"I had another check box for whether or
+or not they wanted to be captain, what",00:48:22.480,00:48:27.780
+"their gender was, and
+what their dorm was.",00:48:27.780,00:48:30.400
+"And then I hard coded in things
+like Apley Court, and Canaday,",00:48:30.400,00:48:33.370
+"Grays, and so forth.",00:48:33.370,00:48:34.880
+"&gt;&gt; So again, new tags.",00:48:34.880,00:48:36.300
+"Haven't seen these before, new
+attributes, but fairly accessible.",00:48:36.300,00:48:39.820
+"Once you see an example, you can kind
+of borrow that idea and make a drop",00:48:39.820,00:48:42.360
+down menu for most anything.,00:48:42.360,00:48:43.820
+"But what's key is that each of
+these things have names.",00:48:43.820,00:48:46.350
+"And at the bottom of this form, there's
+a submit button whose label,",00:48:46.350,00:48:49.720
+"or value, is register.",00:48:49.720,00:48:51.510
+&gt;&gt; So let's go to this page.,00:48:51.510,00:48:52.670
+"Let me go back into the
+directory listing.",00:48:52.670,00:48:55.050
+"Let me go into froshims,
+and go to froshim0.php.",00:48:55.050,00:48:59.410
+"So it's hideous, to be fair.",00:48:59.410,00:49:01.150
+"So I could definitely stylize this
+with some CSS, I could make some",00:49:01.150,00:49:03.950
+"graphics, maybe add some colors,
+and make this prettier.",00:49:03.950,00:49:06.890
+"But functionally, I'd argue that this
+is actually pretty complete.",00:49:06.890,00:49:10.530
+"&gt;&gt; Unfortunately, when I fill this out,
+David, Captain, Male, we'll choose,",00:49:10.530,00:49:15.190
+"let's say Matthews, Register,
+all that happens is this.",00:49:15.190,00:49:20.510
+But notice a couple of takeaways.,00:49:20.510,00:49:21.910
+"One, what file returned those
+results, apparently?",00:49:21.910,00:49:27.130
+"So it is, indeed, register0.php.",00:49:27.130,00:49:29.470
+"So the fact that we saw that action
+value a moment ago for register0, this",00:49:29.470,00:49:34.570
+"corroborates that we indeed ended
+up at that particular file.",00:49:34.570,00:49:37.500
+&gt;&gt; Now this is just ugly text.,00:49:37.500,00:49:39.040
+"But notice that this text is
+coming from local host,",00:49:39.040,00:49:42.810
+which is from the appliance.,00:49:42.810,00:49:44.170
+"Think of the appliance now as just
+a web server that could be in the",00:49:44.170,00:49:46.350
+Science Center.,00:49:46.350,00:49:46.910
+It could be on the actual web.,00:49:46.910,00:49:48.060
+So it's publicly accessible.,00:49:48.060,00:49:49.850
+"&gt;&gt; So clearly, there's some way of passing
+form field inputs to a server",00:49:49.850,00:49:55.480
+so that it can do something with them.,00:49:55.480,00:49:56.840
+"Unfortunately, register0
+is pretty stupid.",00:49:56.840,00:49:59.020
+"All it does is print out an array
+that looks like this.",00:49:59.020,00:50:01.870
+"And it's not an array in the
+sense that we know it.",00:50:01.870,00:50:04.790
+"Turns out that PHP, and a lot of
+languages, have not only numerically",00:50:04.790,00:50:08.760
+"indexed arrays whose first index is
+zero, then one, then two, then dot,",00:50:08.760,00:50:12.350
+"dot, dot, n minus 1.",00:50:12.350,00:50:13.780
+"&gt;&gt; This is what's called an
+associative array.",00:50:13.780,00:50:16.400
+"An associative array is one in which
+you can store key value pairs where",00:50:16.400,00:50:21.150
+the key is not necessarily a number.,00:50:21.150,00:50:23.160
+"It could in fact be a string, a word.",00:50:23.160,00:50:25.580
+"And so this can be implemented,
+underneath the hood, it turns out,",00:50:25.580,00:50:28.230
+using a data structure known as a?,00:50:28.230,00:50:31.896
+"Thought something dramatic
+was about to happen--",00:50:31.896,00:50:33.600
+hash table.,00:50:33.600,00:50:34.840
+"&gt;&gt; So a hash table, recall, those of you
+who did it for P set 6, or even recall",00:50:34.840,00:50:38.955
+"it, at least even if you did a try, a
+hash table, in our usage, was used to",00:50:38.955,00:50:44.110
+just store words.,00:50:44.110,00:50:45.090
+"But really, you were storing
+keys and values.",00:50:45.090,00:50:47.980
+"If you implemented a hash table for P
+set 6 dictionary, the keys were the",00:50:47.980,00:50:51.940
+"words themselves, and the values
+were effectively true or false.",00:50:51.940,00:50:56.890
+"Yes, here, or implicitly,
+no, not here.",00:50:56.890,00:51:00.190
+"&gt;&gt; Well, we can generalize that idea.",00:51:00.190,00:51:02.140
+"And we could use a very similar data
+structure to store not the string",00:51:02.140,00:51:06.230
+"itself alone in your hash table, but
+suppose that in every one of your hash",00:51:06.230,00:51:10.180
+table's nodes.,00:51:10.180,00:51:11.130
+"And you could even do this in a try
+rather than just have a bool.",00:51:11.130,00:51:14.210
+You could have something else.,00:51:14.210,00:51:15.350
+"What if the key was not maxwell, for
+instance, but quote unquote ""name,"" or",00:51:15.350,00:51:19.590
+"quote unquote ""captain."" And inside of
+your C data structure, you put a",00:51:19.590,00:51:22.900
+"value, not just a Boolean, but of value
+like quote unquote ""David,"" or",00:51:22.900,00:51:26.170
+"""M,"" or ""Matthews,"" and so forth.",00:51:26.170,00:51:28.690
+"&gt;&gt; So those same data structures we used
+apparently exist in other languages.",00:51:28.690,00:51:33.170
+"And I'd argue they're actually much,
+much simpler to access here.",00:51:33.170,00:51:37.650
+"Let's in fact take a look
+now at some such syntax.",00:51:37.650,00:51:40.300
+&gt;&gt; I'm going to go into a PHP directory.,00:51:40.300,00:51:43.120
+"And I'm going to open up a better
+version of hello-0 from before.",00:51:43.120,00:51:48.390
+"Notice that all I did was
+add some comments.",00:51:48.390,00:51:50.270
+So we can get rid of that distraction.,00:51:50.270,00:51:52.530
+"&gt;&gt; And this program does indeed prints
+hello because I've specified between",00:51:52.530,00:51:57.610
+tags that I want to execute that code.,00:51:57.610,00:52:01.420
+"Now, we'll see in a moment
+why this is useful.",00:52:01.420,00:52:03.380
+But let's open one other example here.,00:52:03.380,00:52:05.630
+"Let me go ahead and open up say,
+gedit of conditions one.",00:52:05.630,00:52:10.430
+&gt;&gt; This is way back in time now.,00:52:10.430,00:52:12.970
+"But weeks ago, I think, in week one or
+week two, we had an example called",00:52:12.970,00:52:16.320
+conditions1.c.,00:52:16.320,00:52:18.470
+"And I decided to reimplement it in PHP,
+just to kind of emphasize that",00:52:18.470,00:52:22.050
+"PHP, syntactically, is almost identical
+to C. This isn't a huge leap",00:52:22.050,00:52:26.500
+from last week to this.,00:52:26.500,00:52:27.840
+"&gt;&gt; Notice at the top of this program, which
+begins, as before, with some",00:52:27.840,00:52:31.230
+"comments, which I'll get rid
+of as a distraction.",00:52:31.230,00:52:34.260
+"Notice that I'm in PHP
+mode in this file.",00:52:34.260,00:52:37.410
+"So this code, we'll see,
+will get executed.",00:52:37.410,00:52:40.160
+"Notice that there's readline,
+which is probably the",00:52:40.160,00:52:42.670
+analog in PHP of getstring.,00:52:42.670,00:52:46.230
+Notice it's a little different.,00:52:46.230,00:52:47.390
+"You actually specify a prompt to the
+function called read line, and that's",00:52:47.390,00:52:51.410
+what the user sees.,00:52:51.410,00:52:52.180
+So you don't have to printf manually.,00:52:52.180,00:52:53.520
+But that's not a big deal.,00:52:53.520,00:52:54.860
+"I'm going to store, inside of $n, the
+return value of this, so whatever the",00:52:54.860,00:52:59.150
+user types in is their int.,00:52:59.150,00:53:00.490
+And here's another curiosity.,00:53:00.490,00:53:01.660
+"It turns out, in PHP, any variable
+just has to be prefixed",00:53:01.660,00:53:05.810
+with a dollar sign.,00:53:05.810,00:53:06.970
+It's a little annoying.,00:53:06.970,00:53:08.110
+But notice what I haven't done in PHP.,00:53:08.110,00:53:10.870
+"What's missing from the left hand
+side of the equals sign?",00:53:10.870,00:53:13.980
+&gt;&gt; No mention of type.,00:53:13.980,00:53:15.430
+"So this is different from C. For better
+or for worse, PHP is a loosely",00:53:15.430,00:53:19.400
+typed language.,00:53:19.400,00:53:20.550
+It does have numbers.,00:53:20.550,00:53:22.010
+It does have strings.,00:53:22.010,00:53:23.240
+It does have Booleans.,00:53:23.240,00:53:24.015
+"And it does have a few
+other data types.",00:53:24.015,00:53:26.220
+"But you, the programmer, usually
+don't have to care about them.",00:53:26.220,00:53:30.570
+"The upside of this is that it makes
+it a little easier to program.",00:53:30.570,00:53:34.010
+You can think a little less.,00:53:34.010,00:53:35.380
+"The downside is it also opens you up to
+potential bugs if you accidentally",00:53:35.380,00:53:39.840
+"treat a number as a string, a string
+as a number, potentially, but even",00:53:39.840,00:53:43.080
+"then, PHP, and a lot of languages,
+are pretty tolerant.",00:53:43.080,00:53:46.150
+"They will use what's called
+implicit casting.",00:53:46.150,00:53:49.050
+"And if you try to use n in the context
+of a numeric situation, it will",00:53:49.050,00:53:55.220
+"convert what here is going to be a
+string, because if the user types",00:53:55.220,00:53:58.040
+"something in, and you get the result,
+as with readline, or get string,",00:53:58.040,00:54:01.570
+that's going to return a string.,00:54:01.570,00:54:02.910
+"&gt;&gt; But notice, a couple lines later, I
+check if n is greater than zero.",00:54:02.910,00:54:07.360
+"So PHP is going to implicitly cast my
+""string"" 123, or whatever the user",00:54:07.360,00:54:13.370
+"types in, into an int.",00:54:13.370,00:54:14.860
+"So in short, stuff just works
+a lot more intuitively.",00:54:14.860,00:54:18.730
+"So we now begin to relax a few of the
+things that we've done in the past.",00:54:18.730,00:54:23.410
+"&gt;&gt; A lot of this stuff is
+the same, though.",00:54:23.410,00:54:24.780
+Still have equals equals.,00:54:24.780,00:54:26.340
+"As an aside PHP also has equals equals
+equals, but more on that, perhaps, in",00:54:26.340,00:54:30.350
+the future.,00:54:30.350,00:54:30.850
+That was a.,00:54:30.850,00:54:31.150
+"Typo but two equals signs means the same
+thing as before, for comparison.",00:54:31.150,00:54:35.660
+printf means the same thing as before.,00:54:35.660,00:54:37.060
+"Backslash n means the same
+thing as before.",00:54:37.060,00:54:39.160
+&gt;&gt; So how do I run this program?,00:54:39.160,00:54:40.390
+"Well, as before, if I do PHP,
+conditions1.php, and type in",00:54:40.390,00:54:44.400
+a number like 123.,00:54:44.400,00:54:46.560
+That's a positive number.,00:54:46.560,00:54:47.720
+"If I type in 0, I pick 0.",00:54:47.720,00:54:49.510
+"And if I type in negative 123, I get
+back a negative number, which is only",00:54:49.510,00:54:53.700
+"to say, syntactically, PHP
+is super, super similar.",00:54:53.700,00:54:59.050
+"&gt;&gt; So why is this now useful
+in a web context?",00:54:59.050,00:55:03.250
+"Well, let's go back to this froshims
+example, which looked,",00:55:03.250,00:55:06.710
+"again, like this here.",00:55:06.710,00:55:08.600
+"And let's actually pull up the web page
+again, which looked like this.",00:55:08.600,00:55:11.580
+"What can we do with the
+data that's submitted?",00:55:11.580,00:55:14.930
+"&gt;&gt; Well, let me open up a newer
+version of this.",00:55:14.930,00:55:18.770
+"And you'll see that the problem
+sets specification walks you",00:55:18.770,00:55:20.920
+through a few of these.,00:55:20.920,00:55:22.850
+"Rather than start with zero,
+let's look at froshims3,",00:55:22.850,00:55:29.610
+which does a bit more.,00:55:29.610,00:55:31.410
+"&gt;&gt; Notice first, actually, let's open
+up what 0 was, so you see",00:55:31.410,00:55:34.780
+what register 0 was.,00:55:34.780,00:55:37.170
+Notice what register 0 did.,00:55:37.170,00:55:40.040
+"One, I have comments at the top.",00:55:40.040,00:55:41.730
+Delete those and focus only on this.,00:55:41.730,00:55:43.900
+"Most of the contents of register0.php
+are, obviously, what language?",00:55:43.900,00:55:48.730
+Just raw PHP.,00:55:48.730,00:55:49.980
+"&gt;&gt; So notice, this file does not start
+with, at the moment, open bracket,",00:55:49.980,00:55:53.430
+"question mark, PHP.",00:55:53.430,00:55:54.970
+"PHP does allow you to intermingle
+PHP code with HTML tags.",00:55:54.970,00:55:59.800
+"But I've done that here inside
+of the page over here.",00:55:59.800,00:56:04.130
+"&gt;&gt; Now, again, you'd only know this from
+having looked at the manual. print_r,",00:56:04.130,00:56:08.180
+"it turns out, is print_recursive.
+_recursive And this is just a handy",00:56:08.180,00:56:13.410
+"utility function that just prints out,
+recursively, whatever you hand it.",00:56:13.410,00:56:16.780
+"If you hand it an array,
+it'll print an array.",00:56:16.780,00:56:18.760
+"If you hand it a number,
+it'll print a number.",00:56:18.760,00:56:20.180
+"Hand it a string, it'll
+print a string.",00:56:20.180,00:56:21.570
+"If you hand it a hash table, it
+will print out a hash table.",00:56:21.570,00:56:24.500
+"You don't have to write all
+of that code yourself.",00:56:24.500,00:56:26.730
+"&gt;&gt; Now notice that I'm entering
+PHP mode over here.",00:56:26.730,00:56:29.490
+I'm exiting PHP mode over here.,00:56:29.490,00:56:32.070
+"So when the web server reads this file
+top to bottom, left to right, because",00:56:32.070,00:56:35.950
+"it ends in a filename called .php,
+whatever's not inside of PHP tags is",00:56:35.950,00:56:40.750
+"just going to be spit
+out, like raw HTML.",00:56:40.750,00:56:42.820
+No big deal.,00:56:42.820,00:56:43.630
+"But as soon as the web server notices
+this, it's going to say, I should not",00:56:43.630,00:56:49.280
+"spit out, literally, print_r of post.",00:56:49.280,00:56:51.850
+"I should execute the following
+line of code.",00:56:51.850,00:56:54.910
+"&gt;&gt; So the last question, then, of this file
+is, well, what the heck is this?",00:56:54.910,00:56:59.850
+Take a guess.,00:56:59.850,00:57:00.530
+"What is $_POST, probably?",00:57:00.530,00:57:04.230
+&gt;&gt; AUDIENCE: [INAUDIBLE],00:57:04.230,00:57:07.070
+"&gt;&gt; SPEAKER 1: Yeah, the posted data.",00:57:07.070,00:57:08.830
+"Recall, let's scroll back in
+time for just a moment.",00:57:08.830,00:57:11.350
+"froshim0, again, looked like this.",00:57:11.350,00:57:13.165
+A super majority of this is just HTML.,00:57:13.165,00:57:15.640
+"Again, some tags you haven't
+seen yet, or with which",00:57:15.640,00:57:18.410
+you are already familiar.,00:57:18.410,00:57:19.360
+But the interesting thing was this.,00:57:19.360,00:57:21.990
+"This one line is what really links
+it to our register0.php file.",00:57:21.990,00:57:27.270
+I'm submitting via method post.,00:57:27.270,00:57:29.200
+"And that means that the parameters
+the user types in are not",00:57:29.200,00:57:33.130
+going to end up where.,00:57:33.130,00:57:35.150
+"&gt;&gt; They're not going to
+show up in the URL.",00:57:35.150,00:57:36.175
+"They are still going to be sent from the
+client, from the browser, to the",00:57:36.175,00:57:39.020
+"server, but just via some other
+mechanism that we'll waive our hands",00:57:39.020,00:57:42.080
+"at for today, but it's not in the URL.",00:57:42.080,00:57:44.330
+"But notice the relationship now with
+post, which, by convention, is",00:57:44.330,00:57:47.630
+lowercase here.,00:57:47.630,00:57:49.160
+"&gt;&gt; But if I open up register0.php,
+I'm apparently printing this.",00:57:49.160,00:57:54.090
+"So this is kind of a weird
+naming convention.",00:57:54.090,00:57:56.450
+"But what's nice in PHP is that when
+using PHP in a web context, not at a",00:57:56.450,00:58:01.430
+"command line like I did a moment ago,
+when you're actually using it in a web",00:58:01.430,00:58:04.480
+"page, in a Vhost directory as we are,
+automatically will PHP fill this",00:58:04.480,00:58:10.580
+"thing, which is an associative array,
+so to speak, a hash table, with",00:58:10.580,00:58:15.560
+everything the user typed in.,00:58:15.560,00:58:17.290
+"&gt;&gt; In short, $_POST in all caps is a
+global variable that PHP just",00:58:17.290,00:58:22.000
+"magically creates for you when
+using PHP in a web context.",00:58:22.000,00:58:25.050
+"And it puts inside of it all of the
+names of parameters in the form that",00:58:25.050,00:58:29.160
+"was submitted to this file and all of
+the values that the user typed in.",00:58:29.160,00:58:33.200
+"So it hands to you what the user
+typed in to that form.",00:58:33.200,00:58:37.790
+"&gt;&gt; So before, we got really stupid output
+of just seeing this because all I did",00:58:37.790,00:58:42.210
+was recursively print this array.,00:58:42.210,00:58:44.400
+"The key is name, the value is David.",00:58:44.400,00:58:46.060
+The key is Captain.,00:58:46.060,00:58:46.980
+The value is on.,00:58:46.980,00:58:47.970
+"And the double arrow and the angle
+bracket there, this is just arbitrary.",00:58:47.970,00:58:52.300
+This is not code.,00:58:52.300,00:58:53.270
+"This is just PHP's way of showing you
+what the value of some key is.",00:58:53.270,00:58:57.690
+"&gt;&gt; But now let me propose that in
+froshIMs3, it's almost identical",00:58:57.690,00:59:03.000
+except it submits to this file.,00:59:03.000,00:59:04.950
+"And again, we're going to kind of just
+glance at this, just to see some",00:59:04.950,00:59:08.570
+"syntax, but notice what
+this file does.",00:59:08.570,00:59:12.040
+"Take a guess just based on the lines of
+code, which probably do look like",00:59:12.040,00:59:14.930
+"Greek, to some extent,
+is apparently doing.",00:59:14.930,00:59:17.410
+"&gt;&gt; This file is somehow related
+to mail, email.",00:59:20.580,00:59:23.110
+So what is this program doing?,00:59:23.110,00:59:24.770
+"In this version, if I were to actually
+fill out this form-- and let me go to",00:59:24.770,00:59:28.740
+"froshIMs3, not froshIMs0--",00:59:28.740,00:59:30.760
+the form looks the same.,00:59:33.280,00:59:34.540
+"David, captain, male, dorm, Matthews.",00:59:34.540,00:59:37.980
+"But if I submit this, this file is
+going to go to register3.php.",00:59:37.980,00:59:42.980
+"&gt;&gt; And I claim, by looking at it's
+source code, it's going to",00:59:42.980,00:59:46.330
+somehow involve email.,00:59:46.330,00:59:47.650
+"Let me go ahead and open this
+up in a bigger window, so we",00:59:47.650,00:59:49.620
+can see it more cleanly.,00:59:49.620,00:59:51.030
+"We're in Vhosts, local host,
+public, froshims.",00:59:51.030,00:59:57.220
+"I'm going to open up a different
+program, just so we",00:59:57.220,00:59:58.680
+can see more at once.,00:59:58.680,01:00:00.160
+"&gt;&gt; So now here, notice a few things.",01:00:00.160,01:00:03.100
+"At the top of the file is open
+bracket, question mark, PHP.",01:00:03.100,01:00:06.530
+"Then there's a bunch of comments,
+which we can ignore, is",01:00:06.530,01:00:08.920
+uninteresting for now.,01:00:08.920,01:00:10.450
+&gt;&gt; Now there's this.,01:00:10.450,01:00:11.300
+"It turns out PHP has a lot
+of code called require.",01:00:11.300,01:00:14.200
+"It's very similar in spirit to C's
+include, hash include, which",01:00:14.200,01:00:19.110
+"essentially grabs the contents of some
+other file and just plops them here,",01:00:19.110,01:00:21.980
+so you can use them.,01:00:21.980,01:00:22.930
+"In this case, the appliance has,
+pre-installed, a library, free and",01:00:22.930,01:00:27.060
+"open source library called PHP
+mailer that anyone can",01:00:27.060,01:00:29.900
+download from the internet.,01:00:29.900,01:00:30.770
+We just did it for you.,01:00:30.770,01:00:32.000
+"And this means I now have email
+functionality at my disposal.",01:00:32.000,01:00:36.130
+"&gt;&gt; Now, notice a few things.",01:00:36.130,01:00:38.170
+"I'm going to validate the
+form's submission.",01:00:38.170,01:00:41.120
+"Turns out PHP, one, has exclamation
+points for the not operator, just like",01:00:41.120,01:00:45.980
+"C. But PHP also has a function
+called empty.",01:00:45.980,01:00:49.810
+"&gt;&gt; Empty just returns true if the value
+of the thing you hand it in",01:00:49.810,01:00:53.920
+"parentheses is empty, like the
+user didn't type anything in.",01:00:53.920,01:00:57.190
+"So this is saying, and notice the
+syntax, very reminiscent of C, if the",01:00:57.190,01:01:02.680
+"name key, so the name field in the form,
+which was submitted via post, by",01:01:02.680,01:01:07.730
+"the user, is not to empty, and their
+gender is not empty in the form as",01:01:07.730,01:01:13.010
+"well, and their dorm is not empty--",01:01:13.010,01:01:15.980
+"but notice I don't care about Captain,
+then what are we going to do?",01:01:15.980,01:01:19.980
+"&gt;&gt; I'm going to execute
+this line of code.",01:01:19.980,01:01:21.990
+"And you can think of this kind of
+like malloc, but it's a little",01:01:21.990,01:01:24.100
+fancier than that.,01:01:24.100,01:01:24.800
+"But for now this gives me a special
+struct of type PHP mailer.",01:01:24.800,01:01:29.200
+But ignore the keyword new for today.,01:01:29.200,01:01:31.410
+"&gt;&gt; Now I'm going to call a function called
+IsSMTP, which says, use SMTP.",01:01:31.410,01:01:35.670
+"This is port 25, just like the video
+last week, when the thing was throwing",01:01:35.670,01:01:39.380
+emails into the firewall.,01:01:39.380,01:01:40.710
+Port 25 is SMTP.,01:01:40.710,01:01:42.440
+SMTP means use the mail server.,01:01:42.440,01:01:44.410
+"Which one, we can use Harvard's
+SMTP.fas.harvard.edu.",01:01:44.410,01:01:46.215
+"&gt;&gt; We can set the from address
+to be John Harvard's.",01:01:48.850,01:01:51.590
+"If I scroll down further, I can set
+the recipient address, just",01:01:51.590,01:01:55.090
+"arbitrarily, to be John
+Harvard's as well.",01:01:55.090,01:01:56.840
+So he's going to be emailing himself.,01:01:56.840,01:01:59.210
+"&gt;&gt; Now I can set the subject
+to be registration.",01:01:59.210,01:02:01.600
+"And I can set the body
+of email as follows.",01:02:01.600,01:02:03.700
+"This line looks a little more cryptic,
+but that's just because there's a lot",01:02:03.700,01:02:06.500
+of information in it.,01:02:06.500,01:02:07.450
+"One, there's a dot operator.",01:02:07.450,01:02:10.670
+"Someone must know already what
+the dot operator does.",01:02:10.670,01:02:14.510
+It's concatenation.,01:02:14.510,01:02:15.436
+"So if you want to take a string in PHP,
+and append it, or prepend it, to",01:02:15.436,01:02:19.240
+"another string in PHP, thank God you
+don't have to use strcopy and malloc,",01:02:19.240,01:02:23.500
+and all of that anymore.,01:02:23.500,01:02:25.490
+"&gt;&gt; If you want to concatenate two strings,
+who cares about the memory.",01:02:25.490,01:02:28.765
+Let PHP figure that out for you.,01:02:28.765,01:02:30.850
+"What PHP will do with the dot operator
+here is just make a big sentence out",01:02:30.850,01:02:35.200
+"of this line, this line,
+this line, this line.",01:02:35.200,01:02:37.900
+"And now notice, it's going
+to be plugging in values.",01:02:37.900,01:02:40.460
+"So the email that John Harvard's going
+to receive is literally going to say",01:02:40.460,01:02:43.680
+"name, colon, something, rather, then we
+close the string and concatenate on",01:02:43.680,01:02:49.450
+"whatever the user typed
+in, then a new line.",01:02:49.450,01:02:52.220
+"&gt;&gt; Then, on the next line of John Harvard's
+email, it's going to say",01:02:52.220,01:02:54.570
+"Captain, On or Nothing.",01:02:54.570,01:02:55.910
+"It's going to say gender,
+male or female.",01:02:55.910,01:02:57.810
+"Dorm is going to be Matthews
+in my case.",01:02:57.810,01:02:59.680
+"And then notice familiar semicolon
+at the very end.",01:02:59.680,01:03:03.400
+"And then, down here, notice, somewhat
+cryptic still, but again, following a",01:03:03.400,01:03:07.830
+"pattern that will become more familiar
+after P set 7, if sending the mail",01:03:07.830,01:03:12.730
+"returns false, then go ahead and die.",01:03:12.730,01:03:16.610
+"&gt;&gt; So PHP has a function called die,
+which, literally, just kills the",01:03:16.610,01:03:19.610
+"website and just prints out whatever
+you tell it-- its is dying",01:03:19.610,01:03:22.830
+"words, so to speak.",01:03:22.830,01:03:24.280
+"And that, in the case, it will print
+out what the error info is for",01:03:24.280,01:03:28.310
+whatever happened to go wrong.,01:03:28.310,01:03:29.860
+"So long story short here, what we have
+is an example where when the user",01:03:29.860,01:03:34.490
+"submits the form, froshim0,
+froshims3.php, it goes to",01:03:34.490,01:03:39.150
+register3.php.,01:03:39.150,01:03:40.760
+"But register3.php then proceeds
+to execute all of these lines.",01:03:40.760,01:03:45.290
+&gt;&gt; So there's a few take aways here.,01:03:45.290,01:03:46.620
+"One, it's apparently fairly easy,
+programmatically, to send emails,",01:03:46.620,01:03:50.380
+which is good.,01:03:50.380,01:03:50.830
+"When users register for your site, in
+this case, when they register for your",01:03:50.830,01:03:53.500
+"sport, you can email the freshman
+Proctor, or John",01:03:53.500,01:03:56.220
+"Harvard, in this case.",01:03:56.220,01:03:57.650
+&gt;&gt; But it also means you can do what?,01:03:57.650,01:04:01.630
+Send emails from anyone to anyone.,01:04:01.630,01:04:03.970
+And this is very true.,01:04:03.970,01:04:05.430
+"This is not as easily done if
+you're used to using Gmail.",01:04:05.430,01:04:08.580
+"But if you've ever used Eudora or
+Outlook, you can pretty much tell a",01:04:08.580,01:04:11.310
+"mail server that you are
+anyone you want.",01:04:11.310,01:04:13.720
+"And this is where I need to put on
+that hat and say, don't do this.",01:04:13.720,01:04:16.450
+"But this is testament to just how easy
+it is to perform phishing attacks, and",01:04:16.450,01:04:21.140
+"send anonymous emails, and
+spam, more generally.",01:04:21.140,01:04:24.310
+"And it really boils down to the
+fact that all you need is some",01:04:24.310,01:04:27.330
+programmatic access.,01:04:27.330,01:04:28.500
+"&gt;&gt; As an aside, my closest encounter with
+the ad board, my own freshman year,",01:04:28.500,01:04:31.940
+"was when I discovered this cool
+trick that, wow, you can",01:04:31.940,01:04:34.320
+send emails from anyone.,01:04:34.320,01:04:36.850
+"And so we were having some stupid
+argument, literally, in Matthews,",01:04:36.850,01:04:39.770
+among my Proctor group.,01:04:39.770,01:04:40.790
+"I don't even remember
+what the issue was.",01:04:40.790,01:04:42.470
+"But I wanted to try to put an
+end to this stupid debate.",01:04:42.470,01:04:44.970
+"&gt;&gt; So I decided I will just send an email
+to my Proctor group, pretending to be",01:04:44.970,01:04:48.580
+"the other guy, with whose opinion I
+disagreed, and have him acquiesce to",01:04:48.580,01:04:52.000
+"whatever my opinion was in
+this particular debate.",01:04:52.000,01:04:54.680
+"And so I forged this email using a
+technique similar in spirit to this.",01:04:54.680,01:04:59.320
+"But it was actually easier
+at the time.",01:04:59.320,01:05:01.256
+Hit send.,01:05:01.256,01:05:02.435
+"He was not pleased, nor would
+have been the ad board.",01:05:02.435,01:05:06.660
+"&gt;&gt; And I was very quickly caught within
+seconds because, as you know, I sign",01:05:06.660,01:05:10.280
+my emails in a certain way.,01:05:10.280,01:05:11.420
+"And though I do it manually, in large
+part, 15 years later because I was",01:05:11.420,01:05:14.200
+traumatized by that.,01:05:14.200,01:05:15.080
+"I don't have a signature
+on my email now.",01:05:15.080,01:05:16.960
+"But in 1995, I just had a sig,
+a signature in my email.",01:05:16.960,01:05:20.440
+"So there was this note saying, Dear
+Proctor group, I acquiesce my opinion",01:05:20.440,01:05:24.630
+"and agree with David, signed so and
+so, new line, new line, DJM.",01:05:24.630,01:05:31.240
+"&gt;&gt; So don't do that or, in general, take
+advantage of this technique.",01:05:31.240,01:05:36.220
+"But when making a website, like for
+your final project, when making a",01:05:36.220,01:05:39.950
+"website for something entrepreneurial,
+this is how, pragmatically, you can",01:05:39.950,01:05:43.460
+"leverage other services on the internet
+like mail and then actually",01:05:43.460,01:05:47.000
+send things using code.,01:05:47.000,01:05:49.440
+&gt;&gt; So how can we improve upon this?,01:05:49.440,01:05:51.240
+"Well, first let's take a quick tour of
+some of the things that you'll see,",01:05:51.240,01:05:54.370
+"and then take a look at
+a couple of examples.",01:05:54.370,01:05:56.170
+"So one, to reassure, because
+we're flying through PHP.",01:05:56.170,01:05:59.500
+"And I know, at some point, you'll have
+to actually start writing this if you",01:05:59.500,01:06:02.470
+haven't already.,01:06:02.470,01:06:03.460
+"Realize that, one, main is kind
+of out the window with PHP.",01:06:03.460,01:06:06.220
+"If you want to write code that gets
+executed, you just start writing it in",01:06:06.220,01:06:09.420
+"a file called .php so long as
+you have the open bracket",01:06:09.420,01:06:13.970
+question mark PHP tag.,01:06:13.970,01:06:15.620
+"&gt;&gt; But notice these are
+conditions in php.",01:06:15.620,01:06:19.730
+"Notice, this is the exact same slide
+we had in week one when we had",01:06:19.730,01:06:22.610
+"conditions in C. Conditions in
+PHP are structurally and",01:06:22.610,01:06:25.670
+syntactically the same.,01:06:25.670,01:06:27.140
+"Only real difference is if you've got
+variables involved, you have those",01:06:27.140,01:06:30.290
+dollar signs.,01:06:30.290,01:06:31.600
+"&gt;&gt; Meanwhile, Boolean expressions
+look just like this for",01:06:31.600,01:06:33.970
+or-ing or and-ing together.,01:06:33.970,01:06:35.725
+Switches look exactly the same.,01:06:35.725,01:06:37.780
+"What's nice in PHP, whereas in C,
+switches have to be cases on",01:06:37.780,01:06:42.180
+"primitives like ints or chars, in PHP
+your case statements can actually be",01:06:42.180,01:06:46.380
+"on a whole strings, which is
+actually kind of nice.",01:06:46.380,01:06:48.430
+Saves you some time.,01:06:48.430,01:06:49.480
+Couldn't do that in C.,01:06:49.480,01:06:50.820
+&gt;&gt; Here's a for loop in PHP.,01:06:50.820,01:06:52.880
+It's identical.,01:06:52.880,01:06:53.740
+"Might have some dollar signs
+for the variables.",01:06:53.740,01:06:55.400
+"You don't have to mention that
+something is an int.",01:06:55.400,01:06:57.530
+"You just declare it with a dollar sign
+and the name of the variable.",01:06:57.530,01:07:00.580
+But a for loop is the same.,01:07:00.580,01:07:01.430
+A while loop is the same.,01:07:01.430,01:07:02.760
+A do while loop is the same.,01:07:02.760,01:07:04.870
+&gt;&gt; This is a little different.,01:07:04.870,01:07:06.170
+"So with PHP, with an array, you can
+statically declare an array, as in C,",01:07:06.170,01:07:12.410
+but you use square brackets.,01:07:12.410,01:07:14.420
+"In C, you would use curly braces,
+if you even knew that.",01:07:14.420,01:07:17.060
+"But this is actually very common in PHP
+to declare an array, in this case,",01:07:17.060,01:07:20.910
+"of numbers, and call the
+variable numbers.",01:07:20.910,01:07:23.640
+&gt;&gt; Variables themselves look like this.,01:07:23.640,01:07:25.300
+"Here is a string, quote unquote ""hello
+world."" You could have a backslash n.",01:07:25.300,01:07:28.710
+I simply don't in this case.,01:07:28.710,01:07:30.950
+&gt;&gt; Now this is an interesting construct.,01:07:30.950,01:07:32.640
+C does not have this.,01:07:32.640,01:07:33.700
+But this is super helpful.,01:07:33.700,01:07:34.700
+"And you'll see this in P set 7
+spec-- a for each construct.",01:07:34.700,01:07:38.160
+"If you want to reiterate over all of the
+elements an array, you don't have",01:07:38.160,01:07:41.800
+"to deal with $i and $n,
+and ++, and all that.",01:07:41.800,01:07:45.500
+"You can literally say, in PHP, this--",01:07:45.500,01:07:47.640
+"for each numbers as number, so
+I'm assuming that $numbers",01:07:47.640,01:07:51.890
+is an array of numbers.,01:07:51.890,01:07:53.380
+"And when I say for each numbers
+as number, this is going to",01:07:53.380,01:07:56.460
+"automatically, as my loop executes,
+update, on each iteration, the value",01:07:56.460,01:08:00.505
+inside of dollar sign number--,01:08:00.505,01:08:03.260
+"again, and again, and again walking
+for me over that array.",01:08:03.260,01:08:07.730
+So it just saves us code.,01:08:07.730,01:08:08.735
+"No semicolons, no ++'s, no i's,
+no n's, it's just nice.",01:08:08.735,01:08:12.250
+&gt;&gt; But PHP also has this.,01:08:12.250,01:08:13.700
+And this is super powerful.,01:08:13.700,01:08:14.830
+"And you'll use this, hands
+on, in P set 7.",01:08:14.830,01:08:17.410
+"And associative array is also declared
+with square brackets.",01:08:17.410,01:08:21.990
+But notice the syntax now.,01:08:21.990,01:08:23.569
+"It's reminiscent of what we saw
+with print_r a moment ago.",01:08:23.569,01:08:26.880
+"How many keys, as a little sanity check,
+does this array seem to have.",01:08:26.880,01:08:31.810
+&gt;&gt; So it has two.,01:08:31.810,01:08:32.689
+And I call this an array.,01:08:32.689,01:08:33.830
+"But if it helps, you can think
+of this as hash table, or as",01:08:33.830,01:08:36.760
+an associative array.,01:08:36.760,01:08:37.930
+"But it is just a different
+type of array.",01:08:37.930,01:08:39.580
+"And again, different languages
+have these.",01:08:39.580,01:08:41.080
+"We'll see something similar
+in JavaScript as well.",01:08:41.080,01:08:43.810
+There's two keys.,01:08:43.810,01:08:44.609
+"One is quote unquote, ""symbol,"" one is
+quote unquote ""price."" And those keys",01:08:44.609,01:08:48.390
+each have a value.,01:08:48.390,01:08:49.250
+"In this case symbol's value is FB, for
+Facebook, and price's value is 49, 26,",01:08:49.250,01:08:54.420
+"which was Facebook's stock
+price as of this morning.",01:08:54.420,01:08:56.899
+"&gt;&gt; So what is useful about
+an associative array.",01:08:56.899,01:09:00.170
+"I could have had a numerically
+indexed array with just",01:09:00.170,01:09:02.620
+simple square brackets.,01:09:02.620,01:09:04.120
+"And I could have had dollar sign
+quote equals just this.",01:09:04.120,01:09:09.380
+Let me actually do it.,01:09:09.380,01:09:10.529
+"Suppose I instead just declared
+this array like that.",01:09:10.529,01:09:14.796
+"That is perfectly valid,
+syntactically.",01:09:14.796,01:09:17.590
+"It doesn't lose any information,
+per se.",01:09:17.590,01:09:20.569
+"I still see that the symbol is fb,
+and that the price is 49, 26.",01:09:20.569,01:09:24.760
+"So why are associative
+arrays compelling?",01:09:24.760,01:09:28.939
+"&gt;&gt; AUDIENCE: You don't have to remember
+where you put stuff.",01:09:28.939,01:09:30.189
+"&gt;&gt; SPEAKER 1: Exactly, you don't have
+to remember where you put stuff.",01:09:32.050,01:09:34.130
+"You don't have to arbitrarily remember
+that stock symbol is in bracket zero,",01:09:34.130,01:09:37.670
+"and stock prices is in bracket one,
+which is particularly dangerous if you",01:09:37.670,01:09:41.479
+"change things, eventually.",01:09:41.479,01:09:43.220
+"It's much nicer to associate
+what we'll call metadata",01:09:43.220,01:09:46.399
+with your actual data.,01:09:46.399,01:09:48.340
+"I'd argue that what we really care
+about here is fb and 49, 26.",01:09:48.340,01:09:52.399
+"The symbol and price is metadata
+that describes the data we",01:09:52.399,01:09:57.020
+actually care about.,01:09:57.020,01:09:58.180
+"But this is just so much
+easier to access.",01:09:58.180,01:10:01.910
+"&gt;&gt; Now, as an aside what's
+the price we pay?",01:10:01.910,01:10:04.090
+"We've been doing this
+in CS50 for weeks.",01:10:04.090,01:10:06.600
+This feature must come at some cost.,01:10:06.600,01:10:10.740
+Memory.,01:10:10.740,01:10:11.350
+"So you're not just storing a 32-bit
+integer, for instance.",01:10:11.350,01:10:13.830
+"You're storing symbol/0, probably.",01:10:13.830,01:10:17.980
+So you're using more memory.,01:10:17.980,01:10:19.160
+"&gt;&gt; And what's the performance of
+looking something up in an",01:10:19.160,01:10:22.540
+"associative array, probably?",01:10:22.540,01:10:24.822
+It's probably slower.,01:10:24.822,01:10:26.590
+"Random access is nice, especially
+when you can do binary search.",01:10:26.590,01:10:29.670
+"But if you're actually now looking not
+for numbers, but for strings, this",01:10:29.670,01:10:33.380
+"truly is implemented underneath the
+hood, probably as a hash table, where",01:10:33.380,01:10:37.630
+"you use either a hash table
+with separate chaining.",01:10:37.630,01:10:42.950
+"Or you use a try to actually
+store the values.",01:10:42.950,01:10:46.040
+"So maybe you can do constant time, but
+you still have to look at S-Y-M-B-O-L,",01:10:46.040,01:10:50.550
+"potentially, instead of just 32
+bits to look something up.",01:10:50.550,01:10:54.510
+"So again, those same ideas coming
+back to recur in this context.",01:10:54.510,01:10:58.430
+"&gt;&gt; But again, PHP now has some super
+globals that, it turns out, are",01:10:58.430,01:11:02.120
+associative arrays.,01:11:02.120,01:11:02.900
+"We saw one a moment ago, $_POST.",01:11:02.900,01:11:05.590
+"And that super global
+has keys and values.",01:11:05.590,01:11:08.400
+"Specifically, the keys
+line up with what?",01:11:08.400,01:11:10.550
+Where do the keys in $_POST come from?,01:11:10.550,01:11:14.520
+Just to recap?,01:11:14.520,01:11:15.380
+&gt;&gt; AUDIENCE: Name.,01:11:15.380,01:11:16.480
+"&gt;&gt; SPEAKER 1: Name, where?",01:11:16.480,01:11:17.900
+&gt;&gt; AUDIENCE: [INAUDIBLE],01:11:17.900,01:11:19.860
+&gt;&gt; SPEAKER 1: Name is the attribute.,01:11:19.860,01:11:20.750
+"Well where, where did they
+originally come from?",01:11:20.750,01:11:23.480
+The form.,01:11:23.480,01:11:24.120
+"So if an HTML page has a form tag,
+inside of which are some inputs, like",01:11:24.120,01:11:30.140
+"check boxes, text boxes, drop down
+menus, each of which has a name, those",01:11:30.140,01:11:34.760
+"names end up as keys in $_POST, and,
+frankly, for that matter, $_GET.",01:11:34.760,01:11:40.260
+"If the method is get, same idea.",01:11:40.260,01:11:42.130
+It's just in a different super global.,01:11:42.130,01:11:43.830
+"And the values, of course, come from
+whatever the user typed in at his or",01:11:43.830,01:11:47.620
+her browser.,01:11:47.620,01:11:48.890
+&gt;&gt; But there's a few others.,01:11:48.890,01:11:49.830
+"There's cookie, which we'll
+come back to eventually.",01:11:49.830,01:11:52.140
+"But those are the things that you know
+the web uses for some good or evil.",01:11:52.140,01:11:56.050
+But we'll come back to that.,01:11:56.050,01:11:57.420
+"Server and session, and those two
+have some special utility.",01:11:57.420,01:12:01.720
+&gt;&gt; But let's take a look at this.,01:12:01.720,01:12:03.940
+"Let me go ahead and open up an example
+called mvc0.php So MVC",01:12:03.940,01:12:13.330
+stands for the following.,01:12:13.330,01:12:14.900
+"And we introduce this earlier than is
+typical, really, to get you designing",01:12:14.900,01:12:19.390
+"Problem set 7, and also final projects,
+in sort of an industry",01:12:19.390,01:12:22.180
+"standard way, and clean way.",01:12:22.180,01:12:23.670
+It's good design.,01:12:23.670,01:12:24.820
+"&gt;&gt; So you're about to see, and you'll
+experience, in P set 7, paradigm, sort",01:12:24.820,01:12:29.090
+"of a programming mindset, that looks
+a little something like this.",01:12:29.090,01:12:32.260
+"M for Model, C for Controller,
+V for View.",01:12:32.260,01:12:35.570
+"Long story short, MVC is just kind
+of a methodology, a way of making",01:12:35.570,01:12:39.690
+"websites, in particular, whereby you
+put all of your, stupid phrase--",01:12:39.690,01:12:43.360
+business logic--,01:12:43.360,01:12:44.970
+"all of your intellectual property in
+what's called a controller, a file",01:12:44.970,01:12:49.710
+"like index.php, or we'll see,
+quote.php, or buy.php.",01:12:49.710,01:12:54.840
+"&gt;&gt; In the context of Problem set 7, your
+models typically contain your data,",01:12:54.840,01:12:59.570
+"anything related to a database, as we'll
+eventually see, and your views",01:12:59.570,01:13:03.860
+"contain the aesthetics of your
+site, the HTML, the CSS.",01:13:03.860,01:13:07.510
+"So we already saw this in C a little
+bit by using .h files.",01:13:07.510,01:13:10.420
+"We really saw it a moment ago with CSS,
+by factoring the CSS stylization",01:13:10.420,01:13:15.010
+stuff out of our HTML.,01:13:15.010,01:13:16.520
+"&gt;&gt; So MVC is really just about drawing
+lines in the sand and saying, the",01:13:16.520,01:13:20.730
+"interesting programming code for your
+website belongs in what we'll call the",01:13:20.730,01:13:25.400
+controller.,01:13:25.400,01:13:26.400
+"Stuff related to database typically
+ends up in a model.",01:13:26.400,01:13:29.280
+"But you'll see, in Problem set 7, we
+merge C and M to keep it simple.",01:13:29.280,01:13:33.070
+"But view is where all of your HTML
+and aesthetics typically go.",01:13:33.070,01:13:37.630
+&gt;&gt; So what does this mean in real terms?,01:13:37.630,01:13:39.160
+"Well, let me go into our MVC
+directory as follows.",01:13:39.160,01:13:45.980
+"And you'll see more of these
+toured through in the spec.",01:13:45.980,01:13:48.880
+"So in mvc0, I claim that this is, like,
+version 0 of CS50's websites.",01:13:48.880,01:13:53.200
+"&gt;&gt; All we have is some HTML, like
+a big h1 tag, apparently.",01:13:53.200,01:13:56.670
+And then a bulleted list.,01:13:56.670,01:13:57.800
+"I've never seen a bulleted list
+before, but no big deal.",01:13:57.800,01:13:59.860
+Let's quickly look at the source code.,01:13:59.860,01:14:01.590
+"Turns out an unordered list with bullets
+is open bracket ul with one or",01:14:01.590,01:14:06.610
+"more list items, li.",01:14:06.610,01:14:09.065
+So notice here is an anchor tag.,01:14:09.065,01:14:10.650
+We saw that a moment ago.,01:14:10.650,01:14:12.130
+"&gt;&gt; So this is how I implemented
+this page.",01:14:12.130,01:14:13.810
+"I've got two links, two list items, one
+ul for unordered list, and the end",01:14:13.810,01:14:18.460
+"result, aesthetically, is this very
+pretty website, version 0 here.",01:14:18.460,01:14:22.700
+"But what's interesting now is how this
+is implemented underneath the hood.",01:14:22.700,01:14:26.840
+"&gt;&gt; Let me go into gedit and open up this
+very first example to paint a picture.",01:14:26.840,01:14:33.590
+"And we'll look at what's flawed,
+potentially, in here.",01:14:33.590,01:14:37.070
+"Now if I go into localhost, public,
+MVC, notice a few files.",01:14:37.070,01:14:43.260
+"I'm going to call these, for the
+moment, all controllers.",01:14:43.260,01:14:45.780
+"But that's a bit of an abuse because
+you'll see everything's commingled",01:14:45.780,01:14:48.640
+inside of them.,01:14:48.640,01:14:49.620
+&gt;&gt; And let me go inside of index.php.,01:14:49.620,01:14:52.330
+"And we see, literally, the same HTML.",01:14:52.330,01:14:54.700
+"So even though this file ends in
+.php, It doesn't mean it has to",01:14:54.700,01:14:57.970
+have any PHP code.,01:14:57.970,01:14:59.500
+"It can just be raw HTML, although
+that's kind of silly.",01:14:59.500,01:15:02.290
+"But notice there's no open bracket PHP
+tag, except for this, which, frankly,",01:15:02.290,01:15:07.650
+is just there to serve as a comment.,01:15:07.650,01:15:09.160
+"But that's functionally not
+even that interesting.",01:15:09.160,01:15:12.080
+&gt;&gt; But notice this.,01:15:12.080,01:15:12.960
+"What's interesting now is what
+changes on this page.",01:15:12.960,01:15:15.400
+Let me click Lectures.,01:15:15.400,01:15:16.650
+And notice the URL is about to change.,01:15:16.650,01:15:18.560
+Now I'm at lectures.php.,01:15:18.560,01:15:20.930
+Let me click zero.,01:15:20.930,01:15:22.630
+"Now I'm at week0.php And now let
+me open these files in gedit.",01:15:22.630,01:15:27.200
+"Not just index, but let
+me open up lectures.",01:15:27.200,01:15:30.120
+"And let me get rid of the comments
+to focus on this part only.",01:15:30.120,01:15:33.900
+"&gt;&gt; And now let me open up just one more,
+week0.php, throw away the comments,",01:15:33.900,01:15:37.680
+just to clean this up.,01:15:37.680,01:15:39.910
+And now notice the following.,01:15:39.910,01:15:41.720
+"Thinking really sort of carefully about
+design, and let's make it line",01:15:41.720,01:15:47.340
+"up the same, what could be done
+better here, do you think?",01:15:47.340,01:15:52.013
+&gt;&gt; How did I make a week one?,01:15:56.450,01:15:57.780
+How about this.,01:15:57.780,01:15:58.480
+So this is how I made week one.,01:15:58.480,01:16:00.450
+"I went up to File, New, Paste, Save,
+week1.php, and then I went in here.",01:16:00.450,01:16:08.290
+And I changed one--,01:16:08.290,01:16:09.875
+"what was this, one to Friday.",01:16:09.875,01:16:11.646
+I changed the zeros to one.,01:16:14.430,01:16:15.810
+I changed this to one.,01:16:15.810,01:16:17.150
+"&gt;&gt; OK, so now look at my files.",01:16:17.150,01:16:20.350
+What could be done differently?,01:16:20.350,01:16:22.100
+"Where's the opportunity, perhaps?",01:16:22.100,01:16:25.310
+"So there's the opportunity to start
+factoring this stuff out.",01:16:25.310,01:16:28.330
+"Let me open up, as a spoiler, for
+what you'll see in P set 7.",01:16:28.330,01:16:32.950
+"If I open up, now, index.php in version
+five of this, it looks way",01:16:32.950,01:16:38.750
+"more cryptic, admittedly.",01:16:38.750,01:16:40.730
+"&gt;&gt; But this, now, is what I'll call a
+controller that's controlling the",01:16:40.730,01:16:43.710
+logic of my page.,01:16:43.710,01:16:44.770
+"And you can kind of reconstruct,
+intuitively, perhaps, what's going on.",01:16:44.770,01:16:48.510
+"On the first line, it's
+a little cryptic.",01:16:48.510,01:16:50.630
+"But notice I'm requiring, like with
+sharp include, a file called",01:16:50.630,01:16:54.040
+helpers.php.,01:16:54.040,01:16:55.930
+"And then I'm calling, apparently, a
+function, called render, passing in",01:16:55.930,01:16:59.980
+two arguments.,01:16:59.980,01:17:00.850
+"&gt;&gt; One is quote unquote, header.",01:17:00.850,01:17:02.440
+"And the other is, what kind of
+data type is this, based",01:17:02.440,01:17:04.800
+on our syntax earlier?,01:17:04.800,01:17:07.180
+It's an associated array.,01:17:07.180,01:17:08.160
+"Specifically, it's passing in the title
+with some metadata that reminds",01:17:08.160,01:17:11.730
+me what it is and its value.,01:17:11.730,01:17:13.430
+"Then I see a hard coded
+ul, so some raw HTML.",01:17:13.430,01:17:16.340
+"But then I'm back in PHP mode
+calling a function render.",01:17:16.340,01:17:20.020
+"So even if you've never used HTML or PHP
+before, and even though this looks",01:17:20.020,01:17:24.390
+"scarier, why is this probably
+better design?",01:17:24.390,01:17:27.480
+"What's better about it,
+based on inference?",01:17:27.480,01:17:31.310
+&gt;&gt; AUDIENCE: [INAUDIBLE],01:17:31.310,01:17:32.130
+"&gt;&gt; SPEAKER 1: Less redundant in that
+there's no more HTML tag, no more",01:17:32.130,01:17:35.750
+"heads tag, no more body tag
+in every damn file.",01:17:35.750,01:17:38.410
+"Instead, I've factored out the
+commonalities and presumably put them",01:17:38.410,01:17:41.860
+"into a file somehow related
+to a header.",01:17:41.860,01:17:45.150
+"And same thing for the close body
+tag, the close HTML tag.",01:17:45.150,01:17:48.500
+"That's probably down here inside
+of the footer somewhere.",01:17:48.500,01:17:52.165
+"And you'll see, in Problem set 7,
+a little tour through this.",01:17:52.165,01:17:57.050
+&gt;&gt; So what lies ahead?,01:17:57.050,01:17:58.070
+"The one thing we haven't the ability
+yet for is to actually store data.",01:17:58.070,01:18:03.390
+"And so what we'll start to see
+Wednesday, for instance, is that your",01:18:03.390,01:18:06.110
+"old friend Excel, or numbers,
+allows you to store lots of",01:18:06.110,01:18:08.450
+data in rows and columns.,01:18:08.450,01:18:10.060
+"Turns out you can do that in what's
+called a database, programmatically.",01:18:10.060,01:18:12.570
+"manic And it turns out, after that,
+we'll be able to store things like",01:18:12.570,01:18:16.620
+"this, which you'll see again in P set
+7, a whole bunch of usernames and",01:18:16.620,01:18:20.550
+"passwords, the latter of which are
+actually encrypted, much like they",01:18:20.550,01:18:23.690
+were in P set 2's hacker edition.,01:18:23.690,01:18:25.550
+"And eventually, you'll implement this,
+your own eTrade-like website that",01:18:25.550,01:18:29.600
+implements collectively CS50 finance.,01:18:29.600,01:18:32.220
+"&gt;&gt; Lastly, since you stayed here so late
+today, if you come back to this part",01:18:32.220,01:18:36.000
+"of campus, at 4:00 PM today, we will
+give you not only advice, at the SCES",01:18:36.000,01:18:41.120
+"Advising Fair, at 4:00 PM in the
+Maxwell-Dworkin, we'll give you some",01:18:41.120,01:18:44.200
+"Americone Dream, Cherry Garcia,
+Chocolate Fudge Brownie, Chocolate",01:18:44.200,01:18:47.470
+"Chip Cookie Dough, and, when you Google
+Chunky Monkey, you get this.",01:18:47.470,01:18:50.840
+"So all of that awaits at 4:00
+PM in Maxwell-Dworkin.",01:18:50.840,01:18:53.620
+See you on Wednesday as well.,01:18:53.620,01:18:56.736
+"&gt;&gt; SPEAKER 2: At the next
+CS50, RJ sleeps in.",01:18:56.736,01:18:59.960
+&gt;&gt; RJ: My section!,01:19:03.656,01:19:04.906
+Ha!,01:19:07.727,01:19:08.977
+"Oh,",01:19:12.056,01:19:13.306

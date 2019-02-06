@@ -1,0 +1,213 @@
+text,start,stop
+"Hello everyone ! We have been talking about
+data structures for some time now.",00:00:00.269,00:00:04.870
+"As we know, data structures are ways to store
+and organize data in computers.",00:00:04.870,00:00:09.150
+"So far in this series, we have discussed some
+of the data structures like arrays, linked",00:00:09.150,00:00:13.930
+"lists and in last couple of lessons, we have
+talked about stack.",00:00:13.930,00:00:18.080
+"In this lesson, we are going to introduce
+you to Queues.",00:00:18.080,00:00:20.850
+We are going to talk about Queue ADT.,00:00:20.850,00:00:25.550
+"Just the way we did it for stack, first we
+are going to talk about queue as abstract",00:00:25.550,00:00:30.070
+data type or ADT.,00:00:30.070,00:00:33.090
+"As we know, when we talk about a data structure
+as abstract data type, we define only the",00:00:33.090,00:00:38.160
+"features or operations available with the
+data structure and do not go into implementation",00:00:38.160,00:00:44.460
+details.,00:00:44.460,00:00:45.460
+"We will see possible implementations in later
+lessons.",00:00:45.460,00:00:49.430
+"In this lesson, we are only going to discuss
+logical view of queue data structure.",00:00:49.430,00:00:54.300
+Ok ! so let's get started.,00:00:54.300,00:00:56.360
+"Queue data structure is exactly what we mean
+when we say queue in real world.",00:00:56.360,00:01:01.610
+"A queue is a structure in which whatever goes
+in first, comes out first.",00:01:01.610,00:01:08.180
+"In short, we call Queue a FIFO structure.",00:01:08.180,00:01:11.119
+"Earlier, we had seen stack which is a last-in-first-out
+structure which is called a last in first",00:01:11.119,00:01:18.020
+out structure or in short LIFO.,00:01:18.020,00:01:21.429
+"A stack is a collection in which both insertion
+and removal happen from the same end that",00:01:21.429,00:01:28.159
+we call the top of stack.,00:01:28.159,00:01:29.770
+"In queue however, an insertion must happen
+from one end that we call rear or tail of",00:01:29.770,00:01:37.479
+"the queue and any removal must happen from
+the other end that we can call front or head",00:01:37.479,00:01:45.979
+of the queue.,00:01:45.979,00:01:47.950
+"If i have to define queue formally, as an
+abstract data type, then a queue is a list",00:01:47.950,00:01:55.159
+"or collection with the restriction or the
+constraint that insertion can be and must",00:01:55.159,00:02:02.209
+"be performed at one end that we call the rear
+of queue or the tail of queue and deletion",00:02:02.209,00:02:09.310
+"can be performed at other end that we can
+call the front of queue or head of queue.",00:02:09.310,00:02:15.690
+"Lets now define the interface or operations
+available with queue.",00:02:15.690,00:02:20.750
+"Just like stack, we have two fundamental operations
+here.",00:02:20.750,00:02:23.790
+An insertion is called Enqueue operation.,00:02:23.790,00:02:26.920
+"Some people also like to name this operation
+push.",00:02:26.920,00:02:30.140
+"Enqueue operation should insert an element
+at tail or rear end of queue.",00:02:30.140,00:02:36.610
+Deletion is called Dequeue operation.,00:02:36.610,00:02:39.220
+"In some implementation, people call this operation
+pop also.",00:02:39.220,00:02:44.560
+"Push and pop are more famous in context of
+stack.",00:02:44.560,00:02:48.260
+"Enqueue and Dequeue are more famous in context
+of Queues.",00:02:48.260,00:02:51.260
+"While implementing, you can choose any of
+these names in your interface.",00:02:51.260,00:02:55.730
+"Dequeue should remove an element from front
+or head of the queue.",00:02:55.730,00:03:00.450
+"And Dequeue typically also returns this element
+that it removes from the head.",00:03:00.450,00:03:06.620
+"The signatures of Enqueue and Dequeue for
+a queue of integers can be something like",00:03:06.620,00:03:11.710
+this.,00:03:11.710,00:03:12.710
+"Enqueue is returning void here while Dequeue
+is returning an integer.",00:03:12.710,00:03:18.420
+"This integer should be the removed element
+from the queue.",00:03:18.420,00:03:22.030
+You can design Dequeue also to return void.,00:03:22.030,00:03:25.760
+"Typically a third operation front or Peek
+is kept just to look at the element at the",00:03:25.760,00:03:31.830
+head.,00:03:31.830,00:03:32.830
+"Just like the top operation that we had kept
+in stack.",00:03:32.830,00:03:36.710
+"This operation should just return the element
+at front and should not delete anything.",00:03:36.710,00:03:42.130
+"Ok, we can have few more operations.",00:03:42.130,00:03:45.010
+"We can have one operation to check whether
+queue is empty or not.",00:03:45.010,00:03:49.260
+"If queue has a limited size, then we can have
+one operation to check whether queue is full",00:03:49.260,00:03:55.090
+or not.,00:03:55.090,00:03:57.370
+"Why I am calling out these alternate names
+for operations is also because most of the",00:03:57.370,00:04:02.420
+"time, we do not write our own implementation
+of a data structure.",00:04:02.420,00:04:07.060
+"We use in-built implementations available
+with language libraries.",00:04:07.060,00:04:12.709
+Interface can be different in different libraries.,00:04:12.709,00:04:14.830
+"For example, if you would use the in-built
+queue in C++, the function to insert in push",00:04:14.830,00:04:22.080
+which in C# its Enqueue.,00:04:22.080,00:04:25.229
+"So, we should not confuse.",00:04:25.229,00:04:28.099
+I'll just keep more famous names here.,00:04:28.099,00:04:30.900
+"OK ! so these are the operations that i have
+defined with queue ADT - Enqueue, Dequeue,",00:04:30.900,00:04:37.349
+Front and IsEmpty.,00:04:37.349,00:04:38.889
+"We can insert or remove one element at a time
+from the queue using Enqueue and Dequeue.",00:04:38.889,00:04:45.710
+"front() is only to look at the element at
+head.",00:04:45.710,00:04:48.720
+"InEmpty is only to verify whether Queue is
+empty or not.",00:04:48.720,00:04:53.110
+"All these operations that i have written here
+must take constant time or in other words,",00:04:53.110,00:04:59.090
+"their time complexity should be big-oh of
+one.",00:04:59.090,00:05:03.570
+"Logically, a queue can be shown as a figure
+or container open from two sides.",00:05:03.570,00:05:09.729
+"So, an element can be inserted or Enqueued
+from one side and and an element can be removed",00:05:09.729,00:05:17.659
+or de-queued from other side.,00:05:17.659,00:05:21.020
+"If you remember stack, we show a stack as
+a container open from one side.",00:05:21.020,00:05:26.330
+"So, an insertion or what we call push in context
+of stack and removal or pop, both must happen",00:05:26.330,00:05:34.009
+from the same side.,00:05:34.009,00:05:35.409
+"In queue, insertion and removal should happen
+from different sides.",00:05:35.409,00:05:41.340
+"Let's say I want to create a queue of integers,
+lets say initially we have an empty queue.",00:05:41.340,00:05:48.189
+"I will first write down one of the operations
+and then show you the simulation in logical",00:05:48.189,00:05:53.960
+view.,00:05:53.960,00:05:54.960
+Lets say i first want to enqueue number 2.,00:05:54.960,00:05:59.639
+"This figure that I'm showing here right now,
+is an empty queue of integers and I am saying",00:05:59.639,00:06:05.050
+"that I'm performing and Enqueue operation
+here.",00:06:05.050,00:06:08.639
+"In a program, I would be calling an Enqueue
+function passing it number 2 as argument.",00:06:08.639,00:06:14.020
+"After this Enqueue, we have one element in
+the queue, we have one integer in the queue.",00:06:14.020,00:06:18.930
+"Because we have only one element in the queue
+right now, front and rear of the queue are",00:06:18.930,00:06:25.270
+same.,00:06:25.270,00:06:26.660
+Lets Enqueue one more integer.,00:06:26.660,00:06:28.660
+"Now, i want to insert number 5.",00:06:28.660,00:06:31.949
+"5 will be inserted at rear or tail of the
+queue.",00:06:31.949,00:06:36.629
+Let's Enqueue one more.,00:06:36.629,00:06:39.800
+"And now, I want to call Dequeue operation.",00:06:39.800,00:06:42.749
+"So, we will pick 2 from head of the queue
+and it will go out.",00:06:42.749,00:06:47.190
+"If Dequeue is supposed to return this removed
+integer, then we will get integer 2 as return.",00:06:47.190,00:06:55.339
+"Enqueue and Dequeue are the fundamental operations
+available with Queue.",00:06:55.339,00:06:59.319
+"In our design, we can have some more for our
+convenience.",00:06:59.319,00:07:03.629
+Like we have front and IsEmpty here.,00:07:03.629,00:07:05.779
+"A call to front at this stage will get us
+number 5, integer 5 as return.",00:07:05.779,00:07:12.909
+No integer will be removed from the queue.,00:07:12.909,00:07:15.969
+"Calling IsEmpty at this stage can return us
+a boolean false or a zero fro false and 1",00:07:15.969,00:07:23.530
+for true.,00:07:23.530,00:07:24.530
+"So, this pretty much is Queue works.",00:07:24.530,00:07:27.169
+"Now, one obvious question can be, what are
+the real scenarios where we can use Queue,",00:07:27.169,00:07:33.389
+what are the use cases of Queue data structure.,00:07:33.389,00:07:36.349
+"Queue is most often used in a scenario where
+there is a shared resource that's supposed",00:07:36.349,00:07:41.770
+"to serve some request, but the resource can
+handle only one request at a time.",00:07:41.770,00:07:46.910
+It can serve only one request at a time.,00:07:46.910,00:07:49.319
+"In such a scenario, it makes most sense to
+Queue up the requests.",00:07:49.319,00:07:54.069
+"The request that comes first, gets served
+first.",00:07:54.069,00:07:58.219
+Lets say we have a printer shared in a network.,00:07:58.219,00:08:01.520
+"Any machine in the network can send a print
+request to this printer.",00:08:01.520,00:08:05.550
+"Printer can serve only one request at a time,
+it can print only one document at a time.",00:08:05.550,00:08:10.309
+"So, if a request comes when its busy, it can't
+be like - I'm busy, request later.",00:08:10.309,00:08:17.029
+That will be really rude of the printer.,00:08:17.029,00:08:19.819
+"What really happens is that the program that
+really manages the printer, puts the print",00:08:19.819,00:08:24.430
+request in a queue.,00:08:24.430,00:08:26.439
+"As long as there is something in the Queue,
+printer keeps picking up a request from the",00:08:26.439,00:08:31.380
+front of the queue and serves it.,00:08:31.380,00:08:36.050
+"Processor on your computer is also a shared
+resource.",00:08:36.050,00:08:38.850
+"A lot of running programs or processes need
+time of the processor and the processor can",00:08:38.850,00:08:44.250
+attend to only one process at a time.,00:08:44.250,00:08:47.010
+"Processor is the guy who has to execute all
+the instructions , who has to perform all",00:08:47.010,00:08:50.680
+the arithmetic and logical operations.,00:08:50.680,00:08:53.040
+"So, the processes are put in a queue.",00:08:53.040,00:08:56.720
+"Queue in general can be used to simulate wait
+in a number of scenarios.",00:08:56.720,00:09:01.730
+"We will discuss some of these applications
+of queue in detail while solving some problems",00:09:01.730,00:09:07.800
+in later lessons.,00:09:07.800,00:09:09.560
+This is good for an introduction.,00:09:09.560,00:09:11.920
+"In next lesson, we will see how we can implement
+Queue.",00:09:11.920,00:09:15.660
+This is it for this lesson.,00:09:15.660,00:09:16.990
+Thanks for watching !,00:09:16.990,00:09:17.860

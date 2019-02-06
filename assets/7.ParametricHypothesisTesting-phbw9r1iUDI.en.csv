@@ -1,0 +1,2719 @@
+text,start,stop
+"PROFESSOR: The following content
+is provided under a Creative",00:00:00.120,00:00:02.661
+Commons license.,00:00:02.661,00:00:03.880
+"Your support will help
+MIT OpenCourseWare",00:00:03.880,00:00:06.090
+"continue to offer high quality
+educational resources for free.",00:00:06.090,00:00:10.180
+"To make a donation or to
+view additional materials",00:00:10.180,00:00:12.720
+"from hundreds of MIT courses,
+visit MIT OpenCourseWare",00:00:12.720,00:00:16.680
+at ocw.mit.edu.,00:00:16.680,00:00:17.880
+So welcome back.,00:00:21.590,00:00:23.240
+"So we are now moving
+to a new chapter, which",00:00:23.240,00:00:26.180
+"is going to have a little
+more of a statistical flavor",00:00:26.180,00:00:30.050
+"when it comes to designing
+methods, all right?",00:00:30.050,00:00:32.720
+"Because if you
+think about it, OK--",00:00:32.720,00:00:35.090
+"some of you have probably
+attempted problem number two",00:00:35.090,00:00:39.139
+in the problem set.,00:00:39.139,00:00:39.930
+"And you realize that maximum
+likelihood estimators does not",00:00:39.930,00:00:44.360
+"give you super trivial
+estimators, right?",00:00:44.360,00:00:48.080
+"I mean, when you have an n theta
+theta, then the thing you get",00:00:48.080,00:00:50.752
+"is not something you could have
+guessed before you actually",00:00:50.752,00:00:53.210
+attempted to solve that problem.,00:00:53.210,00:00:55.410
+"And so, in a way, we've seen
+already sophisticated methods.",00:00:55.410,00:00:59.270
+"However, in many instances, the
+maximum likelihood estimator",00:00:59.270,00:01:02.630
+was just an average.,00:01:02.630,00:01:03.710
+"And in a way, even if
+we had this confirmation",00:01:03.710,00:01:07.010
+"for maximum likelihood that
+indeed that was the estimator",00:01:07.010,00:01:09.950
+"that maximum likelihood
+would spit out,",00:01:09.950,00:01:11.960
+"and that our intuition
+was therefore pretty good,",00:01:11.960,00:01:15.780
+"most of the statistical analysis
+or use of the central limit",00:01:15.780,00:01:18.560
+"theorems, all these
+things actually",00:01:18.560,00:01:20.390
+"did not come in the
+building of estimator,",00:01:20.390,00:01:23.780
+"in the design of the
+estimator, but really",00:01:23.780,00:01:25.700
+"in the analysis
+of the estimator.",00:01:25.700,00:01:27.365
+"And you could say,
+well, if I know already",00:01:27.365,00:01:29.955
+"that the best estimator
+is the average,",00:01:29.955,00:01:31.580
+"I'm just going to
+use the average.",00:01:31.580,00:01:32.996
+"I don't have to, basically,
+quantify how good it is.",00:01:32.996,00:01:35.450
+"I just know it's
+the best I can do.",00:01:35.450,00:01:37.760
+We're going to talk about tests.,00:01:37.760,00:01:39.290
+"And we're going to talk about
+parametric hypothesis testing.",00:01:39.290,00:01:44.460
+"So you should view this
+as-- parametric means,",00:01:44.460,00:01:46.880
+"well, it's about a parameter,
+like we did before.",00:01:46.880,00:01:49.420
+"And hypothesis testing is on
+the same level as estimation.",00:01:49.420,00:01:54.420
+"And on the same
+level as estimator",00:01:54.420,00:01:56.510
+"will be the word ""test,"" OK?",00:01:56.510,00:01:58.760
+"And when we're going
+to devise a test,",00:01:58.760,00:02:01.100
+"we're going to actually
+need to understand",00:02:01.100,00:02:03.200
+"random fluctuations that arise
+from the central limit theorem",00:02:03.200,00:02:06.090
+"better, OK?",00:02:06.090,00:02:06.860
+"It's not just going
+to be in the analysis.",00:02:06.860,00:02:08.940
+"It's also going to
+be in the design.",00:02:08.940,00:02:10.610
+"And everything we've been
+doing before in understanding",00:02:10.610,00:02:12.901
+"the behavior of an
+estimator is actually",00:02:12.901,00:02:14.720
+"going to come in
+and be extremely",00:02:14.720,00:02:16.910
+"useful in the actual
+design of tests, OK?",00:02:16.910,00:02:21.820
+"So as an example, I want to talk
+to you about some real data.",00:02:21.820,00:02:25.120
+I will not study this data.,00:02:28.080,00:02:29.690
+But this data actually exist.,00:02:29.690,00:02:31.420
+"You can find it
+on R. And so, it's",00:02:31.420,00:02:34.330
+"the data from the so-called
+credit union Cherry Blossom",00:02:34.330,00:02:37.450
+"Run, which is a 10 mile race.",00:02:37.450,00:02:38.890
+"It takes place
+every year in D.C.",00:02:38.890,00:02:40.550
+"It seems that some of the
+years are pretty nice.",00:02:40.550,00:02:42.550
+"In 2009, there were about
+15,000 participants.",00:02:42.550,00:02:45.820
+Pretty big race.,00:02:45.820,00:02:47.290
+"And the average running time
+was 103.5 minutes, all right?",00:02:47.290,00:02:52.330
+"So about an hour and a
+half or a little bit more.",00:02:52.330,00:02:57.710
+"And so, you can ask the
+following question, right?",00:02:57.710,00:03:01.240
+"This is actual data, right?",00:03:01.240,00:03:02.580
+"103.5 actually averaged the
+running time for all of 15,000.",00:03:02.580,00:03:07.330
+"Now, this in practice, may not
+be something very suitable.",00:03:07.330,00:03:10.630
+"And you might want to
+just sample a few runners",00:03:10.630,00:03:13.330
+"and try to understand
+how they're",00:03:13.330,00:03:15.130
+"behaving every
+year without having",00:03:15.130,00:03:16.900
+to collect the entire data set.,00:03:16.900,00:03:18.910
+"And so, you could ask
+the question, well,",00:03:18.910,00:03:20.710
+"let's say my budget is to
+ask for maybe 10 runners",00:03:20.710,00:03:24.160
+what their running time was.,00:03:24.160,00:03:25.960
+"I still want to be
+able to determine",00:03:25.960,00:03:27.760
+"whether they were running
+faster in 2012 than in 2009.",00:03:27.760,00:03:31.600
+"Why do I put 2012, and not 2016?",00:03:31.600,00:03:34.420
+"Well, because the data set
+for 2012 is also available.",00:03:34.420,00:03:38.860
+"So if you are interested
+and you know how to use R,",00:03:38.860,00:03:41.770
+just go and have fun with it.,00:03:41.770,00:03:44.300
+"So to answer this question, what
+we do is we select n runners,",00:03:44.300,00:03:47.180
+right?,00:03:47.180,00:03:47.680
+"So n is a moderate number that's
+more manageable than 15,000.",00:03:47.680,00:03:51.430
+From the 2012 race at random.,00:03:51.430,00:03:53.500
+"That's where the random variable
+is going to come from, right?",00:03:53.500,00:03:56.199
+"That's where we actually inject
+randomness in our problem.",00:03:56.199,00:03:58.615
+"So remember this
+is an experience.",00:04:02.789,00:04:04.205
+"So really in a way, the
+runners are the omegas.",00:04:04.205,00:04:06.970
+"And I'm interested in
+measurements on those guys.",00:04:06.970,00:04:10.150
+"So this is how I have
+a random variable.",00:04:10.150,00:04:11.980
+"And this random verbal here is
+measuring their running time.",00:04:11.980,00:04:15.570
+OK.,00:04:15.570,00:04:16.120
+"If you look at the data
+set, you have all sorts",00:04:16.120,00:04:18.179
+"of random variables
+you could measure",00:04:18.179,00:04:19.720
+about those random runners.,00:04:19.720,00:04:21.310
+Country of origin.,00:04:21.310,00:04:22.630
+"I don't know, height,
+age, a bunch of things.",00:04:22.630,00:04:25.330
+OK.,00:04:25.330,00:04:25.860
+"Here, the random
+variable of interest",00:04:25.860,00:04:27.401
+being the running time.,00:04:27.401,00:04:29.750
+OK.,00:04:29.750,00:04:30.250
+"Everybody understand
+what the process is?",00:04:30.250,00:04:32.510
+OK.,00:04:32.510,00:04:33.010
+"So now I'm going to have to
+make some modeling assumptions.",00:04:33.010,00:04:36.220
+"And here, I'm
+actually pretty lucky.",00:04:36.220,00:04:37.930
+"I actually have all the
+data from a past year.",00:04:37.930,00:04:41.770
+"I mean, this is not the data
+from 2012, which I also have,",00:04:41.770,00:04:44.500
+but I don't use.,00:04:44.500,00:04:45.504
+"But I can actually use past
+data to try to understand what",00:04:45.504,00:04:47.920
+"distribution do I have, right?",00:04:47.920,00:04:49.210
+"I mean, after all,
+running time is going",00:04:49.210,00:04:51.610
+to be rounded to something.,00:04:51.610,00:04:52.780
+"Maybe I can think of it as
+a discrete random variable.",00:04:52.780,00:04:55.632
+"Maybe I can think of it as the
+exponential random variable.",00:04:55.632,00:04:58.090
+Those are positive numbers.,00:04:58.090,00:05:00.040
+"I mean, there's many
+kind of running times",00:05:00.040,00:05:01.896
+that could come up to mind.,00:05:01.896,00:05:03.020
+"Many kind of distributions
+I could think",00:05:03.020,00:05:04.686
+of for this modeling part.,00:05:04.686,00:05:06.630
+"But it turns out
+that if you actually",00:05:06.630,00:05:08.200
+"plug the histogram of those
+running times for all 15,000",00:05:08.200,00:05:11.440
+"runners in 2009,
+you actually are",00:05:11.440,00:05:14.410
+"pretty happy to
+see that it really",00:05:14.410,00:05:16.145
+"looks like a bell-shaped
+curve, which suggest",00:05:16.145,00:05:18.020
+that this should be a Gaussian.,00:05:18.020,00:05:19.630
+"So what you go on to do
+is you estimate the mean",00:05:19.630,00:05:25.630
+"from past observations, which
+was actually 103.5, as we said.",00:05:25.630,00:05:29.800
+"You submit the
+variance, which was 373.",00:05:29.800,00:05:34.900
+"And you just try to
+superimpose the curve",00:05:34.900,00:05:37.960
+"with this one, which is a
+Gaussian PDF with mean 103.5",00:05:37.960,00:05:43.740
+and variants 373.,00:05:43.740,00:05:45.160
+"And you see that they
+actually look very much alike.",00:05:45.160,00:05:48.110
+"And so here, you're
+pretty comfortable to say",00:05:48.110,00:05:50.530
+"that the running time actually
+is Gaussian distribution.",00:05:50.530,00:05:53.570
+All right?,00:05:53.570,00:05:54.070
+"So now I know that
+the x1 to xn, I'm",00:05:54.070,00:05:56.410
+"going to say they're
+Gaussian, OK?",00:05:56.410,00:05:58.960
+"I still need to
+specify two parameters.",00:05:58.960,00:06:01.550
+"So what I want to know is,
+is the distribution the same",00:06:01.550,00:06:05.260
+"from past years, right?",00:06:05.260,00:06:06.220
+"So I want to know if the random
+variable that I'm looking",00:06:06.220,00:06:08.380
+"for-- if I, say, pick one.",00:06:08.380,00:06:09.463
+"Say, x1.",00:06:09.463,00:06:10.510
+"Does it have the same
+distribution in 2012",00:06:10.510,00:06:12.730
+that it did in 2009?,00:06:12.730,00:06:15.820
+OK.,00:06:15.820,00:06:16.560
+"And so, the question
+is, is x1 has",00:06:16.560,00:06:19.330
+"a Gaussian distribution with
+mean 103.5 and variance 373?",00:06:19.330,00:06:23.530
+Is that clear?,00:06:23.530,00:06:24.580
+OK.,00:06:24.580,00:06:25.450
+"So this question that calls
+for a yes or no answer",00:06:25.450,00:06:30.250
+is a hypothesis testing problem.,00:06:30.250,00:06:31.840
+I am testing a hypothesis.,00:06:31.840,00:06:34.090
+"And this is the basis
+of basically all",00:06:34.090,00:06:36.850
+"of data-driven
+scientific inquiry.",00:06:36.850,00:06:39.490
+You just ask questions.,00:06:39.490,00:06:40.570
+"You formulate a
+scientific hypothesis.",00:06:40.570,00:06:43.930
+"Knocking down this gene is going
+to cure melanoma, is this true?",00:06:43.930,00:06:48.816
+I'm going to collect.,00:06:48.816,00:06:49.690
+I'm going to try.,00:06:49.690,00:06:50.430
+"I'm to observe some patients on
+which I knock down this gene.",00:06:50.430,00:06:52.990
+"I'm going to collect
+some measurements.",00:06:52.990,00:06:54.615
+"And I'm going to try to answer
+this yes/no question, OK?",00:06:54.615,00:07:00.190
+"It's different
+from the question,",00:07:00.190,00:07:02.120
+"what is the mean running
+time for this year?",00:07:02.120,00:07:08.150
+OK.,00:07:08.150,00:07:10.210
+"So this hypothesis
+testing is testing",00:07:10.210,00:07:12.350
+if this hypothesis is true.,00:07:12.350,00:07:13.770
+"The hypothesis in common
+English we just said,",00:07:13.770,00:07:20.750
+were runners running faster?,00:07:20.750,00:07:22.111
+All right?,00:07:22.111,00:07:22.610
+"Anybody could formulate
+this hypothesis.",00:07:22.610,00:07:24.451
+"Now, you go to a statistician.",00:07:24.451,00:07:25.700
+"And he's like, oh,
+what you're really",00:07:25.700,00:07:27.241
+"asking me is x1 has a Gaussian
+distribution with mean",00:07:27.241,00:07:32.750
+"less than 103.5 and
+variance 373, right?",00:07:32.750,00:07:35.630
+"That's really the question that
+you ask in statistical terms.",00:07:35.630,00:07:38.380
+"And so, if you're asking if
+this was the same as before,",00:07:38.380,00:07:42.050
+"there's many ways it could
+not be the same as before.",00:07:42.050,00:07:44.720
+"There's basically
+three ways it could not",00:07:44.720,00:07:46.490
+be the same as before.,00:07:46.490,00:07:47.840
+"It could be the case that x1
+is in expectation to 103.5",00:07:47.840,00:07:54.360
+So the expectation has changed.,00:07:54.360,00:07:56.610
+Or the variance has changed.,00:07:56.610,00:07:58.710
+Or the distribution has changed.,00:07:58.710,00:08:00.320
+"I mean, who knows?",00:08:00.320,00:08:01.400
+"Maybe runners are now just all
+running holding their hands.",00:08:01.400,00:08:05.060
+"And it's like now a point
+mass at 1 given point.",00:08:05.060,00:08:08.190
+OK.,00:08:08.190,00:08:08.690
+"So you never know what
+could [INAUDIBLE]..",00:08:08.690,00:08:11.000
+"Now of course, if you
+allow for any change,",00:08:11.000,00:08:14.060
+you will find change.,00:08:14.060,00:08:16.111
+"And so what you have to do is
+to factor in as much knowledge",00:08:16.111,00:08:18.610
+as you can.,00:08:18.610,00:08:19.270
+"Make as many
+modeling assumptions,",00:08:19.270,00:08:20.710
+"so that you can
+let the data speak",00:08:20.710,00:08:22.210
+about your particular question.,00:08:22.210,00:08:23.730
+"Here, your particular question
+is, are they running faster?",00:08:23.730,00:08:27.230
+"So you're only really asking a
+question about the expectation.",00:08:27.230,00:08:30.460
+"You really want to know if
+the expectation has changed.",00:08:30.460,00:08:33.159
+"So as far as you're
+concerned, you're",00:08:33.159,00:08:35.114
+"happy to make the
+assumption that the rest has",00:08:35.114,00:08:37.030
+been unchanged.,00:08:37.030,00:08:38.309
+OK.,00:08:38.309,00:08:39.760
+"And so, this is the
+question we're asking.",00:08:39.760,00:08:42.429
+"Is the expectation
+now less than 103.5?",00:08:42.429,00:08:45.760
+"Because you specifically
+asked whether runners were",00:08:45.760,00:08:48.880
+"going faster this year, right?",00:08:48.880,00:08:50.650
+"They tend to go faster rather
+than slower, all right?",00:08:50.650,00:08:55.420
+OK.,00:08:55.420,00:08:56.470
+"So this is the question we're
+asking in mathematical terms.",00:08:56.470,00:09:00.030
+"So first, when I did that, I
+need to basically fix the rest.",00:09:00.030,00:09:03.350
+"And fixing the rest
+is actually part",00:09:03.350,00:09:05.450
+of the modeling assumptions.,00:09:05.450,00:09:07.160
+"So I fixed my
+variance to be 373.",00:09:07.160,00:09:10.470
+OK?,00:09:10.470,00:09:11.300
+"I assume that the
+variance has not",00:09:11.300,00:09:13.250
+changed between 2009 and 2012.,00:09:13.250,00:09:17.120
+"Now, this is an assumption.",00:09:17.120,00:09:18.620
+It turns out it's wrong.,00:09:18.620,00:09:21.110
+"So if you look at
+the data from 2012,",00:09:21.110,00:09:22.910
+"this is not the
+correct assumption.",00:09:22.910,00:09:24.496
+"But I'm just going
+to make it right now",00:09:24.496,00:09:26.120
+"for the sake of argument, OK?",00:09:26.120,00:09:29.700
+"And also the fact
+that it's Gaussian.",00:09:29.700,00:09:31.340
+"Now, this is going to be
+hard to violate, right?",00:09:31.340,00:09:34.850
+"I mean, where did this
+bell-shaped curve come from?",00:09:34.850,00:09:37.640
+"Well, it's just natural when you
+just measure a bunch of things.",00:09:37.640,00:09:42.480
+"The central limit
+theorem appears",00:09:42.480,00:09:44.070
+in the small things of nature.,00:09:44.070,00:09:45.320
+"I mean, that's the bedtime story
+you get about the central limit",00:09:45.320,00:09:48.200
+theorem.,00:09:48.200,00:09:48.900
+"And that's why the bell-shaped
+curve is everywhere in nature.",00:09:48.900,00:09:50.940
+"It's the sum of little
+independent things",00:09:50.940,00:09:52.730
+that are going on.,00:09:52.730,00:09:53.910
+"And this Gaussian assumption,
+even if I wanted to relax it,",00:09:53.910,00:09:57.080
+there's not much else I can do.,00:09:57.080,00:09:58.910
+"It is pretty robust
+across the years.",00:09:58.910,00:10:02.020
+All right.,00:10:02.020,00:10:02.520
+"So the only thing
+that we did not fix",00:10:02.520,00:10:04.930
+"is the expectation of x1, which
+now I want to know what it is.",00:10:04.930,00:10:08.892
+"And since I don't know what it
+is, I'm going to call it mu.",00:10:08.892,00:10:11.350
+"And it's going to be a variable
+of interest, all right?",00:10:11.350,00:10:13.641
+So it's just a number mu.,00:10:13.641,00:10:14.770
+"Whatever this is I can try
+to estimate it, maybe using",00:10:14.770,00:10:17.320
+maximum likelihood estimation.,00:10:17.320,00:10:19.162
+"Probably using the average,
+because this is Gaussian.",00:10:19.162,00:10:21.370
+"And we know that the
+maximum likelihood",00:10:21.370,00:10:22.995
+"estimator for a Gaussian
+is just the average.",00:10:22.995,00:10:26.000
+"And now we only want to test
+if mu is equal to 103.5,",00:10:26.000,00:10:30.590
+like it was in 2009.,00:10:30.590,00:10:34.100
+"Or on the contrary, if
+mu is not equal to 103.5.",00:10:34.100,00:10:37.774
+"And more specifically,
+if mu is actually",00:10:37.774,00:10:39.440
+strictly less than 103.5.,00:10:39.440,00:10:41.240
+That's the question you ask.,00:10:41.240,00:10:42.950
+"Now, why am I in writing
+mu equal to 103.5 or is",00:10:42.950,00:10:49.370
+"less than 103.5
+and equal to 103.5",00:10:49.370,00:10:53.240
+versus not equal to 103.5?,00:10:53.240,00:10:55.450
+"It's because since you asked
+me a more precise question,",00:10:55.450,00:10:58.640
+"I'm going to be able to give
+you a more precise answer.",00:10:58.640,00:11:01.270
+"And so, if your question
+is very specific--",00:11:01.270,00:11:03.890
+are they running faster?,00:11:03.890,00:11:05.960
+"I'm going to factor
+that in what I write.",00:11:05.960,00:11:08.440
+"If you just ask
+me, is it the same?",00:11:08.440,00:11:10.310
+"I'm going to have to write,
+or is it different than 103.5?",00:11:10.310,00:11:13.647
+"And that's less
+information about what",00:11:13.647,00:11:15.230
+"you're looking for, OK?",00:11:15.230,00:11:19.200
+"So by making all these
+modeling assumptions--",00:11:19.200,00:11:23.500
+"the fact that the
+variance doesn't change,",00:11:23.500,00:11:25.250
+"the fact that it's
+still Gaussian--",00:11:25.250,00:11:26.708
+"I've actually reduced
+the number of.",00:11:26.708,00:11:31.050
+"And I put numbers in quotes,
+because this is still",00:11:31.050,00:11:34.440
+an infinite of them.,00:11:34.440,00:11:35.660
+"But I'm limiting
+the number of ways",00:11:35.660,00:11:38.220
+the hypothesis can be violated.,00:11:38.220,00:11:40.875
+"The number of possible
+alternative realities",00:11:43.380,00:11:46.050
+"for this hypothesis, all right?",00:11:46.050,00:11:48.540
+"For example, I'm
+saying there's no way",00:11:48.540,00:11:50.520
+mu can be larger than 103.5.,00:11:50.520,00:11:53.400
+"I've already
+factored that in, OK?",00:11:53.400,00:11:55.710
+It could be.,00:11:55.710,00:11:56.700
+"But I'm actually just going
+to say that if it's larger,",00:11:56.700,00:11:59.550
+"all I'm going to be able to tell
+you is that it's not smaller.",00:11:59.550,00:12:02.940
+"I'm not going to
+be able to tell you",00:12:02.940,00:12:06.290
+"that it's actually larger, OK?",00:12:06.290,00:12:07.710
+"And the only way it
+can be rejected now.",00:12:12.830,00:12:15.830
+"The only way I can
+reject my hypothesis",00:12:15.830,00:12:17.990
+"is if x belongs to very specific
+family of distributions.",00:12:17.990,00:12:22.900
+"If it has a distribution
+which is Gaussian",00:12:22.900,00:12:24.650
+"with mean mu and variance of
+373 for mu, which is less 103.5.",00:12:24.650,00:12:29.820
+All right?,00:12:29.820,00:12:30.320
+"So we started with
+basically was x1--",00:12:30.320,00:12:40.240
+so that's the reality.,00:12:40.240,00:12:41.470
+"x1 follows n 103.5 373, OK?",00:12:41.470,00:12:49.840
+"And this is everything
+else, right?",00:12:49.840,00:12:53.690
+"So for example,
+here is x follows",00:12:53.690,00:12:55.680
+"some exponential, 0.1, OK?",00:12:55.680,00:13:02.410
+"This is just another
+distribution here.",00:13:02.410,00:13:04.270
+"Those are all the
+possible distributions.",00:13:04.270,00:13:06.040
+"What we said is we said,
+OK, first of all, let's just",00:13:06.040,00:13:09.010
+"keep only those Gaussian
+distributions, right?",00:13:09.010,00:13:13.780
+"And second, we said, well, among
+those Gaussian distributions,",00:13:13.780,00:13:18.100
+"let's only look at
+those that have-- well,",00:13:18.100,00:13:20.290
+"maybe this one should
+be at the boundary--",00:13:20.290,00:13:24.370
+"let's only look at
+the Gaussians here.",00:13:24.370,00:13:26.650
+"So this guy here are
+all the Gaussians",00:13:26.650,00:13:33.820
+"with mean mu and variance 373
+for mu less than 103.5, OK?",00:13:33.820,00:13:43.290
+"So when you're going
+to give me data,",00:13:43.290,00:13:45.360
+"I'm going to be able to
+say, well, am I this guy?",00:13:45.360,00:13:48.660
+Or am I one of those guys?,00:13:48.660,00:13:49.772
+"Rather than searching
+through everything.",00:13:49.772,00:13:51.480
+"And the more you search
+the easier for you",00:13:51.480,00:13:53.940
+"to find something that fits
+better the data, right?",00:13:53.940,00:13:56.980
+"And so, if I allow
+everything possible,",00:13:56.980,00:14:00.000
+"then there's going
+to be something",00:14:00.000,00:14:01.800
+"that just by pure randomness is
+actually going to look better",00:14:01.800,00:14:04.770
+"for the data, OK?",00:14:04.770,00:14:06.490
+"So for example, if I draw
+10 random variables, right?",00:14:09.510,00:14:12.780
+If n is equal to 10.,00:14:12.780,00:14:15.840
+"And let's say they take
+10 different values.",00:14:15.840,00:14:18.150
+"Then it's actually more
+likely that those guys",00:14:18.150,00:14:20.070
+"come from a discrete
+distribution that",00:14:20.070,00:14:23.040
+"takes each of these values
+with probability 1 over 10,",00:14:23.040,00:14:27.350
+"than actually some Gaussian
+random variable, right?",00:14:27.350,00:14:30.560
+That would be perfect.,00:14:30.560,00:14:31.507
+I can actually explain it.,00:14:31.507,00:14:32.590
+"If the 10 numbers
+I got were say--",00:14:32.590,00:14:36.740
+"let's say I collect
+3, 90, 95, and 102.",00:14:36.740,00:14:41.870
+"Then the most likely
+distribution for those guys",00:14:41.870,00:14:44.420
+"is the discrete
+distribution that",00:14:44.420,00:14:46.490
+"takes three values, 91
+with probability 1/3, 95",00:14:46.490,00:14:51.260
+"with probability 1/3, and
+102 with probably 1/3, right?",00:14:51.260,00:14:57.387
+"That's definitely the most
+likely distribution for this.",00:14:57.387,00:14:59.720
+"So if I allowed this,
+I would say, oh no.",00:14:59.720,00:15:02.090
+"This is not distributed
+according to that.",00:15:02.090,00:15:04.610
+"It's distributed according
+to this very specific",00:15:04.610,00:15:06.920
+"distribution, which is
+somewhere in the realm",00:15:06.920,00:15:09.800
+"of all possible
+distributions, OK?",00:15:09.800,00:15:12.450
+"So now we're just going to try
+to carve out all this stuff",00:15:12.450,00:15:15.480
+by making our assumptions.,00:15:15.480,00:15:18.570
+OK.,00:15:18.570,00:15:19.070
+"So here in this
+particular example,",00:15:19.070,00:15:20.870
+"just make a mental note
+that what we're doing",00:15:20.870,00:15:23.270
+is that I actually--,00:15:23.270,00:15:25.580
+"a little birdie told me that the
+reference number is 103.5, OK?",00:15:25.580,00:15:31.340
+"That was the thing I'm
+actually looking for.",00:15:31.340,00:15:34.760
+"In practice, it's
+actually seldom the case",00:15:34.760,00:15:36.680
+"that you have this reference
+for yourself to think of, right?",00:15:36.680,00:15:40.260
+"Maybe here, I just happen
+to have a full data",00:15:40.260,00:15:43.260
+set of all the runners of 2009.,00:15:43.260,00:15:46.620
+"But if I really just
+asked you, I said,",00:15:46.620,00:15:50.680
+"were runners faster
+in 2012 than in 2009?",00:15:50.680,00:15:55.990
+"Here's $10 to perform
+your statistical analysis.",00:15:55.990,00:15:59.262
+"What you're probably going to
+do is called maybe 10 runners",00:15:59.262,00:16:01.720
+"from 2012, maybe 15
+runners from 2009,",00:16:01.720,00:16:05.380
+"ask them and try to
+compare their mean.",00:16:05.380,00:16:07.930
+There's no standard reference.,00:16:07.930,00:16:09.250
+"You would not be able to
+come up with this 103.5,",00:16:09.250,00:16:11.680
+"because these data maybe is
+expensive to get or something.",00:16:11.680,00:16:14.630
+OK.,00:16:14.630,00:16:15.130
+"So this is really more of
+the standard case, all right?",00:16:15.130,00:16:18.250
+"Where you really compare
+two things with each other,",00:16:18.250,00:16:21.310
+"but there's no actual
+ground truth number",00:16:21.310,00:16:23.830
+that you're comparing it to.,00:16:23.830,00:16:26.280
+OK.,00:16:26.280,00:16:26.780
+"So we'll come back
+to that in a second.",00:16:26.780,00:16:28.700
+"I'll tell you what the
+other example looks like.",00:16:28.700,00:16:32.070
+"So let's just stick
+to this example.",00:16:32.070,00:16:34.430
+"I tell you it's 103.5, OK?",00:16:34.430,00:16:36.710
+"Let's try to have our
+intuition work the same way.",00:16:36.710,00:16:39.170
+"We said, well,
+averages worked well.",00:16:39.170,00:16:42.710
+"The average, tell me,
+of over these 10 guys",00:16:42.710,00:16:46.970
+"should tell me what
+the mean should be.",00:16:46.970,00:16:49.820
+"So I can just say,
+well x bar is going",00:16:49.820,00:16:52.460
+"to be close to the true mean
+by the law of large number.",00:16:52.460,00:16:55.500
+"So I'm going to decide whether
+x bar is less than 103.5.",00:16:55.500,00:17:00.600
+"And conclude that in this case,
+indeed mu is less than 103.5,",00:17:00.600,00:17:04.069
+"because those two
+quantities are close, right?",00:17:04.069,00:17:06.859
+I could do that.,00:17:06.859,00:17:08.609
+"The problem is that this
+could go pretty wrong.",00:17:08.609,00:17:10.670
+"Because if n is
+small, then I know",00:17:10.670,00:17:13.730
+that xn bar is not equal to mu.,00:17:13.730,00:17:17.400
+"I know that xn bar
+is close to mu.",00:17:17.400,00:17:19.819
+"But I also know that
+there's pretty high chance",00:17:19.819,00:17:21.859
+that it's not equal to mu.,00:17:21.859,00:17:23.150
+"In particular, I know it's going
+to be somewhere at 1 over root",00:17:23.150,00:17:26.410
+"n away from mu, right?",00:17:26.410,00:17:28.580
+"1 over root n being the
+root coming from what?",00:17:28.580,00:17:31.690
+"CLT, right?",00:17:34.820,00:17:35.600
+"That's the root n that comes
+from CLT. In blunt words,",00:17:35.600,00:17:40.700
+"CLT tells me the
+mean is at distance",00:17:40.700,00:17:44.510
+"1 over root n from the
+expectation, pretty much.",00:17:44.510,00:17:47.600
+That's what it's telling.,00:17:47.600,00:17:48.920
+So 1 over root n.,00:17:48.920,00:17:49.910
+"If I have 10 people in
+there, 1 over root 10",00:17:52.510,00:17:55.790
+"is not a huge number, right?",00:17:55.790,00:17:57.170
+It's like 1/3 pretty much.,00:17:57.170,00:18:00.290
+So 1/3 103.5.,00:18:00.290,00:18:02.850
+"If the true mean
+was actually 103.4,",00:18:02.850,00:18:07.940
+"but my average was telling
+me it's 103.4 plus 1/3,",00:18:07.940,00:18:12.834
+"I would actually come to two
+different conclusions, right?",00:18:12.834,00:18:15.250
+"So let's say that mu
+is equal to 103.4, OK?",00:18:22.620,00:18:29.400
+"So you're not supposed
+to know this, right?",00:18:29.400,00:18:32.700
+That's the hidden truth.,00:18:32.700,00:18:34.350
+OK.,00:18:37.900,00:18:38.400
+Now I have n is equal to 10.,00:18:38.400,00:18:40.380
+"So I know that x
+bar n minus 103.4",00:18:40.380,00:18:49.190
+"is something of the order of
+1 over the square root of 10,",00:18:49.190,00:18:52.470
+"which is of the
+order of, say, 0.3.",00:18:52.470,00:18:57.840
+OK.,00:18:57.840,00:18:58.340
+"So here, this is
+all hand wavy, OK?",00:18:58.340,00:19:01.480
+"But that's what the central
+limit theorem tells me.",00:19:01.480,00:19:05.120
+"What it means is
+that it is possible",00:19:05.120,00:19:13.260
+"that x bar n is actually
+equal to is actually",00:19:13.260,00:19:20.030
+"equal to 103.4 plus 0.3,
+which is equal to 103.7.",00:19:20.030,00:19:30.970
+"Which means that while the truth
+is that mu is less than 103.5,",00:19:30.970,00:19:40.350
+"then I would conclude that
+mu is larger than 103.5, OK?",00:19:40.350,00:19:47.572
+"And that's because I have
+not been very cautious, OK?",00:19:47.572,00:19:49.780
+"So what we want to do is
+to have a little buffer",00:19:52.990,00:19:56.170
+"to account for the
+fact that xn bar is not",00:19:56.170,00:19:58.750
+a precise value for the true mu.,00:19:58.750,00:20:01.525
+"It's something that's 1
+over root n away from you.",00:20:01.525,00:20:05.180
+"And so, what we want is
+the better heuristic that",00:20:05.180,00:20:07.420
+"says, well, if I want
+to conclude that I'm",00:20:07.420,00:20:09.550
+"less than 103.5, maybe I
+need to be less than 103.5",00:20:09.550,00:20:14.270
+"minus a little buffer that goes
+to 0 as my sample size goes",00:20:14.270,00:20:17.920
+to infinity.,00:20:17.920,00:20:19.300
+"And actually, that's what the
+law of large number tells me.",00:20:19.300,00:20:22.354
+"The central limit
+theorem actually",00:20:22.354,00:20:23.770
+"tells me that this
+should be true,",00:20:23.770,00:20:26.740
+"something that goes to
+0 as n goes to infinity",00:20:26.740,00:20:30.030
+"and the rate 1
+over root n, right?",00:20:30.030,00:20:32.850
+"That's basically what the
+central limit theorem tells me.",00:20:32.850,00:20:36.680
+"So to make this
+intuition more precise,",00:20:36.680,00:20:39.170
+"we need to understand
+those fluctuations.",00:20:39.170,00:20:41.490
+"We need to actually
+put in something",00:20:41.490,00:20:43.610
+"that's more precise than
+these little wiggles here, OK?",00:20:43.610,00:20:47.102
+"We need to actually have the
+central limit theorem come in.",00:20:47.102,00:20:49.560
+"So here is the example
+of comparing two groups.",00:20:53.110,00:20:57.340
+"So pharmaceutical
+companies use hypothesis",00:20:57.340,00:21:00.700
+"testing to test if a
+drug is efficient, right?",00:21:00.700,00:21:03.167
+That's what they do.,00:21:03.167,00:21:04.000
+"They want to know,
+does my new drug work?",00:21:04.000,00:21:06.170
+"And that's what the Federal
+Drug Administration office",00:21:06.170,00:21:09.175
+is doing on a daily basis.,00:21:09.175,00:21:11.560
+"They ask for extremely well
+regulated clinical trials",00:21:11.560,00:21:18.660
+"on a thousand people,
+and check, does this drug",00:21:18.660,00:21:22.530
+make a difference?,00:21:22.530,00:21:23.460
+Did everybody die?,00:21:23.460,00:21:24.900
+Does it make no difference?,00:21:24.900,00:21:27.270
+"Should people pay $200 for
+a pill of sugar, right?",00:21:27.270,00:21:30.450
+"So that's what people
+are actually asking.",00:21:30.450,00:21:33.030
+"So to do so, of course, there
+is no ground truth about--",00:21:33.030,00:21:36.060
+"so there's actually
+a placebo effect.",00:21:36.060,00:21:38.830
+"So it's not like actually
+giving a drug that does not work",00:21:38.830,00:21:41.970
+"is going to have no
+effect on patients.",00:21:41.970,00:21:44.400
+"It will have a small effect,
+but it's very hard to quantify.",00:21:44.400,00:21:47.320
+"We know that it's there, but
+we don't know what it is.",00:21:47.320,00:21:50.460
+"And so rather than saying,
+oh the ground truth",00:21:50.460,00:21:52.670
+"is no improvement, the ground
+truth is the placebo effect.",00:21:52.670,00:21:56.280
+"And we need to measure
+what the placebo effect is.",00:21:56.280,00:22:00.020
+"So what we're going
+to do is we're",00:22:00.020,00:22:01.730
+"going to split our
+patients into two groups.",00:22:01.730,00:22:04.730
+"And there's going to
+be what's called a test",00:22:04.730,00:22:06.590
+group and a control group.,00:22:06.590,00:22:10.020
+"So the word test here is
+used in a different way",00:22:10.020,00:22:13.040
+than hypothesis testing.,00:22:13.040,00:22:14.220
+"So we'll just call it
+typically the drug group.",00:22:14.220,00:22:17.490
+"And so, I will refer to
+mu drug for this guy, OK?",00:22:17.490,00:22:22.790
+"Now, this let's say this
+is a cough syrup, OK?",00:22:22.790,00:22:26.120
+"And when you have a
+cough syrup, the way",00:22:26.120,00:22:29.990
+"you measure the efficacy
+of a cough syrup",00:22:29.990,00:22:34.520
+"is to measure how many times
+you cough per minute, OK?",00:22:34.520,00:22:40.000
+"And so, if I define
+mu control the number",00:22:40.000,00:22:42.740
+of expectoration per hour.,00:22:42.740,00:22:48.840
+"So just the expected
+number, right?",00:22:48.840,00:22:50.500
+"This is the number I don't know,
+because I don't have access",00:22:50.500,00:22:53.000
+"to the entire population
+of people that will ever",00:22:53.000,00:22:55.430
+take this cough syrup.,00:22:55.430,00:22:57.590
+"And so, I will call it mu
+control for the control group.",00:22:57.590,00:23:00.526
+"So those are the people who
+have been actually given just",00:23:00.526,00:23:02.900
+"like sugar, like maple syrup.",00:23:02.900,00:23:05.330
+"And mu drug are those people who
+are given the actual syrup, OK?",00:23:05.330,00:23:09.440
+"And you can imagine that maybe
+maple syrup will have an effect",00:23:09.440,00:23:12.710
+"on expectorations per hour just
+because, well, it's just sweet",00:23:12.710,00:23:18.020
+"and it helps, OK?",00:23:18.020,00:23:19.040
+"And so, we don't know what
+this effect is going to be.",00:23:19.040,00:23:21.290
+"We just want to measure
+if the drug is actually",00:23:21.290,00:23:24.920
+"having just a better
+impact on expectorations",00:23:24.920,00:23:28.670
+"per hour than the just
+pure maple syrup, OK?",00:23:28.670,00:23:34.700
+"So what we want to know is if
+mu drug is less than mu control.",00:23:34.700,00:23:38.385
+That would be enough.,00:23:38.385,00:23:39.260
+"If we had access to
+all the populations",00:23:39.260,00:23:41.540
+"that will ever take
+the syrup for all ages,",00:23:41.540,00:23:44.390
+"then we would just measure,
+did this have an impact?",00:23:44.390,00:23:46.760
+"And even if it's a slightly
+ever so small impact,",00:23:46.760,00:23:49.880
+"then it's good to
+release this cough syrup,",00:23:49.880,00:23:52.760
+"assuming that it has no side
+effects or anything like this,",00:23:52.760,00:23:55.430
+"because it's just better
+than maple syrup, OK?",00:23:55.430,00:23:58.370
+"The problem is that we
+don't have access to this.",00:23:58.370,00:24:00.430
+"And we're going to have to make
+this decision based on samples",00:24:00.430,00:24:03.110
+"that give me imprecise knowledge
+about mu drug and mu control.",00:24:03.110,00:24:09.140
+"So in this case,
+unlike the first case",00:24:09.140,00:24:10.870
+"where we compared an
+unknown expected value",00:24:10.870,00:24:13.990
+"to have a fixed number, which
+was one of the 103.5, here,",00:24:13.990,00:24:17.530
+"we're just comparing two unknown
+numbers with each other, OK?",00:24:17.530,00:24:20.980
+"So there's two
+sources of randomness.",00:24:20.980,00:24:22.522
+"Trying to estimate
+the first one.",00:24:22.522,00:24:23.896
+"And trying to estimate
+the second one.",00:24:23.896,00:24:25.492
+"Before I move on, I just
+wanted to tell you I apologize.",00:24:29.190,00:24:31.860
+"One of the graders was not able
+to finish grading his problem",00:24:31.860,00:24:34.480
+sets for today.,00:24:34.480,00:24:35.240
+"So for those of you who are here
+just to pick up their homework,",00:24:35.240,00:24:39.390
+feel free to leave now.,00:24:39.390,00:24:41.010
+"Even if you have a name tag, I
+will pretend I did not read it.",00:24:41.010,00:24:45.071
+OK.,00:24:45.071,00:24:45.570
+So I'm sorry.,00:24:45.570,00:24:47.300
+You'll get it on Tuesday.,00:24:47.300,00:24:49.970
+And this will not happen again.,00:24:49.970,00:24:53.540
+OK.,00:24:53.540,00:24:54.510
+"So for the clinical
+trials, now I'm",00:24:54.510,00:24:56.722
+going to collect information.,00:24:56.722,00:24:57.930
+"I'm going to collect the
+data from the control group.",00:24:57.930,00:25:00.138
+"And I'm going to collect data
+from the test group, all right?",00:25:00.138,00:25:03.420
+So my control group here.,00:25:03.420,00:25:05.490
+"I don't have to collect the same
+number of people in the control",00:25:05.490,00:25:08.170
+group than in the drug group.,00:25:08.170,00:25:09.600
+"Actually, for cough syrup,
+maybe it's not that important.",00:25:09.600,00:25:12.520
+"But you can imagine
+that if you think",00:25:12.520,00:25:14.790
+"you have the cure to a
+really annoying disease,",00:25:14.790,00:25:20.160
+"it's actually hard to tell
+half of the people you",00:25:20.160,00:25:23.910
+"will get a pill of nothing, OK?",00:25:23.910,00:25:26.460
+"People tend to want
+to try the drug.",00:25:26.460,00:25:28.140
+They're desperate.,00:25:28.140,00:25:28.942
+"And so, you have to have
+this sort of imbalance",00:25:28.942,00:25:30.900
+"between who is getting the drug
+and who's not getting the drug.",00:25:30.900,00:25:35.390
+"And people have to qualify
+for the clinical trials.",00:25:35.390,00:25:37.865
+"There's lots of
+fluctuations that",00:25:37.865,00:25:39.240
+"affect what the final numbers
+of people who are actually",00:25:39.240,00:25:42.091
+"going to get the drug and
+are going to get the control",00:25:42.091,00:25:44.340
+is going to be.,00:25:44.340,00:25:45.180
+"And so, it's not easy for you
+to make those two numbers equal.",00:25:45.180,00:25:49.277
+"You'd like to have those
+numbers equal if you can,",00:25:49.277,00:25:51.360
+but not necessarily.,00:25:51.360,00:25:55.910
+"And by the way, this is all part
+of some mystical science called",00:25:55.910,00:25:59.270
+"""design of experiments.""",00:25:59.270,00:26:00.440
+"And in particular,
+you can imagine",00:26:00.440,00:26:02.780
+"that if one of the series
+had higher variants,",00:26:02.780,00:26:04.910
+"you would want to like
+more people in this group",00:26:04.910,00:26:07.040
+than the other group.,00:26:07.040,00:26:08.000
+Yeah?,00:26:08.000,00:26:10.982
+"STUDENT: So when we're
+subtracting [INAUDIBLE]",00:26:10.982,00:26:13.964
+"something that [INAUDIBLE] 0
+[INAUDIBLE] to be satisfied.",00:26:13.964,00:26:20.425
+"So that's on
+purpose [INAUDIBLE]..",00:26:20.425,00:26:22.420
+"PROFESSOR: Yeah,
+that's on purpose.",00:26:22.420,00:26:23.180
+"And I'll come to that
+in a second, all right?",00:26:23.180,00:26:25.055
+"So basically, we're
+going to make it",00:26:25.055,00:26:31.130
+"if your answer is, is this true?",00:26:31.130,00:26:34.760
+"We're going to make it as hard
+as possible, but no harder",00:26:34.760,00:26:39.170
+"for you to say yes
+to this answer.",00:26:39.170,00:26:41.150
+"Because, well, we'll see why.",00:26:41.150,00:26:43.230
+"OK, so now we have two set
+of data, the x's and the y's.",00:26:45.900,00:26:50.040
+"The x's are the
+ones for the drug.",00:26:50.040,00:26:51.810
+"And the y's are the data that I
+collected from the people, who",00:26:51.810,00:26:55.230
+"were just given a placebo, OK?",00:26:55.230,00:26:57.520
+"And so, they're all
+IID random variables.",00:26:57.520,00:26:59.280
+"And here, since it's the
+number of expectorations,",00:26:59.280,00:27:02.220
+"I'm making a blunt
+modeling assumption.",00:27:02.220,00:27:07.352
+"I'm just going to
+say it's Poisson.",00:27:07.352,00:27:08.810
+"And it's characterized only by
+the mean mu drug or the mean mu",00:27:08.810,00:27:11.990
+"control, OK?",00:27:11.990,00:27:13.440
+"I've just made an
+assumption here.",00:27:13.440,00:27:15.090
+It could be something different.,00:27:15.090,00:27:16.750
+"But let's say it's a
+Poisson distribution.",00:27:16.750,00:27:19.260
+"So now what I want to know
+is to test whether mu drug is",00:27:19.260,00:27:21.655
+less than mu control.,00:27:21.655,00:27:22.530
+We said that already.,00:27:22.530,00:27:23.880
+"But the way we said it before
+was not as mathematical",00:27:23.880,00:27:26.340
+as it is now.,00:27:26.340,00:27:27.120
+"Now we're actually making
+a test on the parameters",00:27:27.120,00:27:29.520
+of Poisson distribution.,00:27:29.520,00:27:30.540
+"Whereas before, we
+were just making test",00:27:30.540,00:27:32.610
+"on expected numbers, OK?",00:27:32.610,00:27:36.410
+"So the heuristic-- again, if we
+try to apply the heuristic now.",00:27:36.410,00:27:39.650
+"Rather than comparing mu x
+bar drug to some fixed number,",00:27:39.650,00:27:42.890
+"I'm actually comparing x
+bar drug to some control.",00:27:42.890,00:27:46.306
+"But now here, I need to have
+something that accounts for,",00:27:46.306,00:27:48.680
+"not only the fluctuations
+of x bar drug,",00:27:48.680,00:27:51.200
+"but also for the fluctuations
+of x bar control, OK?",00:27:51.200,00:27:55.406
+"And so, now I need
+something that",00:27:55.406,00:27:56.780
+"goes to 0 when all those
+two things go to infinity.",00:27:56.780,00:27:59.540
+"And typically, it should go to
+zero with 1 over root of n drug",00:27:59.540,00:28:02.840
+"and 1 over square
+root of n control, OK?",00:28:02.840,00:28:06.340
+"That's what the central
+limit theorem for both x bar",00:28:06.340,00:28:08.830
+drug and x bar control.,00:28:08.830,00:28:11.320
+"Two central limit theorems
+are actually telling.",00:28:11.320,00:28:15.261
+OK.,00:28:15.261,00:28:15.760
+"And then we can conclude
+that this happens.",00:28:15.760,00:28:17.840
+"And as you said, we're
+trying to make it",00:28:17.840,00:28:19.570
+a bit harder to conclude this.,00:28:19.570,00:28:21.700
+Because let's face it.,00:28:21.700,00:28:23.830
+"If we were actually using
+two simple heuristic, right?",00:28:23.830,00:28:26.800
+"For simplicity, right?",00:28:30.114,00:28:31.030
+"So I can rewrite x bar drug
+less than x bar control",00:28:35.880,00:28:43.930
+"minus this something
+that goes to 0.",00:28:43.930,00:28:46.060
+"I can write it as x bar drug
+minus x bar control less",00:28:46.060,00:28:54.650
+"than something negative, OK?",00:28:54.650,00:28:57.930
+"This little something, OK?",00:28:57.930,00:29:00.280
+So now let's look at those guys.,00:29:00.280,00:29:02.990
+"This is the difference
+of two random variables.",00:29:02.990,00:29:06.470
+"From the central
+limit theorem, they",00:29:06.470,00:29:08.570
+"should be approximately
+Gaussian each.",00:29:08.570,00:29:12.914
+"And actually, we're
+going to think",00:29:12.914,00:29:14.330
+of them as being independent.,00:29:14.330,00:29:15.660
+"There's no reason why the
+people in the control group",00:29:15.660,00:29:18.460
+"should have any effect
+on what's happening",00:29:18.460,00:29:20.210
+to the people in the test group.,00:29:20.210,00:29:21.350
+"Those people probably
+don't even know each other.",00:29:21.350,00:29:23.550
+"And so, when I look at this,
+this should look like n 0",00:29:23.550,00:29:27.056
+"with some mean
+and some variants,",00:29:27.056,00:29:28.430
+"let's say I don't
+know what it is, OK?",00:29:28.430,00:29:30.590
+The mean I actually know.,00:29:30.590,00:29:31.940
+"It's mu drug minus
+mu control, OK?",00:29:31.940,00:29:37.250
+"So if they were to plot
+the PDF of this guy,",00:29:37.250,00:29:39.950
+it would look like this.,00:29:39.950,00:29:41.210
+"I would have something
+which is centered",00:29:41.210,00:29:42.890
+at mu drug minus mu control.,00:29:42.890,00:29:45.590
+"And it would look like this, OK?",00:29:48.280,00:29:51.880
+"Now let's say that mu drug is
+actually equal to mu control.",00:29:51.880,00:29:55.780
+"That this pharmaceutical
+company is a huge scam.",00:29:55.780,00:29:59.810
+"And they really are trying
+to sell bottled corn",00:29:59.810,00:30:04.810
+"syrup for $200 a pop, OK?",00:30:04.810,00:30:07.580
+So this is a huge scam.,00:30:07.580,00:30:08.980
+"And the true things are
+actually equal to 0.",00:30:08.980,00:30:12.010
+"So this thing is really
+centered about 0, OK?",00:30:12.010,00:30:15.670
+"Now, if were not to do
+this, then basically, half",00:30:15.670,00:30:18.760
+"of the time I would
+actually come up",00:30:18.760,00:30:20.890
+"with a distribution
+that's above this value.",00:30:20.890,00:30:22.900
+"And half of the time I
+would have something that's",00:30:22.900,00:30:24.370
+"below this value, which would
+mean that half of the scams",00:30:24.370,00:30:27.070
+"would actually go through
+FDA if I did not do this.",00:30:27.070,00:30:31.040
+"So what I'm trying to
+do is to say, well, OK.",00:30:31.040,00:30:33.340
+"You have to be here, so
+that there is actually",00:30:33.340,00:30:35.830
+"a very low probability
+that just by chance",00:30:35.830,00:30:37.930
+you end up being here.,00:30:37.930,00:30:40.120
+"And we'll make all the
+statements extremely precise",00:30:40.120,00:30:42.520
+later on.,00:30:42.520,00:30:43.780
+"But I think the
+drug thing makes it",00:30:43.780,00:30:46.060
+"interesting to see why
+you're making it hard,",00:30:46.060,00:30:49.330
+"because You don't
+want to allow people",00:30:49.330,00:30:51.220
+to sell a thing like that.,00:30:51.220,00:30:52.420
+"Before we go more into the
+statistical thinking associated",00:30:55.830,00:30:58.620
+"to tests, let's just
+see how we would",00:30:58.620,00:31:01.050
+"do this quantification, right?",00:31:01.050,00:31:02.460
+"I mean after all, this
+is what we probably",00:31:02.460,00:31:04.410
+"are the most comfortable
+with at this point.",00:31:04.410,00:31:07.590
+"So let's just try
+to understand this.",00:31:07.590,00:31:10.650
+"And I'm going to make the
+statisticians favorite test,",00:31:10.650,00:31:16.060
+"which is the thing that
+obviously you do at home all",00:31:16.060,00:31:19.700
+"the time every time
+you get a new quarter,",00:31:19.700,00:31:21.450
+"is testing whether it's
+a fair coin or not.",00:31:21.450,00:31:23.740
+All right?,00:31:23.740,00:31:24.240
+"So this test, of course,
+exists only in textbooks.",00:31:24.240,00:31:27.840
+"And I actually did
+not write this slide.",00:31:27.840,00:31:30.780
+"I was lazy to just
+replace all this stuff",00:31:30.780,00:31:32.670
+by the Cherry Blossom Run.,00:31:32.670,00:31:37.410
+So you have a coin.,00:31:37.410,00:31:38.440
+"Now you have 80
+observations, x1 to x80.",00:31:38.440,00:31:42.330
+So n is equal to 80.,00:31:42.330,00:31:45.420
+"I have x1, xn, IID, Bernoulli p.",00:31:45.420,00:31:53.820
+"And I want to know if
+I have a fair coin.",00:31:53.820,00:31:55.570
+"So in mathematical
+language, I want",00:31:55.570,00:31:57.330
+to know if p is equal to 1/2.,00:31:57.330,00:32:00.380
+"Let's say this is
+just the heads, OK?",00:32:04.800,00:32:07.680
+And a biased coin?,00:32:07.680,00:32:09.030
+"Well, maybe you
+would potentially",00:32:09.030,00:32:10.536
+"be interested
+whether it's biased",00:32:10.536,00:32:11.910
+one direction or the other.,00:32:11.910,00:32:13.034
+"But not being a fair
+coin is already somewhat",00:32:13.034,00:32:15.900
+"of a discovery, OK?",00:32:15.900,00:32:17.360
+"And so, you just want to know
+whether p is equal to 1/2",00:32:17.360,00:32:20.520
+"or p is not equal to 1/2, OK?",00:32:20.520,00:32:25.280
+"Now, if I were to apply the
+very naive first example",00:32:25.280,00:32:29.890
+to not reject this hypothesis.,00:32:29.890,00:32:32.080
+"If I run this thing
+80 times, I need",00:32:32.080,00:32:35.710
+"to see exactly 40
+heads and 40 tales.",00:32:35.710,00:32:40.360
+"Now this is very unlikely
+to happen exactly.",00:32:40.360,00:32:43.960
+"You're going to have close to
+40 heads and close to 40 tails,",00:32:43.960,00:32:47.200
+"but how close should
+those things be?",00:32:47.200,00:32:49.510
+OK?,00:32:49.510,00:32:50.310
+"And so, the little
+something is going",00:32:50.310,00:32:52.540
+"to be quantified by
+exactly this, OK?",00:32:52.540,00:32:55.300
+"So now here, let's say that my
+experiment gave me 54 heads.",00:32:55.300,00:33:06.490
+That's 54?,00:33:06.490,00:33:07.541
+Yeah.,00:33:07.541,00:33:08.040
+"Which means that my xn bar
+is 54 over 80, which is 0.68.",00:33:10.870,00:33:21.100
+All right?,00:33:21.100,00:33:21.970
+So I have this estimator.,00:33:21.970,00:33:24.580
+"Looks pretty large, right?",00:33:24.580,00:33:26.620
+"It's much larger than
+0.5, so it does look like,",00:33:26.620,00:33:29.950
+"and my mom would
+certainly conclude,",00:33:29.950,00:33:32.080
+"that this is a
+biased coin for sure,",00:33:32.080,00:33:34.240
+because she thinks I'm tricky.,00:33:34.240,00:33:35.870
+All right.,00:33:35.870,00:33:36.370
+"So the question is, can
+this be due to chance?",00:33:36.370,00:33:40.110
+Can this be due to chance alone?,00:33:40.110,00:33:42.050
+"Like what is the likelihood
+that a fair coin would actually",00:33:42.050,00:33:45.490
+"end up being 54 times
+on heads rather than 40?",00:33:45.490,00:33:51.800
+OK?,00:33:51.800,00:33:52.900
+"And so, what we do
+is we say, OK, I",00:33:52.900,00:33:55.540
+"need to understand, what is
+the distribution of the number",00:33:55.540,00:33:58.370
+of times it comes on heads?,00:33:58.370,00:33:59.732
+"And this is going
+to be a binomial,",00:33:59.732,00:34:01.190
+"but it's a little
+annoying to play with.",00:34:01.190,00:34:02.984
+"So we're going to use the
+central limit theorem that",00:34:02.984,00:34:05.150
+"tells me that xn
+bar minus p divided",00:34:05.150,00:34:10.790
+"by square root of p1 minus p
+is approximately distributed",00:34:10.790,00:34:15.940
+as an n01.,00:34:15.940,00:34:17.300
+"And here, since
+n is equal to 80,",00:34:17.300,00:34:18.944
+"I'm pretty safe that this
+is actually going to work.",00:34:18.944,00:34:21.110
+"And I can actually
+use [INAUDIBLE],,",00:34:28.420,00:34:33.300
+and put xn bar here.,00:34:33.300,00:34:34.510
+"[INAUDIBLE] tells me
+that this is OK to do.",00:34:38.050,00:34:40.980
+All right.,00:34:40.980,00:34:41.480
+"So now I'm actually
+going to compute this.",00:34:41.480,00:34:43.350
+"So here, I know this.",00:34:43.350,00:34:44.870
+This is square root of 80.,00:34:44.870,00:34:46.280
+This is a 0.68.,00:34:46.280,00:34:48.860
+What is this value here?,00:34:48.860,00:34:50.210
+We'll talk about it.,00:34:50.210,00:34:51.179
+"Well, we're trying to
+understand what happens",00:34:51.179,00:34:53.090
+"if it is a fair coin, right?",00:34:53.090,00:34:55.610
+"So if fair, then p is
+equal to 0.5, right?",00:34:55.610,00:35:02.220
+"So what I want to know
+is, what is the likelihood",00:35:02.220,00:35:05.160
+"that a fair coin
+would give me 0.68?",00:35:05.160,00:35:09.240
+Let me finish.,00:35:09.240,00:35:10.560
+All right.,00:35:10.560,00:35:11.850
+"What is the likelihood
+that a fair coin will",00:35:11.850,00:35:14.190
+"allow me to do this, so I'm
+actually allowed to plug-in p",00:35:14.190,00:35:17.470
+to be 0.5 here?,00:35:17.470,00:35:19.530
+"Now, your question is, why
+do I not plug-in p to be 0.5?",00:35:19.530,00:35:25.000
+But you can.,00:35:25.000,00:35:25.640
+All right.,00:35:25.640,00:35:26.140
+"I just want to make you plug-in
+p at one specific point,",00:35:26.140,00:35:29.024
+but you're absolutely right.,00:35:29.024,00:35:30.190
+OK.,00:35:34.040,00:35:34.540
+"Let's forget about your
+question for one second.",00:35:34.540,00:35:37.270
+"So now I'm going to have to
+look at xn bar minus 0.5 divided",00:35:37.270,00:35:41.590
+by xn bar 1 minus xn bar.,00:35:41.590,00:35:45.300
+"Then this thing is
+approximately Gaussian and 0,1",00:35:45.300,00:35:51.130
+if the coin is fair.,00:35:51.130,00:35:52.270
+"Otherwise, I'm going to have
+a mean which is not zero here.",00:35:56.150,00:36:01.120
+"If the coin is something else,
+whatever I get here, right?",00:36:01.120,00:36:04.730
+"Let's just write
+it for one second.",00:36:07.772,00:36:09.230
+Let's do it.,00:36:23.520,00:36:25.010
+"So what is the
+distribution of this if p--",00:36:25.010,00:36:27.510
+so that's p is equal to 0.5.,00:36:27.510,00:36:33.380
+OK?,00:36:33.380,00:36:33.930
+"Now if p is equal to 0.6,
+then this thing is just, well,",00:36:33.930,00:36:39.910
+"I know that this is equal
+to square root of n xn",00:36:39.910,00:36:43.660
+"bar minus 0.6,
+divided by xn bar 1",00:36:43.660,00:36:52.140
+"minus xn in the bar
+squared root, plus--",00:36:52.140,00:36:55.740
+"well, now the difference.",00:36:55.740,00:36:57.050
+"Is So square root
+of n, 0.6 minus",00:36:57.050,00:37:00.710
+"0.5, divided by square root of
+xn bar 1 minus xn bar, right?",00:37:00.710,00:37:07.520
+"Now if p is equal to 0.6,
+then this guy is n 0,1,",00:37:07.520,00:37:13.790
+"but this guy is
+something different.",00:37:13.790,00:37:17.950
+"This is just a number that
+depends on square root of n.",00:37:17.950,00:37:22.155
+It's actually pretty large.,00:37:22.155,00:37:24.130
+"So if I want to use the
+fact that this guy has",00:37:24.130,00:37:28.620
+"a normal distribution, I need
+to plug-in the true value here.",00:37:28.620,00:37:33.650
+"Now, the implicit question
+that I got was the following.",00:37:33.650,00:37:38.630
+"It says, well, if you know
+what p is, then what's",00:37:38.630,00:37:43.630
+actually true is also this.,00:37:43.630,00:37:46.600
+"If p is equal to
+0.5, then since I",00:37:46.600,00:37:51.450
+"know that root n xn bar minus
+p divided by square root of p 1",00:37:51.450,00:37:57.180
+"minus p is some n
+0, 1, it's also true",00:37:57.180,00:38:01.590
+"that square root of
+n xn bar minus 0.5",00:38:01.590,00:38:06.570
+"divided by square root of 0.5
+1 minus 0.5 is n 0,1, right?",00:38:06.570,00:38:14.940
+I know what p is.,00:38:14.940,00:38:15.750
+"I'm just going to
+make it appear.",00:38:15.750,00:38:18.620
+OK.,00:38:18.620,00:38:19.460
+"And so, what's actually
+nice about this particular",00:38:19.460,00:38:22.100
+"[INAUDIBLE] experiment is that
+I can check if my assumption is",00:38:22.100,00:38:27.460
+"valid by checking
+whether I'm actually--",00:38:27.460,00:38:31.386
+"so what I'm going
+to do right now",00:38:31.386,00:38:32.760
+"is check whether this is likely
+to be a Gaussian or not, right?",00:38:32.760,00:38:36.697
+"And there's two ways
+I can violate it.",00:38:36.697,00:38:38.280
+"By violating mean, but also
+by violating the variance.",00:38:38.280,00:38:42.496
+"And here, what I did
+in the first case,",00:38:42.496,00:38:44.120
+"I said, well I'm not allowing
+you to check whether you've",00:38:44.120,00:38:46.340
+violated the variance.,00:38:46.340,00:38:47.040
+"I'm just plugging whatever
+variance you're getting.",00:38:47.040,00:38:49.340
+"Whereas here, I'm
+saying, well, there's",00:38:49.340,00:38:51.110
+two ways you can violate it.,00:38:51.110,00:38:52.460
+"And I'm just going to
+factor everything in.",00:38:52.460,00:38:55.430
+"So now I can
+plug-in this number.",00:38:55.430,00:38:58.700
+So this is 80.,00:38:58.700,00:39:00.146
+This is 0.68.,00:39:00.146,00:39:02.440
+So I can compute all this stuff.,00:39:02.440,00:39:04.210
+"I can compute all this
+stuff here as well.",00:39:04.210,00:39:06.910
+"And what I get in this
+case, if I put the xn bar 1,",00:39:06.910,00:39:10.210
+"I get 3.45, OK?",00:39:10.210,00:39:15.160
+"And now I claim
+that this makes it",00:39:15.160,00:39:17.120
+"reasonable to reject
+the hypothesis that p",00:39:17.120,00:39:19.430
+is equal to 0.5.,00:39:19.430,00:39:21.790
+Can somebody tell me why?,00:39:21.790,00:39:22.900
+STUDENT: It's pretty big.,00:39:27.819,00:39:28.860
+"PROFESSOR: Yeah,
+3 is pretty big.",00:39:28.860,00:39:30.235
+So it's very unlikely.,00:39:30.235,00:39:31.510
+"So this number that
+I should see should",00:39:31.510,00:39:33.730
+"look like the number I would get
+if I asked a computer to draw",00:39:33.730,00:39:39.460
+one random Gaussian for me.,00:39:39.460,00:39:42.960
+"This number, when I draw
+one random Gaussian,",00:39:42.960,00:39:45.250
+"is actually a number with
+99.9% this number will",00:39:45.250,00:39:49.510
+be between negative 3 and 3.,00:39:49.510,00:39:52.700
+"With 78% it's going to be
+between negative 2 and 2.",00:39:52.700,00:39:55.540
+68% is between minus 1 and 1.,00:40:01.990,00:40:04.410
+"And with like 90% it's
+between minus 2 and 2.",00:40:04.410,00:40:07.560
+"So getting a 3.45
+when you do this",00:40:07.560,00:40:10.860
+"is extremely unlikely
+to happen, which",00:40:10.860,00:40:13.260
+"means that you would have to
+be extremely unlucky for this",00:40:13.260,00:40:17.260
+to ever happen.,00:40:17.260,00:40:17.890
+"Now, it can happen, right?",00:40:17.890,00:40:19.750
+"It could be the case that you
+flip 80 coins and 80 of them",00:40:19.750,00:40:25.000
+are heads.,00:40:25.000,00:40:27.505
+"With what probability
+does this happen?",00:40:27.505,00:40:29.130
+"1 over 2 to the 80, right?",00:40:32.680,00:40:34.390
+"Which is probably better
+off playing the lottery",00:40:34.390,00:40:39.890
+"with this kind of odds, right?",00:40:39.890,00:40:41.140
+"I mean, this is just not going
+to happen, but it might happen.",00:40:41.140,00:40:43.840
+"So we cannot remove completely
+the uncertainty, right?",00:40:43.840,00:40:48.490
+"It's still possible that
+this is due to noise.",00:40:48.490,00:40:53.250
+"But we're just trying to
+make all the cases that",00:40:53.250,00:40:55.640
+"are very unlikely go away, OK?",00:40:55.640,00:40:58.340
+"And so, now I claim that 3.45
+is very unlikely for a Gaussian.",00:40:58.340,00:41:03.350
+"So if I were to draw the PDF
+of a standard Gaussian, right?",00:41:03.350,00:41:07.700
+"So n 0, 1, right?",00:41:07.700,00:41:09.320
+"So that's PDF of n 0, 1.",00:41:09.320,00:41:12.880
+"3.73 is basically here, OK?",00:41:16.740,00:41:21.900
+"So it's just too
+far in the tails.",00:41:21.900,00:41:25.260
+Understood?,00:41:25.260,00:41:26.030
+"Now I cannot say that the
+probability that the Gaussian",00:41:26.030,00:41:30.320
+"is equal to 373 is small, right?",00:41:30.320,00:41:33.810
+"I just cannot say
+that, because it's 0.",00:41:33.810,00:41:35.660
+"And it's also 0 for the
+probability that it's 0,",00:41:35.660,00:41:37.770
+"even though the most
+likely values are around 0.",00:41:37.770,00:41:41.060
+"It's the continuous
+random variable.",00:41:41.060,00:41:44.236
+"Any value you give
+me, it's going",00:41:44.236,00:41:45.610
+to happen with probability zero.,00:41:45.610,00:41:47.720
+"So what we're going to say
+is, well, the fluctuations",00:41:47.720,00:41:51.190
+are larger than this number.,00:41:51.190,00:41:52.780
+"The probability that
+I get anything worse",00:41:52.780,00:41:55.030
+"than this is actually
+extremely small, right?",00:41:55.030,00:41:57.040
+"Anything worse than this is
+just like farther than 3.73.",00:41:57.040,00:42:00.970
+"And this is going to
+be what we control.",00:42:00.970,00:42:03.710
+All right?,00:42:03.710,00:42:04.300
+"So in this case, I claim
+that it's quite reasonable",00:42:04.300,00:42:06.550
+to reject the hypothesis.,00:42:06.550,00:42:07.740
+Is everybody OK with this?,00:42:07.740,00:42:10.830
+Everybody find this shocking?,00:42:10.830,00:42:12.440
+"Or everybody has no
+idea what's going on?",00:42:12.440,00:42:14.290
+Do you have any questions?,00:42:14.290,00:42:16.422
+Yeah?,00:42:16.422,00:42:17.410
+"STUDENT: Regarding
+the case of p, where",00:42:17.410,00:42:19.386
+minus p isn't close to xn.,00:42:19.386,00:42:21.362
+"If you use 1 minus p
+as 0.5, then you're",00:42:21.362,00:42:24.820
+"dividing by a larger number
+than you would if you used xn.",00:42:24.820,00:42:28.772
+"So it feels like our
+true number is not 3.45.",00:42:28.772,00:42:32.230
+"It's something a
+little bit smaller",00:42:32.230,00:42:34.700
+"than 3.45 for the distribution
+to actually be like 1/2.",00:42:34.700,00:42:39.146
+"Because it seems
+like we're adding",00:42:39.146,00:42:40.628
+"an unnecessary extra
+error by using xn bar.",00:42:40.628,00:42:43.574
+"And we're adding
+an error that makes",00:42:43.574,00:42:45.074
+"it seem that our result was less
+likely than it actually was.",00:42:45.074,00:42:50.014
+PROFESSOR: That's correct.,00:43:00.450,00:43:03.490
+And you're right.,00:43:03.490,00:43:05.790
+"I didn't want to plug-in
+the p everywhere,",00:43:05.790,00:43:07.540
+"but you should plug it
+in everywhere you can.",00:43:07.540,00:43:09.670
+"That's for sure, OK?",00:43:09.670,00:43:11.010
+So let's agree on that.,00:43:11.010,00:43:12.205
+"And that's true that it makes
+the number a little bigger.",00:43:12.205,00:43:15.022
+"You compute how
+much you would get,",00:43:15.022,00:43:16.480
+we would get if we 0.5 there.,00:43:16.480,00:43:18.000
+"Well, I don't know what
+the square root of 80 is.",00:43:20.760,00:43:23.040
+Can somebody compute quickly?,00:43:23.040,00:43:26.370
+I'm not asking you to do it.,00:43:26.370,00:43:27.600
+"But what I want is two times
+square root of 80 times 0.18.",00:43:27.600,00:43:46.150
+3.22,00:43:46.150,00:43:48.850
+OK.,00:43:48.850,00:43:49.970
+"I can make the same
+cartoon picture with 3.22.",00:43:49.970,00:43:55.462
+But you're right.,00:43:55.462,00:43:56.170
+"This is definitely
+more accurate.",00:43:56.170,00:43:57.370
+And I should have done this.,00:43:57.370,00:43:58.536
+"I didn't want to get the
+confused message, OK?",00:43:58.536,00:44:02.350
+All right.,00:44:02.350,00:44:02.850
+"So now here's a second
+example that you can think of.",00:44:02.850,00:44:07.770
+So now I toss it 30 times.,00:44:07.770,00:44:11.520
+"Still in the realm of the
+central limit theorem.",00:44:11.520,00:44:17.310
+I get 13 heads rather than 15.,00:44:17.310,00:44:23.910
+"So I'm actually much closer
+to being exactly at half.",00:44:23.910,00:44:27.127
+"So let's see if this
+is actually going",00:44:27.127,00:44:28.710
+to give me a plausible value.,00:44:28.710,00:44:29.918
+So I get 0.33 in average.,00:44:32.580,00:44:34.830
+"If the truth was 0.5, I would
+get something like 0.77.",00:44:34.830,00:44:40.950
+"And now I claim that 0.77
+is a plausible realization",00:44:40.950,00:44:44.700
+"for some standard Gaussian, OK?",00:44:44.700,00:44:46.950
+"Now, 0.77 is going to
+look like it's here.",00:44:46.950,00:44:49.620
+"So that could very well
+be something that just",00:44:55.130,00:44:57.830
+comes because of randomness.,00:44:57.830,00:44:59.420
+"And again, if you
+think about it.",00:44:59.420,00:45:01.860
+"If I told you, you were
+expecting 15, you saw 13,",00:45:01.860,00:45:06.740
+"you're happy to put that on
+the account of randomness.",00:45:06.740,00:45:09.479
+"Now of course, the
+question is going to be,",00:45:09.479,00:45:11.270
+where do I draw the line?,00:45:11.270,00:45:12.770
+Right?,00:45:12.770,00:45:13.760
+Is 12 the right number?,00:45:13.760,00:45:15.740
+Is 11?,00:45:15.740,00:45:16.840
+Is 10?,00:45:16.840,00:45:17.570
+What is it?,00:45:17.570,00:45:18.070
+"So basically, the answer is
+it's whatever you want to be.",00:45:21.690,00:45:24.770
+"The problem it's hard to
+think on the scale, right?",00:45:24.770,00:45:28.250
+"What does it mean to
+think on the scale?",00:45:28.250,00:45:30.332
+"If I can't think
+in this scale, I'm",00:45:30.332,00:45:31.790
+"going to have to think on
+the scale of 80 of them.",00:45:31.790,00:45:33.950
+"I'm going to have to think on
+the scale of running 100 coin",00:45:33.950,00:45:38.390
+flips.,00:45:38.390,00:45:39.170
+"And so, this scale is a
+moving target all the time.",00:45:39.170,00:45:43.004
+"Every time you
+have a new problem,",00:45:43.004,00:45:44.420
+"you have to have a
+new skill in mind.",00:45:44.420,00:45:45.961
+And it's very difficult.,00:45:45.961,00:45:47.660
+"The purpose of
+statistical analysis,",00:45:47.660,00:45:50.840
+"and in particular this
+process that content",00:45:50.840,00:45:53.810
+"that takes your x
+bar and turns it",00:45:53.810,00:45:55.670
+"into something that should
+be standard Gaussian,",00:45:55.670,00:45:58.530
+"allows you to map
+the value of x bar",00:45:58.530,00:46:01.010
+"into a scale that is the
+standard scale of the Gaussian.",00:46:01.010,00:46:06.350
+All right?,00:46:06.350,00:46:07.070
+"Now, all you need
+to have in mind",00:46:07.070,00:46:09.050
+"is, what is a large number
+or an unusually large number",00:46:09.050,00:46:13.220
+for a Gaussian?,00:46:13.220,00:46:14.014
+That's all you need to know.,00:46:14.014,00:46:15.180
+"So here, by the way,
+0.77 is not this one,",00:46:18.880,00:46:21.760
+"because it was
+actually negative 0.77.",00:46:21.760,00:46:26.860
+So this one.,00:46:26.860,00:46:28.660
+OK.,00:46:28.660,00:46:29.160
+"So I can be on the right or
+I can be on the left of zero.",00:46:29.160,00:46:34.460
+But they are still plausible.,00:46:34.460,00:46:36.030
+"So understand you could
+actually have in mind",00:46:36.030,00:46:40.000
+"all the values that are
+plausible for a Gaussian",00:46:40.000,00:46:42.040
+"and those that
+are not plausible,",00:46:42.040,00:46:43.415
+"and draw the line based on what
+you think is the right number.",00:46:43.415,00:46:46.190
+"So how large should a positive
+value of a Gaussian to become",00:46:46.190,00:46:49.690
+unreasonable for you?,00:46:49.690,00:46:52.990
+Is it 1?,00:46:52.990,00:46:54.530
+Is it 1.5?,00:46:54.530,00:46:56.190
+Is it 2?,00:46:56.190,00:46:56.819
+Stop me when I get there.,00:46:56.819,00:46:57.860
+Is it 2.5?,00:46:57.860,00:46:59.900
+Is it 3?,00:46:59.900,00:47:00.557
+"STUDENT: I think 2.5
+is definitely too big.",00:47:00.557,00:47:02.348
+PROFESSOR: What?,00:47:02.348,00:47:03.014
+"STUDENT: Doesn't it
+depend on our prior?",00:47:03.014,00:47:04.808
+"Let's say we already
+have really good evidence",00:47:04.808,00:47:06.776
+at this point [INAUDIBLE],00:47:06.776,00:47:09.864
+"PROFESSOR: Yeah, so this
+is not Bayesian statistics.",00:47:09.864,00:47:12.030
+"So there's no such thing
+as a prior right now.",00:47:12.030,00:47:14.160
+We'll get there.,00:47:14.160,00:47:15.150
+"You'll have your moment
+during one short chapter.",00:47:15.150,00:47:18.360
+"So there's no prior here, right?",00:47:23.510,00:47:25.580
+"It's really a matter
+of whether you think",00:47:25.580,00:47:27.380
+is a Gaussian large or not.,00:47:27.380,00:47:28.820
+It's not a matter of coins.,00:47:28.820,00:47:30.230
+It's not a matter of anything.,00:47:30.230,00:47:31.530
+"Now I've just reduced
+it to just one question.",00:47:31.530,00:47:33.950
+"So forget about
+everything we just said.",00:47:33.950,00:47:36.350
+"And I'm asking you,
+when do you decide",00:47:36.350,00:47:38.240
+"that a number is too large
+to be reasonably drawn",00:47:38.240,00:47:43.010
+from a Gaussian?,00:47:43.010,00:47:44.790
+And this number is 2 or 1.96.,00:47:44.790,00:47:50.190
+"And that's basically the number
+that you get from this quintel.",00:47:50.190,00:47:53.010
+"We've seen the
+1.96 before, right?",00:47:53.010,00:47:55.560
+"It's actually q alpha over 2,
+where alpha is equal to 5%.",00:47:55.560,00:47:59.920
+That's a quintel of a Gaussian.,00:47:59.920,00:48:01.620
+"So actually, what we
+do is we map it again.",00:48:01.620,00:48:05.130
+So are now at the Gaussians.,00:48:05.130,00:48:06.300
+"And then we map it again
+into some probabilities,",00:48:06.300,00:48:08.380
+"which is the probability of
+being farther than this thing.",00:48:08.380,00:48:10.796
+"And now probabilities,
+we can think.",00:48:10.796,00:48:12.460
+"Probability is something
+that quantifies my error.",00:48:12.460,00:48:15.060
+"And the question is
+what percentage of error",00:48:15.060,00:48:17.220
+am I willing to tolerate.,00:48:17.220,00:48:18.300
+"And if I tell you
+5%, that's something",00:48:18.300,00:48:20.310
+you can really envision.,00:48:20.310,00:48:21.570
+"What it means is that if I
+were to do this test a million",00:48:21.570,00:48:24.750
+"times, 5% of the time
+I would expose myself",00:48:24.750,00:48:28.380
+to making a mistake.,00:48:28.380,00:48:30.400
+All right.,00:48:30.400,00:48:30.900
+That's all it would say.,00:48:30.900,00:48:31.950
+"If you said, well, I don't
+want to account for 5%,",00:48:31.950,00:48:36.790
+"maybe I want 1%, then you
+have to move from 1.94 to 2.5.",00:48:36.790,00:48:42.280
+"And then if you say
+at I want 0.01%,",00:48:42.280,00:48:44.710
+"then you have to move to
+an even larger number.",00:48:44.710,00:48:47.180
+So it depends.,00:48:47.180,00:48:48.100
+"But stating this
+number 1%, 5%, 10%",00:48:48.100,00:48:51.610
+"is much easier than seeing those
+numbers 1.96, 2.5, et cetera.",00:48:51.610,00:48:57.380
+"So we're just putting
+everything back on the scale.",00:48:57.380,00:49:00.370
+All right.,00:49:00.370,00:49:01.480
+"To conclude, this,
+again, as we said,",00:49:01.480,00:49:03.190
+"does not suggest that
+the coin is unfair.",00:49:03.190,00:49:05.720
+"Now, it might be that
+the coin is unfair.",00:49:05.720,00:49:08.260
+"We just don't have enough
+evidence to say that.",00:49:08.260,00:49:10.330
+"And that goes back to
+your question about,",00:49:10.330,00:49:12.580
+"why are we siding with
+the fact that we're",00:49:12.580,00:49:17.420
+"making it harder to conclude
+that the runners were faster?",00:49:17.420,00:49:22.086
+And this is the same thing.,00:49:22.086,00:49:23.210
+"We're making it
+harder to conclude",00:49:23.210,00:49:24.830
+that the coin is biased.,00:49:24.830,00:49:26.540
+Because there is a status quo.,00:49:26.540,00:49:28.700
+"And we're trying to
+see if we have evidence",00:49:28.700,00:49:30.500
+against the status quo.,00:49:30.500,00:49:31.910
+"The status quo for the runners
+is they ran the same speed.",00:49:31.910,00:49:35.380
+"The status quo for the coin,
+we can probably all agree",00:49:35.380,00:49:37.880
+is that the coin is fair.,00:49:37.880,00:49:39.560
+The status quo for a drug?,00:49:39.560,00:49:41.150
+"I mean, again,
+unless you prove me",00:49:41.150,00:49:43.940
+"that you're actually
+not a scammer",00:49:43.940,00:49:45.920
+"is that the status quo is
+that this is maple syrup.",00:49:45.920,00:49:48.959
+There's nothing in there.,00:49:48.959,00:49:50.000
+Why would you?,00:49:50.000,00:49:51.060
+"I mean, if I let you
+get away with it,",00:49:51.060,00:49:53.060
+you would put corn syrup.,00:49:53.060,00:49:55.810
+It's cheaper.,00:49:55.810,00:49:58.720
+OK.,00:49:58.720,00:49:59.840
+So now let's move on to math.,00:49:59.840,00:50:01.171
+All right.,00:50:01.171,00:50:01.670
+"So when I started
+doing mathematics,",00:50:01.670,00:50:04.460
+"I'm going to have to talk
+about random variables",00:50:04.460,00:50:06.690
+and statistical models.,00:50:06.690,00:50:08.270
+"And here, there is actually
+a very simple thing,",00:50:08.270,00:50:13.110
+"which actually goes
+back to this picture.",00:50:13.110,00:50:15.800
+"A test is really asking
+me if my parameter",00:50:18.950,00:50:27.230
+"is in some region
+of the parameter set",00:50:27.230,00:50:28.850
+"or another region of the
+parameter set, right?",00:50:28.850,00:50:30.766
+Yes/no.,00:50:30.766,00:50:32.000
+"And so, what I'm going to be
+given is a sample, x1, xn.",00:50:32.000,00:50:37.490
+I have a model.,00:50:37.490,00:50:38.120
+"And again, those can be
+braces depending on the day.",00:50:41.830,00:50:46.460
+"And so, now I'm going to give
+myself theta 0 and theta 1",00:50:46.460,00:50:54.670
+to this joint subset.,00:50:54.670,00:50:55.660
+OK.,00:50:58.590,00:51:01.170
+"So capital theta
+here is the space",00:51:01.170,00:51:02.840
+in which my parameter can live.,00:51:02.840,00:51:05.200
+"To make two disjoint
+subsets, I could just",00:51:05.200,00:51:06.950
+"split this guy in half, right?",00:51:06.950,00:51:11.356
+"I'm going to say, well, maybe
+it's this guy and this guy.",00:51:11.356,00:51:13.730
+OK.,00:51:13.730,00:51:14.230
+So this is theta 0.,00:51:14.230,00:51:16.250
+And this is theta 1.,00:51:16.250,00:51:18.830
+"What it means when I split
+those two guys, in test,",00:51:18.830,00:51:22.840
+"I'm actually going to focus
+only on theta 0 or theta 1.",00:51:22.840,00:51:25.510
+"And so, it means that
+a priori I've already",00:51:25.510,00:51:28.010
+"removed all the possibilities
+of theta being in this region.",00:51:28.010,00:51:32.240
+What does it mean?,00:51:32.240,00:51:33.540
+"Go back to the
+example of runners.",00:51:33.540,00:51:37.910
+"This region here for
+the Cherry Blossom Run",00:51:37.910,00:51:41.180
+"is the set of parameters,
+where mu was larger",00:51:41.180,00:51:44.420
+"than 103.5, right?",00:51:44.420,00:51:47.354
+We removed that.,00:51:47.354,00:51:48.020
+"We didn't even consider
+this possibility.",00:51:48.020,00:51:49.880
+We said either it's less--,00:51:49.880,00:51:52.820
+sorry.,00:51:52.820,00:51:53.320
+That's mu equal to 103.5.,00:51:53.320,00:51:55.860
+"And this was mu
+less than 103.5, OK?",00:51:55.860,00:51:59.770
+"But these guys were like
+if it happens, it happens.",00:51:59.770,00:52:03.950
+"I'm not making any
+statement about that case.",00:52:03.950,00:52:06.980
+All right?,00:52:06.980,00:52:07.520
+So now I take those two subsets.,00:52:07.520,00:52:09.565
+"And now I'm going to give
+them two different names,",00:52:09.565,00:52:11.690
+"because they're going to
+have an asymmetric role.",00:52:11.690,00:52:15.050
+h0 is the null hypothesis.,00:52:15.050,00:52:18.710
+"And h1 is the
+alternative hypothesis.",00:52:18.710,00:52:23.630
+h0 is the status quo.,00:52:23.630,00:52:27.030
+"h1 is what is
+considered typically",00:52:27.030,00:52:29.560
+as scientific discovery.,00:52:29.560,00:52:32.140
+"So if you're a regulator,
+you're going to push towards h0.",00:52:32.140,00:52:36.550
+"If you're a scientist, you're
+going to push towards h1.",00:52:36.550,00:52:39.832
+"If you're a
+pharmaceutical company,",00:52:39.832,00:52:41.290
+you're going to push towards h1.,00:52:41.290,00:52:42.990
+OK?,00:52:42.990,00:52:43.900
+"And so, depending on whether you
+want to be conservative-- oh,",00:52:43.900,00:52:47.410
+"I can find evidence
+in a lot of data.",00:52:47.410,00:52:49.272
+"As soon as you give
+me three data points,",00:52:49.272,00:52:50.980
+"I'm going to be able
+to find evidence.",00:52:50.980,00:52:52.563
+"That means I'm going to
+tend to say, oh, it's h1.",00:52:52.563,00:52:55.000
+"But if you say you
+need a lot of data",00:52:55.000,00:52:58.010
+"before you can actually move
+away from the status quo,",00:52:58.010,00:53:00.260
+"that's age h0, OK?",00:53:00.260,00:53:01.870
+"So think of h0 as
+being status quo,",00:53:01.870,00:53:03.940
+"h1 being some discovery that
+goes against the status quo.",00:53:03.940,00:53:08.480
+All right?,00:53:08.480,00:53:08.980
+"So if we believe that
+the truth theta is either",00:53:08.980,00:53:12.310
+"in one of those, what we say is
+we want to test h0 against h1.",00:53:12.310,00:53:17.330
+OK.,00:53:17.330,00:53:17.830
+This is actually wording.,00:53:17.830,00:53:19.790
+"So remember, because this
+is how your questions are",00:53:19.790,00:53:22.360
+going to be formulated.,00:53:22.360,00:53:23.770
+"And this is how you want
+to probably communicate",00:53:23.770,00:53:26.320
+as a statistician.,00:53:26.320,00:53:27.730
+"So you're going to
+say I have the null",00:53:27.730,00:53:29.347
+and I have an alternative.,00:53:29.347,00:53:30.430
+I want to test h0 against h1.,00:53:30.430,00:53:32.830
+"I want to test the
+null hypothesis",00:53:32.830,00:53:34.480
+"against the alternative
+hypothesis, OK?",00:53:34.480,00:53:36.220
+"Now, the two hypotheses I
+forgot to say are actually this.",00:53:39.540,00:53:42.590
+"h0 is that the theta
+belongs to theta 0.",00:53:42.590,00:53:46.710
+"And h1 is that it theta
+belongs to theta 1.",00:53:46.710,00:53:50.911
+OK.,00:53:50.911,00:53:51.410
+"So here, for example,
+theta was mu.",00:53:51.410,00:53:53.280
+And that was mu equal to 103.5.,00:53:53.280,00:53:57.320
+And this was mu less than 103.5.,00:53:57.320,00:54:01.530
+OK?,00:54:01.530,00:54:02.480
+"So typically, they're not going
+to look like thetas and things",00:54:02.480,00:54:06.360
+like that.,00:54:06.360,00:54:06.860
+"They're going to look like very
+simple things, where you take",00:54:06.860,00:54:09.140
+"your usual notation for
+your usual parameter",00:54:09.140,00:54:11.180
+"and you just say in mathematical
+terms what relationship this",00:54:11.180,00:54:15.060
+"should be satisfying, right?",00:54:15.060,00:54:16.910
+"For example, in
+the drug example,",00:54:16.910,00:54:18.320
+"that would be mu drug
+is equal to mu control.",00:54:18.320,00:54:25.150
+"And here, that would be mu
+drug less than mu control.",00:54:25.150,00:54:30.380
+"The number of
+expectorations for people",00:54:30.380,00:54:34.150
+"who take the drug
+for the cough syrup",00:54:34.150,00:54:35.800
+"is less than the number
+of expectoration of people",00:54:35.800,00:54:38.300
+"who take the corn syrup, OK?",00:54:38.300,00:54:42.990
+So now what we want to do.,00:54:42.990,00:54:45.090
+"We've set up our
+hypothesis testing problem.",00:54:47.890,00:54:51.060
+You're a scientist.,00:54:51.060,00:54:52.260
+You've set up your problem.,00:54:52.260,00:54:55.020
+"Now what you're going
+to do is collect data.",00:54:55.020,00:54:58.170
+"And what you're going to
+try to find on this data",00:54:58.170,00:55:00.660
+is evidence against h0.,00:55:00.660,00:55:04.050
+"And the alternative
+is going to guide you",00:55:04.050,00:55:06.060
+"into which direction
+you should be looking",00:55:06.060,00:55:08.010
+for evidence against this guy.,00:55:08.010,00:55:10.200
+All right?,00:55:10.200,00:55:11.290
+"And so, of course, the
+narrower the alternative,",00:55:11.290,00:55:13.820
+"the easier it is for
+you, because you just",00:55:13.820,00:55:15.570
+"have to look at the one
+possible candidate, right?",00:55:15.570,00:55:19.410
+"But typically, h1 is a
+big group, like less than.",00:55:19.410,00:55:22.650
+"Nobody tells you it's
+either it's 103.5 and 103.",00:55:22.650,00:55:27.990
+"People tell you it's either
+103.5 or less than 103.5.",00:55:27.990,00:55:32.460
+OK.,00:55:32.460,00:55:33.280
+"And so, what we want to do is
+to decide whether we reject h0.",00:55:33.280,00:55:37.330
+"So we look for evidence
+against h0 in the data, OK?",00:55:37.330,00:55:40.480
+"So as I said, h0 and h1 do
+not play a symmetric role.",00:55:44.320,00:55:48.880
+"It's very important to
+know which one you're",00:55:48.880,00:55:51.700
+"going to place as h0
+and which one you're",00:55:51.700,00:55:53.465
+going to place at h1.,00:55:53.465,00:55:54.340
+"If it's a close
+call, you're always",00:55:59.260,00:56:01.480
+"going to side with h0, OK?",00:56:01.480,00:56:04.000
+"So you have to be
+careful about those.",00:56:04.000,00:56:05.860
+"You have to keep that
+in mind that if it's",00:56:05.860,00:56:07.609
+"a close call, if data does
+not carry a lot of evidence,",00:56:07.609,00:56:10.410
+you're going to side with h0.,00:56:10.410,00:56:12.280
+"And so, you're actually
+never saying that h0 is true.",00:56:12.280,00:56:15.700
+"You're just saying I did not
+find evidence against h0.",00:56:15.700,00:56:18.430
+You don't say I accept that h0.,00:56:18.430,00:56:21.400
+You say I failed to reject h0.,00:56:21.400,00:56:25.590
+OK.,00:56:25.590,00:56:26.090
+"And so one of the
+things that you",00:56:26.090,00:56:28.189
+"want to keep in mind
+when you're doing this",00:56:28.189,00:56:29.980
+"is this innocent
+until proven guilty.",00:56:29.980,00:56:32.960
+"So if you come from a
+country, like America,",00:56:32.960,00:56:37.010
+there's such a thing.,00:56:37.010,00:56:38.090
+"And in particular,
+lack of evidence",00:56:38.090,00:56:41.270
+"does not mean that you
+are not guilty, all right?",00:56:41.270,00:56:45.410
+OJ Simpson was found not guilty.,00:56:45.410,00:56:47.720
+"It was not found innocent, OK?",00:56:47.720,00:56:50.270
+"And so, this is
+basically what happens",00:56:50.270,00:56:52.100
+"is like the prosecutor
+brings their evidence.",00:56:52.100,00:56:55.760
+"And then the jury has
+to decide whether they",00:56:55.760,00:56:58.940
+"were convinced that this
+person was guilty of anything.",00:56:58.940,00:57:07.400
+"And the question is, do
+you have enough evidence?",00:57:07.400,00:57:11.820
+"But if you don't
+have evidence, it's",00:57:11.820,00:57:13.550
+"not the burden of the defender
+to prove that they're innocent.",00:57:13.550,00:57:17.257
+Nobody's proving their innocent.,00:57:17.257,00:57:18.590
+"I mean, sometimes it helps.",00:57:18.590,00:57:20.120
+"But you just have to make
+sure that there's not",00:57:20.120,00:57:22.160
+"enough evidence against you, OK?",00:57:22.160,00:57:24.560
+"And that's basically
+what it's doing.",00:57:24.560,00:57:26.370
+You're h0 until proven h1.,00:57:26.370,00:57:28.980
+So how are we going to do this?,00:57:31.529,00:57:32.820
+"Well, as I said, the
+role of estimators",00:57:32.820,00:57:37.200
+"in hypothesis testing is played
+by something called tests.",00:57:37.200,00:57:40.460
+And a test is a statistic.,00:57:40.460,00:57:42.300
+"Can somebody remind me
+what a statistic is?",00:57:42.300,00:57:44.340
+Yep?,00:57:47.190,00:57:48.140
+STUDENT: The measure [INAUDIBLE],00:57:48.140,00:57:50.050
+"PROFESSOR: Yeah, that's
+actually just one step more.",00:57:50.050,00:57:53.290
+"So it's a function
+of the observations.",00:57:53.290,00:57:54.940
+"And we require it
+to be measurable.",00:57:54.940,00:57:56.734
+"And as a rule of
+thumb, measurable",00:57:56.734,00:57:58.150
+"means if I give you data, you
+can actually compute it, OK?",00:57:58.150,00:58:00.567
+"If you don't see a
+[INAUDIBLE] or an [INAUDIBLE],,",00:58:00.567,00:58:02.649
+"you don't have to
+think about it.",00:58:02.649,00:58:04.140
+All right.,00:58:04.140,00:58:04.780
+"And so, what we do is
+we just have this test.",00:58:08.950,00:58:11.590
+"But now I'm actually
+asking only from this test",00:58:11.590,00:58:14.590
+"a yes/no answer, which I
+can code as 0, 1, right?",00:58:14.590,00:58:18.280
+"So as a rule of thumb, you
+say that, well, the test",00:58:18.280,00:58:21.640
+is equal to 0 then h0.,00:58:21.640,00:58:23.140
+The test is equal to 1 at h1.,00:58:23.140,00:58:25.490
+"And as we said, is that
+if the test is equal to 0,",00:58:25.490,00:58:27.604
+"it doesn't mean
+that a 0 is truth.",00:58:27.604,00:58:29.020
+"It means that I
+feel to rejected h0.",00:58:29.020,00:58:31.060
+"And if the test is
+equal to 1, I reject h0.",00:58:31.060,00:58:33.390
+So I have two possibilities.,00:58:36.510,00:58:38.750
+I look at my data.,00:58:38.750,00:58:39.640
+I turn it into a yes/no answer.,00:58:39.640,00:58:41.800
+"And yes/no answer is
+really h0 or h1, OK?",00:58:41.800,00:58:45.310
+"Which one is the most
+likely basically.",00:58:45.310,00:58:49.260
+All right.,00:58:49.260,00:58:50.720
+"So in the coin flip
+example, our test statistic",00:58:50.720,00:58:57.530
+"is actually something
+that takes value 0, 1.",00:58:57.530,00:59:00.850
+"And anything, any function
+that takes value at 0,",00:59:00.850,00:59:04.600
+"1 is an indicator function, OK?",00:59:04.600,00:59:07.030
+"So an indicator function
+is just a function.",00:59:07.030,00:59:11.507
+"So there's many ways
+you can write it.",00:59:11.507,00:59:13.090
+So it's a 1 with a double bar.,00:59:18.760,00:59:20.440
+"If you aren't
+comfortable with this,",00:59:20.440,00:59:21.940
+"it's totally OK to write i
+of something, like i of a.",00:59:21.940,00:59:27.650
+OK.,00:59:27.650,00:59:28.534
+And that's what?,00:59:28.534,00:59:29.200
+"So a, here, is a statement,
+like an inequality, an equality,",00:59:29.200,00:59:34.270
+"some mathematical statement, OK?",00:59:34.270,00:59:38.600
+Or not mathematical.,00:59:38.600,00:59:39.700
+"I mean, ""a"" can be, you know,
+my grandma is 20 years old, OK?",00:59:39.700,00:59:43.430
+"And so, this is basically 1 if
+a is true, and 0 if a is false.",00:59:43.430,00:59:50.390
+"That's the way you
+want to think about it.",00:59:54.510,00:59:56.260
+"This function takes only
+two values, and that's it.",01:00:02.840,01:00:05.420
+"So here's the
+example that we had.",01:00:10.290,01:00:12.080
+"We looked at whether
+the standardized xn",01:00:12.080,01:00:17.330
+"bar, the one that actually
+is approximately n 0,1",01:00:17.330,01:00:20.220
+"was larger than something
+in absolute value,",01:00:20.220,01:00:22.590
+"either very large or
+very small, but negative.",01:00:22.590,01:00:27.550
+I'm going back to this picture.,01:00:27.550,01:00:29.020
+"We wanted to know
+if this guy was",01:00:29.020,01:00:31.270
+"either to the left of something
+or to the right of something,",01:00:31.270,01:00:35.660
+right?,01:00:35.660,01:00:36.160
+Was it in these regions?,01:00:36.160,01:00:37.642
+"Now this indicator, I can view
+this as a function of x bar.",01:00:42.352,01:00:49.250
+"What it does, it really
+splits the possible values",01:00:49.250,01:00:52.100
+"of x bar, which is just
+a real number, right?",01:00:52.100,01:00:54.500
+In two groups.,01:00:54.500,01:00:56.180
+"The groups on which they
+lead to a value, which is 1.",01:00:56.180,01:00:59.030
+"And the groups on
+which they lead",01:00:59.030,01:01:00.590
+"to value, which is 0, right?",01:01:00.590,01:01:02.270
+"So what it does is that
+I can actually think",01:01:02.270,01:01:05.420
+"of it as the real line, x bar.",01:01:05.420,01:01:09.140
+"And there's basically
+some values here,",01:01:09.140,01:01:13.010
+where I'm going to get a 1.,01:01:13.010,01:01:14.927
+Maybe I'm going to get a 0 here.,01:01:14.927,01:01:16.260
+Maybe I'm going to get a 0.,01:01:16.260,01:01:17.670
+Maybe I'm going to get a 1.,01:01:17.670,01:01:18.840
+"I'm just splitting all
+possible values of x bar.",01:01:18.840,01:01:22.470
+"And I see whether to spit
+out the side which is 0",01:01:22.470,01:01:25.350
+or which is 1.,01:01:25.350,01:01:26.880
+"In this case, it's
+not clear, right?",01:01:26.880,01:01:29.471
+"I mean, the function
+is very nonlinear.",01:01:29.471,01:01:31.095
+"It's x bar minus 0.5 divided
+by the square root of x bar 1",01:01:31.095,01:01:34.530
+minus x bar.,01:01:34.530,01:01:35.532
+"If we put the p in
+the denominator,",01:01:35.532,01:01:36.990
+that would be clear.,01:01:36.990,01:01:38.070
+"That would just be exactly
+something that looks like this.",01:01:38.070,01:01:40.530
+The function would be like this.,01:01:45.427,01:01:46.760
+"It would be 1 if it's
+smaller than some value.",01:01:46.760,01:01:49.370
+"Less than 0 if it's
+in between two values.",01:01:49.370,01:01:52.580
+And then 1 again.,01:01:52.580,01:01:54.220
+"So that's psi, OK?",01:01:54.220,01:02:00.730
+"So this is 1, right?",01:02:00.730,01:02:02.470
+This is 1.,01:02:02.470,01:02:03.130
+And this is 0.,01:02:03.130,01:02:04.540
+"So if x bar is too small
+or if x bar is too large,",01:02:04.540,01:02:07.390
+then I'm getting a value 1.,01:02:07.390,01:02:09.590
+"But if it's somewhere in
+between, I'm getting a value 0.",01:02:09.590,01:02:12.640
+"Now, if I have this
+weird function,",01:02:12.640,01:02:14.410
+"it's not clear
+how this happened.",01:02:14.410,01:02:18.090
+"So the picture
+here that I get is",01:02:18.090,01:02:20.434
+"that I have a weird
+non-linear function, right?",01:02:20.434,01:02:27.080
+So that's x bar.,01:02:27.080,01:02:28.420
+"That's square root
+of n x bar n 0.5",01:02:28.420,01:02:32.270
+"divided by the square root of
+x bar n 1 minus x bar n, right?",01:02:32.270,01:02:36.980
+That's this function.,01:02:36.980,01:02:38.210
+"A priori, I have no idea what
+this function looks like.",01:02:38.210,01:02:40.890
+"We can probably
+analyze this function,",01:02:43.650,01:02:45.320
+but let's pretend we don't know.,01:02:45.320,01:02:46.740
+"So it's like some
+crazy stuff like this.",01:02:46.740,01:02:49.680
+"And all I'm asking is
+whether in absolute value",01:02:49.680,01:02:56.320
+"it's larger than c, which means
+that is this function larger",01:02:56.320,01:02:59.510
+than c or less than minus c?,01:02:59.510,01:03:01.383
+"The intervals on which
+I'm going to say 1",01:03:05.020,01:03:07.100
+"are this guy, this guy,
+this guy, and this guy.",01:03:07.100,01:03:17.821
+OK.,01:03:17.821,01:03:18.320
+"And everywhere
+else, I'm seeing 0.",01:03:18.320,01:03:20.897
+Everybody agree with this?,01:03:20.897,01:03:21.980
+This is what I'm doing.,01:03:21.980,01:03:24.930
+"Now of course, it's
+probably easier for you",01:03:24.930,01:03:27.370
+"to just package it into
+this nice thing that's",01:03:27.370,01:03:29.350
+"just either larger than
+c, an absolute value,",01:03:29.350,01:03:31.602
+"or less Than C. I want to
+have to plot this function.",01:03:31.602,01:03:33.810
+"In practice, you don't have to.",01:03:33.810,01:03:36.950
+"Now, this is where I
+am actually claiming.",01:03:36.950,01:03:40.050
+"So here, I actually
+defined to you a test.",01:03:40.050,01:03:42.200
+"And I promised, starting
+this lecture, by saying,",01:03:42.200,01:03:44.500
+"oh, now we're going
+to do something better",01:03:44.500,01:03:46.250
+than computing the averages.,01:03:46.250,01:03:47.880
+"Now I'm telling you it's
+just computing an average.",01:03:47.880,01:03:50.450
+"And the thing is
+the test is not just",01:03:50.450,01:03:52.910
+the specification of this x bar.,01:03:52.910,01:03:54.830
+"It's also the specification
+of this constant c.",01:03:54.830,01:03:57.901
+All right?,01:03:57.901,01:03:58.400
+"And the constant c
+was exactly where",01:03:58.400,01:04:02.270
+"our belief about what a large
+value for a Gaussian is.",01:04:02.270,01:04:07.360
+That's exactly where it came in.,01:04:07.360,01:04:09.200
+"So this choice of c is
+basically a threshold",01:04:09.200,01:04:12.500
+"at which we decide above
+this threshold this isn't",01:04:12.500,01:04:15.320
+likely to come from a Gaussian.,01:04:15.320,01:04:17.104
+"Below this threshold
+we decide that it's",01:04:17.104,01:04:18.770
+likely to come from a Gaussian.,01:04:18.770,01:04:20.660
+"So we have to choose what
+this threshold is based",01:04:20.660,01:04:24.200
+on what we think likely means.,01:04:24.200,01:04:26.750
+"Just a little bit
+more of those things.",01:04:34.420,01:04:37.490
+"So now we're going to
+have to characterize",01:04:37.490,01:04:39.520
+"what makes a good test, right?",01:04:39.520,01:04:43.030
+"Well, I'll come back
+to it in a second.",01:04:43.030,01:04:44.770
+"But you could have a test
+that says reject all the time.",01:04:44.770,01:04:48.755
+"And that's going to
+be bad test, right?",01:04:48.755,01:04:50.380
+"The FDA is not
+implementing a test",01:04:50.380,01:04:52.120
+"that says, yes all drugs work,
+now let's just go to Aruba, OK?",01:04:52.120,01:04:56.440
+"So people are trying
+to have something that",01:04:56.440,01:04:59.650
+tries to work all the time.,01:04:59.650,01:05:01.560
+"Now FDA's not either
+saying, let's just",01:05:01.560,01:05:03.700
+"say that no drugs work, and
+let's go to Aruba, all right?",01:05:03.700,01:05:07.340
+"They're just trying
+to say the right thing",01:05:07.340,01:05:09.880
+as often as possible.,01:05:09.880,01:05:11.180
+"And so, we're going to
+have to measure this.",01:05:11.180,01:05:13.300
+"So the things that are
+associated to a test",01:05:13.300,01:05:15.790
+are the rejection region.,01:05:15.790,01:05:17.440
+"And if you look at this
+x in en, such that psi",01:05:17.440,01:05:21.550
+"of x is equal to 1, this is
+exactly this guy that I drew.",01:05:21.550,01:05:25.420
+"So here, I summarized
+the values of the sample",01:05:29.024,01:05:30.940
+into their average.,01:05:30.940,01:05:32.460
+"But the values of the
+sample that I collect",01:05:32.460,01:05:35.080
+will lead to a test that says 1.,01:05:35.080,01:05:38.691
+All right?,01:05:38.691,01:05:39.190
+So this is the rejection region.,01:05:39.190,01:05:40.610
+"If I collect a data point,
+technically I have--",01:05:40.610,01:05:43.990
+"so I have e to the n, which
+is a big space like this.",01:05:43.990,01:05:51.250
+So that's e to the n.,01:05:51.250,01:05:52.540
+"Think of it as being
+the space of xn bars.",01:05:52.540,01:05:55.150
+"And I have a function that
+takes only value 0, 1.",01:05:55.150,01:05:59.200
+"So I can decompose
+it into this part",01:05:59.200,01:06:01.962
+"where it takes value 0 and the
+part where it takes value 1.",01:06:01.962,01:06:04.420
+"And those can be super
+complicated, right?",01:06:04.420,01:06:06.740
+Can have a thing like this.,01:06:06.740,01:06:07.880
+"Can have some weird little
+islands where it takes value 1.",01:06:07.880,01:06:11.990
+"I can have some islands
+where it's takes value 0.",01:06:11.990,01:06:14.090
+"I can have some
+weird stuff going on.",01:06:14.090,01:06:16.237
+"But I can always partition
+it into the value",01:06:16.237,01:06:18.070
+"where it takes value 0 and the
+value where it takes value 1.",01:06:18.070,01:06:20.570
+"And the value where it takes
+1, if psi is equal to 1,",01:06:20.570,01:06:25.530
+"this is called the rejection
+region of the plot, OK?",01:06:25.530,01:06:32.630
+"So just the samples that
+would lead me to rejecting.",01:06:32.630,01:06:37.810
+"And notice that this is the
+indicator of the rejection",01:06:37.810,01:06:42.460
+region.,01:06:42.460,01:06:44.010
+"The test is the indicator
+of the rejection region.",01:06:44.010,01:06:48.190
+"So there's two ways you can make
+an error when there's a test.",01:06:48.190,01:06:52.530
+"Either the truth is in h1, and
+you're saying actually it's h1.",01:06:52.530,01:06:56.460
+"Or the truth is in h1,
+and you say it's h0.",01:06:56.460,01:06:59.310
+"And that's how we build-in the
+asymmetry between h0 and h1.",01:06:59.310,01:07:04.710
+"We control only one
+of the two errors.",01:07:04.710,01:07:06.480
+"And we hope for the
+best for the second one.",01:07:06.480,01:07:09.510
+"So the type 1 error is
+the one that says, well,",01:07:09.510,01:07:13.370
+"if it is actually the
+status quo, but a claim",01:07:13.370,01:07:16.640
+"that there is a discovery--
+if it's actually h0,",01:07:16.640,01:07:19.220
+"but I claim that
+I'm in h1, then I",01:07:19.220,01:07:21.700
+admit I commit a type I error.,01:07:21.700,01:07:25.560
+"And so the probability
+of type I error",01:07:25.560,01:07:27.870
+"is this function
+alpha of psi, which",01:07:27.870,01:07:29.730
+"is the probability of saying
+that psi is equal to 1",01:07:29.730,01:07:34.920
+when theta is in h0.,01:07:34.920,01:07:36.809
+"Now, the problem is that
+this is not just number,",01:07:36.809,01:07:38.850
+"because theta is just like
+moving all over h0, right?",01:07:38.850,01:07:41.790
+"There's many values that
+theta can be, right?",01:07:41.790,01:07:45.980
+So theta is somewhere here.,01:07:45.980,01:07:48.500
+"I erased it, OK.",01:07:52.854,01:07:53.520
+All right.,01:07:59.120,01:08:00.335
+"For simplicity, we're
+going to think of theta",01:08:00.335,01:08:02.210
+"as being mu and 103.5, OK?",01:08:02.210,01:08:07.980
+"And so, I know that
+this is theta 1.",01:08:07.980,01:08:11.720
+"And just this point
+here was theta 0, OK?",01:08:11.720,01:08:18.990
+Agreed?,01:08:18.990,01:08:19.490
+"This is with the
+Cherry Blossom Run.",01:08:19.490,01:08:22.800
+"Now, here in this case,
+it's actually easy.",01:08:22.800,01:08:25.699
+"I need to compute
+this function alpha",01:08:25.699,01:08:27.240
+"of psi, which maps theta in
+theta 0 to p theta of psi",01:08:27.240,01:08:37.144
+equals 1.,01:08:37.144,01:08:37.689
+"So that's the probability that
+I reject when theta is in h0.",01:08:37.689,01:08:40.682
+"Then there's only one
+of them to compute,",01:08:40.682,01:08:42.390
+"because theta can only
+take this one value.",01:08:42.390,01:08:44.220
+So this is really 103.5.,01:08:44.220,01:08:46.840
+OK.,01:08:46.840,01:08:47.340
+"So that's the
+probability that I reject",01:08:47.340,01:08:48.964
+when the true mean was 103.5.,01:08:48.964,01:08:52.649
+"Now, if I was testing whether--",01:08:52.649,01:08:54.870
+"if h0 was this entire
+guy here, all the",01:08:54.870,01:08:57.660
+"values larger than
+103.5, then I would",01:08:57.660,01:09:00.090
+"have to compute this function
+for all possible values",01:09:00.090,01:09:03.450
+of the theta in there.,01:09:03.450,01:09:06.220
+And guess what?,01:09:06.220,01:09:07.220
+"The worst case is when
+it's going to be here.",01:09:07.220,01:09:09.414
+"Because it's so close
+to the alternative",01:09:09.414,01:09:11.080
+"that that's where I'm making
+the most error possible.",01:09:11.080,01:09:15.149
+"And then there's
+the type 2 error,",01:09:15.149,01:09:17.550
+"which is defined basically
+in the symmetric ways.",01:09:17.550,01:09:22.200
+"The function that maps
+theta to the probability.",01:09:22.200,01:09:25.089
+"So that's the probability
+of type 2 errors.",01:09:25.089,01:09:26.880
+"The probability that I
+fail to reject h0, right?",01:09:26.880,01:09:30.330
+"If psi is equal to 0,
+I fail to reject h0.",01:09:30.330,01:09:34.080
+"But that actually
+came from h1, OK?",01:09:34.080,01:09:39.840
+"So in this example, let's clear.",01:09:39.840,01:09:41.540
+"If I'm here, like if
+the true mean was 100,",01:09:41.540,01:09:45.629
+"I'm looking at the probability
+that the true mean is actually",01:09:45.629,01:09:48.170
+"100, and I'm actually
+saying it was 103.5.",01:09:48.170,01:09:51.569
+Or it's not less than 103.5.,01:09:51.569,01:09:53.504
+Yeah?,01:09:53.504,01:09:54.004
+"STUDENT: I'm just still
+confused by the notation.",01:09:54.004,01:09:56.045
+"When you say that [INAUDIBLE]
+theta sub 1 arrow r,",01:09:56.045,01:09:59.471
+"I'm not sure what
+that notation means.",01:09:59.471,01:10:02.650
+"PROFESSOR: Well, this
+just means it's a function",01:10:02.650,01:10:04.650
+that maps theta 0 to r.,01:10:04.650,01:10:08.060
+"You've seen functions, right?",01:10:08.060,01:10:09.450
+OK.,01:10:09.450,01:10:10.220
+"So that's just
+the way you write.",01:10:10.220,01:10:14.690
+"So that means that's a function
+f that goes from, say, r r,",01:10:14.690,01:10:20.800
+and that maps x to x squared.,01:10:20.800,01:10:25.381
+OK.,01:10:25.381,01:10:25.880
+"So here, I'm just saying
+I don't have to consider",01:10:25.880,01:10:27.921
+all possible values.,01:10:27.921,01:10:29.030
+"I'm only considering
+the values on theta 0.",01:10:29.030,01:10:32.540
+I put r actually.,01:10:32.540,01:10:33.620
+"I could restrict myself
+to the interval 0, 1,",01:10:33.620,01:10:36.320
+because those are probabilities.,01:10:36.320,01:10:38.160
+"So it's just telling me
+where my function comes from",01:10:38.160,01:10:41.090
+and where my function goes to.,01:10:41.090,01:10:44.330
+"And beta is a function, right?",01:10:44.330,01:10:47.240
+"So beta psi of theta
+is just the probability",01:10:47.240,01:10:52.990
+that theta is equal to 1.,01:10:52.990,01:10:55.610
+"And I could define
+that for all thetas--",01:10:55.610,01:10:57.930
+sorry.,01:10:57.930,01:10:58.430
+"If psi is equal
+to 0 in this case.",01:10:58.430,01:11:00.600
+"And that could define
+that for all thetas.",01:11:00.600,01:11:02.810
+"But the only ones
+that lead to an error",01:11:02.810,01:11:05.240
+are the thetas that are in h1.,01:11:05.240,01:11:06.812
+"I mean, I can define
+this function.",01:11:06.812,01:11:08.270
+"It's just not going to
+correspond to an error, OK?",01:11:08.270,01:11:11.121
+"And the power of a
+test is the smallest--",01:11:13.930,01:11:18.960
+"so the power is basically
+1 minus an error.",01:11:18.960,01:11:22.101
+"1 minus the probability
+of an error.",01:11:22.101,01:11:23.600
+"So it's the probability of
+making a correct decision, OK?",01:11:23.600,01:11:27.324
+"So it's the probability of
+making a correct decision",01:11:27.324,01:11:29.490
+"under h1, that's
+what the power is.",01:11:29.490,01:11:31.830
+"But again, this
+could be a function.",01:11:31.830,01:11:34.830
+"Because there's many
+ways that can be in h1",01:11:34.830,01:11:36.900
+"if h1 is an entire
+set of numbers.",01:11:36.900,01:11:39.150
+"For example, all the numbers
+there are less than 103.5.",01:11:39.150,01:11:42.200
+"And so, what I'm doing here when
+I define the power of a test,",01:11:42.200,01:11:45.510
+"I'm looking at the smallest
+possible of those values, OK?",01:11:45.510,01:11:50.057
+So I'm looking at this function.,01:11:50.057,01:11:51.390
+"Maybe I should actually
+expand a little more on this.",01:11:54.140,01:11:57.028
+OK.,01:12:02.700,01:12:03.200
+"So beta psi of theta is
+the probability under theta",01:12:03.200,01:12:10.790
+"that psi is equal to 0, right?",01:12:10.790,01:12:12.590
+"That's the probability
+in theta 1,",01:12:12.590,01:12:18.710
+"which means then the
+alternative, that they",01:12:18.710,01:12:21.110
+feel to reject.,01:12:21.110,01:12:21.884
+"And I really should,
+because theta",01:12:21.884,01:12:23.300
+"was actually in theta 1, OK?",01:12:23.300,01:12:25.520
+"So this thing here is the
+probability of type 2 error.",01:12:25.520,01:12:29.150
+"Now, this is 1 minus the
+probability that I did reject",01:12:29.150,01:12:34.560
+and I should have rejected.,01:12:34.560,01:12:36.960
+"That's just a little
+off the complement.",01:12:36.960,01:12:39.830
+"Because if psi is not equal
+to 0, then it's equal to 1.",01:12:39.830,01:12:42.910
+"So now if I rearrange
+this, it tells me",01:12:42.910,01:12:44.620
+"that the probability
+that psi is equal to 1--",01:12:44.620,01:12:48.260
+"this is actually 1
+minus beta psi of theta.",01:12:48.260,01:12:50.100
+"So that's true for
+all thetas in theta 1.",01:12:54.440,01:12:57.110
+"And what I'm saying
+is, well, this",01:12:57.110,01:12:58.640
+"is now a good thing, right?",01:12:58.640,01:13:00.904
+"This number being
+large is a good thing.",01:13:00.904,01:13:02.570
+"It means I should have
+rejected, and I rejected.",01:13:02.570,01:13:05.330
+"I want this to happen
+with large probability.",01:13:05.330,01:13:07.650
+"And so, what I'm
+going to look at",01:13:07.650,01:13:09.025
+"is the most conservative
+choice of this number, right?",01:13:09.025,01:13:11.894
+"Rather than being
+super optimistic",01:13:11.894,01:13:13.310
+"and say, oh, but indeed if theta
+was actually equal to zero,",01:13:13.310,01:13:16.970
+"then I'm always going
+to conclude that--",01:13:16.970,01:13:19.300
+"I mean, if mu is equal to 0,
+everybody runs in 0 seconds,",01:13:19.300,01:13:22.730
+"then I with high
+probability I'm actually",01:13:22.730,01:13:25.990
+going to make no mistake.,01:13:25.990,01:13:27.770
+"But really, I should look at
+the worst possible case, OK?",01:13:27.770,01:13:30.920
+"So what I'm looking
+at is basically",01:13:30.920,01:13:32.900
+"the smallest value it
+can take on theta one",01:13:32.900,01:13:45.002
+is called power of psi.,01:13:45.002,01:13:53.490
+"Power of the test psi, OK?",01:13:53.490,01:13:55.850
+"So that's the smallest
+possible value it can take.",01:13:55.850,01:13:58.930
+All right.,01:14:01.610,01:14:02.110
+So I'm sorry.,01:14:02.110,01:14:02.651
+"This is a lot of definitions
+that you have to sink in.",01:14:02.651,01:14:05.310
+And it's not super pleasant.,01:14:05.310,01:14:06.870
+But that's what testing is.,01:14:06.870,01:14:09.180
+There's a lot of jargon.,01:14:09.180,01:14:10.540
+"Those are actually
+fairly simple things.",01:14:10.540,01:14:12.440
+"Just maybe you should
+get a sheet for yourself.",01:14:12.440,01:14:14.460
+"And say, these are the
+new terms that I learned.",01:14:14.460,01:14:17.400
+"What is their test,
+rejection region?",01:14:17.400,01:14:19.584
+"Probably of type
+I error, probably",01:14:19.584,01:14:21.000
+"of type 2 error, and power.",01:14:21.000,01:14:22.740
+"Just make sure you know
+what those guys are.",01:14:22.740,01:14:23.910
+Oh.,01:14:23.910,01:14:24.410
+"And null and alternative
+hypothesis, OK?",01:14:24.410,01:14:27.162
+"And once you know
+all these things,",01:14:27.162,01:14:28.620
+you know what I'm talking about.,01:14:28.620,01:14:29.953
+You know what I'm referring to.,01:14:29.953,01:14:31.320
+And this is just jargon.,01:14:31.320,01:14:33.000
+"But in the end, those
+are just probabilities.",01:14:33.000,01:14:35.610
+"I mean, these a
+natural quantities.",01:14:35.610,01:14:38.369
+"Just for some reason,
+people have been used",01:14:38.369,01:14:40.160
+to using different terminology.,01:14:40.160,01:14:43.850
+So just to illustrate.,01:14:43.850,01:14:46.420
+When do I make a typo 1 error?,01:14:46.420,01:14:48.090
+"And when do I not
+make a type 1 error?",01:14:48.090,01:14:51.880
+"So I make a type 1 error if h0
+is true and I reject h0, right?",01:14:51.880,01:14:56.500
+"So the off diagonal blocks
+are when I make an error.",01:14:56.500,01:14:59.560
+"When I'm on the diagonal
+terms, h1 is true",01:14:59.560,01:15:02.920
+"and I reject h0, that's
+a correct decision.",01:15:02.920,01:15:05.530
+"When h0 is true and
+I fail to reject h0,",01:15:05.530,01:15:08.200
+"that's also the correct
+decision to make.",01:15:08.200,01:15:11.210
+"So I only make errors when
+I'm in one of the red blocks.",01:15:11.210,01:15:17.110
+"And one block is the type
+1 error and the other block",01:15:17.110,01:15:20.860
+is the type 2 error.,01:15:20.860,01:15:21.730
+"That's all it means, OK?",01:15:21.730,01:15:24.059
+"So you just have to know
+which one we called one.",01:15:24.059,01:15:26.100
+"I mean, this was chosen
+in a pretty ad hoc way.",01:15:32.460,01:15:36.960
+"So to conclude this lecture,
+let me ask you a few questions.",01:15:36.960,01:15:40.440
+"If in a US court, the
+defendant is found either say,",01:15:40.440,01:15:46.780
+"let's just say for the sake of
+discussion, innocent or guilty.",01:15:46.780,01:15:49.601
+All right?,01:15:49.601,01:15:50.100
+"It's really guilty
+for not guilty,",01:15:50.100,01:15:51.516
+"but let's say
+innocent or guilty.",01:15:51.516,01:15:53.900
+"When does the jury
+make a type 1 error?",01:15:53.900,01:15:56.106
+Yep?,01:16:03.414,01:16:03.914
+And he's guilty?,01:16:07.840,01:16:10.180
+"And he's innocent, right?",01:16:10.180,01:16:11.560
+"The status quo, everybody is
+innocent until proven guilty.",01:16:11.560,01:16:14.560
+"So that's our h0 is that
+the person is innocent.",01:16:14.560,01:16:18.500
+"And so, that means
+that h0 is innocent.",01:16:18.500,01:16:21.510
+"And so, we're looking at the
+probably of type 1 error,",01:16:21.510,01:16:23.760
+"so that's when we reject
+the fact that it's innocent.",01:16:23.760,01:16:25.560
+"So conclude that this
+person is guilty, OK?",01:16:25.560,01:16:27.752
+"So type 1 error is when
+this person is innocent",01:16:27.752,01:16:29.710
+and we conclude it's guilty.,01:16:29.710,01:16:31.090
+What is the type 2 error?,01:16:31.090,01:16:32.131
+"Letting a guilty
+person go free, which",01:16:36.390,01:16:38.160
+"actually according
+to the constitution,",01:16:38.160,01:16:40.290
+is the better of the two.,01:16:40.290,01:16:42.320
+All right?,01:16:42.320,01:16:42.820
+"So what we're going to try to
+do is to control the first one,",01:16:42.820,01:16:45.361
+"and hope for the best
+for the second one.",01:16:45.361,01:16:47.870
+"How could the jury make sure
+that they make no type 1",01:16:47.870,01:16:51.260
+error ever?,01:16:51.260,01:16:52.500
+"Always let the guy
+go free, right?",01:16:57.870,01:17:01.406
+"What is the effect
+on the type 2 error?",01:17:01.406,01:17:03.030
+"Yeah, it's the worst
+possible, right?",01:17:06.600,01:17:08.430
+"I mean, basically, for every guy
+that's guilty, you let them go.",01:17:08.430,01:17:12.550
+That's the worst you can do.,01:17:12.550,01:17:14.970
+"And same thing, right?",01:17:14.970,01:17:15.930
+"How can the jury make sure
+that there's no type 2 error?",01:17:15.930,01:17:20.470
+Always convict.,01:17:20.470,01:17:21.140
+"What is the effect on
+the American budget?",01:17:21.140,01:17:22.890
+"What is the effect
+on the type 1 error?",01:17:22.890,01:17:25.135
+Right.,01:17:28.180,01:17:28.680
+"So the effect is that basically
+the type 1 error is maximized.",01:17:28.680,01:17:31.710
+"So there's this trade
+off between type 1",01:17:31.710,01:17:33.540
+"and type 2 error
+that's inherent.",01:17:33.540,01:17:35.430
+"And that's why we have this
+sort of multi objective thing.",01:17:35.430,01:17:39.030
+"We're trying to minimize
+two things at the same time.",01:17:39.030,01:17:41.530
+"And I can't find many
+ad hoc ways, right?",01:17:41.530,01:17:44.340
+"So if you've taken
+any optimization,",01:17:44.340,01:17:46.730
+"trying to optimize two
+things when one is going up",01:17:46.730,01:17:49.040
+"while the other one is going
+down, the only thing you can do",01:17:49.040,01:17:51.540
+is make ad hoc heuristics.,01:17:51.540,01:17:53.370
+"Maybe you try to minimize
+the sum of those two guys.",01:17:53.370,01:17:55.740
+"Maybe you try to minimize
+1/3 of the first guy",01:17:55.740,01:17:59.310
+plus 2/3 of the second guy.,01:17:59.310,01:18:00.940
+"Maybe you try to minimize
+the first guy plus the square",01:18:00.940,01:18:03.390
+of the second guy.,01:18:03.390,01:18:04.140
+"You can think of many
+ways, but none of them",01:18:04.140,01:18:05.973
+"is more justified
+than the other.",01:18:05.973,01:18:07.470
+"However, for statistical
+hypothesis testing,",01:18:07.470,01:18:10.120
+"there's one that's very well
+justified, which is just",01:18:10.120,01:18:12.790
+"constrain your type 1
+error to be the smallest,",01:18:12.790,01:18:15.990
+"to be at a level that
+you deem acceptable.",01:18:15.990,01:18:18.460
+5%.,01:18:18.460,01:18:18.960
+"I want to convict at most
+5% of innocent people.",01:18:24.510,01:18:27.850
+That's what I deem reasonable.,01:18:27.850,01:18:29.850
+"And based on that, I'm going to
+try to convict as many people",01:18:29.850,01:18:33.570
+"as they can, all right?",01:18:33.570,01:18:37.170
+"So that's called the
+Nieman Pearson paradigm,",01:18:37.170,01:18:39.780
+"and we'll talk
+about it next time.",01:18:39.780,01:18:42.240
+All right.,01:18:42.240,01:18:43.140
+Thank you.,01:18:43.140,01:18:44.990

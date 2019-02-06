@@ -1,0 +1,2159 @@
+text,start,stop
+[SOUND] Stanford University.,00:00:00.000,00:00:06.499
+"&gt;&gt; Okay, so we're back again with CS224N.",00:00:09.584,00:00:14.923
+So Let's see.,00:00:14.923,00:00:17.200
+"So in terms of what we're gonna do today,
+I mean",00:00:17.200,00:00:21.100
+"I think it's gonna be a little bit muddled
+up, and going forwards and backwards.",00:00:21.100,00:00:25.775
+"Officially in the syllabus
+today's lecture is,",00:00:25.775,00:00:30.155
+sequence to sequence models and attention.,00:00:30.155,00:00:32.975
+"And next Tuesday's lecture
+is machine translation.",00:00:32.975,00:00:36.795
+"But really,",00:00:36.795,00:00:38.505
+"Richard already started saying some things
+about machine translation last week.",00:00:38.505,00:00:43.500
+"And so I thought for
+various reasons, it probably makes",00:00:43.500,00:00:46.320
+"sense to also be saying more stuff
+about machine translation today.",00:00:46.320,00:00:51.360
+So expect that.,00:00:51.360,00:00:53.220
+"But I am gonna cover the main content of
+what was meant to be in today's lecture,",00:00:53.220,00:00:58.090
+and talk about attention today.,00:00:58.090,00:00:59.880
+"And that's a really useful
+thing to know about.",00:00:59.880,00:01:02.790
+"I mean almost certainly if you're gonna
+be doing anything in the space of sort of",00:01:02.790,00:01:07.417
+"reading comprehension, question
+answering models, such as, for instance,",00:01:07.417,00:01:11.840
+assignment four.,00:01:11.840,00:01:12.959
+"But also kinds of things that a whole
+bunch of people have proposed for",00:01:12.959,00:01:16.921
+"final projects, you definitely
+wanna know about and use attention.",00:01:16.921,00:01:21.308
+"But then I actually thought
+I'd do a little bit of",00:01:21.308,00:01:24.620
+going backwards next Tuesday.,00:01:24.620,00:01:27.056
+"And I want to go back and actually say a
+bit more about these kind of gated models,",00:01:27.056,00:01:32.310
+"like the GRUs and
+LSTMs that become popular lately.",00:01:32.310,00:01:36.550
+"and try and have a bit more of a go at
+saying just a little bit more about well,",00:01:36.550,00:01:41.450
+"why do people do this and
+why does it work?",00:01:41.450,00:01:43.553
+"And see if I can help make it
+a little bit more intelligible.",00:01:43.553,00:01:48.300
+So we'll mix around between those topics.,00:01:48.300,00:01:50.790
+"But somehow over these two weeks of
+classes, we're doing recurrent models,",00:01:50.790,00:01:55.850
+"attention, MT and
+all those kinds of things.",00:01:55.850,00:01:59.390
+Okay.,00:02:00.700,00:02:01.710
+Other reminders and comments.,00:02:01.710,00:02:04.050
+So the midterm is over yay!,00:02:04.050,00:02:06.655
+"And your dear TAs and me spent all
+last night grading that midterm.",00:02:06.655,00:02:12.671
+"So we're sort of 99%
+over with the midterm.",00:02:12.671,00:02:18.151
+"There's a slight catch that a couple
+of people haven't done it yet,",00:02:18.151,00:02:23.139
+because of various complications.,00:02:23.139,00:02:26.710
+"So essentially next Tuesday is,
+when we're gonna be able to be sort of",00:02:26.710,00:02:31.375
+"releasing solutions to the midterm and
+handing them back.",00:02:31.375,00:02:35.390
+Some people did exceedingly well.,00:02:35.390,00:02:37.440
+The highest score was extremely high 90s.,00:02:37.440,00:02:40.610
+Most people did pretty well.,00:02:40.610,00:02:42.230
+It has a decent median.,00:02:42.230,00:02:44.120
+A few few not so well.,00:02:44.120,00:02:45.645
+"[LAUGH] You know how what
+these things are like.",00:02:45.645,00:02:48.140
+"But yeah, overall we're pretty
+pleased with how people did in it.",00:02:48.140,00:02:53.370
+"I just thought I should
+mention one other issue,",00:02:53.370,00:02:56.746
+"which I will say sort of
+send a Piazza note about.",00:02:56.746,00:03:00.460
+"I mean I know that a few people
+were quite unhappy with the fact",00:03:00.460,00:03:05.610
+"that some students kept on writing
+after the official end of the exam.",00:03:05.610,00:03:10.870
+And I mean I totally understand that.,00:03:10.870,00:03:13.250
+"Because the fact of the matter is,",00:03:13.250,00:03:14.650
+"these kind of short midterm exams
+do end up quite time-limited,",00:03:14.650,00:03:19.700
+"and many people feel like they could
+do more if they had more time.",00:03:19.700,00:03:25.000
+"I mean on the other hand,",00:03:25.000,00:03:27.310
+"I honestly feel like I don't know
+quite what to do about this problem.",00:03:27.310,00:03:33.310
+"Both Richard and me came from educational
+traditions, where we had exam proctors.",00:03:33.310,00:03:40.638
+"And when it was time to put your
+pens down, you put your pens down or",00:03:40.638,00:03:45.406
+else dire consequences happen to you.,00:03:45.406,00:03:48.290
+"Whereas my experience at Stanford is that,",00:03:48.290,00:03:51.980
+"every exam I've ever been in at Stanford,
+there are people who keep writing",00:03:51.980,00:03:57.380
+"until you forcibly remove
+the exam out of their hands.",00:03:57.380,00:04:02.290
+"And so there seems to be
+a different tradition here.",00:04:02.290,00:04:05.740
+"And in theory this is meant to be
+student regulated by the honor code,",00:04:05.740,00:04:10.840
+"but we all know that there are some
+complications there as well.",00:04:10.840,00:04:15.930
+"So it's not that I'm not
+sensitive to the issue.",00:04:15.930,00:04:19.006
+"And you know really exactly what
+I said to the TAs before the end",00:04:19.006,00:04:24.000
+"of the exam is, so it's a real problem
+at Stanford, people going on writing, so",00:04:24.000,00:04:28.600
+"could everyone get in the room
+as quickly as possible,",00:04:28.600,00:04:30.670
+"and collect everyone's exams
+to minimize that problem.",00:04:30.670,00:04:33.780
+"But obviously, it's a little bit
+difficult when there are 680 students.",00:04:33.780,00:04:38.080
+But we did the best we could.,00:04:38.080,00:04:40.422
+"And I think basically we
+have to proceed with that.",00:04:40.422,00:04:43.710
+Okay.,00:04:44.810,00:04:45.310
+Other topics.,00:04:46.570,00:04:47.760
+Assignment three is looming.,00:04:47.760,00:04:50.272
+"Apologies that we were a bit
+late getting that out.",00:04:50.272,00:04:53.470
+"Though with the midterm,
+it wouldn't have made much difference.",00:04:53.470,00:04:57.090
+"We have put a little bit of
+extension to assignment three.",00:04:57.090,00:05:00.470
+"I guess we're really nervous about,
+giving more extension to assignment three.",00:05:00.470,00:05:07.116
+"Not because we don't want you to have
+time to do assignment three, but",00:05:07.116,00:05:10.774
+"just because we realized that anything we
+do is effectively stealing days away from",00:05:10.774,00:05:15.238
+"the time you have to do the final
+project or assignment four.",00:05:15.238,00:05:18.652
+So we don't wanna do that too much.,00:05:18.652,00:05:20.880
+"We hope that assignment
+three isn't too bad.",00:05:20.880,00:05:23.703
+"And the fact that you can do
+it in teams can help, and",00:05:23.703,00:05:26.465
+that that won't be such a problem.,00:05:26.465,00:05:28.780
+"Another thing that we want people
+to do but are a bit behind on, but",00:05:28.780,00:05:32.800
+"I hopefully can get in place tomorrow, is
+giving people access to Microsoft Azure,",00:05:32.800,00:05:38.440
+"to be able to use GPUs
+to do the assignments.",00:05:38.440,00:05:41.580
+"We really do want people to do that for
+assignment three.",00:05:41.580,00:05:44.900
+"Since it's just great experience to have
+and will be useful to know about, for",00:05:44.900,00:05:49.245
+"then going on for assignment four and
+the final project.",00:05:49.245,00:05:52.410
+"So we hope we can have
+that in place imminently.",00:05:52.410,00:05:55.570
+"And it really will allow you to do things
+much quicker for assignment three.",00:05:55.570,00:06:00.340
+"So the kind of models
+that you're building for",00:06:00.340,00:06:02.410
+"assignment three, should run at least
+an order of magnitude, sort of ten,",00:06:02.410,00:06:07.230
+"12 times or something faster, if you're
+running them on a GPU rather than a CPU.",00:06:07.230,00:06:11.960
+"So look forward to
+hearing more about that.",00:06:11.960,00:06:14.280
+"The final reminder I want to mention is,
+I'm really really encouraging people",00:06:14.280,00:06:20.630
+"to come to final project office hours for
+discussion.",00:06:20.630,00:06:26.090
+"Richard was really disappointed how few
+people came to talk to him about final",00:06:26.090,00:06:31.081
+projects on Tuesday after the exam.,00:06:31.081,00:06:33.590
+"Now maybe that's quite
+understandable why no one turned up.",00:06:33.590,00:06:36.430
+"But at any rate moving forward from here,
+I really really encourage you to do that.",00:06:36.430,00:06:43.070
+"So I have final project office
+hours tomorrow from one to three.",00:06:43.070,00:06:48.010
+"Richard is gonna be doing
+it again next Tuesday.",00:06:48.010,00:06:51.380
+"The various other PhD students
+having their office hours.",00:06:51.380,00:06:56.340
+"So really do for the rest of quarter,
+try and get along to those.",00:06:56.340,00:07:00.590
+"and check in on projects
+as often as possible.",00:07:00.590,00:07:04.755
+"And in particular, make really really sure
+that either next week or the week after,",00:07:04.755,00:07:09.513
+"that you do talk to your project mentor,
+to find out their advice on the project.",00:07:09.513,00:07:14.840
+"Okay, all good?",00:07:14.840,00:07:16.060
+Any questions?,00:07:16.060,00:07:17.475
+"Okay, so
+let's get back into machine translation.",00:07:20.788,00:07:25.090
+"And I just thought I'd sort of say
+a couple of slides of how important",00:07:25.090,00:07:29.937
+is machine translation.,00:07:29.937,00:07:31.818
+"Now really a large percentage of
+the audience of these Stanford classes",00:07:31.818,00:07:36.743
+are not American citizens.,00:07:36.743,00:07:38.722
+"So probably a lot of you realize that,
+machine translation is important.",00:07:38.722,00:07:43.385
+"But for the few of you that
+are native-born American citizens.",00:07:43.385,00:07:48.080
+"I think a lot of native-born Americans
+are sort of, very unaware of",00:07:48.080,00:07:52.800
+"the importance of translation, because
+they live in an English-only world.",00:07:52.800,00:07:58.590
+Where most of the resources for,00:07:58.590,00:08:00.110
+"information are available in English, and
+America is this, sort of, a big enough",00:08:00.110,00:08:05.170
+"place that you're not often dealing with
+stuff outside the rest of the world.",00:08:05.170,00:08:09.590
+"But really in general, for
+humanity and commerce, translation,",00:08:09.590,00:08:14.900
+"in general, and machine translation in
+particular, are just huge things, right?",00:08:14.900,00:08:19.530
+"That for places like the European Union
+to run, is completely dependent on having",00:08:19.530,00:08:24.920
+"translation happen, so it can work across
+the many languages of the European Union.",00:08:24.920,00:08:30.480
+"So, the translation industry is
+a $40 billion a year industry.",00:08:30.480,00:08:34.560
+"And that's basically the amount
+that's spent on human translation,",00:08:34.560,00:08:38.690
+"because most of what's done as
+machine translation at the moment",00:08:38.690,00:08:42.920
+"is in the form of free services,
+and so it's a huge issue in Europe,",00:08:42.920,00:08:47.090
+"it's growing in Asia, lots of needs in
+every domain, as well as commercial,",00:08:47.090,00:08:52.020
+"there's social, government,
+and military needs.",00:08:52.020,00:08:55.010
+"And so the use of machine translation
+has itself become a huge thing.",00:08:55.010,00:08:59.890
+"So Google now translate over 100
+billion words per day, right?",00:08:59.890,00:09:04.800
+"There are a lot of people that
+are giving Google stuff to translate.",00:09:04.800,00:09:09.458
+"It's then important for
+things like having social connections.",00:09:09.458,00:09:14.029
+"So I mean in 2016,",00:09:14.029,00:09:15.263
+"last year Facebook rolled out their
+own homegrown machine translation.",00:09:15.263,00:09:20.740
+"Prior to that they've made use of
+other people's translation, but",00:09:20.740,00:09:24.260
+"essentially what they had found was that
+the kind of commercial machine translation",00:09:24.260,00:09:28.390
+"offerings didn't do a very good job
+at translating social chit chat.",00:09:28.390,00:09:33.620
+"And the fact of the matter is that doing
+a better job at that is sufficiently",00:09:33.620,00:09:37.530
+"important to a company like Facebook that
+they're developing their own in house",00:09:37.530,00:09:42.130
+machine translation to do it.,00:09:42.130,00:09:44.260
+"One of the quotes that came along with
+that was when they were testing it and",00:09:44.260,00:09:48.080
+"turned off the machine translation for
+some users, that they really went nuts,",00:09:48.080,00:09:52.890
+"that lots of people really
+do actually depend on this.",00:09:52.890,00:09:56.400
+Other areas as well.,00:09:56.400,00:09:57.880
+"So eBay makes extensive use of machine
+translation to enable cross-border trade.",00:09:57.880,00:10:02.850
+"So that if you are going
+to be able to successfully",00:10:02.850,00:10:06.260
+"sell products in different markets,
+well, you have",00:10:06.260,00:10:08.910
+"to be able to translate the descriptions
+into things that people can read.",00:10:08.910,00:10:13.940
+"Okay, and so that then leads us into
+what we're gonna be focusing on here,",00:10:13.940,00:10:18.010
+which is neural machine translation.,00:10:18.010,00:10:20.670
+"And so, neural machine translation or NMT
+is sort of a commonly used slogan name.",00:10:20.670,00:10:27.320
+"And it's come to have a sort of
+a particular meaning that's slightly more",00:10:27.320,00:10:32.450
+than neural plus machine translation.,00:10:32.450,00:10:34.970
+"That neural machine translation is
+used to mean what we want to do",00:10:34.970,00:10:40.160
+"is build one big neural
+network which we can train",00:10:40.160,00:10:45.320
+"the entire end-to-end machine translation
+process in and optimize end to end.",00:10:45.320,00:10:51.430
+"And so systems that do that are then
+what are referred to as an MT system.",00:10:51.430,00:10:55.790
+So that the kind of picture here,00:10:55.790,00:10:58.220
+"is that we're going to have
+this big neural network.",00:10:58.220,00:11:01.200
+"It's gonna take input text that's
+somehow going to encode into",00:11:01.200,00:11:04.430
+neural network vectors.,00:11:04.430,00:11:06.070
+"It's then gonna have a decoder and
+out would come text at the end.",00:11:06.070,00:11:11.010
+"And so we get these
+encoder-decoder architectures.",00:11:11.010,00:11:13.630
+"Before getting into the modern stuff,
+I thought I'd take two slides",00:11:15.040,00:11:19.800
+"to tell you about the archaeology
+of neural networks.",00:11:19.800,00:11:24.700
+"Neural networks had sorta been very
+marginal or dead as a field for",00:11:28.520,00:11:33.410
+a couple of decades.,00:11:33.410,00:11:35.120
+"And so I think a lot of the time people
+these days think of deep learning",00:11:35.120,00:11:39.140
+"turned up around 2012,
+with the ImageNet breakthroughs.",00:11:39.140,00:11:43.570
+And boy has it been amazing since then.,00:11:43.570,00:11:46.060
+"But really there have been
+earlier ages of neural networks.",00:11:46.060,00:11:48.540
+"And in particular there's a boom in the
+use of neural networks in the second half",00:11:48.540,00:11:53.441
+"of the 80s into the early 90s which
+corresponds to when Rumelhart and",00:11:53.441,00:11:57.905
+"McClelland, so that's the James McClelland
+that's still in the Psych Department",00:11:57.905,00:12:03.101
+"at Stanford, pioneered or re-pioneered
+the use of neural networks partly as",00:12:03.101,00:12:07.930
+"a cognitive science tool, but
+also as a computing tool.",00:12:07.930,00:12:11.790
+"And many of the technologies
+that we've been talking about",00:12:11.790,00:12:15.210
+"really the math of them are worked
+out during that period.",00:12:15.210,00:12:18.420
+"So it was in the 80s there was really
+worked out of how to do general back",00:12:18.420,00:12:23.174
+"propagation algorithms for
+multi-layer neural networks.",00:12:23.174,00:12:27.310
+"And it was also during
+that period when people",00:12:27.310,00:12:30.350
+"worked out how to do the math
+of recurrent neural networks.",00:12:30.350,00:12:33.510
+"So algorithms like backpropagation through
+time were worked out in this period,",00:12:33.510,00:12:39.070
+"in the late 80s, often by people who were
+psychologists, cognitive scientists,",00:12:39.070,00:12:43.790
+"rather than hard core CS
+people in those days.",00:12:43.790,00:12:47.440
+"And so, also in that period, was
+actually when neural MT, in having these",00:12:47.440,00:12:52.932
+"encoder decoder architectures for
+doing translation, was first tried out.",00:12:52.932,00:12:58.710
+"The systems that were built were
+incredibly primitive and limited,",00:12:58.710,00:13:02.980
+"which partly reflects the computational
+resources of those days.",00:13:02.980,00:13:07.420
+"But they still were in
+coder/decoder architectures.",00:13:07.420,00:13:10.240
+"So as far as I've been able to work out,
+the first neural MT system was this system",00:13:10.240,00:13:15.340
+"that was done by Bob Allen in 1987,",00:13:15.340,00:13:18.300
+"the very first international
+conference on neural networks, and so",00:13:18.300,00:13:23.360
+"he constructed 3,000 English/Spanish
+pairs over a tiny vocabulary.",00:13:23.360,00:13:29.580
+Sort of a 30 to 40 word vocabulary and,00:13:29.580,00:13:31.850
+"the sentences were actually kind of
+constructed based on the grammar,",00:13:31.850,00:13:35.640
+"it wasn't actually kind of we'll just
+collect together human language use, but",00:13:35.640,00:13:40.253
+"you know you sort of had sentences like
+this with some variation of word order and",00:13:40.253,00:13:45.160
+things like that.,00:13:45.160,00:13:46.390
+And he built this simple encoded decoded,00:13:46.390,00:13:50.610
+"network that you can see on the right
+that was not a recurrent model.",00:13:50.610,00:13:54.920
+"You just had sort of a binary
+representation of the sequence of words in",00:13:54.920,00:13:59.010
+"a sentence and the sentences were only
+short and then were pumped through that.",00:13:59.010,00:14:05.490
+"A few years after that, Lonnie Chrisman.",00:14:05.490,00:14:09.780
+"Lonnie Chrisman is actually
+a guy who lives in the Bay Area.",00:14:09.780,00:14:12.420
+He works at a tech firm still to this day.,00:14:12.420,00:14:15.535
+[LAUGH] Not doing neural networks anymore.,00:14:15.535,00:14:18.940
+"So Lonnie Chrisman in the early 90s
+then developed a more sophisticated",00:14:18.940,00:14:24.300
+"neural network architecture for
+doing encoded decoder MT architecture.",00:14:25.310,00:14:31.650
+"So he was using this model called
+RAAMS Recursive Auto Associative Memories",00:14:31.650,00:14:38.510
+which were developed in the early 90s.,00:14:38.510,00:14:42.530
+Not worth explaining the details of them.,00:14:42.530,00:14:45.280
+"But a RAAM is in some sense kind of
+like recurrent network of the kind",00:14:45.280,00:14:48.472
+that we've already started to look at.,00:14:48.472,00:14:50.740
+And he was building those ones.,00:14:50.740,00:14:52.990
+And so that then leads into our modern,00:14:52.990,00:14:55.680
+"encoder decoder architectures
+that Richard already mentioned.",00:14:55.680,00:15:00.050
+"Where we're having, perhaps a recurrent
+network that's doing the encoding and",00:15:00.050,00:15:04.470
+"then another recurrent network there's
+then decoding out in another language.",00:15:04.470,00:15:09.790
+"And where in reality they're not
+normally as simple as this, and",00:15:09.790,00:15:13.000
+"we have more layers and more stuff,
+and it all gets more complicated.",00:15:13.000,00:15:17.210
+"I just wanted to mention
+quickly a couple more",00:15:18.310,00:15:23.085
+things about the space of these things.,00:15:23.085,00:15:25.565
+"So you can think of what
+these encoder decoder",00:15:25.565,00:15:28.355
+"architectures are as a conditional
+recurrent language model.",00:15:28.355,00:15:32.587
+"So if we want to generate a translation,",00:15:32.587,00:15:36.267
+"we're encoding the source so
+we're producing a Y from the source.",00:15:36.267,00:15:41.767
+"And then from that Y
+we're going to decode,",00:15:41.767,00:15:46.050
+"we're going to run a recurrent neural
+network to produce the translation.",00:15:46.050,00:15:50.500
+"And so you can think of that decoder there
+as a conditional recurrent language model.",00:15:50.500,00:15:56.770
+"So it's essentially being a language
+model that's generating forward",00:15:56.770,00:16:00.094
+as a recurrent language model.,00:16:00.094,00:16:01.700
+"And the only difference from
+any other kind of recurrent or",00:16:01.700,00:16:05.609
+"neural language model is that you're
+conditioning on one other thing,",00:16:05.609,00:16:10.207
+"that you've calculated this Y
+based on the source sentence.",00:16:10.207,00:16:14.840
+"And that's the only
+architecture difference.",00:16:14.840,00:16:17.290
+"So if we then look down into
+the details a little bit,",00:16:18.410,00:16:21.673
+"there are different ways
+that you can do the encoder.",00:16:21.673,00:16:25.023
+"The most common way to do the encoder has
+been with these gated recurrent units,",00:16:25.023,00:16:30.534
+"whether the GRUs or the LSTMs,",00:16:30.534,00:16:32.681
+"which are another kind of gated recurrent
+unit that Richard talked about last time.",00:16:32.681,00:16:38.100
+"I mean, people have tried other things.",00:16:38.100,00:16:40.191
+"I mean the modern resurgence
+of neural machine translation,",00:16:40.191,00:16:44.431
+"actually the very first paper that
+tried to do it was this paper by",00:16:44.431,00:16:49.126
+"Nal Kalchbrenner and Phil Blunsom
+who now both work at DeepMind.",00:16:49.126,00:16:54.080
+And they actually for,00:16:54.080,00:16:55.525
+"their encoder they were using a recurrent
+sequence of convolutional networks.",00:16:55.525,00:17:00.992
+"Not the kind of gated recurrent
+networks that we talked about.",00:17:00.992,00:17:04.810
+"And sometime later in the course
+we'll talk a bit more",00:17:04.810,00:17:08.160
+"about convolutional networks and
+how they're used in language.",00:17:08.160,00:17:11.310
+"They're not nearly as much used
+in language, they're much,",00:17:11.310,00:17:14.425
+much more used in Vision.,00:17:14.425,00:17:15.732
+"And so if next quarter you do CS231N and
+get even more neural",00:17:15.732,00:17:20.322
+"networks then you'll spend way more of
+the time on convolutional networks.",00:17:20.322,00:17:25.300
+"But the one other idea I sort of
+wanted to just sort of put out",00:17:25.300,00:17:30.177
+"there is sort of another
+concept to be aware of.",00:17:30.177,00:17:34.460
+"So we have this Y that we've
+encoded the source with.",00:17:34.460,00:17:40.940
+"And then there's this
+question of how you use that.",00:17:40.940,00:17:44.320
+"So for the models that we've shown
+up until now and that Richard had,",00:17:44.320,00:17:49.366
+"essentially what happened was
+we calculated up to here.",00:17:49.366,00:17:53.547
+This was our y.,00:17:53.547,00:17:55.238
+"And we just used the y as the starting
+point of the hidden layer,",00:17:55.238,00:18:01.181
+and then we started to decode.,00:18:01.181,00:18:04.112
+"So this was effectively the Google
+tradition of the way of doing it,",00:18:04.112,00:18:08.918
+"the model that Sutskever
+et al proposed in 2014.",00:18:08.918,00:18:12.727
+"And so effectively, if you're doing
+it this way, you're putting most of",00:18:12.727,00:18:17.712
+"the pressure on the forget gates
+not doing too much forgetting.",00:18:17.712,00:18:22.190
+"Because you have the entire knowledge
+of the source sentence here.",00:18:22.190,00:18:27.001
+"And you have to make sure you're carrying
+enough of it along through the network.",00:18:27.001,00:18:31.926
+"That you'll be able to continue to access
+the source sentence's semantics all",00:18:31.926,00:18:36.816
+"the way through your generation
+of the target sentence.",00:18:36.816,00:18:40.463
+"So it's especially true in
+that case that you will really",00:18:40.463,00:18:45.430
+"lose badly if you got something
+like a plain recurrent neural",00:18:45.430,00:18:50.032
+"network which isn't very good
+at having a medium term memory.",00:18:50.032,00:18:53.808
+"And you can do much better
+with something like an LSTM.",00:18:53.808,00:18:57.045
+"Which is much more able to
+maintain a medium term memory with",00:18:57.045,00:19:00.995
+"the sort of ideas that Richard
+started to talk about.",00:19:00.995,00:19:04.550
+"But that isn't actually
+the only way of doing it.",00:19:05.660,00:19:09.270
+"And so the other pioneering work
+in neural machine translation",00:19:09.270,00:19:14.200
+"was work that was done at the University
+of Montreal by Kyunghyun Cho and",00:19:14.200,00:19:18.110
+"colleagues and
+that wasn't actually the way they did it.",00:19:18.110,00:19:21.213
+"The way they did it was once
+they'd calculated the Y as",00:19:21.213,00:19:25.071
+the representation of the source.,00:19:25.071,00:19:27.656
+"They fed that Y into every time step
+during the period of generation.",00:19:27.656,00:19:34.100
+"So when you were generating at each state,
+you were getting a hidden",00:19:34.100,00:19:38.190
+"representation which was kind
+of just your language model.",00:19:38.190,00:19:41.874
+And then you were getting two inputs.,00:19:41.874,00:19:43.571
+"You were getting one input which
+was the previous word, the x_t.",00:19:43.571,00:19:48.587
+"And then you were getting a second input,",00:19:48.587,00:19:50.733
+"which was the y that you
+were conditioning on.",00:19:50.733,00:19:53.136
+"So you were directly feeding that
+conditioning in at every time step.",00:19:53.136,00:19:57.326
+"And so then you're less dependent on
+having to sort of preserve it along",00:19:57.326,00:20:01.082
+the whole sequence.,00:20:01.082,00:20:03.030
+"And in a way having the input
+available at every time step,",00:20:03.030,00:20:07.954
+that seems to be a useful idea.,00:20:07.954,00:20:10.577
+"And so that's actually the idea that will
+come back when I talk about attention.",00:20:10.577,00:20:15.046
+"That attention is again going to give
+us a different mechanism of getting at",00:20:15.046,00:20:19.820
+the input when we need it.,00:20:19.820,00:20:21.500
+And to being able to condition on it.,00:20:21.500,00:20:23.070
+"Let me just sort of give you
+a couple more pictures and",00:20:24.350,00:20:28.958
+"a sense of how exciting neural
+machine translation has been.",00:20:28.958,00:20:34.421
+"So for machine translation,
+there are a couple of prominent",00:20:34.421,00:20:39.215
+"evaluations of machine
+translation that are done.",00:20:39.215,00:20:43.356
+"But I mean I think the most prominent
+one has been done by what's called",00:20:43.356,00:20:47.014
+the workshop on machine translation.,00:20:47.014,00:20:49.290
+Which has a yearly evaluation.,00:20:49.290,00:20:51.235
+And so this is showing results from that.,00:20:51.235,00:20:54.033
+"And most of the results shown
+are the results from Edinburgh Systems.",00:20:54.033,00:20:58.326
+"And the University of Edinburgh's
+traditionally been one of the strongest",00:20:58.326,00:21:02.200
+universities at doing machine translation.,00:21:02.200,00:21:04.570
+And they have several systems.,00:21:04.570,00:21:06.600
+"And so what we can see from these results,
+up is good of machine translation quality.",00:21:06.600,00:21:13.045
+"So we have the phrase-based syntactic
+machine translation systems",00:21:13.045,00:21:18.204
+"which is the kind of thing that you saw
+on Google Translate until November 2016.",00:21:18.204,00:21:24.513
+"That although they work reasonably,",00:21:24.513,00:21:27.825
+"there is sort of a feeling that
+although they are a pioneering",00:21:27.825,00:21:32.904
+"a good use of large data
+machine learning systems.",00:21:32.904,00:21:37.351
+That they had kind of stalled.,00:21:37.351,00:21:41.000
+"So there really was very little
+progress in phrase-based machine",00:21:41.000,00:21:45.206
+translation systems in recent years.,00:21:45.206,00:21:47.692
+"Until neural machine translation came
+along, the idea that people were most",00:21:47.692,00:21:52.506
+"actively exploring was building
+syntax-based statistical machine",00:21:52.506,00:21:56.955
+"translation systems, which made more
+use of the structure of language.",00:21:56.955,00:22:02.310
+"They were improving a little bit
+more quickly but not very quickly.",00:22:02.310,00:22:06.990
+"How quickly kind of partly depends
+on how you draw that line.",00:22:06.990,00:22:11.100
+"It sort of depends on whether
+you believe 2015 was a fluke or",00:22:11.100,00:22:15.540
+"whether I should draw the line as I have,
+in the middle between them.",00:22:15.540,00:22:20.270
+"But you got slightly more slope,
+then not a lot.",00:22:20.270,00:22:23.010
+"But so compared to those two things,",00:22:23.010,00:22:25.079
+"I mean actually just this amazing thing
+happened with neural machine translation.",00:22:25.079,00:22:29.839
+"So it was only in 2014,
+after the WMT evaluation,",00:22:29.839,00:22:34.380
+that people started playing with.,00:22:34.380,00:22:37.354
+"Could we build an end-to-end
+neural machine translation system?",00:22:37.354,00:22:41.441
+"But then extremely quickly,
+people were able to build these systems.",00:22:41.441,00:22:46.163
+"And so by 2016 they were clearly winning
+in the workshop and machine translation.",00:22:46.163,00:22:53.210
+"In terms of how much slope you have for
+improvement,",00:22:53.210,00:22:56.340
+that the slope is extremely high.,00:22:56.340,00:22:58.412
+"And indeed the numbers are kind of
+continuing to go up too in the last year.",00:22:58.412,00:23:03.895
+So that's actually been super exciting.,00:23:03.895,00:23:06.632
+As I say in the next slide.,00:23:06.632,00:23:08.899
+"That so
+neural MT really went from this sort of,",00:23:08.899,00:23:12.804
+"fringe research activity of let's try this
+and see if it could possibly work in 2014.",00:23:12.804,00:23:20.069
+"To two years later,",00:23:20.069,00:23:21.361
+"it had become this is the way that
+you have to do machine translation.",00:23:21.361,00:23:25.783
+"Because it just works better
+than everything else.",00:23:25.783,00:23:30.102
+"So I'll say more about
+machine translation.",00:23:30.102,00:23:32.257
+"But I thought I'd just highlight
+at the beginning, well,",00:23:32.257,00:23:35.716
+"why do we get these big wins
+from neural machine translation?",00:23:35.716,00:23:39.327
+"And I think there are maybe
+sort of four big wins.",00:23:39.327,00:23:42.200
+"At any rate,
+this is my attempt at dividing it up.",00:23:42.200,00:23:45.800
+So the first big win,00:23:45.800,00:23:48.390
+"is the fact that you're just
+training these models end-to-end.",00:23:48.390,00:23:51.950
+"So if you can train all parameters
+of the model simultaneously for",00:23:51.950,00:23:57.094
+one target driven loss function.,00:23:57.094,00:23:59.614
+"That's just proved
+a really powerful notion.",00:23:59.614,00:24:03.820
+"And indeed I think quite a lot of
+the success of deep learning systems is",00:24:03.820,00:24:08.831
+"that because we have these sort
+of big computational flow graphs",00:24:08.831,00:24:13.950
+"that we can optimize everything over
+in one big back propagation process.",00:24:13.950,00:24:19.427
+So it's easy to do end to end training.,00:24:19.427,00:24:21.872
+"But that's been a very productive
+way to do end to end training.",00:24:21.872,00:24:26.132
+"And it's the end to end training
+more than neural nets are magical.",00:24:26.132,00:24:31.549
+"I think sometimes they're just
+given enormous amounts of power to",00:24:31.549,00:24:34.984
+these systems.,00:24:34.984,00:24:35.850
+But there are other factors as well.,00:24:35.850,00:24:37.940
+"So as we stressed a lot,",00:24:37.940,00:24:39.522
+"these distributed representations
+are actually just worth a ton.",00:24:39.522,00:24:44.048
+"So that they allow you to kind of
+share statistical strength between",00:24:44.048,00:24:48.763
+"similar words, similar phrases.",00:24:48.763,00:24:51.253
+"And you can exploit that to
+just get better predictions,",00:24:51.253,00:24:54.377
+and that's given a lot of improvement.,00:24:54.377,00:24:57.240
+"A third big cause of improvement
+has been these neural MT",00:24:57.240,00:25:01.660
+"systems are just much better
+at exploiting context.",00:25:01.660,00:25:06.220
+"So Richard briefly mentioned
+traditional language models.",00:25:06.220,00:25:09.388
+"So those were things like four gram and
+five gram models which were just",00:25:09.388,00:25:14.094
+"done on counts of how often
+sequences of words occurred.",00:25:14.094,00:25:17.940
+"And those were very useful parts
+of machine translation systems.",00:25:17.940,00:25:23.521
+"But the reality was that
+the language models on",00:25:23.521,00:25:27.445
+"the generation side only
+used a very short context.",00:25:27.445,00:25:32.180
+And when you are translating words and,00:25:32.180,00:25:34.360
+"phrases that the standard systems
+did that completely context free.",00:25:34.360,00:25:38.400
+"So the neural machine translation systems
+are just able to use much more context and",00:25:38.400,00:25:43.581
+that means that they can do a lot better.,00:25:43.581,00:25:46.147
+"And there's an interesting way
+in which these things kind of",00:25:46.147,00:25:49.349
+go together in a productive way.,00:25:49.349,00:25:51.117
+"So precisely the reason why your
+machine translation systems can",00:25:51.117,00:25:55.831
+practically use much more context.,00:25:55.831,00:25:58.497
+"Is because there are these distributed
+representations that allow you",00:25:58.497,00:26:02.507
+to share statistical strength.,00:26:02.507,00:26:04.390
+"Effectively you could never use more
+context in traditional systems.",00:26:04.390,00:26:08.581
+"Because you were using these
+one-hot representations of words.",00:26:08.581,00:26:12.342
+"And therefore you couldn't build more than
+five gram models usefully because you were",00:26:12.342,00:26:17.143
+"just being killed by
+the sparseness of the data.",00:26:17.143,00:26:20.325
+"And then the fourth thing that
+I want to call out is sort of",00:26:20.325,00:26:24.943
+really related to all of one two or three.,00:26:24.943,00:26:28.400
+"But I think it's just sort
+of worth calling out.",00:26:28.400,00:26:30.750
+"Is something really powerful
+that's happened in the last couple",00:26:30.750,00:26:35.305
+of years with neural NLP methods.,00:26:35.305,00:26:37.719
+"Is that they've proven to just be
+extremely good for generating fluent text.",00:26:37.719,00:26:44.089
+"So, I think it's fair to say
+that the field of sort of",00:26:44.089,00:26:49.149
+"natural language generation was sort
+of fairly moribund in the 2000s decade.",00:26:49.149,00:26:57.220
+"Because although there were sort
+of simple things that you can do,",00:26:57.220,00:27:00.638
+"writing a printf,
+that's a text generation method.",00:27:00.638,00:27:03.948
+"[LAUGH] But people could do a bit
+better than that with grammar driven",00:27:03.948,00:27:07.463
+text generation and so on.,00:27:07.463,00:27:09.130
+"But there really were not a lot of good
+ideas as how to produce really good,",00:27:09.130,00:27:13.267
+high quality natural language generation.,00:27:13.267,00:27:15.819
+"Whereas, it's just proven
+extremely easy and productive.",00:27:15.819,00:27:20.262
+"To do high-quality,",00:27:20.262,00:27:21.812
+"natural language generation using
+these neural language models.",00:27:21.812,00:27:26.470
+"Because it's very easy for
+them to use big contexts,",00:27:26.470,00:27:29.651
+"condition on other goals at the same time,
+and they work really well.",00:27:29.651,00:27:33.829
+"And so one of the big reasons why
+neural machine translation has been so",00:27:33.829,00:27:38.400
+successful and the results look very good.,00:27:38.400,00:27:41.280
+"Is that the text that they're
+generating is very fluent.",00:27:41.280,00:27:45.099
+"In fact it's sometimes the case
+that the actual quality",00:27:45.099,00:27:48.957
+of the translation is worse.,00:27:48.957,00:27:51.018
+"That the quality of the generation
+in terms of fluency is much better.",00:27:51.018,00:27:55.840
+"It's also worth knowing
+what's not on that list.",00:27:57.520,00:28:00.502
+"So one thing that's not on that list,
+that's a good thing,",00:28:00.502,00:28:04.207
+"is we don't have any separate
+black box component models for",00:28:04.207,00:28:07.660
+"things like reordering and
+transliteration and things like that.",00:28:07.660,00:28:11.840
+"And traditional statistical MT systems
+have lots of these separate components.",00:28:11.840,00:28:17.020
+"You had lexicalized reordering components
+and distortion models and this models and",00:28:17.020,00:28:21.870
+that models.,00:28:21.870,00:28:22.870
+"And getting rid of all of that with
+this end to end system is great.",00:28:22.870,00:28:27.455
+"There are some other things
+that are not so great.",00:28:27.455,00:28:30.019
+"That our current NMT models really make
+no use of any kind of explicit syntax or",00:28:30.019,00:28:35.366
+semantics.,00:28:35.366,00:28:36.850
+"You could sort of say, well maybe some
+interesting stuff is happening inside",00:28:36.850,00:28:39.990
+the word vectors and maybe it is.,00:28:39.990,00:28:42.030
+"Sorry, there are current
+hidden state vectors and",00:28:42.030,00:28:44.980
+"maybe it is, but it's sort of unclear.",00:28:44.980,00:28:47.710
+"But actually this is something
+that has started to be worked on.",00:28:47.710,00:28:50.029
+"There have been a couple of papers
+that have come out just this year.",00:28:50.029,00:28:52.959
+"Where people are starting to put more
+syntax into neural machine translation",00:28:52.959,00:28:57.325
+"models, and
+are getting gains from doing so.",00:28:57.325,00:28:59.820
+"So I think that's something
+that will revive itself.",00:28:59.820,00:29:04.112
+"Also another huge failing of machine
+translation, has been a lot of the errors.",00:29:04.112,00:29:09.485
+"That higher level textual
+notions are really badly done",00:29:09.485,00:29:13.373
+by machine translation systems.,00:29:13.373,00:29:16.020
+"So those are things of sort of discourse
+structure, clause linking, anaphora and",00:29:16.020,00:29:20.440
+things like that.,00:29:20.440,00:29:21.710
+And we haven't solved those ones.,00:29:21.710,00:29:24.070
+"Yeah, so that's been the general picture.",00:29:25.170,00:29:28.622
+"Before going on, one of the things we
+haven't done very much of in this class.",00:29:28.622,00:29:34.444
+"Is actually looking at linguistic
+examples and having language on slide.",00:29:34.444,00:29:39.660
+"So I thought I'd do at least one
+sentence of machine translation.",00:29:39.660,00:29:44.650
+"And I kind of guessed that
+the highest density of",00:29:44.650,00:29:48.190
+"knowledge of another language
+in my audience is Chinese.",00:29:48.190,00:29:51.430
+So we're doing Chinese.,00:29:51.430,00:29:53.732
+And this is my one sentence test set for,00:29:53.732,00:29:58.760
+Chinese to English machine translation.,00:29:58.760,00:30:04.428
+"So I guess back in the mid 2000s,",00:30:04.428,00:30:07.667
+"we were doing Chinese to
+English machine translation.",00:30:07.667,00:30:13.050
+"And there was this evaluation
+that we did kind of badly on.",00:30:13.050,00:30:16.590
+"And one of the sentences that we
+translated terribly was this sentence.",00:30:16.590,00:30:21.699
+"And ever since then, I've been using
+this as my one sentence evaluation set.",00:30:21.699,00:30:25.891
+"So I guess this sentence, it actually
+comes from Jared Diamond's book,",00:30:25.891,00:30:31.614
+"Guns, Germs, and Steel.",00:30:31.614,00:30:34.010
+"So in a sense it's sort of a funny one
+since it's starting with the Chinese",00:30:34.010,00:30:37.660
+translation of Jared Diamond's text.,00:30:37.660,00:30:40.600
+"And then we're trying to translate it
+back into English, but never mind!",00:30:40.600,00:30:44.386
+That's our sentence for now.,00:30:44.386,00:30:45.858
+So what have we got here?,00:30:45.858,00:30:47.329
+"So this is the 1519 year,",00:30:47.329,00:30:50.813
+there were 600 Spanish people and,00:30:50.813,00:30:55.509
+their landing in Mexico.,00:30:55.509,00:30:58.849
+"And then we've got ""to conquer"".",00:30:58.849,00:31:01.250
+"And the first bit I want to focus
+on is then this next bit here.",00:31:01.250,00:31:05.650
+"The several million population
+of the Aztec Empire.",00:31:05.650,00:31:12.110
+"And so, what you get in Chinese is so
+here's our ""Aztec Empire"".",00:31:13.340,00:31:19.310
+"So in general in Chinese all modifiers
+of a noun are appearing before the noun.",00:31:19.310,00:31:25.850
+"And Chinese has this really handy little
+morpheme right here, the [FOREIGN].",00:31:25.850,00:31:29.692
+"This is saying the thing
+that comes before it,",00:31:29.692,00:31:35.330
+"shown in that brownish color, is
+a modifier of this noun that follows it.",00:31:35.330,00:31:40.820
+"And this one's saying the sort
+of several million population.",00:31:40.820,00:31:44.695
+"So it's the Aztec Empire with
+the population of a few million.",00:31:44.695,00:31:48.826
+"And there's this very specific linguistic
+marker that tells you how you're meant to",00:31:48.826,00:31:53.489
+translate it.,00:31:53.489,00:31:54.820
+"And then after that We
+then got the part here,",00:31:54.820,00:32:00.340
+"where then we've got so
+first time confronted them,",00:32:00.340,00:32:04.790
+"losses, two-thirds.",00:32:06.370,00:32:09.210
+"And so that's just sort of tacked
+on to the end of the sentence, so",00:32:09.210,00:32:12.680
+"they lost two-thirds of their
+soldiers in the first clash.",00:32:12.680,00:32:16.530
+"This is just an interesting
+thing in how translation works.",00:32:16.530,00:32:20.590
+"So you could in an English translation try
+and tack that onto the end of the sentence",00:32:20.590,00:32:26.330
+"and sort of say ""losing two thirds of
+their soldiers in the first clash"" or",00:32:26.330,00:32:31.800
+"""and they lost two thirds of their
+soldiers in the first clash"".",00:32:31.800,00:32:35.990
+"But neither of those sound
+very good in English.",00:32:35.990,00:32:38.780
+"So, below here what we
+have is the reference",00:32:38.780,00:32:42.060
+"translation which is where we got some
+competent human to translate this.",00:32:42.060,00:32:46.920
+"And so, interestingly what they did and
+I think correctly actually here is that",00:32:46.920,00:32:51.410
+"they decide it would actually be much
+better to make this into two sentences.",00:32:51.410,00:32:55.810
+"And so, they put in a period and
+then they made a second sentence.",00:32:55.810,00:32:59.450
+"They lost two thirds of their
+soldiers in the first clash.",00:32:59.450,00:33:02.822
+"Okay, so
+I won't tell you a bad translation, but",00:33:02.822,00:33:06.354
+"every year since I've been running
+since this sentence through Google and",00:33:06.354,00:33:11.417
+so I'll show you the Google translations.,00:33:11.417,00:33:14.880
+"So on 2009, this is what Google produced.",00:33:14.880,00:33:19.110
+"1519, 600 Spaniards landed in Mexico.",00:33:19.110,00:33:23.020
+So that start's not very good.,00:33:23.020,00:33:25.420
+"But if we go in particular
+to this focus part,",00:33:25.420,00:33:28.220
+"millions of people to
+conquer the Aztec empire.",00:33:28.220,00:33:31.490
+"No, that's not correct.",00:33:31.490,00:33:33.670
+"And well it's getting some of the words
+right but it's completely not making any",00:33:33.670,00:33:38.660
+"use of the structure of
+the sentence in Chinese.",00:33:38.660,00:33:43.630
+And it doesn't get much better.,00:33:43.630,00:33:45.270
+"The first two-thirds of
+soldiers against their loss.",00:33:45.270,00:33:50.311
+"Okay, so we can go on to 2011.",00:33:50.311,00:33:53.814
+"I left some of them out so
+he font size stayed vaguely readable.",00:33:53.814,00:33:58.600
+So it changes a bit but not really.,00:33:58.600,00:34:00.440
+"1519, 600 Spaniards landed in Mexico.",00:34:00.440,00:34:03.540
+"Millions of people to
+conquer the Aztec empire.",00:34:03.540,00:34:05.820
+"The initial loss of soldiers
+two-thirds of their encounters.",00:34:05.820,00:34:09.440
+"So that last bit may be a fraction
+better but the rest of it is no better.",00:34:09.440,00:34:13.397
+"In 2013, it seemed like they might
+have made a bit of progress.",00:34:13.397,00:34:17.732
+"1519 600 Spaniards landed in Mexico
+to conquer the Aztec empire,",00:34:17.732,00:34:23.176
+hundreds of million of people.,00:34:23.176,00:34:25.760
+It's unclear if it's made progress.,00:34:25.760,00:34:27.183
+"The fact that you can read the to conquer
+the Aztec empire has mean the Spaniards",00:34:27.183,00:34:31.407
+"sort of means it might have made some
+progress but then after that they",00:34:31.407,00:34:35.119
+"just dump the hundreds of millions
+of people between two commas.",00:34:35.119,00:34:38.577
+"And so it's really not quite
+clear what that's doing but",00:34:38.577,00:34:42.351
+"it sort of seemed like whatever that
+change that was just kind of luck because",00:34:42.351,00:34:47.380
+"in 2014 it sort of switch back 1519
+600 Spaniards landed in Mexico,",00:34:47.380,00:34:52.647
+"millions of people to
+conquer the Aztec empire,",00:34:52.647,00:34:55.871
+"the first two-thirds of the loss
+of soldiers they clash.",00:34:55.871,00:34:59.760
+"And not only that interestingly
+when I ran it again in 2015 and",00:35:01.680,00:35:07.968
+"2016, the translation
+didn't change at all.",00:35:07.968,00:35:13.425
+"So I don't know what all the people were
+doing on the Google MT translation team in",00:35:13.425,00:35:18.480
+"2015 and 2016, but they definitely weren't
+making progress in Chinese translation.",00:35:18.480,00:35:24.180
+"And I think this sort of
+reflects as if the feeling",00:35:24.180,00:35:27.120
+that the system wasn't really progressing.,00:35:27.120,00:35:29.110
+"That they sort of built the models and
+mined all the data they could for",00:35:29.110,00:35:34.388
+"their Chinese English MT system
+that wasn't getting any better.",00:35:34.388,00:35:39.486
+"So then in late 2016, Google rolled out
+their neural machine translation system,",00:35:39.486,00:35:44.407
+"which you're gonna hear
+more about in a moment.",00:35:44.407,00:35:47.143
+"And there's actual and
+distinct signs of progress.",00:35:47.143,00:35:51.110
+"So in 1519 600,
+Spaniards landed in Mexico.",00:35:51.110,00:35:54.779
+"So the beginning of it is a lot better
+'cause the whole time it'd just been",00:35:54.779,00:35:59.245
+"plunking down 1519 and 600,
+which wasn't a very promising beginning.",00:35:59.245,00:36:04.790
+"In the Chinese there's no word for
+""in"", right?",00:36:04.790,00:36:07.879
+"So this character here is ""year"", right?",00:36:07.879,00:36:09.671
+"So it's sort of 1519 year,
+600 people, Spanish people, right?",00:36:09.671,00:36:16.450
+"But clearly in English you wanna be
+putting in it in there and say in 1519.",00:36:16.450,00:36:21.145
+"But somehow Google it never manage
+to get that right where you might",00:36:21.145,00:36:25.090
+have thought it could.,00:36:25.090,00:36:26.170
+"But now it is, right?",00:36:26.170,00:36:27.670
+"In 1519 comma, great beginning, and",00:36:27.670,00:36:30.210
+"it continues much better 600
+Spaniards landed in Mexico",00:36:30.210,00:36:34.820
+"to conquer the millions of people of the
+Aztec empire, this is getting really good.",00:36:34.820,00:36:39.670
+"Neural machine translation is much,
+much better.",00:36:39.670,00:36:42.250
+But there is still some work to do.,00:36:42.250,00:36:44.438
+"I guess this last part is kind of
+difficult in a sense the way it's so",00:36:44.438,00:36:49.199
+tacked on to the end of the sentence.,00:36:49.199,00:36:51.848
+"But you're right,
+it still isn't working very well for",00:36:51.848,00:36:54.824
+"that cuz they've just tacked on the first
+confrontation they killed two-thirds,",00:36:54.824,00:36:59.226
+"which sort of it seems to be
+the wrong way around because",00:36:59.226,00:37:02.078
+"that's suggesting they killed
+two-thirds of the Aztecs.",00:37:02.078,00:37:05.490
+"Whereas meant to be that they
+lost two thirds of the Spaniards.",00:37:05.490,00:37:09.910
+"So there's still work to be done from
+proving neural machine translation.",00:37:09.910,00:37:13.860
+"But, I do actually think that that's
+showing very genuine progress and that's,",00:37:13.860,00:37:18.740
+"in general, what's been shown.",00:37:18.740,00:37:20.710
+"So neural machine translation
+has just given big gains.",00:37:20.710,00:37:24.440
+"It's been aggressively
+rolled out by industry.",00:37:24.440,00:37:27.260
+"So actually the first
+people who rolled out",00:37:27.260,00:37:29.269
+neural machine translation was Microsoft.,00:37:30.520,00:37:32.750
+"So in February 2016, Microsoft",00:37:32.750,00:37:37.560
+"launched neural machine translation
+on Android phones no less.",00:37:37.560,00:37:42.480
+"And another of the huge selling points
+of neural machine translation systems,",00:37:42.480,00:37:47.180
+"is that they're actually
+massively more compact.",00:37:47.180,00:37:50.010
+"So that they were able to build a neural
+machine translation system that actually",00:37:50.010,00:37:54.600
+ran on the cellphone.,00:37:54.600,00:37:56.600
+"And actually that's a very useful
+use case, 'cause the commonest",00:37:56.600,00:38:01.380
+"time when people want machine translation
+is when they're not in their home country.",00:38:01.380,00:38:06.350
+And at that point it depends.,00:38:06.350,00:38:07.790
+"But a lot of people don't actually have
+cell plans that work in foreign countries,",00:38:07.790,00:38:11.760
+at decent prices.,00:38:11.760,00:38:13.190
+"And so it's really useful to be able to
+run your MT system just on the phone.",00:38:13.190,00:38:16.960
+"And that was sort of essentially
+never possible with the huge",00:38:16.960,00:38:20.160
+"kind of look up tables of phrase
+based systems it is now possible.",00:38:20.160,00:38:24.040
+"Systran is a veteran old MT company
+that also launched this system.",00:38:24.040,00:38:29.290
+"And then Google launched their
+neural machine translation system",00:38:29.290,00:38:34.220
+"with massively more hype than
+either of the two predecessors,",00:38:34.220,00:38:38.690
+"including some huge overclaims of
+equaling human translation quality.",00:38:38.690,00:38:44.490
+"Which we've just seen still isn't true,",00:38:44.490,00:38:46.560
+"based on my one sentence test set,
+that they still have some work to do.",00:38:46.560,00:38:50.800
+"But on the other hand,
+they did publish a really interesting",00:38:50.800,00:38:56.210
+"paper on the novel research that they've
+done on neural machine translation.",00:38:56.210,00:39:00.920
+"And so for the research highlight
+today Emma is gonna talk about that.",00:39:00.920,00:39:04.728
+"&gt;&gt; Hi, today I'm gonna talk about Google's",00:39:12.994,00:39:16.277
+"multi lingual NMT system which
+enables zero shot translation.",00:39:16.277,00:39:21.980
+"So as we have seen in the lecture,
+this is the standard architecture for",00:39:21.980,00:39:25.561
+"an NMT system which you have
+an encoder and a decoder.",00:39:25.561,00:39:28.260
+"However, this thin architecture supports
+only bilingual translation, meaning",00:39:28.260,00:39:32.220
+"that we can have only one specific source
+language and one specific target language.",00:39:32.220,00:39:36.306
+"So what if you want to have a system
+that's able to do multilingual",00:39:36.306,00:39:39.412
+translation?,00:39:39.412,00:39:40.152
+"Meaning that we can have multiple source
+languages and multiple target languages.",00:39:40.152,00:39:44.470
+"So previously people have proposed
+several different approaches.",00:39:44.470,00:39:47.920
+"The first one, they proposed to have
+multiple different encoders and",00:39:47.920,00:39:51.130
+multiple different decoders.,00:39:51.130,00:39:52.740
+"Where each pair correspond to one specific
+pair of source and target languages.",00:39:52.740,00:39:57.370
+"And the second one that proposed to
+have a shared encoder that works for",00:39:57.370,00:40:01.380
+"one specific source language, but",00:40:01.380,00:40:03.340
+"have different decoders to decode
+into different target languages.",00:40:03.340,00:40:07.950
+"And they also have proposed
+the third one is they have",00:40:07.950,00:40:11.940
+"multiple different encoders to work for
+different source languages and",00:40:11.940,00:40:15.350
+"wants a single shared decoder to work for
+more specific target language.",00:40:15.350,00:40:19.690
+"So what's so special about
+Google's multilingual NMT system?",00:40:20.800,00:40:25.340
+"So first of all,",00:40:25.340,00:40:26.080
+"it's really simple because here we only
+need one single model that is able to",00:40:26.080,00:40:30.590
+"translate from different source languages
+to different target languages, and",00:40:30.590,00:40:35.740
+"because of the simplicity the system can
+trivially scale up to more language pairs.",00:40:35.740,00:40:42.360
+"And second, the system improves
+the translation quality for",00:40:42.360,00:40:45.770
+low resource language.,00:40:45.770,00:40:46.730
+"So because the progress of the model
+are shared implicitly and so",00:40:47.800,00:40:52.110
+"the model is forced to generalize
+across language boundaries.",00:40:52.110,00:40:55.730
+"So it's observed that if we train
+the language that has very little training",00:40:55.730,00:40:59.560
+"data with a language pair that
+has a lot of training data in one",00:40:59.560,00:41:04.430
+"single model, the translation quality for",00:41:04.430,00:41:06.970
+"the low-resourced language
+is significantly improved.",00:41:06.970,00:41:09.479
+"And also the system is able to
+perform zero-shot translation.",00:41:10.510,00:41:14.320
+"Meaning that the model can
+inclusively translate for",00:41:14.320,00:41:17.406
+"the language pairs it has never
+seen during training time.",00:41:17.406,00:41:20.300
+"For example, if we train a model
+on Portuguese to English and",00:41:20.300,00:41:24.830
+"English to Spanish data,
+the model is able to",00:41:24.830,00:41:29.630
+"generate reasonable translation for
+Portuguese to Spanish directly.",00:41:29.630,00:41:33.780
+"Without seeing any data for
+the language pair during training time.",00:41:33.780,00:41:37.290
+"And this is the architecture for
+the models.",00:41:38.910,00:41:42.080
+"As we can see, this is kind of
+the standard architecture for",00:41:42.080,00:41:45.270
+the state-of-the-art NMT system.,00:41:45.270,00:41:47.984
+"Where we have multiple stacked layers of
+LSTMs for both decoders and encoders and",00:41:47.984,00:41:53.220
+"those applied attention mechanism which
+we will talk about later in a lecture.",00:41:53.220,00:41:57.400
+"So what is the magic here that enables the
+system to do a multilingual translation?",00:41:57.400,00:42:01.870
+"So it turns out instead of trying to
+modify the architecture, they instead",00:42:02.920,00:42:07.350
+"modified the input data, by adding the
+special artificial token at the beginning",00:42:07.350,00:42:13.010
+"of every input sentence, to indicate what
+target language you want to translate to.",00:42:13.010,00:42:17.860
+"So for example, if you wanna
+translate from English to Spanish,",00:42:17.860,00:42:20.800
+"we simple add this &lt;2es&gt; token to indicate
+that Spanish is the target language.",00:42:20.800,00:42:25.810
+"And after adding this artificial token,
+we simply just put together",00:42:25.810,00:42:29.450
+"all of the multi-lingual data and
+just start training.",00:42:29.450,00:42:32.430
+"With this simple trick,",00:42:35.312,00:42:37.570
+"the system is able to surpass
+the state-of-the-art performance for",00:42:37.570,00:42:41.590
+"English to German, French to English,
+and German to English translation.",00:42:41.590,00:42:46.630
+"And they have comparable performance for
+English to French translation.",00:42:46.630,00:42:49.822
+Both on the WMT benchmark.,00:42:51.050,00:42:53.240
+"So and here's a little more detail
+about a zero-shot translation.",00:42:54.570,00:42:58.940
+The setting is like this.,00:42:58.940,00:43:00.240
+"So during training time we train
+a model on Portuguese to English and",00:43:00.240,00:43:03.920
+English to Spanish data.,00:43:03.920,00:43:05.590
+"But during test time we ask the model
+to perform Portuguese to Spanish",00:43:05.590,00:43:09.070
+translation directly.,00:43:09.070,00:43:10.780
+"And it's shown here that the model
+is able to have comparable",00:43:10.780,00:43:14.963
+"performance as the phrase based
+machine translation system.",00:43:14.963,00:43:19.620
+And also the NMT system with bridging.,00:43:19.620,00:43:22.418
+"And also with a little bit
+of incremental training.",00:43:22.418,00:43:24.720
+"Meaning that we add a little bit of data
+for the Portuguese to Spanish translation.",00:43:24.720,00:43:32.250
+"The model is able to surpass all
+of the other models listed above.",00:43:32.250,00:43:36.620
+"And that's all, thank you.",00:43:37.630,00:43:44.645
+"[APPLAUSE]
+&gt;&gt; So",00:43:44.645,00:43:45.570
+"I think that actually is
+a really amazing result.",00:43:45.570,00:43:48.772
+"I mean, in some sense,",00:43:48.772,00:43:53.430
+"it's actually realizing a long-held
+dream of machine translation.",00:43:53.430,00:43:58.090
+"So a traditional problem
+with machine translation has",00:43:58.090,00:44:02.870
+"always been that if you'd like to be able
+to translate between a lot of languages,",00:44:02.870,00:44:07.780
+"or you're then in a product space
+of number of systems, right.",00:44:07.780,00:44:11.050
+"So if you'd like to support around
+80 languages as Google does.",00:44:11.050,00:44:15.610
+"That if you wanna allow translation
+between any pairs straightforwardly you",00:44:15.610,00:44:19.470
+"have to build 6,400 machine
+translation systems.",00:44:19.470,00:44:23.240
+"And that's a lot of machine
+translation systems.",00:44:23.240,00:44:26.020
+And they never quite did that.,00:44:26.020,00:44:27.810
+That was a reference to bridging.,00:44:27.810,00:44:29.690
+"So if something was being bridged,
+what that effectively meant for",00:44:29.690,00:44:33.880
+"Google was you were translating
+twice via an intermediate",00:44:33.880,00:44:36.860
+"language where the intermediate
+language was normally English.",00:44:36.860,00:44:39.890
+"So the goal has for
+a long time has been in MT,",00:44:39.890,00:44:42.948
+"is to achieve this dream
+of an interlingua.",00:44:42.948,00:44:46.680
+"So that if you had an interlingua in the
+middle you have to translate each language",00:44:46.680,00:44:51.330
+"to and from the interlingua, so you only
+need 80 encoders and 80 decoders, so",00:44:51.330,00:44:55.970
+it's then the number of languages.,00:44:55.970,00:44:58.290
+"And that has sort of never been very
+successful, which is why effectively",00:44:58.290,00:45:03.310
+"people just sort of build all
+of these bilingual systems but",00:45:03.310,00:45:06.840
+"this system is now sort of
+illustrating how you can actually have",00:45:06.840,00:45:11.700
+"the encodings of neural MT system
+be an effective interlingua.",00:45:11.700,00:45:16.200
+"Okay, so now on to the main technical
+content to get through today,",00:45:17.680,00:45:22.720
+is introducing this idea of attention.,00:45:22.720,00:45:25.690
+"So what's the problem
+we want to deal with?",00:45:25.690,00:45:28.080
+"So if we're into the sort of
+vanilla sequence to sequence,",00:45:28.080,00:45:31.844
+encoder-decoder model.,00:45:31.844,00:45:33.900
+"We have this problem because
+our only representation of",00:45:33.900,00:45:39.650
+"the input is this sort of one
+fixed-dimensional representation Y",00:45:39.650,00:45:44.980
+"which was sort of the state
+that our encoder was last in.",00:45:44.980,00:45:50.840
+"And so,
+we need to kind of carry that through",00:45:50.840,00:45:54.500
+"our entire generation of
+our translation sentence.",00:45:54.500,00:45:58.180
+"And that seems like it might be
+a difficult thing to do, and",00:45:58.180,00:46:04.160
+"indeed, what was shown was that was
+indeed a difficult thing to do and",00:46:04.160,00:46:09.435
+"so what people found is
+that this initial neural",00:46:09.435,00:46:12.755
+"machines translations systems
+worked well on short sentences.",00:46:12.755,00:46:17.315
+"But if you tried to use them to translate
+very long sentences, that their",00:46:17.315,00:46:21.548
+"performance started to tank and I'll show
+you some numbers on that later; And so",00:46:21.548,00:46:27.000
+"the idea that people came up with and
+this idea was actually first proposed for",00:46:27.000,00:46:32.540
+"vision but was then moved over and
+tried for neural",00:46:32.540,00:46:37.220
+"machine translation by Kyunghyun Cho and
+colleagues at Montreal, was to say,",00:46:37.220,00:46:41.625
+"well instead of saying that
+our Y that we generate",00:46:41.625,00:46:46.260
+"from is just the last hidden states,
+why don't we say all of the hidden states",00:46:46.260,00:46:51.990
+"of the entire encoding
+process are available to us.",00:46:51.990,00:46:56.490
+"And so
+we sort of have this pool of source states",00:46:56.490,00:46:59.300
+"that we can draw from
+to do the translation.",00:46:59.300,00:47:02.250
+"And so then when we're
+translating any particular word,",00:47:02.250,00:47:06.560
+"we then want to work out which
+of those ones to draw from.",00:47:06.560,00:47:11.390
+"So effectively,
+the pool of source states becomes kind",00:47:11.390,00:47:16.030
+"of like a random access memory which the
+neural network is then going to be able",00:47:16.030,00:47:21.220
+"to retrieve from as needed when
+it wants to do its translation.",00:47:21.220,00:47:25.490
+"And it'll find some stuff from it and
+use it for translating each word.",00:47:25.490,00:47:30.160
+"And so attention for
+neural machine translation is one specific",00:47:31.160,00:47:35.530
+"instantiation of this, but in general this
+sort of builds into a bigger concept that",00:47:35.530,00:47:40.870
+"has actually been a very exciting concept
+in recent neural networks research and",00:47:40.870,00:47:46.390
+"I know at least a couple of Groups
+are interested in doing for",00:47:46.390,00:47:49.200
+"their final projects is
+this idea of can we augment",00:47:49.200,00:47:52.830
+neural networks with a memory on the side.,00:47:53.830,00:47:57.580
+"So that we cannot only lengthen our
+short term memory with an LSTM, but",00:47:57.580,00:48:01.935
+"we can actually have a much
+longer term memory that",00:48:01.935,00:48:04.555
+we can access stuff from as we need it.,00:48:04.555,00:48:06.995
+"And attention is a simple
+form of doing that.",00:48:06.995,00:48:09.825
+"And then some of the more recent work like
+neural turing machines is trying to do",00:48:09.825,00:48:14.296
+"more sophisticated forms of read-write
+memories augmenting neural networks.",00:48:14.296,00:48:19.860
+"Okay, so if we want to retrieve as needed,
+you could think of that as saying,",00:48:19.860,00:48:24.330
+"okay, well,
+out of all of this pool of source states,",00:48:24.330,00:48:27.920
+"we want to be looking at where in
+the input we want to retrieve stuff from.",00:48:27.920,00:48:33.282
+"So effectively, after we've said, Je, and",00:48:33.282,00:48:38.280
+we wanting to translate the next word.,00:48:38.280,00:48:42.240
+"We should be working out,
+well, where in here do",00:48:42.240,00:48:45.320
+"we want to be paying attention to
+decide what to translate next?",00:48:45.320,00:48:49.590
+"And if it's French,
+we wanna be translating the am next.",00:48:49.590,00:48:52.780
+"And so our attention model effectively
+sort of becomes like an alignment model.",00:48:52.780,00:48:58.780
+"'cause it's saying, well,",00:48:58.780,00:49:00.470
+"which part of the source are you
+next gonna be translating?",00:49:00.470,00:49:03.730
+"So you've got this implicit alignment
+between the source and the translation.",00:49:03.730,00:49:08.150
+"And that just seems a good idea, 'cause
+that's even what human translators do.",00:49:08.150,00:49:13.514
+"It's not that a human translator
+reads the whole of a big,",00:49:13.514,00:49:16.617
+"long sentence and says, okay, got it.",00:49:16.617,00:49:18.778
+"And then starts furiously scribbling
+down the translation, right?",00:49:18.778,00:49:21.890
+"They're looking back at
+the source as they translate, and",00:49:21.890,00:49:25.440
+are translating different phrases of it.,00:49:25.440,00:49:27.900
+"And so Richard mentioned last
+week the idea that in training",00:49:27.900,00:49:33.013
+"statistical models that one of
+the first steps was you worked",00:49:33.013,00:49:38.230
+"out these word alignments between
+the source and the target.",00:49:38.230,00:49:43.563
+"And that was used to extract phrases
+that gave you kind of phrases to use in",00:49:43.563,00:49:48.141
+a statistical phrase based system.,00:49:48.141,00:49:50.483
+"Here, we're not doing that,
+it's rather just at",00:49:50.483,00:49:54.701
+"translation time by process of
+using this attention model.",00:49:54.701,00:49:59.718
+"We're implicitly making connections
+between source and target,",00:49:59.718,00:50:04.059
+which gives us a kind of alignment.,00:50:04.059,00:50:06.640
+"But nevertheless, it effectively means
+that we're building this end-to-end neural",00:50:06.640,00:50:11.330
+"machine translation system that's doing
+alignments and translation as it works.",00:50:11.330,00:50:16.460
+"So it achieves this NMT vision, and
+you do get these good alignments.",00:50:16.460,00:50:21.230
+"So we're using this kind of
+on the right structure where",00:50:22.550,00:50:26.980
+"we're sort of filling in where
+the alignments have occurred.",00:50:26.980,00:50:31.670
+"And so you can look at where attention
+was laid when you're producing",00:50:31.670,00:50:37.018
+"a translation,
+translating here from French to English.",00:50:37.018,00:50:43.000
+"And you can see that this model,
+which is a model from people at Montreal,",00:50:43.000,00:50:46.560
+"is doing a good job at deciding
+where to place attention.",00:50:46.560,00:50:50.930
+"So it's starting off with the agreement
+on the, and then the interesting part is",00:50:50.930,00:50:56.010
+"that sort of French typically has
+adjectival modifiers after the head down.",00:50:56.010,00:51:01.340
+"So this is the zone, economic, European,",00:51:01.340,00:51:04.250
+"which you have to flip in English
+to get the European economic area.",00:51:04.250,00:51:08.710
+"And so
+it's kind of correctly modelling that flip",00:51:08.710,00:51:11.410
+"in deciding where to pay
+attention in the source.",00:51:11.410,00:51:14.290
+"And then kind of goes back to
+a more monotonic linear order.",00:51:14.290,00:51:17.830
+"Okay, so that looks good,
+how do we go about doing that?",00:51:19.490,00:51:24.430
+"So what we're gonna be doing is
+we've started to generate, and",00:51:24.430,00:51:28.650
+we wanna generate the next word.,00:51:28.650,00:51:30.940
+"And we want to use our hidden
+state to decide where to access",00:51:30.940,00:51:36.395
+"our random access memory,
+which is all the blue stuff.",00:51:36.395,00:51:41.819
+"And so, well we haven't yet generated
+the hidden state for the next word, so",00:51:41.819,00:51:46.545
+"it seems like our only good choice
+is to use, I think I skipped one.",00:51:46.545,00:51:52.580
+"Okay, the only good choice is to use",00:51:52.580,00:51:55.310
+"the previous hidden state
+as the basis of attention.",00:51:55.310,00:51:58.720
+"And that's what we do, and then what
+we're gonna do is come up with some",00:51:58.720,00:52:04.840
+"score that combines it and
+elements of the hidden state.",00:52:04.840,00:52:10.950
+"And commonly, people are only using
+the highest level of the hidden state for",00:52:10.950,00:52:15.080
+"attention, and
+decides where to pay attention.",00:52:15.080,00:52:18.610
+"And so this scoring function,
+will score each position and",00:52:18.610,00:52:23.233
+"saying, where to pay attention.",00:52:23.233,00:52:25.918
+"And I'll get back to the scoring
+functions in a minute.",00:52:25.918,00:52:29.000
+"And so the model that they proposed was,
+we get a score for",00:52:29.000,00:52:33.930
+each component of the memory.,00:52:33.930,00:52:36.450
+"And then what we're gonna do is
+sort of build a representation",00:52:36.450,00:52:41.678
+"which combines all of the memories
+weighted by the score.",00:52:41.678,00:52:46.617
+"So what we're gonna do is
+we're going to say, okay,",00:52:46.617,00:52:50.307
+"we'll take those scores and
+we'll do our standard trick.",00:52:50.307,00:52:54.760
+"We'll stick them through
+a softmax function and",00:52:54.760,00:52:58.679
+"that will then give us a probability
+distribution of how much",00:52:58.679,00:53:03.553
+"attention to pay to the different
+places in the source.",00:53:03.553,00:53:08.062
+"And so then, we're going to combine,
+okay, then we're going",00:53:08.062,00:53:13.315
+"to combine together all of
+the hidden states of the encoder,",00:53:13.315,00:53:18.278
+"weighted by how much
+attention we're paying to it.",00:53:18.278,00:53:22.581
+"So that we're taking, these are each
+hidden state of the encoder,",00:53:22.581,00:53:27.241
+"the amount of attention you're
+paying to that position.",00:53:27.241,00:53:31.349
+"And then you're just
+calculating a weighted sum and",00:53:31.349,00:53:34.318
+that then gives us a context vector.,00:53:34.318,00:53:36.830
+"So now rather than simply
+using the last hidden state",00:53:36.830,00:53:40.170
+"as our representation of all of meaning,
+we're using the entire of our",00:53:40.170,00:53:45.210
+"hidden states of the encoder as
+our representation of meaning.",00:53:45.210,00:53:48.840
+"And at different points in
+time we weight it differently",00:53:48.840,00:53:52.300
+to pay attention in different places.,00:53:52.300,00:53:55.160
+"And so now what we're gonna do,
+is based on what we were.",00:53:55.160,00:53:59.650
+This is going automatic on me.,00:54:01.150,00:54:02.650
+"Now what we're gonna do is based
+on what we were doing before.",00:54:02.650,00:54:05.630
+"And so the previous hidden state and the
+next and the previous word of the decoder.",00:54:07.780,00:54:14.927
+"But also conditioned on
+this context vector,",00:54:14.927,00:54:18.956
+we're then gonna generate the next word.,00:54:18.956,00:54:22.685
+"Okay, so then the question is, well,
+how do we actually score that?",00:54:22.685,00:54:29.544
+"And at this point we need
+some kind of attention",00:54:29.544,00:54:33.388
+"function that decides how
+to work out the score.",00:54:33.388,00:54:37.910
+"And a very simple idea you could use for
+that is just to say, well,",00:54:37.910,00:54:42.470
+"let's take the dot product between
+the decoded hidden state and",00:54:42.470,00:54:48.522
+an encoded the hidden state.,00:54:48.522,00:54:50.800
+"And we wanna find the ones that are
+similar, cuz that means we're in the right",00:54:50.800,00:54:55.138
+"ballpark of words that have the same
+meaning, and generate from that.",00:54:55.138,00:54:59.171
+"And that's a possible
+thing that you could do.",00:54:59.171,00:55:02.256
+"The one that was proposed by the people
+in Montreal was this bottom one.",00:55:02.256,00:55:08.258
+"Where we're effectively using a single
+layer of neural net, just like",00:55:08.258,00:55:13.073
+"the kind of functions that we've been
+using everywhere else inside our LSTM.",00:55:13.073,00:55:18.490
+"So we're taking the concatenation
+of the two hidden states.",00:55:18.490,00:55:23.700
+"We're multiplying the biometrics,
+putting it through a tanh function.",00:55:23.700,00:55:28.570
+"And then multiplying that by another
+vector, where both the V and",00:55:28.570,00:55:31.910
+W are learned.,00:55:31.910,00:55:33.220
+And using that as an attention function.,00:55:33.220,00:55:35.960
+"And so that's what they did in their work,
+and that worked pretty well.",00:55:35.960,00:55:39.625
+"In the work we did at Stanford, so
+principally Thang Luong's work, that we",00:55:39.625,00:55:44.962
+"proposed using a different attention
+function, which is the one in the middle.",00:55:44.962,00:55:50.540
+"Which is this bilinear attention function,",00:55:50.540,00:55:53.079
+"which has actually been quite
+successful and widely adopted.",00:55:53.079,00:55:56.632
+"So here, it's kind of like the top
+one where you're doing a dot product.",00:55:56.632,00:56:00.890
+"But you're sticking in between
+the dot product a mediating matrix W.",00:56:00.890,00:56:06.125
+"And so that matrix can effectively
+then learn how much weight to",00:56:06.125,00:56:11.095
+put on different parts of the dot product.,00:56:11.095,00:56:14.489
+"To sort of have an idea of
+where to pay attention.",00:56:14.489,00:56:17.962
+"And that's actually turned out to
+be a model that works kind of well.",00:56:17.962,00:56:22.355
+"And I think there's a reason
+why it works kind of well.",00:56:22.355,00:56:25.144
+"Cuz what you would like to do
+is kind of have interaction",00:56:25.144,00:56:29.936
+terms that look at h_t and h_s together.,00:56:29.936,00:56:33.278
+"And even the dot product kind of has
+this interaction between h_t and h_s.",00:56:33.278,00:56:37.820
+"And this is a more sophisticated way
+of getting an interaction between",00:56:37.820,00:56:42.593
+h_t and h_s.,00:56:42.593,00:56:43.580
+"Whereas if you're using this model with
+only a single layer of neural network,",00:56:43.580,00:56:49.330
+"you don't actually get
+interactions between h_t and h_s.",00:56:49.330,00:56:53.630
+"Because you've got the sort of
+two parts of this vector and",00:56:53.630,00:56:57.300
+"each of them is multiplied by
+a separate part of this matrix.",00:56:57.300,00:57:01.460
+"And then you put it through a tanh, but
+that just rescales it element-wise.",00:57:01.460,00:57:05.330
+"And then you multiply it by a vector,
+but that just rescales it element-wise.",00:57:05.330,00:57:09.318
+"So there's no place that h_t and
+h_s actually interact with each other.",00:57:09.318,00:57:14.122
+"And that's essentially the same
+problem of the sort of classic result",00:57:14.122,00:57:18.928
+"that you can't get an xor function
+out of a one layer perceptron is",00:57:18.928,00:57:22.764
+"because you can't get the two
+things to interact with each other.",00:57:22.764,00:57:27.290
+"So, this is a very
+simple low parameter way",00:57:27.290,00:57:30.890
+"in which you can actually
+have interaction terms.",00:57:30.890,00:57:33.160
+"It seems to work really well for
+attention functions.",00:57:33.160,00:57:36.010
+"It's not the only way
+that you could do it.",00:57:36.010,00:57:38.120
+"Another way that you could do things that
+a couple of papers have used is to say,",00:57:38.120,00:57:42.170
+"well, gee,
+a one way neural net's just not enough.",00:57:42.170,00:57:45.180
+"Let's make it a two layer
+feedforward network.",00:57:45.180,00:57:48.370
+"And then we could have arbitrary
+interactions again like the xor model.",00:57:48.370,00:57:52.330
+"And a couple of people have
+also played with that.",00:57:52.330,00:57:55.001
+"Another thing that has been explored for
+attention that I'll just mention.",00:57:58.537,00:58:02.630
+"So the simple model of attention,
+you've got this attention function.",00:58:02.630,00:58:06.968
+"That spreads attention over
+the entire source encoding.",00:58:06.968,00:58:11.288
+And you've got a weighting on it.,00:58:11.288,00:58:13.445
+"That's kind of simple, it's easy to learn.",00:58:13.445,00:58:15.995
+"It's a continuous,
+nice differentiable model.",00:58:15.995,00:58:18.757
+"It's potentially unpleasant
+computationally if you've got very long",00:58:18.757,00:58:23.251
+sequences.,00:58:23.251,00:58:24.066
+"Because that means if you start thinking
+about your back prop algorithm that you're",00:58:24.066,00:58:28.683
+"back propagating into
+everywhere all the time.",00:58:28.683,00:58:31.361
+"So people have also looked some
+at having local attention models.",00:58:31.361,00:58:35.226
+"Where you're only paying attention to
+a subset of the states at one time.",00:58:35.226,00:58:39.826
+"And that's more of an exact notion of
+retrieving certain things from memory.",00:58:39.826,00:58:44.965
+"And that can be good,
+especially for long sequences.",00:58:44.965,00:58:49.036
+"It's not necessarily compellingly better
+just for the performance numbers so far.",00:58:49.036,00:58:54.344
+"Okay, so here's a chart that shows you
+how some of the performance works out.",00:58:54.344,00:58:59.182
+"So what we see is that this
+red model has no attention.",00:58:59.182,00:59:05.684
+"And so this shows the result that,",00:59:05.684,00:59:08.191
+"a no attention model works reasonably
+well up to sentences of about length 30.",00:59:08.191,00:59:14.076
+"But if you try and run a no
+attention machine translation system",00:59:14.076,00:59:19.074
+on sentences beyond length 30.,00:59:19.074,00:59:21.814
+"Performance just starts
+to drop off quite badly.",00:59:21.814,00:59:25.602
+"And so in some sense this is
+the glass half full story.",00:59:25.602,00:59:31.550
+"The glass half full is actually LSTMs
+are just miraculous at remembering things.",00:59:31.550,00:59:38.060
+"I mean,
+I think quite to many peoples' surprise,",00:59:38.060,00:59:41.770
+"you can remember out to about length
+30 which is actually pretty stunning.",00:59:41.770,00:59:46.150
+"But nevertheless,
+there's magic and there's magic.",00:59:46.150,00:59:49.480
+And you don't get an infinite memory.,00:59:49.480,00:59:51.400
+"And if you're trying translate
+sentences that are 70 words long.",00:59:51.400,00:59:55.310
+"You start to suffer pretty badly with
+the basic LSTM model, oops, okay.",00:59:55.310,01:00:02.140
+"So then the models that are higher up
+is then showing models with attention,",01:00:02.140,01:00:07.944
+and I won't go through all the details.,01:00:07.944,01:00:11.037
+"The interesting thing is that even for
+these shorter sentences.",01:00:11.037,01:00:15.160
+"Actually there are a lot of gains from
+putting attention into the models.",01:00:15.160,01:00:18.478
+"That it actually does just let you do
+a much better job of working out where",01:00:18.478,01:00:23.385
+to focus on at each generation step.,01:00:23.385,01:00:25.884
+And you translate much better.,01:00:25.884,01:00:27.638
+"But the most dramatic result is
+essentially these curves turn into flat",01:00:27.638,01:00:32.084
+"lines, there's a little
+bit of a peak here, maybe.",01:00:32.084,01:00:35.680
+"But essentially you can be translating
+out to 70 word sentences without your",01:00:35.680,01:00:40.300
+performance going downhill.,01:00:40.300,01:00:42.390
+And that's interesting.,01:00:42.390,01:00:44.118
+"The one thing that you might think freaky
+about all of these charts is that they all",01:00:44.118,01:00:48.859
+go downhill for very short sentences.,01:00:48.859,01:00:51.169
+That's sort of weird.,01:00:51.169,01:00:52.885
+"But I think it's sort of just
+a weirdo fact about the data.",01:00:52.885,01:00:59.003
+"That it turns out that
+the things that are in this kind",01:00:59.003,01:01:03.160
+"of data which is
+European Parliament data actually.",01:01:03.160,01:01:07.427
+That are five word sentences.,01:01:07.427,01:01:09.541
+"They just aren't sentences,
+like, I love my mum,",01:01:09.541,01:01:12.345
+"which is a four word sentence that has
+a really simple grammatical structure.",01:01:12.345,01:01:16.569
+"That, when you're seeing five
+word things that they're normally",01:01:16.569,01:01:21.442
+things like titles of x.,01:01:21.442,01:01:23.240
+"Or that there are half sentences
+that were cut off in the middle and",01:01:23.240,01:01:26.213
+things like that.,01:01:26.213,01:01:27.089
+So that they're sort of weirdish stuff and,01:01:27.089,01:01:30.202
+"that's why that tends to
+prove hard to translate.",01:01:30.202,01:01:33.930
+"Okay, here are just a couple of examples,",01:01:33.930,01:01:36.636
+"of giving you again some
+examples of translations.",01:01:36.636,01:01:39.952
+"So we've got a source,
+a human reference translation.",01:01:39.952,01:01:43.320
+"Then down at the bottom,
+we have the LSTM model.",01:01:43.320,01:01:47.160
+"And above it, it's putting in attention.",01:01:47.160,01:01:49.700
+"So for this sentence,
+it does a decent job,",01:01:50.760,01:01:54.020
+"the base model of translating it,
+except for one really funny fact.",01:01:54.020,01:01:59.030
+"It actually sticks in here a name that
+has nothing whatsoever to do with",01:01:59.030,01:02:03.372
+the source sentence.,01:02:03.372,01:02:04.782
+"And that's something that you
+actually notice quite a bit in neural",01:02:04.782,01:02:08.336
+machine translation systems.,01:02:08.336,01:02:10.091
+Especially ones without attention.,01:02:10.091,01:02:13.446
+"That they are actually
+very good language models.",01:02:13.446,01:02:16.642
+"So that they generate sentences that
+are good sentences of the target language.",01:02:16.642,01:02:22.328
+"But they don't necessarily pay very much
+attention to what the source sentence was.",01:02:22.328,01:02:27.359
+"And so they kind of go, okay,
+I'm generating a sentence and",01:02:27.359,01:02:30.572
+"a name goes there, stick in some name.",01:02:30.572,01:02:32.659
+"And let's get on with generating, it's got
+nothing to do with the source sentence.",01:02:32.659,01:02:36.290
+"That gets better in the other example,",01:02:36.290,01:02:38.640
+"where it actually
+generates the right name.",01:02:38.640,01:02:40.310
+That's an improvement.,01:02:40.310,01:02:42.320
+"Here's a much more complex example
+where there's various stuff going on.",01:02:42.320,01:02:47.373
+"One thing to focus on though, is that
+the source has this ""not incompatible""",01:02:47.373,01:02:52.483
+"whereas the base model translates
+that as ""not compatible"",",01:02:52.483,01:02:56.950
+which is the opposite semantics.,01:02:56.950,01:02:59.980
+"Whereas our one here we're then
+getting ""the incompatible"".",01:02:59.980,01:03:05.170
+So not incompatible.,01:03:05.170,01:03:07.110
+So that's definitely an improvement.,01:03:07.110,01:03:09.270
+None of these translations are perfect.,01:03:09.270,01:03:12.407
+"I mean in particular one of the things
+that they do wrong is ""safety and",01:03:12.407,01:03:16.625
+"security"".",01:03:16.625,01:03:17.366
+"Where in the translation,",01:03:17.366,01:03:19.523
+"we have exactly the same words,
+so it's of the form A and A.",01:03:19.523,01:03:23.565
+"Now really safety and
+security have a fairly similar meaning.",01:03:23.565,01:03:28.162
+So it's not actually so,01:03:28.162,01:03:29.497
+"unreasonable to translate either
+of those words with this word.",01:03:29.497,01:03:33.180
+"But clearly you don't want to translate
+safety and security as safety and safety.",01:03:33.180,01:03:38.220
+"[LAUGH] That's just not
+a very good translation.",01:03:38.220,01:03:41.000
+So that could be better.,01:03:41.000,01:03:43.258
+I'll go on.,01:03:43.258,01:03:46.610
+Yeah.,01:03:46.610,01:03:47.190
+"So this idea of attention
+has been a great idea.",01:03:47.190,01:03:53.510
+"Another idea that's been interesting
+is the idea of coverage.",01:03:53.510,01:03:57.050
+"That when you're attending,",01:03:57.050,01:03:58.520
+"you want to make sure you've attended
+to different parts of the input, and",01:03:58.520,01:04:03.670
+"that was actually an idea that, sort of,
+again, first came up in Vision.",01:04:03.670,01:04:08.010
+"So, people have done Caption Generation,",01:04:08.010,01:04:10.670
+"where you're wanting to generate
+a caption that summarizes a picture.",01:04:10.670,01:04:15.585
+"And so
+one of the things you might wanna do",01:04:15.585,01:04:18.035
+"is when you're paying
+attention to different places,",01:04:18.035,01:04:22.215
+"you wanna make sure you're paying
+attention to the different main parts.",01:04:22.215,01:04:26.635
+"So you both wanna pay
+attention to the bird.",01:04:26.635,01:04:29.105
+"And you wanna pay attention to
+the background so you're producing",01:04:29.105,01:04:32.725
+"a caption that's something like ""a
+bird flying over a body of water"".",01:04:32.725,01:04:36.640
+"And so you don't want to miss
+important image patches.",01:04:38.010,01:04:42.030
+"And so that's an idea that people have
+also worked on in the neural MT case.",01:04:42.030,01:04:48.510
+"So one idea is an idea of doing
+sort of attention doubly, and",01:04:48.510,01:04:53.400
+"so you're sort of working out
+an attention in both directions.",01:04:53.400,01:04:56.880
+"So there's a horizontal attention and
+a vertical attention.",01:04:56.880,01:05:01.140
+"And you're wanting to make sure you've
+covered things in both directions.",01:05:01.140,01:05:06.130
+"Okay, so that's one idea.",01:05:08.350,01:05:10.890
+"And in general, something interesting
+that's been happening is in the last",01:05:10.890,01:05:16.420
+"roughly a year, I guess.",01:05:16.420,01:05:18.380
+"That essentially,
+people have been taking a number of",01:05:18.380,01:05:21.610
+"the ideas that have been explored in other
+approaches to machine translation and",01:05:21.610,01:05:26.290
+"building them into more
+linguistic attention functions.",01:05:26.290,01:05:30.420
+So one idea is this idea of coverage.,01:05:30.420,01:05:34.050
+"But actually if you look in the older
+literature for word alignments, well there",01:05:34.050,01:05:38.570
+"are some other ideas in those older
+machine translation word alignment models.",01:05:38.570,01:05:45.750
+"Some of the other ideas
+were an idea of position.",01:05:45.750,01:05:50.510
+"So normally attention or alignment isn't
+completely sort of random in the sentence.",01:05:50.510,01:05:57.040
+"Normally although there's some reordering,
+stuff near the beginning of the source",01:05:57.040,01:06:01.470
+"sentence goes somewhere near the beginning
+of the translation, and stuff somewhere",01:06:01.470,01:06:05.850
+"near the end of the source sentence
+goes towards the end of the translation.",01:06:05.850,01:06:09.790
+"And that's an idea you can put in
+to your attention model as well.",01:06:09.790,01:06:15.790
+And a final idea here is fertility.,01:06:15.790,01:06:18.560
+"Fertility is sort of
+the opposite of coverage.",01:06:18.560,01:06:21.620
+"It's sort of saying it's bad if you pay
+attention to the same place too often.",01:06:21.620,01:06:27.870
+"Because sometimes one word is gonna
+be translated with two words or",01:06:27.870,01:06:32.580
+"three words in the target
+language that happens.",01:06:32.580,01:06:36.020
+"But if you're translating one word with
+six words in your generated translation,",01:06:36.020,01:06:41.930
+"that probably means that you've
+ended up repeating yourself and",01:06:41.930,01:06:45.430
+"that's another of the mistakes
+of sometimes neural",01:06:45.430,01:06:48.300
+"machine translations systems can make,
+that they can repeat themselves.",01:06:48.300,01:06:52.430
+"And so people have started to build
+in those ideas of fertility as well.",01:06:52.430,01:06:56.960
+Okay.,01:06:59.070,01:07:00.553
+"Any questions or
+people good with the attention?",01:07:00.553,01:07:03.538
+Yeah?,01:07:08.109,01:07:08.791
+"So the question is that when we're
+doing the attention function,",01:07:22.147,01:07:26.350
+"we were just We were just doing
+it based on the hidden state.",01:07:26.350,01:07:33.050
+"And another thing that we could do is
+actually put in the previous word, the xt.",01:07:33.050,01:07:39.945
+"And also put that into
+the attention function.",01:07:39.945,01:07:43.540
+"I mean one answer is to say yes,
+of course you could.",01:07:44.770,01:07:48.470
+And you could go off and try that.,01:07:48.470,01:07:50.810
+And see if you could get value from it.,01:07:50.810,01:07:54.410
+And it's not impossible you could.,01:07:55.720,01:07:59.240
+"I suspect it's less likely that
+that's really going to work",01:07:59.240,01:08:03.420
+"because I think a lot of the time,
+what you get with these LSTMs",01:08:03.420,01:08:08.410
+"is that the hidden state,
+to a fair degree.",01:08:08.410,01:08:12.690
+"Is still representing the word
+that you've just read in, but",01:08:12.690,01:08:16.290
+"it actually has the advantage that
+it's kind of a context-disambiguated",01:08:16.290,01:08:20.850
+representation of the words.,01:08:20.850,01:08:22.790
+"So one of the really useful things that
+LSTMs do is that they're sort of very good",01:08:22.790,01:08:28.090
+"at word-sense disambiguation because
+you start with a word representation.",01:08:28.090,01:08:33.630
+"Which is often the kind of average of
+different senses and meanings of a word.",01:08:33.630,01:08:38.330
+"And the LSTM can use its
+preceeding context to decide,",01:08:38.330,01:08:44.020
+"In this context, I should be
+representing this word in this way.",01:08:44.020,01:08:48.380
+"And you kind of get this
+word sense disambiguation.",01:08:48.380,01:08:51.140
+"So I suspect most of the time
+that the hidden state",01:08:51.140,01:08:56.230
+"records enough about the meaning of the
+word and actually improves on it by some",01:08:56.230,01:09:00.760
+"of this using of context that I'm a little
+doubtful whether that would give gains.",01:09:00.760,01:09:06.860
+"On the other hand, I'm not actually
+aware of someone that's tried that.",01:09:06.860,01:09:10.050
+"So it's totally in the space
+of someone could try it and",01:09:10.050,01:09:13.180
+see if you could get value from it.,01:09:13.180,01:09:15.450
+Yes.,01:09:15.450,01:09:15.968
+"Yes, there's a very good reason to use
+an LSTM as your generator even if you're",01:09:21.031,01:09:25.403
+going to do attention.,01:09:25.403,01:09:26.990
+"Which is, the most powerful part of
+these neural machine translation systems",01:09:26.990,01:09:33.880
+"remains the fact that you've got this
+neural language model as your generator",01:09:33.880,01:09:38.950
+"which is extremely powerful and
+good as a fluent text generator.",01:09:38.950,01:09:44.930
+"And that's still being powered
+by the LSTM of the decoder.",01:09:44.930,01:09:50.610
+And so.,01:09:50.610,01:09:51.875
+"[INAUDIBLE]
+&gt;&gt; And no, I.",01:09:51.875,01:09:54.620
+"The power you get from the LSTM at
+better remembering the sort of longer",01:09:54.620,01:09:59.135
+"short-term memory is really useful
+as a language model for generation.",01:09:59.135,01:10:03.810
+"So I'm sure that that's still
+giving you huge value, and",01:10:03.810,01:10:06.970
+you'd be much worse off without it.,01:10:06.970,01:10:09.360
+Yeah.,01:10:10.600,01:10:11.100
+"I mean the thing that you could wonder,
+is in this picture I'm still feeding",01:10:11.100,01:10:16.460
+"the final state in to initialize
+the LSTM for the decoder.",01:10:16.460,01:10:23.830
+"Do you need to do that, or
+could you just cross that off and",01:10:23.830,01:10:26.620
+"start with a zero hidden state, and
+do it all with the attention model?",01:10:26.620,01:10:31.010
+That might actually work fine.,01:10:31.010,01:10:32.348
+Yeah?,01:10:32.348,01:10:33.524
+"&gt;&gt; [INAUDIBLE]
+&gt;&gt; That's a good question.",01:10:33.524,01:10:41.150
+So where do I have that?,01:10:41.150,01:10:42.520
+"Here, okay, yeah.",01:10:44.550,01:10:45.396
+"So in this simple case,
+if you sort of are making a hard decision",01:10:45.396,01:10:52.980
+"to pay attention to only
+a couple of places,",01:10:52.980,01:10:58.760
+"that's a hard decision and so
+that then kills differentiability.",01:10:58.760,01:11:04.250
+"And so the easiest way to sort
+of keep everything nice and",01:11:04.250,01:11:10.580
+"simply differentiable is just to say,
+use global attention.",01:11:10.580,01:11:15.150
+"Put some attention weight
+on each position that's",01:11:15.150,01:11:19.150
+differentiable the whole way through.,01:11:19.150,01:11:21.410
+"So if you're making a hard decision here,
+traditionally,",01:11:21.410,01:11:26.540
+"the most correct way to
+do this properly and",01:11:26.540,01:11:29.950
+"train the model is to say, okay, we have
+to do this as reinforcement learning.",01:11:29.950,01:11:34.795
+"'Cause, doing a reinforcement
+learning system lets you get",01:11:34.795,01:11:38.440
+around the non-differentiability.,01:11:38.440,01:11:40.540
+"And then, you're in this space of deep
+reinforcement learning which has been",01:11:40.540,01:11:44.110
+very popular lately.,01:11:44.110,01:11:45.670
+"And, there are a couple of papers
+that have used local attention,",01:11:45.670,01:11:49.370
+"which have done it using
+reinforcement learning training.",01:11:49.370,01:11:53.890
+"So in the paper that Thang did,
+that's not what he did.",01:11:53.890,01:11:58.730
+"He sort of, I think it's true to say that,
+to some extent, he sort of fudged",01:11:58.730,01:12:03.082
+"the non-differentiability but
+it seemed to work okay for him.",01:12:03.082,01:12:07.160
+"But, I mean,
+this is actually an area in which,",01:12:07.160,01:12:10.714
+"there's been some recent work,
+in which people have explored methods",01:12:10.714,01:12:15.922
+"which in some sense continuing this
+tradition of fudging by putting it",01:12:15.922,01:12:21.043
+"on the more of a theoretical footing and
+finding this works very well.",01:12:21.043,01:12:26.200
+"So, an idea that's been explored
+quite a bit in recent work is to say,",01:12:26.200,01:12:31.242
+"in the forward model we're going
+to be making some discreet",01:12:31.242,01:12:35.515
+"choices as to which positions
+to pay attention to.",01:12:35.515,01:12:39.200
+"In the backwards model,
+we’re going to be using",01:12:39.200,01:12:44.006
+"a soft approximation of those decisions,
+and",01:12:44.006,01:12:48.579
+"we will then do the back
+propagation using that.",01:12:48.579,01:12:53.400
+"So that kind of idea is, You are working
+out, say, where to pay attention,",01:12:53.400,01:12:58.228
+"and you are choosing the states
+with the sort of a high need for",01:12:58.228,01:13:02.075
+"attention, is a hard decision,
+but in the backwards model you",01:13:02.075,01:13:06.073
+"are then having a sort of soft attention
+still and you are training with that.",01:13:06.073,01:13:11.000
+"And so, that leads into ideas like
+the Straight Through Estimator",01:13:11.000,01:13:15.857
+"which has been explored by
+Yoshua Bengio's group and",01:13:15.857,01:13:19.760
+"other recent ideas of Gumbel-Softmaxes,
+and things like that.",01:13:19.760,01:13:24.980
+"And that's actually, sort of been
+worked out as another way to explain,",01:13:24.980,01:13:29.331
+"another way to train these not
+really differentiable models,",01:13:29.331,01:13:33.051
+"which is in some ways easier than
+using reinforcement learning.",01:13:33.051,01:13:36.936
+I'll go on.,01:13:40.502,01:13:41.860
+"There was one other last thing,
+I did want to sort of squeeze in for",01:13:41.860,01:13:47.670
+"the end of today, is I just wanted
+to say a little bit about what's.",01:13:47.670,01:13:53.704
+"Okay, so assuming that at source time,
+we've got our source sentence,",01:13:56.464,01:14:03.859
+"we encode it in some way that
+we're gonna make use of.",01:14:03.859,01:14:09.242
+"And, decoders,
+that really our decoders are just saying,",01:14:09.242,01:14:14.142
+"okay here's the meaning we want convey,
+produce a sentence,",01:14:14.142,01:14:19.442
+"that expresses that meaning and
+how can we do that decoding successfully.",01:14:19.442,01:14:25.760
+And I just sort of wanted to mention for,01:14:25.760,01:14:27.648
+"couple minutes, what are the options and
+how do they work.",01:14:27.648,01:14:30.844
+"So, one thing in theory
+we could do is say,",01:14:30.844,01:14:35.919
+"okay, well, let's just explore",01:14:35.919,01:14:39.420
+"every possible sequence of words we
+can generate up to a certain length.",01:14:39.420,01:14:43.890
+"Let's score every one of them with
+our model and pick the best one.",01:14:43.890,01:14:47.910
+"So, we'd literally have an exhaustive
+search of possible translations.,",01:14:47.910,01:14:53.010
+"Well, that's obviously
+completely impossible to do.",01:14:53.010,01:14:56.080
+"Because, not only is that exponential
+in the length of what we generate,",01:14:56.080,01:14:59.720
+we have this enormous vocabulary.,01:14:59.720,01:15:01.670
+"It's not even like we're doing
+exponential on a base of two or three.",01:15:01.670,01:15:05.640
+"We're doing exponential on the base
+of 100,000 or something like that.",01:15:05.640,01:15:09.610
+"So, that can't possibly work out.",01:15:09.610,01:15:12.320
+"So, the obvious idea and the first
+thing that people do is -- Sorry.",01:15:12.320,01:15:20.340
+I'll get to the obvious one next.,01:15:20.340,01:15:21.892
+"The second thing,
+[LAUGH] the not quite so obvious but",01:15:21.892,01:15:26.270
+"the probabilistically nice and good thing
+to do is to do a sampling based approach.",01:15:26.270,01:15:31.890
+Which is a sort of a succesive sampling.,01:15:31.890,01:15:34.720
+"So, it's sometimes referred
+to as Ancestral Sampling.",01:15:34.720,01:15:38.490
+"So, what we're doing then is we've
+generated up to word t-1 and",01:15:38.490,01:15:43.850
+then saying okay.,01:15:43.850,01:15:45.570
+"Based on our model, we have a probability
+distribution over the t-th word.",01:15:45.570,01:15:51.240
+"And so, we sample from that probability
+distribution one symbol at a time.",01:15:51.240,01:15:56.378
+"And we keep on generating
+one word at a time,",01:15:56.378,01:15:59.606
+"until we generate our end
+of end of sentence symbol.",01:15:59.606,01:16:03.460
+"So, we generate a word and
+then based on what we have now we do",01:16:03.460,01:16:08.087
+"a probabilistic sample of the next
+word and we continue along.",01:16:08.087,01:16:13.650
+"So, if you are a theoretician that's
+the right practical thing to do",01:16:13.650,01:16:18.530
+"because if you are doing that,",01:16:18.530,01:16:20.180
+"you've gotten not only an efficient model
+of generating, unlike the first model, but",01:16:20.180,01:16:25.010
+"you've got one that's unbiased,
+asymptotically exact, great model.",01:16:25.010,01:16:30.620
+"If you're a practical person this
+is not a very great thing to do",01:16:30.620,01:16:35.250
+"because what comes out is
+very high variants and",01:16:35.250,01:16:38.810
+"it's different every time you
+decode the same sentence.",01:16:38.810,01:16:42.430
+"Okay, so the practical easy thing to do,",01:16:42.430,01:16:45.660
+"which is the first thing that everybody
+really does, is a greedy search.",01:16:45.660,01:16:51.290
+"So, we've generated up
+to the T minus one word.",01:16:51.290,01:16:54.750
+We wanna generate the t-th word.,01:16:54.750,01:16:57.120
+"We use our model, we work out what's
+the most likely word to generate next,",01:16:57.120,01:17:02.223
+"and we choose it and
+then we repeat that over and",01:17:02.223,01:17:06.850
+"generate successive next words,
+so that's then a greedy search.",01:17:06.850,01:17:13.300
+"We're choosing best thing given
+the preceding subsequence.",01:17:13.300,01:17:17.900
+"But that, doesn't guarantee us
+the best whole sentence because we can",01:17:17.900,01:17:22.410
+"go wrong in any of a number of ways
+because of our greedy decisions.",01:17:22.410,01:17:26.920
+So it's super-efficient.,01:17:26.920,01:17:28.590
+But is heavily suboptimal.,01:17:28.590,01:17:30.830
+"So, if you want to do a bit better
+than that, which people commonly do,",01:17:30.830,01:17:34.030
+"the next thing that you think about
+trying is then doing a beam search.",01:17:34.030,01:17:39.320
+"So, for a beam search we're
+up to word t-1 and we say,",01:17:39.320,01:17:44.315
+"gee, what are the five most
+likely words to generate next.",01:17:44.315,01:17:49.520
+"And, we generate all of them and
+we have a beam of five.",01:17:49.520,01:17:54.330
+"And then, when we go on to generate
+word T plus one, we say for",01:17:54.330,01:17:58.340
+"each of those sequences up to length T,
+what are the five",01:17:58.340,01:18:03.460
+"most likely words to generate
+is the T plus first word and",01:18:03.460,01:18:07.260
+"we generate all of them and
+well then we've got 25 hypotheses and",01:18:07.260,01:18:11.920
+"if we kept on doing that, we'd again
+be exponential but with a smaller base.",01:18:11.920,01:18:16.740
+But we don't wanna do that.,01:18:16.740,01:18:17.930
+"So, what we do is say, well out of
+those 25, which are the five best ones?",01:18:17.930,01:18:23.180
+And we keep those five best ones.,01:18:23.180,01:18:25.460
+"And then, we generate five
+possibilities from each of those for",01:18:25.460,01:18:29.010
+the T plus two time.,01:18:29.010,01:18:31.120
+"And so we maintain a constant
+size k hypotheses and",01:18:31.120,01:18:35.850
+we head along and do things.,01:18:35.850,01:18:37.870
+"So as K goes to infinity,
+that becomes unbiased.",01:18:39.630,01:18:44.500
+"But in practice our K is small,
+so it is biased.",01:18:44.500,01:18:48.880
+"It doesn't necessarily monotonically
+improve as you increase K, but",01:18:48.880,01:18:53.260
+"in practice it usually does
+up to some point, at least.",01:18:53.260,01:18:57.320
+"It turns out that often there's
+a limit to how big you can go for",01:18:57.320,01:19:00.523
+"it improving,
+which might even be quite small.",01:19:00.523,01:19:03.000
+"Because sometimes,
+you actually tend to get worse",01:19:03.000,01:19:05.537
+"if your model is not very good and
+you explore things further down.",01:19:05.537,01:19:09.700
+"It's not as efficient, right?",01:19:09.700,01:19:11.340
+"That your efficiency is
+going down in K squared.",01:19:11.340,01:19:15.090
+"So, as soon as you're at a beam of 10
+you're 2 orders of magnitude slower",01:19:15.090,01:19:20.370
+"than the greedy search, but
+nevertheless it gives good gains.",01:19:20.370,01:19:24.580
+"So, here are some results.",01:19:24.580,01:19:28.580
+"So this is from work
+again of Kyunghyun Cho's.",01:19:28.580,01:19:32.310
+"So, in the middle here we
+have the greedy decoding.",01:19:32.310,01:19:36.787
+"And, we're getting these
+numbers like 15.5 and 16.66,",01:19:36.787,01:19:42.860
+"so something I haven't actually done yet
+is explain the machine translation",01:19:42.860,01:19:47.183
+"evaluation, and that's something I'll
+actually do in the next lecture.",01:19:47.183,01:19:51.800
+But big is good for these scores.,01:19:51.800,01:19:55.390
+"So, what you see is that if you
+sort of sample 50 translations and",01:19:55.390,01:20:00.750
+"go with the best one,",01:20:00.750,01:20:02.472
+"although that gives you some
+improvement over the greedy one best.",01:20:02.472,01:20:07.951
+"The amount of improvement it gives
+you isn't actually very much because",01:20:07.951,01:20:12.364
+"there's such a vast space
+that you're sampling from and",01:20:12.364,01:20:15.836
+"it's quite likely that most of your 50
+examples are sampling something bad.",01:20:15.836,01:20:20.990
+"On the other hand, if you're using
+a fairly modest beam of size five or",01:20:20.990,01:20:25.740
+"ten, that's actually
+giving you a very good and",01:20:25.740,01:20:28.190
+"noticeable gain much bigger than you're
+getting from the ancestral sampling.",01:20:28.190,01:20:34.140
+"And so,
+that's basically the state of the art for",01:20:34.140,01:20:37.115
+"neural machine translation, is people
+do beam search with a small beam.",01:20:37.115,01:20:41.960
+"The good news about that
+actually is in statistical",01:20:41.960,01:20:45.310
+"phrase space machine translation,
+people always used a very large beam.",01:20:45.310,01:20:50.118
+"So people would typically use
+a beam size of size 100 or 150, and",01:20:50.118,01:20:54.550
+"really people would have
+liked to use larger.",01:20:54.550,01:20:58.850
+"Apart from where it's just
+computationally too difficult.",01:20:58.850,01:21:01.870
+"But what people found with neural
+machine translation systems",01:21:01.870,01:21:05.400
+"is small beams like 5 or
+10 actually work extremely well and",01:21:05.400,01:21:09.865
+"conversely bigger beams often
+don't work much better.",01:21:09.865,01:21:12.975
+"Okay, and so that gives us sort of Beam
+Search with a small beam as the de facto",01:21:12.975,01:21:17.385
+standard in NMT.,01:21:17.385,01:21:19.305
+"Okay, that's it for today, and we'll have
+more of these things on next Tuesday.",01:21:19.305,01:21:22.945

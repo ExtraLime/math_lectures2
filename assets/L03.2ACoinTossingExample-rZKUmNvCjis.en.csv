@@ -1,0 +1,251 @@
+text,start,stop
+"As an introduction to the main
+topic of this lecture",00:00:00.400,00:00:02.890
+"sequence, let us go through a
+simple example and on the way,",00:00:02.890,00:00:06.520
+"review what we have
+learned so far.",00:00:06.520,00:00:08.830
+"The example that we're going
+to consider involves three",00:00:08.830,00:00:11.670
+tosses of a biased coin.,00:00:11.670,00:00:14.660
+"It's a coin that results in
+heads with probability p.",00:00:14.660,00:00:19.150
+"We're going to make this
+a little more precise.",00:00:19.150,00:00:21.350
+"And the coin is biased in the
+sense that this number p is",00:00:21.350,00:00:24.560
+"not necessarily the
+same as one half.",00:00:24.560,00:00:27.250
+"We represent this particular
+probabilistic experiment in",00:00:27.250,00:00:31.130
+"terms a tree that shows us the
+different stages of the",00:00:31.130,00:00:35.290
+experiment.,00:00:35.290,00:00:36.570
+"Each particular branch
+corresponds to a sequence of",00:00:36.570,00:00:39.710
+"possible results in the
+different stages, and the",00:00:39.710,00:00:42.710
+"leaves of this tree correspond
+to the possible outcomes.",00:00:42.710,00:00:46.500
+"The branches of this tree are
+annotated by certain numbers,",00:00:46.500,00:00:50.030
+"and these numbers are to be
+interpreted appropriately as",00:00:50.030,00:00:52.810
+"probabilities or conditional
+probabilities.",00:00:52.810,00:00:55.360
+"So for example, this number
+here is interpreted as the",00:00:55.360,00:00:59.190
+"probability of heads in the
+first toss, an event that we",00:00:59.190,00:01:02.930
+denote as H1.,00:01:02.930,00:01:05.140
+"This number here is to be
+interpreted as a conditional",00:01:05.140,00:01:08.800
+probability.,00:01:08.800,00:01:10.150
+"It's the conditional probability
+of obtaining heads",00:01:10.150,00:01:12.760
+"in the second toss given
+that the first",00:01:12.760,00:01:15.900
+toss resulted in heads.,00:01:15.900,00:01:18.230
+"And finally, this number here
+is to be interpreted as the",00:01:18.230,00:01:21.900
+"conditional probability of heads
+in the third toss, given",00:01:21.900,00:01:27.650
+"that the first toss resulted in
+heads and the second toss",00:01:27.650,00:01:31.510
+also resulted in heads.,00:01:31.510,00:01:33.390
+"Let us now continue with
+some calculations.",00:01:36.210,00:01:39.086
+"First, we're going to practice
+the multiplication rule, which",00:01:42.160,00:01:47.070
+"allows us to calculate
+the probability",00:01:47.070,00:01:49.539
+of a certain outcome.,00:01:49.539,00:01:52.400
+"In this case, the outcome of
+interest is tails followed by",00:01:52.400,00:01:56.690
+heads followed by tails.,00:01:56.690,00:01:58.990
+"So we're talking about this
+particular outcome here.",00:01:58.990,00:02:02.070
+"According to the multiplication
+rule, to find",00:02:02.070,00:02:04.580
+"the probability of a particular
+final outcome, we",00:02:04.580,00:02:08.320
+"multiply probabilities and
+conditional probabilities",00:02:08.320,00:02:11.590
+"along the path that leads to
+this particular outcome.",00:02:11.590,00:02:14.980
+"So in this case, it's (1 minus
+p) times p times (1 minus p).",00:02:14.980,00:02:21.790
+"Let us now calculate
+the probability",00:02:21.790,00:02:24.280
+of a certain event.,00:02:24.280,00:02:26.210
+"The event of interest is the
+event that we obtain exactly",00:02:26.210,00:02:29.760
+one head in the three tosses.,00:02:29.760,00:02:32.579
+"This is an event that can
+happen in multiple ways.",00:02:32.579,00:02:35.200
+"Here is one possibility where
+we have a single head.",00:02:35.200,00:02:39.280
+Here's another possibility.,00:02:39.280,00:02:41.360
+And here's a third one.,00:02:41.360,00:02:42.860
+"These are the three possible
+ways that we can have exactly",00:02:42.860,00:02:46.740
+"one head, depending
+on where exactly",00:02:46.740,00:02:50.160
+that single head appears.,00:02:50.160,00:02:52.210
+"Is it in the first toss, in the
+second, or in the third.",00:02:52.210,00:02:55.550
+"To find the total probability of
+this event, we need to add",00:02:55.550,00:02:59.520
+"the probability of the different
+outcomes that",00:02:59.520,00:03:01.950
+correspond to this event.,00:03:01.950,00:03:04.450
+"The probability of this outcome
+is p times (1 minus p)",00:03:04.450,00:03:07.490
+"squared, the probability of
+this outcome is what we",00:03:07.490,00:03:10.420
+calculated.,00:03:10.420,00:03:11.180
+"It's, again, p times (1
+minus p) squared.",00:03:11.180,00:03:13.490
+"And the probability of the third
+one is also p times 1",00:03:13.490,00:03:16.460
+minus p squared.,00:03:16.460,00:03:17.829
+"So the answer is 3p times
+(1 minus p) squared.",00:03:17.829,00:03:22.290
+"Notice that each one of the 3
+different ways that this event",00:03:22.290,00:03:27.390
+"can happen have the
+same probability.",00:03:27.390,00:03:30.620
+"So these 3 outcomes are
+equally likely.",00:03:30.620,00:03:34.270
+"Finally, let us calculate a
+conditional probability.",00:03:34.270,00:03:39.390
+"And this is essentially
+the Bayes rule.",00:03:39.390,00:03:42.420
+"Suppose that we were told that
+there was exactly one head.",00:03:42.420,00:03:46.250
+"So in particular, the blue
+event has occurred.",00:03:46.250,00:03:50.590
+"And we're interested in the
+probability that the first",00:03:50.590,00:03:53.820
+"toss is heads, which
+corresponds",00:03:53.820,00:03:57.940
+to this event here.,00:03:57.940,00:04:00.080
+"These are all the outcomes
+in which the first",00:04:00.080,00:04:02.710
+toss is equal to heads.,00:04:02.710,00:04:06.140
+"So given that the blue event
+happened, what is the",00:04:06.140,00:04:09.350
+"probability that the green
+event happens?",00:04:09.350,00:04:13.710
+"You can guess the answer,
+that it should be 1/3.",00:04:13.710,00:04:16.579
+Why is that?,00:04:16.579,00:04:17.870
+"Each one of these blue
+outcomes has the same",00:04:17.870,00:04:22.420
+probability.,00:04:22.420,00:04:23.440
+"So when you condition on the
+blue outcome having happened,",00:04:23.440,00:04:27.250
+"the conditional probability
+of each one of",00:04:27.250,00:04:29.710
+these should be 1/3.,00:04:29.710,00:04:31.810
+"So given that the blue outcome
+happened, there's probability",00:04:31.810,00:04:35.100
+"1/3 that this particular
+one has happened.",00:04:35.100,00:04:40.010
+"And this is the only one that
+makes the green event happen.",00:04:40.010,00:04:43.450
+"But let us see if we
+can derive this",00:04:43.450,00:04:45.550
+answer in a formal manner.,00:04:45.550,00:04:47.330
+"Let's see if we're
+going to get 1/3.",00:04:47.330,00:04:49.740
+"We use the definition of
+conditional probabilities.",00:04:49.740,00:04:52.520
+"The conditional probability is
+the ratio, first, of the",00:04:52.520,00:04:56.360
+"probability that both events
+happen, divided by the",00:04:56.360,00:05:03.920
+"probability of the conditioning
+event, which is",00:05:03.920,00:05:07.610
+the probability of 1 head.,00:05:07.610,00:05:09.486
+"Now, the probability of
+both events happening.",00:05:14.620,00:05:18.620
+"That we have exactly one head
+and the first toss is heads.",00:05:18.620,00:05:22.910
+"This is the intersection of the
+blue event and the green",00:05:22.910,00:05:25.950
+"event which can happen only in
+this particular outcome,",00:05:25.950,00:05:29.150
+"namely the sequence heads,
+tails, tails.",00:05:29.150,00:05:32.360
+"And has probability p times
+(1 minus p) squared.",00:05:32.360,00:05:37.230
+"The denominator is something
+that we have already",00:05:37.230,00:05:39.840
+calculated.,00:05:39.840,00:05:40.680
+"It's 3p times (1 minus
+p) squared.",00:05:40.680,00:05:43.930
+"And so the final answer is
+1/3 as we had guessed.",00:05:43.930,00:05:47.855
+"Let me now make a few comments
+about this particular example.",00:05:51.030,00:05:56.100
+"This particular example is
+pretty special in the",00:05:56.100,00:05:59.310
+following respect.,00:05:59.310,00:06:01.400
+"We have that of the probability
+of H2, heads in",00:06:01.400,00:06:06.375
+"the second toss, given that the
+first one was heads, is",00:06:06.375,00:06:09.610
+equal to p.,00:06:09.610,00:06:11.190
+"And the same is true for the
+conditional probability of",00:06:11.190,00:06:15.100
+"heads in the second toss given
+that the first one was tails.",00:06:15.100,00:06:22.390
+"In other words, our beliefs
+about what may happen in the",00:06:22.390,00:06:26.540
+second toss remain the same.,00:06:26.540,00:06:29.130
+"There's a probability, p, of
+obtaining heads no matter what",00:06:29.130,00:06:33.690
+happened in the first toss.,00:06:33.690,00:06:35.900
+"Telling you the result of the
+first toss doesn't change your",00:06:35.900,00:06:38.880
+"beliefs about what may happen,
+and with what probability, in",00:06:38.880,00:06:43.450
+the second toss.,00:06:43.450,00:06:44.930
+"And if you were to calculate the
+unconditional probability",00:06:44.930,00:06:48.470
+"of heads in the second toss,
+what you would get using the",00:06:48.470,00:06:54.310
+"total probability theorem
+would be the following.",00:06:54.310,00:06:57.370
+"It's probability of heads in
+the first toss times the",00:06:57.370,00:07:00.450
+"probability of heads in the
+second, given heads in the",00:07:00.450,00:07:04.330
+"first, plus the probability of
+tails in the first toss times",00:07:04.330,00:07:10.710
+"the probability of heads in the
+second toss, given tails",00:07:10.710,00:07:14.900
+in the first.,00:07:14.900,00:07:16.320
+"And if you do the algebra,
+this turns out to",00:07:16.320,00:07:19.910
+be equal to p again.,00:07:19.910,00:07:23.560
+"So the unconditional probability
+of heads in the",00:07:23.560,00:07:26.660
+"second toss turns out to be the
+same as the conditional",00:07:26.660,00:07:30.180
+probabilities.,00:07:30.180,00:07:31.500
+"Again, knowing what happened
+in the first toss doesn't",00:07:31.500,00:07:35.000
+"change your beliefs about the
+second toss, which were",00:07:35.000,00:07:38.780
+"associated with this particular
+probability, p.",00:07:38.780,00:07:41.890
+"So what we're going to do next
+is to generalize this special",00:07:41.890,00:07:46.490
+"situation by giving a definition
+of independence of",00:07:46.490,00:07:50.190
+"events, and then discuss
+various properties and",00:07:50.190,00:07:54.920
+"concepts associated
+with independence.",00:07:54.920,00:07:56.610

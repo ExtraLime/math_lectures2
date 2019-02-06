@@ -1,0 +1,1554 @@
+text,start,stop
+"&gt;&gt; DAVID MALAN: All right, welcome back.",00:00:11.200,00:00:12.580
+This is CS50.,00:00:12.580,00:00:13.290
+This is the start of week seven.,00:00:13.290,00:00:15.130
+"So it's been a while, so I thought we'd
+take a whirlwind tour of where we",00:00:15.130,00:00:18.890
+left off and where we're now going.,00:00:18.890,00:00:20.760
+"&gt;&gt; So this thing here might have
+caused some angst at first.",00:00:20.760,00:00:23.310
+"But hopefully, you're beginning to
+acclimate to what this denotes here--",00:00:23.310,00:00:27.680
+"star representing a pointer, which is
+just what, in more layman's terms?",00:00:27.680,00:00:32.670
+So it's an address.,00:00:32.670,00:00:33.400
+"&gt;&gt; So it's the address of
+something in memory.",00:00:33.400,00:00:35.490
+"And we started to peel back the layers
+a couple of weeks ago, things like",00:00:35.490,00:00:38.260
+"GetString and other such functions
+all this time have been returning",00:00:38.260,00:00:41.800
+"addresses of things in memory, like the
+address of the first character in",00:00:41.800,00:00:46.010
+some sequence.,00:00:46.010,00:00:46.990
+"&gt;&gt; So we also introduced valgrind, which
+you'll start to use for this problem",00:00:46.990,00:00:50.360
+"set, particularly for the next
+problem set as well.",00:00:50.360,00:00:53.380
+And valgrind does what for us?,00:00:53.380,00:00:54.980
+"It checks for memory leaks, and it
+also checks for abuse of memory.",00:00:57.520,00:01:01.020
+"&gt;&gt; It can, with some probability, detect if
+your code is going to touch memory",00:01:01.020,00:01:05.890
+that it simply shouldn't.,00:01:05.890,00:01:07.100
+"So not necessarily a leak, but if you
+go beyond the boundaries of some",00:01:07.100,00:01:10.410
+"array, and you actually run valgrind
+and induce that behavior while",00:01:10.410,00:01:14.730
+"valgrind is running in your program is
+running inside of it, you'll get",00:01:14.730,00:01:17.870
+"messages like this-- ""invalid write of
+size 4,"" which, recall a couple of",00:01:17.870,00:01:21.460
+"weeks ago meant that I had accidentally
+like on one int too far",00:01:21.460,00:01:25.880
+beyond the boundaries of an array.,00:01:25.880,00:01:27.250
+"And so size 4 means here the size
+of that particular int.",00:01:27.250,00:01:30.790
+"&gt;&gt; So take reassurance in the fact that
+valgrind's output, the format of it,",00:01:30.790,00:01:35.260
+is just atrocious.,00:01:35.260,00:01:36.170
+"It's really hard to see through the mess
+for the interesting information.",00:01:36.170,00:01:40.180
+"So what we've done here is just excerpt
+some of the couple of more",00:01:40.180,00:01:42.910
+interesting lines.,00:01:42.910,00:01:43.850
+"But realize that 80% of valgrind's
+output is going to be a bit of a",00:01:43.850,00:01:46.760
+distraction.,00:01:46.760,00:01:47.650
+"&gt;&gt; Just look for patterns like these--
+invalid right, invalid read, 40 bytes",00:01:47.650,00:01:52.820
+"and some number of blocks are definitely
+lost, keywords like that.",00:01:52.820,00:01:56.690
+"And what you'll hopefully see is some
+kind of trace of what function the",00:01:56.690,00:02:01.920
+mistake is actually in.,00:02:01.920,00:02:03.340
+"In this case here, in what line of
+my code was the error apparently?",00:02:03.340,00:02:07.195
+"&gt;&gt; 26 in a file called memory.c, which was
+the example we were playing with",00:02:09.729,00:02:14.130
+at the time.,00:02:14.130,00:02:14.890
+So it's probably not in malloc.,00:02:14.890,00:02:16.460
+It was probably in my code instead.,00:02:16.460,00:02:18.630
+"So we'll see this again
+and again before long.",00:02:18.630,00:02:20.910
+"&gt;&gt; So scanf, this came up in a
+couple of forms thus far.",00:02:20.910,00:02:24.080
+We saw sscanf briefly.,00:02:24.080,00:02:26.410
+"It was something a number of
+you dived into in your",00:02:26.410,00:02:28.330
+preparations for the quiz.,00:02:28.330,00:02:29.535
+"And scanf is actually what the CS50
+library's been using underneath the",00:02:29.535,00:02:33.130
+"hood for quite some time in order
+to get input from the user.",00:02:33.130,00:02:36.560
+"&gt;&gt; For instance, if I move over to the CS50
+appliance here, let me open up an",00:02:36.560,00:02:40.420
+"example today that's called scanf-0.c
+And it's super simple.",00:02:40.420,00:02:45.315
+It's just a few lines of code.,00:02:45.315,00:02:46.590
+"But it demonstrates really how getInt
+has been working all of this time.",00:02:46.590,00:02:50.880
+"&gt;&gt; In this program here, in line 16
+, notice that I declare an int.",00:02:50.880,00:02:54.710
+"So no pointers, nothing magical
+there, just an int.",00:02:54.710,00:02:57.270
+"Then in line 17, I prompt the
+user for a number, please.",00:02:57.270,00:03:00.330
+"Then in late 18, I use scanf here.",00:03:00.330,00:03:02.930
+"And I specified, kind of like printf,
+that I'm expecting quote",00:03:02.930,00:03:06.910
+unquote percent i.,00:03:06.910,00:03:08.110
+"&gt;&gt; So percent i, of course,
+denotes an int.",00:03:08.110,00:03:10.920
+"But notice what the second
+argument to scanf is.",00:03:10.920,00:03:14.580
+"How would you describe the second
+argument after the comma?",00:03:14.580,00:03:17.350
+What is that?,00:03:17.350,00:03:19.450
+&gt;&gt; It's the address of x.,00:03:19.450,00:03:20.670
+"So this is useful because by providing
+scanf with the address of x, what does",00:03:20.670,00:03:25.490
+that empower that function to do?,00:03:25.490,00:03:29.560
+"Not just go there, but also do what?",00:03:29.560,00:03:33.010
+&gt;&gt; Make a change to it.,00:03:33.010,00:03:34.060
+"Because you can go there, it's sort of
+like a map to a location in memory.",00:03:34.060,00:03:38.080
+"And so long as you provide scanf, or
+any function with such a map, that",00:03:38.080,00:03:41.900
+"function can go there, and not only
+look at the value, but it can also",00:03:41.900,00:03:45.840
+"change that value, which is useful if
+the purpose in life of scanf is to",00:03:45.840,00:03:49.670
+"scan input from the user, specifically
+from the keyboard.",00:03:49.670,00:03:53.060
+"And the f denotes formatted, just like
+printf, the f denotes a formatted",00:03:53.060,00:03:57.830
+string that you want to print.,00:03:57.830,00:03:58.930
+"&gt;&gt; So in short, this line 18 simply says,
+try to read an int from the user's",00:03:58.930,00:04:04.430
+"keyboard and store it inside of x, at
+whatever address x happens to live at.",00:04:04.430,00:04:10.420
+"And then lastly, line 19 just says,
+thanks for the int, in this case.",00:04:10.420,00:04:14.860
+&gt;&gt; So let me go ahead and make this.,00:04:14.860,00:04:15.940
+So make scanf 0.,00:04:15.940,00:04:18.570
+Let me go ahead and zoom in.,00:04:18.570,00:04:20.130
+"I'll go and run this with
+dots slash scanf 0.",00:04:20.130,00:04:22.960
+"Number, please?",00:04:22.960,00:04:24.020
+50.,00:04:24.020,00:04:24.720
+Thanks for the 50.,00:04:24.720,00:04:25.730
+So it's quite simple.,00:04:25.730,00:04:27.270
+&gt;&gt; Now what is it not doing?,00:04:27.270,00:04:28.160
+"It's not doing a whole bunch
+of error checking.",00:04:28.160,00:04:29.940
+"For instance, if I don't cooperate,
+and I don't type in a number, but",00:04:29.940,00:04:33.000
+"instead I write something like ""hello,""
+that's just kind of strange.",00:04:33.000,00:04:37.860
+"And so one of the things the CS50
+library has been doing for us for some",00:04:37.860,00:04:41.130
+"time is that reprompting
+and reprompting.",00:04:41.130,00:04:43.440
+"&gt;&gt; The retry phrase recall was in cs50.c,
+and that's the reason that getInt in",00:04:43.440,00:04:49.320
+"the CS50 library is actually a whole
+bunch of lines long, because we're",00:04:49.320,00:04:51.670
+checking for stupid stuff like this.,00:04:51.670,00:04:53.190
+"Did the user not give
+us, in fact, an int?",00:04:53.190,00:04:55.730
+"Did he or she give us something
+like an alphabetical letter?",00:04:55.730,00:04:57.910
+"If so, we want to detect
+that and yell at them.",00:04:57.910,00:05:01.410
+"&gt;&gt; But things get more interesting
+in this next example.",00:05:01.410,00:05:03.915
+"If I go to scanf-1.c, what is the one
+thing that is fundamentally changed in",00:05:03.915,00:05:09.840
+this next example?,00:05:09.840,00:05:11.135
+"I'm using char*, of course,
+instead of int.",00:05:13.690,00:05:16.010
+"&gt;&gt; So this is interesting, because char*,
+recall, is really just the",00:05:16.010,00:05:19.210
+same thing as string.,00:05:19.210,00:05:20.190
+"So it feels like maybe this is a super
+simple implementation of GetString.",00:05:20.190,00:05:23.840
+"But I've peeled back the layer
+of the CS50 library, so I'm",00:05:23.840,00:05:26.010
+calling this char* now.,00:05:26.010,00:05:27.550
+"So let's see where, if anywhere,
+we go wrong.",00:05:27.550,00:05:30.070
+&gt;&gt; Line 17--,00:05:30.070,00:05:30.840
+"I again say, please give me something,
+in this case, a string.",00:05:30.840,00:05:33.950
+"And then in the next line, I call scanf,
+again, giving it a format code,",00:05:33.950,00:05:37.940
+but this time percent s.,00:05:37.940,00:05:39.310
+"And then this time, I'm
+giving it buffer.",00:05:39.310,00:05:41.900
+"&gt;&gt; Now notice, I'm not using
+the ampersand.",00:05:41.900,00:05:43.550
+But why is that probably OK here?,00:05:43.550,00:05:47.120
+Because what is buffer already?,00:05:47.120,00:05:49.760
+It's already a pointer.,00:05:49.760,00:05:50.770
+It's already an address.,00:05:50.770,00:05:51.650
+"&gt;&gt; And let's this word ""confuse,"" let me
+just call it s, for instance, for",00:05:51.650,00:05:54.510
+simplicity.,00:05:54.510,00:05:55.050
+"But I've called it buffer because in
+general, in programming, if you have a",00:05:55.050,00:05:58.250
+"chunk of memory, which a string really
+just is, you might call it a buffer.",00:05:58.250,00:06:02.130
+It's a place to store information.,00:06:02.130,00:06:04.460
+"&gt;&gt; Similar to things like YouTube, when
+they're buffering, so to speak, that",00:06:04.460,00:06:07.400
+"just means it's downloading bits from
+the internet and storing them in a",00:06:07.400,00:06:10.270
+"local array, a local chunk of memory so
+that you can watch it later without",00:06:10.270,00:06:14.160
+"it skipping or hanging on
+you while playing back.",00:06:14.160,00:06:16.830
+"&gt;&gt; So there's a problem here though,
+because I'm telling scanf, expect a",00:06:16.830,00:06:20.930
+string from the user.,00:06:20.930,00:06:22.320
+"Here's the address of
+a chunk of memory.",00:06:22.320,00:06:24.410
+Put that string there.,00:06:24.410,00:06:26.180
+"Why is that bound give
+us trouble, though?",00:06:26.180,00:06:31.230
+&gt;&gt; What's that?,00:06:31.230,00:06:33.490
+"Am I allowed to access
+that part of memory?",00:06:33.490,00:06:35.510
+"You know, I don't know.",00:06:35.510,00:06:36.250
+"Because has buffer been initialized
+to anything?",00:06:36.250,00:06:39.210
+Not really.,00:06:39.210,00:06:39.820
+"And so it's what we've been calling
+a garbage value, which",00:06:39.820,00:06:43.090
+isn't a formal word.,00:06:43.090,00:06:44.040
+"It just means we have no idea what bits
+are inside of the four bytes that",00:06:44.040,00:06:49.200
+I have allocated as buffer.,00:06:49.200,00:06:51.240
+&gt;&gt; I have not called malloc.,00:06:51.240,00:06:52.450
+I've definitely not called GetString.,00:06:52.450,00:06:53.940
+"So who knows what is actually
+inside of buffer?",00:06:53.940,00:06:56.380
+"And yet telling scanf blindly, go there
+and put whatever the user typed.",00:06:56.380,00:07:00.550
+"&gt;&gt; So what is likely to cause
+in our code if we run it?",00:07:00.550,00:07:04.460
+Probably a segfault.,00:07:04.460,00:07:05.700
+"Maybe not, but probably a segfault.",00:07:05.700,00:07:07.970
+"And I say maybe not because sometimes
+you do, sometimes",00:07:07.970,00:07:10.620
+you don't get a segfault.,00:07:10.620,00:07:11.380
+"Sometimes you just get lucky, but
+it's nonetheless going to be",00:07:11.380,00:07:14.280
+a bug in our program.,00:07:14.280,00:07:15.340
+&gt;&gt; So let me go ahead and compile this.,00:07:15.340,00:07:17.060
+I'm going to do it the old school way.,00:07:17.060,00:07:18.280
+"So clang dash 0, scanf-1,
+scanf-1.c, Enter.",00:07:18.280,00:07:23.825
+"Oops, too old school.",00:07:23.825,00:07:24.720
+Let's see.,00:07:24.720,00:07:26.550
+Where did I go?,00:07:26.550,00:07:28.440
+"Oh, char* buffer.",00:07:28.440,00:07:29.700
+"Oh, thank you--",00:07:33.595,00:07:35.130
+"Save, OK--",00:07:35.130,00:07:36.930
+very old school.,00:07:36.930,00:07:37.690
+"All right, it's been a while.",00:07:37.690,00:07:38.900
+"&gt;&gt; So I've just saved the file after
+making that temporary",00:07:38.900,00:07:41.720
+change a moment ago.,00:07:41.720,00:07:42.700
+"And now I have compiled it
+manually with Clang.",00:07:42.700,00:07:46.090
+"And now I'm going to go ahead
+and run scanf-1, Enter.",00:07:46.090,00:07:49.500
+String please.,00:07:49.500,00:07:50.290
+"I'll type in ""hello.""",00:07:50.290,00:07:51.600
+"&gt;&gt; And now, here's where, frankly, printf
+can is a little annoying.",00:07:51.600,00:07:54.070
+"It's not actually going to
+segfault in this case.",00:07:54.070,00:07:56.020
+"Printf is a little special because
+it's so super commonly used that",00:07:56.020,00:07:59.860
+"essentially printf is doing
+us a favor and realizing,",00:07:59.860,00:08:03.570
+that's not a valid pointer.,00:08:03.570,00:08:04.830
+"Let me take it upon myself to just print
+out in parentheses null, even",00:08:04.830,00:08:09.080
+"though it's not necessarily what
+we ourselves expected.",00:08:09.080,00:08:13.340
+"&gt;&gt; So we can't really easily induce a
+segfault with this, but clearly this",00:08:13.340,00:08:16.940
+is not the behavior I wanted.,00:08:16.940,00:08:18.600
+So what's the simple solution?,00:08:18.600,00:08:19.800
+"Well, in scanf-2, let me propose that
+instead of actually just allocating a",00:08:19.800,00:08:25.650
+"char*, let me be a little smarter about
+this, and let me allocate buffer",00:08:25.650,00:08:30.100
+as a sequence of 16 chars.,00:08:30.100,00:08:32.940
+&gt;&gt; So I can do this in a couple of ways.,00:08:32.940,00:08:34.200
+I could absolutely use malloc.,00:08:34.200,00:08:35.610
+"But I can go back to week two when
+I just needed a whole bunch of",00:08:35.610,00:08:38.980
+characters.,00:08:38.980,00:08:39.620
+That's just an array.,00:08:39.620,00:08:40.860
+"So let me instead redefine buffer
+to be an array of 16 characters.",00:08:40.860,00:08:44.870
+"&gt;&gt; And now, when I pass buffer in--",00:08:44.870,00:08:47.340
+"and this is something we didn't
+talk about in week two--",00:08:47.340,00:08:49.940
+"but you can treat an array as
+though it's an address.",00:08:49.940,00:08:53.730
+"Technically, as we've seen, they're
+a little bit different.",00:08:53.730,00:08:56.390
+"But scanf won't mind if you pass it
+the name of an array, because what",00:08:56.390,00:09:01.290
+"Clang will do for us is essentially
+treat the name of that array as the",00:09:01.290,00:09:05.030
+address of the chunk of 16 bytes.,00:09:05.030,00:09:08.280
+&gt;&gt; So this is better.,00:09:08.280,00:09:09.550
+"This means now that I can hopefully
+do the following.",00:09:09.550,00:09:12.110
+"Let me zoom out for a moment and
+do make scanf-2, compiled OK.",00:09:12.110,00:09:16.800
+Now let me do got slash scanf-2.,00:09:16.800,00:09:19.390
+"String please. ""Hello."" And it
+seemed to work this time.",00:09:19.390,00:09:22.430
+"&gt;&gt; But can someone propose a scenario
+in which it might not still work?",00:09:22.430,00:09:26.020
+Yeah?,00:09:26.020,00:09:28.550
+Something longer than 16 characters.,00:09:28.550,00:09:30.640
+"And actually, we can be
+a little more precise.",00:09:30.640,00:09:32.020
+"Something longer then 15 characters,
+because really we need to keep in mind",00:09:32.020,00:09:36.540
+"that we need that backslash zero
+implicitly at the end of the string,",00:09:36.540,00:09:39.920
+"which is an aside scanf will typically
+take care of for us.",00:09:39.920,00:09:42.950
+&gt;&gt; So let me do something like--,00:09:42.950,00:09:46.210
+"sometimes we can just
+leave it like that.",00:09:46.210,00:09:48.040
+"OK, so we've now induced
+our segmentation fault.",00:09:48.040,00:09:50.630
+Why?,00:09:50.630,00:09:51.000
+"Because I typed to more than 15
+characters, and so we've actually",00:09:51.000,00:09:54.940
+"touched memory that I actually
+should not have.",00:09:54.940,00:09:58.280
+&gt;&gt; So what's really the solution here?,00:09:58.280,00:10:00.180
+"Well, what if we need a longer string?",00:10:00.180,00:10:02.210
+"Well, we maybe make it 32 bytes.",00:10:02.210,00:10:03.960
+"Well, what if that's not long enough?",00:10:03.960,00:10:05.160
+How about 64 bytes?,00:10:05.160,00:10:06.040
+What if that's not long enough?,00:10:06.040,00:10:07.080
+How about 128 or 200 bytes?,00:10:07.080,00:10:09.640
+"What really is the solution here in the
+general case, if we don't know in",00:10:09.640,00:10:12.660
+advance what the user's going to type?,00:10:12.660,00:10:14.460
+"&gt;&gt; It's just kind of a big pain in the ass,
+to be honest, which is why the",00:10:20.000,00:10:23.050
+"CS50 library has a few dozen lines of
+code that collectively implement",00:10:23.050,00:10:29.050
+"GetString string in a way that we don't
+have to know in advance what the",00:10:29.050,00:10:32.390
+user is going to type.,00:10:32.390,00:10:33.430
+"In particular, if you look back at
+cs50.c from two weeks ago, you'll see",00:10:33.430,00:10:37.370
+"that GetString actually does
+not use scanf in this way.",00:10:37.370,00:10:40.480
+"Rather, it reads one character
+at a time.",00:10:40.480,00:10:43.720
+"&gt;&gt; Because the one nice thing about
+reading one character is we can",00:10:43.720,00:10:46.010
+"guarantee ourselves to always
+have at least one char.",00:10:46.010,00:10:48.490
+"I can just declare a char, and then take
+these truly baby steps to just",00:10:48.490,00:10:51.740
+"read one character in at a
+time from the keyboard.",00:10:51.740,00:10:54.380
+"And then, what you'll see GetString
+does is every time it runs out of,",00:10:54.380,00:10:58.240
+"say, 16 bytes of memory, it uses
+malloc, or a cousin thereof, to",00:10:58.240,00:11:02.280
+"allocate more memory, copying the old
+memory into the new, and then crawling",00:11:02.280,00:11:06.810
+"along, getting one character at a time,
+and when it runs out of that",00:11:06.810,00:11:09.900
+"chunk of memory, throws it away, grabs
+a bigger chunk of memory, copies old",00:11:09.900,00:11:13.370
+"into new, and repeats.",00:11:13.370,00:11:14.750
+"And it's truly a pain to actually
+implement something as simple as",00:11:14.750,00:11:18.480
+getting input from a user.,00:11:18.480,00:11:19.710
+&gt;&gt; So you can use scanf.,00:11:19.710,00:11:21.090
+You can use other similar functions.,00:11:21.090,00:11:22.430
+"And a lot of textbooks and online
+examples do, but they're all",00:11:22.430,00:11:25.420
+vulnerable to problems like this.,00:11:25.420,00:11:27.210
+"And ultimately, getting a segfault
+is kind of annoying.",00:11:27.210,00:11:29.550
+It's not good for the user.,00:11:29.550,00:11:30.680
+"&gt;&gt; But in the worst case, what does
+it fundamentally put your",00:11:30.680,00:11:33.560
+code at risk of?,00:11:33.560,00:11:37.160
+"Some kind of attack, potentially.",00:11:37.160,00:11:39.250
+"We talked about one such attack--
+overflowing the stack.",00:11:39.250,00:11:41.680
+"But in general, if you're allowed to
+overflow a buffer, like we did a",00:11:41.680,00:11:44.660
+"couple of weeks ago, with just writing
+more than ""hello"" on the stack, you",00:11:44.660,00:11:48.070
+"can indeed take over, potentially, a
+computer, or at least get at data that",00:11:48.070,00:11:52.330
+doesn't belong to you.,00:11:52.330,00:11:53.510
+"&gt;&gt; So in short, this is why we have
+those training wheels.",00:11:53.510,00:11:55.970
+"But now, we begin to take them off,
+as our programs no longer need,",00:11:55.970,00:11:59.090
+"necessarily, input from the user.",00:11:59.090,00:12:00.610
+"But in the case of problem set six,
+your input will come from a huge",00:12:00.610,00:12:03.960
+"dictionary file with 150 some
+odd thousand words.",00:12:03.960,00:12:07.520
+"&gt;&gt; So you won't have to worry about
+the user's arbitrary input.",00:12:07.520,00:12:10.330
+"We will give you some assumptions
+about that file.",00:12:10.330,00:12:13.720
+"Any questions on pointers or scanf
+or user input in general?",00:12:13.720,00:12:20.340
+"&gt;&gt; All right, so a quick look then at one
+trailing topic from two weeks ago.",00:12:20.340,00:12:24.450
+And that was this notion of a struct.,00:12:24.450,00:12:28.590
+"Not that-- this notion of a
+struct, which was what?",00:12:28.590,00:12:34.180
+What did struct do for us?,00:12:34.180,00:12:35.430
+&gt;&gt; Define--,00:12:39.280,00:12:39.860
+sorry?,00:12:39.860,00:12:41.710
+Define a variable type.,00:12:41.710,00:12:42.820
+So sort of.,00:12:42.820,00:12:44.410
+We're actually combining two topics.,00:12:44.410,00:12:46.180
+"So with typedef, recall that we can
+declare a type of our own, like a",00:12:46.180,00:12:49.510
+"synonym, like string for char*.",00:12:49.510,00:12:51.500
+"But using typedef and struct, we can
+create truly our own data structures.",00:12:51.500,00:12:56.200
+"&gt;&gt; For instance, if I go back into gedit
+here for just a moment, and I go ahead",00:12:56.200,00:12:59.600
+"and do something like, let me save
+this as, let's say, structs.c",00:12:59.600,00:13:08.230
+"temporarily, I'm just going
+to go ahead and include",00:13:08.230,00:13:10.840
+"standardio.h, int main void.",00:13:10.840,00:13:14.360
+"And then in here, suppose that I want
+to write a program that stores",00:13:14.360,00:13:18.960
+"multiple students from multiple
+houses, for instance.",00:13:18.960,00:13:21.840
+"So it's like a registrarial
+database of some sort.",00:13:21.840,00:13:24.430
+"&gt;&gt; So if I need the name one student, I
+might do something like char* name,",00:13:24.430,00:13:29.550
+and I'll do something like--,00:13:29.550,00:13:31.570
+"actually, let's use the CS50 library
+for just a moment to make this a",00:13:31.570,00:13:34.410
+"little simpler, so we can borrow
+those dozens of lines of code.",00:13:34.410,00:13:38.380
+And let's just keep it simple.,00:13:38.380,00:13:39.340
+"We'll keep it string,
+and now GetString.",00:13:39.340,00:13:42.610
+"&gt;&gt; So I claim now that I've stored the name
+of some student, and the house of",00:13:42.610,00:13:47.420
+"some student, simply using variables
+like we did and in week one.",00:13:47.420,00:13:50.240
+"But suppose I now want to support
+multiple students.",00:13:50.240,00:13:52.370
+"All right, so my instincts are to do
+string name2, gets GetString, string",00:13:52.370,00:13:58.460
+house2 gets GetString.,00:13:58.460,00:14:01.370
+"And then our third student,
+let's do name3 GetString.",00:14:01.370,00:14:05.850
+"&gt;&gt; All right, so this is hopefully striking
+you as kind of stupid,",00:14:05.850,00:14:09.170
+"because this process is really never
+going to end, and it's just going to",00:14:09.170,00:14:11.580
+"make my code look worse
+and worse and worse.",00:14:11.580,00:14:13.130
+But we solved this too in week two.,00:14:13.130,00:14:14.810
+"What was our relatively clean solution
+when we had multiple variables of the",00:14:14.810,00:14:19.450
+"same data type that are all related, but
+we didn't want this atrocious mess",00:14:19.450,00:14:23.580
+of similarly named variables?,00:14:23.580,00:14:26.870
+What did we do instead?,00:14:26.870,00:14:30.060
+&gt;&gt; So I think I heard a few places.,00:14:30.060,00:14:31.260
+We had an array.,00:14:31.260,00:14:32.590
+"If you want multiple instances of
+something, why don't we clean this all",00:14:32.590,00:14:37.110
+"up and just say, give me
+array called names?",00:14:37.110,00:14:39.540
+"&gt;&gt; And for now, let's hard code 3.",00:14:39.540,00:14:41.640
+"And then give me another array
+called houses, and let me for",00:14:41.640,00:14:44.450
+now hard code 3.,00:14:44.450,00:14:45.800
+"And I've massively cleaned up the
+mess that I just created.",00:14:45.800,00:14:49.220
+"Now, I've still hard coded 3, but even
+the 3 could dynamically come from the",00:14:49.220,00:14:52.400
+"user, or argv, or the like.",00:14:52.400,00:14:54.350
+So this is already cleaner.,00:14:54.350,00:14:55.720
+"&gt;&gt; But what's annoying about this is that
+now, even though a name is somehow",00:14:55.720,00:15:00.100
+"fundamentally linked to
+a student's house--",00:15:00.100,00:15:02.280
+"it's a student that I really
+want to represent--",00:15:02.280,00:15:04.720
+"I now have two arrays that are parallel
+in the sense that they're the",00:15:04.720,00:15:08.080
+"same size, and names bracket 0
+presumably maps to houses bracket 0,",00:15:08.080,00:15:13.930
+"and names bracket 1 maps
+to houses bracket 1.",00:15:13.930,00:15:16.600
+"In other words, that student lives in
+that house, and that other student",00:15:16.600,00:15:19.280
+lives in that other house.,00:15:19.280,00:15:20.530
+"But surely this could be
+done even more cleanly.",00:15:20.530,00:15:23.720
+"&gt;&gt; Well, it can, in fact.",00:15:23.720,00:15:24.990
+"And let me go ahead and open
+up structs.h, and you'll",00:15:24.990,00:15:28.730
+see this idea here.,00:15:28.730,00:15:31.130
+"Notice that I've used typedef, as you
+alluded to a moment ago to declare our",00:15:31.130,00:15:34.905
+own data type.,00:15:34.905,00:15:35.570
+"But I'm also using this other keyword
+called struct which gives me a new",00:15:35.570,00:15:39.660
+data structure.,00:15:39.660,00:15:40.790
+"&gt;&gt; And this data structure I claim is going
+to have two things inside of",00:15:40.790,00:15:43.980
+"it-- a string called name, and
+a string called house.",00:15:43.980,00:15:47.060
+"And the name I'm going to give to
+this data structure is going",00:15:47.060,00:15:49.820
+to be called student.,00:15:49.820,00:15:51.005
+"I could call it anything I want,
+but this semantically make",00:15:51.005,00:15:54.030
+sense to me in my mind.,00:15:54.030,00:15:55.810
+"&gt;&gt; So now, if I open up a better version
+of the program I started writing",00:15:55.810,00:15:59.160
+"there, let me scroll to the top.",00:15:59.160,00:16:00.390
+"And there's some more lines of code
+here, but let me focus for",00:16:00.390,00:16:03.190
+the moment on one.,00:16:03.190,00:16:04.160
+"I've declared a constant called students
+and hard coded 3 for now.",00:16:04.160,00:16:07.790
+"But now, notice how clean
+my code begins to get.",00:16:07.790,00:16:11.110
+"&gt;&gt; In line 22, I declare
+array of students.",00:16:11.110,00:16:15.030
+"And notice that student is apparently
+now a data type.",00:16:15.030,00:16:18.760
+"Because at the top of this file, notice
+I've included that header file",00:16:18.760,00:16:23.360
+that I pulled up just a moment ago.,00:16:23.360,00:16:24.820
+"And that header file quite simply had
+this definition of a student.",00:16:24.820,00:16:28.820
+"&gt;&gt; So now, I've created my own custom data
+type that the authors of C years",00:16:28.820,00:16:32.470
+ago didn't think of in advance.,00:16:32.470,00:16:33.890
+But no problem.,00:16:33.890,00:16:34.570
+I can make it myself.,00:16:34.570,00:16:35.870
+"So this is an array called students,
+each of whose members",00:16:35.870,00:16:39.050
+is a student structure.,00:16:39.050,00:16:41.100
+"And I want three of those
+in the array.",00:16:41.100,00:16:44.270
+"&gt;&gt; And now, what does the rest
+of this program do?",00:16:44.270,00:16:46.030
+I needed something a little arbitrary.,00:16:46.030,00:16:47.550
+"So from online 24 onward,
+I iterate from 0 to 3.",00:16:47.550,00:16:51.450
+"I then ask the user for
+the student's name.",00:16:51.450,00:16:54.000
+And then I use GetString as before.,00:16:54.000,00:16:56.110
+"Then I ask for the student's house,
+and I use GetString as before.",00:16:56.110,00:16:59.410
+"&gt;&gt; But notice-- slightly new
+piece of syntax--",00:16:59.410,00:17:01.780
+"I can still index to the i-th student,
+but how do I get at the specific data",00:17:01.780,00:17:07.010
+field inside of the struct?,00:17:07.010,00:17:08.354
+"Well, what's apparently the
+new piece of syntax?",00:17:08.354,00:17:11.770
+It's just the dot operator.,00:17:11.770,00:17:13.339
+&gt;&gt; We've not really seen this before.,00:17:13.339,00:17:14.510
+"You've seen it in pset five if you've
+dived in already with bitmap files.",00:17:14.510,00:17:17.819
+"But the dot just means inside of this
+struct or multiple fields, give dot",00:17:17.819,00:17:22.372
+"name, or give me dot house.",00:17:22.372,00:17:24.510
+"That means go inside of the struct
+and get those particular fields.",00:17:24.510,00:17:28.690
+&gt;&gt; What does the rest of this program do?,00:17:28.690,00:17:30.200
+It's not all that sexy.,00:17:30.200,00:17:31.190
+"Notice that I iterate from 0 to 3 again,
+and I simply create an English",00:17:31.190,00:17:34.640
+"phrase like so and so is in such and
+such a house, passing in dot name from",00:17:34.640,00:17:40.500
+"the i-th student and their
+house as well.",00:17:40.500,00:17:43.320
+"&gt;&gt; And then lastly, now we'll start to get
+anal about this, now that we're",00:17:43.320,00:17:47.560
+"familiar with what malloc and
+other functions have been",00:17:47.560,00:17:49.580
+doing all this time.,00:17:49.580,00:17:50.570
+"Why do I have to free both name
+and house, even though I",00:17:50.570,00:17:54.220
+did not call malloc?,00:17:54.220,00:17:56.960
+&gt;&gt; GetString did.,00:17:56.960,00:17:58.020
+"And that was the dirty little secret for
+several weeks, but GetString has",00:17:58.020,00:18:00.930
+"been leaking memory all over the
+place all semester thus far.",00:18:00.930,00:18:03.530
+"And valgrand will finally
+reveal this to us.",00:18:03.530,00:18:05.990
+"&gt;&gt; But it's not a big deal, because I know
+that I can simply free the name",00:18:05.990,00:18:10.730
+"and the house, though technically, to
+be super, super safe, I should be",00:18:10.730,00:18:15.750
+doing some error checking here.,00:18:15.750,00:18:17.890
+What are your instincts telling you?,00:18:17.890,00:18:19.040
+"What should I be checking for
+before I free what is a",00:18:19.040,00:18:22.480
+"string, aka which a char*?",00:18:22.480,00:18:25.470
+"&gt;&gt; I should really be checking if students
+bracket i dot name does not",00:18:25.470,00:18:33.460
+equal null.,00:18:33.460,00:18:34.840
+"Then it'll be OK to go ahead and free
+that pointer, and same or the other",00:18:34.840,00:18:40.400
+one as well.,00:18:40.400,00:18:41.160
+"If students bracket i dot house is not
+equal to null, this now will protect",00:18:41.160,00:18:46.860
+"against the corner case in which
+GetString returns something like null.",00:18:46.860,00:18:52.520
+"And we saw a moment ago, printf will
+protect us up here by just saying",00:18:52.520,00:18:57.310
+"null, which is going to look weird.",00:18:57.310,00:18:58.990
+"But at least it won't segfault,
+as we have seen.",00:18:58.990,00:19:02.340
+"&gt;&gt; Well, let me do one other thing here.
+structs-0 is kind of a stupid program",00:19:02.340,00:19:05.990
+"because I enter all this data, and then
+it's lost once the program ends.",00:19:05.990,00:19:09.700
+But let me go ahead and do this.,00:19:09.700,00:19:10.940
+"Let me make the terminal
+window a bit bigger.",00:19:10.940,00:19:12.830
+"Let me make structs-1, which
+is a new version of this.",00:19:12.830,00:19:17.000
+&gt;&gt; I'll zoom in a little bit.,00:19:17.000,00:19:18.520
+"And now let me run dot
+slash structs-1.",00:19:18.520,00:19:21.620
+Student's name--,00:19:21.620,00:19:22.590
+"David Mather, let's do Rob Kirkland,
+let's do Lauren Leverett.",00:19:22.590,00:19:31.500
+What's interesting now is notice--,00:19:31.500,00:19:33.650
+"and I only know this because
+I wrote the program--",00:19:33.650,00:19:35.540
+"there's a file now on my current
+directory called students.csv.",00:19:35.540,00:19:38.930
+"Some of you might have seen
+these in the real world.",00:19:38.930,00:19:40.420
+&gt;&gt; What's a CSV file?,00:19:40.420,00:19:42.980
+Comma-separated values.,00:19:42.980,00:19:44.170
+"It's sort of like a poor man's
+version of an Excel file.",00:19:44.170,00:19:46.670
+"It's a table of rows and columns that
+you can open in a program like Excel,",00:19:46.670,00:19:50.580
+or Numbers on a Mac.,00:19:50.580,00:19:51.800
+"&gt;&gt; And if I open this file here on gedit,
+notice-- and the numbers aren't there.",00:19:51.800,00:19:55.180
+"That's just gedit telling
+me line numbers.",00:19:55.180,00:19:57.360
+"Notice on the first line of this
+file is David and Mather.",00:19:57.360,00:19:59.740
+The next line is Rob comma Kirkland.,00:19:59.740,00:20:01.450
+"And the third line is Lauren
+comma Leverett.",00:20:01.450,00:20:04.170
+&gt;&gt; So what have I created?,00:20:04.170,00:20:05.480
+"I've now written a C program that
+effectively can generate spreadsheets",00:20:05.480,00:20:09.580
+"that can be opened in a
+program like Excel.",00:20:09.580,00:20:11.840
+"Not all that compelling a data set, but
+if you have much larger chunks of",00:20:11.840,00:20:15.520
+"data that you actually want to
+manipulate and make graphs of and the",00:20:15.520,00:20:18.440
+"like, this is perhaps one
+way to create that data.",00:20:18.440,00:20:21.260
+"Moreover, CSVs are actually super common
+just for storing simple data--",00:20:21.260,00:20:25.370
+"Yahoo Finance, for instance, if you get
+stock quotes via their so-called",00:20:25.370,00:20:28.940
+"API, the free service that lets you
+get current up-to-the-date stock",00:20:28.940,00:20:33.180
+"quotes for companies, they
+give the data back in the",00:20:33.180,00:20:35.650
+super simple CSV format.,00:20:35.650,00:20:37.800
+&gt;&gt; So how did we do that?,00:20:37.800,00:20:39.380
+"Well notice, most of this program's
+almost the same.",00:20:39.380,00:20:42.530
+"But notice down here, rather than print
+the students out, on line 35",00:20:42.530,00:20:46.870
+"onward, I claim that I'm saving the
+students to disk, so saving a file.",00:20:46.870,00:20:51.040
+&gt;&gt; So notice I'm declaring a FILE*--,00:20:51.040,00:20:53.630
+"now, this is kind of an anomaly in C.
+For whatever reason, FILE is all caps,",00:20:53.630,00:20:57.260
+"which is not like most other data types
+in C. But this is a built-in",00:20:57.260,00:21:00.690
+"data type, FILE*.",00:21:00.690,00:21:02.320
+"And I'm declaring a pointer to a file,
+is how you can think of that.",00:21:02.320,00:21:05.900
+&gt;&gt; fopen means open file.,00:21:05.900,00:21:08.070
+What file do you want to open?,00:21:08.070,00:21:09.470
+"I want to open a file that I will
+arbitrarily call students.csv.",00:21:09.470,00:21:12.620
+I could call that anything I want.,00:21:12.620,00:21:14.480
+&gt;&gt; And then take a guess.,00:21:14.480,00:21:15.200
+"What does the second argument
+to fopen probably mean?",00:21:15.200,00:21:18.960
+"Right, w for write, could
+be r for read.",00:21:18.960,00:21:21.480
+"There's a for append if you
+want to add rows and not",00:21:21.480,00:21:24.120
+overwrite the whole thing.,00:21:24.120,00:21:25.200
+"&gt;&gt; But I just want to create this file
+once, so I'll use quote unquote w.",00:21:25.200,00:21:28.005
+"And I know that only from having read
+the documentation, or the man page.",00:21:28.005,00:21:31.880
+"If file is not null-- in other words,
+if nothing went wrong there--",00:21:31.880,00:21:35.100
+"let me iterate over the
+students from 0 to 3.",00:21:35.100,00:21:37.820
+"&gt;&gt; And now notice there's something
+ever so slightly different",00:21:37.820,00:21:40.410
+about line 41 here.,00:21:40.410,00:21:42.110
+It's not printf.,00:21:42.110,00:21:42.960
+It's fprintf for file printf.,00:21:42.960,00:21:46.530
+So it's going to write to file.,00:21:46.530,00:21:47.790
+Which file?,00:21:47.790,00:21:48.860
+"The one whose pointer you specify
+as the first argument.",00:21:48.860,00:21:53.630
+&gt;&gt; Then we specify a format string.,00:21:53.630,00:21:55.940
+"Then we specify what string we want to
+plug in for the first percent s, and",00:21:55.940,00:21:59.660
+"then another variable or
+the second percent s.",00:21:59.660,00:22:04.320
+Then we close the file with fclose.,00:22:04.320,00:22:06.760
+"Than I free the memory as before, though
+I should go back in and add",00:22:06.760,00:22:09.380
+some checks for null.,00:22:09.380,00:22:10.540
+&gt;&gt; And that's it.,00:22:10.540,00:22:12.090
+"fopen, fprintf, fclose gives me the
+ability to create text files.",00:22:12.090,00:22:16.960
+"Now, you'll see in problem set five,
+which involves images, you'll be using",00:22:16.960,00:22:19.640
+binary files instead.,00:22:19.640,00:22:20.990
+"But fundamentally, the idea is the same,
+even though the functions you'll",00:22:20.990,00:22:24.200
+see are a little bit different.,00:22:24.200,00:22:28.710
+"&gt;&gt; So whirlwind tour, but you will get
+all too familiar with file I/O--",00:22:28.710,00:22:32.580
+input and output-- with pset five.,00:22:32.580,00:22:34.960
+"And any questions about the
+initial basics here?",00:22:34.960,00:22:38.607
+Yeah?,00:22:38.607,00:22:39.857
+&gt;&gt; What if you try to free a null value?,00:22:41.880,00:22:43.710
+"I believe, unless free has gotten a
+little more user-friendly, you can",00:22:43.710,00:22:48.880
+potentially segfault.,00:22:48.880,00:22:49.890
+"Passing it null is bad because I don't
+believe free bothers to check for you,",00:22:49.890,00:22:54.160
+"because it would potentially be a waste
+of time for it to do itself for",00:22:54.160,00:22:57.330
+everyone in the world.,00:22:57.330,00:22:59.022
+"Good question, though.",00:22:59.022,00:23:00.590
+"&gt;&gt; All right, so this kind of gets
+us to an interesting topic.",00:23:00.590,00:23:04.300
+"The theme of problem set
+five is forensics.",00:23:04.300,00:23:07.010
+"At least that's a portion
+of the problem set.",00:23:07.010,00:23:08.420
+"Forensics generally refers to the
+recovery of information that may or",00:23:08.420,00:23:12.030
+"may not have been deleted
+deliberately.",00:23:12.030,00:23:14.110
+"And so I thought I'd give you a quick
+taste of what is really going on all",00:23:14.110,00:23:18.680
+"this time underneath the
+hood of your computer.",00:23:18.680,00:23:21.230
+"&gt;&gt; For instance, if you have inside of your
+laptop or your desktop computer a",00:23:21.230,00:23:23.960
+"hard drive, it's either a mechanical
+device that actually spins--",00:23:23.960,00:23:28.040
+"there's circular things called platters
+that look quite like what I",00:23:28.040,00:23:31.650
+"just had up on the screen here, though
+this is increasingly old school.",00:23:31.650,00:23:34.540
+"This is a three-and-a-half-inch
+hard drive.",00:23:34.540,00:23:37.370
+"And three and a half inches refers of
+with of the thing when you install it",00:23:37.370,00:23:40.070
+in a computer.,00:23:40.070,00:23:40.890
+"&gt;&gt; Many of you guys in your laptops now
+have solid-state drives, or SSDs,",00:23:40.890,00:23:44.890
+which have no moving parts.,00:23:44.890,00:23:46.260
+"They're more like RAM and less like
+these mechanical devices.",00:23:46.260,00:23:49.170
+"But the ideas are still the same,
+certainly as they relate",00:23:49.170,00:23:51.450
+to problem set five.,00:23:51.450,00:23:52.790
+"&gt;&gt; And if you think about now a hard drive
+represents being a circle, which",00:23:52.790,00:23:57.400
+I'll draw like this here.,00:23:57.400,00:23:58.930
+"When you create a file on your computer,
+whether it's an SSD, or in",00:23:58.930,00:24:02.290
+"this case, an older school hard drive,
+that file comprises multiple bits.",00:24:02.290,00:24:06.610
+"Let's say that it's this 0 and 1,
+a whole bunch of 0s and 1s.",00:24:06.610,00:24:10.510
+So this is my whole hard drive.,00:24:10.510,00:24:11.660
+This is apparently a pretty big file.,00:24:11.660,00:24:13.225
+"And it is using up the 0s and 1s at that
+portion of the physical platter.",00:24:13.225,00:24:18.080
+"&gt;&gt; Well, what is that physical portion?",00:24:18.080,00:24:19.750
+"Well, it turns out that on a hard drive,
+at least of this type, there's",00:24:19.750,00:24:25.310
+these tiny little magnetic particles.,00:24:25.310,00:24:27.340
+"And they essentially have north and
+south poles to them, so that if you",00:24:27.340,00:24:32.630
+"turn one of those magnetic particles
+this way, you might say that it's",00:24:32.630,00:24:35.710
+representing a 1.,00:24:35.710,00:24:36.720
+"And if it's upside down south to
+north, you might say that it's",00:24:36.720,00:24:39.340
+representing a 0.,00:24:39.340,00:24:40.390
+"&gt;&gt; So in the real physical world, that's
+how you could represent something in",00:24:40.390,00:24:43.660
+binary state of the 0 and a 1.,00:24:43.660,00:24:45.670
+So that's all a file is.,00:24:45.670,00:24:46.720
+"There's a whole bunch of magnetic
+particles that are their this way or",00:24:46.720,00:24:49.300
+"this way, creating patterns
+of 0s and 1s.",00:24:49.300,00:24:51.920
+"&gt;&gt; But it turns out when you save a file,
+some information is saved separately.",00:24:51.920,00:24:56.760
+"So this is a little table,
+a directory, so to speak.",00:24:56.760,00:25:00.000
+"And I'll call this column name, and
+I'll call this column location.",00:25:00.000,00:25:05.810
+"&gt;&gt; And I'm going to say, suppose
+this is my resume.",00:25:05.810,00:25:08.850
+"My resume.doc is stored at
+location, let's say 123.",00:25:08.850,00:25:14.050
+I always go for that number.,00:25:14.050,00:25:15.390
+"But suffice it to say that just like
+in RAM, you can take a hard drive",00:25:15.390,00:25:18.810
+"that's a gigabyte or 200 gigabytes
+or a terabyte, and you can",00:25:18.810,00:25:22.350
+number all of the bytes.,00:25:22.350,00:25:23.750
+You can number all chunks of 8 bits.,00:25:23.750,00:25:26.480
+"&gt;&gt; So we'll say that this
+is location 123.",00:25:26.480,00:25:29.030
+"So this directory inside of my operating
+system remembers that my",00:25:29.030,00:25:32.070
+resume is at location 123.,00:25:32.070,00:25:34.250
+"But it gets interesting when
+you delete a file.",00:25:34.250,00:25:36.850
+&gt;&gt; So for instance--,00:25:36.850,00:25:37.820
+"and thankfully, most of the world has
+caught onto this-- what happens when",00:25:37.820,00:25:40.790
+"you drag a file to your Mac OS Trash
+or your Windows Recycle Bin?",00:25:40.790,00:25:45.040
+What's the purpose of doing that?,00:25:48.290,00:25:50.510
+"It's obviously to get rid of the file,
+but what does the act of dragging and",00:25:50.510,00:25:53.860
+"dropping into your Trash or your
+Recycle Bin do on a computer?",00:25:53.860,00:25:57.550
+"&gt;&gt; Absolutely nothing, really.",00:25:57.550,00:25:59.230
+It's just like a folder.,00:25:59.230,00:26:00.320
+"It's a special folder, to be sure.",00:26:00.320,00:26:01.800
+But does it actually delete the file?,00:26:01.800,00:26:04.460
+"&gt;&gt; Well, no, because some of you probably
+have been like, oh damn, you didn't",00:26:04.460,00:26:06.780
+mean to do that.,00:26:06.780,00:26:07.420
+"So you double click the
+Trash or Recycle Bin.",00:26:07.420,00:26:09.130
+"You've poked around and you've recovered
+the file just by dragging it",00:26:09.130,00:26:11.630
+out of there.,00:26:11.630,00:26:12.110
+"So clearly, it's not necessarily
+deleting it.",00:26:12.110,00:26:14.420
+"&gt;&gt; OK, you're smarter than that.",00:26:14.420,00:26:15.990
+"You know that just dragging it into the
+Trash or Recycle Bin doesn't mean",00:26:15.990,00:26:18.860
+you're emptying the trash.,00:26:18.860,00:26:19.930
+"So you go up to the menu, and you say
+Empty Trash or Empty Recycle Bin.",00:26:19.930,00:26:24.110
+Then what happens?,00:26:24.110,00:26:25.360
+"&gt;&gt; Yeah, so it is deleted more so.",00:26:29.070,00:26:32.530
+But all that happens is this.,00:26:32.530,00:26:37.660
+"The computer forgets where
+resume.doc was.",00:26:37.660,00:26:45.350
+"&gt;&gt; But what has not changed apparently
+in the picture?",00:26:45.350,00:26:47.400
+"The bits, the 0s and 1s that I claim are
+on site of some physical aspect of",00:26:51.390,00:26:55.570
+the hardware.,00:26:55.570,00:26:56.280
+They're still there.,00:26:56.280,00:26:57.110
+"It's just the computer has
+forgotten what they are.",00:26:57.110,00:26:58.930
+"&gt;&gt; So it's essentially freed the file's
+bits so that they can be reused.",00:26:58.930,00:27:03.160
+"But not until you create more files,
+and more files, and more files will",00:27:03.160,00:27:06.940
+"probabilistically, those 0s and 1s,
+those magnetic particles, get reused,",00:27:06.940,00:27:12.150
+"upside or right side up, for
+other files, 0s and 1s.",00:27:12.150,00:27:16.220
+&gt;&gt; So you have this window of time.,00:27:16.220,00:27:17.980
+"And it's not of predictable
+length, really.",00:27:17.980,00:27:19.860
+"It depends on the size of your hard
+drive and how many files you have and",00:27:19.860,00:27:22.240
+how quickly you make new ones.,00:27:22.240,00:27:23.490
+"But there's this window of time during
+which that file is still perfectly",00:27:23.490,00:27:27.050
+recoverable.,00:27:27.050,00:27:27.770
+"&gt;&gt; So if you ever use programs like McAfee
+or Norton to try to recover",00:27:27.770,00:27:31.050
+"data, all they're doing is trying to
+recover this so-called directory to",00:27:31.050,00:27:35.680
+figure out where your file was.,00:27:35.680,00:27:37.340
+"And sometimes Norton and will say,
+file is 93% recoverable.",00:27:37.340,00:27:40.605
+"Well, what does that mean?",00:27:40.605,00:27:42.020
+"That just means that some other file
+coincidentally ended up using, say,",00:27:42.020,00:27:45.690
+those bits out of your original file.,00:27:45.690,00:27:48.920
+"&gt;&gt; So what is actually involved
+in recovering data?",00:27:48.920,00:27:51.950
+"Well, if you don't have something like
+Norton pre-installed on your computer,",00:27:51.950,00:27:55.720
+"the best you can sometimes do is look
+at the entire hard drive looking for",00:27:55.720,00:27:59.510
+patterns of bits.,00:27:59.510,00:28:00.510
+"And one of the themes of problem set
+five is that you will search the",00:28:00.510,00:28:05.350
+"equivalent of a hard drive, a forensic
+image of a compact flash card from a",00:28:05.350,00:28:09.570
+"digital camera, searching for the 0s
+and 1s that typically, with high",00:28:09.570,00:28:13.660
+"probability, represent the
+start of a JPEG image.",00:28:13.660,00:28:16.720
+"&gt;&gt; And you guys can recover those images by
+assuming, if I see this pattern of",00:28:16.720,00:28:21.120
+"bits on the forensic image, with
+high probability, that marks",00:28:21.120,00:28:24.380
+the start of a JPEG.,00:28:24.380,00:28:25.650
+"And if I see the same pattern again,
+that probably marks the start of",00:28:25.650,00:28:29.520
+"another JPEG, and another
+JPEG, and another JPEG.",00:28:29.520,00:28:32.440
+"And this is typically how
+data recovery will work.",00:28:32.440,00:28:34.970
+"What's nice about JPEGs is even though
+the file format itself is somewhat",00:28:34.970,00:28:37.870
+"complex, the beginning of every such
+file is actually fairly identifiable",00:28:37.870,00:28:44.400
+"and simple, as you will see,
+if you've not already.",00:28:44.400,00:28:47.370
+"&gt;&gt; So let's take a closer look underneath
+the hood as to exactly what's been",00:28:47.370,00:28:50.270
+"going on, and what these 0s and 1s
+are, to give you a bit more of a",00:28:50.270,00:28:53.360
+context for this particular challenge.,00:28:53.360,00:28:55.330
+&gt;&gt; [VIDEO PLAYBACK],00:28:55.330,00:28:55.510
+"&gt;&gt; -Where your PC stores most
+of its permanent data.",00:28:55.510,00:28:58.700
+"To do that, the data travels from RAM
+along with software signals that tell",00:28:58.700,00:29:03.390
+the hard drive how to store that data.,00:29:03.390,00:29:06.110
+"The hard drive circuits translate
+those signals into voltage",00:29:06.110,00:29:09.410
+fluctuations.,00:29:09.410,00:29:10.870
+"These, in turn, control the hard drive's
+moving parts, some of the few",00:29:10.870,00:29:14.970
+"moving parts left in the
+modern computer.",00:29:14.970,00:29:17.910
+"&gt;&gt; Some of the signals control a motor
+which spins metal-coated platters.",00:29:17.910,00:29:22.130
+"Your data is actually stored
+on these platters.",00:29:22.130,00:29:25.470
+"Other signals move the read/write
+heads to read or",00:29:25.470,00:29:28.610
+write data on the platters.,00:29:28.610,00:29:30.710
+"This machinery so precise that a human
+hair couldn't even pass between the",00:29:30.710,00:29:35.450
+heads and spinning platters.,00:29:35.450,00:29:37.280
+"Yet, it all works at terrific speeds.",00:29:37.280,00:29:40.316
+&gt;&gt; [END VIDEO PLAYBACK],00:29:40.316,00:29:40.660
+"&gt;&gt; DAVID MALAN: Zoom in a little
+deeper now at what's",00:29:40.660,00:29:42.190
+actually on those platters.,00:29:42.190,00:29:44.360
+&gt;&gt; [VIDEO PLAYBACK],00:29:44.360,00:29:44.720
+"&gt;&gt; -Let's look at what we just
+saw in slow motion.",00:29:44.720,00:29:47.660
+"When a brief pulse of electricity is
+sent to the read/write head, if flips",00:29:47.660,00:29:51.710
+"on a tiny electromagnetic for
+a fraction of a second.",00:29:51.710,00:29:54.650
+"The magnet creates a field, which
+changes the polarity of a tiny, tiny",00:29:54.650,00:29:58.970
+"portion of the metal particles which
+coat each platter surface.",00:29:58.970,00:30:02.850
+"&gt;&gt; A pattern series of these tiny,
+charged-up areas on the disk",00:30:02.850,00:30:05.940
+"represents a single bit of
+data in the binary number",00:30:05.940,00:30:08.470
+system used by computers.,00:30:08.470,00:30:10.530
+"Now, if the current is sent one way
+through the read/write head, the area",00:30:10.530,00:30:13.775
+is polarized in one direction.,00:30:13.775,00:30:15.970
+"If the current is sent in the
+opposite direction, the",00:30:15.970,00:30:17.950
+polarization is reversed.,00:30:17.950,00:30:19.930
+&gt;&gt; How you get data off the hard disk?,00:30:19.930,00:30:22.370
+Just reverse the process.,00:30:22.370,00:30:24.090
+"So it's the particles on the disk
+that get the current in the",00:30:24.090,00:30:26.550
+read/write head moving.,00:30:26.550,00:30:27.960
+"Put together millions of these
+magnetized segments, and",00:30:27.960,00:30:30.700
+you've got a file.,00:30:30.700,00:30:32.160
+"&gt;&gt; Now, the pieces of a single file may
+be scattered all over a drive's",00:30:32.160,00:30:36.060
+"platters, kind of like the mess
+of papers on your desk.",00:30:36.060,00:30:39.970
+"So a special extra file keeps track
+of where everything is.",00:30:39.970,00:30:43.500
+"Don't you wish you had
+something like that?",00:30:43.500,00:30:45.985
+&gt;&gt; [END VIDEO PLAYBACK],00:30:45.985,00:30:46.470
+"&gt;&gt; DAVID MALAN: OK, probably not.",00:30:46.470,00:30:47.820
+"So how many of you guys
+grew up with these?",00:30:47.820,00:30:52.070
+"OK, so it's fewer and fewer
+hands every year.",00:30:52.070,00:30:53.970
+"But I'm glad you're at least familiar
+with them, because this and our own",00:30:53.970,00:30:56.550
+"book demo, sadly, are dying a very
+slow death here of familiarity.",00:30:56.550,00:31:00.520
+"&gt;&gt; But this is what I, at least, back in
+high school, used use for backups.",00:31:00.520,00:31:04.010
+"And it was amazing, because you
+could store 1.4 megabytes on",00:31:04.010,00:31:08.110
+this particular disk.,00:31:08.110,00:31:08.930
+"And this was the high density version,
+as indicated by the HD, which has",00:31:08.930,00:31:12.260
+meaning before today's HD videos.,00:31:12.260,00:31:14.240
+&gt;&gt; Standard density was 800 kilobytes.,00:31:14.240,00:31:16.400
+"And before that, there were
+400-kilobyte disks.",00:31:16.400,00:31:18.640
+"And before that, there were 5 and 1/4
+inch disks, which were truly floppy,",00:31:18.640,00:31:23.120
+"and a little wider and taller
+than these things here.",00:31:23.120,00:31:25.680
+"But you can actually see the so-called
+floppy aspect of these disks.",00:31:25.680,00:31:29.150
+"&gt;&gt; And functionally, they're actually
+pretty similar to hard drives of at",00:31:29.150,00:31:32.630
+least this type.,00:31:32.630,00:31:33.570
+"Again, SSDs in newer computers
+work a little differently.",00:31:33.570,00:31:37.270
+"But if you move that little metal tab,
+you can actually see a little cookie,",00:31:37.270,00:31:41.530
+or platter.,00:31:41.530,00:31:42.560
+&gt;&gt; It's not metal like this one.,00:31:42.560,00:31:43.830
+"This one's actually some cheaper
+plastic material.",00:31:43.830,00:31:46.000
+And you can kind of wiggle it.,00:31:46.000,00:31:46.750
+"And you've trully just wiped off some
+number of bits or magnetic particles",00:31:46.750,00:31:50.310
+from this disk.,00:31:50.310,00:31:51.220
+"&gt;&gt; So thankfully, there's nothing on it.",00:31:51.220,00:31:52.710
+"If that thing's in the way-- and cover
+your eyes and those of your neighbor--",00:31:52.710,00:31:55.790
+"you can just kind of pull this
+whole sheath off like that.",00:31:55.790,00:31:58.865
+"But there's a little spring, so be
+aware of that with your eyes.",00:31:58.865,00:32:01.900
+So now you have truly a floppy disk.,00:32:01.900,00:32:03.620
+"&gt;&gt; And what's remarkable about this
+is that in as much as this is a",00:32:03.620,00:32:07.090
+"small-scale representation of a larger
+hard drive, these things are super,",00:32:07.090,00:32:10.830
+super simple.,00:32:10.830,00:32:11.590
+"If you pinch the bottom of it, now that
+that metal thing's off, and peel",00:32:11.590,00:32:15.170
+"them open, all there is is two pieces of
+felt and the so-called floppy disk",00:32:15.170,00:32:20.990
+with a piece of metal on the inside.,00:32:20.990,00:32:22.930
+"&gt;&gt; And there goes half of
+my disk's contents.",00:32:22.930,00:32:25.990
+There goes another half of them.,00:32:25.990,00:32:27.540
+"But that's all that was spinning inside
+of your computer in yesteryear.",00:32:27.540,00:32:31.375
+"&gt;&gt; And again, to put this into perspective,
+how big is most of your",00:32:35.220,00:32:38.310
+hard drives these days?,00:32:38.310,00:32:39.560
+"500 gigabytes, a terabyte, maybe in
+a desktop computer, 2 terabytes, 3",00:32:41.960,00:32:46.230
+"terabytes, 4 terabytes, right?",00:32:46.230,00:32:47.630
+"This is one megabyte, give or take,
+which can't even fit a typical MP3",00:32:47.630,00:32:52.480
+"anymore these days, or some
+similar music file.",00:32:52.480,00:32:55.310
+"&gt;&gt; So a little souvenir for you today, and
+also to help contextualize what",00:32:55.310,00:32:59.500
+"we'll be taking for granted
+now in problem set five.",00:32:59.500,00:33:03.570
+So those are yours to keep.,00:33:03.570,00:33:04.820
+"So let me transition to where will be
+spending the next pset as well.",00:33:07.340,00:33:13.370
+"So we've now set this page for-- oh,
+a couple of announcements quickly.",00:33:13.370,00:33:18.470
+"&gt;&gt; This Friday, if you would like join CS50
+for lunch, go to the usual place,",00:33:18.470,00:33:21.730
+cs50.net/rsvp.,00:33:21.730,00:33:23.610
+And final project--,00:33:23.610,00:33:25.100
+"so per the syllabus, we've posted the
+final project specification already.",00:33:25.100,00:33:28.520
+"Realize that that doesn't mean
+it's due particularly soon.",00:33:28.520,00:33:31.410
+"It's posted, really, just to get
+you guys thinking about it.",00:33:31.410,00:33:33.990
+"And indeed, a super significant
+percentage of you will be tackling",00:33:33.990,00:33:37.620
+"final projects on material that we
+haven't even gotten to in the class,",00:33:37.620,00:33:40.780
+but will as early as next week.,00:33:40.780,00:33:42.730
+"&gt;&gt; Notice, though, that the spec calls for
+a few different components of the",00:33:42.730,00:33:45.530
+final project.,00:33:45.530,00:33:46.190
+"The first, in a few weeks, is a
+pre-proposal, a pretty casual email to",00:33:46.190,00:33:49.590
+"your TF to tell him or what you're
+thinking about for your project, with",00:33:49.590,00:33:52.760
+no commitment.,00:33:52.760,00:33:53.650
+"Proposal will be your particular
+commitment, saying, here, this is what",00:33:53.650,00:33:56.710
+I'd like to do for my project.,00:33:56.710,00:33:57.770
+What do you think?,00:33:57.770,00:33:58.250
+Too big?,00:33:58.250,00:33:58.650
+Too small?,00:33:58.650,00:33:59.145
+Is it manageable?,00:33:59.145,00:34:00.330
+And you see the spec for more details.,00:34:00.330,00:34:02.230
+"&gt;&gt; Couple of weeks after that is the status
+report, which is a similarly",00:34:02.230,00:34:05.060
+"casual email to your TF to say just how
+far behind you are in your final",00:34:05.060,00:34:08.260
+"project's implementation, followed by
+the CS50 Hackathon to which everyone",00:34:08.260,00:34:12.360
+"is invited, which will be an event from
+8:00 PM on one evening till 7:00",00:34:12.360,00:34:17.520
+AM the next morning.,00:34:17.520,00:34:19.150
+"Pizza, as I may have mentioned in week
+zero, wil be served at 9:00 PM,",00:34:19.150,00:34:22.560
+Chinese food at 1:00 AM.,00:34:22.560,00:34:24.120
+"And if you're still awake at 5:00 AM,
+we'll take you to IHOP for breakfast.",00:34:24.120,00:34:27.929
+"&gt;&gt; So the Hackathon is one of the more
+memorable experiences in the class.",00:34:27.929,00:34:31.310
+"Then the implementation is due, and
+then the climactic CS50 Fair.",00:34:31.310,00:34:35.290
+"More details on all of these
+in the weeks to come.",00:34:35.290,00:34:38.070
+"&gt;&gt; But let's go back to something
+old school--",00:34:38.070,00:34:40.739
+"again, an array.",00:34:40.739,00:34:41.920
+"So an array was nice, because it solves
+problems like we saw just a",00:34:41.920,00:34:45.040
+"moment ago with student structures
+getting a little out of control if we",00:34:45.040,00:34:49.290
+"want to have student one, student two,
+student three, student dot dot dot,",00:34:49.290,00:34:52.405
+some arbitrary number of students.,00:34:52.405,00:34:54.400
+"&gt;&gt; So arrays, a few weeks ago, swooped in
+and solved all of our problems of not",00:34:54.400,00:34:58.850
+"knowing in advance how many things
+of some type we might want.",00:34:58.850,00:35:03.340
+"And we've seen that structs can help us
+further organize our code and keep",00:35:03.340,00:35:07.390
+"conceptually similar variables, like a
+name and a house, together, so that we",00:35:07.390,00:35:11.660
+"can treat them as one entity, inside
+of which there are smaller pieces.",00:35:11.660,00:35:15.570
+&gt;&gt; But arrays have some disadvantages.,00:35:15.570,00:35:17.810
+"What are some of the disadvantages
+we've encountered",00:35:17.810,00:35:19.780
+with arrays thus far?,00:35:19.780,00:35:22.320
+What's that?,00:35:22.320,00:35:23.450
+"Fixed size-- so even though you might
+be able to allocate memory for an",00:35:23.450,00:35:28.130
+"array, once you know how many students
+you have, how many characters you have",00:35:28.130,00:35:32.310
+"from the user, once you've allocated
+the array, you've kind of painted",00:35:32.310,00:35:35.460
+yourself into a corner.,00:35:35.460,00:35:36.740
+"&gt;&gt; Because you cannot insert new elements
+into the middle of an array.",00:35:36.740,00:35:40.600
+"You can't insert more elements
+at the end of an array.",00:35:40.600,00:35:43.660
+"Really, you have to resort to creating a
+whole new array, as we've discussed,",00:35:43.660,00:35:47.750
+copying the old into the new.,00:35:47.750,00:35:49.320
+"And again, that is the headache that
+GetString deals with for you.",00:35:49.320,00:35:52.610
+"&gt;&gt; But again, you can't even insert
+something into the middle of the array",00:35:52.610,00:35:56.170
+if the rate isn't entirely filled.,00:35:56.170,00:35:58.200
+"For instance, if this array here of size
+six only has five things in it,",00:35:58.200,00:36:03.010
+"well, you could just tack
+something onto the end.",00:36:03.010,00:36:06.080
+"But what if you want to insert something
+into the middle of the",00:36:06.080,00:36:08.200
+"array, even though it might have
+five out of six things in it?",00:36:08.200,00:36:11.280
+"&gt;&gt; Well, what did we do when we had all
+of our human volunteers onstage in",00:36:11.280,00:36:14.250
+weeks past?,00:36:14.250,00:36:15.110
+"If we wanted to put someone here, either
+these people how to move this",00:36:15.110,00:36:18.710
+"way, or these people how to move this
+way, and that became expensive.",00:36:18.710,00:36:22.540
+"The shifting of people inside of an
+array ended up adding up and costing",00:36:22.540,00:36:26.950
+"us time, hence lot of our n squared
+running times like insertion sort, for",00:36:26.950,00:36:31.240
+"instance, in the worst case.",00:36:31.240,00:36:32.550
+"So arrays are great, but you have to
+know in advance how big you want them.",00:36:32.550,00:36:36.520
+"&gt;&gt; So OK, here's a solution.",00:36:36.520,00:36:38.030
+"If I don't know in advance how many
+students I might have, and I know once",00:36:38.030,00:36:43.860
+"I decide, though, I'm stuck with that
+many students, why don't I just always",00:36:43.860,00:36:47.870
+"allocate twice as much space
+as I might think I need?",00:36:47.870,00:36:51.740
+Is that not a reasonable solution?,00:36:51.740,00:36:54.450
+"&gt;&gt; Realistically, I don't think that we're
+going to need more than 50 slots",00:36:54.450,00:36:58.240
+"in an array for a medium-size class,
+so let's just round up.",00:36:58.240,00:37:02.190
+"I'll make 100 slots in my array, just
+so that we can definitely get the",00:37:02.190,00:37:07.040
+"number of students I expect to
+be in some medium-size class.",00:37:07.040,00:37:10.330
+"So why not just round up and allocate
+more memory, typically, for an array",00:37:10.330,00:37:14.320
+than you think you might even need?,00:37:14.320,00:37:16.290
+"What's this simple pushback
+to that idea?",00:37:16.290,00:37:20.190
+&gt;&gt; You're just wasting memory.,00:37:20.190,00:37:21.440
+"Literally every program you write then
+is maybe using twice as much memory as",00:37:21.440,00:37:25.350
+you actually need.,00:37:25.350,00:37:26.680
+"And that just doesn't feel like a
+particularly elegant solution.",00:37:26.680,00:37:28.990
+"Moreover, it just decreases the
+probability of a problem.",00:37:28.990,00:37:31.990
+"If you happen to have a popular course
+one semester and you have 101",00:37:31.990,00:37:35.300
+"students, your program is still
+fundamentally facing the same issue.",00:37:35.300,00:37:39.610
+"&gt;&gt; So thankfully, there's a solution to
+this ad all our problems in the form",00:37:39.610,00:37:44.280
+"of data structures that are
+more complex than the ones",00:37:44.280,00:37:46.790
+we've seen thus far.,00:37:46.790,00:37:47.970
+"This, I claim, is a linked list.",00:37:47.970,00:37:50.530
+This is a list of numbers--,00:37:50.530,00:37:51.920
+"9, 17, 22, 26, and 34--",00:37:51.920,00:37:54.970
+"that have been linked together by way
+of what I've drawn as arrows.",00:37:54.970,00:38:00.120
+"&gt;&gt; In other words, if I wanted to represent
+an array, I could do",00:38:00.120,00:38:03.580
+something like this.,00:38:03.580,00:38:04.910
+"And I'll put this on the overhead
+in just a moment.",00:38:04.910,00:38:07.310
+I could do--,00:38:07.310,00:38:09.970
+"hello, all right.",00:38:09.970,00:38:12.520
+Stand by.,00:38:12.520,00:38:14.470
+"New computer here, clear--",00:38:14.470,00:38:17.360
+all right.,00:38:17.360,00:38:18.090
+&gt;&gt; So if I have these numbers in array--,00:38:18.090,00:38:21.730
+"9, 17, 22, 26, 24--",00:38:21.730,00:38:28.880
+not necessarily to scale.,00:38:28.880,00:38:30.530
+"All right, so here is my array--",00:38:30.530,00:38:33.730
+oh my god.,00:38:33.730,00:38:34.980
+"All right, so here is my array.",00:38:38.700,00:38:40.395
+Oh my god.,00:38:44.110,00:38:45.050
+&gt;&gt; [LAUGHTER],00:38:45.050,00:38:48.820
+&gt;&gt; DAVID MALAN: Pretend.,00:38:48.820,00:38:49.440
+"It's too much effort to go back
+and fix that, so there--",00:38:49.440,00:38:52.330
+26.,00:38:52.330,00:38:54.290
+"So we have this array of
+9, 17, 22, 26, and 34.",00:38:54.290,00:38:57.650
+"For those of you can see the
+embarrassing mistake I just made,",00:38:57.650,00:39:00.260
+there it is.,00:39:00.260,00:39:00.830
+"&gt;&gt; So I claim that this is a
+very efficient solution.",00:39:00.830,00:39:04.490
+"I've allocated as many ints as
+I need-- one, two, three,",00:39:04.490,00:39:07.310
+"four, five, or six--",00:39:07.310,00:39:09.100
+"and I've then stored the numbers
+inside of this array.",00:39:09.100,00:39:11.660
+"But suppose, then, I want to insert
+a value like the number 8?",00:39:11.660,00:39:15.220
+"Well, where does it go?",00:39:15.220,00:39:16.100
+"Suppose I want to insert
+a number like 20.",00:39:16.100,00:39:18.530
+"Well, where does it go?",00:39:18.530,00:39:19.790
+"Somewhere there in the middle,
+or the number 35 has to go",00:39:19.790,00:39:23.160
+somewhere at the end.,00:39:23.160,00:39:24.010
+But I'm all out of space.,00:39:24.010,00:39:25.320
+"&gt;&gt; And so this is a fundamental challenge
+of arrays that does are the solution.",00:39:25.320,00:39:29.120
+"I claimed a moment ago, GetString
+solves this problem.",00:39:29.120,00:39:32.280
+"If you want to insert a sixth number
+into this array, what is at least one",00:39:32.280,00:39:37.380
+"solution you can fall back on for sure,
+just like we do with GetString?",00:39:37.380,00:39:40.090
+What's that?,00:39:44.340,00:39:46.030
+"&gt;&gt; Well, make it bigger is
+easier said than done.",00:39:46.030,00:39:48.190
+"We can't necessarily make the array
+bigger, but what can we do?",00:39:48.190,00:39:52.810
+"Make a new array that's bigger, of size
+6, or maybe size 10, if we want",00:39:52.810,00:39:56.570
+"to get ahead of things, and then copy
+the old array into the new, and then",00:39:56.570,00:40:00.490
+free the old array.,00:40:00.490,00:40:01.680
+"&gt;&gt; But what's the running time
+now of that process?",00:40:01.680,00:40:05.770
+"It's big O of n, because the copying
+is going to cost you some units of",00:40:05.770,00:40:09.870
+"time, so not so ideal if we have to
+allocate a new array, which is going",00:40:09.870,00:40:13.480
+"to consume twice as much
+memory temporarily.",00:40:13.480,00:40:15.610
+Copy old into new--,00:40:15.610,00:40:16.660
+"I mean, it's just a headache, which
+is, again, why we wrote",00:40:16.660,00:40:18.800
+GetString for you.,00:40:18.800,00:40:19.920
+&gt;&gt; So what might we do instead?,00:40:19.920,00:40:21.380
+"Well, what if our data structure
+actually has gaps in it?",00:40:21.380,00:40:25.000
+"Suppose that I relax my goal of having
+contiguous chunks of memory, where 9",00:40:25.000,00:40:30.790
+"is right next to 17, which is
+right next to 22, and so on.",00:40:30.790,00:40:34.500
+"&gt;&gt; And suppose that 9 can be over here in
+RAM, and 17 can be over here in RAM,",00:40:34.500,00:40:39.570
+and 22 can be over here in RAM.,00:40:39.570,00:40:40.990
+"In other words, I don't need them
+even back to back anymore.",00:40:40.990,00:40:43.610
+"I just have to somehow thread a needle
+through each of these numbers, or each",00:40:43.610,00:40:47.850
+"of these nodes, as we'll call the
+rectangles as I've drawn them, to",00:40:47.850,00:40:51.010
+"remember how to get to the last
+such node from the first.",00:40:51.010,00:40:55.670
+"&gt;&gt; So what is the programming construct
+we've seen quite recently with which I",00:40:55.670,00:40:59.940
+"can implement that thread, or
+drawn here, with which I can",00:40:59.940,00:41:03.030
+implement those arrows?,00:41:03.030,00:41:05.430
+"So pointers, right?",00:41:05.430,00:41:06.500
+"If I allocate not just an
+int, but a node-- and by",00:41:06.500,00:41:09.560
+"node, I just mean container.",00:41:09.560,00:41:10.810
+"And visually, I mean a rectangle.",00:41:10.810,00:41:12.900
+"So a node apparently needs
+to contain two values--",00:41:12.900,00:41:16.420
+"the int itself, and then, as implied by
+the bottom half of the rectangle,",00:41:16.420,00:41:21.490
+enough space for an int.,00:41:21.490,00:41:23.010
+"&gt;&gt; So just thinking ahead here,
+how big is this node, this",00:41:23.010,00:41:26.130
+container in question?,00:41:26.130,00:41:27.170
+How many bytes for the int?,00:41:27.170,00:41:29.250
+"Presumably 4, if it's
+the same as usual.",00:41:29.250,00:41:31.310
+"And then how many bytes
+for the pointer?",00:41:31.310,00:41:33.270
+4.,00:41:33.270,00:41:33.650
+"So this container, or this node, is
+going to be an 8-byte structure.",00:41:33.650,00:41:37.940
+"Oh, and that's a happy coincidence that
+we just introduced this notion of",00:41:37.940,00:41:41.760
+"a struct, or a C structure.",00:41:41.760,00:41:44.400
+"&gt;&gt; So I claim that I want to take a step
+toward this more sophisticated",00:41:44.400,00:41:48.890
+"implementation of a list of numbers, a
+linked list of numbers, I need to do a",00:41:48.890,00:41:52.560
+"little more thinking up front and
+declare not just an int, but a struct",00:41:52.560,00:41:56.920
+"that I'll call, conventionally
+here, node.",00:41:56.920,00:41:58.620
+"We could call it anything we want, but
+node is going to be thematic in a lot",00:41:58.620,00:42:01.630
+of the things we start looking at now.,00:42:01.630,00:42:03.560
+&gt;&gt; Inside of that node is an int n.,00:42:03.560,00:42:06.480
+"And then this syntax, a little
+weird at first glance--",00:42:06.480,00:42:09.350
+struct node* next.,00:42:09.350,00:42:12.960
+"Well pictorially, what is that?",00:42:12.960,00:42:16.900
+"That is the bottom half of
+the rectangle that we saw",00:42:16.900,00:42:21.000
+just a moment ago.,00:42:21.000,00:42:22.730
+"&gt;&gt; But why am I saying struct node*
+as opposed to just node*?",00:42:22.730,00:42:27.600
+"Because if that pointer is pointing
+at another node, it's just the",00:42:27.600,00:42:31.370
+address of a node.,00:42:31.370,00:42:32.760
+"That's consistent with what we've
+discussed about pointers thus far.",00:42:32.760,00:42:35.630
+"But why, if I claim this structure is
+called node, do I have to say struct",00:42:35.630,00:42:39.690
+node inside here?,00:42:39.690,00:42:42.660
+&gt;&gt; Exactly.,00:42:42.660,00:42:43.190
+"It's sort of a stupid reality of C.
+The typedef, so to speak, hasn't",00:42:43.190,00:42:46.490
+happened yet.,00:42:46.490,00:42:47.220
+C is super literal.,00:42:47.220,00:42:48.510
+"It reads your code top to
+bottom, left to right.",00:42:48.510,00:42:51.050
+"And until it hits that semicolon on the
+bottom line, guess what doesn't",00:42:51.050,00:42:54.930
+exist as a data type?,00:42:54.930,00:42:57.590
+"Node, quote unquote node.",00:42:57.590,00:42:59.060
+"&gt;&gt; But because of the more verbose
+declaration I did on the first line--",00:42:59.060,00:43:03.050
+typedef struct node--,00:43:03.050,00:43:05.340
+"because that came first, before the
+curly braces, that's sort of like",00:43:05.340,00:43:08.790
+"pre-educating Clang that, you
+know what, give me a struct",00:43:08.790,00:43:11.800
+called struct node.,00:43:11.800,00:43:13.570
+"Frankly, I don't like calling things
+struct node, struct node all",00:43:13.570,00:43:16.270
+throughout my code.,00:43:16.270,00:43:17.090
+"But I'll only use it once, just inside,
+so that I can effectively",00:43:17.090,00:43:20.660
+"create a sort of circular reference, not
+a pointer to myself per se, but a",00:43:20.660,00:43:25.010
+"pointer to another of
+an identical type.",00:43:25.010,00:43:29.400
+"&gt;&gt; So it turns out that on a data structure
+like this, there's a few",00:43:29.400,00:43:32.330
+"operations that might be
+of interest to us.",00:43:32.330,00:43:34.470
+"We might want to insert
+into a list like this.",00:43:34.470,00:43:37.460
+"We might want to delete
+from a list like this.",00:43:37.460,00:43:39.850
+"We might want to search the list for a
+value, or more generally, traverse.",00:43:39.850,00:43:43.490
+"And traverse is just a fancy way of
+saying start at the left and move all",00:43:43.490,00:43:46.410
+the way to the right.,00:43:46.410,00:43:47.650
+"&gt;&gt; And notice, even with this slightly more
+sophisticated data structure, let",00:43:47.650,00:43:52.640
+"me propose that we can borrow some of
+the ideas of the past two weeks and",00:43:52.640,00:43:56.510
+"implement a function called
+search like this.",00:43:56.510,00:43:58.410
+"It's going to return true or
+false, indicating, yes or",00:43:58.410,00:44:01.360
+"no, n is in the list.",00:44:01.360,00:44:03.390
+"Its second argument is a pointer
+to the list itself, so a",00:44:03.390,00:44:05.960
+pointer to a node.,00:44:05.960,00:44:07.920
+"&gt;&gt; All I'm going to then do is declare
+a temporary variable.",00:44:07.920,00:44:10.350
+"We'll call it ptr by convention,
+for pointer.",00:44:10.350,00:44:12.730
+"And I assign it equal to the
+beginning of the list.",00:44:12.730,00:44:15.220
+&gt;&gt; And now notice the while loop.,00:44:15.220,00:44:16.680
+"So long as pointer is not equal
+to null, I'm going to check.",00:44:16.680,00:44:20.640
+"Is pointer arrow n equal to
+the n that was passed in?",00:44:20.640,00:44:24.520
+"And wait a minute-- new
+piece of syntax.",00:44:24.520,00:44:26.410
+What is arrow all of a sudden?,00:44:26.410,00:44:29.324
+Yeah?,00:44:29.324,00:44:30.574
+&gt;&gt; Exactly.,00:44:34.200,00:44:34.810
+"So whereas a few minutes ago, we used
+the dot notation to access something",00:44:34.810,00:44:38.860
+"inside of a the struct, if the variable
+you have is not the struct",00:44:38.860,00:44:43.080
+"itself, but a pointer to a struct,
+thankfully, a piece of syntax that",00:44:43.080,00:44:47.420
+finally makes intuitive sense.,00:44:47.420,00:44:48.620
+"The arrow means to follow the pointer,
+like our arrows typically mean",00:44:48.620,00:44:52.360
+"pictorially, and go at
+data field inside.",00:44:52.360,00:44:56.570
+"So arrow is the same thing as dot, but
+you use it when you have a pointer.",00:44:56.570,00:44:59.700
+"&gt;&gt; So just to recap then, if the n field
+inside of the struct called pointer",00:44:59.700,00:45:05.270
+"equals equals n, return true.",00:45:05.270,00:45:07.760
+"Otherwise, this line here-- pointer
+equals pointer next.",00:45:07.760,00:45:11.970
+"So what this is doing, notice, is if I
+am currently pointing at the struct",00:45:11.970,00:45:17.540
+"containing 9, and 9 is not the number
+I'm looking for-- suppose I'm looking",00:45:17.540,00:45:21.430
+for n equals 50--,00:45:21.430,00:45:22.830
+"I'm going to update my temporary pointer
+to not point at this node",00:45:22.830,00:45:25.930
+"anymore, but pointer arrow next, which
+is going to put me up here.",00:45:25.930,00:45:31.190
+"&gt;&gt; Now, I realized is a whirlwind
+introduction.",00:45:31.190,00:45:34.270
+"On Wednesday, we'll actually do this
+with some humans and with some more",00:45:34.270,00:45:37.380
+code at a slower pace.,00:45:37.380,00:45:38.900
+"But realize, we're now making our data
+structures more complex so that our",00:45:38.900,00:45:42.990
+"algorithms can get more efficient, which
+is going to be requisite for",00:45:42.990,00:45:45.780
+"pset six, when we load in, again, those
+150,000 words, but need to do so",00:45:45.780,00:45:50.500
+"efficiently, and ideally, create a
+program that runs for our users not in",00:45:50.500,00:45:55.650
+"linear, not in n squared, but in
+constant time, in the ideal.",00:45:55.650,00:46:00.460
+&gt;&gt; We'll see you on Wednesday.,00:46:00.460,00:46:02.300
+"&gt;&gt; SPEAKER: At the next CS50, David
+forgets his base case.",00:46:02.300,00:46:07.240
+"&gt;&gt; DAVID MALAN: And that's how you send
+text messages with C. What the--",00:46:07.240,00:46:12.770
+"&gt;&gt; [VARIOUS TEXT MESSAGE
+NOTIFICATION SOUNDS]",00:46:12.770,00:46:14.020

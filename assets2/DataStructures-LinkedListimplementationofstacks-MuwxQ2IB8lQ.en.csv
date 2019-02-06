@@ -1,0 +1,319 @@
+text,start,stop
+"In our previous lesson, we saw how we can
+implement stack using",00:00:00.620,00:00:04.060
+"arrays, now in this lesson we will see
+how we can implement stack using linked",00:00:04.060,00:00:08.109
+list.,00:00:08.109,00:00:08.620
+"For this lesson, I'm assuming that you
+already know about both",00:00:08.620,00:00:12.190
+"stack as well as linked list. Stack as
+we know from our discussions so far",00:00:12.190,00:00:17.130
+"is called a last in first out data
+structure.",00:00:17.130,00:00:20.859
+"Whatever goes in last in a stack comes
+out first.",00:00:20.859,00:00:24.460
+"It's a list with this restriction that
+insertion and deletion must be performed",00:00:24.460,00:00:29.480
+"only from one end that we call the top
+of stack",00:00:29.480,00:00:32.969
+"and insertion in a stack is called PUSH
+operation",00:00:32.969,00:00:36.350
+and deletion is called POP. To implement,00:00:36.350,00:00:40.219
+"a stack, all we need to do is enforce
+this behavior",00:00:40.219,00:00:43.570
+"in any implementation of the list that
+insertion",00:00:43.570,00:00:47.030
+"and deletion must be performed only from
+one end",00:00:47.030,00:00:50.610
+and we can call that end TOP of stack.,00:00:50.610,00:00:53.850
+"It's really easy to enforce this
+behavior in a linked list.",00:00:53.850,00:00:57.840
+"I have drawn linked list of integers
+here. This is",00:00:57.840,00:01:01.210
+"logical representation of a linked list.
+A linked list",00:01:01.210,00:01:04.580
+"is a collection of entities that we call
+NODES.",00:01:04.580,00:01:07.720
+"Each node contains two fields, one to
+store data and",00:01:07.720,00:01:11.930
+"another to store the address of the next
+node.",00:01:11.930,00:01:15.369
+"Let's assume that these nodes are at 
+addresses 100,200 and 400",00:01:15.369,00:01:19.420
+"respectively, so I will fill up the
+address part as well.",00:01:19.420,00:01:22.770
+"The identity of a linked list is the
+address of the first node that we also",00:01:22.770,00:01:27.380
+called the HEAD node.,00:01:27.380,00:01:28.960
+"A variable stores to address of head node,
+we often name this variable",00:01:28.960,00:01:33.340
+as head. Unlike arrays linked lists,00:01:33.340,00:01:36.890
+"are not of fixed size and elements in a
+linked list are not stored",00:01:36.890,00:01:41.250
+"in one contiguous block of memory. We
+already know how to create a linked list",00:01:41.250,00:01:46.130
+or,00:01:46.130,00:01:46.799
+"insert and delete elements from a linked
+list",00:01:46.799,00:01:50.100
+"from our previous lessons. I'm just doing
+a quick recap here.",00:01:50.100,00:01:53.540
+"To insert an element in a linked list,",00:01:53.540,00:01:56.740
+"we first create a new node which is
+basically blocking some part of memory",00:01:56.740,00:02:02.100
+to store our data.,00:02:02.100,00:02:03.290
+"In this example here, let's say for my
+new node am getting address 350.",00:02:03.290,00:02:08.020
+"We can set the data part of the
+linked list as whatever value I want to",00:02:08.020,00:02:12.459
+add,00:02:12.459,00:02:13.040
+"in the list and then I need to modify
+the address field of some of the existing",00:02:13.040,00:02:17.790
+nodes,00:02:17.790,00:02:18.760
+to link this node in actual list. Now for,00:02:18.760,00:02:22.610
+"a stack we want that insertion and
+deletion",00:02:22.610,00:02:25.900
+"must always happen from the same end.
+We can use",00:02:25.900,00:02:29.280
+"a linked list as stack if we always insert
+and delete",00:02:29.280,00:02:34.099
+"a node at same end. We have two options,",00:02:34.099,00:02:38.019
+we can insert or delete from,00:02:38.019,00:02:41.190
+"end of the list, what we also call tail",00:02:41.190,00:02:44.569
+or beginning of the list,00:02:44.569,00:02:47.640
+"that we call head. If you remember from
+our previous lessons, ",00:02:47.640,00:02:52.620
+"inserting a node at end of linked list
+is not",00:02:52.620,00:02:56.489
+"a constant time operation, the cost of
+both",00:02:56.489,00:02:59.690
+"insertion and deletion at end of linked
+list",00:02:59.690,00:03:03.300
+"if we have to talk about the time
+complexity of it is",00:03:03.300,00:03:07.120
+"O(n). Here in the definition of
+stack we are saying that",00:03:07.120,00:03:11.780
+"push and pop operations should take
+constant time or the time complexity",00:03:11.780,00:03:16.010
+"should be O(1),",00:03:16.010,00:03:18.330
+"but if we will insert and delete from
+end",00:03:18.330,00:03:21.670
+"time complexity will be O(n). To
+insert a new node in a linked list at",00:03:21.670,00:03:27.239
+"the end, we need to",00:03:27.239,00:03:28.489
+"go to the last node and set the address
+part of that node ",00:03:28.489,00:03:32.620
+"to make it point to the new node. To
+traverse",00:03:32.620,00:03:35.790
+"a linked list and go to the last node
+we should start at the head",00:03:35.790,00:03:39.540
+"or the first node, from first node we
+get the address of the second node",00:03:39.540,00:03:44.000
+"so we go to the second node and from
+second node we get the address of the third node,",00:03:44.000,00:03:48.340
+"it's like playing treasure hunt, you go to
+the first guy, ask the address of the",00:03:48.340,00:03:52.590
+second guy,00:03:52.590,00:03:53.269
+"and then you go to the second guy, ask
+the address of the third guy and so on.",00:03:53.269,00:03:57.450
+"Now once I have reached this last node in
+my example here,",00:03:57.450,00:04:01.260
+"I can set its address part to make it
+point to the newly created node.",00:04:01.260,00:04:05.420
+"All in all this operation will take time
+proportional to number of",00:04:05.420,00:04:09.390
+elements in the linked list. To delete,00:04:09.390,00:04:13.120
+"a node from end, once again we will
+have to traverse the whole list.",00:04:13.120,00:04:17.609
+We will have to go to the second last,00:04:17.609,00:04:20.889
+"node, break this link, we will set the
+address field as zero or NULL.",00:04:20.889,00:04:26.509
+"and then we can simply wipe off the
+last node removed from the",00:04:26.509,00:04:31.080
+"list from computers memory. Once again
+the cost of traversal will be ",00:04:31.080,00:04:35.830
+O(n). So inserting and deleting,00:04:35.830,00:04:39.460
+"at end or tail is not an option for us,
+because we will not be able to",00:04:39.460,00:04:43.949
+"do push and pop in constant time, if we
+choose to insert and delete",00:04:43.949,00:04:48.400
+"from end. The cost of inserting or
+deleting from beginning",00:04:48.400,00:04:52.389
+however is O(1).,00:04:52.389,00:04:56.320
+"It will take constant time to insert a
+new node at beginning or",00:04:56.320,00:04:59.900
+delete a node from beginning. To insert,00:04:59.900,00:05:02.910
+"a node at  beginning, we must create a
+new node.",00:05:02.910,00:05:06.610
+"In this example here, once again I have
+created a new node,",00:05:06.610,00:05:10.470
+"let's say the address of new node is 
+350, I will insert some",00:05:10.470,00:05:13.960
+data in the first,00:05:13.960,00:05:15.470
+"field of this node. Okay so to insert
+this node at",00:05:15.470,00:05:19.250
+"beginning, we just need to build two
+links.",00:05:19.250,00:05:22.910
+"First we need to build this link, so
+we will set the",00:05:22.910,00:05:26.400
+"address here as whatever the address
+of the current head",00:05:26.400,00:05:30.160
+is and then we can break this link and,00:05:30.160,00:05:33.620
+"make this guide the new head by setting
+it's",00:05:33.620,00:05:37.190
+address here in this variable named,00:05:37.190,00:05:40.210
+head. To delete a node,00:05:40.210,00:05:43.310
+"in this example here, we will have to
+first cut this link",00:05:43.310,00:05:46.620
+"and build this link which will mean
+resetting the",00:05:46.620,00:05:50.280
+"address in this variable head and then
+we can free the memory allocated to",00:05:50.280,00:05:55.449
+"this particular guy, this particular node.
+Deletion from",00:05:55.449,00:05:59.430
+"beginning once again is a constant time
+operation, so this is the thing if we",00:05:59.430,00:06:03.440
+will,00:06:03.440,00:06:03.880
+"insert at beginning and delete from
+beginning then",00:06:03.880,00:06:07.169
+"all our conditions are satisfied. So
+linked list implementation of stack is",00:06:07.169,00:06:12.509
+pretty straightforward.,00:06:12.509,00:06:14.069
+"All we need to do is insert a node at
+the beginning and",00:06:14.069,00:06:17.479
+"delete a node from beginning. So, head of
+the linked list",00:06:17.479,00:06:21.250
+"is basically the top of stack. I would
+rather name this variable",00:06:21.250,00:06:25.419
+"top here. I will quickly write a basic
+implementation",00:06:25.419,00:06:29.289
+"in C. I'm defining node as a structure
+in C.",00:06:29.289,00:06:33.539
+"I want to create a stack of Integers,
+so first field",00:06:33.539,00:06:37.310
+"in the node is an integer,",00:06:37.310,00:06:40.310
+"another field is pointer to node that will
+store the address of the next node.",00:06:40.310,00:06:44.680
+"We have seen this definition of node in
+all our previous lessons on linked",00:06:44.680,00:06:48.460
+"list, the next thing that I'm doing is I'm
+declaring",00:06:48.460,00:06:51.819
+"a variable named top which is pointer to
+node.",00:06:51.819,00:06:55.840
+"and initially I'm setting the address in
+it as NULL.",00:06:55.840,00:06:59.610
+"I'm using variable name top instead of
+head here,",00:06:59.610,00:07:02.889
+"when top is NULL our stack is empty, by
+initializing top",00:07:02.889,00:07:06.880
+"as NULL I'm saying that initially my
+stack is empty.",00:07:06.880,00:07:11.980
+"Now let's write push and pop functions.
+This is my push function.",00:07:11.980,00:07:16.360
+"Push is taking an integer X as
+argument that must be",00:07:16.360,00:07:20.450
+"inserted onto the stack. The first thing
+that we are doing in push function is",00:07:20.450,00:07:25.110
+that we are creating,00:07:25.110,00:07:26.220
+"a node using malloc. Let's say in this example
+in this logical representation that I'm",00:07:26.220,00:07:31.450
+"showing here,",00:07:31.450,00:07:32.160
+"I'm performing a push operation so I'm
+making a call to push function,",00:07:32.160,00:07:36.910
+passing it 2 as argument. So,00:07:36.910,00:07:40.370
+"a node is created in memory, is created
+in what we call the dynamic memory or",00:07:40.370,00:07:44.560
+"heap, let's say the address of this
+node is",00:07:44.560,00:07:46.770
+100. This variable is basically a pointer,00:07:46.770,00:07:50.320
+"pointing to this node, temp is a pointer
+pointing to this node",00:07:50.320,00:07:53.930
+"in the next line we are setting the data
+field",00:07:53.930,00:07:57.570
+"in this node. We are dereferencing temp
+to do so,",00:07:57.570,00:08:01.700
+"then we are setting the link part of
+this newly created node as",00:08:01.700,00:08:05.260
+existing top. So we are building this link,00:08:05.260,00:08:08.710
+"and then we are seeing top equal temp 
+So we are building",00:08:08.710,00:08:12.380
+"this link. This is simple insertion at
+beginning of a linked list",00:08:12.380,00:08:16.440
+"we have one complete video in this
+series on how to insert an node at",00:08:16.440,00:08:20.750
+"beginning of linked list. Let's do one
+more push.",00:08:20.750,00:08:24.290
+"Let's say I want to push 5 on to the
+stack this time.",00:08:24.290,00:08:27.860
+"Once again a node will be created, we will
+set the",00:08:27.860,00:08:31.490
+"data and then we will first point this guy to 
+the",00:08:31.490,00:08:34.980
+"existing top and then make this pointer
+variable point to this guy.",00:08:34.980,00:08:39.750
+"The new top, let's say the address of
+this guy is 250,",00:08:39.750,00:08:44.430
+"so the address in this variable top will
+be set as 250.",00:08:44.430,00:08:48.610
+"After the second push this is how my
+stack will look like.",00:08:48.610,00:08:53.940
+"Top here is a global variable so, we do
+not need to pass it as argument to",00:08:53.940,00:08:58.540
+"functions, it is accessible",00:08:58.540,00:09:00.080
+"to all the functions. In an
+object-oriented implementation it can be",00:09:00.080,00:09:03.970
+a private field,00:09:03.970,00:09:05.360
+"and we can set it as NULL in the
+constructor.",00:09:05.360,00:09:08.500
+"Okay let's now see how push, sorry",00:09:08.500,00:09:11.930
+"pop function will look like. This is my
+pop function.",00:09:11.930,00:09:15.530
+"Let's say for this example I'm making a
+call to pop function.",00:09:15.530,00:09:19.360
+If the stack is already empty,00:09:19.360,00:09:22.380
+"we can check for the stack is empty or
+not by checking",00:09:22.380,00:09:25.800
+"whether top is null or not, if top
+is NULL, stack is empty.",00:09:25.800,00:09:30.240
+"In this case we can throw some error and
+return",00:09:30.240,00:09:33.840
+"for this example here stack is not empty,
+we have two integers in the stack.",00:09:33.840,00:09:38.880
+"what we are first doing is we're creating a
+pointer to node",00:09:38.880,00:09:42.200
+temp and pointing it to the top node,00:09:42.200,00:09:45.420
+"and now we are breaking this link we are
+setting",00:09:45.420,00:09:48.480
+the address in top as address of,00:09:48.480,00:09:51.480
+"the next node and now using this pointer
+variable",00:09:51.480,00:09:55.230
+"temp, we are freeing memory allocated to",00:09:55.230,00:09:58.710
+"the node being removed from the list.
+Once I exit",00:09:58.710,00:10:02.570
+"the pop function, this is my stack",00:10:02.570,00:10:05.689
+"so this pretty much is the core of our
+implementation.",00:10:05.689,00:10:08.329
+"I would encourage you to write rest of
+the stuff yourself.",00:10:08.329,00:10:11.740
+"You can write code for operations like
+top() and isempty().",00:10:11.740,00:10:16.009
+"Linked list implementation of stack has
+some advantages.",00:10:16.009,00:10:19.569
+"one of the advantages is that unlike
+array based implementation we do not need",00:10:19.569,00:10:24.420
+to worry about,00:10:24.420,00:10:25.290
+"overflow, unless we exhaust the memory of
+the machine itself.",00:10:25.290,00:10:29.540
+"Some amount of extra memory is used in
+each node",00:10:29.540,00:10:33.050
+to store reference or address,00:10:33.050,00:10:36.259
+"but the fact that the use memory when
+needed",00:10:36.259,00:10:39.379
+"and release when not needed is something
+that makes push",00:10:39.379,00:10:43.399
+"and pop operations more craze full. So
+this",00:10:43.399,00:10:47.029
+"is linked list based implementation of
+stack. In our coming lessons we will solve",00:10:47.029,00:10:51.819
+"some problems using Stack. This is it for
+this lesson.",00:10:51.819,00:10:56.050
+Thanks for watching.,00:10:56.050,00:10:56.949

@@ -1,0 +1,1533 @@
+text,start,stop
+&gt;&gt; [MUSIC PLAYING],00:00:00.000,00:00:11.210
+"&gt;&gt; SPEAKER 1: All right, welcome
+back to CS50.",00:00:11.210,00:00:14.640
+"This is the end of week eight,
+and almost Halloween.",00:00:14.640,00:00:18.190
+"Tomorrow night's office hours will be
+the scariest ones yet, and not because",00:00:18.190,00:00:22.460
+of Halloween.,00:00:22.460,00:00:23.460
+"&gt;&gt; But on that note, do realize that
+problem set six, the spell checking",00:00:23.460,00:00:28.600
+"problem set, is renowned to be, for many
+students, the most challenging,",00:00:28.600,00:00:32.340
+"certainly among the C problem sets,
+and really, in general.",00:00:32.340,00:00:36.010
+"And I mention this only because this is
+the week where a lot of people get",00:00:36.010,00:00:39.250
+"particularly stressed with just trying
+to get the damn spell checker to work.",00:00:39.250,00:00:42.840
+"And the one thing I would encourage you
+is that, as you'll see today, and",00:00:42.840,00:00:45.640
+"on Monday, we begin to hit this peak
+this week where, now, things become a",00:00:45.640,00:00:49.670
+"little more familiar, a little more
+accessible, as we transition from a",00:00:49.670,00:00:52.370
+"command line environment in C to
+a web based environment in PHP.",00:00:52.370,00:00:56.120
+"&gt;&gt; And so I'd encourage you, even if you're
+really at your wit's end in",00:00:56.120,00:00:59.805
+"trying to get the p set to work, if
+that's indeed the place you're at, or",00:00:59.805,00:01:02.785
+"find yourself at, do try
+to power through it.",00:01:02.785,00:01:05.770
+"Because I do think you'll be quite
+pleased, and quite proud of yourself,",00:01:05.770,00:01:08.280
+"if you really end that portion of the
+course, the C portion, on that high,",00:01:08.280,00:01:12.300
+"if stressful, note.",00:01:12.300,00:01:13.310
+So that's not to scare.,00:01:13.310,00:01:14.120
+"That's just meant to encourage you to
+stay up that extra hour in order to",00:01:14.120,00:01:18.010
+get the spell checking working.,00:01:18.010,00:01:19.820
+"&gt;&gt; And if you do, realize that this
+is optional, entirely.",00:01:19.820,00:01:22.730
+"But we have the so-called big board
+that went live this morning.",00:01:22.730,00:01:25.720
+"As of this morning, I was atop the big
+board, which is a measurement of how",00:01:25.720,00:01:29.950
+"much RAM and how much running time
+your program speller requires.",00:01:29.950,00:01:34.450
+But I've since been displaced.,00:01:34.450,00:01:35.890
+I'm now the unlucky number 13.,00:01:35.890,00:01:37.910
+"And what you'll see here is, David
+Kaufman, and Lauren, and Adam, and",00:01:37.910,00:01:41.460
+"Jason, and others are now
+atop the big board.",00:01:41.460,00:01:44.130
+"&gt;&gt; If you look over there at the right,
+all of us have really good",00:01:44.130,00:01:47.480
+implementations of size at least--,00:01:47.480,00:01:49.890
+"returning the number of words
+in the dictionary.",00:01:49.890,00:01:51.640
+"And in each of these columns, you'll
+see how much RAM each of our",00:01:51.640,00:01:54.690
+"implementations is using, how much
+running time it's taking to execute",00:01:54.690,00:01:58.370
+"load, versus check, versus size
+and unload, and then, the",00:01:58.370,00:02:01.450
+total running time.,00:02:01.450,00:02:02.490
+"So just to reassure Elmer, and Patrick,
+and Linda, and everyone else",00:02:02.490,00:02:05.990
+"who comes after you, there's absolutely
+no shame in being toward",00:02:05.990,00:02:09.210
+the bottom of the big board.,00:02:09.210,00:02:10.590
+"If anything, that means you got working,
+and it's correct, but it's",00:02:10.590,00:02:13.950
+"not necessarily as efficient, space
+or time-wise, as it might be.",00:02:13.950,00:02:18.480
+"&gt;&gt; So, totally optional.",00:02:18.480,00:02:19.430
+"But meant to be a carrot of sorts so
+that when you're working on your p",00:02:19.430,00:02:22.630
+"set, you're so proud of yourself, you
+got it working, you post to the big",00:02:22.630,00:02:25.960
+"board, you've got a really good number,
+you go to dinner, you come",00:02:25.960,00:02:28.920
+"back, and your roommates has edged
+you out on the big board.",00:02:28.920,00:02:31.810
+"Well, it's time, at that point, to go
+back to the drawing board so as to",00:02:31.810,00:02:34.910
+re-challenge the big board.,00:02:34.910,00:02:36.160
+"If you look at the spec, the
+instructions for interfacing with the",00:02:36.160,00:02:39.330
+big board are now posted.,00:02:39.330,00:02:41.480
+&gt;&gt; So a couple of heads ups--,00:02:41.480,00:02:44.870
+"one, the pre-proposal for the final
+project is due this coming Monday.",00:02:44.870,00:02:48.410
+"See this spec on the course's
+website for what that means.",00:02:48.410,00:02:51.060
+"It's really just a casual but thought
+provoking email between you and your",00:02:51.060,00:02:54.450
+"TF, really just to get things started,
+the conversation started, even though",00:02:54.450,00:02:58.410
+"most of you have never even written a
+web page before, don't even know what",00:02:58.410,00:03:02.110
+"you might, how you might, implement
+your final project.",00:03:02.110,00:03:04.850
+"Go on faith that you'll know
+how to do quite a few more",00:03:04.850,00:03:07.250
+things in a few weeks.,00:03:07.250,00:03:08.410
+"So just begin this process per the
+spec of exploring possible ideas.",00:03:08.410,00:03:12.900
+"&gt;&gt; Also, what we'd invite you to do is--
+we have a tradition, for many years",00:03:12.900,00:03:16.030
+"now, in the course, of hosting
+this-- store.cs50.net.",00:03:16.030,00:03:18.840
+Everything's sold at cost.,00:03:18.840,00:03:20.010
+"And it's really just an opportunity to
+wear CS50, if you would like to do",00:03:20.010,00:03:23.460
+"that, at course's and.",00:03:23.460,00:03:24.920
+"For instance, there are such things as
+the t-shirts that you might have seen",00:03:24.920,00:03:27.990
+"going around campus, sweatshirts.",00:03:27.990,00:03:29.880
+"And then, we also invite students to
+submit designs to be immortalized in",00:03:29.880,00:03:33.960
+the CS50 store.,00:03:33.960,00:03:35.330
+"&gt;&gt; For instance, one of last year's
+favorites that will, perhaps, now",00:03:35.330,00:03:39.910
+resonate with you is this one here.,00:03:39.910,00:03:41.860
+Very popular item.,00:03:45.390,00:03:46.820
+"So if you would like to participate in
+this, we'll put up a form soon, at",00:03:46.820,00:03:51.020
+"cs50.net/design, to which you can upload
+an image that you've made in",00:03:51.020,00:03:54.240
+"Illustrator, or Photoshop,
+or some similar program.",00:03:54.240,00:03:56.990
+"And if you're familiar with these kinds
+of specifications, we want it to",00:03:56.990,00:03:59.850
+"be a PNG image, at least 200 dots per
+inch, and fewer than that many pixels,",00:03:59.850,00:04:05.010
+and under 10 megabytes.,00:04:05.010,00:04:07.680
+"For more details, just email the
+course's heads at heads@cs50.net if",00:04:07.680,00:04:11.260
+you would like to partake in this.,00:04:11.260,00:04:13.910
+"&gt;&gt; All right, so today, no more C. So we
+begin to pull back the layers of the",00:04:13.910,00:04:20.920
+"internet, the web, and how you can
+actually start writing software for",00:04:20.920,00:04:24.900
+this different environment.,00:04:24.900,00:04:26.420
+"So in particular, let's ask,
+first, the question of--",00:04:26.420,00:04:31.420
+"let me get us to our familiar
+drawing app over here.",00:04:31.420,00:04:36.070
+"Let me pose the question of,
+how does the internet work.",00:04:36.070,00:04:42.702
+&gt;&gt; [? STUDENT: Magic. ?],00:04:42.702,00:04:43.560
+&gt;&gt; SPEAKER 1: Magic.,00:04:43.560,00:04:44.010
+OK.,00:04:44.010,00:04:44.940
+Good answer.,00:04:44.940,00:04:45.880
+"So we'll start there today, and see if
+we can't make it a little less magical",00:04:45.880,00:04:49.460
+within the hour.,00:04:49.460,00:04:50.880
+"Let's try to tell it in the
+context of a story.",00:04:50.880,00:04:53.850
+"&gt;&gt; So you're fans of going to facebook.com,
+or reddit.com, or",00:04:53.850,00:04:58.480
+whatever these days.,00:04:58.480,00:04:59.780
+"And so what's really happening when
+you type in something like",00:04:59.780,00:05:02.590
+"facebook.com, and hit Enter, in Chrome,
+or Firefox, or IE, or Safari,",00:05:02.590,00:05:07.020
+"or whatever browser you're
+actually doing?",00:05:07.020,00:05:09.050
+"Can we tell this story, maybe
+sentence by sentence?",00:05:09.050,00:05:11.500
+"What's one of the first things that
+happens when you hit Enter, after",00:05:11.500,00:05:14.770
+typing facebook.com?,00:05:14.770,00:05:15.876
+"&gt;&gt; [? STUDENT: Your ?] computer
+makes an HTTP request.",00:05:15.876,00:05:17.780
+&gt;&gt; SPEAKER 1: OK.,00:05:17.780,00:05:18.260
+"So your computer makes-- we'll
+call it-- an HTTP request.",00:05:18.260,00:05:21.900
+Now what does that mean?,00:05:21.900,00:05:22.940
+"Well, all of us have probably seen or
+typed, for years now, H-T-T-P often",00:05:22.940,00:05:27.980
+"followed by colon, slash, slash.",00:05:27.980,00:05:29.186
+So what is that?,00:05:29.186,00:05:30.340
+"&gt;&gt; Well, HTTP is HyperText
+Transfer Protocol.",00:05:30.340,00:05:33.980
+"And that's just a fancy way of saying,
+it's the language that web browsers,",00:05:33.980,00:05:37.360
+"like Chrome and others, and web servers,
+like facebook.com, speak to",00:05:37.360,00:05:42.460
+one another.,00:05:42.460,00:05:43.100
+"And it's a fairly simple, English
+oriented language.",00:05:43.100,00:05:46.730
+It's almost like pseudo code.,00:05:46.730,00:05:48.140
+"&gt;&gt; And it's a way of a client, as
+we'll call it-- a browser--",00:05:48.140,00:05:51.820
+communicating with the server.,00:05:51.820,00:05:53.150
+"And just like in a restaurant, when you,
+the client, sit down at a table",00:05:53.150,00:05:56.230
+"and then order something off of the
+menu of the server, that server's",00:05:56.230,00:05:59.630
+"going to bring you back something,
+whatever it is you requested.",00:05:59.630,00:06:02.720
+Same in the computer world.,00:06:02.720,00:06:04.270
+A browser--,00:06:04.270,00:06:04.970
+a client--,00:06:04.970,00:06:05.610
+"is going to make a request, and
+then, hopefully get back",00:06:05.610,00:06:07.890
+something from the server.,00:06:07.890,00:06:09.120
+"And that something is, at a
+high level, the web page.",00:06:09.120,00:06:11.660
+"At a slightly lower level, it's
+a file written in another",00:06:11.660,00:06:15.040
+language called HTML--,00:06:15.040,00:06:17.160
+HyperText Markup Language.,00:06:17.160,00:06:18.920
+But more on that in just a moment.,00:06:18.920,00:06:20.720
+&gt;&gt; So HyperText Transfer Protocol--,00:06:20.720,00:06:22.470
+HTTP--,00:06:22.470,00:06:23.450
+"that's the protocol that
+browser and server use.",00:06:23.450,00:06:26.050
+"Well, what is a protocol, exactly?",00:06:26.050,00:06:27.830
+"Well, you can think of
+it as a language.",00:06:27.830,00:06:29.280
+"But if I reach out to our audience here,
+a normal thing for us humans to",00:06:29.280,00:06:32.580
+"do is, when we greet someone,
+I say, hi, my name is David.",00:06:32.580,00:06:35.928
+"&gt;&gt; [? STUDENT: Hi, ?] my name is Dipty.",00:06:35.928,00:06:37.320
+"&gt;&gt; SPEAKER 1: ""Hi, my name is
+Dipty,"" she replies.",00:06:37.320,00:06:39.000
+"And so we've had this fairly arbitrary
+interaction of shaking hands, as is",00:06:39.000,00:06:43.530
+"often the human convention
+in most countries.",00:06:43.530,00:06:45.730
+"And that's a protocol, right?",00:06:45.730,00:06:47.380
+"I sort of initiated it by extending my
+hand, rather awkwardly, on the stage",00:06:47.380,00:06:50.680
+of Sanders here.,00:06:50.680,00:06:51.610
+"She realized, oh, I've gotten a
+request for a hand apparently.",00:06:51.610,00:06:54.670
+"And so she responded to that request
+by actually acknowledging it.",00:06:54.670,00:06:58.170
+"An acknowledging, ACK, is actually a
+phrase very common in the world of",00:06:58.170,00:07:01.860
+"networking, for a server to
+acknowledge the client.",00:07:01.860,00:07:04.060
+"Then, we sort of completed that
+transaction, and awkwardness over.",00:07:04.060,00:07:07.720
+"So that's really what's happening
+underneath the hood as well.",00:07:07.720,00:07:10.010
+"&gt;&gt; Let me do this a little more
+technically under the hood.",00:07:10.010,00:07:13.450
+"I'm going to go over here
+to a terminal window.",00:07:13.450,00:07:16.900
+"This terminal window happens to be on my
+Mac, but you could do the same kind",00:07:16.900,00:07:19.950
+of thing in CS50 Appliance.,00:07:19.950,00:07:21.760
+"And I'm actually going to use a program
+that we won't really used for",00:07:21.760,00:07:24.750
+much at all the semester.,00:07:24.750,00:07:26.300
+But it's called Telnet.,00:07:26.300,00:07:27.430
+"&gt;&gt; Back in the day, Telnet was the program
+that you used to connect to a",00:07:27.430,00:07:31.880
+"remote server, to check your mail
+or to do something like that.",00:07:31.880,00:07:34.910
+"For now, we're going to use this old
+school program, Telnet, to pretend to",00:07:34.910,00:07:38.460
+be a browser.,00:07:38.460,00:07:39.830
+"And I'm going to go ahead and
+do the following-- let me",00:07:39.830,00:07:41.550
+increase my font size.,00:07:41.550,00:07:42.800
+"&gt;&gt; And I'm going to say, Telnet to the
+server called www.facebook.com, but",00:07:42.800,00:07:48.080
+"specifically, Telnet to port 80.",00:07:48.080,00:07:50.980
+We'll come back to this.,00:07:50.980,00:07:52.070
+"But for now, know that most services
+on the internet are identified",00:07:52.070,00:07:56.630
+uniquely by some number.,00:07:56.630,00:07:58.170
+"In this case, it's 80.",00:07:58.170,00:07:59.460
+"Now most of you have probably
+never typed 80 before.",00:07:59.460,00:08:02.910
+"But in reality, if I go to a browser
+and pull up, for instance,",00:08:02.910,00:08:08.540
+http://www.facebook.com/--,00:08:08.540,00:08:16.500
+"that's auto-complete, that's
+not my history--",00:08:16.500,00:08:18.460
+"all right, so now, we go
+to colon 80 slash.",00:08:18.460,00:08:23.070
+"&gt;&gt; So I claim that even though you've
+probably never typed this before, with",00:08:23.070,00:08:26.270
+"the colon 80 after facebook.com,
+hopefully, it's still going to work.",00:08:26.270,00:08:30.310
+"And indeed, it goes to facebook.com.",00:08:30.310,00:08:32.220
+"So it turns out that 80
+has been implicit.",00:08:32.220,00:08:34.860
+"None of us humans have had
+to type that for years.",00:08:34.860,00:08:36.690
+"Because browsers, by default, just
+assume that the number you want to use",00:08:36.690,00:08:41.350
+"when calling up a server so
+to speak is, in fact, 80.",00:08:41.350,00:08:44.620
+"Because long story short, servers
+can do way more than just",00:08:44.620,00:08:47.340
+serve up web pages.,00:08:47.340,00:08:48.320
+&gt;&gt; They can respond to instant messages.,00:08:48.320,00:08:50.030
+They can send emails.,00:08:50.030,00:08:51.230
+"There's lots of services that
+can run on a single server.",00:08:51.230,00:08:54.410
+"So these numbers-- in this case, 80--
+uniquely identifies one of those",00:08:54.410,00:08:57.590
+"services, which is HTTP, the
+web protocol than a server",00:08:57.590,00:09:01.830
+might actually support.,00:09:01.830,00:09:03.210
+"But I can simulate this request now,
+textually, using this old school",00:09:03.210,00:09:07.250
+Telnet program.,00:09:07.250,00:09:08.240
+"So I'm going to essentially now pretend
+to be a browser and speak HTTP",00:09:08.240,00:09:12.940
+"by sending, with my keyboard, exactly
+the commands that Chrome just knew how",00:09:12.940,00:09:16.620
+to send for me magically.,00:09:16.620,00:09:18.260
+"&gt;&gt; So I'm going to go ahead
+and hit Enter.",00:09:18.260,00:09:19.910
+Notice that it's trying 31.13.69.32.,00:09:19.910,00:09:22.000
+13 What is that?,00:09:22.000,00:09:26.110
+So it's an IP address.,00:09:26.110,00:09:27.440
+"Now even if you're not too familiar
+with the intricacies of those, you",00:09:27.440,00:09:30.790
+"probably have a general sense
+that these things exist.",00:09:30.790,00:09:33.420
+And an IP address--,00:09:33.420,00:09:34.650
+Internet Protocol address--,00:09:34.650,00:09:36.620
+"is just a unique identifier for
+a computer on the internet.",00:09:36.620,00:09:40.970
+"This is a bit of an oversimplification
+for the moment.",00:09:40.970,00:09:43.040
+"&gt;&gt; But every computer on the internet has
+a unique IP address, much like every",00:09:43.040,00:09:47.490
+"house in, say, the US has a unique
+postal address, something like 123",00:09:47.490,00:09:53.600
+"Main Street, in Anytown, USA.",00:09:53.600,00:09:55.820
+So something like that.,00:09:55.820,00:09:56.540
+"And that, too, is oversimplification.",00:09:56.540,00:09:58.330
+"But these addresses that we have in the
+postal world and these addresses",00:09:58.330,00:10:01.470
+"that we have in the computer world
+uniquely identify servers so that when",00:10:01.470,00:10:04.940
+"you send a message to them over the
+internet, or when you put a letter in",00:10:04.940,00:10:09.030
+an old school mailbox--,00:10:09.030,00:10:10.500
+postal mail--,00:10:10.500,00:10:12.100
+"the service knows how to get that
+request, or that letter, to the",00:10:12.100,00:10:16.940
+intended recipient.,00:10:16.940,00:10:18.110
+"&gt;&gt; Now my computer, somehow, has just
+figured out that Facebook's unique IP",00:10:18.110,00:10:21.390
+is 31.13.69.32.,00:10:21.390,00:10:23.820
+"In fact, that can probably change.",00:10:23.820,00:10:25.170
+"Facebook probably has multiple IP
+addresses, because they absolutely",00:10:25.170,00:10:27.780
+have more than one server.,00:10:27.780,00:10:29.150
+But that's happened for us magically.,00:10:29.150,00:10:30.810
+"In fact, the internal secret name of the
+server I've apparently connected",00:10:30.810,00:10:35.070
+"to is called star.c10r.facebook.com,
+whatever that is.",00:10:35.070,00:10:40.270
+"It's just whatever the system
+administrator at Facebook decided to",00:10:40.270,00:10:42.960
+"call this particular server that I
+was somewhat randomly sent to.",00:10:42.960,00:10:46.510
+"&gt;&gt; So now if my connection hasn't
+timed out, I'm going to",00:10:46.510,00:10:48.630
+pretend to be that browser.,00:10:48.630,00:10:50.210
+"I'm going to say get space
+forward slash space.",00:10:50.210,00:10:54.590
+"And I'm going to pretend to be speaking
+HTTP version 1.1, which is",00:10:54.590,00:10:58.220
+the one that most browsers use.,00:10:58.220,00:10:59.880
+"And I'm specifically going to mention to
+the server, by the way, I want the",00:10:59.880,00:11:03.980
+"website known to the world
+as facebook.com.",00:11:03.980,00:11:06.280
+"Enter, Enter.",00:11:06.280,00:11:09.000
+"And now, notice what's happened.",00:11:09.000,00:11:11.390
+"&gt;&gt; The server, the waiter, has responded
+to my order, or my request, with",00:11:11.390,00:11:16.400
+another textual message.,00:11:16.400,00:11:17.720
+"Now again, in the world of browsers like
+Chrome and Safari, you wouldn't",00:11:17.720,00:11:20.720
+"see this, as the human.",00:11:20.720,00:11:21.990
+"Microsoft and Google just hide
+these details from us.",00:11:21.990,00:11:24.770
+"But Facebook has responded with an
+answer, also in the language HTTP.",00:11:24.770,00:11:29.580
+"Notice there's a code here, 302, which
+actually has special significance by",00:11:29.580,00:11:33.250
+convention.,00:11:33.250,00:11:34.110
+"Found, so that's at least promising.",00:11:34.110,00:11:36.030
+"&gt;&gt; But apparently Facebook is telling
+me, mm-mm, you don't want",00:11:36.030,00:11:39.160
+what you asked for.,00:11:39.160,00:11:40.190
+"You instead want today's
+special, which is",00:11:40.190,00:11:42.810
+facebook.com/unsupportedbrowser.,00:11:42.810,00:11:45.680
+"So at a high level, what does Facebook
+appear to be doing here?",00:11:45.680,00:11:50.350
+It's redirecting me.,00:11:50.350,00:11:51.410
+"So Facebook doesn't like the
+fact that I'm pretending to",00:11:51.410,00:11:53.420
+be this other browser.,00:11:53.420,00:11:54.770
+"And so it's redirecting
+me to some website.",00:11:54.770,00:11:57.700
+"&gt;&gt; I'm actually curious, now, what
+this thing looks like.",00:11:57.700,00:11:59.820
+"Let me go over to that in Chrome so we
+can see what they want me to see.",00:11:59.820,00:12:04.420
+"So now they've actually sent me back to
+Facebook because they've realized,",00:12:04.420,00:12:07.060
+"oh, you do have a supported browser.",00:12:07.060,00:12:08.360
+"We're not even going to
+show you that page.",00:12:08.360,00:12:10.260
+"So let's go ahead and see
+if we can't fix this.",00:12:10.260,00:12:12.920
+"&gt;&gt; I'm going to have to
+cheat a little bit.",00:12:12.920,00:12:14.280
+And more on this in the weeks to come.,00:12:14.280,00:12:16.350
+But I'm going to do one thing here.,00:12:16.350,00:12:18.120
+And I'll explain this before long.,00:12:18.120,00:12:20.590
+"Give me just a moment to
+cheat, and wow you.",00:12:20.590,00:12:24.320
+So let me get this.,00:12:24.320,00:12:28.190
+OK.,00:12:28.190,00:12:29.110
+"I'll explain what I'm doing
+in just a moment.",00:12:29.110,00:12:30.690
+"I'm going to go ahead and cancel this
+connection, and try this again.",00:12:30.690,00:12:32.810
+"&gt;&gt; Get slash HTTP 1.1 host www.facebook.com
+user-agent.",00:12:32.810,00:12:38.440
+OK.,00:12:43.880,00:12:44.560
+Now I have pretended to be Chrome.,00:12:44.560,00:12:46.820
+"So it turns out that when a browser
+sends a request to a server, it's just",00:12:46.820,00:12:50.920
+the honor system.,00:12:50.920,00:12:51.595
+"If I say I'm Chrome, Facebook
+will assume I'm Chrome.",00:12:51.595,00:12:54.840
+"And the means by which I identified
+myself as Chrome is by this",00:12:54.840,00:12:58.560
+atrociously long string.,00:12:58.560,00:13:00.360
+"Essentially, all the browser
+manufacturers in the world have",00:13:00.360,00:13:03.240
+"decided, well, this version of this
+browser on this operating system will",00:13:03.240,00:13:06.470
+"have a user-agent string that looks
+like that crazy mess there.",00:13:06.470,00:13:09.740
+"And Mozilla is in there for
+historical reasons.",00:13:09.740,00:13:12.110
+"&gt;&gt; But notice how much information I'm
+leaking to facebook.com without even",00:13:12.110,00:13:15.160
+logging in.,00:13:15.160,00:13:16.030
+"I'm telling Mark that it's
+a Mac that I'm using.",00:13:16.030,00:13:18.910
+"I'm telling him that it's an Intel
+based Mac running Mac OS 10.8.5.",00:13:18.910,00:13:23.590
+"As an aside, this information is going
+to every website that you visit with",00:13:23.590,00:13:27.870
+your browser.,00:13:27.870,00:13:28.500
+"Pretty innocuous so far, but
+it gets a little juicier.",00:13:28.500,00:13:31.360
+"&gt;&gt; Notice that, if we read far enough,
+I'm using Chrome version",00:13:31.360,00:13:33.920
+30.0.1599.101.,00:13:33.920,00:13:38.060
+"But now, notice that the response
+is not as bad as it was before.",00:13:38.060,00:13:42.410
+"Where is Facebook telling
+me to go now?",00:13:42.410,00:13:44.840
+"It's telling me, again, the website--",00:13:44.840,00:13:49.140
+"it's telling me it's
+moved permanently.",00:13:49.140,00:13:50.720
+"Well, where the heck did Facebook go?",00:13:50.720,00:13:54.200
+"&gt;&gt; Yeah, so it's a subtle difference.",00:13:54.200,00:13:56.100
+"But notice, here, that the website
+has actually relocated to HTTPS.",00:13:56.100,00:14:01.680
+"So long story short, this is one way
+that Facebook is enforcing that I",00:14:01.680,00:14:05.210
+"actually end up at the secure version of
+their website, the one that's using",00:14:05.210,00:14:08.890
+encryption--,00:14:08.890,00:14:09.660
+"more complex than the encryption we
+talked about for p set two, but",00:14:09.660,00:14:12.730
+encryption nonetheless.,00:14:12.730,00:14:14.520
+"&gt;&gt; Now at this point it gets hard
+for me to spoof their web",00:14:14.520,00:14:17.110
+request using Telnet.,00:14:17.110,00:14:18.230
+"Because if they're telling
+me to use SSL--",00:14:18.230,00:14:20.210
+"the HTTPS prefix is what
+that implies--",00:14:20.210,00:14:23.050
+"if they're telling me to use
+cryptography, there's no way I'm going",00:14:23.050,00:14:25.590
+"to manually encrypt my message in front
+of all of you here, and try to",00:14:25.590,00:14:28.610
+figure out how to do that.,00:14:28.610,00:14:29.770
+"It's just going to get
+much more complex.",00:14:29.770,00:14:31.150
+"But that's what the browser
+is doing for you.",00:14:31.150,00:14:33.150
+"&gt;&gt; Let's see if we can't do this a little
+more simply, then, with a website",00:14:33.150,00:14:36.230
+"that's not expecting
+us to be as secure.",00:14:36.230,00:14:38.700
+"Let's go to, say, harvard.edu
+on port 80.",00:14:38.700,00:14:43.310
+Enter.,00:14:43.310,00:14:44.550
+"All right, so get slash HTTP 1.1.",00:14:44.550,00:14:48.170
+And what does this first slash mean?,00:14:48.170,00:14:49.730
+"Just to be clear, why do
+I keep typing that?",00:14:49.730,00:14:53.120
+"&gt;&gt; Well normally, when you type a URL--",00:14:53.120,00:14:54.790
+"and unfortunately, browsers usually
+hide this these days--",00:14:54.790,00:14:57.610
+"normally, when you go to harvard.edu,
+that URL officially",00:14:57.610,00:15:00.850
+does end in a slash.,00:15:00.850,00:15:02.560
+"Because a single slash denotes
+what part of the hard drive?",00:15:02.560,00:15:07.350
+The root of the hard drive.,00:15:07.350,00:15:08.990
+"We in the Appliance haven't really had
+to think about this, because we're",00:15:08.990,00:15:11.260
+always in John Harvard's folder.,00:15:11.260,00:15:12.930
+But his folder's in another folder.,00:15:12.930,00:15:14.690
+"And that folder's in the root of the
+Appliance's hard drive, so to speak,",00:15:14.690,00:15:17.980
+even though it's virtual.,00:15:17.980,00:15:18.980
+"So a single slash like this means
+the root of the hard drive.",00:15:18.980,00:15:21.660
+"It's like C colon backslash, or it's
+the root of your volume, on Mac OS.",00:15:21.660,00:15:25.650
+"&gt;&gt; But Chrome, and other browsers these
+days, have gotten user-friendly, and",00:15:25.650,00:15:28.740
+they hide that slash altogether.,00:15:28.740,00:15:30.300
+"But that's all that means
+in my textual message--",00:15:30.300,00:15:32.620
+"give me the root of harvard.edu's
+homepage, that is, the",00:15:32.620,00:15:36.570
+default page itself.,00:15:36.570,00:15:38.120
+So let me go ahead and hit Enter.,00:15:38.120,00:15:39.900
+"Let me remind the host that I want
+www.harvard.edu, just in case there's",00:15:39.900,00:15:43.650
+"other websites living on the
+same physical server.",00:15:43.650,00:15:45.880
+&gt;&gt; OK.,00:15:45.880,00:15:46.080
+"Harvard got a little
+impatient with me.",00:15:46.080,00:15:47.700
+"So let's do this again, faster.",00:15:47.700,00:15:49.390
+"Get slash HTTP 1.1 host www.harvard.edu
+user-agent--",00:15:49.390,00:15:55.560
+"I'm guessing our servers don't
+care as much about this--",00:15:55.560,00:15:58.080
+"Enter, Enter.",00:15:58.080,00:15:59.566
+Whew.,00:15:59.566,00:15:59.962
+"Oh damn it, bad request.",00:15:59.962,00:16:01.700
+OK.,00:16:01.700,00:16:02.080
+So what's going on here--,00:16:02.080,00:16:05.310
+"hello, harvard.edu.",00:16:05.310,00:16:07.800
+Why is it doing the-- interesting.,00:16:07.800,00:16:10.280
+"Oh, OK.",00:16:10.280,00:16:11.710
+"&gt;&gt; So what Harvard's now doing-- and we're
+going to quickly veer off of",00:16:11.710,00:16:14.830
+"this path, because it's going
+to get tedious quickly--",00:16:14.830,00:16:17.100
+"notice that Harvard is actually
+compressing its response to me, which",00:16:17.100,00:16:21.270
+isn't ideal.,00:16:21.270,00:16:22.140
+"Because I, apparently, as a human, don't
+know how to decompress bits that",00:16:22.140,00:16:25.780
+have been sent to me compressed.,00:16:25.780,00:16:27.280
+"And they're being shown is garbage
+there, because they're zeros and ones,",00:16:27.280,00:16:31.500
+but they're not ASCII characters.,00:16:31.500,00:16:33.190
+"They're patterns of zeros and ones that
+have been compressed to take up",00:16:33.190,00:16:36.090
+less space.,00:16:36.090,00:16:37.050
+"&gt;&gt; So very quickly, let me see
+if I can recover here.",00:16:37.050,00:16:39.010
+"Let's try, maybe, another
+campus altogether.",00:16:39.010,00:16:41.590
+"mit.edu get slash HTTP slash 1.1 host
+www.mit.edu user-agent colon there.",00:16:41.590,00:16:50.450
+"Thank you, MIT.",00:16:50.450,00:16:51.600
+OK.,00:16:51.600,00:16:52.630
+So here we have a web page.,00:16:52.630,00:16:55.750
+"&gt;&gt; So this is the language
+known as HTML--",00:16:55.750,00:16:58.840
+HyperText Markup Language.,00:16:58.840,00:17:00.400
+"I'm simply scrolling back up
+in time to get to the very",00:17:00.400,00:17:03.390
+tip top of this page.,00:17:03.390,00:17:04.810
+"And notice how MIT has responded
+to my request.",00:17:04.810,00:17:07.440
+200 is good.,00:17:07.440,00:17:08.520
+200 means everything is literally OK.,00:17:08.520,00:17:10.630
+"And that's a status code that
+we humans really never",00:17:10.630,00:17:13.390
+"see, in a good way.",00:17:13.390,00:17:14.670
+Because it means all is well.,00:17:14.670,00:17:16.140
+"&gt;&gt; Notice that MIT is informing me, hey,
+the server we're running is called",00:17:16.140,00:17:19.369
+"Apache, which is a very popular
+open source free web server.",00:17:19.369,00:17:23.849
+"They're running, apparently,
+UNIX, which is an",00:17:23.849,00:17:25.589
+operating system like Linux.,00:17:25.589,00:17:27.130
+"Notice that they apparently updated
+their web page at 4:00 a.m.,",00:17:27.130,00:17:30.660
+Greenwich Mean Time.,00:17:30.660,00:17:32.400
+&gt;&gt; Notice a couple of other details.,00:17:32.400,00:17:34.990
+"They're returning, to me, text/html.",00:17:34.990,00:17:37.910
+"So we'll see what that means
+in just a moment.",00:17:37.910,00:17:39.800
+"They've apparently given me 14,717
+bytes worth of HTML.",00:17:39.800,00:17:45.460
+"And some other, more esoteric
+information is in there.",00:17:45.460,00:17:48.180
+&gt;&gt; But this is where it gets interesting.,00:17:48.180,00:17:49.920
+This is how you make a web page.,00:17:49.920,00:17:52.580
+"This is how you make a web page whose
+title in the tab, in your browser, is",00:17:52.580,00:17:57.860
+"MIT hyphen Massachusetts Institute
+of Technology.",00:17:57.860,00:18:00.590
+"And indeed, if we go back to Chrome and
+visit www.mit.edu, notice that,",00:18:00.590,00:18:06.300
+"indeed, in the title up here,
+is MIT dash Massachusetts",00:18:06.300,00:18:09.680
+"Institute dot, dot, dot.",00:18:09.680,00:18:11.260
+"And now notice, too, if I right click or
+control click on the desktop here,",00:18:11.260,00:18:16.490
+and go to View Page Source--,00:18:16.490,00:18:17.960
+"at least in Chrome, though every browser
+does this via some means--",00:18:17.960,00:18:20.870
+here is that same file.,00:18:20.870,00:18:22.140
+"&gt;&gt; It happens to be color coded,
+or syntax highlighted.",00:18:22.140,00:18:25.140
+"But just like with your C code that
+was not colorized by you, it was",00:18:25.140,00:18:28.590
+"colorized by gedit, similarly
+is Chrome just making",00:18:28.590,00:18:31.810
+this prettier to read.,00:18:31.810,00:18:33.130
+"But this is the stuff that
+we'll soon be writing.",00:18:33.130,00:18:37.110
+So that's the endgame.,00:18:37.110,00:18:38.840
+"The server has responded with that
+information, just like you responded",00:18:38.840,00:18:42.020
+with your hand for our handshake.,00:18:42.020,00:18:43.660
+"But what else has to be going
+on in between those steps?",00:18:43.660,00:18:47.280
+"&gt;&gt; Well, when I type in, in this last case,
+www.mit.edu and hit Enter, we",00:18:47.280,00:18:53.430
+"know it's talking to port
+80 automatically, port",00:18:53.430,00:18:56.390
+just being that number.,00:18:56.390,00:18:57.780
+But where did the IP address go?,00:18:57.780,00:19:00.710
+"How is my computer figuring out what
+the IP address of mit.edu is?",00:19:00.710,00:19:05.045
+"&gt;&gt; Well, it turns out, in this world, there
+are things called DNS servers.",00:19:07.720,00:19:10.840
+"And let me go ahead and draw
+a quick picture over here.",00:19:10.840,00:19:14.500
+"And this'll just sketch out, in
+rough terms, what's going on.",00:19:14.500,00:19:17.680
+"So we'll pretend like this is
+my laptop here, in Sanders.",00:19:17.680,00:19:21.510
+"And it has Wi-Fi, so it's connected
+wirelessly to something.",00:19:21.510,00:19:24.650
+&gt;&gt; What's it actually connected to?,00:19:24.650,00:19:26.060
+"Well, somewhere in here, there's
+something on the",00:19:26.060,00:19:27.990
+wall with some antennas.,00:19:27.990,00:19:29.240
+And that's called an access point--,00:19:29.240,00:19:30.725
+AP.,00:19:30.725,00:19:31.560
+"Wireless access point, wireless router--
+call it whatever you want.",00:19:31.560,00:19:34.190
+"But they're all over campus,
+with those little antennas.",00:19:34.190,00:19:36.230
+"Ours are made by Cisco, typically.",00:19:36.230,00:19:38.100
+"And so somehow, my computer is talking
+to that wireless access point,",00:19:38.100,00:19:42.480
+"somewhere here in Sanders, or
+downstairs, or outside.",00:19:42.480,00:19:45.580
+"&gt;&gt; Meanwhile, this thing has a lot of
+physical wires going to, probably, the",00:19:45.580,00:19:50.030
+"Science Center, which we'll
+draw like this.",00:19:50.030,00:19:52.175
+It doesn't actually look like that.,00:19:52.175,00:19:54.200
+That actually looks a lot better.,00:19:54.200,00:19:55.200
+"So the Science Center has a whole bunch
+of computers inside of it that",00:19:55.200,00:19:59.170
+"are somehow physically connected to all
+of these access points on campus.",00:19:59.170,00:20:02.320
+"And those physical computers, we'll
+call routers, or gateways.",00:20:02.320,00:20:06.440
+"&gt;&gt; A router, as its name suggests, it's
+purpose in life is to route",00:20:06.440,00:20:09.450
+information.,00:20:09.450,00:20:10.310
+"It takes some bits, from a computer,
+as input, and figures out to where",00:20:10.310,00:20:14.150
+those bits should be sent.,00:20:14.150,00:20:15.640
+"So in the case of my request for
+mit.edu, it's actually pretty easy.",00:20:15.640,00:20:19.910
+"My request comes in from my browser,
+over Wi-Fi, to the access point, then,",00:20:19.910,00:20:24.620
+"via some cable, into a router
+in the Science Center.",00:20:24.620,00:20:27.080
+"And somehow, the router in the
+Science Center figures out",00:20:27.080,00:20:29.810
+that MIT is that way.,00:20:29.810,00:20:31.510
+"And I'm going to move forward those
+bits, I'm going to route those bits,",00:20:31.510,00:20:34.080
+"down the road, down Mass Ave., to MIT.",00:20:34.080,00:20:36.670
+"But how did my computer know what
+the IP address even was?",00:20:36.670,00:20:42.030
+"&gt;&gt; Well it turns out that somewhere
+in here there are servers--",00:20:42.030,00:20:45.660
+"and I'm going to draw it
+fairly abstractly--",00:20:45.660,00:20:48.330
+as a DNS server--,00:20:48.330,00:20:49.710
+Domain Name System.,00:20:49.710,00:20:51.220
+These are not routers.,00:20:51.220,00:20:51.960
+"These are different types of servers
+whose purpose in life is to translate",00:20:51.960,00:20:56.050
+"host names, like www.mit.edu, to IP
+addresses, like 1.2.3.4 So DNS servers",00:20:56.050,00:21:04.340
+do exactly that.,00:21:04.340,00:21:05.240
+"You can think of them as having a big
+database, or really, like a big Excel",00:21:05.240,00:21:08.320
+file with two columns.,00:21:08.320,00:21:09.750
+"One is host names, one
+is IP addresses.",00:21:09.750,00:21:12.120
+"And they just convert one to the
+other, in either direction.",00:21:12.120,00:21:15.020
+"&gt;&gt; Now in reality, it's a little
+more complex than that.",00:21:15.020,00:21:16.830
+"But that's how my computer, my random
+Mac or PC on this table here, knows",00:21:16.830,00:21:22.070
+"what the unique identifier is for
+www.mit.edu, or Facebook, or",00:21:22.070,00:21:27.590
+"harvard.edu, for that matter.",00:21:27.590,00:21:29.680
+"But of course, there's the entirety
+of Mass Ave here.",00:21:29.680,00:21:33.520
+"And then, we get to MIT, which this
+is actually more compelling.",00:21:33.520,00:21:37.390
+That'll be MIT.,00:21:37.390,00:21:39.230
+"And so they, too, have some servers.",00:21:39.230,00:21:41.580
+"And they somehow have a wired, or
+wireless, connection to Harvard.",00:21:41.580,00:21:45.770
+"And of course, we can go much farther
+down the road than MIT, and talk to",00:21:45.770,00:21:48.830
+most any computer in the world.,00:21:48.830,00:21:50.470
+&gt;&gt; But let's see if we can't see that.,00:21:50.470,00:21:52.060
+"Let me go back to my Terminal
+window for just a moment.",00:21:52.060,00:21:54.810
+"And let's assume that I figured out
+what the IP address is for mit.edu",00:21:54.810,00:22:00.170
+"like Telnet figured it out before,
+and my browser can clearly",00:22:00.170,00:22:02.700
+figure it out for me.,00:22:02.700,00:22:03.960
+"And I'm going to run another program,
+in this Terminal window, called",00:22:03.960,00:22:06.970
+"traceroute, tracing the
+route from here--",00:22:06.970,00:22:10.320
+"literally, this table--
+to www.mit.edu.",00:22:10.320,00:22:13.760
+Let's see what happens.,00:22:13.760,00:22:14.750
+Let me actually shrink the font size.,00:22:14.750,00:22:16.690
+Oop.,00:22:16.690,00:22:17.430
+"No, I wanted to surprise you.",00:22:17.430,00:22:18.790
+&gt;&gt; OK.,00:22:18.790,00:22:19.110
+So here we go.,00:22:19.110,00:22:20.870
+Let me go ahead and run this here.,00:22:20.870,00:22:22.880
+"And what I was seeing a moment ago, and
+we're seeing again now, is this",00:22:22.880,00:22:26.410
+output-- traceroute www.mit.edu.,00:22:26.410,00:22:29.980
+"Notice, in the first line, this program
+indeed figured out that MIT's",00:22:29.980,00:22:33.380
+IP address is this number here.,00:22:33.380,00:22:35.730
+"And now, what's going on
+between us and them?",00:22:35.730,00:22:38.060
+"&gt;&gt; So this line here, in row one, and this
+line here, in row two, and then,",00:22:38.060,00:22:44.110
+"row three-- what do each of these
+lines probably represent?",00:22:44.110,00:22:46.335
+"Locations, points, sure.",00:22:49.010,00:22:50.225
+"They're called hops, conceptually.",00:22:50.225,00:22:53.520
+"But physically, what are they?",00:22:53.520,00:22:56.230
+They're routers.,00:22:56.230,00:22:57.130
+"&gt;&gt; We only have, really, one piece of
+hardware here to talk about thus far.",00:22:57.130,00:22:59.820
+They're routers.,00:22:59.820,00:23:00.560
+So this thing here--,00:23:00.560,00:23:01.800
+crazy name--,00:23:01.800,00:23:02.990
+"but this is probably machine room,
+MR, in the Science Center.",00:23:02.990,00:23:06.700
+"It's a gateway, aka router.",00:23:06.700,00:23:08.680
+"This is just some unique number that
+someone came up with for it.",00:23:08.680,00:23:11.160
+And it's within harvard.edu.,00:23:11.160,00:23:13.120
+"And that's the IP address of that router
+that's, again, probably in the",00:23:13.120,00:23:16.290
+"Science Center, based on its name.",00:23:16.290,00:23:17.860
+"This second row represents another
+router that doesn't have a nickname",00:23:17.860,00:23:21.440
+"apparently-- a host name-- it
+just has an IP address.",00:23:21.440,00:23:23.980
+"&gt;&gt; So long story short, to get data from
+points A to B, there's more than just",00:23:23.980,00:23:28.070
+"Harvard's router, and MIT's router,
+and Google's router,",00:23:28.070,00:23:31.400
+and Facebook's router.,00:23:31.400,00:23:32.640
+"There's dozens, hundreds, thousands of
+routers between any point A and any",00:23:32.640,00:23:37.300
+point B on the internet.,00:23:37.300,00:23:38.710
+"But typically, you can get data
+from one point to another in",00:23:38.710,00:23:41.710
+fewer than 30 hops.,00:23:41.710,00:23:43.210
+"In other words, you only have to hand
+the data to 30 or fewer such routers.",00:23:43.210,00:23:47.930
+"And it's typically many
+fewer than that.",00:23:47.930,00:23:49.720
+"&gt;&gt; Well, let's see what happens here.",00:23:49.720,00:23:50.970
+"In row three, we hit a router called
+core Science Center gateway",00:23:50.970,00:23:54.460
+something or other.,00:23:54.460,00:23:56.580
+"In row 4, we have border gateway--",00:23:56.580,00:23:58.970
+these are just cryptic acronyms--,00:23:58.970,00:24:00.670
+also within harvard.edu.,00:24:00.670,00:24:02.530
+Here's another border gateway.,00:24:02.530,00:24:04.160
+"And then, all of a sudden, whoa,
+we seem to be in New York City.",00:24:04.160,00:24:09.070
+"&gt;&gt; So it turns out-- and I'm in inferring
+only from the host name.",00:24:09.070,00:24:12.030
+This could be misleading.,00:24:12.030,00:24:12.970
+It could be down the road.,00:24:12.970,00:24:13.830
+It's tough to say--,00:24:13.830,00:24:15.030
+"but this can be used as a revelation
+that the shortest distance between two",00:24:15.030,00:24:21.960
+"points on the internet is not
+necessarily a straight line.",00:24:21.960,00:24:25.730
+"If we think of shortest as the quickest
+path, the least congested",00:24:25.730,00:24:29.380
+"path, it is quite possible--
+though we can't be sure--",00:24:29.380,00:24:32.070
+"that the data is traveling a decent
+distance between rows five and six.",00:24:32.070,00:24:37.090
+"&gt;&gt; Now unfortunately MIT, or someone, got
+a little self-defensive, and they've",00:24:37.090,00:24:42.000
+started ignoring our requests.,00:24:42.000,00:24:43.700
+"Those routers have been configured to
+ignore requests of the form who are",00:24:43.700,00:24:47.380
+"you, who are you, who are you.",00:24:47.380,00:24:48.900
+"So let's see if we can't do this
+with someone more cooperative.",00:24:48.900,00:24:51.650
+"So Stanford has a nice tradition of
+having a little more openness.",00:24:51.650,00:24:56.260
+So let's see what happens here.,00:24:56.260,00:24:57.820
+"&gt;&gt; Again, pretty cryptic.",00:24:57.820,00:24:59.080
+"But we start, again, in the machine
+room in the Science",00:24:59.080,00:25:01.040
+"Center, in row one.",00:25:01.040,00:25:01.990
+So that's good.,00:25:01.990,00:25:02.660
+"Most of the servers did reply,
+including Stanford.",00:25:02.660,00:25:05.240
+"So notice we went from the machine room
+in the Science Center, to some",00:25:05.240,00:25:07.940
+"anonymous router elsewhere, to another
+Science Center gateway, to a border",00:25:07.940,00:25:11.770
+"gateway, and then, to something here--",00:25:11.770,00:25:13.970
+nox.org.,00:25:13.970,00:25:14.620
+"This is the Northern Crossroads, a very
+popular peering point where lots",00:25:14.620,00:25:19.330
+"of cables, lots of ISPs--",00:25:19.330,00:25:21.080
+"internet service providers--
+connect into.",00:25:21.080,00:25:23.220
+Here's another nameless IP here.,00:25:23.220,00:25:25.470
+Here's another such server.,00:25:25.470,00:25:27.530
+&gt;&gt; But this is interesting.,00:25:27.530,00:25:29.910
+"Where is the router in
+row eight, probably?",00:25:29.910,00:25:33.750
+"So it's probably in Washington, DC.",00:25:33.750,00:25:36.030
+"And I can kind of corroborate
+that hypothesis this time.",00:25:36.030,00:25:40.290
+"Because how long did it take us to go
+from the Science Center to this router",00:25:40.290,00:25:45.230
+in row seven?,00:25:45.230,00:25:46.370
+"Well, these milliseconds measurements
+on the right hand side here are",00:25:46.370,00:25:49.820
+estimates of that time.,00:25:49.820,00:25:51.960
+"&gt;&gt; There are three of them because the
+program, traceroute, tries every",00:25:51.960,00:25:54.610
+"router three times, just so you can get
+a visual average of the numbers.",00:25:54.610,00:25:58.010
+"But it apparently takes six
+milliseconds to get",00:25:58.010,00:26:00.230
+to row seven's router.,00:26:00.230,00:26:01.840
+"But how fast can, apparently, you
+travel, if you are a bit, between",00:26:01.840,00:26:05.470
+Boston and Washington DC?,00:26:05.470,00:26:09.520
+"14 milliseconds is as long as it takes
+for that instant message, for that",00:26:09.520,00:26:14.180
+"email, for that web page request to
+travel between here and Washington DC.",00:26:14.180,00:26:18.870
+"&gt;&gt; If I go further, to router number 10,
+what city am I apparently in now?",00:26:18.870,00:26:23.970
+"So, Houston.",00:26:23.970,00:26:24.810
+"And this is corroborated
+by the jump in time.",00:26:24.810,00:26:27.350
+It's really slow to get to Houston.,00:26:27.350,00:26:28.730
+"It takes 47 milliseconds to get from
+Boston to Houston in this case.",00:26:28.730,00:26:33.960
+"And if we look further, LAX--",00:26:33.960,00:26:37.120
+"looks like we're getting to Stanford
+sort of this way, by going through LA.",00:26:37.120,00:26:41.430
+But I'm inferring that from LAX.,00:26:41.430,00:26:43.170
+"The geeks tend to use airport codes
+for routers names here.",00:26:43.170,00:26:46.390
+"And this is kind of consistent
+with that assumption.",00:26:46.390,00:26:48.600
+82 milliseconds.,00:26:48.600,00:26:50.260
+"&gt;&gt; Then, we apparently go to another LAX,
+another LA router and then, some",00:26:50.260,00:26:54.720
+"nameless one, and then finally, a
+cryptic name on Stanford's network, or",00:26:54.720,00:26:59.530
+"close thereto, stanford.edu, is
+90 milliseconds away, or 6",00:26:59.530,00:27:04.670
+plus hours by plane.,00:27:04.670,00:27:06.170
+"So this is how fast data travels
+on the internet.",00:27:06.170,00:27:09.360
+"And it's things we absolutely
+take for granted these days.",00:27:09.360,00:27:11.410
+"When you're having some Gchat with
+someone, and the messages are just",00:27:11.410,00:27:13.950
+"appearing, consider just how
+fast that's happening.",00:27:13.950,00:27:16.940
+"And visually, it's indeed happening
+at that kind of rate.",00:27:16.940,00:27:21.540
+"&gt;&gt; So between points one and 18,
+in this case, there are",00:27:21.540,00:27:25.620
+things besides routers.,00:27:25.620,00:27:26.890
+"What are some machines on the internet
+that can block traffic",00:27:26.890,00:27:30.140
+from getting through?,00:27:30.140,00:27:31.610
+&gt;&gt; STUDENT: Firewalls.,00:27:31.610,00:27:31.950
+"&gt;&gt; SPEAKER 1: So, firewalls.",00:27:31.950,00:27:32.910
+"And we have personal firewalls such
+that your own Mac or PC can keep",00:27:32.910,00:27:36.260
+traffic in or out.,00:27:36.260,00:27:37.540
+Harvard has firewalls.,00:27:37.540,00:27:38.990
+MIT presumably has firewalls.,00:27:38.990,00:27:40.820
+"And Stanford does, as do all of the
+internet service providers who own",00:27:40.820,00:27:44.400
+"these routers in between points A and B.
+But did you ever stop to consider,",00:27:44.400,00:27:49.260
+"or care, how a firewall works.",00:27:49.260,00:27:52.710
+"Well already, we have the basic building
+blocks with which to engineer",00:27:52.710,00:27:56.380
+that answer.,00:27:56.380,00:27:57.700
+&gt;&gt; If you were a firewall--,00:27:57.700,00:27:59.090
+"and let's suppose that you are somewhere
+between point A and point B.",00:27:59.090,00:28:03.740
+"A cable is coming into you,
+and going out of you.",00:28:03.740,00:28:06.080
+"So you have the technological ability
+to look at all of the envelopes of",00:28:06.080,00:28:11.160
+"information that are flowing between
+you and the other person.",00:28:11.160,00:28:14.200
+"In other words, those get messages I was
+manually typing, you can think of",00:28:14.200,00:28:17.280
+"them as writing a quick note to someone,
+putting the IP address of the",00:28:17.280,00:28:21.060
+"recipient, and the port number of the
+recipient, on this envelope, then,",00:28:21.060,00:28:24.810
+"writing your own IP address and your own
+port number in the top left hand",00:28:24.810,00:28:28.520
+corner like you would a letter.,00:28:28.520,00:28:30.230
+"Then, you send it out wirelessly.",00:28:30.230,00:28:32.520
+"And it somehow travels, through routers,
+through wires, wirelessly,",00:28:32.520,00:28:37.130
+down the road to MIT.,00:28:37.130,00:28:39.190
+"&gt;&gt; So if you're a firewall, how do
+you stop that from happening?",00:28:39.190,00:28:43.520
+"What would you do if your next p
+set was implement a firewall?",00:28:43.520,00:28:49.710
+"How do I stop all Harvard people from
+ever talking to MIT people again?",00:28:49.710,00:28:53.980
+&gt;&gt; [? STUDENT: You ?] reverse the letter.,00:28:53.980,00:28:55.870
+&gt;&gt; SPEAKER 1: You what?,00:28:55.870,00:28:56.450
+"&gt;&gt; [? STUDENT: Reverse ?]
+the letter early.",00:28:56.450,00:28:58.140
+"&gt;&gt; SPEAKER 1: Reverse the letter--
+what do you mean?",00:28:58.140,00:28:59.290
+"&gt;&gt; [? STUDENT: Send ?] it
+back to the sender.",00:28:59.290,00:29:01.130
+&gt;&gt; SPEAKER 1: Send it back.,00:29:01.130,00:29:01.780
+OK.,00:29:01.780,00:29:01.990
+"So you could reject the virtual
+envelope, sort of by doing return to",00:29:01.990,00:29:05.720
+sender somehow.,00:29:05.720,00:29:06.660
+"So sure, that's what
+we want to achieve.",00:29:06.660,00:29:08.370
+But let's dive a little deeper.,00:29:08.370,00:29:09.440
+How do I do that?,00:29:09.440,00:29:10.460
+"&gt;&gt; If the input to this problem-- if I'm
+the firewall, and I'm effectively",00:29:10.460,00:29:13.950
+"standing between points A and B, and
+I am a middle man that gets to look",00:29:13.950,00:29:18.020
+"inside of this envelope, and then decide
+whether to send it back to",00:29:18.020,00:29:21.240
+"Harvard or to allow it to continue, what
+is it I, the firewall, am going",00:29:21.240,00:29:25.030
+to want to look at?,00:29:25.030,00:29:26.280
+&gt;&gt; I think I heard it here.,00:29:29.030,00:29:29.975
+&gt;&gt; [? STUDENT: Where it's ?] coming from.,00:29:29.975,00:29:30.550
+&gt;&gt; SPEAKER 1: Where it's coming from.,00:29:30.550,00:29:32.360
+"So if the source IP address--
+the little number up here--",00:29:32.360,00:29:36.410
+"is an IP address belonging
+to Harvard--",00:29:36.410,00:29:38.430
+"and I can actually know that
+with high probability.",00:29:38.430,00:29:40.220
+"Most of Harvard's IP addresses start
+with 140.247 dot something dot",00:29:40.220,00:29:45.540
+"something, or 128.103 dot
+something dot something.",00:29:45.540,00:29:48.810
+"Harvard owns those chunks
+of IP addresses.",00:29:48.810,00:29:51.450
+"&gt;&gt; Well, if I see that IP addresses as the
+sender, I can just send it back.",00:29:51.450,00:29:55.200
+"In reality, the internet doesn't
+bother wasting time",00:29:55.200,00:29:57.380
+sending the bits back.,00:29:57.380,00:29:58.460
+"It just literally drops the packet
+by deleting it, effectively.",00:29:58.460,00:30:02.480
+So what else could I look at though?,00:30:02.480,00:30:04.190
+"Suppose that I want to let people at
+Harvard visit mit.edu, and pull up",00:30:04.190,00:30:10.520
+"websites, and watch videos
+at MIT, and the like.",00:30:10.520,00:30:13.230
+"But I don't want humans at Harvard
+emailing anyone at MIT.",00:30:13.230,00:30:17.970
+"How could I allow traffic from Harvard
+to MIT, via the web, but disallow",00:30:17.970,00:30:23.810
+something like an email?,00:30:23.810,00:30:24.700
+&gt;&gt; [? STUDENT: The ?] port number.,00:30:24.700,00:30:25.840
+"&gt;&gt; SPEAKER 1: A port number-- that's the
+only other ingredient we have.",00:30:25.840,00:30:28.650
+"We have IP address, which we just
+leveraged, or we have port number,",00:30:28.650,00:30:31.880
+"where 80, we said, uniquely
+identifies web traffic.",00:30:31.880,00:30:34.870
+"Now I wouldn't expect you to know this--
+some of you might already know",00:30:34.870,00:30:37.430
+from familiarity--,00:30:37.430,00:30:38.210
+"what's a number that's used
+for email, usually?",00:30:38.210,00:30:41.860
+It's often 25.,00:30:41.860,00:30:43.080
+"25 refers to SMTP, which is a mail
+transfer protocol that you might have",00:30:43.080,00:30:48.520
+"had to set up at some point, if you're
+using Eudora, or Outlook, or",00:30:48.520,00:30:51.270
+something like that.,00:30:51.270,00:30:52.120
+It's just another number--,00:30:52.120,00:30:53.190
+25.,00:30:53.190,00:30:54.100
+"&gt;&gt; Telnet, which we were using
+before, uses 23.",00:30:54.100,00:30:58.934
+FTP--,00:30:58.934,00:30:59.770
+"file transfer protocol, if you've ever
+heard of that one-- uses 21.",00:30:59.770,00:31:03.750
+"HTTPS, the secure version of HTTP,
+which we'll come back to",00:31:03.750,00:31:07.430
+"before long, uses 443.",00:31:07.430,00:31:10.130
+"So the world has a whole bunch of
+numbers that correlate packets--",00:31:10.130,00:31:14.240
+"rather, correlate services
+to those actual numbers.",00:31:14.240,00:31:17.760
+So that's all a firewall is doing.,00:31:17.760,00:31:19.400
+"It's taking a look inside this virtual
+envelope, and then deciding yea or nay",00:31:19.400,00:31:23.330
+"to forward along, based
+on those ingredients.",00:31:23.330,00:31:26.230
+"&gt;&gt; Now what could Harvard clearly do
+to get past this firewall then?",00:31:26.230,00:31:29.720
+"If you want to be able to send a message
+to MIT but not be detected,",00:31:29.720,00:31:33.620
+"well, you could spoof your IP address,
+and just somehow be fancy enough, know",00:31:33.620,00:31:38.050
+"how to write C code, and write your own
+network program that changes the",00:31:38.050,00:31:41.400
+firm address.,00:31:41.400,00:31:41.860
+"The problem is you can absolutely send
+data anonymously, but if you want to",00:31:41.860,00:31:45.820
+"get any kind of reply, like see MIT's
+homepage, obviously, this addresses",00:31:45.820,00:31:49.850
+needs to be correct.,00:31:49.850,00:31:50.870
+"Otherwise, you can say anything
+you want, you're not going to",00:31:50.870,00:31:52.780
+hear back from them.,00:31:52.780,00:31:53.930
+"But these are just one of the kinds
+of attacks that we can send.",00:31:53.930,00:31:57.130
+"&gt;&gt; But it turns out when we send these
+messages-- and let's do",00:31:57.130,00:31:59.240
+an example of this.,00:31:59.240,00:32:00.485
+"It turns out, if I have a message that
+I want to send, it's not just sent in",00:32:00.485,00:32:04.020
+one envelope.,00:32:04.020,00:32:04.920
+"For efficiency's sake, especially when
+the files you're requesting or the",00:32:04.920,00:32:08.760
+"responses you're getting are
+particularly large, what TCP/IP--",00:32:08.760,00:32:13.570
+"Transmission Control Protocol / Internet
+Protocol-- it's just a fancy",00:32:13.570,00:32:16.330
+"way of saying what the networking
+software and computers do-- is they",00:32:16.330,00:32:19.630
+"take a message like this, and they
+cut it up into fragments--",00:32:19.630,00:32:23.770
+let's say four fragments.,00:32:23.770,00:32:25.540
+"&gt;&gt; And if I now cut this up into here,
+cut this up into here, what my",00:32:25.540,00:32:29.740
+"computer is then going to do is it's
+going to take one fragment and put it",00:32:29.740,00:32:34.270
+in an envelope.,00:32:34.270,00:32:35.700
+"All right, and let me get a--",00:32:39.130,00:32:41.100
+let's see.,00:32:41.100,00:32:41.630
+It's going to take one.,00:32:41.630,00:32:43.150
+"It's going to take another envelope, and
+it's going to put the second part",00:32:43.150,00:32:46.490
+of this message in here.,00:32:46.490,00:32:49.530
+All right.,00:32:49.530,00:32:51.370
+"It's going to take the third
+part, put it in here.",00:32:51.370,00:32:55.226
+"Maybe next time we'll
+just do two parts.",00:32:55.226,00:32:57.410
+"And we'll take the fourth part,
+and put it in here.",00:32:57.410,00:33:00.010
+"&gt;&gt; And what, now, has to be written
+on these envelopes--",00:33:00.010,00:33:02.140
+"which we'll pretend to do, for time's
+sake, and not actually write out.",00:33:02.140,00:33:04.700
+"What needs to be written on each of
+these four envelopes, with my message",00:33:04.700,00:33:07.760
+to someone?,00:33:07.760,00:33:08.320
+&gt;&gt; [? STUDENT: The ?] order.,00:33:08.320,00:33:09.290
+"&gt;&gt; SPEAKER 1: So, the order.",00:33:09.290,00:33:10.270
+"I need not only the IP address and the
+port numbers, as we just discussed, I",00:33:10.270,00:33:13.740
+"now need a sequence number of some sort
+to say, this is packet one, this",00:33:13.740,00:33:17.606
+"is two, this is three, this is four.",00:33:17.606,00:33:19.840
+And this is actually useful.,00:33:19.840,00:33:20.980
+"Because the internet, it turns out,
+is actually pretty unreliable.",00:33:20.980,00:33:23.690
+Routers can get congested.,00:33:23.690,00:33:26.080
+Cables can get overwhelmed--,00:33:26.080,00:33:27.615
+an oversimplification--,00:33:27.615,00:33:28.860
+"but, with bits such that what routers
+have to do is just drop packets.",00:33:28.860,00:33:32.650
+"&gt;&gt; In other words, if the internet is just
+really congested, you might get",00:33:32.650,00:33:35.540
+three out of those four packets.,00:33:35.540,00:33:37.000
+"But if you have a unique identifier on
+each of them, you'll know that you're",00:33:37.000,00:33:40.000
+missing packet number four of four.,00:33:40.000,00:33:42.510
+"So you can ask the guy at the
+other end to resend it.",00:33:42.510,00:33:45.310
+"But assuming that doesn't happen,
+let's see what might happen.",00:33:45.310,00:33:47.900
+"&gt;&gt; So if I want to send a message to-- who
+would like to receive my message",00:33:47.900,00:33:50.780
+from the internet?,00:33:50.780,00:33:52.235
+How about someone closer up front.,00:33:52.235,00:33:53.630
+"Brian, is it?",00:33:53.630,00:33:55.490
+All right.,00:33:55.490,00:33:56.430
+You stay there.,00:33:56.430,00:33:57.280
+I'm going to send it to you.,00:33:57.280,00:33:58.820
+"And the thing about the internet
+is that they might not even",00:33:58.820,00:34:01.100
+follow the same path.,00:34:01.100,00:34:02.020
+&gt;&gt; So here I go.,00:34:02.020,00:34:02.990
+"I am sending a message,
+fragment one of four.",00:34:02.990,00:34:06.470
+Be a router.,00:34:06.470,00:34:06.940
+Just let other people deal with it.,00:34:06.940,00:34:08.469
+There you go.,00:34:08.469,00:34:10.310
+"We'll give this to you, and
+we'll give this to you.",00:34:10.310,00:34:12.790
+And we'll see how quickly--,00:34:12.790,00:34:14.000
+"how many milliseconds it takes
+to get this message to Brian.",00:34:14.000,00:34:16.500
+Everyone gets to participate today.,00:34:20.820,00:34:23.940
+All right.,00:34:23.940,00:34:25.130
+"Brian has one, and two.",00:34:25.130,00:34:27.130
+If someone wants to be--,00:34:27.130,00:34:29.279
+&gt;&gt; [? STUDENT: All four. ?],00:34:29.279,00:34:30.230
+&gt;&gt; SPEAKER 1: He has all four.,00:34:30.230,00:34:30.980
+So no one chose to drop a packet.,00:34:30.980,00:34:32.480
+That's cool.,00:34:32.480,00:34:32.900
+That's fine.,00:34:32.900,00:34:33.330
+So Brian now has all four.,00:34:33.330,00:34:34.380
+"If you want to go ahead and
+reassemble those for us.",00:34:34.380,00:34:36.219
+"I know, we're pretending.",00:34:39.360,00:34:40.320
+So for time's sake--,00:34:40.320,00:34:45.090
+we have four.,00:34:45.090,00:34:45.929
+"So, OK, open one of them.",00:34:45.929,00:34:48.909
+OK.,00:34:48.909,00:34:49.360
+"That's one fourth of
+my message to you.",00:34:49.360,00:34:51.699
+"Now, open the second.",00:34:51.699,00:34:52.949
+"This may be funny, in the end,
+only to me and Brian.",00:34:58.190,00:35:01.985
+"All right, you've got two.",00:35:01.985,00:35:04.320
+"&gt;&gt; So in the meantime, we physically did
+this with the scissors, but all it",00:35:04.320,00:35:09.110
+"takes to fragment these things in a
+computer is just to send some of the",00:35:09.110,00:35:12.360
+"bits in one packet, in one virtual
+envelope, some of the bits in the",00:35:12.360,00:35:15.930
+"other, some in another, and some in a
+fourth, and then, let the computer",00:35:15.930,00:35:19.160
+"decide, based on those numbers,
+in what order you have",00:35:19.160,00:35:21.570
+to concatenate them.,00:35:21.570,00:35:24.166
+"And Brian's, maybe, the only
+one that can see this.",00:35:24.166,00:35:26.270
+"The message I sent to Brain-- because of
+course, the internet is filled with",00:35:26.270,00:35:29.010
+"these, is--",00:35:29.010,00:35:30.260
+yes.,00:35:33.080,00:35:34.500
+&gt;&gt; So that's the message.,00:35:34.500,00:35:35.330
+And Brian can hang on to that now.,00:35:35.330,00:35:36.700
+"So it took, obviously,
+a while to do this.",00:35:36.700,00:35:38.640
+"But that's what really happens,
+like routing data through the",00:35:38.640,00:35:41.680
+audience in this way.,00:35:41.680,00:35:43.290
+"But there is, again, a number of points,
+routers, firewalls, and other",00:35:43.290,00:35:47.320
+"such things between points A and B. And
+rather than just tell the story",00:35:47.320,00:35:50.700
+"verbally, I thought I'd pull up this
+video that some friends of ours, from",00:35:50.700,00:35:54.740
+"Erikson, years back, actually
+put together that explains",00:35:54.740,00:35:59.510
+how this all works.,00:35:59.510,00:36:00.480
+And it's about 10 or so minutes long.,00:36:00.480,00:36:02.380
+"So let's give you, now,
+Warriors of the Net.",00:36:02.380,00:36:04.065
+&gt;&gt; [MUSIC PLAYING],00:36:09.282,00:37:09.720
+"&gt;&gt; NARRATOR: For the first time in history,
+people and machinery are",00:37:09.720,00:37:14.990
+"working together, realizing a dream--",00:37:14.990,00:37:18.600
+"a uniting force that knows no
+geographical boundaries, without",00:37:18.600,00:37:22.550
+"regard to race, creed, or color--",00:37:22.550,00:37:26.050
+"a new era where communication truly
+brings people together.",00:37:26.050,00:37:31.000
+This is the dawn of the net.,00:37:31.000,00:37:34.420
+Want to know how it works?,00:37:38.240,00:37:40.070
+"Click here to begin your
+journey into the net.",00:37:40.070,00:37:44.605
+"&gt;&gt; Now exactly what happened when
+you clicked on that link?",00:37:47.930,00:37:51.080
+You started a flow of information.,00:37:51.080,00:37:53.320
+"This information travels down into your
+own personal mail room, when Mr.",00:37:53.320,00:37:56.950
+"IP packages it, labels it,
+and sends it on its way.",00:37:56.950,00:38:01.805
+&gt;&gt; Each packet is limited in its size.,00:38:01.805,00:38:03.790
+"The mail room must decide how to divide
+the information, and how to",00:38:03.790,00:38:08.010
+package it.,00:38:08.010,00:38:09.170
+"Now the package needs a label containing
+important information such",00:38:09.170,00:38:13.390
+"as sender's address, receiver's address,
+and the type of packet it is.",00:38:13.390,00:38:19.492
+"&gt;&gt; Because this particular packet is going
+out onto the internet, it also",00:38:34.940,00:38:38.680
+"gets an address for the proxy server,
+which has a special function,",00:38:38.680,00:38:42.570
+as we'll see later.,00:38:42.570,00:38:44.410
+"The packet is now launched onto your
+local area network, or LAN.",00:38:44.410,00:38:50.070
+"This network is used to connect all
+the local computers, routers,",00:38:50.070,00:38:53.990
+"printers, et cetera for information
+exchange within the physical walls of",00:38:53.990,00:38:57.940
+the building.,00:38:57.940,00:38:59.160
+"The LAN is a pretty uncontrolled place,
+and unfortunately, accidents",00:38:59.160,00:39:04.130
+can happen.,00:39:04.130,00:39:05.425
+"&gt;&gt; The highway of the LAN is packed
+with all types of information.",00:39:14.460,00:39:18.050
+"These are IP packets, Novell packets,
+AppleTalk packets--",00:39:18.050,00:39:22.070
+"they're going against
+traffic, as usual.",00:39:22.070,00:39:24.500
+"The local router reads to address and,
+if necessary, lifts the packet onto",00:39:24.500,00:39:29.250
+another network.,00:39:29.250,00:39:31.710
+"Ah, the router--",00:39:31.710,00:39:33.570
+"a symbol of control in a seemingly
+disorganized world.",00:39:33.570,00:39:37.490
+"&gt;&gt; ROUTER: Whoops, sorry about that.",00:39:37.490,00:39:38.480
+"Let's put this one here,
+this one here.",00:39:38.480,00:39:39.965
+This moves here.,00:39:39.965,00:39:40.460
+This one moves here.,00:39:40.460,00:39:40.955
+I don't like this one.,00:39:40.955,00:39:41.945
+Let's move this one.,00:39:41.945,00:39:42.935
+This one goes here.,00:39:42.935,00:39:43.925
+[INAUDIBLE],00:39:43.925,00:39:45.410
+Put another jangle here.,00:39:45.410,00:39:46.400
+Let's put this one here.,00:39:46.400,00:39:46.895
+"Nah, I'll go with that.",00:39:46.895,00:39:47.885
+Let's put that one here.,00:39:47.885,00:39:48.700
+&gt;&gt; NARRATOR: There he is--,00:39:48.700,00:39:49.930
+"systematic, uncaring, methodical,
+conservative, and sometimes, not quite",00:39:49.930,00:39:55.770
+up to speed.,00:39:55.770,00:39:56.975
+"But at least he is exact,
+for the most part.",00:39:56.975,00:40:00.090
+&gt;&gt; ROUTER: Put that one over there.,00:40:00.090,00:40:01.243
+"That one goes there, that one goes
+there, and this one goes there.",00:40:01.243,00:40:04.694
+"Well, another one goes there.",00:40:04.694,00:40:05.680
+That goes here.,00:40:05.680,00:40:06.173
+[INAUDIBLE],00:40:06.173,00:40:07.423
+"&gt;&gt; NARRATOR: As the packets leave the
+router, they make their way into the",00:40:14.570,00:40:18.670
+"corporate intranet and head
+for the router switch.",00:40:18.670,00:40:24.090
+"A bit more efficient than the router,
+the router switch plays fast and loose",00:40:24.090,00:40:28.120
+"with IP packets, deftly routing
+them along their way--",00:40:28.120,00:40:31.970
+"a digital pinball wizard, if you will.",00:40:31.970,00:40:34.720
+&gt;&gt; ROUTER SWITCH: Here we go.,00:40:34.720,00:40:35.290
+Here comes another one.,00:40:35.290,00:40:36.020
+And it's another.,00:40:36.020,00:40:36.950
+"Watch this, mom.",00:40:36.950,00:40:37.406
+Here it goes.,00:40:37.406,00:40:38.320
+"Whoop, around the back.",00:40:38.320,00:40:39.235
+"Hey, in there, in there.",00:40:39.235,00:40:40.660
+Over to the left.,00:40:40.660,00:40:41.135
+Over to the right.,00:40:41.135,00:40:42.090
+Over to the left.,00:40:42.090,00:40:42.480
+Over to the right.,00:40:42.480,00:40:42.820
+You got it.,00:40:42.820,00:40:43.490
+Here it comes.,00:40:43.490,00:40:43.800
+"He shoots, he scores.",00:40:43.800,00:40:45.170
+It's going.,00:40:45.170,00:40:45.860
+"Hey Wayne, watch out, here
+comes another one.",00:40:45.860,00:40:48.270
+"Oh, here we go.",00:40:48.270,00:40:49.520
+"&gt;&gt; NARRATOR: As packets arrive at their
+destination, they're picked up by the",00:40:52.920,00:40:56.330
+"network interface, ready to be
+sent to the next level--",00:40:56.330,00:41:01.250
+"in this case, the proxy.",00:41:01.250,00:41:04.340
+"The proxy is used by many companies as
+sort of a middle man in order to",00:41:04.340,00:41:08.750
+"lessen the load on their internet
+connection, and for",00:41:08.750,00:41:11.570
+security reasons as well.,00:41:11.570,00:41:15.350
+"As you can see, the packets
+are all of various sizes,",00:41:15.350,00:41:19.420
+depending upon their content.,00:41:19.420,00:41:21.770
+"&gt;&gt; The proxy opens the packet and looks
+for the web address, or URL.",00:41:37.960,00:41:45.110
+"Depending upon whether the address is
+acceptable, the packet is sent on to",00:41:45.110,00:41:49.500
+the internet.,00:41:49.500,00:41:50.750
+"&gt;&gt; There are, however, some addresses which
+do not meet with the approval of",00:41:56.940,00:42:01.970
+the proxy--,00:42:01.970,00:42:03.090
+"that is to say, corporate or
+management guidelines.",00:42:03.090,00:42:05.893
+These are summarily dealt with.,00:42:09.100,00:42:13.710
+We'll have none of that.,00:42:13.710,00:42:15.620
+"For those who make it, it's
+on the road again.",00:42:15.620,00:42:19.227
+"&gt;&gt; Next up, the firewall.",00:42:29.950,00:42:32.313
+"The corporate firewall
+serves two purposes.",00:42:36.500,00:42:40.225
+"It prevents some rather nasty things
+from the internet from coming into the",00:42:40.225,00:42:44.350
+"intranet, and it can also prevent
+sensitive corporate information from",00:42:44.350,00:42:48.460
+being sent out onto the internet.,00:42:48.460,00:42:53.380
+"&gt;&gt; Once through the firewall, a router
+picks up the packet and places it onto",00:42:53.380,00:42:57.340
+"a much narrower road, or
+bandwidth, as we say.",00:42:57.340,00:43:01.216
+"Obviously, the road is not broad
+enough to take them all.",00:43:01.216,00:43:06.830
+"&gt;&gt; Now you might wonder what happens to all
+those packets which don't make it",00:43:06.830,00:43:10.870
+along the way.,00:43:10.870,00:43:11.950
+"Well, when Mr. IP doesn't receive an
+acknowledgement that a packet has been",00:43:11.950,00:43:16.540
+"received in due time, he simply
+sends a replacement packet.",00:43:16.540,00:43:22.940
+"We are now ready to enter the world
+of the internet, a spider web of",00:43:22.940,00:43:29.360
+"interconnected networks which
+span our entire globe.",00:43:29.360,00:43:33.670
+"Here, routers and switches establish
+links between networks.",00:43:33.670,00:43:39.360
+"&gt;&gt; Now the net is an entirely different
+environment than you'll find within",00:43:39.360,00:43:42.740
+the protective walls of your LAN.,00:43:42.740,00:43:44.900
+"Out here, it's the Wild West--",00:43:44.900,00:43:47.340
+"plenty of space, plenty of
+opportunities, plenty of things to",00:43:47.340,00:43:50.540
+"explore, and places to go.",00:43:50.540,00:43:53.130
+"Thanks to very little control and
+regulation, new ideas find fertile",00:43:53.130,00:43:57.620
+"soil to push the envelope
+of their possibilities.",00:43:57.620,00:44:01.530
+"But because of this freedom,
+certain dangers also lurk.",00:44:01.530,00:44:05.240
+"You'll never know when you'll meet the
+dreaded ping of death, a special",00:44:05.240,00:44:10.860
+"version of a normal request ping which
+some idiot thought up to mess up",00:44:10.860,00:44:15.610
+unsuspecting hosts.,00:44:15.610,00:44:18.500
+"&gt;&gt; The path our packets take may be via
+satellite, telephone lines, wireless,",00:44:18.500,00:44:23.760
+or even trans-oceanic cable.,00:44:23.760,00:44:25.650
+"They don't always take the fastest,
+or shortest, routes possible.",00:44:25.650,00:44:29.860
+But they will get there eventually.,00:44:29.860,00:44:33.560
+"Maybe that's why it's sometimes
+called the world wide wait.",00:44:33.560,00:44:38.410
+"But when everything is working smoothly,
+you can circumvent the globe",00:44:38.410,00:44:42.710
+"five times over at the drop
+of a hat, literally--",00:44:42.710,00:44:47.110
+"and all for the cost of
+a local call, or less.",00:44:47.110,00:44:51.520
+"&gt;&gt; Near the end of our destination,
+we'll find another firewall.",00:44:51.520,00:44:55.260
+"Depending upon your perspective as a
+data packet, the firewall could be a",00:44:58.450,00:45:02.740
+"bastion of security, or
+a dreaded adversary.",00:45:02.740,00:45:06.930
+"It all depends on which side you're
+on and what your intentions are.",00:45:06.930,00:45:11.710
+"&gt;&gt; The firewall is designed to
+let in only those packets",00:45:11.710,00:45:15.590
+that meet its criteria.,00:45:15.590,00:45:18.060
+"This firewall is operating
+on ports 80 and 25.",00:45:18.060,00:45:22.450
+"All attempts to enter through other
+ports are closed for business.",00:45:22.450,00:45:26.880
+"&gt;&gt; Port 25 is used for mail packets, while
+port 80 is the entrance for",00:45:40.500,00:45:48.470
+"packets from the internet
+to the web server.",00:45:48.470,00:45:50.755
+"Inside the firewall, packets are
+screened more thoroughly.",00:45:54.060,00:45:58.230
+"Some packets make it easily through
+customs, while others",00:45:58.230,00:46:02.190
+look just a bit dubious.,00:46:02.190,00:46:04.760
+"&gt;&gt; The firewall officer is not easily
+fooled, such as when this ping of",00:46:04.760,00:46:08.390
+"death packet tries to disguise itself
+as a normal ping packet.",00:46:08.390,00:46:14.430
+&gt;&gt; FIREWALL: Next.,00:46:14.430,00:46:14.740
+OK.,00:46:14.740,00:46:15.214
+Go on.,00:46:15.214,00:46:15.688
+That's OK.,00:46:15.688,00:46:16.162
+No problem.,00:46:16.162,00:46:16.636
+Have a nice day.,00:46:16.636,00:46:17.584
+Be out here.,00:46:17.584,00:46:18.532
+Bye.,00:46:18.532,00:46:20.315
+"&gt;&gt; NARRATOR: For those packets lucky
+enough to make it this far, the",00:46:20.315,00:46:23.870
+journey is almost over.,00:46:23.870,00:46:25.920
+"It's just a lineup on the interface to
+be taken up into the web server.",00:46:28.940,00:46:35.380
+"&gt;&gt; Nowadays a web server can run on many
+things, from a mainframe, to a webcam,",00:46:35.380,00:46:40.700
+to the computer on your desk.,00:46:40.700,00:46:41.910
+Or why not your refrigerator?,00:46:41.910,00:46:44.630
+"With the proper setup, you can find
+out if you have the makings for",00:46:44.630,00:46:48.750
+"chicken cacciatore, or if
+you have to go shopping.",00:46:48.750,00:46:51.570
+"Remember, this is the dawn of the net.",00:46:51.570,00:46:54.870
+Almost anything's possible.,00:46:54.870,00:46:56.360
+"&gt;&gt; One by one, the packets are received,
+opened, and unpacked.",00:47:00.540,00:47:05.540
+The information they contain--,00:47:09.550,00:47:11.900
+"that is, your request
+for information--",00:47:11.900,00:47:14.370
+"is sent on to the web
+server application.",00:47:14.370,00:47:17.520
+"&gt;&gt; The packet itself is recycled, ready to
+be used again, and filled with your",00:47:24.650,00:47:33.750
+"requested information, addressed, and
+send out, on its way back to you, back",00:47:33.750,00:47:46.830
+"past the firewall, routers, and on
+through to the internet, back through",00:47:46.830,00:47:56.950
+"your corporate firewall, and on to your
+interface, ready to supply your",00:47:56.950,00:48:08.430
+"web browser with the information
+you requested--",00:48:08.430,00:48:11.060
+"that is, this film.",00:48:14.320,00:48:17.236
+"&gt;&gt; Pleased with their efforts and trusting
+in a better world, our trusty",00:48:22.870,00:48:27.590
+"data packets ride off blissfully into
+the sunset of another day, knowing",00:48:27.590,00:48:33.840
+"fully, they have served
+their masters well.",00:48:33.840,00:48:37.135
+Now isn't that a happy ending?,00:48:40.080,00:48:43.695
+"&gt;&gt; SPEAKER 1: That, then, is
+how the internet works.",00:48:47.910,00:48:49.890
+"Through problem set seven will you
+better understand this and will you",00:48:49.890,00:48:53.360
+"learn a bit of HTML, PHP, and more.",00:48:53.360,00:48:55.830
+"More on that in the specification
+that will go out on Friday.",00:48:55.830,00:48:58.590
+And we will see you on Monday.,00:48:58.590,00:49:00.310

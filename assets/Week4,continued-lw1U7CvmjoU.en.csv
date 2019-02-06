@@ -1,0 +1,1690 @@
+text,start,stop
+"&gt;&gt; DAVID MALAN: Hello, and
+welcome back to CS50.",00:00:11.320,00:00:13.260
+So this is the end of week four.,00:00:13.260,00:00:14.860
+Just one announcement first.,00:00:14.860,00:00:16.680
+"So the so-called fifth Monday is
+coming up this coming Monday.",00:00:16.680,00:00:19.600
+"This is the opportunity to change from
+SAT/UNSAT to a letter grade, or from",00:00:19.600,00:00:22.800
+letter grade SAT/UNSAT.,00:00:22.800,00:00:24.130
+"Annoyingly, that process does require a
+signature, because you have to fill",00:00:24.130,00:00:27.130
+out one of those pink add/drop forms.,00:00:27.130,00:00:28.770
+"&gt;&gt; Because technically, the SAT/UNSAT
+version and the letter grade version",00:00:28.770,00:00:31.680
+have distinct catalog numbers.,00:00:31.680,00:00:33.320
+But no big deal.,00:00:33.320,00:00:34.240
+"Just come up to me or to Rob
+or to Lauren at any point.",00:00:34.240,00:00:36.620
+"Or email us if you don't have the kind
+of paperwork you need today, and we",00:00:36.620,00:00:39.550
+"will be sure to help you take
+care of that before Monday.",00:00:39.550,00:00:43.410
+"&gt;&gt; All right, so today--",00:00:43.410,00:00:45.780
+"actually, there's a bit of an echo.",00:00:45.780,00:00:47.630
+Can we tone me down a bit?,00:00:47.630,00:00:51.070
+OK.,00:00:51.070,00:00:51.730
+"So today, we introduce a topic
+known as pointers.",00:00:51.730,00:00:54.850
+"And I'll admit that this is one of the
+more complex topics that we tend to",00:00:54.850,00:00:57.770
+"cover in this class, or really any
+introductory course that uses C.",00:00:57.770,00:01:00.960
+"&gt;&gt; But take my word for it, particularly
+if your mind feels a bit more bent",00:01:00.960,00:01:05.510
+today and in the weeks to come.,00:01:05.510,00:01:07.100
+"It's not representative of you getting
+any worse at this it just means that",00:01:07.100,00:01:10.340
+"it's a particularly sophisticated topic
+that I promise, a few weeks",00:01:10.340,00:01:13.360
+"hence, will seem all too strikingly
+straightforward in retrospect.",00:01:13.360,00:01:17.610
+&gt;&gt; I still remember to this day.,00:01:17.610,00:01:18.720
+"I was sitting in Elliott Dining Hall,
+sitting next to my TF Nishat Mehta,",00:01:18.720,00:01:22.190
+who was a resident of Elliott house.,00:01:22.190,00:01:24.070
+"And for some reason, this
+topic just clicks.",00:01:24.070,00:01:26.340
+"Which is to say that I too struggled
+with it for some amount of time, but I",00:01:26.340,00:01:29.430
+"will do my best to help avoid any such
+struggle with a topic that ultimately",00:01:29.430,00:01:33.610
+is quite powerful.,00:01:33.610,00:01:34.580
+"&gt;&gt; In fact, one of the topics we'll discuss
+in the weeks to come is that",00:01:34.580,00:01:37.350
+"of security, and how you can actually
+exploit machines in ways",00:01:37.350,00:01:41.130
+that were not intended.,00:01:41.130,00:01:42.320
+"And those exploitations are typically
+the result of bugs, mistakes that we",00:01:42.320,00:01:45.850
+"people make by not understanding some
+of the underlying implementation",00:01:45.850,00:01:49.740
+details via which programs are made.,00:01:49.740,00:01:52.250
+"&gt;&gt; Now to make this seem all the more user
+friendly, I thought I'd play a 10",00:01:52.250,00:01:55.410
+"second preview of a little claymation
+figure named Binky who was brought to",00:01:55.410,00:01:59.680
+"life by a friend of ours at Stanford,
+professor Nick Parlante.",00:01:59.680,00:02:03.020
+"So allow me to give you this
+teaser of Binky here.",00:02:03.020,00:02:06.753
+&gt;&gt; [VIDEO PLAYBACK],00:02:06.753,00:02:09.520
+"&gt;&gt; -Hey, Binky.",00:02:09.520,00:02:10.380
+Wake up.,00:02:10.380,00:02:11.050
+It's time for pointer fun.,00:02:11.050,00:02:13.610
+&gt;&gt; -What's that?,00:02:13.610,00:02:14.741
+Learn about pointers?,00:02:14.741,00:02:16.440
+"Oh, goodie.",00:02:16.440,00:02:17.928
+&gt;&gt; [END VIDEO PLAYBACK],00:02:17.928,00:02:18.920
+"&gt;&gt; DAVID MALAN: That is Stanford
+computer science.",00:02:18.920,00:02:20.670
+So more on that to come.,00:02:20.670,00:02:23.194
+&gt;&gt; [APPLAUSE],00:02:23.194,00:02:24.930
+"&gt;&gt; DAVID MALAN: Sorry, Nick.",00:02:24.930,00:02:26.660
+"&gt;&gt; So recall that last time we ended on
+this really exciting cliffhanger",00:02:26.660,00:02:30.680
+"whereby this function
+just didn't work.",00:02:30.680,00:02:32.960
+"At least intuitively, it felt
+like it should work.",00:02:32.960,00:02:34.960
+"Simply swapping the values
+of two integers.",00:02:34.960,00:02:37.600
+"But recall that when we printed out the
+original values in main, one and",00:02:37.600,00:02:40.915
+"two, they were still one and
+two and not two and one.",00:02:40.915,00:02:44.210
+"&gt;&gt; So let me actually switch
+over to the appliance.",00:02:44.210,00:02:46.070
+"And I wrote up a bit of skeletal code in
+advance here, where I claim that x",00:02:46.070,00:02:50.180
+"will be 1, y will be 2.",00:02:50.180,00:02:52.500
+"I then print out both of their
+values with print f.",00:02:52.500,00:02:54.810
+"&gt;&gt; I then claim down here that
+we're going to swap them.",00:02:54.810,00:02:57.540
+"I left a blank spot here for us to
+fill in today in just a moment.",00:02:57.540,00:03:00.800
+"Then, I'm going to claim that the
+two variables have been swapped.",00:03:00.800,00:03:03.380
+"Then I'm going to print
+them out again.",00:03:03.380,00:03:04.770
+"And so hopefully, I should see 1, 2.",00:03:04.770,00:03:07.090
+"2, 1.",00:03:07.090,00:03:07.380
+"That's the super simple
+goal right now.",00:03:07.380,00:03:09.830
+"&gt;&gt; So how do we go about swapping
+two variables?",00:03:09.830,00:03:12.430
+"Well if I propose here that these cups
+might represent memory in a computer.",00:03:12.430,00:03:17.220
+"This is a few bites, this
+is another few bites.",00:03:17.220,00:03:19.070
+"Could we have a volunteer come on up and
+mix us some drinks, if familiar?",00:03:19.070,00:03:23.260
+Come on up.,00:03:23.260,00:03:23.920
+What's your name?,00:03:23.920,00:03:24.815
+&gt;&gt; JESS: Jess.,00:03:24.815,00:03:25.260
+&gt;&gt; DAVID MALAN: Jess?,00:03:25.260,00:03:25.690
+"Come on up, Jess.",00:03:25.690,00:03:26.540
+"If you don't mind, we have to put the
+Google Glass on you so we can",00:03:26.540,00:03:29.180
+immortalize this.,00:03:29.180,00:03:30.430
+"OK, glass.",00:03:32.800,00:03:34.670
+Record a video.,00:03:34.670,00:03:37.250
+"And OK, we are good to
+go with Jess here.",00:03:37.250,00:03:43.103
+All right.,00:03:43.103,00:03:43.810
+Nice to meet you.,00:03:43.810,00:03:45.120
+"&gt;&gt; So what I'd like you do here--
+if you could, quite quickly--",00:03:45.120,00:03:47.720
+"just pours us half a glass of orange
+juice and half a glass of milk,",00:03:47.720,00:03:51.040
+"representing effectively the numbers 1
+in one cup and 2 in the other cup.",00:03:51.040,00:03:55.710
+&gt;&gt; This is going to be good footage.,00:04:01.380,00:04:02.630
+&gt;&gt; JESS: Sorry.,00:04:04.910,00:04:05.860
+"&gt;&gt; DAVID MALAN: No, no.",00:04:05.860,00:04:06.330
+It's OK.,00:04:06.330,00:04:08.703
+Nice.,00:04:08.703,00:04:10.120
+"All right, so we have four bytes
+worth of orange juice.",00:04:10.120,00:04:12.950
+We'll called it the value 1.,00:04:12.950,00:04:14.460
+Now another four bytes worth of milk.,00:04:14.460,00:04:16.579
+Will call it value 2.,00:04:16.579,00:04:18.519
+"So x and y, respectively.",00:04:18.519,00:04:20.440
+"&gt;&gt; All right, so now if the task at hand--
+for you, Jess, in front of all",00:04:20.440,00:04:23.450
+of your classmates--,00:04:23.450,00:04:24.270
+"is to swap the values of x and y such
+that we want the orange juice in the",00:04:24.270,00:04:28.510
+"other cup and the milk in this cup, how
+might you-- before you actually do",00:04:28.510,00:04:32.070
+it-- go about doing this?,00:04:32.070,00:04:34.020
+"&gt;&gt; OK, wise decision.",00:04:34.020,00:04:35.220
+So you need a bit more memory.,00:04:35.220,00:04:36.340
+"So let's allocate a temporary
+cup, if you will.",00:04:36.340,00:04:38.190
+And now proceed to swap x and y.,00:04:38.190,00:04:40.540
+&gt;&gt; Excellent.,00:04:52.950,00:04:53.530
+So very well done.,00:04:53.530,00:04:54.420
+"Thank you so much, Jess.",00:04:54.420,00:04:55.670
+Here you are.,00:04:59.520,00:05:00.020
+A little souvenir.,00:05:00.020,00:05:01.950
+"&gt;&gt; OK, so obviously, super simple idea.",00:05:01.950,00:05:04.350
+"Completely intuitive that we need a bit
+more storage space-- in this form,",00:05:04.350,00:05:07.500
+"a cup-- if we actually want to
+swap these two variables.",00:05:07.500,00:05:09.750
+So let's do exactly that.,00:05:09.750,00:05:11.110
+"Up here in between where I claim I'm
+going to be doing some swapping, I'll",00:05:11.110,00:05:14.330
+go ahead and declare temp.,00:05:14.330,00:05:15.720
+"And I'll set it equal to, say, x.",00:05:15.720,00:05:17.980
+"&gt;&gt; Then I'm going to change the value of
+x just like Jess did here with the",00:05:17.980,00:05:21.110
+"milk and orange juice
+to be equal to y.",00:05:21.110,00:05:23.200
+"And I'm going to change y to be equal
+to not x, because now we would be",00:05:23.200,00:05:27.460
+"stuck in a circle, but rather temp.",00:05:27.460,00:05:29.530
+"Where I temporarily-- or where Jess
+temporarily put the orange juice",00:05:29.530,00:05:33.170
+"before clobbering that
+cup with the milk.",00:05:33.170,00:05:35.460
+&gt;&gt; So let me go ahead now and make this.,00:05:35.460,00:05:37.250
+It's called noswap.c.,00:05:37.250,00:05:39.210
+And now let me run no swap.,00:05:39.210,00:05:41.190
+"And indeed I see, if I expand the
+window a little bit, that",00:05:41.190,00:05:43.910
+"x is 1, y is 2.",00:05:43.910,00:05:45.160
+"And then x is 2, y is 1.",00:05:45.160,00:05:47.230
+"&gt;&gt; But recall that on Monday we did things
+a little differently whereby I",00:05:47.230,00:05:51.910
+"instead implemented a helper function,
+if you will, that was actually void.",00:05:51.910,00:05:56.760
+I called it swap.,00:05:56.760,00:05:58.010
+"I gave it two parameters, and I called
+them a and I called them b.",00:05:58.010,00:06:01.600
+"&gt;&gt; Frankly, I could call them x and y.",00:06:01.600,00:06:04.380
+"There's nothing stopping
+me from doing that.",00:06:04.380,00:06:06.040
+"But I would argue it's then
+a little ambiguous.",00:06:06.040,00:06:08.140
+"Because recall for Monday that we
+claimed that these parameters were",00:06:08.140,00:06:11.910
+copies of the values passed in.,00:06:11.910,00:06:13.650
+"So it just messes with your
+mind, I think, if you use",00:06:13.650,00:06:15.640
+exactly the same variables.,00:06:15.640,00:06:17.370
+"&gt;&gt; So I'll instead call them a
+and b, just for clarity.",00:06:17.370,00:06:20.150
+"But we could call them most
+anything we want.",00:06:20.150,00:06:21.840
+"And I'm going to copy and paste
+effectively this code from up there",00:06:21.840,00:06:26.280
+down into here.,00:06:26.280,00:06:27.170
+Because I just saw that it works.,00:06:27.170,00:06:29.110
+So that's in pretty good shape.,00:06:29.110,00:06:30.790
+"And I'll change my x to a, my x
+to a, my y to b and my y to b.",00:06:30.790,00:06:37.390
+"&gt;&gt; So in other words, exact same logic.",00:06:37.390,00:06:39.130
+The exact same thing that Jess did.,00:06:39.130,00:06:40.850
+"And then the one thing I have to do up
+here, of course, is now invoke this",00:06:40.850,00:06:44.350
+"function, or call this function.",00:06:44.350,00:06:45.990
+"So I will call this function with two
+inputs, x and y, and hit Save.",00:06:45.990,00:06:50.430
+"&gt;&gt; All right, so fundamentally
+the same thing.",00:06:50.430,00:06:52.300
+"In fact, I've probably made the program
+unnecessarily complex by",00:06:52.300,00:06:55.570
+"writing a function that's just taking
+some six lines of code whereas I",00:06:55.570,00:07:00.820
+"previously had implemented
+this in just three.",00:07:00.820,00:07:02.970
+"&gt;&gt; So let me go ahead now and remake
+this, make no swap.",00:07:02.970,00:07:06.230
+"All right, I screwed up here.",00:07:06.230,00:07:07.920
+"This should be an error that you might
+see increasingly commonly as your",00:07:07.920,00:07:11.290
+programs get more complex.,00:07:11.290,00:07:12.380
+But there's an easy fix.,00:07:12.380,00:07:13.470
+Let me scroll back up here.,00:07:13.470,00:07:15.650
+&gt;&gt; And what's the first error I'm seeing?,00:07:15.650,00:07:18.190
+Implicit declaration.,00:07:18.190,00:07:19.520
+What does that typically indicate?,00:07:19.520,00:07:21.466
+"Oh, I forgot the prototype.",00:07:21.466,00:07:22.830
+"I forgot to teach the compiler that swap
+is going to exist even though he",00:07:22.830,00:07:26.900
+"doesn't exist at the very beginning
+of the program.",00:07:26.900,00:07:28.920
+"So I'm just going to say void, swap,
+int, a int b, semicolon.",00:07:28.920,00:07:35.780
+&gt;&gt; So I'm not going to reimplement it.,00:07:35.780,00:07:37.280
+But now it matches what's down here.,00:07:37.280,00:07:39.140
+"And notice, the absence of a semicolon
+here, which is not necessary when",00:07:39.140,00:07:42.530
+implementing.,00:07:42.530,00:07:43.200
+"&gt;&gt; So let me remake this, make no swap.",00:07:43.200,00:07:46.010
+Much better shape.,00:07:46.010,00:07:46.910
+Run no swap.,00:07:46.910,00:07:48.130
+And damn it.,00:07:48.130,00:07:48.740
+"Now we're back where we were on Monday,
+where the thing didn't swap.",00:07:48.740,00:07:51.650
+"&gt;&gt; And what's the intuitive explanation
+for why this is the case?",00:07:51.650,00:07:55.410
+Yeah?,00:07:55.410,00:07:56.380
+&gt;&gt; STUDENT: [INAUDIBLE].,00:07:56.380,00:07:57.630
+&gt;&gt; DAVID MALAN: Exactly.,00:08:04.140,00:08:05.230
+So a and b are copies of x and y.,00:08:05.230,00:08:07.330
+"And in fact, any time you've been
+calling a function thus far that",00:08:07.330,00:08:10.680
+passes variables like ints--,00:08:10.680,00:08:12.540
+just as swap is expecting here--,00:08:12.540,00:08:14.470
+you guys have been passing in copies.,00:08:14.470,00:08:16.270
+"&gt;&gt; Now that means it takes a little bit
+of time, a split second, for the",00:08:16.270,00:08:19.150
+"computer to copy the bits from one
+variable into the bits of another.",00:08:19.150,00:08:23.270
+But that's not such a big deal.,00:08:23.270,00:08:24.610
+But they're nonetheless a copy.,00:08:24.610,00:08:25.920
+"&gt;&gt; And so now, in the context of swap,
+I am in fact successfully",00:08:25.920,00:08:30.020
+changing a and b.,00:08:30.020,00:08:31.180
+"In fact, let's do a quick
+sanity check.",00:08:31.180,00:08:33.000
+"Print f a is %i, new line.",00:08:33.000,00:08:36.830
+And let's plug in a.,00:08:36.830,00:08:38.770
+Now let's do the same thing with b.,00:08:38.770,00:08:41.830
+And let's do the same thing here.,00:08:41.830,00:08:43.640
+"&gt;&gt; And now, let me copy those same lines
+again at the bottom of the function",00:08:43.640,00:08:47.260
+"after my three lines of interesting
+could have executed, and",00:08:47.260,00:08:51.250
+print a and b yet again.,00:08:51.250,00:08:53.270
+"So now let's make this, make no swap.",00:08:53.270,00:08:56.030
+"Let me make the terminal window a
+bit taller, so that we can see",00:08:56.030,00:08:58.430
+more of it at once.,00:08:58.430,00:08:59.520
+&gt;&gt; And run no swap.,00:08:59.520,00:09:00.860
+"x is 1, y is 2. a is 1, b is 2.",00:09:00.860,00:09:04.000
+"And then, a is 2, b is 1.",00:09:04.000,00:09:06.070
+"So it is working, just like Jess
+did here inside of swap.",00:09:06.070,00:09:09.390
+"But of course, it's having no effect
+on the variables in main.",00:09:09.390,00:09:13.090
+"&gt;&gt; So we saw a trick whereby we
+could fix this, right?",00:09:13.090,00:09:15.360
+"When you're faced with this scoping
+issue, you could just punt and make x",00:09:15.360,00:09:19.560
+and y what kind of variables instead?,00:09:19.560,00:09:22.400
+&gt;&gt; You could make them global.,00:09:22.400,00:09:23.390
+"Put them at the very top of the file
+as we did, even in the game of 15.",00:09:23.390,00:09:27.560
+We use a global variable.,00:09:27.560,00:09:28.890
+"But in the context of the game a 15,
+it's reasonable to have a global",00:09:28.890,00:09:32.420
+"variable representing the board, because
+the entirety of 15.c is all",00:09:32.420,00:09:37.170
+about implementing that game.,00:09:37.170,00:09:38.650
+That's what the file exists to do.,00:09:38.650,00:09:41.470
+"&gt;&gt; But in this case here, I'm
+calling a function swap.",00:09:41.470,00:09:44.170
+I want to swap two variables.,00:09:44.170,00:09:45.380
+"And it should start to feel just sloppy
+if the solution to all of our",00:09:45.380,00:09:48.950
+"problems when we run into scope
+issues is make it global.",00:09:48.950,00:09:51.300
+"Because very quickly our program is
+going to become quite a mess.",00:09:51.300,00:09:54.730
+"And we did that very sparingly
+as a result in 15.c.",00:09:54.730,00:09:57.760
+"&gt;&gt; But it turns out there's a
+better way altogether.",00:09:57.760,00:10:00.470
+"Let me actually go back and delete the
+print f's, just to simplify this code.",00:10:00.470,00:10:05.600
+"And let me propose that
+this, indeed, is bad.",00:10:05.600,00:10:09.160
+"But if I instead add in some asterisks
+and stars, I can instead turn this",00:10:09.160,00:10:15.990
+"function into one that's
+actually operational.",00:10:15.990,00:10:18.670
+"&gt;&gt; So let me go back here and admit saying
+asterisks is always difficult,",00:10:18.670,00:10:25.020
+so I'll say stars.,00:10:25.020,00:10:26.170
+I'll just fess up to that one.,00:10:26.170,00:10:27.660
+All right.,00:10:27.660,00:10:28.190
+"And now, what am I going
+to do instead?",00:10:28.190,00:10:30.190
+"&gt;&gt; So first of all, I'm going to specify
+that instead of passing an int into",00:10:30.190,00:10:34.130
+"the swap function, I'm instead
+of going to say int star.",00:10:34.130,00:10:37.980
+"Now, what does the star indicate?",00:10:37.980,00:10:39.170
+"This is that notion of a pointer that
+Binky, the claymation character, was",00:10:39.170,00:10:41.970
+referring to a moment ago.,00:10:41.970,00:10:43.465
+"&gt;&gt; So if we say int star, the meaning of
+this now is that a is not going to be",00:10:43.465,00:10:47.610
+passed in by its value.,00:10:47.610,00:10:49.110
+It's not going to be copied in.,00:10:49.110,00:10:50.350
+"Rather, the address of a is
+going to be passed in.",00:10:50.350,00:10:54.700
+"&gt;&gt; So recall that inside of your computer
+is a whole bunch of memory, otherwise",00:10:54.700,00:10:57.840
+known as RAM.,00:10:57.840,00:10:58.760
+"And that RAM is just a
+whole bunch of bytes.",00:10:58.760,00:11:00.520
+"So if your Mac or your PC has
+two gigabytes, you have 2",00:11:00.520,00:11:03.320
+billion bytes of memory.,00:11:03.320,00:11:05.760
+"&gt;&gt; Now let's just suppose that just to
+keep things nice and orderly, we",00:11:05.760,00:11:08.440
+assign an address--,00:11:08.440,00:11:09.450
+a number--,00:11:09.450,00:11:10.170
+to every byte of RAM in your computer.,00:11:10.170,00:11:12.270
+"The very first byte of those 2
+billion is by number zero.",00:11:12.270,00:11:15.410
+"The next one is byte number one, number
+two, all the way on up, dot dot",00:11:15.410,00:11:18.572
+"dot, to roughly 2 billion.",00:11:18.572,00:11:20.530
+"&gt;&gt; So you can number of the bytes
+of memory in your computer.",00:11:20.530,00:11:23.640
+"So let's assume that that's what
+we mean by an address.",00:11:23.640,00:11:26.460
+"So when I see int star a, what's going
+to be passed into swap now is the",00:11:26.460,00:11:31.360
+address of a.,00:11:31.360,00:11:32.830
+"Not its value, but whatever its postal
+address is, so to speak--",00:11:32.830,00:11:37.150
+its location in RAM.,00:11:37.150,00:11:38.810
+"&gt;&gt; And similarly for b, I'm going
+to say the same thing.",00:11:38.810,00:11:41.250
+"Int, star, b.",00:11:41.250,00:11:42.720
+"As an aside, technically the star
+could go in other locations.",00:11:42.720,00:11:46.350
+"But we'll standardize on the star being
+right next to the data type.",00:11:46.350,00:11:50.140
+"&gt;&gt; So swap signature now means, give me
+the address of an int, and call",00:11:50.140,00:11:54.080
+that address a.,00:11:54.080,00:11:55.400
+"And give me another address of an
+int and call that address b.",00:11:55.400,00:11:58.690
+&gt;&gt; But now my code here has to change.,00:11:58.690,00:12:01.120
+Because if I declare int temp--,00:12:01.120,00:12:03.470
+which is still of type int--,00:12:03.470,00:12:05.580
+"but I store in it a,
+what kind of value?",00:12:05.580,00:12:08.700
+"To be clear, am I putting an a with
+the code as written right now?",00:12:08.700,00:12:12.870
+&gt;&gt; I'm putting the location in a.,00:12:12.870,00:12:14.360
+"But I don't care about the
+location now, right?",00:12:14.360,00:12:16.500
+"Temp exists just Jess' third cup
+existed, for what purpose?",00:12:16.500,00:12:21.940
+To store a value.,00:12:21.940,00:12:23.090
+Milk or orange juice.,00:12:23.090,00:12:24.830
+"Not to actually store the address of
+either of those things, which feels a",00:12:24.830,00:12:28.520
+"little nonsensical in this real
+world context anyway.",00:12:28.520,00:12:31.200
+"&gt;&gt; So really, what I want to put in temp
+is not the address of a, but the",00:12:31.200,00:12:34.990
+contents of a.,00:12:34.990,00:12:36.180
+"So if a is a number like 123, this is
+the 123rd byte of memory that a just",00:12:36.180,00:12:41.930
+"happens to be occupying, that the value
+in a happens to be occupying.",00:12:41.930,00:12:45.090
+"&gt;&gt; If I want to go to that address,
+I need to say star a.",00:12:45.090,00:12:49.040
+"Similarly, if I were to change what's
+at the address a, I change",00:12:49.040,00:12:52.610
+this to start a.,00:12:52.610,00:12:53.570
+"If I want to store in what's at the
+location a with what's at the location",00:12:53.570,00:12:58.185
+"at b, star b star.",00:12:58.185,00:13:02.180
+"&gt;&gt; So in short, even if this isn't quite
+sinking in yet-- and I wouldn't expect",00:13:02.180,00:13:05.340
+that it would so fast--,00:13:05.340,00:13:06.560
+"realize that all I'm doing is prefixing
+these stars to my variables,",00:13:06.560,00:13:11.100
+saying don't grab the values.,00:13:11.100,00:13:13.350
+Don't change the values.,00:13:13.350,00:13:14.520
+"But rather, go to those addresses
+and get the value.",00:13:14.520,00:13:17.600
+"Go to that address and change
+the value there.",00:13:17.600,00:13:21.430
+"&gt;&gt; So now let me scroll back up to the top,
+just to fix this line here, to",00:13:21.430,00:13:25.500
+change the prototype to match.,00:13:25.500,00:13:27.690
+But I now need to do one other thing.,00:13:27.690,00:13:30.280
+"Intuitively, if I've changed the types
+of arguments that swap is expecting,",00:13:30.280,00:13:35.500
+"what else do I need to
+change in my code?",00:13:35.500,00:13:37.245
+&gt;&gt; When I call swap.,00:13:39.750,00:13:40.840
+"Because right now, what am
+I passing to swap still?",00:13:40.840,00:13:43.340
+"The value x and the value of y, or
+the milk and the orange juice.",00:13:43.340,00:13:47.450
+But I don't want to do that.,00:13:47.450,00:13:48.510
+I instead want to pass in what?,00:13:48.510,00:13:51.060
+"The location of x and
+the location of y.",00:13:51.060,00:13:53.050
+"What are their postal addresses,
+so to speak.",00:13:53.050,00:13:55.300
+"&gt;&gt; So to do that, there's an ampersand.",00:13:55.300,00:13:57.600
+Ampersand kind of sounds like address.,00:13:57.600,00:13:59.260
+"so n, ampersand, the address
+of x, and the address of y.",00:13:59.260,00:14:03.240
+"So it's deliberate that we use
+ampersands when calling the function,",00:14:03.240,00:14:06.790
+"and stars when declaring and when
+implementing the function.",00:14:06.790,00:14:10.230
+"&gt;&gt; And just think of ampersand as the
+address of operator, and star as the",00:14:10.230,00:14:14.220
+go there operator--,00:14:14.220,00:14:15.490
+"or, more properly, the
+dereference operator.",00:14:15.490,00:14:18.640
+"So that's a whole lot of words just to
+say that now, hopefully, swap is going",00:14:18.640,00:14:23.480
+to be correct.,00:14:23.480,00:14:24.440
+&gt;&gt; Let me go ahead and make--,00:14:24.440,00:14:26.550
+"let's actually rename the file, lest
+this program still be called no swap.",00:14:26.550,00:14:30.940
+I claim that we'll call it swap.c now.,00:14:30.940,00:14:33.240
+"So make, swap.",00:14:33.240,00:14:35.670
+"Dot, slash, swap.",00:14:35.670,00:14:37.520
+"&gt;&gt; And now indeed, x is 1, y is 2.",00:14:37.520,00:14:40.210
+"And then, x is 2, y is one.",00:14:40.210,00:14:44.040
+"Well let's see if we can't do this a
+little bit differently as to what's",00:14:44.040,00:14:46.500
+going on here.,00:14:46.500,00:14:47.180
+"First, let me zoom in on our
+drawing screen here.",00:14:47.180,00:14:51.250
+"And let me propose for a moment-- and
+whenever I draw here will be mirrored",00:14:51.250,00:14:54.160
+"up there now-- let me propose that
+here's a whole bunch of memory, or",00:14:54.160,00:14:58.660
+"RAM, inside of my computer.",00:14:58.660,00:15:00.540
+"&gt;&gt; And this will be bite number,
+let's say, 1.",00:15:00.540,00:15:04.140
+This will be bytes number 2.,00:15:04.140,00:15:05.720
+"And I'll do a whole bunch more, and
+then a bunch of dot dot dots to",00:15:05.720,00:15:08.220
+"indicate that there's 2 billion
+of these things.",00:15:08.220,00:15:10.880
+"4, 5, and so forth.",00:15:10.880,00:15:13.520
+"&gt;&gt; So there are the first five bytes
+of my computer's memory.",00:15:13.520,00:15:17.055
+All right?,00:15:17.055,00:15:17.560
+Very few out of 2 billion.,00:15:17.560,00:15:19.060
+"But now I'm going to propose
+the following.",00:15:19.060,00:15:21.120
+"I'm going to propose that x is going to
+store the number 1, and y is going",00:15:21.120,00:15:27.490
+to store the number 2.,00:15:27.490,00:15:29.690
+"And let me go ahead now and represents
+these values as follows.",00:15:29.690,00:15:35.000
+&gt;&gt; Let's do this as follows.,00:15:35.000,00:15:41.510
+Give me just one second.,00:15:41.510,00:15:42.870
+One second.,00:15:42.870,00:15:44.150
+OK.,00:15:44.150,00:15:45.680
+I want to make this a little--,00:15:45.680,00:15:47.560
+let's do this again.,00:15:47.560,00:15:50.440
+"Otherwise I'm going to and using the
+same numbers, unintentionally,",00:15:50.440,00:15:53.250
+multiple times.,00:15:53.250,00:15:54.230
+"&gt;&gt; So just so we have different numbers
+to talk about, let's call this byte",00:15:54.230,00:15:57.320
+"number 123, 124, 125, 126,
+and dot dot dot.",00:15:57.320,00:16:03.391
+"And let me claim now that I'm going to
+put the value 1 here, and the value 2",00:16:03.391,00:16:08.400
+"here, otherwise known as x and y.",00:16:08.400,00:16:11.990
+"So it just so happens that
+this is x, this is y.",00:16:11.990,00:16:15.300
+"&gt;&gt; And just by some random chance, the
+computer, the operating system,",00:16:15.300,00:16:18.180
+"happened to put x at location
+number 123.",00:16:18.180,00:16:21.890
+And y ended up at location 124--,00:16:21.890,00:16:25.590
+damn it.,00:16:25.590,00:16:26.330
+I should have fixed this.,00:16:26.330,00:16:28.700
+"Oh man, do I really want to do this?",00:16:28.700,00:16:34.040
+"Yes, I want to fix this and
+b proper about this today.",00:16:34.040,00:16:37.340
+"Sorry, new at this.",00:16:37.340,00:16:39.950
+"&gt;&gt; 127, 131, and I didn't want to be this
+complex, but why did I change the",00:16:39.950,00:16:45.020
+numbers there?,00:16:45.020,00:16:46.340
+"Because I want the ints to
+actually be four bytes.",00:16:46.340,00:16:48.360
+So let's be super anal about this.,00:16:48.360,00:16:49.810
+"So that if 1 happens to be addressed
+123, the 2 is going to be at address",00:16:49.810,00:16:53.800
+127 because it's just 4 byes away.,00:16:53.800,00:16:55.730
+That's all.,00:16:55.730,00:16:56.210
+"And we'll forget about all of the
+other addresses in the world.",00:16:56.210,00:16:58.640
+"&gt;&gt; So x is at location 123,
+y is at location 127.",00:16:58.640,00:17:03.320
+"And now, what do I actually
+want to do?",00:17:03.320,00:17:05.770
+"When I call swap now, what's
+actually going on?",00:17:05.770,00:17:10.099
+"Well, when I call swap, I'm passing in
+the address of x and the address of y.",00:17:10.099,00:17:14.920
+"So for instance, if these two pieces
+of paper now represent the two",00:17:14.920,00:17:18.540
+"arguments a and b to swap, what am I
+going to write on the first of these,",00:17:18.540,00:17:23.510
+which I'm going to call refer to as a?,00:17:23.510,00:17:27.720
+"&gt;&gt; Exactly, 123.",00:17:27.720,00:17:30.610
+So this I claim is a.,00:17:30.610,00:17:31.905
+This is the parameter a.,00:17:31.905,00:17:32.955
+I'm putting the address of x in there.,00:17:32.955,00:17:35.856
+&gt;&gt; What's that?,00:17:35.856,00:17:38.152
+&gt;&gt; What's that?,00:17:38.152,00:17:40.890
+"&gt;&gt; No, no.",00:17:40.890,00:17:41.190
+That's OK.,00:17:41.190,00:17:41.720
+"Still good, still good.",00:17:41.720,00:17:42.570
+So this is a.,00:17:42.570,00:17:43.530
+"And now on the second piece of paper,
+this is going to be b, and what am I",00:17:43.530,00:17:46.240
+"going to be writing on
+this piece of paper?",00:17:46.240,00:17:49.010
+127.,00:17:49.010,00:17:50.080
+"&gt;&gt; So the only thing that's changed since
+our previous telling of this story is,",00:17:50.080,00:17:53.720
+"rather than literally 1 and 2, I'm
+going to pass in 123 and 127.",00:17:53.720,00:17:58.590
+"And I'm now going to put these inside
+of this box, all right?",00:17:58.590,00:18:02.130
+"So that black box now represents
+the swap function.",00:18:02.130,00:18:04.640
+"&gt;&gt; Meanwhile, let's now have someone
+implement the swap function.",00:18:04.640,00:18:07.230
+"Would someone up here
+like to volunteer?",00:18:07.230,00:18:09.090
+Come on up.,00:18:09.090,00:18:09.560
+What's your name?,00:18:09.560,00:18:11.080
+Charlie.,00:18:11.080,00:18:11.460
+"All right, Charlie.",00:18:11.460,00:18:12.080
+Come on up.,00:18:12.080,00:18:14.810
+"&gt;&gt; So Charlie is going to play
+the role of our black box.",00:18:14.810,00:18:17.310
+"And Charlie, what I'd like you to do
+now is implement swap in such a way",00:18:17.310,00:18:21.460
+"that, given those two addresses,
+you were actually going",00:18:21.460,00:18:25.320
+to change the values.,00:18:25.320,00:18:26.330
+"And I'll whisper in your ear
+how to run the TV here.",00:18:26.330,00:18:28.290
+"&gt;&gt; So go ahead, and you're the black box.",00:18:28.290,00:18:29.930
+Reach in there.,00:18:29.930,00:18:30.920
+"What values do you see for a, and
+what values do you see for b?",00:18:30.920,00:18:34.054
+&gt;&gt; CHARLIE: a is 123 and b is 127.,00:18:34.054,00:18:36.740
+"&gt;&gt; DAVID MALAN: OK, exactly.",00:18:36.740,00:18:37.530
+Now pause there for just a moment.,00:18:37.530,00:18:38.940
+"The first thing you're going to do now,
+according to the code-- which",00:18:38.940,00:18:41.680
+I'll now pull up on the screen--,00:18:41.680,00:18:43.220
+"is going to be to allocate a little
+bit of memory called temp.",00:18:43.220,00:18:46.750
+"So I'm going to go ahead and
+give you that memory.",00:18:46.750,00:18:48.850
+"&gt;&gt; So this is going to be a third variable
+that you have accessible to",00:18:48.850,00:18:52.210
+you called temp.,00:18:52.210,00:18:54.080
+"And what are you going to write
+on the temp piece of paper?",00:18:54.080,00:18:57.120
+"&gt;&gt; CHARLIE: Pointers, right?",00:19:02.524,00:19:03.470
+"&gt;&gt; DAVID MALAN: OK, well not
+necessarily pointers.",00:19:03.470,00:19:04.790
+"So the line of code that I've
+highlighted on the right hand side,",00:19:04.790,00:19:07.230
+let's start there.,00:19:07.230,00:19:07.900
+It says star a.,00:19:07.900,00:19:08.890
+"So a is currently storing
+the number 123.",00:19:08.890,00:19:11.670
+"And just intuitively, what
+did star 123 mean?",00:19:11.670,00:19:16.660
+"&gt;&gt; But specifically, if a is
+123, star a means what?",00:19:16.660,00:19:21.630
+The value of a.,00:19:21.630,00:19:22.560
+"Or more casually, go there.",00:19:22.560,00:19:24.580
+"So let me propose that, holding the a in
+your hand, go ahead and treat that",00:19:24.580,00:19:28.620
+as though it's a map.,00:19:28.620,00:19:29.430
+"And walk yourself over to the computer's
+memory, and find us what is",00:19:29.430,00:19:32.940
+at location 123.,00:19:32.940,00:19:36.520
+Exactly.,00:19:36.520,00:19:37.720
+"&gt;&gt; So we see at location 123
+is what, obviously?",00:19:37.720,00:19:41.100
+"OK, so what value now are you
+going to put into temp?",00:19:41.100,00:19:44.240
+Exactly.,00:19:44.240,00:19:44.750
+So go ahead and do that.,00:19:44.750,00:19:45.600
+"And write the number 1 on the piece of
+paper that's currently titled temp.",00:19:45.600,00:19:51.280
+"&gt;&gt; And now the next step that
+you're going to implement",00:19:51.280,00:19:53.540
+is going to be what.,00:19:53.540,00:19:54.310
+"Well, on the right hand side of the
+next line of code is star b. b, of",00:19:54.310,00:19:57.820
+"course, stores an address.",00:19:57.820,00:19:59.260
+That addresses 127.,00:19:59.260,00:20:02.270
+"Star b means what, casually speaking?",00:20:02.270,00:20:06.620
+&gt;&gt; Go to that location.,00:20:06.620,00:20:08.700
+"So go ahead and find us what's
+at location 127.",00:20:08.700,00:20:14.988
+OK.,00:20:14.988,00:20:15.480
+"Of course, at location 127,
+is still the value 2.",00:20:15.480,00:20:19.170
+"So what are you going now store at
+whatever's at the location in a?",00:20:19.170,00:20:24.060
+So star a means go to the location a.,00:20:24.060,00:20:26.860
+What is the location a?,00:20:26.860,00:20:29.770
+&gt;&gt; Exactly.,00:20:29.770,00:20:30.430
+"So now, if you want to change
+what's at that location--",00:20:30.430,00:20:34.190
+"I'll go ahead and run
+the eraser are here.",00:20:34.190,00:20:36.470
+And now put it back on the brush.,00:20:36.470,00:20:37.760
+"What number are you going to write
+in that blank box now?",00:20:37.760,00:20:42.190
+&gt;&gt; Exactly.,00:20:42.190,00:20:42.850
+"So this line of code, to be clear-- let
+me pause what Charlie's doing and",00:20:42.850,00:20:46.470
+"point out here, what he's just done is
+write into that box at location 123",00:20:46.470,00:20:51.730
+the value that was previously at b.,00:20:51.730,00:20:55.150
+"And so we've now implemented indeed
+this second line of code.",00:20:55.150,00:20:59.140
+"&gt;&gt; Now unfortunately, there's
+still one line remaining.",00:20:59.140,00:21:01.920
+"Now what is in temp, literally?",00:21:01.920,00:21:04.900
+It's obviously the number one.,00:21:04.900,00:21:06.200
+That's not an address.,00:21:06.200,00:21:07.020
+"It's just a number, sort of
+a variable from week one.",00:21:07.020,00:21:09.380
+"&gt;&gt; And now when you say star b, that means
+go to the address b, which is of",00:21:09.380,00:21:13.520
+course here.,00:21:13.520,00:21:15.090
+So once you get there--,00:21:15.090,00:21:16.020
+"I'll go ahead and erase what's actually
+there-- and what are you",00:21:16.020,00:21:18.320
+going to write now at location 127?,00:21:18.320,00:21:20.820
+"&gt;&gt; CHARLIE: Temp, which is one.",00:21:20.820,00:21:22.010
+"&gt;&gt; DAVID MALAN: Temp, which is one.",00:21:22.010,00:21:23.430
+And what happens to temp in the end?,00:21:23.430,00:21:25.670
+"Well, we don't really know.",00:21:25.670,00:21:26.600
+We don't really care.,00:21:26.600,00:21:27.420
+"Any time we've implemented a function
+thus far, any local variables you have",00:21:27.420,00:21:31.090
+are indeed local.,00:21:31.090,00:21:31.890
+And they just disappear.,00:21:31.890,00:21:33.060
+"They're reclaimed by the operating
+system eventually.",00:21:33.060,00:21:35.040
+"&gt;&gt; So the fact that temp still has the
+value 1 is sort of fundamentally",00:21:35.040,00:21:39.800
+uninteresting to us.,00:21:39.800,00:21:41.150
+"All right, so a round of applause
+if we could for Charlie.",00:21:41.150,00:21:43.100
+Very well done.,00:21:43.100,00:21:46.400
+"&gt;&gt; All right, so what more does
+this mean we can do?",00:21:46.400,00:21:51.520
+"So it turns out that we've been
+telling a few white lies",00:21:51.520,00:21:54.400
+for quite some time.,00:21:54.400,00:21:55.540
+"Indeed, it turns out that a string,
+all of this time, is not really a",00:21:55.540,00:21:59.990
+sequence of characters per se.,00:21:59.990,00:22:02.190
+It kind of is that intuitively.,00:22:02.190,00:22:03.980
+"&gt;&gt; But technically speaking, string is a
+data type that we declared inside of",00:22:03.980,00:22:08.270
+"the CS50 library to simplify the world
+for the first few weeks of class.",00:22:08.270,00:22:12.170
+"What a string really is is the address
+of a character somewhere in RAM.",00:22:12.170,00:22:20.130
+"A string is really a number, like 123
+or 127, that happens to demarcate",00:22:20.130,00:22:25.530
+"where a string begins in
+your computer's memory.",00:22:25.530,00:22:28.420
+"&gt;&gt; But it doesn't represent the
+string, per se, itself.",00:22:28.420,00:22:31.870
+And we can see this as follows.,00:22:31.870,00:22:33.460
+"Let me go ahead and open up
+some code that's among",00:22:33.460,00:22:35.980
+today's source code examples.,00:22:35.980,00:22:38.340
+"And I'm going to go ahead and open
+up, let's say, compare-0.c.",00:22:38.340,00:22:42.225
+"This is a buggy program that is going
+to be implemented as follows.",00:22:44.830,00:22:48.790
+&gt;&gt; First.,00:22:48.790,00:22:49.040
+I'm going to say something.,00:22:49.040,00:22:50.420
+"Then I'm going to go ahead and
+get a string from the user",00:22:50.420,00:22:52.660
+in that next line.,00:22:52.660,00:22:53.750
+Then I'm going to say it again.,00:22:53.750,00:22:55.370
+"Then I'm going to get another
+string from the user.",00:22:55.370,00:22:57.540
+"&gt;&gt; And notice, I'm showing one of the
+strings in a variable called s, and",00:22:57.540,00:23:00.390
+"another of these strings
+in a variable called t.",00:23:00.390,00:23:03.040
+"And now I'm going to claim, very
+reasonably, that if s equals equals t,",00:23:03.040,00:23:07.480
+the strings are the same.,00:23:07.480,00:23:08.940
+You type the same thing.,00:23:08.940,00:23:09.970
+"Else, the strings are
+not the same thing.",00:23:09.970,00:23:11.830
+"&gt;&gt; After all, if we input two ints, two
+chars, two floats, two doubles, any of",00:23:11.830,00:23:15.440
+"the data types we've talked about
+thus far to compare them--",00:23:15.440,00:23:18.400
+"recall we made very clear a while ago
+that you don't do this, because a",00:23:18.400,00:23:22.070
+"single equal sign is of course
+the assignment operator.",00:23:22.070,00:23:25.840
+So that would be a bug.,00:23:25.840,00:23:26.820
+"&gt;&gt; We use the equal equal sign,
+which indeed compares",00:23:26.820,00:23:29.260
+things for true equality.,00:23:29.260,00:23:31.050
+But I claim this is buggy.,00:23:31.050,00:23:32.275
+"If I go ahead and make compare zero,
+and then do dot slash compare zero.",00:23:32.275,00:23:37.400
+"And I type in, let's say, hello.",00:23:37.400,00:23:39.700
+And then let's say hello again.,00:23:39.700,00:23:41.590
+"Literally the same thing, the computer
+claims I typed different things.",00:23:41.590,00:23:46.040
+&gt;&gt; Now maybe I just mistyped something.,00:23:46.040,00:23:47.640
+I'll type my name this time.,00:23:47.640,00:23:49.910
+"I mean, hello.",00:23:49.910,00:23:52.580
+Hello.,00:23:52.580,00:23:54.770
+It's different every single time.,00:23:54.770,00:23:57.360
+"&gt;&gt; Well, why is that?",00:23:57.360,00:23:58.430
+"What's really going on
+underneath the hood?",00:23:58.430,00:24:00.140
+"Well, what's really going on underneath
+the hood is the string then",00:24:00.140,00:24:03.270
+"I typed in that first time for instance
+is the word hello, of course.",00:24:03.270,00:24:07.410
+"But if we represent this underneath
+the hood, recall that a",00:24:07.410,00:24:11.660
+string is in an array.,00:24:11.660,00:24:13.470
+And we've said as much in the past.,00:24:13.470,00:24:15.040
+"&gt;&gt; So if I draw that array like this, I'm
+going to represent something quite",00:24:15.040,00:24:20.200
+similar to what we did a moment ago.,00:24:20.200,00:24:23.030
+"And there's actually something
+special here, too.",00:24:23.030,00:24:25.390
+"What did we determine was at
+the end of every string?",00:24:25.390,00:24:28.090
+"Yeah, this backslash zero, which is
+just the way of representing,",00:24:28.090,00:24:30.760
+"literally, 00000000.",00:24:30.760,00:24:33.610
+Eight 0 bits in a row.,00:24:33.610,00:24:35.680
+"&gt;&gt; I don't know, frankly,
+what's after this.",00:24:35.680,00:24:37.610
+"That's just a bunch more RAM
+inside of my computer.",00:24:37.610,00:24:40.090
+But this is an array.,00:24:40.090,00:24:40.970
+We talked about arrays before.,00:24:40.970,00:24:42.260
+"And we typically talk about arrays
+as being location zero,",00:24:42.260,00:24:45.010
+"then one, then two.",00:24:45.010,00:24:46.580
+But that's just for convenience.,00:24:46.580,00:24:47.950
+And that's entirely relative.,00:24:47.950,00:24:49.380
+"&gt;&gt; When you're actually getting memory from
+the computer, it's of course any",00:24:49.380,00:24:53.010
+"2 billion some odd bytes, potentially.",00:24:53.010,00:24:55.450
+"So really underneath the hood,
+all this time, yes.",00:24:55.450,00:24:59.100
+This might very well be bracket zero.,00:24:59.100,00:25:01.670
+"But if you dig even deeper underneath
+the hood, that's really",00:25:01.670,00:25:04.780
+address number 123.,00:25:04.780,00:25:07.000
+This is address 124.,00:25:07.000,00:25:09.150
+This is address 125.,00:25:09.150,00:25:11.040
+&gt;&gt; And I didn't screw up this time.,00:25:11.040,00:25:12.540
+"These are now one bytes
+apart for what reason?",00:25:12.540,00:25:15.840
+How big is a char?,00:25:15.840,00:25:17.930
+A char is just one byte.,00:25:17.930,00:25:19.170
+An int is typically four bytes.,00:25:19.170,00:25:20.570
+"So that's why I made it 123,
+127, 131 and so forth.",00:25:20.570,00:25:24.850
+"Now I can keep the math simpler
+and just do plus 1.",00:25:24.850,00:25:27.560
+"And this is now what's really going
+on underneath the hood.",00:25:27.560,00:25:30.510
+"&gt;&gt; So when you declare something like this,
+string s, this is actually--",00:25:30.510,00:25:37.760
+it turns out--,00:25:37.760,00:25:39.170
+char star.,00:25:39.170,00:25:41.190
+"Star, of course, means
+address, aka pointer.",00:25:41.190,00:25:44.640
+So it's the address of something.,00:25:44.640,00:25:46.200
+What is it the address of?,00:25:46.200,00:25:47.510
+&gt;&gt; Well--,00:25:47.510,00:25:47.760
+"I'm the only one who can see the very
+important point I'm making, or think",00:25:47.760,00:25:51.680
+I'm making.,00:25:51.680,00:25:52.560
+So string--,00:25:52.560,00:25:55.270
+"the sad thing is I have a monitor
+right there where I",00:25:55.270,00:25:57.180
+could have seen that.,00:25:57.180,00:25:58.100
+"&gt;&gt; All right, so string s is what
+I declared previously.",00:25:58.100,00:26:00.990
+"But it turns out, thanks to a little
+magic in the CS50 library, all this",00:26:00.990,00:26:04.600
+"time string has literally
+been char star.",00:26:04.600,00:26:08.780
+"The star again means
+pointer or address.",00:26:08.780,00:26:11.310
+"The fact that it's flanking the
+word char means it's the",00:26:11.310,00:26:14.180
+address of a character.,00:26:14.180,00:26:15.970
+"&gt;&gt; So if get string is called, and I type
+in H-E-L-L-O, propose now what has get",00:26:15.970,00:26:23.100
+"string literally been returning all of
+this time, even though we've rather",00:26:23.100,00:26:27.330
+oversimplified the world?,00:26:27.330,00:26:29.980
+"What does get string actually
+return as its return value?",00:26:29.980,00:26:33.310
+"&gt;&gt; 123 in this case, for instance.",00:26:35.830,00:26:38.720
+"We've previously said that get string
+simply returns a string, a sequence of",00:26:38.720,00:26:42.630
+characters.,00:26:42.630,00:26:43.300
+But that's a bit of a white lie.,00:26:43.300,00:26:44.790
+"The way get string really works
+underneath the hood is it gets a",00:26:44.790,00:26:48.010
+string from the user.,00:26:48.010,00:26:48.930
+"It plops the characters that
+he or she types in memory.",00:26:48.930,00:26:51.530
+"It puts a backslash zero at the end
+of those sequence of characters.",00:26:51.530,00:26:54.680
+"&gt;&gt; But then what does get string
+literally return?",00:26:54.680,00:26:57.310
+"It literally returns the address of the
+very first bytes in the RAM that",00:26:57.310,00:27:02.710
+it used for that strength.,00:27:02.710,00:27:04.130
+"And it turns out that just by returning
+a single address of the",00:27:04.130,00:27:07.500
+"first character in the string, that is
+sufficient for finding the entirety of",00:27:07.500,00:27:12.120
+the string.,00:27:12.120,00:27:12.630
+"&gt;&gt; In other words, get string does not have
+to return 123 and 124 and 125.",00:27:12.630,00:27:16.930
+"It doesn't have to give me a long
+list of all of the bytes that",00:27:16.930,00:27:19.950
+my string is using.,00:27:19.950,00:27:20.740
+"Because one, they're all back to back.",00:27:20.740,00:27:22.670
+"And two, based on the first address, I
+can figure out where the string ends.",00:27:22.670,00:27:28.160
+How?,00:27:28.160,00:27:29.910
+"&gt;&gt; The special null character, the
+backslash zero at the end.",00:27:29.910,00:27:33.490
+"So in other words, if
+you pass around--",00:27:33.490,00:27:35.430
+inside of variables--,00:27:35.430,00:27:36.530
+"the address of a char, and you assume
+that at the end of any string, any",00:27:36.530,00:27:41.300
+"sequence of characters as we humans
+think of strings, if you assume that",00:27:41.300,00:27:45.040
+"at the end of any such string there's
+a backslash zero, you're golden.",00:27:45.040,00:27:48.600
+"Because you can always find
+the end of a string.",00:27:48.600,00:27:52.430
+"&gt;&gt; Now what's really then going
+on in this program?",00:27:52.430,00:27:54.870
+"Why is this program,
+compare-0.c, buggy?",00:27:54.870,00:27:59.990
+What is actually being compared?,00:27:59.990,00:28:01.690
+Yeah?,00:28:01.690,00:28:02.420
+&gt;&gt; STUDENT: [INAUDIBLE].,00:28:02.420,00:28:05.000
+&gt;&gt; DAVID MALAN: Exactly.,00:28:05.000,00:28:05.730
+"It's comparing the locations
+of the strings.",00:28:05.730,00:28:08.350
+"So if the user has typed in hello once,
+as I did, memory might end up",00:28:08.350,00:28:12.420
+looking like this.,00:28:12.420,00:28:13.430
+"If the user then types in hello again,
+but by calling get string again, c is",00:28:13.430,00:28:18.210
+"not particularly clever unless you teach
+it to be clever by writing code.",00:28:18.210,00:28:21.800
+&gt;&gt; C--,00:28:21.800,00:28:22.430
+and computers more generally--,00:28:22.430,00:28:23.860
+"if you type in the word hello again,
+you know what you're going to get.",00:28:23.860,00:28:27.370
+"You're just going to get a second array
+of memory that, yes, happens be",00:28:27.370,00:28:31.480
+storing H-E-L-L-O and so forth.,00:28:31.480,00:28:35.510
+"&gt;&gt; It's going to look the same to
+us humans, but this address",00:28:35.510,00:28:38.240
+might not be 123.,00:28:38.240,00:28:39.460
+"It might just so happen that the
+operating system has some available",00:28:39.460,00:28:42.470
+space for instance at location--,00:28:42.470,00:28:45.430
+"let's say something arbitrary,
+like this is location 200.",00:28:45.430,00:28:49.820
+And this is location 201.,00:28:49.820,00:28:51.620
+And this is location 202.,00:28:51.620,00:28:53.060
+"We have no idea where that's
+going to be in memory.",00:28:53.060,00:28:55.730
+"&gt;&gt; But what this means is that what is
+going to be stored ultimately in s?",00:28:55.730,00:28:59.110
+The number 123.,00:28:59.110,00:29:00.750
+"What's going to be stored in t,
+in this arbitrary example?",00:29:00.750,00:29:04.860
+The number 200.,00:29:04.860,00:29:06.300
+"And all that means then is obviously,
+123 does not equal 200.",00:29:06.300,00:29:11.410
+"And so this if condition never
+evaluates to true.",00:29:11.410,00:29:14.940
+"Because get string is using different
+chunks of memory each time.",00:29:14.940,00:29:18.430
+"&gt;&gt; Now we can see this again
+in another example.",00:29:18.430,00:29:20.360
+Let me go ahead and open up copy-0.c.,00:29:20.360,00:29:23.764
+"I claim that this example is going to
+try-- but fail-- to copy two strings",00:29:23.764,00:29:28.770
+as follows.,00:29:28.770,00:29:29.910
+"&gt;&gt; I'm going to say something
+to the user.",00:29:29.910,00:29:31.730
+"I'm then going to get a
+string and call it s.",00:29:31.730,00:29:34.490
+"And now, I'm doing this check here.",00:29:34.490,00:29:36.400
+We mentioned this a while back.,00:29:36.400,00:29:37.990
+"But when might get string return null,
+another special character, or special",00:29:37.990,00:29:42.490
+symbol let's say.,00:29:42.490,00:29:45.050
+If it's out of memory.,00:29:45.050,00:29:45.900
+"&gt;&gt; For instance, if the user is really
+being difficult and types an atrocious",00:29:45.900,00:29:48.970
+"number of characters at the
+keyboard and hits Enter.",00:29:48.970,00:29:51.220
+"If that number of characters just can't
+fit in RAM for whatever crazy",00:29:51.220,00:29:54.580
+"reason, well get string might
+very well return null.",00:29:54.580,00:29:57.820
+"&gt;&gt; Or if your program itself is doing a lot
+of other things and there's just",00:29:57.820,00:30:01.080
+"not enough memory for get string
+to succeed, It might end",00:30:01.080,00:30:03.790
+up returning null.,00:30:03.790,00:30:05.240
+"But let's be more precise
+as to what this is.",00:30:05.240,00:30:07.160
+What is s's data type really?,00:30:07.160,00:30:10.280
+Char star.,00:30:10.280,00:30:11.610
+"&gt;&gt; So it turns out now we can peel
+back the layer of null.",00:30:11.610,00:30:14.560
+"Turns out, null is-- yes, obviously
+a special symbol.",00:30:14.560,00:30:17.500
+But what is it really?,00:30:17.500,00:30:19.190
+"Really, null is just a symbol that we
+humans use to represent zero as well.",00:30:19.190,00:30:25.220
+"&gt;&gt; So the authors of C, and computers
+more generally, decided years ago",00:30:25.220,00:30:29.010
+"that, you know what.",00:30:29.010,00:30:30.010
+"Why don't we ensure that no user
+data is ever, ever, ever",00:30:30.010,00:30:34.850
+stored at bye zero?,00:30:34.850,00:30:36.730
+"In fact, even in my arbitrary example
+before, I didn't start numbering the",00:30:36.730,00:30:39.610
+bytes at zero.,00:30:39.610,00:30:40.390
+I started at one.,00:30:40.390,00:30:41.540
+"Because I knew that people in the world
+have decided to reserve the zero",00:30:41.540,00:30:44.950
+"byte in anyone's RAM as
+something special.",00:30:44.950,00:30:47.970
+"&gt;&gt; The reason being, anytime you want to
+signal that something has gone wrong",00:30:47.970,00:30:52.020
+"with regard to addresses, you returned
+null-- otherwise known as zero--",00:30:52.020,00:30:55.960
+"and because you know that there's no
+legit data at address zero, clearly",00:30:55.960,00:30:59.410
+that means an error.,00:30:59.410,00:31:00.400
+"And that's why we, by convention, check
+for null and return something",00:31:00.400,00:31:04.080
+like one in those cases.,00:31:04.080,00:31:06.260
+"&gt;&gt; So if we scroll down now, this is just
+then some error checking, just in case",00:31:06.260,00:31:09.300
+something went wrong with [? bail ?],00:31:09.300,00:31:10.610
+"altogether and quit the program
+by returning early.",00:31:10.610,00:31:13.470
+"This line now could be rewritten
+as this, which means what?",00:31:13.470,00:31:19.030
+"On the left hand side, give me another
+pointer to a character, and call it t.",00:31:19.030,00:31:23.155
+"What am I storing inside of t, based
+on this one line of code?",00:31:23.155,00:31:26.935
+&gt;&gt; I'm storing a location.,00:31:30.950,00:31:32.170
+"Specifically the location
+that was in s.",00:31:32.170,00:31:34.742
+"So if the user has typed in hello, and
+that first hello happens to end up",00:31:34.742,00:31:39.000
+"here, then the number 123 is
+going to come back from get",00:31:39.000,00:31:42.567
+string and be stored--,00:31:42.567,00:31:43.810
+as we said earlier--,00:31:43.810,00:31:44.780
+in s.,00:31:44.780,00:31:45.440
+"&gt;&gt; When I now declare another pointer to
+a char and call it t, what number is",00:31:45.440,00:31:50.560
+"literally going to end up in
+t according to the story?",00:31:50.560,00:31:53.940
+So 123.,00:31:53.940,00:31:55.420
+"&gt;&gt; So technically now both s and
+t are pointing to the exact",00:31:55.420,00:32:00.310
+same chunks of memory.,00:32:00.310,00:32:02.410
+"So notice what I'm going to do now to
+prove that this program is buggy.",00:32:02.410,00:32:06.140
+"&gt;&gt; First I'm going to claim, with
+a print f, capitalizing",00:32:06.140,00:32:08.820
+the copy of the string.,00:32:08.820,00:32:10.080
+"Then I'm going to do a little
+error checking.",00:32:10.080,00:32:11.660
+I'm going to make sure.,00:32:11.660,00:32:12.160
+"Let's make sure that the string t is at
+least greater than zero in length,",00:32:12.160,00:32:16.710
+"so there's some character there
+to actually capitalize.",00:32:16.710,00:32:19.190
+"&gt;&gt; And then you might recall this
+from previous examples.",00:32:19.190,00:32:22.840
+"2 upper-- which is in
+the ctype.h file.",00:32:22.840,00:32:25.630
+"T bracket zero gives me the zero
+character of the string t.",00:32:25.630,00:32:30.800
+"And 2 upper of that same value, of
+course, converts it to uppercase.",00:32:30.800,00:32:34.360
+"&gt;&gt; So intuitively, this highlighted line
+of code is capitalizing the first",00:32:34.360,00:32:38.230
+letter in t.,00:32:38.230,00:32:40.250
+"But it's not capitalizing, intuitively,
+the first letter in s.",00:32:40.250,00:32:44.485
+"But if you're thinking ahead, what am I
+about to see when I run this program",00:32:44.485,00:32:48.130
+"and print out both the original,
+s, and the so-called copy, t?",00:32:48.130,00:32:54.220
+&gt;&gt; They're actually going to be the same.,00:32:54.220,00:32:55.350
+And why are they going to be the same?,00:32:55.350,00:32:56.600
+"They're both pointing to
+exactly the same thing.",00:32:58.970,00:33:01.020
+So let's do this.,00:33:01.020,00:33:01.610
+&gt;&gt; Make copy zero.,00:33:01.610,00:33:03.160
+It compiles OK.,00:33:03.160,00:33:04.070
+Let me run copy zero.,00:33:04.070,00:33:06.500
+"Let me type something like hello in
+all lowercase then hit Enter.",00:33:06.500,00:33:10.110
+"And it claims that both the original s
+and the copy are indeed identical.",00:33:10.110,00:33:16.520
+&gt;&gt; So what really happened here?,00:33:16.520,00:33:17.920
+"Let me redraw this picture just
+to tell the story in a",00:33:17.920,00:33:20.100
+slightly different way.,00:33:20.100,00:33:21.340
+"What's really going on underneath the
+hood when I declare something like",00:33:21.340,00:33:26.060
+"char start s, or string s,
+I am getting a pointer--",00:33:26.060,00:33:30.410
+"which happens to be four bytes
+in the CS50 appliance",00:33:30.410,00:33:33.090
+and in a lot of computers.,00:33:33.090,00:33:34.410
+And I'm going to call this s.,00:33:34.410,00:33:36.008
+"And this currently has
+some unknown value.",00:33:36.008,00:33:39.810
+"&gt;&gt; When you declare a variable, unless you
+yourself put a value there, who",00:33:39.810,00:33:43.900
+knows what's there.,00:33:43.900,00:33:44.570
+"It could be some random sequence of
+bits from the previous execution.",00:33:44.570,00:33:48.110
+"So when I, in my line of code do get
+string, and then store the return",00:33:48.110,00:33:52.490
+value in s get string somehow--,00:33:52.490,00:33:54.800
+"and we'll eventually peel back how get
+string works, somehow allocates an",00:33:54.800,00:33:58.520
+"array that probably looks
+a bit like this.",00:33:58.520,00:34:00.480
+"H-E-L-L-O, backslash zero.",00:34:00.480,00:34:05.390
+"&gt;&gt; Let's suppose that this is address
+123 just first consistency.",00:34:05.390,00:34:09.510
+"So get string returns, in the
+highlighted line there, it returns the",00:34:09.510,00:34:13.000
+"number we said, 123.",00:34:13.000,00:34:15.000
+So what really goes inside of s here?,00:34:15.000,00:34:17.420
+"&gt;&gt; Well, what really goes
+inside of s is 123.",00:34:17.420,00:34:26.590
+"But frankly, I'm getting a little
+confused by all of these addresses,",00:34:26.590,00:34:29.250
+all of these arbitrary numbers.,00:34:29.250,00:34:30.320
+"123, 124, 127.",00:34:30.320,00:34:32.290
+"So let's actually simplify
+the world a little bit.",00:34:32.290,00:34:34.570
+"&gt;&gt; When we talk about pointers, frankly, to
+us humans, who the heck cares where",00:34:34.570,00:34:38.800
+things are in memory?,00:34:38.800,00:34:39.870
+That's completely arbitrary.,00:34:39.870,00:34:41.080
+"It's going to depend on how
+much RAM the user has.",00:34:41.080,00:34:43.370
+"It's going to depend on when in the day
+you run the program, perhaps, and",00:34:43.370,00:34:46.590
+what input the user gives you.,00:34:46.590,00:34:48.250
+We're dwelling on unimportant details.,00:34:48.250,00:34:50.060
+"&gt;&gt; So let's abstract away and say that,
+when you run a line of code like this,",00:34:50.060,00:34:54.230
+"char star s gets the return
+value of get string.",00:34:54.230,00:34:57.320
+"Why don't we instead just draw what we
+keep calling a pointer as though it's",00:34:57.320,00:35:02.720
+pointing at something?,00:35:02.720,00:35:04.140
+"So I claim now that s up
+there is a pointer--",00:35:04.140,00:35:07.000
+underneath the hood it's an address.,00:35:07.000,00:35:08.480
+"But it's just pointing to
+the first byte in the",00:35:08.480,00:35:11.330
+string that's been returned.,00:35:11.330,00:35:12.780
+"&gt;&gt; If I now return to the code here,
+what's going on at this line?",00:35:12.780,00:35:16.710
+"Well, in this highlighted line now,
+I'm declaring apparently another",00:35:16.710,00:35:20.020
+variable called t.,00:35:20.020,00:35:21.070
+"But it's also a pointer, so I'm going
+to draw it as, in theory, the exact",00:35:21.070,00:35:25.700
+same size box.,00:35:25.700,00:35:26.710
+And I'm going to call it t.,00:35:26.710,00:35:28.160
+"&gt;&gt; And now if we go back to the code again,
+when I store s inside of t,",00:35:28.160,00:35:33.500
+"what am I technically
+putting inside of t?",00:35:33.500,00:35:36.920
+"Well technically, this
+was the number 123.",00:35:36.920,00:35:39.350
+"So really I should be writing
+the number 123 there.",00:35:39.350,00:35:42.270
+But let's take it higher level.,00:35:42.270,00:35:43.900
+"t, if it is just a pointer,
+intuitively, is just that.",00:35:43.900,00:35:48.090
+"That's all that's being
+stored in there.",00:35:48.090,00:35:49.800
+"&gt;&gt; So now in the last interesting lines
+of code, when I actually go about",00:35:49.800,00:35:54.970
+"capitalizing the zero character
+in t, what is going on?",00:35:54.970,00:36:00.680
+"Well, t bracket zero is now pointing
+to what character, presumably?",00:36:00.680,00:36:06.310
+&gt;&gt; It's pointing to h.,00:36:06.310,00:36:07.460
+Because t bracket zero--,00:36:07.460,00:36:08.870
+"recall, this is old syntax. t bracket
+zero just means if t is a string, t",00:36:08.870,00:36:12.490
+"bracket zero means getting the zero
+character in that strength.",00:36:12.490,00:36:15.590
+"So what that really means
+is go to this array--",00:36:15.590,00:36:18.650
+"and yes, this might be 123,
+this might be 124.",00:36:18.650,00:36:21.520
+"But it's all relative, remember.",00:36:21.520,00:36:22.790
+"Whenever talking about an array, we have
+the advantage of talking about",00:36:22.790,00:36:25.640
+relative indices.,00:36:25.640,00:36:27.000
+"&gt;&gt; And so now we can just assume
+that t bracket zero is h.",00:36:27.000,00:36:31.120
+"So if I call 2 upper on it, what that's
+really doing is capitalizing",00:36:31.120,00:36:35.090
+"the lowercase h to uppercase H.
+But of course, what is s?",00:36:35.090,00:36:38.290
+It's pointing to the same darn string.,00:36:38.290,00:36:41.010
+"&gt;&gt; So this is all that's been happening
+in this code so far.",00:36:41.010,00:36:44.200
+So what's then the implication?,00:36:44.200,00:36:45.960
+How do we fix these two problems?,00:36:45.960,00:36:48.300
+How do we compare to actual strings?,00:36:48.300,00:36:50.870
+"&gt;&gt; Well intuitively, how would
+you go about comparing two",00:36:50.870,00:36:53.720
+strings for true equality?,00:36:53.720,00:36:55.090
+"&gt;&gt; What does it mean if two
+strings are equal?",00:36:58.920,00:37:00.750
+"Clearly not that their addresses are
+equal in memory, because that's a low",00:37:00.750,00:37:04.330
+level implementation detail.,00:37:04.330,00:37:06.590
+All the characters are the same.,00:37:06.590,00:37:08.360
+"So let me propose, and let me introduce
+in version one of compare.c",00:37:08.360,00:37:12.810
+"here, so compare-1.c.",00:37:12.810,00:37:14.970
+"&gt;&gt; Let me propose that we still get a
+pointer called s, and store in it the",00:37:14.970,00:37:19.590
+return value of get string.,00:37:19.590,00:37:20.610
+Let's do the same thing with t.,00:37:20.610,00:37:21.750
+So none of the code is different.,00:37:21.750,00:37:23.230
+"I'm going to add a little
+more error checking now.",00:37:23.230,00:37:25.420
+"So now that we're sort of peeling back
+this layers in CS50 of what a string",00:37:25.420,00:37:29.390
+"actually is, we need to be more anal
+about making sure we don't abuse",00:37:29.390,00:37:33.520
+invalid values like null.,00:37:33.520,00:37:35.330
+&gt;&gt; So I'm just going to check.,00:37:35.330,00:37:36.440
+"If s does not equal null and t does not
+equal null, that means we're OK.",00:37:36.440,00:37:41.490
+"Get string did not screw up getting
+either of those strings.",00:37:41.490,00:37:44.460
+"And you can perhaps guess now, what
+does STR CMP presumably do?",00:37:44.460,00:37:51.270
+String compare.,00:37:51.270,00:37:52.000
+"&gt;&gt; So if you've programme in java before,
+this is like the equals method in the",00:37:52.000,00:37:55.470
+string class.,00:37:55.470,00:37:56.490
+"But for those of you who haven't
+programmed before,",00:37:56.490,00:37:57.890
+this is just a c function.,00:37:57.890,00:37:59.320
+"It happens to come in a
+file called string.h.",00:37:59.320,00:38:02.180
+That's where it's declared.,00:38:02.180,00:38:03.830
+&gt;&gt; And string compare--,00:38:03.830,00:38:05.110
+"I actually forget its usage,
+but never mind that.",00:38:05.110,00:38:07.530
+"Recall that we can do
+man, stir compare.",00:38:07.530,00:38:10.470
+"And this is going to bring up the
+Linux programmers manual.",00:38:10.470,00:38:12.590
+"And it's, frankly, a little cryptic.",00:38:12.590,00:38:14.060
+"But I can see here that, yep.",00:38:14.060,00:38:15.270
+I have to include string.h.,00:38:15.270,00:38:17.570
+"&gt;&gt; And it says here under description, ""the
+string compare function compares",00:38:17.570,00:38:20.590
+"the two strings S1 and S2."" And S1
+and S2 are apparently the two",00:38:20.590,00:38:24.560
+arguments passed in.,00:38:24.560,00:38:26.120
+"I don't really remember what
+const is, but now notice--",00:38:26.120,00:38:28.650
+"and you may have seen this already when
+you've use the man pages if you",00:38:28.650,00:38:31.480
+have it all--,00:38:31.480,00:38:32.390
+"that char star is just synonymous
+with string.",00:38:32.390,00:38:36.220
+"&gt;&gt; So it compares the two strings, S1 and
+S2, and it returns an integer less",00:38:36.220,00:38:40.440
+"than or equal to or greater than zero
+if S1 is found, respectively, to be",00:38:40.440,00:38:44.930
+"less than, or match, or
+be greater than S2.",00:38:44.930,00:38:47.450
+"That's just a very complex way of saying
+that string compare returns",00:38:47.450,00:38:51.220
+"zero if two strings are intuitively
+identical, character for",00:38:51.220,00:38:55.760
+character for character.,00:38:55.760,00:38:57.120
+"&gt;&gt; It returns a negative number if
+s, alphabetically, is supposed",00:38:57.120,00:38:59.970
+to come before t.,00:38:59.970,00:39:01.010
+"Or returns a positive number if
+s is supposed to come after t",00:39:01.010,00:39:05.300
+alphabetically.,00:39:05.300,00:39:06.170
+"So with this simple function, could
+you, for instance, sort a",00:39:06.170,00:39:08.360
+whole bunch of words?,00:39:08.360,00:39:09.770
+"&gt;&gt; So in this new version, I'm going
+to go ahead and make compare1.",00:39:09.770,00:39:13.984
+Dot slash compare one.,00:39:13.984,00:39:15.750
+I'll type in hello in all lower case.,00:39:15.750,00:39:18.030
+"I'm going to type in hello
+in all lowercase again.",00:39:18.030,00:39:20.300
+"And thankfully now it realizes
+I typed the same thing.",00:39:20.300,00:39:23.340
+"&gt;&gt; Meanwhile, if I type in hello in lower
+case and HELLO in upper case and",00:39:23.340,00:39:27.520
+"compare them, I typed
+different things.",00:39:27.520,00:39:29.710
+"Because not only are the addresses
+different, but we're comparing",00:39:29.710,00:39:32.530
+different characters again and again.,00:39:32.530,00:39:35.350
+"&gt;&gt; Well let's go and fix one
+other problem now.",00:39:35.350,00:39:37.320
+"Let me open up version one of
+copy, which now addresses",00:39:37.320,00:39:41.590
+this issue as follows.,00:39:41.590,00:39:42.900
+"And this one's going to look
+a little more complex.",00:39:42.900,00:39:45.650
+"But if you think about what problem we
+need to solve, hopefully this will be",00:39:45.650,00:39:49.320
+clear in just a moment now.,00:39:49.320,00:39:51.870
+"&gt;&gt; So this first line, char start t, in
+layman's terms could someone propose",00:39:51.870,00:39:57.280
+what this line here means?,00:39:57.280,00:39:59.450
+"Char star t, what is that doing?",00:39:59.450,00:40:01.050
+&gt;&gt; Good.,00:40:06.660,00:40:07.210
+"Create a pointer to some
+spot in memory.",00:40:07.210,00:40:09.500
+And let me refine it a little bit.,00:40:09.500,00:40:10.930
+"Declare a variable that will store the
+address of some char in memory, just",00:40:10.930,00:40:17.180
+to be a little more proper.,00:40:17.180,00:40:18.480
+"&gt;&gt; OK, so now on the right hand side, I've
+never seen one of these functions",00:40:18.480,00:40:21.210
+"before, malloc.",00:40:21.210,00:40:22.660
+But what might that mean?,00:40:22.660,00:40:26.980
+Allocation of memory.,00:40:26.980,00:40:28.050
+Memory allocation.,00:40:28.050,00:40:29.410
+"&gt;&gt; So it turns out, up until now, we
+haven't really had a powerful way of",00:40:29.410,00:40:33.050
+"asking the operating system,
+give me some memory.",00:40:33.050,00:40:36.210
+"Rather, we now have a function called
+malloc that does exactly that.",00:40:36.210,00:40:39.980
+"Even though this is a bit of a
+distraction right now, notice that in",00:40:39.980,00:40:42.960
+"between the two parentheses is
+just going to be a number.",00:40:42.960,00:40:46.200
+"Where I've typed in question
+marks can be a number.",00:40:46.200,00:40:48.510
+"&gt;&gt; And that number means,
+give me 10 bytes.",00:40:48.510,00:40:51.020
+Give me 20 bytes.,00:40:51.020,00:40:52.320
+Give me 100 bytes.,00:40:52.320,00:40:53.820
+"And malloc will do its best to
+ask the operating system--",00:40:53.820,00:40:56.500
+"Linux, in this case--",00:40:56.500,00:40:57.630
+"hey, are their 100 bytes
+of RAM available?",00:40:57.630,00:40:59.630
+"If so, return those bytes to me by
+returning the address of which of",00:40:59.630,00:41:04.320
+"those bytes, perhaps?",00:41:04.320,00:41:06.610
+The very first one.,00:41:06.610,00:41:07.610
+"&gt;&gt; So here too-- and this is predominant
+in C, any time you're",00:41:07.610,00:41:10.460
+dealing with addresses?,00:41:10.460,00:41:11.680
+"You're almost always dealing with the
+first such address, no matter how big",00:41:11.680,00:41:15.830
+"a chunk of memory you are being
+handed back, so to speak.",00:41:15.830,00:41:19.490
+&gt;&gt; So let's dive in here.,00:41:19.490,00:41:20.880
+"I am trying to allocate how
+many bytes, exactly?",00:41:20.880,00:41:23.940
+Well.,00:41:23.940,00:41:24.080
+"String length of s-- let's
+do a concrete example.",00:41:24.080,00:41:26.090
+"If s is hello, H-E-L-L-O, what's the
+string length of s, obviously?",00:41:26.090,00:41:30.700
+So it's five.,00:41:30.700,00:41:32.010
+"But I'm doing a plus 1 on that, why?",00:41:32.010,00:41:34.590
+"Why do I want six bytes
+instead of five?",00:41:34.590,00:41:37.700
+The null character.,00:41:37.700,00:41:38.790
+"&gt;&gt; I don't want to leave off this
+special null character.",00:41:38.790,00:41:41.210
+"Because if I make a copy of Hello and
+just do H-E-L-L-O, but I don't put",00:41:41.210,00:41:45.160
+"that special character, the computer
+might not have, by chance, a backslash",00:41:45.160,00:41:50.160
+zero there for me.,00:41:50.160,00:41:51.730
+"And so if I'm trying to figure out the
+length of the copy, I might think that",00:41:51.730,00:41:55.570
+"it's 20 characters long, or a million
+characters long if I just never happen",00:41:55.570,00:41:59.360
+to hit a backslash zero.,00:41:59.360,00:42:01.050
+"&gt;&gt; So we need six bytes to store
+H-E-L-L-O, backslash zero.",00:42:01.050,00:42:05.780
+"And then this is just
+to be super anal.",00:42:05.780,00:42:07.870
+"Suppose that I forget what
+the size of a char is.",00:42:07.870,00:42:10.700
+We keep saying it's one byte.,00:42:10.700,00:42:12.020
+And it usually is.,00:42:12.020,00:42:12.860
+"In theory, it could be something
+different, on a different Mac or a",00:42:12.860,00:42:15.425
+different PC.,00:42:15.425,00:42:16.250
+"&gt;&gt; So it turns out there's this operator
+called sizeof that if you pass it the",00:42:16.250,00:42:19.650
+"name of a data type-- like
+char, or int, or float--",00:42:19.650,00:42:22.680
+"it will tell you, dynamically, how many
+bytes a char takes up on this",00:42:22.680,00:42:26.930
+particular computer.,00:42:26.930,00:42:28.090
+"&gt;&gt; So this is effectively just
+like saying times 1 or",00:42:28.090,00:42:31.360
+times nothing at all.,00:42:31.360,00:42:32.440
+"But I'm doing it just to be super anal,
+that just in case a char differs",00:42:32.440,00:42:36.340
+"on your computer versus mine, this way
+the math is always going to check out.",00:42:36.340,00:42:40.610
+"&gt;&gt; Lastly, down here I check for null,
+which is always good practice-- again,",00:42:40.610,00:42:43.720
+any time we're dealing with pointers.,00:42:43.720,00:42:44.920
+"If malloc wasn't able to give
+me six byes-- which is",00:42:44.920,00:42:47.520
+"unlikely, but just in case--",00:42:47.520,00:42:49.210
+return one immediately.,00:42:49.210,00:42:50.730
+"And now, go ahead and copy
+the string as follows.",00:42:50.730,00:42:53.290
+"And this is familiar syntax,
+albeit in a different role.",00:42:53.290,00:42:57.240
+"&gt;&gt; I'm going to go ahead and get the string
+length of s and store it in n.",00:42:57.240,00:43:01.210
+"I'm then going to iterate from i equals
+zero up to and including n,",00:43:01.210,00:43:06.620
+greater than or equal to.,00:43:06.620,00:43:08.410
+"So that on each iteration, I put the
+ith character of s in the ith",00:43:08.410,00:43:13.540
+character of t.,00:43:13.540,00:43:15.380
+"&gt;&gt; So what's really going on underneath
+the hood here?",00:43:15.380,00:43:18.190
+"Well if this, for instance, is s--",00:43:18.190,00:43:22.140
+"and I have typed in the word H-E-L-L-O
+and there's a backslash zero.",00:43:22.140,00:43:26.400
+"And again, this is s pointing here.",00:43:26.400,00:43:29.020
+And here now is t.,00:43:29.020,00:43:30.830
+"&gt;&gt; And this is pointing now to
+a copy of memory, right?",00:43:30.830,00:43:34.860
+"Malloc has given me a whole
+chunk of memory.",00:43:34.860,00:43:37.340
+"I don't know initially what's
+in any of these locations.",00:43:37.340,00:43:41.440
+"So I'm going to think of these as
+a whole bunch of question marks.",00:43:41.440,00:43:44.340
+"&gt;&gt; But as soon as I start looping from zero
+on up through the length of s, t",00:43:44.340,00:43:50.190
+bracket zero and t bracket 1--,00:43:50.190,00:43:52.790
+"and I'll put this now
+on the overhead--",00:43:52.790,00:43:55.080
+"t bracket zero and s bracket zero mean
+that I'm going to be copying",00:43:55.080,00:44:04.190
+"iteratively h in here, E-L-L-O.
+Plus, because I did the plus",00:44:04.190,00:44:09.875
+"1, backslash zero.",00:44:09.875,00:44:12.370
+"&gt;&gt; So now in the case of compare-1.c,
+in the end, if I print out the",00:44:12.370,00:44:19.060
+"capitalization of t, we should
+see that s is unchanged.",00:44:19.060,00:44:24.760
+Let me go ahead now and do this.,00:44:24.760,00:44:26.090
+So make copy1.,00:44:26.090,00:44:28.630
+Dot slash copy1.,00:44:28.630,00:44:30.860
+"I'm going to type in hello, Enter.",00:44:30.860,00:44:33.670
+"And now notice, only the copy
+has been capitalized.",00:44:33.670,00:44:37.430
+"Because I truly have two
+chunks of memory.",00:44:37.430,00:44:40.890
+"&gt;&gt; Unfortunately, you can do some pretty
+bad and pretty dangerous things here.",00:44:40.890,00:44:44.390
+"Let me pull up an example here now,
+that gives us an example of a few",00:44:44.390,00:44:49.290
+different lines.,00:44:49.290,00:44:51.540
+"So just intuitively here, the first line
+of code, int star x, is declaring",00:44:51.540,00:44:56.040
+a variable called x.,00:44:56.040,00:44:57.340
+"And what's the data type
+of that variable?",00:44:57.340,00:44:58.810
+What's the data type of that variable?,00:45:01.820,00:45:04.290
+That was not the cliffhanger.,00:45:04.290,00:45:06.980
+&gt;&gt; The data type is int star.,00:45:06.980,00:45:08.350
+"So what does that mean? x will
+store the address of an int.",00:45:08.350,00:45:12.600
+Simple as that.,00:45:12.600,00:45:13.520
+"Y is going to store the
+address of an int.",00:45:13.520,00:45:16.220
+"What is the third line
+of code doing there?",00:45:16.220,00:45:18.390
+"It's allocating how many
+bytes, most likely?",00:45:18.390,00:45:21.850
+Four.,00:45:21.850,00:45:22.350
+"Because of the size of an int is
+generally four, malloc of four gives",00:45:22.350,00:45:25.460
+"me back the address of a chunk of
+memory, the first of whose bytes is",00:45:25.460,00:45:29.950
+stored now in x.,00:45:29.950,00:45:32.110
+&gt;&gt; Now we're moving a little quickly.,00:45:32.110,00:45:34.410
+Star x means what?,00:45:34.410,00:45:35.760
+"It means go to that address
+and put what number there?",00:45:38.480,00:45:42.590
+Put the number 42 there.,00:45:42.590,00:45:43.870
+"Star y means go to what's at y
+and put the number 13 there.",00:45:43.870,00:45:47.590
+&gt;&gt; But wait a minute.,00:45:47.590,00:45:48.600
+What is in y at the moment?,00:45:48.600,00:45:51.640
+What address is y storing?,00:45:51.640,00:45:54.950
+"We don't know, right?",00:45:54.950,00:45:55.770
+"We have never once use the assignment
+operator involving y.",00:45:55.770,00:45:59.230
+"So y as declared on the second line of
+code is just some garbage value, a big",00:45:59.230,00:46:03.370
+question mark so to speak.,00:46:03.370,00:46:04.760
+"It could be pointing randomly
+to anything in memory, which",00:46:04.760,00:46:07.230
+is generally bad.,00:46:07.230,00:46:08.340
+"&gt;&gt; So as soon as we hit that line there,
+star y equals 13, something bad,",00:46:08.340,00:46:13.540
+"something very bad is about
+to happen to Binky.",00:46:13.540,00:46:17.220
+"So let's see what's going to end up
+happening to Binky here in this minute",00:46:17.220,00:46:25.810
+or so look.,00:46:25.810,00:46:26.200
+&gt;&gt; [VIDEO PLAYBACK],00:46:26.200,00:46:26.490
+"&gt;&gt; -Hey, Binky.",00:46:26.490,00:46:26.745
+Wake up.,00:46:26.745,00:46:27.000
+It's time for pointer fun.,00:46:27.000,00:46:29.296
+&gt;&gt; -What's that?,00:46:29.296,00:46:30.680
+Learn about pointers?,00:46:30.680,00:46:31.980
+"Oh, goodie.",00:46:31.980,00:46:34.010
+"&gt;&gt; -Well, to get started, I guess we're
+going to need a couple pointers.",00:46:34.010,00:46:37.220
+&gt;&gt; -OK.,00:46:37.220,00:46:37.930
+"This code allocates two pointers
+which can point to integers.",00:46:37.930,00:46:41.650
+"&gt;&gt; -OK, well, I see the two pointers.",00:46:41.650,00:46:43.760
+"But they don't seem to be
+pointing to anything.",00:46:43.760,00:46:45.850
+&gt;&gt; -That's right.,00:46:45.850,00:46:46.490
+"Initially, pointers don't
+point to anything.",00:46:46.490,00:46:48.630
+"The things they point to are called
+pointees, and setting them up is a",00:46:48.630,00:46:51.700
+separate step.,00:46:51.700,00:46:52.850
+"&gt;&gt; -Oh, right, right.",00:46:52.850,00:46:53.740
+I knew that.,00:46:53.740,00:46:54.500
+The pointees are separate.,00:46:54.500,00:46:56.270
+So how do you allocate a pointee?,00:46:56.270,00:46:58.553
+&gt;&gt; -OK.,00:46:58.553,00:46:59.480
+"Well, this code allocates a new integers
+pointee, and this part sets x",00:46:59.480,00:47:03.707
+to point to it.,00:47:03.707,00:47:05.520
+"&gt;&gt; -Hey, that looks better.",00:47:05.520,00:47:06.760
+So make it do something.,00:47:06.760,00:47:08.520
+&gt;&gt; -OK.,00:47:08.520,00:47:09.530
+"I'll dereference the pointer x to store
+the number 42 into its pointee.",00:47:09.530,00:47:14.110
+"For this trick, I'll need my magic
+wand of dereferencing.",00:47:14.110,00:47:17.660
+&gt;&gt; -Your magic wand of dereferencing?,00:47:17.660,00:47:20.695
+"Uh, that's great.",00:47:20.695,00:47:22.632
+&gt;&gt; -This is what the code looks like.,00:47:22.632,00:47:24.620
+"I'll just set up the number, and--",00:47:24.620,00:47:27.526
+"&gt;&gt; -Hey, look.",00:47:27.526,00:47:28.250
+There it goes.,00:47:28.250,00:47:29.680
+"So doing a dereference on x follows
+the arrow to access its pointee.",00:47:29.680,00:47:34.520
+"In this case, to store 42 in there.",00:47:34.520,00:47:36.690
+"Hey, try using it to store the number
+13 through the other pointer, y.",00:47:36.690,00:47:40.890
+&gt;&gt; -OK.,00:47:40.890,00:47:42.125
+"I'll just go over here to y and
+get the number 13 set up.",00:47:42.125,00:47:46.810
+"And then take the wand of
+dereferencing and just--",00:47:46.810,00:47:50.890
+whoa!,00:47:50.890,00:47:52.430
+"&gt;&gt; -Oh, hey.",00:47:52.430,00:47:53.030
+That didn't work.,00:47:53.030,00:47:54.610
+"Say, Binky, I don't think the
+dereferencing y is a good idea,",00:47:54.610,00:47:58.200
+"because setting up the pointee
+is a separate step.",00:47:58.200,00:48:01.370
+And I don't think we ever did it.,00:48:01.370,00:48:03.460
+&gt;&gt; -Hmm.,00:48:03.460,00:48:03.810
+Good point.,00:48:03.810,00:48:05.160
+"&gt;&gt; -Yeah, we allocated the pointer y.",00:48:05.160,00:48:07.410
+"But we never set it to
+point to a pointee.",00:48:07.410,00:48:10.045
+&gt;&gt; -Hmm.,00:48:10.045,00:48:10.490
+Very observant.,00:48:10.490,00:48:12.170
+"&gt;&gt; -Hey, you're looking
+good there, Binky.",00:48:12.170,00:48:13.790
+"Can you fix it so that y points
+to the same pointee as x?",00:48:13.790,00:48:16.920
+&gt;&gt; -Sure.,00:48:16.920,00:48:17.810
+"I'll use my magic wand of
+pointer assignment.",00:48:17.810,00:48:20.300
+"&gt;&gt; -Is that going to be a
+problem like before?",00:48:20.300,00:48:22.240
+&gt;&gt; -No.,00:48:22.240,00:48:22.665
+This doesn't touch the pointees.,00:48:22.665,00:48:24.300
+"It just changes one pointer to point
+to the same thing as another.",00:48:24.300,00:48:27.880
+"&gt;&gt; -Oh, I see.",00:48:27.880,00:48:28.970
+Now y points to the same place as x.,00:48:28.970,00:48:31.730
+So wait.,00:48:31.730,00:48:32.450
+Now y is fixed.,00:48:32.450,00:48:33.490
+It has a pointee.,00:48:33.490,00:48:34.630
+"So you can try the wand
+of dereferencing again",00:48:34.630,00:48:36.520
+to send the 13 over.,00:48:36.520,00:48:39.200
+&gt;&gt; -OK.,00:48:39.200,00:48:39.840
+Here goes.,00:48:39.840,00:48:41.570
+"&gt;&gt; -Hey, look at that.",00:48:41.570,00:48:42.870
+Now dereferencing works on y.,00:48:42.870,00:48:44.320
+"And because the pointers are sharing
+that one pointee, they",00:48:44.320,00:48:47.020
+both see the 13.,00:48:47.020,00:48:48.585
+&gt;&gt; -Yeah.,00:48:48.585,00:48:49.040
+Sharing.,00:48:49.040,00:48:49.670
+Whatever.,00:48:49.670,00:48:50.380
+So are we going switch places now?,00:48:50.380,00:48:52.290
+"&gt;&gt; -Oh, look.",00:48:52.290,00:48:52.970
+We're out of time.,00:48:52.970,00:48:54.150
+&gt;&gt; -But--,00:48:54.150,00:48:55.200
+"&gt;&gt; -Just remember the three
+pointer rules.",00:48:55.200,00:48:57.060
+"Number one, the basic structure
+is that you have a pointer.",00:48:57.060,00:49:00.100
+And it points over to a pointee.,00:49:00.100,00:49:02.170
+"But the pointer and pointee
+are separate.",00:49:02.170,00:49:04.160
+"And the common error is to
+set up a pointer, but to",00:49:04.160,00:49:06.460
+forget to given a pointee.,00:49:06.460,00:49:08.540
+"&gt;&gt; Number two, pointer dereferencing starts
+at the pointer and follows its",00:49:08.540,00:49:12.460
+arrow over to access its pointee.,00:49:12.460,00:49:14.570
+"As we all know, this only works if there
+is a pointee, which gets back to",00:49:14.570,00:49:18.640
+rule number one.,00:49:18.640,00:49:19.790
+"&gt;&gt; Number three, pointer assignment takes
+one pointer and changes it to point to",00:49:19.790,00:49:23.670
+the same pointee as another pointer.,00:49:23.670,00:49:25.850
+"So after the assignment,
+the two pointers will",00:49:25.850,00:49:27.840
+point to the same pointee.,00:49:27.840,00:49:29.430
+Sometimes that's called sharing.,00:49:29.430,00:49:31.600
+"And that's all there is to it, really.",00:49:31.600,00:49:33.430
+Bye bye now.,00:49:33.430,00:49:33.840
+&gt;&gt; [END VIDEO PLAYBACK],00:49:33.840,00:49:34.300
+"&gt;&gt; DAVID MALAN: So more on pointers,
+more on Binky next week.",00:49:34.300,00:49:36.940
+We'll see you on Monday.,00:49:36.940,00:49:38.190

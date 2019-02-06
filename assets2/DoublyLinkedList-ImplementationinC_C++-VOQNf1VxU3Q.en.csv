@@ -1,0 +1,459 @@
+text,start,stop
+"In our previous lessons, we saw what
+doubly linked list are.",00:00:00.399,00:00:03.399
+"Now in this lesson, we're going to
+implement doubly linked list in C.",00:00:03.399,00:00:08.029
+"We are going to write simple
+operations like insertion,",00:00:08.029,00:00:11.440
+"traversal and deletion. In a doubly
+linked list as we saw in our previous",00:00:11.440,00:00:16.520
+lessons,00:00:16.520,00:00:17.250
+"Each node contains three fields. I have
+drawn logical representation of",00:00:17.250,00:00:22.140
+"a doubly linked list. One to
+store data",00:00:22.140,00:00:25.230
+"one to store address of next node and
+one to store address of previous node.",00:00:25.230,00:00:30.600
+"For a linked list of integers node
+will be defined like this",00:00:30.600,00:00:34.560
+"in a C or C++ program. In the
+logical representation i'll fill in some",00:00:34.560,00:00:39.290
+data in each node.,00:00:39.290,00:00:40.610
+"Let's say these node are at address 400, 600",00:00:40.610,00:00:44.520
+"and 800 respectively. I'll also fill in
+next and previous fields,",00:00:44.520,00:00:48.730
+"and we must also have a pointer variable
+pointing to the head node.",00:00:48.730,00:00:52.750
+"Quite often we name this pointer variable
+head.",00:00:52.750,00:00:56.050
+"In my implementation I'm going to write
+these functions.",00:00:56.050,00:00:59.250
+"I'm going to write a function to insert
+a node at beginning",00:00:59.250,00:01:02.579
+"of head of linked list. This function will
+take an integer",00:01:02.579,00:01:06.250
+"as argument. I'll write another function to
+insert a node at",00:01:06.250,00:01:09.650
+"tail of linked list. I'll write one function to
+print",00:01:09.650,00:01:12.810
+"element in a linked list, while
+traversing it from head to tail.",00:01:12.810,00:01:16.530
+"I'll write another one to print the
+elements",00:01:16.530,00:01:19.580
+"in reverse order while traversing the
+list from",00:01:19.580,00:01:22.680
+"tail to head. Reverse print function
+will validate",00:01:22.680,00:01:25.870
+"whether reverse link for each
+node is created properly or not.",00:01:25.870,00:01:30.250
+"Let's now write these functions in a
+real C program.",00:01:30.250,00:01:33.790
+"In my C program here, I have define node as
+a structure with three fields.",00:01:33.790,00:01:38.400
+first field is of type Integer to store,00:01:38.400,00:01:41.440
+"data, second field is of type pointer to
+node",00:01:41.440,00:01:44.850
+"to store a reference of next node and
+the third field",00:01:44.850,00:01:49.010
+"is a pointer to know to store the
+reference of previous node.",00:01:49.010,00:01:52.540
+"I have defined a variable named head
+which once again is a pointer to node",00:01:52.540,00:01:57.250
+"and I have defined this variable in
+global scope,",00:01:57.250,00:02:00.610
+"head is a global variable. When we defined
+a variable inside a function its called",00:02:00.610,00:02:06.210
+"a local variable. The lifetime of local
+variable is lifetime of",00:02:06.210,00:02:10.950
+"a function call, it's created during a
+function call execution and it's cleared",00:02:10.950,00:02:15.290
+from the memory,00:02:15.290,00:02:16.129
+"when function call execution finishes
+but",00:02:16.129,00:02:19.159
+"global variables live in the memory for
+a whole lifetime of",00:02:19.159,00:02:22.669
+"an application, they live till the time
+program is executing.",00:02:22.669,00:02:26.549
+"Global variables can be accessed everywhere
+in all functions.",00:02:26.549,00:02:30.749
+"Local variables are not accessible
+everywhere unless you access them",00:02:30.749,00:02:34.909
+"through pointers. In all our previous
+implementations,",00:02:34.909,00:02:38.120
+"we have mostly declared head as global
+variable.",00:02:38.120,00:02:42.560
+"Okay so let's now write the functions.
+The first function that I want to write",00:02:42.560,00:02:46.510
+is insert at head. This function,00:02:46.510,00:02:49.740
+"will take an integer as argument. The
+first thing that we want to do here is",00:02:49.740,00:02:54.050
+"we want to create a node, we can always
+declare a node like this,",00:02:54.050,00:02:58.150
+"just like declaration of any other
+variable, we can say",00:02:58.150,00:03:01.260
+struct node and then we can give,00:03:01.260,00:03:04.380
+"an identifier or name, and",00:03:04.380,00:03:07.640
+"now in this my node that i have created, i
+can fill in all the fields",00:03:07.640,00:03:11.930
+"but the problem here is that when i'm
+creating",00:03:11.930,00:03:15.190
+"a node like this, I'm creating it as a
+local variable",00:03:15.190,00:03:18.870
+"and it will be cleared from memory when
+function call will finish.",00:03:18.870,00:03:22.770
+"A local variable lives in what we call
+stack section of",00:03:22.770,00:03:26.500
+"applications memory and we cannot
+control its lifetime,",00:03:26.500,00:03:30.090
+"it's cleared from memory when function
+call finishes.",00:03:30.090,00:03:33.170
+"We do not want this. Our requirement is
+that a node should be",00:03:33.170,00:03:37.640
+"in memory unless we explicitly remove
+it. So that's why we create a node in",00:03:37.640,00:03:42.959
+"in dynamic memory or what we call heap
+section of",00:03:42.959,00:03:46.650
+"memory. Anything in heap is not cleared
+unless we explicitly",00:03:46.650,00:03:51.080
+"free it. To create a node in heap we use
+malloc function in C or",00:03:51.080,00:03:56.130
+"new operator in C++. All
+malloc function does is, it",00:03:56.130,00:04:00.920
+reserves some memory in heap,00:04:00.920,00:04:04.190
+"and this memory can be used for writing
+anything any variable any object.",00:04:04.190,00:04:08.500
+"Access to this memory always happens through
+a pointer variable.",00:04:08.500,00:04:12.410
+"We have talked about this concept quite
+a bit in our previous lessons,",00:04:12.410,00:04:16.030
+"but I keep on repeating because this is
+really important concept.",00:04:16.030,00:04:19.890
+"So here with this statement i have
+created a node in dynamic memory or",00:04:19.890,00:04:24.050
+"heap,",00:04:24.050,00:04:24.520
+"that can be reference through a variable
+which is pointer to node.",00:04:24.520,00:04:29.260
+"I have named this variable temp. Now I
+can",00:04:29.260,00:04:33.470
+"used this pointer variable to fill in
+values in various fields of the node.",00:04:33.470,00:04:38.690
+"I'll have to dereference this pointer
+variable using asterisk operator,",00:04:38.690,00:04:42.970
+"and then I can access various feilds like
+data, prev or next. ",00:04:42.970,00:04:47.630
+There is an alternate syntax for this,00:04:47.630,00:04:51.250
+"(*temp).data, we can simply write 
+temp-&gt;data",00:04:51.250,00:04:55.729
+"and similarly I can access other fields
+also.",00:04:55.729,00:04:59.160
+"So to access prev field, i can say
+temp-&gt;prev.",00:04:59.160,00:05:02.450
+"Let's set this as null and let's
+also set the next field as null.",00:05:02.450,00:05:08.900
+"If you want to understand or refresh the
+concept of",00:05:08.900,00:05:11.629
+"stack and heap in memory, then you can
+check the description of this video for",00:05:11.629,00:05:16.020
+"a link to a lesson on dynamic memory
+allocation.",00:05:16.020,00:05:19.129
+"Okay so in my function InsertAtHead, i
+have created",00:05:19.129,00:05:22.780
+"a node in heap section of memory and I'm
+referencing that node using this pointer",00:05:22.780,00:05:27.530
+variable named,00:05:27.530,00:05:28.620
+"temp. Temp is not have a very meaningful name.
+Let's use",00:05:28.620,00:05:32.240
+"a name like newNode or newNode
+pointer.",00:05:32.240,00:05:36.240
+"I would like to separate out this logic
+of node creation,",00:05:36.240,00:05:40.289
+"these lines for node creation in a
+separate function.",00:05:40.289,00:05:43.780
+"I've written a function here, named get
+newNode that will take an integer as",00:05:43.780,00:05:48.030
+arguement,00:05:48.030,00:05:48.379
+create a node filling in data field as,00:05:48.379,00:05:51.440
+"X and setting both previous and next
+pointers",00:05:51.440,00:05:55.840
+"as null. This function will return a
+pointer to node, so",00:05:55.840,00:06:00.129
+"i will return new node from here. I'm
+writing a separate function because",00:06:00.129,00:06:04.139
+I can avoid duplicate code by using,00:06:04.139,00:06:07.250
+"a separate function for creation of node
+because I'm going to create a node",00:06:07.250,00:06:11.039
+"for function in function InsertAtHead
+as well as",00:06:11.039,00:06:14.050
+"in function InsertAtTail that i'll be
+writing after some time.",00:06:14.050,00:06:18.039
+"Now in InsertAtHead function I can
+simply call this function GetNewNode  ",00:06:18.039,00:06:23.379
+passing it,00:06:23.379,00:06:24.039
+"X. This function is returning a pointer
+to newly created node ",00:06:24.039,00:06:28.000
+"that I'm going to receive in this
+variable which once again is a pointer",00:06:28.000,00:06:31.699
+to node,00:06:31.699,00:06:32.279
+named temp. We can name this variable,00:06:32.279,00:06:36.569
+also as newNode. This newNode,00:06:36.569,00:06:40.039
+"in InsertAtHead is different from this
+newNode in getNewNode.",00:06:40.039,00:06:44.159
+"These are local variables, this newNode
+is local to InsertAtHead and this",00:06:44.159,00:06:48.650
+newNode is,00:06:48.650,00:06:49.419
+"local to getNewNode. Now there will be
+two cases in",00:06:49.419,00:06:53.120
+"insertion at head. List could be empty so
+head will be equal to null.",00:06:53.120,00:06:57.699
+"In this case we can simply set head as
+to address of new node,",00:06:57.699,00:07:02.589
+"and return or exit. Things would be
+clear if i'll",00:07:02.589,00:07:06.990
+"show everything in logical view also.
+Right now",00:07:06.990,00:07:10.199
+"my linked list is empty here. In this
+logical view that I'm showing,",00:07:10.199,00:07:14.029
+"let's say I have made a call to  InsertAtHead
+passing it number 2.",00:07:14.029,00:07:17.580
+"GetNewNode function will give me a
+new node.",00:07:17.580,00:07:21.080
+"Let's say a new node is created at address
+400.",00:07:21.080,00:07:24.349
+"With this statement head equal newNode, we are 
+setting the address",00:07:24.349,00:07:28.120
+"stored in newNode variable in head.
+Null",00:07:28.120,00:07:31.750
+"is nothing but address zero. As soon as
+this function InsertAtHead finished",00:07:31.750,00:07:36.319
+this variable newNode,00:07:36.319,00:07:38.149
+"will be cleared from memory, but the node
+itself will not be cleared.",00:07:38.149,00:07:42.389
+"If we would have created a node like this,
+struct node newNode",00:07:42.389,00:07:46.469
+"and in this declaration newNode is not
+pointer  to node.",00:07:46.469,00:07:51.360
+"Its node, we are not saying struct node*",00:07:51.360,00:07:56.449
+"so if we would have created node like this.
+The node also",00:07:56.449,00:08:00.319
+"would have been cleared. Okay coming back
+to the function here, let's write rest",00:08:00.319,00:08:04.190
+of the logic.,00:08:04.190,00:08:05.080
+"To insert a node when list is not empty
+this is what I'll do.",00:08:05.080,00:08:09.370
+"Now I'm making the call InsertAtHead
+passing at number 4.",00:08:09.370,00:08:12.949
+"Once new node is created, I'll first set the
+previous field of",00:08:12.949,00:08:17.770
+"existing existing head node as address
+of this new node.",00:08:17.770,00:08:22.289
+"So I'm building this link, then i'll set the
+next field of new node",00:08:22.289,00:08:27.469
+"as the address of current head and now I can
+break this link",00:08:27.469,00:08:32.180
+and build this link so I'll set head,00:08:32.180,00:08:36.169
+"as address of new node. this is how things will
+still look like finally.",00:08:36.169,00:08:40.089
+"Let's also quickly see how things will
+actually move in various sections of",00:08:40.089,00:08:45.160
+"applications memory. The memory that is
+allocated to a program is typically",00:08:45.160,00:08:49.270
+divided into these four segments.,00:08:49.270,00:08:51.560
+"We have seen this diagram quite a bit in
+our earlier lessons.",00:08:51.560,00:08:55.220
+"Code or text segments stores all the
+instructions",00:08:55.220,00:08:58.610
+"to be executed. There is a segment to
+store",00:08:58.610,00:09:01.899
+"global variables. There is a section that
+we call stack,",00:09:01.899,00:09:05.370
+"that is used just like scratch pad on
+whiteboard",00:09:05.370,00:09:08.870
+"for function call execution. Stack is where
+all the local variable go",00:09:08.870,00:09:13.100
+"and not just local variable, all
+information about function call ",00:09:13.100,00:09:17.470
+execution.,00:09:17.470,00:09:18.100
+"Heap is what we also a dynamic memory.
+I'm showing stack heap and",00:09:18.100,00:09:22.500
+"global section separately here. In our
+program we had to decleared head as a global",00:09:22.500,00:09:26.980
+variable.,00:09:26.980,00:09:27.920
+"Initially for an empty list, we will set
+head as null or zero.",00:09:27.920,00:09:31.130
+"Let's say we will do that in
+main function.",00:09:31.130,00:09:34.920
+"Now when a call to insert at head is made
+at this stage,",00:09:34.920,00:09:38.980
+"let's say I'm making the call passing
+number two as argument.",00:09:38.980,00:09:42.230
+"Let's say we are making a call to
+InsertAtHead from main function.",00:09:42.230,00:09:45.959
+"When program starts execution first main
+function is invoked,",00:09:45.959,00:09:49.860
+"whenever a function is invoked some
+amount of memory",00:09:49.860,00:09:52.890
+"from the stack is allocated for
+execution of that function.",00:09:52.890,00:09:56.730
+"That section is called stack frame of
+that function",00:09:56.730,00:09:59.779
+"and all the local variables of that
+function live inside",00:09:59.779,00:10:03.559
+"it's stack frame. When function call
+execution finishes",00:10:03.559,00:10:07.240
+"the stack frame is reclaimed. When
+main will make a call to InsertAtHead,",00:10:07.240,00:10:12.410
+the execution of main will pause at,00:10:12.410,00:10:15.500
+"at the line where it's making a call. A
+stacke frame will be",00:10:15.500,00:10:19.500
+"allocated for execution of InsertAtHead.
+I am writing shortcut",00:10:19.500,00:10:23.089
+IAH for InsertAtHead because,00:10:23.089,00:10:26.189
+"I'm short of space here. All the
+arguments of",00:10:26.189,00:10:29.470
+"insert at had all the local variables
+will live inside this stack frame.",00:10:29.470,00:10:34.180
+"We are creating a variable name newNode
+named newNode which is a pointer to",00:10:34.180,00:10:37.860
+node,00:10:37.860,00:10:38.779
+"as local variable and we are making a
+call to get newNode function.",00:10:38.779,00:10:43.709
+"Execution of InsertAtHead will pause 
+and we will go",00:10:43.709,00:10:47.319
+"on to execute getNewNode. We could
+write GetNewNode like this.",00:10:47.319,00:10:52.660
+"Here I'm treating a node on stack. x is a
+local variable in GetNewNode also. ",00:10:52.660,00:10:58.420
+"Then i'm creating a node filling in
+data as",00:10:58.420,00:11:01.600
+"the value of X which is 2. i'm setting
+previous and next feilds",00:11:01.600,00:11:06.290
+"as null or zero and then because I need
+to return",00:11:06.290,00:11:09.300
+"a pointer to node, I have used &amp;
+operator here.",00:11:09.300,00:11:13.250
+"Using &amp; operator gives us pointer
+to a variable, Let's say this new node",00:11:13.250,00:11:17.839
+"that we have in the stack frame of 
+GetNewNode, has address 50.",00:11:17.839,00:11:22.089
+"With this return when GetNewNode will
+finish, the value in this newNode of",00:11:22.089,00:11:26.630
+insert at head will be 50.,00:11:26.630,00:11:29.180
+"Please note that with this code this newNode
+in GetNewNode function is of type",00:11:29.180,00:11:34.290
+"struct node, while this newNode in",00:11:34.290,00:11:37.300
+"insert at head is of type pointer to
+struct node",00:11:37.300,00:11:40.760
+"so there different types. We can return
+this address 50, that's fine",00:11:40.760,00:11:45.540
+"but the stack frame for GetnewNode
+will be reclaimed",00:11:45.540,00:11:49.079
+"once the function finishes. So now even
+though you have the address 50",00:11:49.079,00:11:53.800
+"there is no node there. We cannot control
+allocation and the deallocation of memory",00:11:53.800,00:11:58.670
+"on stack. It happens automatically that's
+why we use a memory on heap.",00:11:58.670,00:12:04.109
+"If I'm using this code for creation of
+new node, then what I'm doing is",00:12:04.109,00:12:08.359
+"I'm declaring this variable new node, not
+as",00:12:08.359,00:12:11.629
+"strut node but as struct node*
+that is pointer to node.",00:12:11.629,00:12:16.529
+"I'm using malloc to create the actual
+node in heap section.",00:12:16.529,00:12:20.129
+"Let's say i'm getting address 400 for this
+node. Now for a section of memory in heap",00:12:20.129,00:12:25.189
+"for something in heap, we cannot have a
+direct name.",00:12:25.189,00:12:28.660
+"The only way to access some thing heap
+is through a pointer.",00:12:28.660,00:12:31.899
+"If we will lose this pointer we will lose
+this node.",00:12:31.899,00:12:34.939
+"Okay so now what we're doing is using
+this pointer new node which is local",00:12:34.939,00:12:38.809
+to,00:12:38.809,00:12:39.329
+"GetNewNode function. We are accessing this
+node filling in",00:12:39.329,00:12:43.129
+"date, filling in address fields and
+now the at returning this address",00:12:43.129,00:12:48.299
+400.,00:12:48.299,00:12:48.839
+"Now when GetNewNode is finishing, I'm
+collecting the return this address",00:12:48.839,00:12:53.529
+"for 400 in this variable in this local
+variable newNode.",00:12:53.529,00:12:56.569
+"We are returning back to insert at head
+function",00:12:56.569,00:12:59.720
+"at this line. Head at this stage is null.
+So now we're saying that set head",00:12:59.720,00:13:04.889
+equal equal,00:13:04.889,00:13:05.749
+"newNode. Head is a global variable, it's
+not going to be cleared",00:13:05.749,00:13:09.759
+"for whole life time of application and
+now we are returning.",00:13:09.759,00:13:13.410
+"Stack frame of insert at head will be
+cleared and this is what we finally have.",00:13:13.410,00:13:18.209
+"When we will make another call to insert
+at head, once again",00:13:18.209,00:13:21.910
+"fresh stack frames will be allocated in
+the execution of functions appropriate",00:13:21.910,00:13:26.730
+links will be created,00:13:26.730,00:13:27.939
+"So our linked list will be modified
+accordingly.",00:13:27.939,00:13:31.860
+"I hope all of this is making some sense.
+With another call to insert at head, when",00:13:31.860,00:13:35.820
+"everything will finish and control will
+return back to main.",00:13:35.820,00:13:38.850
+"We can have a picture like this. Let's say
+I got a node at 600.",00:13:38.850,00:13:43.010
+"Right cell is for next node. Right cell is
+storing the address of next node and",00:13:43.010,00:13:47.280
+"left cell is storing the address of
+previous node. So this will",00:13:47.280,00:13:50.680
+"and this is what we will have. Let's now
+go and write rest of the functions.",00:13:50.680,00:13:54.650
+"Print function will be same as printing for
+singly linked list.",00:13:54.650,00:13:58.230
+"We will take a temporary pointer to node
+initially set it",00:13:58.230,00:14:01.530
+"to head, and then we will use this
+statement temp=temp-&gt;next to go",00:14:01.530,00:14:06.770
+to the next node,00:14:06.770,00:14:07.870
+"and we will keep on printing. In reverse
+print we will first",00:14:07.870,00:14:11.860
+"go to the end node of to list using
+next pointer,",00:14:11.860,00:14:15.610
+"and then be will traverse backward using
+this statement",00:14:15.610,00:14:20.440
+"temp=temp-&gt;prev. So we will use the previous
+pointer and while traversing backward",00:14:20.440,00:14:25.530
+will print,00:14:25.530,00:14:26.270
+"the data. Okay let's now test all these
+functions that we have written so far.",00:14:26.270,00:14:30.510
+"In the main function, i'm setting head as
+null to say that the list is",00:14:30.510,00:14:34.940
+empty,00:14:34.940,00:14:35.530
+"initially, and now I'm writing couple of
+inserts statements.",00:14:35.530,00:14:38.840
+"I'm making couple of calls to
+InsertAtHead function and after each call",00:14:38.840,00:14:43.840
+"i'm printing the list both in forward as
+well as",00:14:43.840,00:14:46.140
+"in reverse direction. Let's run this code
+and see the output.",00:14:46.140,00:14:49.770
+"This is what I'm getting and I think
+this is as expected.",00:14:49.770,00:14:54.020
+"There is one more function insert at tail
+that i have said i'll write.",00:14:54.020,00:14:58.340
+"if you have understood thing so far, it
+should not be very difficult for you to",00:14:58.340,00:15:02.080
+write this function InsertAtTail.,00:15:02.080,00:15:03.970
+"I leave this as an exercise for you. I'll
+stop here now",00:15:03.970,00:15:07.640
+"If you want to get the source code, check
+the description of this video for a",00:15:07.640,00:15:11.020
+link.,00:15:11.020,00:15:11.650
+"In coming lessons we're going to talk
+about circular linked list",00:15:11.650,00:15:14.900
+"and we will see some more interesting
+problem on linked list.",00:15:14.900,00:15:18.300
+Thanks for watching.,00:15:18.300,00:15:19.460

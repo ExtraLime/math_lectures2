@@ -1,0 +1,2310 @@
+text,start,stop
+"ANNOUNCER: The following program
+is brought to you by Caltech.",00:00:00.570,00:00:03.270
+YASER ABU-MOSTAFA: Welcome back.,00:00:16.400,00:00:19.310
+"Last time, we talked about
+linear models.",00:00:19.310,00:00:24.120
+"And linear models share what we
+would refer to as the signal,",00:00:24.120,00:00:29.630
+which is this formula.,00:00:29.630,00:00:31.530
+"It's a linear sum involving the input
+variables and weights, that can be put",00:00:31.530,00:00:37.020
+in vector form.,00:00:37.020,00:00:38.660
+"And all linear models, in one form or
+another, have that as their basic",00:00:38.660,00:00:43.600
+building block.,00:00:43.600,00:00:44.990
+"And you can have a classification linear
+system, like the perceptron,",00:00:44.990,00:00:49.680
+"that uses that signal and takes the
+sign of it to make a decision,",00:00:49.680,00:00:54.220
++1 or -1.,00:00:54.220,00:00:55.940
+"Or you can take something like
+regression, which is real-valued, that",00:00:55.940,00:00:59.300
+"takes the signal as it is
+and has that as output.",00:00:59.300,00:01:05.050
+"We looked at the linear regression
+algorithm, which was a particularly",00:01:05.050,00:01:08.720
+easy algorithm.,00:01:08.720,00:01:10.430
+"All it does, it takes the inputs and
+puts them in a particular matrix form,",00:01:10.430,00:01:15.450
+"and so the outputs. That's the inputs
+and outputs of the data set.",00:01:15.450,00:01:19.840
+"And then, by computing this very simple
+formula, in one shot, it can",00:01:19.840,00:01:24.420
+"get you the optimal value
+of the weight vector.",00:01:24.420,00:01:29.830
+"If you look at linear models, you can
+think of them as an economy car.",00:01:29.830,00:01:36.550
+"They get you where you want to go, and
+they don't consume a lot of gas.",00:01:36.550,00:01:42.490
+"You may not be very proud of them,
+but they actually do the job.",00:01:42.490,00:01:46.720
+"If you want a luxury car, wait
+until we get to support",00:01:46.720,00:01:49.860
+vector machines.,00:01:49.860,00:01:51.650
+"And you have to pay the
+price for that.",00:01:51.650,00:01:54.530
+"However, for linear models, it
+is remarkable how often they",00:01:54.530,00:01:58.450
+succeed on their own.,00:01:58.450,00:02:00.060
+"And they are sufficient to get
+you the learning performance",00:02:00.060,00:02:03.150
+that you want.,00:02:03.150,00:02:04.740
+"So I urge you to give linear models
+in general more attention than you",00:02:04.740,00:02:10.910
+would otherwise give.,00:02:10.910,00:02:12.150
+"And try to use them when you face
+a learning problem first, and see if they",00:02:12.150,00:02:15.970
+will actually achieve what you want.,00:02:15.970,00:02:18.950
+"To strengthen linear models even
+further, we introduced nonlinear",00:02:18.950,00:02:22.930
+transformation.,00:02:22.930,00:02:24.700
+"And the idea behind it is that the
+signal is not only linear in x, which",00:02:24.700,00:02:29.970
+"is what you would think of as the reason
+we call these linear systems.",00:02:29.970,00:02:33.370
+"But actually, they're linear
+in w, the vector.",00:02:33.370,00:02:37.370
+"And the reason this is important is
+because learning actually modifies w",00:02:37.370,00:02:41.590
+"in the learning process until it gets to
+the optimal one, while x, which you",00:02:41.590,00:02:46.180
+"usually think of as a variable, is
+actually a bunch of constants, which",00:02:46.180,00:02:49.410
+"are the data set that
+are handed to you.",00:02:49.410,00:02:51.590
+"So the linearity in w
+is the key point.",00:02:51.590,00:02:55.290
+"And if you take x and transform it in
+any way you form to another vector z,",00:02:55.290,00:02:59.840
+"in a very nonlinear way if you want,
+this will still preserve this",00:02:59.840,00:03:05.380
+"linearity, the linearity in w.",00:03:05.380,00:03:07.500
+"Obviously, it will not be linear in x.",00:03:07.500,00:03:09.310
+"And that's all that matters for you to
+apply the machinery that we got",00:03:09.310,00:03:12.390
+"here, like the simple linear
+regression algorithm.",00:03:12.390,00:03:16.170
+"And we took an example where we had the
+two variables x_1 and x_2, and we",00:03:16.170,00:03:21.970
+"transformed them nonlinearly to
+x_1 squared and x_2 squared.",00:03:21.970,00:03:25.200
+"And we found that this case, the
+transformation helps us separate the",00:03:25.200,00:03:31.040
+"data, where if we worked in
+the original space, we",00:03:31.040,00:03:33.630
+would not be able to.,00:03:33.630,00:03:36.300
+"This time, I'm going to talk
+about error and noise.",00:03:36.300,00:03:44.410
+"And these are practical considerations
+that we have to take, when we consider",00:03:44.410,00:03:49.930
+real-life problems.,00:03:49.930,00:03:51.720
+"And we're going to modify the learning
+diagram that we have, by incorporating",00:03:51.720,00:03:56.500
+"the notion of error and
+the notion of noise.",00:03:56.500,00:03:59.960
+"And I will do that for the
+bulk of the lecture.",00:03:59.960,00:04:03.690
+"However, my starting point will be to
+wrap up the nonlinear transformation",00:04:03.690,00:04:07.380
+that we started last time.,00:04:07.380,00:04:10.240
+"So let's look at what
+we had last time.",00:04:10.240,00:04:13.700
+We had this space.,00:04:13.700,00:04:15.120
+Let me magnify it a little bit.,00:04:15.120,00:04:16.510
+This space is the original X space.,00:04:20.839,00:04:24.650
+And the origin is in the middle.,00:04:24.650,00:04:26.930
+"And you have these points,
+which are your data set.",00:04:26.930,00:04:30.850
+And each point belongs to that space.,00:04:30.850,00:04:33.900
+"And as you realize, there is really no
+way of separating the blue from the",00:04:33.900,00:04:38.240
+"red using a line, which is
+what linear models do.",00:04:38.240,00:04:43.020
+"And the idea for us was: let's
+do a nonlinear transformation.",00:04:43.020,00:04:49.100
+We called it phi.,00:04:49.100,00:04:51.510
+"And if you look at what happened here--
+let's look at both of them at",00:04:51.510,00:04:54.960
+the same time--,00:04:54.960,00:04:56.380
+this is where you took x_1 squared.,00:04:56.380,00:04:58.580
+"So this is x_1, and this is x_2.",00:04:58.580,00:05:01.550
+"And that transformation
+here was x_1 squared.",00:05:01.550,00:05:03.700
+"So this would be x_1 squared, and this
+is x2 squared, which we're going",00:05:03.700,00:05:07.700
+to label as z.,00:05:07.700,00:05:10.420
+"So the transformation is you take every
+point in the sample space x_n,",00:05:10.420,00:05:15.170
+"you put it through a transformation
+phi, and you get the",00:05:15.170,00:05:17.730
+corresponding point z_n.,00:05:17.730,00:05:19.370
+"And now, you are working in the feature
+space, or the nonlinear space",00:05:19.370,00:05:22.525
+Z.,00:05:22.525,00:05:23.920
+"When we did this, we realized that a data
+set like this can become linearly",00:05:23.920,00:05:28.300
+separable in the new space.,00:05:28.300,00:05:30.930
+"And that allows us to apply the
+linear model algorithm here.",00:05:30.930,00:05:35.890
+"And when you do that, you will get
+a separating boundary here.",00:05:35.890,00:05:44.620
+"And that separating boundary is applied
+by applying your simple linear",00:05:44.620,00:05:49.030
+"model, like linear regression-- in this
+case, linear classification, the",00:05:49.030,00:05:52.090
+perceptron--,00:05:52.090,00:05:53.360
+to the data in the Z space.,00:05:53.360,00:05:58.840
+So that's what we get.,00:05:58.840,00:06:00.250
+But we are not working in the Z space.,00:06:00.250,00:06:02.160
+"When I give you a test
+point, it will be x.",00:06:02.160,00:06:04.820
+"And you have managed to separate
+things in the Z space.",00:06:04.820,00:06:07.490
+"Well, the way you do it is you
+go back to the input space.",00:06:07.490,00:06:11.350
+"And as you realize, I'm
+using the ""inverse"",",00:06:11.350,00:06:14.100
+"between quotation,",00:06:14.100,00:06:15.140
+transformation.,00:06:15.140,00:06:15.870
+"Because the transformation, in principle,
+may not have an inverse.",00:06:15.870,00:06:19.220
+"There are some points in the Z space
+that may not be a mapping of any point",00:06:19.220,00:06:22.620
+"in X, and some points in the Z space
+which may be the mapping of",00:06:22.620,00:06:25.960
+more than one point.,00:06:25.960,00:06:27.310
+"And therefore, in spite of the fact that
+phi is a mapping, a function,",00:06:27.310,00:06:30.410
+"phi -1, as we call it, is not.",00:06:30.410,00:06:33.410
+"But when you apply this, figuratively,
+what you're going to get is",00:06:33.410,00:06:38.710
+"a separating surface in the X
+space, that is not linear.",00:06:38.710,00:06:42.850
+"And that was obtained by applying
+purely linear methods.",00:06:42.850,00:06:46.510
+"And therefore, you can classify a new
+point by applying g of x, which would",00:06:46.510,00:06:54.450
+"be the hypothesis that's defined here,
+the linear one, which happens to have",00:06:54.450,00:06:59.930
+that formula.,00:06:59.930,00:07:00.720
+"So you look at the diagram
+all together.",00:07:00.720,00:07:04.630
+"And this is basically the cycle you have,
+when you're doing the nonlinear",00:07:04.630,00:07:10.710
+transformation.,00:07:10.710,00:07:11.650
+"You take the data set, transform it,
+classify it, and interpret it.",00:07:11.650,00:07:17.740
+"In reality, when you get the new x, what
+you're going to do, you are going",00:07:17.740,00:07:21.270
+"to take the new x, wherever
+it might be.",00:07:21.270,00:07:23.550
+You're going to transform it.,00:07:23.550,00:07:25.020
+"And then look here where it lies,
+and classify it accordingly.",00:07:25.020,00:07:28.750
+It's a very simple procedure.,00:07:28.750,00:07:30.460
+"And as you can see, although we are
+illustrating it here in a case where",00:07:30.460,00:07:33.950
+"you're going from two-dimensional
+to two-dimensional, you could in",00:07:33.950,00:07:36.950
+"principle go from two-dimensional to 100
+dimensional, with highly nonlinear",00:07:36.950,00:07:41.140
+"coordinates, and the same
+principle will apply.",00:07:41.140,00:07:43.470
+"You will be classifying here, with
+a hyperplane in that case.",00:07:43.470,00:07:46.370
+"And then, this surface would
+be very, very complicated--",00:07:46.370,00:07:48.960
+"could be completely jagged
+and whatnot.",00:07:48.960,00:07:50.890
+"And that enables you to implement
+a lot of sophisticated surfaces.",00:07:50.890,00:07:55.050
+"So let's look at the nonlinear
+transformation and ask ourselves, what",00:07:55.050,00:08:01.370
+"transforms to what, to make sure
+that all the notions are clear.",00:08:01.370,00:08:05.610
+The first thing is the input point x.,00:08:05.610,00:08:08.830
+"This is a single point that is
+represented by its coordinates x_1 up",00:08:08.830,00:08:12.765
+"to x_d, together with the mandatory
+constant x_0 which equals 1 that",00:08:12.765,00:08:17.470
+takes care of the threshold term.,00:08:17.470,00:08:19.000
+"This is a general representation
+of a point in the X space.",00:08:19.000,00:08:23.660
+What does this transform to?,00:08:23.660,00:08:25.880
+"I'd like you to think before
+I give the answer.",00:08:25.880,00:08:29.050
+"Well, it transforms to a z.",00:08:29.050,00:08:32.980
+That is a vector.,00:08:32.980,00:08:34.570
+"Each of these coordinates,",00:08:34.570,00:08:36.650
+"let's say, z_1,",00:08:36.650,00:08:38.090
+"is a nonlinear function, potentially
+nonlinear function, of all of the x's,",00:08:38.090,00:08:43.334
+so of the entire vector x.,00:08:43.334,00:08:46.180
+"For example, this could
+be x_1 x_2 e to the x_3.",00:08:46.180,00:08:50.650
+"The next one would be 1 over
+x_2 times x_3 cubed.",00:08:50.650,00:08:54.760
+Whatever it is.,00:08:54.760,00:08:56.100
+"And you can go on and on and on,
+and there is really no limit.",00:08:56.100,00:09:02.890
+"So if we thought of linear methods
+here as an economy car,",00:09:02.890,00:09:07.820
+this could be a truck.,00:09:07.820,00:09:10.090
+This could be actually an 18-wheeler.,00:09:10.090,00:09:13.170
+"And we must be proud of that, because
+with such a simple method, we are able",00:09:13.170,00:09:17.260
+to create such a strong machine.,00:09:17.260,00:09:20.080
+"But be careful, because you may
+not be able to drive it.",00:09:20.080,00:09:25.190
+"And if you do the wrong transformation,",00:09:25.190,00:09:27.990
+you will end up crashing--,00:09:27.990,00:09:30.640
+"in this case, generalization-wise
+crashing.",00:09:30.640,00:09:33.600
+"That is, although you did everything
+right, and you did this",00:09:33.600,00:09:36.320
+"transformation, and this is a powerful
+machine, you don't know how to drive",00:09:36.320,00:09:39.810
+"the powerful machine, and you end up
+with very poor generalization.",00:09:39.810,00:09:43.560
+"And we need the theory in order to get
+our driver's license. That will tell us",00:09:43.560,00:09:47.760
+"what to do in order to be able
+to drive this machine.",00:09:47.760,00:09:51.670
+So that is x.,00:09:51.670,00:09:54.950
+"Now, what do x_1 up to x_N go to?",00:09:54.950,00:09:58.640
+"Remember, this is the data set,
+the inputs of the data set.",00:09:58.640,00:10:01.390
+"Each of these guys, by itself, is a full
+vector x that has all of these",00:10:01.390,00:10:05.330
+coordinates.,00:10:05.330,00:10:06.210
+So this is the data set we have.,00:10:06.210,00:10:08.440
+What does it transform to?,00:10:08.440,00:10:10.930
+"Not surprisingly, z_1 up to z_N.",00:10:10.930,00:10:13.540
+"So you end up with the same
+number of points.",00:10:13.540,00:10:15.060
+That is obvious.,00:10:15.060,00:10:16.050
+And each of them is a vector.,00:10:16.050,00:10:17.800
+"And each vector can be very
+long, according to the",00:10:17.800,00:10:20.140
+transformation you chose.,00:10:20.140,00:10:22.350
+Next one--,00:10:22.350,00:10:24.830
+the labels.,00:10:24.830,00:10:25.510
+"The data set comes with inputs
+and outputs, right?",00:10:25.510,00:10:28.330
+"So the inputs I did
+the transformation--",00:10:28.330,00:10:30.810
+what do y_1 up to y_N transform to?,00:10:30.810,00:10:34.880
+"Well, they transform to y_1 up to y_N.",00:10:34.880,00:10:38.950
+These are untouched.,00:10:38.950,00:10:40.420
+These are the values.,00:10:40.420,00:10:41.180
+They are not touched.,00:10:41.180,00:10:42.670
+And these are the ones we learn.,00:10:42.670,00:10:43.780
+"If it's classification, they are +1
+or -1, exactly the same way",00:10:43.780,00:10:47.840
+they were there before.,00:10:47.840,00:10:49.700
+How about the weights?,00:10:49.700,00:10:52.970
+"When we use linear models,
+we have a weight vector.",00:10:52.970,00:10:57.520
+"So when we are in the X space here,
+what are the weights?",00:10:57.520,00:11:02.470
+"The answer is that there are no weights
+in the X space when you do",00:11:02.470,00:11:06.980
+a nonlinear transformation.,00:11:06.980,00:11:08.670
+The weights are done in the Z space.,00:11:08.670,00:11:11.850
+"And I labeled the weights
+here as w tilde.",00:11:11.850,00:11:15.230
+"And I'm using tilde as nonlinear,
+so that you remember",00:11:15.230,00:11:18.900
+it's a nonlinear space.,00:11:18.900,00:11:20.530
+And everything here is tilde.,00:11:20.530,00:11:22.990
+So this is w tilde.,00:11:22.990,00:11:24.710
+"And if you look here
+at the dimension--",00:11:24.710,00:11:26.130
+you may have not seen it.,00:11:26.130,00:11:26.940
+Let me magnify it.,00:11:26.940,00:11:28.930
+"The dimensionality here
+is also d tilde.",00:11:28.930,00:11:31.660
+"So whenever we need to distinguish
+between z and x, we will add tilde to",00:11:31.660,00:11:35.260
+"the z counterpart, so that you are not
+confused about which is which.",00:11:35.260,00:11:40.020
+So we have those weights.,00:11:40.020,00:11:42.840
+"And finally, you ask yourself:
+I've done all of this machinery.",00:11:42.840,00:11:46.190
+"Could you please tell me, what
+is the hypothesis that I'm",00:11:46.190,00:11:48.620
+delivering to my customer?,00:11:48.620,00:11:50.590
+"We're still calling it g of
+x, the final hypothesis of",00:11:50.590,00:11:53.955
+your learning process.,00:11:53.955,00:11:55.630
+"And it happens to be exactly the
+same way, except in Z space.",00:11:55.630,00:12:01.450
+"You take the linear form here, and
+take the sign, and that would be your",00:12:01.450,00:12:06.580
+hypothesis.,00:12:06.580,00:12:07.620
+"Except it's a little bit annoying,
+because this is g of x, and you're",00:12:07.620,00:12:11.580
+telling me this is w tilde transposed,00:12:11.580,00:12:14.420
+times z.,00:12:14.420,00:12:15.170
+Where is x?,00:12:15.170,00:12:16.550
+Don't worry. Here is x.,00:12:16.550,00:12:19.370
+"What z is, is the transformation of x.",00:12:19.370,00:12:21.390
+"When you want to evaluate this for
+any x, all you need to do is plug into",00:12:21.390,00:12:25.140
+"this formula, and you are ready to go.",00:12:25.140,00:12:27.480
+"That's the entire story of the
+nonlinear transformation.",00:12:27.480,00:12:32.140
+"Now, with that out of the way, let's go
+to the main topic of the day, which",00:12:32.140,00:12:35.990
+are error measures and noisy targets.,00:12:35.990,00:12:38.750
+"When we face a real learning problem,
+we will realize that there",00:12:38.750,00:12:41.860
+"are components, practical components in
+real life, that we have not fully",00:12:41.860,00:12:46.230
+taken into consideration.,00:12:46.230,00:12:47.920
+"And what I'm going to do, I'm going to
+take the learning diagram, which we",00:12:47.920,00:12:51.330
+introduced in the first lecture.,00:12:51.330,00:12:53.110
+"And then, I'm going to adjust it
+according to these practical components,",00:12:53.110,00:12:56.990
+"until we get the final general form of
+the supervised learning diagram.",00:12:56.990,00:13:02.430
+"That will take us through both topics,
+which are the error measures and the",00:13:02.430,00:13:06.220
+noisy targets.,00:13:06.220,00:13:07.990
+"Here is the learning diagram in
+case you forgot what it was.",00:13:07.990,00:13:13.860
+That's where we left it.,00:13:13.860,00:13:15.170
+Let's see what it looks like.,00:13:15.170,00:13:18.240
+"Remember, it's a pretty
+simple diagram.",00:13:18.240,00:13:20.420
+And we built it from scratch.,00:13:20.420,00:13:21.630
+"I need to rebuild it, in order for
+you to realize that I'm not just",00:13:21.630,00:13:24.790
+flashing a jungle on you.,00:13:24.790,00:13:26.480
+It has a sense.,00:13:26.480,00:13:27.770
+This is what we're trying to learn.,00:13:27.770,00:13:29.250
+"It's an unknown target function,
+represented to",00:13:29.250,00:13:31.890
+us by training examples.,00:13:31.890,00:13:33.750
+"We have a learning algorithm that will
+take these examples and produce the",00:13:33.750,00:13:37.010
+final hypothesis.,00:13:37.010,00:13:38.120
+All of this is nice.,00:13:38.120,00:13:39.670
+"We said that the learning algorithm
+is picking the hypothesis from the",00:13:39.670,00:13:42.290
+hypothesis set.,00:13:42.290,00:13:43.480
+"And we said that this is a convenient
+technicality that has no loss of",00:13:43.480,00:13:47.540
+generality.,00:13:47.540,00:13:48.470
+"So we accepted that we will always
+have a hypothesis set.",00:13:48.470,00:13:51.290
+"And then, we went into the
+feasibility of learning.",00:13:51.290,00:13:53.780
+"And we realized that for that to
+happen, we need to introduce",00:13:53.780,00:13:56.750
+"a probability distribution on X, any
+probability distribution, and generate",00:13:56.750,00:14:01.250
+"the points x_1 up to x_N, which constitute
+the inputs to the training",00:14:01.250,00:14:04.780
+"examples, using this probability
+distribution independently.",00:14:04.780,00:14:08.990
+"Once you do that, you get the
+benefit of Hoeffding.",00:14:08.990,00:14:11.400
+"And you can make a statement that
+you're going to do something",00:14:11.400,00:14:13.580
+"out-of-sample that is reflected
+by the in-sample.",00:14:13.580,00:14:16.020
+That's where we stood.,00:14:16.020,00:14:18.380
+"So this is the diagram we are going
+to be modifying piece by piece.",00:14:18.380,00:14:22.640
+"Let's talk about error measures,
+the first notion.",00:14:22.640,00:14:25.360
+"Error measures try to answer
+the following question:",00:14:25.360,00:14:29.860
+"what does it mean for h
+to approximate f?",00:14:29.860,00:14:36.080
+You have two functions.,00:14:36.080,00:14:37.390
+"And you say, this is a good
+approximation, this is a bad",00:14:37.390,00:14:39.640
+approximation.,00:14:39.640,00:14:40.250
+"Is it a qualitative statement,
+or is it quantitative?",00:14:40.250,00:14:43.370
+It is quantitative.,00:14:43.370,00:14:44.460
+"And because it's quantitative, we are
+going to define an error measure that",00:14:44.460,00:14:48.270
+"measures how well, or how
+badly, h approximates f.",00:14:48.270,00:14:53.490
+"So the error measure will
+be defined as E of two guys.",00:14:53.490,00:15:01.160
+And these will be h and f.,00:15:01.160,00:15:03.920
+"It returns a number for any
+two functions you plug in.",00:15:03.920,00:15:09.090
+"One of them will be the
+target function.",00:15:09.090,00:15:10.860
+"One of them will be a hypothesis
+of interest.",00:15:10.860,00:15:13.250
+"And you ask yourself, how well, or
+how badly in this case, does",00:15:13.250,00:15:16.940
+h approximate f?,00:15:16.940,00:15:18.240
+And you get an error.,00:15:18.240,00:15:19.060
+"If the error is 0, then h perfectly
+reflects f, and you're home free.",00:15:19.060,00:15:23.260
+"If there's an error, then maybe you need
+to look for another h that has",00:15:23.260,00:15:27.060
+smaller error.,00:15:27.060,00:15:27.930
+"So that formalizes the question of
+search, of the learning algorithm, into",00:15:27.930,00:15:31.560
+minimizing an error function.,00:15:31.560,00:15:34.210
+We call it error function.,00:15:34.210,00:15:35.490
+"And we call this error measure. It is
+neither a measure in the measure",00:15:35.490,00:15:38.780
+"theoretic sense, or a function--",00:15:38.780,00:15:40.310
+this is actually a functional.,00:15:40.310,00:15:41.650
+But we are not worrying about that.,00:15:41.650,00:15:43.340
+"We just take these objects
+and return a number.",00:15:43.340,00:15:45.930
+And we refer to it as a function.,00:15:45.930,00:15:47.590
+"And we talk about error measure in the
+sense of the English word ""measure"",",00:15:47.590,00:15:51.230
+"not the mathematical ""measure"".",00:15:51.230,00:15:53.030
+"So the error function, in principle,
+returns a number",00:15:53.030,00:16:01.050
+for a pair of functions.,00:16:01.050,00:16:02.920
+"But it is almost always defined
+in terms of difference on",00:16:02.920,00:16:06.550
+a particular point.,00:16:06.550,00:16:07.970
+"And then, you put these
+points together.",00:16:07.970,00:16:10.310
+That's the pointwise definition.,00:16:10.310,00:16:12.590
+"In this case, you define a small e
+that goes with a capital E that also",00:16:12.590,00:16:18.320
+takes two arguments.,00:16:18.320,00:16:20.090
+"And these two arguments are the value
+of h at a particular point, and the",00:16:20.090,00:16:25.430
+value of f at the same point.,00:16:25.430,00:16:27.990
+That makes sense.,00:16:27.990,00:16:28.740
+I'm trying to compare functions.,00:16:28.740,00:16:29.920
+"I want them to be the same
+on the same point.",00:16:29.920,00:16:32.720
+"Therefore, if I compare them for every
+point this way, then I will get",00:16:32.720,00:16:35.950
+something meaningful.,00:16:35.950,00:16:36.720
+"And then, I will need to do something
+about the different e's, small e's,",00:16:36.720,00:16:40.610
+that will get me the big E.,00:16:40.610,00:16:42.576
+"Although this is not strictly
+required by the definition-- you could",00:16:42.576,00:16:46.610
+"have a crazy error function that does
+not reduce to corresponding points.",00:16:46.610,00:16:50.970
+"But invariably, this is what
+you're going to do.",00:16:50.970,00:16:54.070
+Have we seen this before?,00:16:54.070,00:16:56.150
+"Yes, we have.",00:16:56.150,00:16:58.070
+Remember the squared error?,00:16:58.070,00:16:59.970
+How do we formalize it in this sense?,00:16:59.970,00:17:02.450
+"We can say that the error in this case
+is h of x minus f of x squared.",00:17:02.450,00:17:08.410
+"That's what we did, and that is indeed
+an error function that measures the",00:17:08.410,00:17:11.310
+difference between the two.,00:17:11.310,00:17:12.450
+"And indeed, if the error is 0, it means
+that h of x equals f of x, and",00:17:12.450,00:17:15.920
+we have exactly what we want.,00:17:15.920,00:17:18.369
+"We also saw it before, although we
+didn't explicitly talk about it in",00:17:18.369,00:17:21.839
+"those terms, when we talked
+about binary error.",00:17:21.839,00:17:24.410
+"When we had perceptrons, every point
+could be either right or wrong.",00:17:24.410,00:17:28.280
+"And that doesn't look like
+a quantitative error function.",00:17:28.280,00:17:32.540
+It's binary.,00:17:32.540,00:17:33.910
+"However, you can also put it
+in those terms as follows.",00:17:33.910,00:17:37.830
+"We agreed this notion-- let
+me magnify it for you.",00:17:37.830,00:17:41.390
+"This notation, which is the funny
+bracket, means that you return 1 if",00:17:41.390,00:17:46.400
+the statement enclosed here is true.,00:17:46.400,00:17:49.410
+And you return 0 if it is false.,00:17:49.410,00:17:51.410
+That's a standard notation.,00:17:51.410,00:17:52.990
+"So if you take this as your error
+function, what will happen?",00:17:52.990,00:17:55.870
+"If h of x equals f of x, then this
+statement is false, and you return 0.",00:17:55.870,00:18:01.440
+"So the error is 0, good.",00:18:01.440,00:18:03.030
+"And if this statement is
+true, you return 1.",00:18:03.030,00:18:05.230
+"And indeed, in that case,
+you're making an error.",00:18:05.230,00:18:07.380
+"So it's a binary error
+because of this.",00:18:07.380,00:18:09.540
+"And if you take it as a formal error, and
+do the rest of the development to",00:18:09.540,00:18:14.560
+"get the other one, the big E for the
+global function, you will find that",00:18:14.560,00:18:19.220
+"this is exactly what we did when we were
+talking about frequency of error",00:18:19.220,00:18:22.260
+and probability of error.,00:18:22.260,00:18:23.070
+That will become clear in a moment.,00:18:23.070,00:18:25.130
+"Now, let's move from
+the pointwise--",00:18:25.130,00:18:28.390
+"you define it on one
+point in the space--",00:18:28.390,00:18:30.510
+"to define the error function, 
+capital E, on the entire space.",00:18:30.510,00:18:34.610
+"The way it is done is that the
+overall error, which has this",00:18:34.610,00:18:39.080
+"notation, will always be the average
+of pointwise errors.",00:18:39.080,00:18:44.650
+"So you take these pointwise
+errors and average them.",00:18:44.650,00:18:47.290
+"And all we need to do is articulate
+what we mean by ""average"" in",00:18:47.290,00:18:50.710
+order to get that.,00:18:50.710,00:18:52.180
+So let's look at the in-sample error.,00:18:52.180,00:18:56.330
+"When we have the in-sample error,
+this is the formula for it.",00:18:56.330,00:18:59.530
+"And now, you think of in-sample error as
+the in-sample version of this.",00:18:59.530,00:19:06.130
+"Because now, we are going to use the
+pointwise error that goes with that",00:19:06.130,00:19:10.690
+"error function, or that error measure,
+in defining the in-sample error.",00:19:10.690,00:19:15.480
+"If you take a single point from your
+training set, you would be having",00:19:15.480,00:19:21.040
+"n going from 1 to N, so one of them
+generically is n.",00:19:21.040,00:19:25.210
+"And I'm putting it in red, because
+that's what we are going to average",00:19:25.210,00:19:28.150
+with respect to.,00:19:28.150,00:19:29.380
+"You compute this error measure
+whatever it may be, squared error,",00:19:29.380,00:19:32.550
+"binary error, any other error
+you can think of.",00:19:32.550,00:19:34.940
+"And now, you get the average.",00:19:34.940,00:19:36.650
+"And average in that case will be the
+simple average, which is 1 over N over",00:19:36.650,00:19:39.980
+"that, over the sum.",00:19:39.980,00:19:42.750
+"This is indeed consistent with what
+we thought of as the training error.",00:19:42.750,00:19:46.540
+"And if you go back to the binary error,
+which is the funny error, and",00:19:46.540,00:19:49.820
+"you look at what this formula will
+return, it will return exactly the",00:19:49.820,00:19:53.000
+"frequency of error in
+the sample, correct?",00:19:53.000,00:19:57.890
+"Now let's go for
+out-of-sample error.",00:19:57.890,00:20:01.780
+"Again, the out-of-sample error is
+the out-of-sample version of this",00:20:01.780,00:20:05.920
+error measure.,00:20:05.920,00:20:07.900
+"Now, in this case, the point is
+a general point in the space.",00:20:07.900,00:20:11.880
+"So we are labeling it as x in general,
+without any label.",00:20:11.880,00:20:15.540
+"This could be any point in the space
+that is picked from",00:20:15.540,00:20:19.920
+"X, which is the input space.",00:20:19.920,00:20:22.370
+"And in order to get an average in that
+case, what you do is you get the",00:20:22.370,00:20:27.520
+"expected value, in this case
+with respect to x.",00:20:27.520,00:20:31.230
+"So that is the average for
+the out-of-sample case.",00:20:31.230,00:20:33.840
+"And again, if you take the binary error,
+and you take the expected value",00:20:33.840,00:20:38.200
+"of this, this would be identically the
+probability of error overall.",00:20:38.200,00:20:42.660
+"And we are using the probability
+distribution over the input space X, in",00:20:42.660,00:20:46.240
+order to compute this quantity.,00:20:46.240,00:20:48.540
+"That's how we get from a definition
+that you invoke on a single point, to",00:20:48.540,00:20:53.270
+"the in-sample and out-of-sample
+versions.",00:20:53.270,00:20:57.280
+"Now let's revise the learning
+diagram with this added component.",00:20:57.280,00:21:03.740
+Here is the learning diagram.,00:21:03.740,00:21:08.140
+"There's nothing that changed here except
+that now, this is the standard",00:21:08.140,00:21:11.550
+"color, because we already
+got used to it.",00:21:11.550,00:21:13.280
+The red stuff is the new stuff.,00:21:13.280,00:21:15.700
+"So you have here, and you want
+to add the error measure.",00:21:15.700,00:21:19.610
+"I'd like you to think for a moment
+what we are going to do.",00:21:19.610,00:21:22.820
+We're going to do it in two steps.,00:21:22.820,00:21:23.940
+"The first one is to realize that
+we are defining the error",00:21:23.940,00:21:27.000
+measure on a point.,00:21:27.000,00:21:28.890
+So here's the addition.,00:21:28.890,00:21:30.660
+"The addition is that in deciding whether
+g is close to f, which is the",00:21:30.660,00:21:36.960
+"goal of learning, we test
+this with a point x.",00:21:36.960,00:21:41.520
+"And the criterion for deciding whether g
+of x is approximately the same as f",00:21:41.520,00:21:45.940
+of x is our pointwise error measure.,00:21:45.940,00:21:49.970
+"Furthermore, this x is created
+from the space using",00:21:49.970,00:21:53.050
+something very specific.,00:21:53.050,00:21:54.920
+"And that is, it comes from the same
+probability distribution.",00:21:54.920,00:21:58.360
+"It comes from the same probability
+distribution that generated those",00:22:01.330,00:22:05.970
+points.,00:22:05.970,00:22:07.060
+"This was implicit when we
+talked about the bin.",00:22:07.060,00:22:09.540
+"mu was the probability distribution
+in the bin.",00:22:09.540,00:22:12.750
+"And nu was the sample distribution
+in the sample that you pick.",00:22:12.750,00:22:18.820
+"When you test the system that you
+trained using a certain probability",00:22:18.820,00:22:23.270
+"distribution, I ask you to test it
+with points drawn from the same",00:22:23.270,00:22:27.530
+distribution.,00:22:27.530,00:22:28.650
+"That's the only requirement in order
+to invoke Hoeffding, or the",00:22:28.650,00:22:32.310
+"counterparts of Hoeffding for more
+elaborate type of functions.",00:22:32.310,00:22:36.450
+"Now, if you do that, then
+you have the guarantee.",00:22:36.450,00:22:41.240
+"And it does make sense that
+with the benign assumption",00:22:41.240,00:22:45.300
+that P can be an unknown--,00:22:45.300,00:22:47.820
+any probability distribution--,00:22:47.820,00:22:50.000
+"all you're asked to do in order to get
+the guarantees that we talked about is:",00:22:50.000,00:22:54.130
+"use it to generate the examples, and
+use it to test the hypothesis.",00:22:54.130,00:22:58.440
+So that is what we have.,00:22:58.440,00:23:00.270
+Now we come to the question--,00:23:00.270,00:23:02.980
+I understand where the role is.,00:23:02.980,00:23:04.420
+"I'm going to define the error
+measure on point by point.",00:23:04.420,00:23:06.950
+"I know how to move from a point to the
+in-sample, on to the out-of-sample.",00:23:06.950,00:23:11.110
+"Now, we come to the crux
+of the question.",00:23:11.110,00:23:13.230
+How do I define the error measure?,00:23:13.230,00:23:15.360
+"What is the number that I should return
+for h differing from f on",00:23:15.360,00:23:19.540
+a particular point?,00:23:19.540,00:23:20.890
+"I will give you an example
+to make the point.",00:23:24.260,00:23:26.920
+"And my example will be fingerprint
+verification.",00:23:26.920,00:23:31.180
+You declare yourself.,00:23:31.180,00:23:33.310
+And you want to authenticate yourself.,00:23:33.310,00:23:34.760
+"So you put your finger, and the system
+will decide whether it's you and",00:23:34.760,00:23:39.710
+"return +1, or it's an intruder
+and return -1.",00:23:39.710,00:23:44.820
+That's what the system does.,00:23:44.820,00:23:46.450
+"And we would like to see how to define
+an error measure in this case.",00:23:46.450,00:23:51.630
+"There are two types of error
+that you can make when you have",00:23:51.630,00:23:56.110
+a system like this.,00:23:56.110,00:23:57.270
+"One of them is called
+false accept.",00:23:57.270,00:24:01.810
+I think it's self-explanatory.,00:24:01.810,00:24:03.770
+"False accept meaning that someone who
+shouldn't be there was accepted, was",00:24:03.770,00:24:07.690
+falsely accepted.,00:24:07.690,00:24:08.660
+So the intruder got in.,00:24:08.660,00:24:10.100
+That's an error.,00:24:10.100,00:24:11.780
+The other type is false reject.,00:24:11.780,00:24:14.860
+"You, the owner of the system, the one
+who paid for it, you put your finger,",00:24:14.860,00:24:18.380
+and you are rejected.,00:24:18.380,00:24:19.580
+And you're mad at them.,00:24:19.580,00:24:20.960
+That's a false reject.,00:24:20.960,00:24:23.330
+"Now, in defining an error measure,
+I'd like to get this case,",00:24:23.330,00:24:27.340
+"because there is a great intuition
+about what is going on.",00:24:27.340,00:24:30.220
+"So if we can come up with a meaningful
+error measure here, that captures",00:24:30.220,00:24:33.960
+"both the false accept and false reject,
+we will have a handle on what",00:24:33.960,00:24:38.370
+the error measures are all about.,00:24:38.370,00:24:41.255
+So how do we penalize each type?,00:24:41.255,00:24:44.480
+That's what you do.,00:24:44.480,00:24:45.310
+"When you give an error, you penalize
+it such that the error is large.",00:24:45.310,00:24:48.940
+"So you move away from that hypothesis,
+to get a better hypothesis that",00:24:48.940,00:24:51.390
+doesn't penalize it as much.,00:24:51.390,00:24:54.150
+"Now, we can put it in
+a matrix form.",00:24:54.150,00:24:58.780
+This is the target.,00:24:58.780,00:24:59.900
+This is the perfect system.,00:24:59.900,00:25:01.730
+"This returns +1 whenever it's you,
+returns -1 whenever it's",00:25:01.730,00:25:05.770
+an intruder.,00:25:05.770,00:25:07.150
+That's our dream system.,00:25:07.150,00:25:08.710
+We don't have that.,00:25:08.710,00:25:09.520
+"We're going to use machine
+learning using examples.",00:25:09.520,00:25:12.510
+"And we are going to come
+up with a hypothesis.",00:25:12.510,00:25:14.245
+"This may not be the
+final hypothesis.",00:25:14.245,00:25:16.220
+"We are talking about a general
+hypothesis here.",00:25:16.220,00:25:18.190
+"When it becomes the final hypothesis,
+we are going to call it g.",00:25:18.190,00:25:21.210
+So h could be +1 or -1.,00:25:21.210,00:25:23.800
+"And +1 means you are accepted,
+or the person is accepted,",00:25:23.800,00:25:28.060
+whoever he may be.,00:25:28.060,00:25:28.810
+And -1 means they are rejected.,00:25:28.810,00:25:32.040
+"Now, let's try to put under the
+four possibilities here what the",00:25:32.040,00:25:36.520
+errors would be.,00:25:36.520,00:25:38.270
+"First, the easy one--",00:25:38.270,00:25:40.600
+the diagonal corresponds to no error.,00:25:40.600,00:25:42.930
+"And I'm putting it in faint color,
+because in that case, it's clear that",00:25:42.930,00:25:45.730
+you're going to make zero error.,00:25:45.730,00:25:48.310
+"It's you, and you were accepted.",00:25:48.310,00:25:49.330
+"It's not you, and you were rejected.",00:25:49.330,00:25:50.950
+That's fine.,00:25:50.950,00:25:52.350
+What's interesting are these two.,00:25:52.350,00:25:54.020
+"So we need to get a number for the
+false accept, which means it's",00:25:54.020,00:26:00.530
+"an intruder but they were accepted, or
+the false reject, which means it's you",00:26:00.530,00:26:08.800
+but you were rejected.,00:26:08.800,00:26:11.630
+"If I can come up with four numbers here,
+two of which I already know,",00:26:11.630,00:26:14.760
+then I have the answer.,00:26:14.760,00:26:17.360
+"The key message I'm conveying with this
+discussion is that there is no",00:26:17.360,00:26:23.030
+"inherent merit to choosing one
+error function over another.",00:26:23.030,00:26:29.520
+It's not an analytic question.,00:26:29.520,00:26:31.860
+It's an application-domain question.,00:26:31.860,00:26:34.360
+And I'm going to argue for that.,00:26:34.360,00:26:37.190
+"Let's look at the error measure for
+this problem, for the important",00:26:37.190,00:26:41.520
+application of supermarkets.,00:26:41.520,00:26:46.770
+What happens with supermarkets?,00:26:46.770,00:26:49.350
+"Well, supermarkets decide
+to become fancy.",00:26:49.350,00:26:52.440
+"And when you go and you want the
+discount for your special program, you",00:26:52.440,00:26:56.565
+"not only declare yourself, they
+need to verify that it's you.",00:26:56.565,00:26:59.780
+"Because they have recently too many
+people just claim any number to get",00:26:59.780,00:27:03.390
+the discount.,00:27:03.390,00:27:04.050
+They want to control it a little bit.,00:27:04.050,00:27:05.500
+"So on the checkout, you
+identify yourself.",00:27:05.500,00:27:08.360
+"And then, you put your finger.",00:27:08.360,00:27:09.790
+"And then, the system will verify you or
+decide that you're an intruder.",00:27:09.790,00:27:14.730
+"Now, given this application, let's try
+to see false accepts and false rejects",00:27:14.730,00:27:19.840
+and how to penalize them.,00:27:19.840,00:27:21.130
+"The false reject in this case
+actually is costly.",00:27:24.200,00:27:27.070
+Think of it this way.,00:27:27.070,00:27:27.830
+"You are a customer, you go out, and you
+have this huge bag of stuff, $100",00:27:27.830,00:27:33.770
+"worth of stuff, and you think you're
+an important customer to the",00:27:33.770,00:27:35.870
+supermarket.,00:27:35.870,00:27:37.250
+"You put your finger, you are rejected.",00:27:37.250,00:27:39.400
+"You put your finger again, you're
+rejected, put your finger again,",00:27:39.400,00:27:42.160
+you're rejected.,00:27:42.160,00:27:43.120
+"You're embarrassed in front of the
+entire queue, and in your mind, you",00:27:43.120,00:27:45.620
+"say, the heck with this supermarket.",00:27:45.620,00:27:47.160
+I'm going to go to the competitor.,00:27:47.160,00:27:49.190
+"So when they have a false reject, they
+run the risk of losing a customer--",00:27:49.190,00:27:52.880
+customer gets annoyed.,00:27:57.090,00:27:58.340
+"False accept is not that
+big of a deal.",00:28:00.860,00:28:04.160
+"Someone comes in and claims they're
+you, and the system passes them.",00:28:04.160,00:28:07.220
+What is the downside?,00:28:07.220,00:28:08.330
+They got a discount.,00:28:08.330,00:28:09.460
+"OK, one more discount--",00:28:09.460,00:28:11.580
+"for business, it's not that important.",00:28:11.580,00:28:14.190
+"And furthermore, if you think about it,
+that must be a very brave person.",00:28:14.190,00:28:18.300
+"Because they are an intruder, and they
+left their fingerprint on the system.",00:28:18.300,00:28:28.560
+That's part of the deal.,00:28:28.560,00:28:30.570
+All to get a discount--,00:28:30.570,00:28:32.050
+I think really they are in trouble.,00:28:32.050,00:28:34.010
+"So we really shouldn't penalize the
+false positives that much, if that will",00:28:34.010,00:28:37.880
+help us with the false negatives.,00:28:37.880,00:28:39.790
+"If you look at a matrix that
+fits this situation, this",00:28:39.790,00:28:43.820
+one qualifies.,00:28:43.820,00:28:46.130
+I'm going to penalize false rejects.,00:28:46.130,00:28:51.020
+That's not a question.,00:28:51.020,00:28:52.640
+"But I'm going to penalize
+them just by 1.",00:28:52.640,00:28:55.310
+"When it comes to the other one,
+which are the false accepts--",00:28:55.310,00:28:58.405
+let me try again.,00:29:02.380,00:29:03.940
+This is the false reject.,00:29:03.940,00:29:08.420
+"It's you, and you were rejected, and
+you are penalized dearly.",00:29:08.420,00:29:12.290
+And this one is the false accept.,00:29:12.290,00:29:14.620
+"It's not you, and you were accepted,
+and therefore, you",00:29:14.620,00:29:17.500
+give it less weight.,00:29:17.500,00:29:18.840
+"So this looks like a reasonable
+matrix for that case.",00:29:18.840,00:29:24.180
+"Now, let's look at the
+exact same system.",00:29:24.180,00:29:28.000
+"You are given training examples, you are
+told that the target function is",00:29:28.000,00:29:31.960
+"fingerprint verification, and
+you go about your machine",00:29:31.960,00:29:35.030
+learning algorithm.,00:29:35.030,00:29:37.070
+"Now, one of them is for a supermarket.",00:29:37.070,00:29:39.820
+And the other one is for the CIA.,00:29:39.820,00:29:46.160
+Let's see the situation here.,00:29:46.160,00:29:47.410
+"Now, what is the CIA going
+to use the system for?",00:29:50.090,00:29:53.340
+It uses it for security--,00:29:53.340,00:29:54.960
+"identity verification, that you are
+an authentic person authorized to do",00:29:54.960,00:29:59.070
+"something, could be entering
+the building, could be",00:29:59.070,00:30:01.040
+looking at a document.,00:30:01.040,00:30:02.020
+So you put your fingerprint first.,00:30:02.020,00:30:04.620
+"Now, let's look at the false
+accept and false reject.",00:30:04.620,00:30:06.700
+"You have to agree with me that false
+accept in this case is an unmitigated",00:30:10.390,00:30:13.750
+disaster.,00:30:13.750,00:30:15.920
+"Someone got authority to something that
+they're not authorized in, and",00:30:15.920,00:30:19.200
+national security is at stake.,00:30:19.200,00:30:20.720
+That's a no-no.,00:30:20.720,00:30:25.210
+"False reject in this case
+can be tolerated.",00:30:25.210,00:30:28.010
+Why?,00:30:28.010,00:30:29.690
+You are not a customer.,00:30:29.690,00:30:31.305
+You are an employee.,00:30:31.305,00:30:33.190
+"It's you, but the system rejected you.",00:30:33.190,00:30:35.390
+"Just try again and
+again and again.",00:30:35.390,00:30:37.940
+Because you're paid to be here.,00:30:37.940,00:30:42.650
+"Just take the inconvenience and do
+this, in order to save the false",00:30:42.650,00:30:46.070
+accepts.,00:30:46.070,00:30:47.740
+"So in this case, it makes sense that
+we are going to put the weights in",00:30:47.740,00:30:50.680
+"exactly the opposite way,
+even more extreme.",00:30:50.680,00:30:53.700
+"And you will have a matrix
+that looks like this.",00:30:53.700,00:30:57.890
+"If you are the wrong person, and you are
+accepted, that's a false accept.",00:30:57.890,00:31:01.460
+That's a huge penalty.,00:31:01.460,00:31:04.080
+"The other one, you put
+a meager penalty.",00:31:04.080,00:31:06.640
+"If you're really cruel with your
+employees, you put this 0.1 or 0.001,",00:31:06.640,00:31:11.650
+"and then have them really go for this
+thing for 20 times until they're",00:31:11.650,00:31:15.710
+accepted.,00:31:15.710,00:31:16.650
+"But in general, you can see that this
+has to be a much bigger number than",00:31:16.650,00:31:20.290
+"this, whereas in the supermarket case,
+this was a bigger number than that.",00:31:20.290,00:31:24.020
+"So the take-home lesson is that, when
+you're dealing with a practical",00:31:24.020,00:31:29.820
+"learning problem, the error measure
+should be specified by the user.",00:31:29.820,00:31:36.110
+"You are going to deliver
+a system to them.",00:31:36.110,00:31:38.520
+The system is not perfect.,00:31:38.520,00:31:40.190
+"They want the target function, and you
+give them a hypothesis instead.",00:31:40.190,00:31:44.560
+"You should ask them, how much does it
+cost you to use my imperfect system in",00:31:44.560,00:31:50.600
+place of the perfect system?,00:31:50.600,00:31:52.350
+That is their decision to make.,00:31:52.350,00:31:54.180
+"And if they articulate that as
+a quantitative error function, this is",00:31:54.180,00:31:57.335
+"the error function you
+should work with.",00:31:57.335,00:31:59.920
+"However, this does not always happen.",00:31:59.920,00:32:03.840
+"People may not have the formalization
+that will capture the error measure",00:32:03.840,00:32:09.150
+in reality.,00:32:09.150,00:32:10.290
+"And sometimes, they capture it, but
+it's very difficult to optimize.",00:32:10.290,00:32:13.860
+There are other considerations.,00:32:13.860,00:32:16.200
+"So now, what I'm going to talk about are
+the alternatives to this approach.",00:32:16.200,00:32:20.840
+"And the alternatives are
+a compromise.",00:32:20.840,00:32:23.270
+"They are very common and popular
+compromises, and",00:32:23.270,00:32:26.170
+people indulge on them.,00:32:26.170,00:32:27.640
+"I don't mind indulging on them, because
+actually, there are some nice",00:32:27.640,00:32:30.500
+properties to them.,00:32:30.500,00:32:31.450
+"But always remember, this
+is a second choice.",00:32:31.450,00:32:35.040
+"If we knew what the error measure that
+needs to be used by the user is, we",00:32:35.040,00:32:39.550
+would use that.,00:32:39.550,00:32:41.360
+So here are the two alternatives--,00:32:41.360,00:32:42.720
+"you don't have the user-specified
+error measure.",00:32:42.720,00:32:45.260
+"Then, you resort to plausible measures,
+measures that you can argue",00:32:45.260,00:32:51.480
+analytically that they have merit.,00:32:51.480,00:32:54.200
+"Usually, the analytic argument starts
+with an assumption that is usually",00:32:54.200,00:32:58.050
+a loaded assumption.,00:32:58.050,00:32:59.240
+"And from there, the going
+is very smooth.",00:32:59.240,00:33:01.370
+"But nonetheless, that is
+in the absence of",00:33:01.370,00:33:04.780
+"a meritorious error measure,",00:33:04.780,00:33:05.870
+we might as well resort to that.,00:33:05.870,00:33:07.530
+"We have seen example of that,
+which is squared error.",00:33:07.530,00:33:11.650
+"If you look at squared error, you can
+say that if the noise is Gaussian--",00:33:11.650,00:33:16.040
+"I didn't do that in the lecture,
+but it's not",00:33:16.040,00:33:19.530
+a difficult thing to imagine--,00:33:19.530,00:33:21.020
+"that the corresponding error measure in
+this case would be squared error.",00:33:21.020,00:33:25.170
+So that is the plausibility of it.,00:33:25.170,00:33:28.190
+"And you can take other cases, for
+example, the binary error.",00:33:28.190,00:33:30.950
+"You can go and get cross-entropy type
+of error corresponding to the binary",00:33:30.950,00:33:34.200
+error and whatnot.,00:33:34.200,00:33:34.660
+"So these guys have an error measure
+that goes with them.",00:33:34.660,00:33:38.550
+"The other approach is not to have
+a plausible measure, but to have",00:33:38.550,00:33:43.200
+"a friendly measure. You are
+not justifying that this is",00:33:43.200,00:33:46.500
+a meritorious measure.,00:33:46.500,00:33:47.780
+"You're just using it because
+it's easy to use.",00:33:47.780,00:33:51.250
+And we have also seen that.,00:33:51.250,00:33:53.210
+"For example, we can get closed-form
+solution if we choose a particular",00:33:53.210,00:33:56.655
+error measure.,00:33:56.655,00:33:58.010
+Linear regression comes to mind.,00:33:58.010,00:33:59.850
+"If you didn't use a squared error in
+that case, you would not have gotten",00:33:59.850,00:34:02.780
+"the very easy formula that we started
+the lecture with.",00:34:02.780,00:34:06.910
+"And also, even if you can't get
+a closed-form solution, you might be",00:34:06.910,00:34:11.889
+"able to use optimization
+that is favorable.",00:34:11.889,00:34:13.830
+"For example, the cross entropy that I
+referred to ends up, in a case of",00:34:13.830,00:34:19.480
+"a linear model, the logistic regression,
+being convex which means that",00:34:19.480,00:34:23.929
+optimization is efficient.,00:34:23.929,00:34:25.100
+"In that case, you get a global
+minimum and all of that.",00:34:25.100,00:34:27.920
+"So now, you resort to either
+a conceptual appeal, the plausibility,",00:34:27.920,00:34:34.429
+"or practical appeal, which is
+the friendly aspect, to",00:34:34.429,00:34:37.750
+choose the error measure.,00:34:37.750,00:34:38.820
+"This is completely legitimate, because
+in many cases, you're not going to",00:34:38.820,00:34:41.620
+have the user-specified error measure.,00:34:41.620,00:34:44.030
+"Now, let us modify the learning
+diagram once more to introduce the",00:34:44.030,00:34:51.050
+error measure as we defined it.,00:34:51.050,00:34:53.850
+So here is--,00:34:53.850,00:34:55.100
+"and I'd like to ask you to look at this
+for maybe 15 seconds, and tell me",00:34:58.120,00:35:02.950
+"where you think the error measure
+will fit in this diagram-- the",00:35:02.950,00:35:08.320
+error measure itself.,00:35:08.320,00:35:10.850
+What does it affect?,00:35:10.850,00:35:12.030
+What does it take from?,00:35:12.030,00:35:13.230
+What exactly--,00:35:13.230,00:35:15.370
+"I can put the error measure,
+for example, here.",00:35:15.370,00:35:17.680
+That's an option!,00:35:17.680,00:35:19.360
+"I can put it inside the unknown
+target function.",00:35:19.360,00:35:21.030
+"What does the error have to do
+with the target function?",00:35:21.030,00:35:23.810
+"So you can think, where
+would it be?",00:35:23.810,00:35:27.910
+"It's not difficult to realize that
+that's where it belongs.",00:35:27.910,00:35:30.825
+It has two roles.,00:35:30.825,00:35:33.000
+"One of them is to evaluate
+this statement.",00:35:33.000,00:35:36.330
+This statement is qualitative.,00:35:36.330,00:35:37.630
+"The output, the final hypothesis,
+approximates the target function.",00:35:37.630,00:35:43.220
+This is what gives it a number.,00:35:43.220,00:35:45.440
+This gives it a grade.,00:35:45.440,00:35:46.770
+"And you use the error measure to
+quantify this approximate thing.",00:35:46.770,00:35:51.820
+"The other thing is that you have
+to feed the error measure to",00:35:51.820,00:35:54.230
+the learning algorithm.,00:35:54.230,00:35:55.310
+"Because what does the learning
+algorithm do when you",00:35:55.310,00:35:57.490
+have an error measure?,00:35:57.490,00:35:58.770
+"It minimizes the in-sample error,
+let's say, in this case.",00:35:58.770,00:36:01.620
+"And the in-sample error depends
+on your error measure.",00:36:01.620,00:36:03.970
+"If you're minimizing squared error,
+that's different from minimizing",00:36:03.970,00:36:06.850
+another type of error.,00:36:06.850,00:36:08.170
+"So the error measure feeds
+into those two.",00:36:08.170,00:36:12.620
+"Now we go for the next guy, which
+is the noisy targets--",00:36:12.620,00:36:16.480
+"new topic, another addition
+to the learning diagram.",00:36:16.480,00:36:20.860
+"The noisy targets are actually
+very important.",00:36:20.860,00:36:23.000
+"Because in reality, these are the only
+types you're going to encounter in the",00:36:23.000,00:36:26.900
+problems in life.,00:36:26.900,00:36:27.960
+"Very seldom, you get a very
+clean target function.",00:36:27.960,00:36:32.060
+"The first statement is, the target
+function is not always a function.",00:36:32.060,00:36:38.880
+"Why are we calling it target function
+if it's not a function?",00:36:38.880,00:36:42.170
+"Well, function is a mathematical
+notion.",00:36:42.170,00:36:44.210
+"You have to return a unique value
+for every point in the domain.",00:36:44.210,00:36:48.120
+"That's what qualifies it
+as a function.",00:36:48.120,00:36:50.350
+"We used it here a little
+bit liberally.",00:36:50.350,00:36:52.360
+"So far, we dealt with it as if
+it was really a function.",00:36:52.360,00:36:55.150
+"But let's take the example we started
+with, the credit example.",00:36:55.150,00:37:00.100
+"You consider credit card approval, and
+here is the historical record.",00:37:00.100,00:37:04.420
+This is an input.,00:37:04.420,00:37:07.340
+"Isn't it possible that two identical
+customers have these fields, and one",00:37:07.340,00:37:14.110
+"of them ended up being good credit,
+and one of them ended",00:37:14.110,00:37:16.340
+up being bad credit?,00:37:16.340,00:37:18.280
+"Sure-- this doesn't capture all
+the information in the world.",00:37:18.280,00:37:20.840
+"There's information that is not given
+that contributes noise, if you will.",00:37:20.840,00:37:24.780
+"And there are circumstances that the
+people will go through that will make",00:37:24.780,00:37:28.110
+"it probabilistic whether they'll
+be good credit or bad credit.",00:37:28.110,00:37:31.680
+"So we come to realize that
+two identical customers,",00:37:31.680,00:37:35.030
+"in the sense that their input
+representation is the same,",00:37:35.030,00:37:37.790
+can have two different behaviors.,00:37:37.790,00:37:40.350
+"And having this-- this is one point
+mapping to two values, so it is",00:37:40.350,00:37:46.290
+not a function.,00:37:46.290,00:37:47.800
+What do we do about that?,00:37:47.800,00:37:50.660
+"Well, we use a target distribution,
+as in probability distribution.",00:37:50.660,00:37:53.980
+"So instead of having y equals f of x--
+you tell me what x is, and I'm going",00:37:53.980,00:37:59.500
+"to tell you what the value
+y is for sure.",00:37:59.500,00:38:03.410
+You use a target distribution.,00:38:03.410,00:38:06.250
+"And the notation for that is
+probability of y given x.",00:38:06.250,00:38:11.470
+"So again, it depends on x.",00:38:11.470,00:38:13.370
+But its dependence is probabilistic.,00:38:13.370,00:38:16.040
+"Some y's are more likely than
+others in this case.",00:38:16.040,00:38:18.840
+"Here, one y was possible, and the
+rest were impossible.",00:38:18.840,00:38:22.370
+"Now, we make it a little bit
+more accommodating.",00:38:22.370,00:38:27.540
+"Now, we have a target distribution
+instead of a target function.",00:38:27.540,00:38:31.080
+Let's follow it through.,00:38:31.080,00:38:32.330
+"x used to be generated by the input
+probability distribution.",00:38:34.520,00:38:39.030
+"It will still be generated
+by that distribution.",00:38:39.030,00:38:41.570
+"This is an artifact that we introduced
+in order to get the benefit of the",00:38:41.570,00:38:45.100
+Hoeffding-type inequalities.,00:38:45.100,00:38:46.290
+Nothing has changed.,00:38:46.290,00:38:48.050
+"But what will change now is that, instead
+of y being deterministic of x,",00:38:48.050,00:38:51.660
+"once you generate x, y is also
+probabilistic-- generated by this",00:38:51.660,00:38:56.360
+fellow.,00:38:56.360,00:38:58.760
+"So you can think now of x,y as a pair
+being generated by the joint",00:38:58.760,00:39:04.790
+"distribution, which is P of x times
+P of y given x, assuming",00:39:04.790,00:39:08.870
+independence.,00:39:08.870,00:39:11.690
+"So in this case-- there's no assumption
+of independence once",00:39:11.690,00:39:15.250
+you put it this way.,00:39:15.250,00:39:16.470
+"But the assumption here is that the
+P of y you are given is actually",00:39:16.470,00:39:20.270
+conditional on x.,00:39:20.270,00:39:20.990
+Now you get noisy targets.,00:39:20.990,00:39:27.500
+"What is the noisy target
+in this case?",00:39:27.500,00:39:30.550
+"Well, a noisy target can be posed as
+a deterministic target, like the one we",00:39:30.550,00:39:36.810
+"had before, plus noise.",00:39:36.810,00:39:39.350
+"This applies to any numerical
+target function.",00:39:39.350,00:39:42.480
+"So if y is a real number, or binary, or
+something numerical, you can always",00:39:42.480,00:39:47.670
+"pose the question of a target
+distribution as if it was",00:39:47.670,00:39:50.540
+"a deterministic target function
+proper, plus noise.",00:39:50.540,00:39:55.240
+"This is just a convenience, to show
+you that this is not far from",00:39:55.240,00:39:59.500
+what we have already.,00:39:59.500,00:40:00.980
+And why is that?,00:40:00.980,00:40:02.860
+"Because if you define now a target
+function to be the expected value-- the",00:40:02.860,00:40:08.810
+"conditional expected value of y given
+x, that's a function.",00:40:08.810,00:40:13.120
+"Although P of y given x gives you
+different values, you take the",00:40:13.120,00:40:17.500
+"expected value-- that's a number, and
+you call this the value of the",00:40:17.500,00:40:20.240
+"function, f of x.",00:40:20.240,00:40:24.280
+"Then, whatever is left out,
+you call the noise.",00:40:24.280,00:40:27.355
+It's a nice trick.,00:40:27.355,00:40:29.190
+You've got the bulk of it.,00:40:29.190,00:40:30.440
+"And then, you go here, and you
+call the rest the noise.",00:40:32.970,00:40:36.170
+"And that is usually the
+form it is given.",00:40:36.170,00:40:38.250
+"So you think that you are really
+trying to learn the",00:40:38.250,00:40:39.980
+target function still.,00:40:39.980,00:40:41.340
+"But there is this annoying noise, and
+you're trying to make your algorithm",00:40:41.340,00:40:44.230
+pick this pattern.,00:40:44.230,00:40:45.340
+"And there's nothing it can do
+about the remaining noise,",00:40:45.340,00:40:47.530
+which averages to 0.,00:40:47.530,00:40:49.320
+"Now, by the same token, there is
+no loss of generality when we talk",00:40:49.320,00:40:56.200
+about probability distributions.,00:40:56.200,00:40:58.150
+"If you actually have a proper function,
+which happens once in a blue",00:40:58.150,00:41:01.020
+"moon, you can still pose this as
+a probability distribution.",00:41:01.020,00:41:04.670
+How do you do that?,00:41:04.670,00:41:08.380
+You get here P of y given x.,00:41:08.380,00:41:13.350
+"And you define it to be identically 0
+unless y equals f of x that you have",00:41:13.350,00:41:18.060
+in mind.,00:41:18.060,00:41:19.200
+"So if we were talking about finite
+domains, you put all the probability 1",00:41:19.200,00:41:22.890
+on this value.,00:41:22.890,00:41:23.970
+"And you put the probability
+0 for all other values.",00:41:23.970,00:41:27.360
+"If it happens to be continuous, which is
+almost always the case, you put all",00:41:27.360,00:41:30.410
+"the mass on the point, you put a delta
+function there, and you let the other",00:41:30.410,00:41:33.700
+ones be identically 0.,00:41:33.700,00:41:35.380
+"In this case, the target function
+is a probability distribution.",00:41:35.380,00:41:38.670
+"Therefore, if we decide that the target
+is always a distribution, there",00:41:38.670,00:41:42.480
+is no loss of generality.,00:41:42.480,00:41:44.970
+"Now, let's do the final installment
+of the learning diagram.",00:41:44.970,00:41:52.340
+"Once we are done with this,
+we will freeze it forever.",00:41:52.340,00:41:54.830
+"This will be the general learning
+diagram for supervised learning.",00:41:54.830,00:41:59.290
+And here is what we have.,00:41:59.290,00:42:01.580
+"We're going to include the
+noisy targets.",00:42:01.580,00:42:05.350
+This is what we had so far.,00:42:05.350,00:42:06.720
+"It's getting crowded, isn't it?",00:42:06.720,00:42:09.150
+"And we are going to make
+it more crowded.",00:42:09.150,00:42:10.870
+"And in this case, we are including
+the noisy targets.",00:42:10.870,00:42:13.060
+"So obviously, the modification
+will happen here.",00:42:13.060,00:42:15.590
+"And what you do is you replace this
+with a target distribution.",00:42:15.590,00:42:19.750
+Let me magnify it.,00:42:19.750,00:42:22.930
+"So the unknown target function became
+unknown target distribution.",00:42:22.930,00:42:26.390
+"You define it as a conditional probability
+distribution of y given x.",00:42:26.390,00:42:30.150
+"And you can think of this as if it was
+a target function, which is the expected",00:42:30.150,00:42:33.780
+"value that I talked about, plus noise,
+which is the remaining part.",00:42:33.780,00:42:37.530
+"But as a target, it is
+a distribution.",00:42:37.530,00:42:41.300
+"And I'd like to look at this, and
+appreciate the time we spent to build",00:42:41.300,00:42:49.790
+the blocks here.,00:42:49.790,00:42:51.260
+"In spite of the fact this looks like
+a complete jungle, you can go back and",00:42:51.260,00:42:54.460
+"understand every single
+component here.",00:42:54.460,00:42:57.350
+Every component has a reason.,00:42:57.350,00:42:59.960
+"This is to accommodate a practical
+consideration, which is the fact that",00:42:59.960,00:43:04.100
+"we are learning something
+that is noisy.",00:43:04.100,00:43:06.160
+"This is because a specification of the
+penalty, or the cost you pay for not",00:43:06.160,00:43:11.480
+"being perfect, needs to be
+specified by the user.",00:43:11.480,00:43:14.270
+"This is our artificial addition to the
+problem in order to make learning",00:43:14.270,00:43:18.970
+"feasible, and so on and so forth.",00:43:18.970,00:43:21.770
+"So that is the final diagram
+for supervised learning.",00:43:21.770,00:43:26.700
+"Now, I'd like to make one final
+point about noisy targets, which is",00:43:26.700,00:43:30.320
+"the distinction between the two
+probabilities that we have.",00:43:30.320,00:43:33.602
+"We have probability of x, which
+we artificially introduced",00:43:33.602,00:43:37.120
+to accommodate Hoeffding.,00:43:37.120,00:43:38.170
+"And then, this was introduced in
+a completely different context. That is",00:43:38.170,00:43:42.200
+"to accommodate the fact that
+genuine functions that you",00:43:42.200,00:43:45.930
+"encounter in practice are not
+functions-- are actually noisy",00:43:45.930,00:43:48.700
+distributions.,00:43:48.700,00:43:50.080
+So let's look at this.,00:43:50.080,00:43:55.530
+They look very much related.,00:43:55.530,00:43:57.290
+"They both pour into the
+training examples.",00:43:57.290,00:44:00.520
+"That's how the training examples
+are generated.",00:44:00.520,00:44:03.200
+"This guy passes on the probability
+of y given x.",00:44:03.200,00:44:06.720
+"This guy passes on the
+probability of x.",00:44:06.720,00:44:09.430
+"When this guy gets it, it generates
+those guys according to the joint",00:44:09.430,00:44:12.500
+"distribution-- multiplies these, if you
+will, and then uses it as a way to",00:44:12.500,00:44:16.020
+"generate the pair x,y.",00:44:16.020,00:44:18.700
+"So they look like-- they belong
+to the same category.",00:44:18.700,00:44:21.650
+Both of them are unknown.,00:44:21.650,00:44:23.460
+"This one is unknown so that my machine
+learning statement can be as general",00:44:23.460,00:44:28.550
+as I can afford.,00:44:28.550,00:44:31.590
+You're learning something.,00:44:31.590,00:44:32.520
+You don't know what it is.,00:44:32.520,00:44:33.590
+So that's good to have.,00:44:33.590,00:44:35.300
+"This one is unknown, because it is the
+most assumption we could afford in",00:44:35.300,00:44:38.520
+order to get Hoeffding.,00:44:38.520,00:44:39.610
+"We needed a probability distribution,
+but we didn't need to make any",00:44:39.610,00:44:43.020
+assumptions about it.,00:44:43.020,00:44:44.120
+"So we left it to be an arbitrary
+one, and unknown, and we don't",00:44:44.120,00:44:47.720
+want to know it.,00:44:47.720,00:44:49.580
+So these are the similarities.,00:44:49.580,00:44:51.250
+"Now, let's look at the differences.",00:44:51.250,00:44:52.500
+Both have probabilistic aspects.,00:44:55.890,00:44:59.560
+We have seen that.,00:44:59.560,00:45:01.840
+"Now, the target distribution is
+what you are trying to learn.",00:45:01.840,00:45:07.400
+"You are not trying to learn
+the input distribution.",00:45:10.980,00:45:13.870
+"As a matter of fact, when you are done,
+you will not know what the input",00:45:13.870,00:45:16.550
+distribution is.,00:45:16.550,00:45:17.930
+"The input distribution is merely playing
+the role of quantifying the",00:45:17.930,00:45:23.380
+relative importance of the point x.,00:45:23.380,00:45:26.270
+Let me give you an example.,00:45:26.270,00:45:28.440
+"Let's say you are approving
+credit again.",00:45:28.440,00:45:31.350
+"The target distribution
+is the probability of",00:45:31.350,00:45:34.340
+creditworthiness given the input.,00:45:34.340,00:45:36.640
+"Let's simplify the input and
+say it's the salary.",00:45:36.640,00:45:39.210
+"So I give you the salary, you decide
+what is the risk of this person",00:45:39.210,00:45:42.940
+"defaulting, and then you decide--
+output is +1, approve credit",00:45:42.940,00:45:47.480
+"with probability 0.9, and disapprove
+credit with probability 0.1.",00:45:47.480,00:45:52.680
+That is the target distribution.,00:45:52.680,00:45:54.140
+"And that is what you're
+trying to learn.",00:45:54.140,00:45:56.220
+"You're going to approximate it
+to a hard decision probably.",00:45:56.220,00:45:58.550
+"Or you can actually learn the
+probability distribution, as",00:45:58.550,00:46:00.810
+we'll see later on.,00:46:00.810,00:46:03.240
+"The input distribution just tells you
+the distribution of salaries in the",00:46:03.240,00:46:07.180
+general population.,00:46:07.180,00:46:10.090
+"How many people make $100,000,
+how many people make",00:46:10.090,00:46:12.600
+"$10,000, et cetera.",00:46:12.600,00:46:14.960
+"So in spite of the fact that the
+probability distribution over the",00:46:14.960,00:46:20.880
+"input matters in the sense that: let's
+say that you encounter a population",00:46:20.880,00:46:25.460
+"where the salaries are very high, so P
+of x is tilted very much towards the",00:46:25.460,00:46:29.000
+"high salaries, and let's conjecture that
+high salaries correspond to high",00:46:29.000,00:46:34.290
+"creditworthiness. In this case, the same
+system that you trained that will",00:46:34.290,00:46:38.390
+"take any salary, low or high, and then
+decide whether to approve credit or",00:46:38.390,00:46:43.100
+"not, will be tested mostly in the very
+comfortable region of high salaries.",00:46:43.100,00:46:48.340
+"So it will be returning: yes approve,
+yes approve, yes approve, with very",00:46:48.340,00:46:51.410
+small probability of error.,00:46:51.410,00:46:53.600
+"And if you go and put the mass of
+probability around the borderline",00:46:53.600,00:46:57.710
+"cases, the cases where the decision is
+difficult, the same system that you",00:46:57.710,00:47:02.040
+"learned will probably perform worse,
+just because there are so many points",00:47:02.040,00:47:05.920
+that are borderline.,00:47:05.920,00:47:07.720
+"So it does give the weight that will
+finally grade your hypothesis.",00:47:07.720,00:47:11.140
+"But you're not trying to learn
+that distribution.",00:47:11.140,00:47:15.800
+"And when you put them together
+analytically, which you're allowed to",00:47:15.800,00:47:18.480
+"do, you can merge them
+as P of x and y.",00:47:18.480,00:47:22.370
+"And that's what you will
+find in the literature.",00:47:22.370,00:47:24.100
+"It's very nice and pleasant, and you
+generate the example using that joint",00:47:24.100,00:47:27.040
+distribution.,00:47:27.040,00:47:28.200
+"However, you just need to remember that
+this merging mixes two concepts",00:47:28.200,00:47:33.040
+that are inherently different.,00:47:33.040,00:47:35.560
+"Definitely, P of x and y is
+not a target distribution",00:47:35.560,00:47:41.710
+for supervised learning.,00:47:41.710,00:47:43.860
+"The target distribution, the one you're
+actually trying to learn, is",00:47:43.860,00:47:47.450
+this fellow.,00:47:47.450,00:47:48.700
+"And the other component is just
+a catalyst in the process.",00:47:48.700,00:47:55.435
+"That covers the error and noise,
+and we have arrived at the final",00:47:55.435,00:48:01.770
+statement of the learning problem.,00:48:01.770,00:48:03.450
+"So now, let me spend the rest of the
+lecture trying to prepare you for the",00:48:03.450,00:48:07.020
+"coming two weeks, which will consider
+the theory of learning.",00:48:07.020,00:48:11.140
+"It's a very important theory, and I
+encourage everyone to bite the bullet",00:48:11.140,00:48:16.070
+and go through it.,00:48:16.070,00:48:17.350
+"I will do my best to make
+it user-friendly.",00:48:17.350,00:48:20.710
+"However, it's important not just because
+of the mathematical derivation.",00:48:20.710,00:48:24.860
+"The insight, and the secondary
+tools you are going to get,",00:48:24.860,00:48:28.180
+are extremely important.,00:48:28.180,00:48:29.840
+"It's worth two weeks-- not a full two
+weeks, but four hours' worth",00:48:29.840,00:48:33.890
+"of listening to a lecture and actually
+trying to study the material well.",00:48:33.890,00:48:38.640
+So that's my pitch.,00:48:38.640,00:48:39.590
+"Let me give you the preamble
+to the theory.",00:48:39.590,00:48:42.670
+"Let's see what we know so far
+in order to put the theory in",00:48:42.670,00:48:47.030
+perspective.,00:48:47.030,00:48:49.740
+"We know that learning is feasible
+in a probabilistic sense.",00:48:49.740,00:48:54.830
+"And the way we did this is by stating
+that it is likely that the",00:48:54.830,00:49:00.850
+"out-of-sample performance is close
+to the in-sample performance.",00:49:00.850,00:49:04.920
+"That, in our mind, corresponded to
+the feasibility of learning.",00:49:04.920,00:49:08.300
+"And I'm going to test this premise now
+and ask: is this really learning?",00:49:08.300,00:49:16.390
+"Is this condition the condition that
+captures what we mean by learning?",00:49:16.390,00:49:21.560
+Let's raise some doubt.,00:49:21.560,00:49:22.820
+"Well, learning means that you
+got the hypothesis right.",00:49:25.970,00:49:29.600
+"You give it to your customer,
+and it behaves well--",00:49:29.600,00:49:32.650
+"as close as possible to the
+target function, right?",00:49:32.650,00:49:35.440
+That's success.,00:49:35.440,00:49:37.220
+"That means that the condition for
+learning is really that g",00:49:37.220,00:49:41.970
+approximates f.,00:49:41.970,00:49:43.550
+"And now, we are sophisticated people.",00:49:43.550,00:49:44.870
+"We know what ""approximates"" means.",00:49:44.870,00:49:48.190
+"This condition is not really
+this condition, right?",00:49:48.190,00:49:53.470
+"What is this condition in terms of
+the E_in and E_out and stuff?",00:49:53.470,00:49:56.890
+Very simple--,00:49:56.890,00:49:59.130
+that's what it means.,00:49:59.130,00:50:00.860
+"It means that the out-of-sample
+error for g is close to 0.",00:50:00.860,00:50:05.290
+"Because the out-of-sample
+error measures what?",00:50:05.290,00:50:07.215
+"It measures how far you are, that is g,
+from the target function over the",00:50:07.215,00:50:12.890
+entire space.,00:50:12.890,00:50:14.520
+"And therefore, the statement that you
+are close means that the out-of-sample",00:50:14.520,00:50:17.820
+error is small.,00:50:17.820,00:50:20.000
+So this is what we want.,00:50:20.000,00:50:22.000
+And this is what we have.,00:50:22.000,00:50:25.020
+"Now, what was that?",00:50:25.020,00:50:26.650
+"If it's not learning, what was it?",00:50:26.650,00:50:28.440
+"Well, this was actually
+good generalization.",00:50:28.440,00:50:33.730
+And it's an important building block.,00:50:33.730,00:50:35.890
+"Because you never will
+have access to this.",00:50:35.890,00:50:38.410
+"If I gave you this as the condition,
+then you say:",00:50:38.410,00:50:41.340
+"A quantity that I will never
+know is close to 0.",00:50:41.340,00:50:43.690
+Thank you very much!,00:50:43.690,00:50:45.960
+"But now, with the theory, I was able to
+tell you: you have a window on E_out",00:50:45.960,00:50:50.390
+"by dealing with E_in, if you have the
+right checks in place that we",00:50:50.390,00:50:56.450
+"developed vaguely as the number
+of hypotheses is not too big.",00:50:56.450,00:50:59.930
+"And we will define it very, very
+accurately when we get",00:50:59.930,00:51:03.380
+to the theory part.,00:51:03.380,00:51:04.730
+"So if you have that, all of a sudden,
+E_in is an important quantity.",00:51:04.730,00:51:09.290
+"Because now, it acts as a proxy
+for E_out that you don't know.",00:51:09.290,00:51:13.510
+"So this is not a total waste, but
+it's only half the story.",00:51:13.510,00:51:17.510
+"The full story of learning
+has two questions.",00:51:17.510,00:51:21.500
+"And if you look at this slide, and
+remember that this is always the",00:51:21.500,00:51:25.930
+"case the learning problem is posed,",00:51:25.930,00:51:28.460
+"you will dismiss a lot of misconceptions
+of-- learning is",00:51:28.460,00:51:32.230
+"impossible, learning is possible.",00:51:32.230,00:51:33.620
+"You'll find all kinds of results
+over the literature.",00:51:33.620,00:51:36.190
+So here's the deal.,00:51:36.190,00:51:37.440
+"This quantity patently
+is: we learned well.",00:51:39.890,00:51:44.490
+"That's what it means, right?",00:51:44.490,00:51:46.330
+"So now, we are going to achieve
+this through two conditions.",00:51:46.330,00:51:51.100
+"The first condition is the one
+we developed using Hoeffding.",00:51:51.100,00:51:55.290
+E_in is close to E_out.,00:51:55.290,00:51:58.410
+The second condition is: E_in is small.,00:51:58.410,00:52:05.330
+"You put them together, and
+you have the learning.",00:52:05.330,00:52:09.070
+"And you can see the difference
+between the two.",00:52:09.070,00:52:12.070
+This is a theoretical result.,00:52:12.070,00:52:14.580
+This is a practical result.,00:52:14.580,00:52:16.040
+"E_in,",00:52:16.040,00:52:16.710
+I know E_in.,00:52:16.710,00:52:17.580
+"I can try to use linear regression, or
+something else, to knock this down and",00:52:17.580,00:52:21.150
+get it as close to 0 as possible.,00:52:21.150,00:52:23.170
+"And indeed, if you look at where we
+handled these questions, we didn't",00:52:23.170,00:52:26.650
+"explicitly say the questions
+in this form.",00:52:26.650,00:52:28.710
+"But we already covered
+them in two lectures.",00:52:28.710,00:52:32.570
+"This was the subject of
+Lecture 2, right?",00:52:32.570,00:52:36.920
+"Hoeffding was all about the fact
+that E_in is close to E_out.",00:52:36.920,00:52:42.320
+This was the subject of Lecture 3.,00:52:42.320,00:52:45.270
+"We had data, and we wanted to get
+the in-sample error to be small.",00:52:45.270,00:52:49.340
+"And we looked for techniques
+to do that.",00:52:49.340,00:52:52.430
+"So now, because this is important,
+let's put it in a box.",00:52:52.430,00:52:59.130
+Learning reduces to two questions.,00:52:59.130,00:53:02.910
+First question:,00:53:02.910,00:53:05.310
+"can we make sure that the out-of-sample
+performance is close",00:53:05.310,00:53:09.860
+enough to the in-sample performance?,00:53:09.860,00:53:12.830
+"This is a theoretical question, and we
+are going to spend two weeks answering",00:53:12.830,00:53:18.130
+this question.,00:53:18.130,00:53:23.010
+Second one:,00:53:23.010,00:53:24.510
+"can we make the in-sample
+error small enough?",00:53:24.510,00:53:28.430
+"This is a practical question, and we're
+going to spend four weeks doing",00:53:28.430,00:53:34.120
+this one.,00:53:34.120,00:53:37.480
+"And then, by the way, at the end, we'll
+have one week to reflect.",00:53:37.480,00:53:41.340
+"And it's always sweet to reflect
+when you have a concrete",00:53:41.340,00:53:44.450
+ground to stand on.,00:53:44.450,00:53:46.540
+"We can do all the philosophy in the
+world, and we will have very concrete",00:53:46.540,00:53:50.290
+"mathematics, very concrete algorithms,
+and very concrete results on real",00:53:50.290,00:53:54.360
+"data, to know that what we're talking
+about means something.",00:53:54.360,00:53:58.400
+That's the plan.,00:53:58.400,00:54:00.420
+"Now, let me just make a small
+comment about this one.",00:54:00.420,00:54:04.140
+"Small enough has been
+close to 0 so far.",00:54:04.140,00:54:08.960
+"There is a very important class of
+applications where there is no way",00:54:08.960,00:54:13.040
+"under the sun that you'll get
+an out-of-sample performance close to 0,",00:54:13.040,00:54:17.690
+anywhere near 0.,00:54:17.690,00:54:19.040
+"And by proxy, simply, E_in
+will not also be 0.",00:54:19.040,00:54:23.670
+"And I'll give you a very
+simple example.",00:54:23.670,00:54:26.030
+"Let's say that you're doing financial
+forecasting, trying to detect whether",00:54:26.030,00:54:30.120
+the market's going up or down.,00:54:30.120,00:54:32.980
+"Under idealized conditions,
+this is impossible.",00:54:32.980,00:54:36.190
+"That data is purely noisy, and
+there's nothing to learn.",00:54:36.190,00:54:40.110
+"The fact that the conditions are not
+ideal makes hedge funds make money",00:54:40.110,00:54:44.350
+because of that.,00:54:44.350,00:54:45.110
+"They exploit a little
+bit of inefficiency.",00:54:45.110,00:54:47.580
+"But they don't get it right
+100% of the time.",00:54:47.580,00:54:50.800
+"They don't get it right
+70% of the time.",00:54:50.800,00:54:53.540
+"They will be very, very happy if they
+get it right 53% of the time,",00:54:53.540,00:54:58.360
+consistently.,00:54:58.360,00:55:00.960
+"Under those conditions, you
+will make a lot of money.",00:55:00.960,00:55:04.180
+"So the out-of-sample error here,
+that we're trying to do, is",00:55:04.180,00:55:06.990
+very close to a half.,00:55:06.990,00:55:08.630
+"It's 47% If you get
+an out-of-sample error,",00:55:08.630,00:55:13.730
+"so the correct is 53%,
+the error is 47%.",00:55:13.730,00:55:17.010
+"So you can get as small as possible, in
+some applications, to be not really",00:55:17.010,00:55:20.840
+"near 0 at all, but actually
+closer to the half.",00:55:20.840,00:55:23.850
+"As long as you know for a fact, or at
+least have the theoretical guarantee,",00:55:23.850,00:55:28.350
+"that what you're seeing in-sample, when
+you add the Hoeffding allowance,",00:55:28.350,00:55:33.860
+"if you will, that the out-of-sample will
+be comfortably-- error smaller than",00:55:33.860,00:55:38.260
+"a half consistently, you
+are in business.",00:55:38.260,00:55:40.790
+"If you don't have the Hoeffding
+guarantee, then you",00:55:40.790,00:55:44.700
+are so happy in-sample.,00:55:44.700,00:55:46.970
+"You get the stock market
+right 75% of the time.",00:55:46.970,00:55:50.210
+You think you're going to make money.,00:55:50.210,00:55:52.130
+"And then, when you look at the jump from
+E_in to E_out, you find that the",00:55:52.130,00:55:55.230
+"error bar is that big, and
+you are in trouble.",00:55:55.230,00:55:59.002
+"Let me talk about what the theory that
+we're going to cover in the next two",00:56:02.840,00:56:06.220
+"weeks will achieve, and
+then I will stop.",00:56:06.220,00:56:10.090
+"This is a typical figure that
+you are going to get.",00:56:10.090,00:56:14.790
+"Theory deals with in-sample error
+and out-of-sample error.",00:56:14.790,00:56:19.590
+Let me actually magnify it.,00:56:19.590,00:56:22.400
+OK.,00:56:22.400,00:56:24.450
+"We will see the behavior of in-sample
+error as you get the model",00:56:24.450,00:56:30.090
+"to be more and more elaborate, which
+will be measured by a quantity which",00:56:30.090,00:56:33.600
+we are going to call the VC dimension.,00:56:33.600,00:56:35.440
+"You will find that there are certain
+behaviors of the in-sample, and the",00:56:35.440,00:56:38.650
+"out-of-sample, and 
+the model complexity.",00:56:38.650,00:56:41.070
+"And all of the things that appear
+in this figure will get a formal",00:56:41.070,00:56:44.670
+"definition, and an ability to evaluate
+them when we get the theory.",00:56:44.670,00:56:48.730
+So it is worthwhile.,00:56:48.730,00:56:50.200
+"But if you summarize what the theory
+does, there are two steps that are the",00:56:50.200,00:56:55.790
+most important.,00:56:55.790,00:56:57.050
+"The first one, which is the most
+remarkable result in the theory of",00:56:57.050,00:57:01.310
+"learning, is that we are going to
+characterize the feasibility of",00:57:01.310,00:57:05.160
+"learning for the case where--
+infinite M, remember what M was?",00:57:05.160,00:57:10.710
+M was the number of hypotheses.,00:57:10.710,00:57:13.250
+"We worked with a finite hypothesis set,
+in order to be able to work with",00:57:13.250,00:57:16.550
+simple Hoeffding.,00:57:16.550,00:57:17.710
+"And we realized that the bigger
+M is, the looser the bound.",00:57:17.710,00:57:21.280
+"And if M goes too big, the
+bound is meaningless.",00:57:21.280,00:57:24.240
+"So if M is infinity, we are toast.",00:57:24.240,00:57:27.400
+"So now, we would like to be able to find
+a counterpart to able to take",00:57:27.400,00:57:31.140
+"an infinite hypothesis set, like every
+hypothesis set we have seen so far--",00:57:31.140,00:57:35.740
+"perceptron, the linear
+regression model.",00:57:35.740,00:57:38.050
+"All of these are infinite
+hypotheses.",00:57:38.050,00:57:40.450
+"And we are going to try to find a way
+to deal with infinite hypotheses.",00:57:40.450,00:57:45.880
+This is the bulk of the development.,00:57:45.880,00:57:47.900
+"And that is, we'll end up-- we are
+going to measure the model not by the",00:57:47.900,00:57:52.590
+"number of hypotheses, but by a single
+parameter which tells us the",00:57:52.590,00:57:56.800
+sophistication of the model.,00:57:56.800,00:57:58.460
+"And that sophistication will reflect
+the out-of-sample performance as it",00:57:58.460,00:58:02.080
+relates to the in-sample performance.,00:58:02.080,00:58:04.740
+"Once we do this, lots of doors open.",00:58:04.740,00:58:08.150
+"So we're going to characterize
+a tradeoff that we observed on and off",00:58:08.150,00:58:11.380
+as we went through the lectures.,00:58:11.380,00:58:13.630
+"We realized that we would like our
+model, the hypothesis set, to be",00:58:13.630,00:58:18.350
+"elaborate, in order to be
+able to fit the data.",00:58:18.350,00:58:21.840
+"The more parameters you have, the more
+likely you are going to fit the data",00:58:21.840,00:58:24.730
+and get here.,00:58:24.730,00:58:25.550
+"So the E_in goes down if you
+use more complex models.",00:58:25.550,00:58:29.800
+"We also suspected that, if you make the
+model more complex-- the same",00:58:29.800,00:58:33.300
+"direction, the discrepancy between E_out
+and E_in gets worse and worse.",00:58:33.300,00:58:38.400
+"E_in tracks E_out much more loosely
+than it used to.",00:58:38.400,00:58:44.750
+"Now, the good news from the theory is
+that this will be pinned down so",00:58:44.750,00:58:48.960
+"concretely that we are going to derive
+techniques from this that will make",00:58:48.960,00:58:55.580
+"a lot of difference in the
+practical learning.",00:58:55.580,00:58:57.910
+"Regularization is a direct
+result of this.",00:58:57.910,00:59:01.260
+"And without regularization, you
+basically cannot do machine learning,",00:59:01.260,00:59:05.540
+other than extremely naively.,00:59:05.540,00:59:08.080
+"So this will set the foundation for
+a practical method that is used in",00:59:08.080,00:59:12.420
+"almost every machine learning
+problem you will have.",00:59:12.420,00:59:15.050
+So it's worth really knowing.,00:59:15.050,00:59:17.550
+"Now, I will stop here.",00:59:17.550,00:59:20.800
+And we'll take questions.,00:59:20.800,00:59:22.000
+And we'll start the theory next time.,00:59:22.000,00:59:24.080
+"Please, get ready.",00:59:24.080,00:59:26.090
+"Do your exercise, and get ready for two
+weeks' worth of very interesting",00:59:26.090,00:59:30.690
+derivation.,00:59:30.690,00:59:31.940
+"Now, let's go to questions.",00:59:36.840,00:59:40.710
+"MODERATOR: How does P of x impact
+the learning algorithm?",00:59:40.710,00:59:47.520
+"So does it matter if P of x is different in
+the training and the real data set?",00:59:47.520,00:59:52.460
+"PROFESSOR: There is the
+absolute impact of P of x.",00:59:52.460,00:59:56.340
+"And then, there's the relative impact.",00:59:56.340,00:59:57.950
+"You're asking about
+the relative impact.",00:59:57.950,00:59:59.360
+"Let's say that I pick the training
+points according to one distribution,",00:59:59.360,01:00:03.860
+"and then test the system
+using another.",01:00:03.860,01:00:05.460
+Let's answer that question first.,01:00:05.460,01:00:07.970
+"There is a correction to the theory
+that takes into consideration the",01:00:07.970,01:00:12.730
+"difference between the two probability
+distributions, assuming that they are",01:00:12.730,01:00:18.620
+not extreme.,01:00:18.620,01:00:19.290
+"For example, if one probability
+distribution completely vanishes, then",01:00:19.290,01:00:22.650
+obviously there's a problem.,01:00:22.650,01:00:23.530
+"Because the points in that part of the
+space will never happen, and you",01:00:23.530,01:00:26.240
+"shouldn't be hoping to learn
+at all from that.",01:00:26.240,01:00:28.810
+"But there are modifications to the
+theory, where you get a correction term",01:00:28.810,01:00:32.960
+"based on the difference between
+the two probabilities.",01:00:32.960,01:00:36.950
+The absolute version--,01:00:36.950,01:00:38.280
+"I don't know whether this was asked,
+but let me address it anyway--",01:00:38.280,01:00:41.280
+"how does P of x affect the
+learning algorithm?",01:00:41.280,01:00:45.720
+"Well, the emphasis that P of x gives
+on certain parts of the space over",01:00:45.720,01:00:49.870
+"others will affect the choice
+of the learning examples.",01:00:49.870,01:00:53.040
+"And if you have a limited resource
+in your hypothesis set--",01:00:53.040,01:00:57.170
+"which you always have to have,
+otherwise the model is too",01:00:57.170,01:00:59.900
+complicated--,01:00:59.900,01:01:01.060
+"then there's always a compromise about
+which part of the space should I try",01:01:01.060,01:01:05.590
+to get better than the other?,01:01:05.590,01:01:07.240
+"You don't think of this explicitly,
+but that's what the algorithm does",01:01:07.240,01:01:10.020
+"when it tries to satisfy
+a number of examples.",01:01:10.020,01:01:12.600
+"Therefore, if you change the
+probability distribution--",01:01:12.600,01:01:16.420
+"even if it's the same for both of them--
+then you will end up with",01:01:16.420,01:01:19.260
+"a slightly different hypothesis that takes
+into consideration the emphasis",01:01:19.260,01:01:24.310
+of the new one.,01:01:24.310,01:01:25.900
+"Nonetheless, you are not learning
+that input distribution.",01:01:25.900,01:01:28.650
+It's just affecting your choices.,01:01:28.650,01:01:32.850
+"MODERATOR: In this discussion,
+you introduced a probability of y",01:01:32.850,01:01:36.910
+given x and probability of x.,01:01:36.910,01:01:39.090
+"Will probability of x given
+y ever play a role?",01:01:39.090,01:01:44.315
+"PROFESSOR: I can imagine cases
+where it plays a role,",01:01:44.315,01:01:48.520
+"where you have P of x and y,
+and you ask yourself: if I get this",01:01:48.520,01:01:52.480
+"output, what is the likely input?",01:01:52.480,01:01:55.510
+This is a role.,01:01:55.510,01:01:56.440
+"I don't know whether it's a machine
+learning role or not.",01:01:56.440,01:01:58.750
+"But in general, the merging of P of x
+and P of y given x in the same quantity,",01:01:58.750,01:02:06.070
+"although it's mathematically convenient,
+as I mentioned, it's",01:02:06.070,01:02:08.340
+a little bit--,01:02:08.340,01:02:09.430
+not misleading.,01:02:09.430,01:02:10.320
+Misleading is a strong word.,01:02:10.320,01:02:11.920
+"What you're really looking at, you
+always think, I have P of y given x.",01:02:11.920,01:02:17.260
+"That's the genuine thing that
+I'm trying to learn.",01:02:17.260,01:02:19.730
+"And that is an integral part
+of the learning problem.",01:02:19.730,01:02:23.300
+"On the other hand, P of x plays a technical
+role-- a technical role",01:02:23.300,01:02:28.300
+that is fairly negligible.,01:02:28.300,01:02:29.440
+"It's essential for it to exist, but
+it's not nearly as important as",01:02:29.440,01:02:34.210
+P of y given x.,01:02:34.210,01:02:35.460
+"MODERATOR: In the case of considering the
+target function as a probability",01:02:42.080,01:02:45.830
+"distribution, then what
+is better to have--",01:02:45.830,01:02:50.830
+N pairs of x and y or N y's per x?,01:02:50.830,01:02:59.840
+"PROFESSOR: I don't have
+a theoretical proof for it.",01:02:59.840,01:03:02.240
+"It seems to me obvious that if you get
+all the outputs corresponding to one",01:03:02.240,01:03:06.800
+"input, you are dealing with a very
+specific part of the input space, and",01:03:06.800,01:03:10.940
+"you're unlikely to infer anything
+about the rest of the space.",01:03:10.940,01:03:15.210
+"So the answer to the question
+is that intuitively--",01:03:15.210,01:03:17.860
+"and I think it would probably be
+not that difficult to prove--",01:03:17.860,01:03:21.280
+"that you get them independently rather
+than get them for the same input.",01:03:21.280,01:03:25.790
+"Also, by the argument we mentioned
+before, you should be choosing the",01:03:25.790,01:03:29.390
+"inputs according to the probability
+distribution, the input probability",01:03:29.390,01:03:33.330
+"distribution P of x, independently.",01:03:33.330,01:03:36.080
+"So if you get all the examples according
+to the same x, this really",01:03:36.080,01:03:40.170
+"means that P of x that you're using
+is a delta function on that x.",01:03:40.170,01:03:44.730
+"So if you live up to the expectations,
+and use the same probability",01:03:44.730,01:03:47.470
+"distribution to generate the output,
+then you are in good shape.",01:03:47.470,01:03:50.790
+"But if you change the game on me, and
+generate all the examples according to",01:03:50.790,01:03:54.140
+"this delta function, and then when you
+want to test it, you go out and give",01:03:54.140,01:03:57.280
+"me points that I haven't seen
+before, then I'm in trouble.",01:03:57.280,01:03:59.080
+"MODERATOR: Can you clarify what
+you mean by poor generalization?",01:04:02.670,01:04:08.540
+It's a common question.,01:04:08.540,01:04:10.650
+"PROFESSOR: This will be
+part of the theory.",01:04:10.650,01:04:12.240
+"There will be a very specific quantity
+we measure, which is the discrepancy",01:04:12.240,01:04:14.980
+between E_out and E_in.,01:04:14.980,01:04:16.620
+"And we are going to call this the
+generalization error.",01:04:16.620,01:04:20.210
+"And that will quantify poor
+generalization or good generalization.",01:04:20.210,01:04:23.815
+"MODERATOR: Going back to
+slide 11 and 12--",01:04:27.040,01:04:30.255
+"PROFESSOR: Ah, the
+supermarket and the CIA.",01:04:38.754,01:04:40.740
+"MODERATOR: Yes, so you chose the numbers
+1 and 10, or 1000 and 1.",01:04:40.740,01:04:47.730
+"Is there a principled way
+of choosing these numbers?",01:04:47.730,01:04:51.720
+"PROFESSOR: The principled way
+is to estimate the cost of this",01:04:51.720,01:04:56.570
+"occurrence, and then translate
+it into those.",01:04:56.570,01:05:00.200
+This was only an illustration.,01:05:00.200,01:05:01.680
+"And I wasn't really interested
+in the 1 or 10.",01:05:01.680,01:05:04.020
+"I was only interested in making the
+point crisp, that the error measure is",01:05:04.020,01:05:08.490
+"different between two application
+domains for exactly the same system--",01:05:08.490,01:05:13.500
+"the same system as in machine learning
+system, same training data, same",01:05:13.500,01:05:17.130
+target function.,01:05:17.130,01:05:18.140
+"But the error measure can be
+different depending on the",01:05:18.140,01:05:20.340
+application domain.,01:05:20.340,01:05:21.990
+"So in this case, indeed, we can actually
+go and see, for example,",01:05:21.990,01:05:27.080
+"the loss of revenue by giving
+an unwarranted discount for the",01:05:27.080,01:05:31.260
+"supermarket, and the probability that
+the customer will be annoyed, and",01:05:31.260,01:05:35.880
+"lost revenue because of the customer,
+and actually come up with the right",01:05:35.880,01:05:39.490
+"balance between false accept and false
+reject for the supermarket.",01:05:39.490,01:05:42.690
+"It may not be 10, but it will be--",01:05:42.690,01:05:45.530
+"definitely, the number that is 10
+here would be bigger than the",01:05:45.530,01:05:47.950
+number that is 1 here.,01:05:47.950,01:05:49.300
+"Similarly, for the CIA, you can go and
+ask yourself, what is the risk and how",01:05:49.300,01:05:54.680
+"much does it cost, versus the lost time
+for the employees by trying the system",01:05:54.680,01:06:01.340
+"again, and then come up with a more
+principled way of doing it.",01:06:01.340,01:06:04.350
+"But that was not really the crux
+of what I'm doing here.",01:06:04.350,01:06:07.840
+"I was only making the point that
+they are different, that's all.",01:06:07.840,01:06:12.570
+"MODERATOR: Once the theory is
+explained, will it quantify the errors",01:06:12.570,01:06:25.290
+"that result from not knowing parts of P
+of x, especially if P of x has maybe",01:06:25.290,01:06:30.360
+long tails and things like that?,01:06:30.360,01:06:31.970
+"PROFESSOR: P of x has
+been assumed to be",01:06:31.970,01:06:36.640
+an unknown function.,01:06:36.640,01:06:38.930
+"And I only used it as a utility to
+invoke a probabilistic setup.",01:06:38.930,01:06:44.830
+There are no assumptions about P of x.,01:06:44.830,01:06:47.430
+"As long as you pick the points from the
+same distribution to train as to",01:06:47.430,01:06:52.450
+"test, everything that I said, and
+I will say during the theory",01:06:52.450,01:06:56.320
+"part, will be valid.",01:06:56.320,01:06:58.420
+"If it's a long tail, it's a long tail
+for training and for testing.",01:06:58.420,01:07:04.130
+"The probability of getting
+something from--",01:07:04.130,01:07:06.780
+"let's say if it's a heavy tail and I get
+something that is outlier, I will",01:07:06.780,01:07:12.070
+get a certain error.,01:07:12.070,01:07:12.830
+"I will get an in-sample error and
+I'll get an out-of-sample error.",01:07:12.830,01:07:15.900
+"I basically don't worry about the
+structure of P of x, because I'm",01:07:15.900,01:07:20.200
+assuming it's unknown.,01:07:20.200,01:07:20.900
+"And I'm assuming that, in the course
+of supervised learning, I'm not",01:07:20.900,01:07:24.250
+going to learn it.,01:07:24.250,01:07:25.500
+"MODERATOR: What happens in the case
+that both the false positives and",01:07:30.510,01:07:36.910
+negatives have higher values?,01:07:36.910,01:07:40.400
+"PROFESSOR: If you scale both
+of them up, it makes no",01:07:40.400,01:07:42.540
+difference whatsoever.,01:07:42.540,01:07:43.490
+"Then, the error measure is scaled
+up, and you're minimizing it.",01:07:43.490,01:07:46.390
+"So it's just a constant
+multiplied by it.",01:07:46.390,01:07:48.830
+"If they are scaled relative to each
+other, then obviously the emphasis on",01:07:48.830,01:07:52.850
+"the system changes,",01:07:52.850,01:07:54.140
+"trying to get more false positives and
+less false negatives, or vice versa.",01:07:54.140,01:07:58.460
+"And that's what happens between
+these two examples.",01:07:58.460,01:08:01.880
+"For the supermarket, here we are
+trying not to reject customers.",01:08:01.880,01:08:05.770
+"And in the CIA case, we are trying not
+to accept people who are intruders.",01:08:05.770,01:08:10.720
+"MODERATOR: There's also a question of
+reiterating the relation of P of x",01:08:10.720,01:08:14.870
+to Hoeffding Inequality.,01:08:14.870,01:08:16.770
+"PROFESSOR: The Hoeffding
+Inequality was based on the bin.",01:08:16.770,01:08:21.800
+"The bin had marbles, and we picked them
+according to some probability",01:08:21.800,01:08:24.819
+which we labeled as--,01:08:24.819,01:08:26.330
+"it's a Bernoulli trial, so
+it's a binary outcome.",01:08:26.330,01:08:28.990
+And the probability was mu.,01:08:28.990,01:08:31.609
+The bin became the input space.,01:08:31.609,01:08:34.080
+"The input space, when we started talking
+about machine learning, did not",01:08:34.080,01:08:37.210
+have a probability distribution.,01:08:37.210,01:08:38.359
+It was just a set.,01:08:38.359,01:08:40.520
+"So in order to be able to invoke the
+probabilistic aspect, we needed to put",01:08:40.520,01:08:43.960
+"a probability distribution over the
+input space, such that when you",01:08:43.960,01:08:48.649
+"you create green and red
+marbles according to",01:08:48.649,01:08:51.370
+"agreement/disagreement, and the input
+space becomes a bin, there is",01:08:51.370,01:08:54.270
+"a probability that goes with it for
+picking red versus green marbles.",01:08:54.270,01:08:59.250
+"It doesn't matter, because any
+probability you put will",01:08:59.250,01:09:01.830
+correspond to some mu.,01:09:01.830,01:09:03.359
+"And then, you have the rest of it.",01:09:03.359,01:09:04.600
+"And we know that the Hoeffding
+Inequality is independent of the--",01:09:04.600,01:09:07.810
+"the bound on the right-hand side is
+independent of the value of mu.",01:09:07.810,01:09:11.479
+"So any old probability will
+do-- will do what?",01:09:11.479,01:09:14.600
+"Will do the legitimization of the
+learning problem as far as the",01:09:14.600,01:09:21.319
+probabilistic approach is concerned.,01:09:21.319,01:09:23.210
+"Obviously, we can enter a discussion
+about the probability being",01:09:23.210,01:09:27.970
+"concentrated or spread out, or
+parts of the space being 0.",01:09:27.970,01:09:31.410
+"All of that is good and valid, except
+that it doesn't affect the basic",01:09:31.410,01:09:34.960
+"question, which is to make sure
+that learning is feasible in",01:09:34.960,01:09:38.890
+a probabilistic sense.,01:09:38.890,01:09:40.460
+Any P of x will achieve that.,01:09:40.460,01:09:44.140
+MODERATOR: A clarification--,01:09:44.140,01:09:45.300
+"some people are asking to simplify
+the case of a squared error measure",01:09:45.300,01:09:50.140
+and the closed-form solution.,01:09:50.140,01:09:52.620
+"PROFESSOR: This actually
+goes to the review.",01:09:52.620,01:09:57.410
+"Let me go to the review one, because
+this is from last lecture.",01:09:57.410,01:10:03.950
+"There is an algorithm that we
+derived for linear regression.",01:10:03.950,01:10:11.260
+"And the algorithm was based on
+minimizing squared error.",01:10:11.260,01:10:15.580
+"Remember that we took a gradient, and
+we took advantage of the form being",01:10:15.580,01:10:19.080
+"squared error in order for the thing
+to be differentiable, and for the",01:10:19.080,01:10:22.020
+derivative to have a simple form.,01:10:22.020,01:10:23.850
+"And that simple form is what ended up
+in getting the formula for w at the",01:10:23.850,01:10:29.610
+"bottom, which is X transposed X, inverse
+of that, times X transposed y,",01:10:29.610,01:10:33.890
+"as a simple closed-form solution for
+the final hypothesis of linear",01:10:33.890,01:10:39.540
+regression.,01:10:39.540,01:10:40.550
+"So in that case, it is the squared
+error measure, that defines linear",01:10:40.550,01:10:44.630
+"regression, that enabled us to
+find such a simple solution.",01:10:44.630,01:10:47.880
+"If you take another measure, you may
+or may not get a simple solution.",01:10:47.880,01:10:52.330
+"But for sure, in this case, we got it.",01:10:52.330,01:10:54.100
+"And there are definitely error measures
+that you can put, where you",01:10:54.100,01:10:57.030
+"cannot find a simple solution
+like this one.",01:10:57.030,01:10:59.010
+"MODERATOR: Going back to the problem
+of the CIA and the supermarket, if the",01:11:03.840,01:11:13.630
+"probability of y equals +1, and y equals
+-1, is not balanced, should",01:11:13.630,01:11:20.590
+"you do something regarding P of x to
+have a correct estimate of your error?",01:11:20.590,01:11:27.990
+"PROFESSOR: Probability of
+y, in the absolute, depends on two",01:11:27.990,01:11:31.230
+"things-- probability of y given
+x and probability of x.",01:11:31.230,01:11:35.080
+"So if you put them together, and you get
+an imbalance in the probability of",01:11:35.080,01:11:38.270
+"y, this means that the building
+quantities, which is P of x and P of y",01:11:38.270,01:11:43.540
+"given x, are what affected that.",01:11:43.540,01:11:45.310
+"And those quantities will definitely
+affect the learning process.",01:11:45.310,01:11:49.020
+"So the answer-- if you want to answer
+what happens when y is not",01:11:49.020,01:11:52.330
+"balanced, go back and see
+what gave rise to it.",01:11:52.330,01:11:54.460
+"And then, you will be able to find the
+answer more directly linked through",01:11:54.460,01:11:58.620
+"the quantities that directly affect
+the learning process.",01:11:58.620,01:12:03.050
+"MODERATOR: And again, on these costs, is
+there ever a case where you can use",01:12:03.050,01:12:09.660
+"rewards instead of costs, as in
+assigning negative values to--",01:12:09.660,01:12:16.830
+"PROFESSOR: Yeah, they
+are equivalent, indeed.",01:12:16.830,01:12:19.520
+"You are just maximizing the reward
+or minimizing the punishment.",01:12:19.520,01:12:23.360
+"I think it's just two ways of
+looking at the same thing.",01:12:23.360,01:12:25.100
+MODERATOR: A question--,01:12:30.700,01:12:31.910
+"In the example of the bins, when you
+say there's a bin that becomes the",01:12:31.910,01:12:37.030
+"input space, does the input space
+include just the training data points,",01:12:37.030,01:12:40.390
+"or does input space include
+all possible points?",01:12:40.390,01:12:44.250
+"PROFESSOR: The input space
+includes all possible points, but",01:12:44.250,01:12:47.370
+"includes only the input parts
+of those possible points.",01:12:47.370,01:12:49.920
+"If you look at the examples, the
+training data, there is x and y.",01:12:49.920,01:12:53.780
+"And the input space deals
+only with the x part.",01:12:53.780,01:12:57.430
+"When you talk about the input space in
+general, it covers all possible x's.",01:12:57.430,01:13:00.860
+"When you talk about the training data,
+you are talking about the x's that",01:13:00.860,01:13:04.120
+"were picked as a training
+set, N of them.",01:13:04.120,01:13:08.263
+"MODERATOR: Regarding the
+transformation, what relation does phi",01:13:12.120,01:13:20.460
+"have to something like principal
+component analysis?",01:13:20.460,01:13:24.420
+"PROFESSOR: This is
+a different subject.",01:13:24.420,01:13:27.580
+"So there is a subject of processing
+the input, in order to make it more",01:13:27.580,01:13:32.680
+"compact, in order to get rid of
+irrelevant parts and whatnot.",01:13:32.680,01:13:35.470
+"And that is a legitimate processing
+step, but it's not what I",01:13:35.470,01:13:39.350
+was alluding to here.,01:13:39.350,01:13:40.950
+"What I was alluding to here, in the
+nonlinear transformation, is an ability",01:13:40.950,01:13:46.060
+"to implement more sophisticated
+hypotheses using the same simple",01:13:46.060,01:13:51.730
+"method, which is the
+linear method.",01:13:51.730,01:13:54.350
+"And therefore, the transformation
+is with a view to that.",01:13:54.350,01:13:57.660
+"Not with a view to getting rid of
+some of the artifacts",01:13:57.660,01:14:01.160
+of the input.,01:14:01.160,01:14:02.200
+"However, feature extraction
+is feature extraction.",01:14:02.200,01:14:04.470
+"You can think of the nonlinear
+transformation as feature extraction.",01:14:04.470,01:14:08.350
+"You can also think of other methods for
+processing the input, and getting",01:14:08.350,01:14:11.750
+"rid of some of the irrelevances,
+also as feature extraction.",01:14:11.750,01:14:16.860
+"And if you think of the example of the
+handwritten digits that we talked",01:14:16.860,01:14:20.240
+"about, we started with the full image,
+which I think was 257 bits' worth,",01:14:20.240,01:14:25.740
+counting the constant 1.,01:14:25.740,01:14:27.140
+"And then, we ended up with only
+two features plus the 1.",01:14:27.140,01:14:31.540
+"The two features where symmetry
+and intensity.",01:14:31.540,01:14:34.550
+"And in some sense, these are
+informative features.",01:14:34.550,01:14:37.980
+"And in that case, you lost some
+information about the input.",01:14:37.980,01:14:41.470
+"But hopefully what you lost
+is not relevant.",01:14:41.470,01:14:44.440
+"The principal component analysis, and
+other methods, are fairly systematic to",01:14:44.440,01:14:48.560
+detect that without attaching meaning.,01:14:48.560,01:14:50.020
+So you don't really study the subject.,01:14:50.020,01:14:51.830
+"You just apply a standard method that
+will pick the most informative",01:14:51.830,01:14:57.110
+"directions in the input space, in
+the input representation space.",01:14:57.110,01:15:01.690
+And that will be your coordinates.,01:15:01.690,01:15:03.590
+So it's a different subject.,01:15:03.590,01:15:04.800
+"It's not related to nonlinear
+transformation, per se.",01:15:04.800,01:15:07.020
+"MODERATOR: Regarding the error measures,
+so the squared error measure is used",01:15:09.520,01:15:14.210
+mainly for mathematical convenience.,01:15:14.210,01:15:16.300
+"Do we lose too much by replacing it for
+something like just an absolute value?",01:15:16.300,01:15:24.520
+"PROFESSOR: You
+lose the optimization.",01:15:24.520,01:15:26.845
+Squared error is this way.,01:15:26.845,01:15:30.190
+"And that is nice and smooth, and
+has all kinds of properties.",01:15:30.190,01:15:34.060
+"You take the absolute value,
+and you have this guy.",01:15:34.060,01:15:36.910
+And the edge is really bad news.,01:15:36.910,01:15:39.190
+"All of a sudden, it becomes combinatorial
+optimization instead of",01:15:39.190,01:15:44.220
+a smooth function.,01:15:44.220,01:15:45.130
+"So yes, you lose in terms
+of optimization.",01:15:45.130,01:15:47.650
+"If you have a specific merit for using
+the absolute value-- that is, the guy",01:15:47.650,01:15:54.580
+"tells you that this is my function, and
+I want to make sure that this is",01:15:54.580,01:15:57.650
+what you minimize--,01:15:57.650,01:15:58.620
+"then we have to bite the bullet
+and work through it.",01:15:58.620,01:16:01.240
+"But if you're making an analytic choice
+just for the heck of it, you",01:16:01.240,01:16:05.180
+"might as well pick something that is
+friendly either to the concept or to",01:16:05.180,01:16:08.590
+the optimizer.,01:16:08.590,01:16:09.840
+"MODERATOR: So this question regarding
+the use of a linear model,",01:16:12.200,01:16:19.370
+"when you have P of y given x,
+that represents f of x.",01:16:19.370,01:16:23.290
+"And then, f of x would be the
+result of w transposed--",01:16:23.290,01:16:26.360
+hello?,01:16:29.710,01:16:31.720
+"OK, so if this is the case, then when
+you subtract y by f of x, does it mean",01:16:31.720,01:16:38.920
+you have a P of y of x shape?,01:16:38.920,01:16:41.620
+PROFESSOR: The target is f of x.,01:16:41.620,01:16:42.670
+"The target is not w transposed x.
+w transposed x is the final hypothesis",01:16:42.670,01:16:47.480
+"that is my attempt to approximate
+the target function.",01:16:47.480,01:16:50.330
+"So I was talking about target function
+versus target distribution, even",01:16:50.330,01:16:53.570
+without any learning taking place.,01:16:53.570,01:16:55.400
+Someone has a target function.,01:16:55.400,01:16:56.530
+It's noisy.,01:16:56.530,01:16:57.470
+"I'm telling them that they
+can model it this way--",01:16:57.470,01:16:59.600
+"take the expected value, assuming it's
+a numerical function-- the expected",01:16:59.600,01:17:03.430
+"value under the probability
+distribution.",01:17:03.430,01:17:05.690
+"You will get the average
+y given a particular x.",01:17:05.690,01:17:09.160
+That's a function.,01:17:09.160,01:17:10.400
+So your call this f of x.,01:17:10.400,01:17:12.030
+"The remaining part, which is the value
+of y minus that, will be pure noise in",01:17:12.030,01:17:18.130
+the sense that it averages around 0.,01:17:18.130,01:17:20.140
+"So this was just a way
+of looking at it.",01:17:20.140,01:17:22.350
+"But definitely, it does not touch
+at all on linear models",01:17:22.350,01:17:25.990
+or any other models.,01:17:25.990,01:17:27.230
+"It's a characterization of the target
+function versus target distribution.",01:17:27.230,01:17:32.030
+"MODERATOR: There's a tradeoff
+between complexity and the",01:17:32.030,01:17:38.640
+performance.,01:17:38.640,01:17:39.190
+"Is there a way to simultaneously
+improve the generalization as well as",01:17:39.190,01:17:43.980
+minimize error?,01:17:43.980,01:17:45.310
+"PROFESSOR: If you sit through
+the next four lectures very,",01:17:45.310,01:17:49.060
+"very attentively, you'll get the answer
+to that at the end of the four",01:17:49.060,01:17:51.740
+lectures.,01:17:51.740,01:17:54.500
+"I'm half joking, but that's
+the reality of it.",01:17:54.500,01:17:57.200
+"You'll have enough tools to be able
+to answer questions like that.",01:17:57.200,01:17:59.630
+MODERATOR: I think that's it.,01:18:03.887,01:18:05.390
+"PROFESSOR: OK, that's it.",01:18:05.390,01:18:06.120
+"Thank you, and we'll see you next week.",01:18:06.120,01:18:08.030

@@ -1,0 +1,366 @@
+text,start,stop
+"In our previous lesson, we had written code
+to insert a node at the beginning of the linked",00:00:00.580,00:00:05.839
+list.,00:00:05.839,00:00:06.839
+"Now, in this lesson we will write program
+to insert a node at any given position in",00:00:06.839,00:00:12.490
+the linked list.,00:00:12.490,00:00:13.490
+"So, let me first explain the problem in a
+logical view.",00:00:13.490,00:00:17.410
+"Let's say we have a linked list of integers
+here.",00:00:17.410,00:00:19.730
+There are 3 nodes in this linked list.,00:00:19.730,00:00:22.480
+"Let us say they are at addresses 200, 100
+and 250 respectively in the memory and we",00:00:22.480,00:00:27.320
+"have a variable head that is pointer to node,
+that stores the address of the first node",00:00:27.320,00:00:32.460
+in the list.,00:00:32.460,00:00:33.460
+"Now, let us say we number these nodes.",00:00:33.460,00:00:37.010
+We number these positions on a 1-based index.,00:00:37.010,00:00:40.380
+"So, this is the first node in the list and
+this is the second node and this is the third",00:00:40.380,00:00:44.500
+"node and we want to write a function Insert
+that will take the data to be inserted in",00:00:44.500,00:00:53.030
+"the list and the position at which we want
+to insert this particular data.",00:00:53.030,00:00:56.860
+"So, we will be inserting a node at that particular
+position with this data.",00:00:56.860,00:01:00.760
+There will be a couple of scenarios.,00:01:00.760,00:01:03.050
+The list could be empty.,00:01:03.050,00:01:04.500
+"So, this variable head will be NULL. or this
+argument being passed to the insert function,",00:01:04.500,00:01:11.200
+the position n could be an invalid position.,00:01:11.200,00:01:14.120
+"For example, 5 is an invalid position here
+for this linked list.",00:01:14.120,00:01:19.100
+"The maximum possible position at which we
+can insert a Node in this list will be 4.",00:01:19.100,00:01:24.580
+"If we want to insert at position 1, we want
+to insert at beginning and if we want to insert",00:01:24.580,00:01:29.270
+"at position 4, we want to insert at end.",00:01:29.270,00:01:31.540
+"So, our Insert function should gracefully
+handle all these scenarios.",00:01:31.540,00:01:36.600
+"Let us assume for the sake of simplicity,
+for the sake of simplifying our implementation",00:01:36.600,00:01:41.820
+"that we always give a valid position, we will
+always give a valid position so that we do",00:01:41.820,00:01:46.990
+"not have to handle the error condition in
+case of invalid position.",00:01:46.990,00:01:53.740
+"The implementation logic for this function
+will be pretty straight forward.",00:01:53.740,00:01:57.710
+We will first create a node.,00:01:57.710,00:02:01.130
+"Let's say in this example we want to insert
+a node with value 8 at 3rd position in the",00:02:01.130,00:02:07.670
+list.,00:02:07.670,00:02:08.670
+"So, i'll set the data here in the node.",00:02:08.670,00:02:11.900
+The data part is 8.,00:02:11.900,00:02:13.569
+"Now, to insert a node at the Nth position,
+we will first have to go to the (n-1)th node.",00:02:13.569,00:02:21.770
+"In this case n =3, so we will go to the 2nd
+node. now the first thing that we will have",00:02:21.770,00:02:27.220
+"to do is we will have to set the link field
+of this newly created node equal to the link",00:02:27.220,00:02:33.841
+"field of this (n-1)th node, so we will have
+to build this link.",00:02:33.841,00:02:38.810
+"Let's say the address that we will get for
+this newly created node is 150.",00:02:38.810,00:02:42.860
+"Once we build this link, we can break this
+link and set the link of this newly created",00:02:42.860,00:02:48.870
+"node as address of this, set the link of this
+(n-1)th node as address of this newly created",00:02:48.870,00:02:55.400
+node.,00:02:55.400,00:02:56.400
+We may have special cases in our implementation.,00:02:56.400,00:03:00.200
+"like the list may be empty or may be we may
+want to insert a node at the beginning.",00:03:00.200,00:03:06.020
+"let's say we will take care of special cases
+(if any) in our actual implementation.",00:03:06.020,00:03:10.520
+"So, now let's move on to implementing this
+particular function in our program.",00:03:10.520,00:03:16.420
+In my 'C' program.,00:03:16.420,00:03:17.940
+"the first thing that I need to do is i want
+to define a Node.",00:03:17.940,00:03:22.180
+"So, Node will be a structure.",00:03:22.180,00:03:24.510
+We have seen this earlier.,00:03:24.510,00:03:25.970
+"So, Node has these two fields - one data of
+type integer and another next of type pointer",00:03:25.970,00:03:33.060
+to Node.,00:03:33.060,00:03:34.060
+"Now, to create a linked list, the first thing
+that I need to create is a pointer to Node",00:03:34.060,00:03:39.260
+"that will always store the address of the
+first node or the head node in the linked",00:03:39.260,00:03:43.610
+list.,00:03:43.610,00:03:44.610
+"So, i will create struct Node*, let's name
+this variable head.",00:03:44.610,00:03:49.600
+"And once again, i have created this variable
+as a global variable.",00:03:49.600,00:03:53.820
+"To understand linked list implementation,
+we need to understand what goes where, what",00:03:53.820,00:03:59.410
+"variable sits in what section of the memory
+and what is the scope of these variables.",00:03:59.410,00:04:05.330
+"What goes in the stack section of memory and
+what goes in the heap section of the memory.",00:04:05.330,00:04:09.819
+"So, this time as we write this code, we will
+see what goes where.",00:04:09.819,00:04:14.510
+"In the main method, first i'll set this head
+as NULL to say that initially the list is",00:04:14.510,00:04:20.009
+empty.,00:04:20.009,00:04:21.439
+"So, let us now see what has gone where so
+far in our program in what section of the",00:04:21.439,00:04:27.409
+memory.,00:04:27.409,00:04:28.469
+"the memory that is allocated to our program
+or application is typically divided into these",00:04:28.469,00:04:34.589
+four parts or these 4 sections.,00:04:34.589,00:04:36.740
+"We have talked about this in our lesson on
+dynamic memory allocation.",00:04:36.740,00:04:40.340
+"There is a link to our lesson on dynamic memory
+allocation in the description of this video.",00:04:40.340,00:04:46.249
+"I'll quickly talk about what these sections
+are.",00:04:46.249,00:04:48.729
+"One section of the application's memory is
+used to store all the instructions that need",00:04:48.729,00:04:53.949
+to be executed.,00:04:53.949,00:04:55.669
+"Another section is allocated to store the
+global variables that live for the entire",00:04:55.669,00:05:01.039
+"lifetime of the program, of the application.",00:05:01.039,00:05:04.639
+"One section of the memory which is called
+stack is used to store all the information",00:05:04.639,00:05:08.770
+"about function call executions, to store all
+the local variables.",00:05:08.770,00:05:13.740
+"And these 3 sections that we talked about
+are fixed in size , their size is decided",00:05:13.740,00:05:18.969
+at compile time.,00:05:18.969,00:05:20.639
+"The last section that we call heap or free
+store is not fixed and we can request memory",00:05:20.639,00:05:26.229
+"from the heap during run-time and that's what
+we do when we use malloc or new operator.",00:05:26.229,00:05:32.289
+"Now, i have drawn these 3 sections of the
+memory.",00:05:32.289,00:05:35.860
+"Stack, heap and the section to store global
+variables.",00:05:35.860,00:05:39.300
+"In our program, we have declared a global
+variable named head which is pointer to Node.",00:05:39.300,00:05:44.050
+"So, it will go and sit here.",00:05:44.050,00:05:46.580
+"And this variable is like anyone can access
+it.",00:05:46.580,00:05:49.300
+"Initially, value here is NULL.",00:05:49.300,00:05:51.659
+"Now, in my program what i want to do is, I
+first want to define two functions - Insert",00:05:51.659,00:06:00.099
+"and this function should take two arguments
+- data and the position at which i want to",00:06:00.099,00:06:04.680
+"insert a node and insert that particular node
+at that position, insert data at that position",00:06:04.680,00:06:11.889
+in the list.,00:06:11.889,00:06:13.059
+"And another function Print that will simply
+print all the numbers in the linked list.",00:06:13.059,00:06:18.509
+"now, in the main method i want to make a sequence
+of function calls.",00:06:18.509,00:06:24.020
+"First i want to insert number 2, the list
+is empty right now so i can only insert at",00:06:24.020,00:06:28.199
+position 1.,00:06:28.199,00:06:29.529
+"So, after this Insert, list will be having
+this one number, this particular number 2",00:06:29.529,00:06:36.990
+"and let's say again I want to insert this
+number 3 at position 2.",00:06:36.990,00:06:40.389
+"So, this will be our list after this insertion.",00:06:40.389,00:06:43.809
+"And i will make two more insertions and finally,
+I'll Print the list.",00:06:43.809,00:06:48.270
+"So, this is my main method.",00:06:48.270,00:06:50.580
+"I could have also asked a user to input a
+number and position, but let's say we go this",00:06:50.580,00:06:57.550
+way this time.,00:06:57.550,00:06:59.279
+"Now, let us first implement Insert.",00:06:59.279,00:07:02.169
+I will move this Print above.,00:07:02.169,00:07:04.619
+"So, the first thing that I want to do in this
+method is, I want to create a Node, so I will",00:07:04.619,00:07:10.849
+make a call to malloc.,00:07:10.849,00:07:12.680
+"In C++, we can simply write a new Node for
+this call to malloc and this looks a lot cleaner.",00:07:12.680,00:07:19.080
+let's go C++ way this time.,00:07:19.080,00:07:20.629
+"now, what I can do is, I can first set the
+data field and set the link initially as NULL.",00:07:20.629,00:07:30.930
+"I have named this variable temp1 because I
+want to use another temp variable in this",00:07:30.930,00:07:36.520
+function.,00:07:36.520,00:07:37.949
+I'll come to that in a while.,00:07:37.949,00:07:39.580
+"We first need to handle one special case - when
+we want to insert at the head, when we want",00:07:39.580,00:07:45.860
+to insert at the first position.,00:07:45.860,00:07:47.559
+"So, if n is equal to 1, we simply want to
+set the link field of the newly created node",00:07:47.559,00:07:54.539
+"as whatever the existing head is and then
+adjust this variable to point to the new head",00:07:54.539,00:08:03.009
+which will be this newly created node.,00:08:03.009,00:08:05.639
+"And we will be done at this stage so we will
+not execute any further and return from this",00:08:05.639,00:08:11.119
+function.,00:08:11.119,00:08:12.119
+"If you can see, this will work even when the
+list is empty because the head will be Null",00:08:12.119,00:08:17.709
+in that case.,00:08:17.709,00:08:19.300
+"I'll show a simulation in the memory in a
+while, so hold on till then.",00:08:19.300,00:08:24.009
+Things will be pretty clear to you after that.,00:08:24.009,00:08:26.379
+"Now, for all other cases, we first need to
+go to the (n-1)th node.",00:08:26.379,00:08:32.840
+As we had discussed in our logic initially.,00:08:32.840,00:08:35.060
+"So,what i'll do is i'll create another pointer
+to node, name this variable temp2 and we will",00:08:35.060,00:08:41.890
+"start at the head and then we will run a loop
+and go to the (n-1)th node something like",00:08:41.890,00:08:49.770
+this.,00:08:49.770,00:08:50.770
+"We will run the loop n-2 times because right
+now we are pointing to the head which is the",00:08:50.770,00:08:56.220
+first node.,00:08:56.220,00:08:57.460
+"So, if we do this temp2 = temp2-&gt;next n-2
+times, we will be pointing temp2 to (n-1)th",00:08:57.460,00:09:05.910
+node.,00:09:05.910,00:09:06.960
+"And now the first thing that we need to do
+is set the next or the link field of newly",00:09:06.960,00:09:13.180
+"created node as the link field of this (n-1)
+the node and then we can adjust the link of",00:09:13.180,00:09:20.830
+"this (n-1)th node to point to our newly created
+node.",00:09:20.830,00:09:25.420
+"And, now i am writing this Print here.",00:09:25.420,00:09:28.180
+I have written this print here.,00:09:28.180,00:09:29.850
+"We have used a temporary variable, a temporary
+pointer to node initially pointing to head",00:09:29.850,00:09:36.800
+and we have traversed the whole list.,00:09:36.800,00:09:39.180
+"Ok, so let us now run this program and see
+what happens.",00:09:39.180,00:09:42.930
+"We are getting this output which seems to
+be correct.",00:09:42.930,00:09:47.190
+"The list should be 4 5 2 3 in this order Now,
+i have this code.",00:09:47.190,00:09:52.920
+"I'll run through this code and show you what's
+happening in the memory.",00:09:52.920,00:09:55.880
+"When the program starts execution, initially
+the main method is invoked.",00:09:55.880,00:10:01.390
+"Some part of the memory from the stack is
+allocated for execution of a function.",00:10:01.390,00:10:07.060
+"All the local variables, and the state of
+execution of this function is saved in this",00:10:07.060,00:10:12.470
+"particular section, we also call this stack
+frame of a function.",00:10:12.470,00:10:17.470
+"here in this main method, we have not declared
+any local variable.",00:10:17.470,00:10:20.640
+"We have just set head to NULL which we have
+already done here.",00:10:20.640,00:10:24.560
+"Now, the next line is call to function Insert.",00:10:24.560,00:10:27.320
+"So, the machine will set the execution of
+this particular method main on hold and go",00:10:27.320,00:10:32.430
+"on to execute this call to insert so insert
+comes into the stack and insert has couple",00:10:32.430,00:10:39.260
+of local variables.,00:10:39.260,00:10:40.690
+"it has two arguments - data and this variable
+n.",00:10:40.690,00:10:45.220
+"This stack frame will be a little larger because
+we will have couple of local variables.",00:10:45.220,00:10:50.410
+"And now we create this another local variable
+which is a pointer to node temp1.",00:10:50.410,00:10:55.880
+"And we use the new operator to create a memory
+block in the heap and this guy temp1 initially",00:10:55.880,00:11:03.150
+stores the address of this memory block.,00:11:03.150,00:11:05.640
+"Let's say this memory block is at address
+150, so this guy stores the address 150. when",00:11:05.640,00:11:11.260
+"we request some memory to store something
+on the heap using new or malloc, we do not",00:11:11.260,00:11:16.030
+"get a variable name and the only way to access
+it is through a pointer variable.",00:11:16.030,00:11:21.680
+"So, this pointer variable is the remote control
+here kind of.",00:11:21.680,00:11:25.340
+"So, here when we say temp1-&gt;data is equal
+to this much, through this pointer which is",00:11:25.340,00:11:30.680
+"our remote we are going and writing this value
+2 here and then we are saying temp-&gt;next = NULL.",00:11:30.680,00:11:35.400
+"So, null is nothing but address 0.",00:11:35.400,00:11:37.840
+"So, we are writing address 0 here.",00:11:37.840,00:11:39.700
+"So, we have created a Node and in our first
+call n is equal to 1, so we will come to this",00:11:39.700,00:11:45.550
+condition.,00:11:45.550,00:11:46.550
+"Now, we want to set temp1-&gt;next = head.",00:11:46.550,00:11:49.760
+"temp1-&gt;next is this section, this second field
+and this is already equal to head.",00:11:49.760,00:11:56.100
+head is Null here and this is already null.,00:11:56.100,00:11:58.150
+Null is nothing but 0.,00:11:58.150,00:11:59.770
+"the only reason we said temp-&gt;next = head
+will work for empty case is because head would",00:11:59.770,00:12:05.220
+be null.,00:12:05.220,00:12:06.220
+And now we are saying head is equal to temp1.,00:12:06.220,00:12:08.860
+"So, head guy now points to this because it
+stores address 150 like temp1.",00:12:08.860,00:12:17.520
+"And in this first call to insert, after this
+we will return.",00:12:17.520,00:12:20.920
+"So, the execution of insert will finish and
+now the control will return to main method.",00:12:20.920,00:12:26.400
+"We come to this line where we make another
+call to Insert with different arguments this",00:12:26.400,00:12:31.570
+"time, we pass number 3 to be inserted at position
+2.",00:12:31.570,00:12:35.680
+"Now, once again memory in the stack frame
+will be allocated for this particular call",00:12:35.680,00:12:40.950
+to insert.,00:12:40.950,00:12:42.240
+"The stack frame allocation is corresponding
+to a particular call.",00:12:42.240,00:12:46.560
+"So, each time the function execution finishes,
+all the local variables are gone from the",00:12:46.560,00:12:51.690
+memory.,00:12:51.690,00:12:52.690
+"Now, once again in this call we create a new
+node.",00:12:52.690,00:12:56.920
+"We keep the address initially in this temporary
+variable temp1.",00:12:56.920,00:13:01.740
+"let's say we get this Node at address 100
+this time.",00:13:01.740,00:13:04.820
+"Now, n is not equal to 1, we will move on
+to create another temporary variable temp2.",00:13:04.820,00:13:09.720
+"Now, we are not creating a new node and storing
+the address in temp2 here.",00:13:09.720,00:13:13.830
+"We are saying temp2 is initially equal to
+head.",00:13:13.830,00:13:16.760
+"So, we store the address 150.",00:13:16.760,00:13:19.020
+"So, initially, we make this guy point to the
+head node.",00:13:19.020,00:13:23.370
+"And now, we want to run this loop and we want
+to keep going to the next node till we reach",00:13:23.370,00:13:29.450
+(n-1)th node.,00:13:29.450,00:13:30.500
+"In this case, n = 2 so this loop will not
+execute this statement even once.",00:13:30.500,00:13:36.190
+(n-1)th node is the first node itself.,00:13:36.190,00:13:38.810
+"Now, we execute these two lines.",00:13:38.810,00:13:41.440
+"The next of the newly created Node will be
+set first, so we will build this link.. oopss..",00:13:41.440,00:13:47.640
+NO.. temp2-&gt;next is 0 only.,00:13:47.640,00:13:50.810
+"So, even after reset this will be 0.",00:13:50.810,00:13:53.680
+"And now we are setting temp2-&gt;next as temp1,
+so we are building this link.",00:13:53.680,00:13:58.920
+"And now this call to insert will finish, so
+we go back to the main method.",00:13:58.920,00:14:02.800
+"So, this is how things will happen for other
+calls also.",00:14:02.800,00:14:06.510
+"After everything we have inserted, when we
+will reach this print statement in the main",00:14:06.510,00:14:12.920
+"function, our list will be something like
+this in the memory.",00:14:12.920,00:14:15.720
+This is a little messy.,00:14:15.720,00:14:16.720
+"i have chosen these addresses as per my convenience
+for the sake of example and now Print will",00:14:16.720,00:14:23.120
+"execute and once again I'm using a temp variable
+in Print.",00:14:23.120,00:14:26.430
+"By now, it should have been clear to you why
+we use temp variable again and again and why",00:14:26.430,00:14:32.550
+"this variable head that stores the address
+of the first Node is so important.",00:14:32.550,00:14:36.400
+"Now what if this head was not global, what
+if we would have declared this head inside",00:14:36.400,00:14:43.050
+the main method.,00:14:43.050,00:14:44.050
+"We have talked about this in our previous
+lesson.",00:14:44.050,00:14:46.840
+head will not be accessible everywhere.,00:14:46.840,00:14:49.230
+"So, in each call to these functions, in each
+call to insert we will have to return some",00:14:49.230,00:14:55.311
+"value from the function to update this head
+or we will have to pass this head by reference.",00:14:55.311,00:15:00.920
+"We have talked about this in our previous
+lesson.",00:15:00.920,00:15:03.040
+"So, this is it for this lesson.",00:15:03.040,00:15:05.550
+"In our next lesson we will see program to
+delete a node at a particular position in",00:15:05.550,00:15:10.750
+the list.,00:15:10.750,00:15:11.750
+"So, Thanks for watching !",00:15:11.750,00:15:12.210

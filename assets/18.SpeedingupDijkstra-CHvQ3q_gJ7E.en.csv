@@ -1,0 +1,1617 @@
+text,start,stop
+"The following
+content is provided",00:00:00.060,00:00:01.770
+"under a Creative
+Commons license.",00:00:01.770,00:00:04.010
+"Your support will help MIT
+OpenCourseWare continue",00:00:04.010,00:00:06.860
+"to offer high quality
+educational resources for free.",00:00:06.860,00:00:10.720
+"To make a donation, or
+view additional materials",00:00:10.720,00:00:13.330
+"from hundreds of MIT courses,
+visit MIT OpenCourseWare",00:00:13.330,00:00:17.207
+at ocw.mit.edu.,00:00:17.207,00:00:17.832
+PROFESSOR: Thanks for coming.,00:00:22.242,00:00:23.450
+"I know there's a
+problem set due.",00:00:23.450,00:00:25.490
+"There's a quiz coming
+up on Thursday.",00:00:25.490,00:00:27.890
+"We won't have
+lecture on Thursday.",00:00:27.890,00:00:30.910
+"But we will have a
+quiz in the evening.",00:00:30.910,00:00:35.490
+"And there will be a
+recitation section tomorrow,",00:00:35.490,00:00:38.750
+which will be a quiz review.,00:00:38.750,00:00:41.900
+"So, today's lecture is the last
+of the lectures in the shortest",00:00:41.900,00:00:47.220
+path module.,00:00:47.220,00:00:48.720
+"And, unlike previous
+lectures, we're",00:00:48.720,00:00:53.020
+"going to be talking about
+optimizations that don't change",00:00:53.020,00:00:57.300
+"the worst case, or
+asymptotic, complexity.",00:00:57.300,00:01:00.670
+"But improve empirical,
+real life performance.",00:01:00.670,00:01:05.890
+"Or potentially, and we can't
+prove this, but performance",00:01:05.890,00:01:09.580
+in the average case.,00:01:09.580,00:01:11.640
+"And so we look at a
+couple of examples.",00:01:11.640,00:01:15.550
+"The first one
+you've already done.",00:01:15.550,00:01:18.450
+"You can optimize
+Dijkstra when you're",00:01:18.450,00:01:21.970
+looking for a single target.,00:01:21.970,00:01:25.000
+"So, implicitly, we've
+assumed that we're",00:01:25.000,00:01:28.610
+"solving the single source, any
+or all destination problem,",00:01:28.610,00:01:39.900
+"when we've looked at
+the original Dijkstra",00:01:39.900,00:01:42.650
+"algorithm, and the
+Bellman-Ford algorithm.",00:01:42.650,00:01:47.020
+"Many a time, you're going
+to have a source, s.",00:01:47.020,00:01:51.100
+"And you want to find
+the shortest path",00:01:51.100,00:01:53.500
+"to a specific destination, t.",00:01:53.500,00:01:55.860
+"And you're doing this
+in your problem set.",00:01:55.860,00:01:57.670
+"And you can do
+some optimization.",00:01:57.670,00:01:59.800
+"It doesn't change the
+worst case complexity.",00:01:59.800,00:02:02.610
+But it reduces runtime.,00:02:02.610,00:02:05.210
+"And then you have
+a specific target.",00:02:05.210,00:02:06.990
+"Especially if the
+target is close to you.",00:02:06.990,00:02:09.240
+"And you don't have to
+traverse the entire graph.",00:02:09.240,00:02:12.170
+"Obviously, the
+algorithm has to prove",00:02:12.170,00:02:14.400
+"that the particular
+path that was chosen",00:02:14.400,00:02:16.650
+"is, in fact, the shortest
+path from s to t.",00:02:16.650,00:02:19.210
+"But it's a fairly
+straightforward modification.",00:02:19.210,00:02:21.350
+"And I will go over it,
+but you're actually",00:02:21.350,00:02:23.100
+implementing it in PS 6.,00:02:23.100,00:02:26.037
+"We talked about
+bi-directional search.",00:02:26.037,00:02:27.620
+"Again, something you're
+doing from a standpoint",00:02:27.620,00:02:30.000
+of breadth-first search.,00:02:30.000,00:02:32.330
+"How can you get from one
+source to a destination,",00:02:32.330,00:02:38.860
+"by doing bi-directional
+Dijkstra?",00:02:38.860,00:02:41.650
+"And you can think of this as
+a frontier off shortest paths",00:02:41.650,00:02:45.900
+"is being constructed from
+the source, s, forward.",00:02:45.900,00:02:50.700
+"And this backward frontier,
+you're falling edges backward,",00:02:50.700,00:02:55.470
+"is being constructed
+from the destination.",00:02:55.470,00:02:58.160
+"And, effectively, when
+these two frontiers meet,",00:02:58.160,00:03:01.280
+"you're going to be able to
+discover shortest paths.",00:03:01.280,00:03:04.380
+"And, it turns out, it's not
+as simple as what I just",00:03:04.380,00:03:06.870
+described.,00:03:06.870,00:03:07.374
+"And so we'll have to look at
+that a little more carefully.",00:03:07.374,00:03:09.790
+"So that is our single source,
+single target problem.",00:03:13.350,00:03:16.740
+We won't cover this in 006.,00:03:16.740,00:03:19.280
+"But there's also this notion of
+all pairs shortest paths, which",00:03:19.280,00:03:26.050
+is something that 6046 covers.,00:03:26.050,00:03:28.520
+"And that is something
+that says, well, I",00:03:28.520,00:03:30.800
+don't know what the source is.,00:03:30.800,00:03:32.420
+"I don't know what
+the destination is.",00:03:32.420,00:03:34.330
+"For any pair of vertices,
+find me the shortest path",00:03:34.330,00:03:38.350
+"from s to t, given that pair.",00:03:38.350,00:03:42.120
+"And so that, of
+course, is more work",00:03:42.120,00:03:44.300
+"than even the single source,
+all destination problem",00:03:44.300,00:03:47.320
+"because you're
+varying the source.",00:03:47.320,00:03:49.850
+All right?,00:03:49.850,00:03:50.480
+"So those are the three different
+shortest path problems.",00:03:50.480,00:03:55.080
+And we've looked at that.,00:03:55.080,00:03:57.470
+"And we're going to
+look at this today.",00:03:57.470,00:04:00.360
+"And we looked at it
+in the problem set.",00:04:00.360,00:04:03.210
+"But we'll spend time,
+specifically on this one.",00:04:03.210,00:04:07.410
+"And try and see if we can do
+some coding optimizations,",00:04:07.410,00:04:11.800
+"if you will, to
+improve run time.",00:04:11.800,00:04:14.430
+All right?,00:04:14.430,00:04:14.930
+"So, I emphasize that
+worst case complexity",00:04:14.930,00:04:18.250
+"is unchanged for all of
+the Dijkstra versions",00:04:18.250,00:04:22.019
+that we'll be looking at today.,00:04:22.019,00:04:25.090
+"So I want to put up a pseudocode
+that you've written code",00:04:25.090,00:04:31.520
+"for at this point, which
+is the Dijkstra pseudocode.",00:04:31.520,00:04:34.930
+"Because we'll take a look at it,
+and modify it, and execute it.",00:04:34.930,00:04:41.960
+"So you have your set
+of vertices that you",00:04:41.960,00:04:46.650
+"don't know the
+shortest paths to.",00:04:46.650,00:04:48.540
+"So we do have initialize is
+going to set d of s to be 0.",00:04:48.540,00:04:54.090
+"And b of u, not equal
+to s, to be infinity.",00:04:54.090,00:04:59.120
+"And we have this
+set, Q, that we're",00:04:59.120,00:05:03.980
+"going to process and continually
+extract the minimum priority",00:05:03.980,00:05:11.500
+"from Q. And, once we
+do that, we actually",00:05:11.500,00:05:17.440
+"know the shortest
+path to you already.",00:05:17.440,00:05:21.920
+"That's what the
+Dijkstra invariant is.",00:05:21.920,00:05:26.490
+"And the process of
+extracting u implies",00:05:26.490,00:05:32.250
+"that we have to do a
+relaxation step that",00:05:32.250,00:05:35.920
+updates the priorities.,00:05:35.920,00:05:38.090
+"And also modifies
+the parent pointers.",00:05:38.090,00:05:42.160
+"So there's also the pi
+of v that is set to u.",00:05:42.160,00:05:48.355
+"As well as d of v
+getting decremented.",00:05:52.660,00:05:58.200
+OK?,00:05:58.200,00:05:59.170
+"So that's the
+Dijkstra algorithm.",00:05:59.170,00:06:01.580
+"And one of the things
+that we can do,",00:06:01.580,00:06:03.890
+"the straightforward thing, which
+is one line of code literally,",00:06:03.890,00:06:07.270
+"is to say that, if you know
+what the single target is, then",00:06:07.270,00:06:12.820
+you simply stop if u equals t.,00:06:12.820,00:06:19.190
+"So no need to stop
+when Q becomes null.",00:06:19.190,00:06:25.900
+"Or, you don't get to the
+point where Q is null.",00:06:25.900,00:06:28.660
+"You stop when you've lifted off
+the y vertex from Q. All right?",00:06:28.660,00:06:36.220
+"And so, obviously,
+this will run faster,",00:06:36.220,00:06:38.690
+"assuming this check
+is a 0 time check.",00:06:38.690,00:06:43.870
+"And that's really
+one instruction,",00:06:43.870,00:06:45.930
+so you can think of it that way.,00:06:45.930,00:06:49.140
+"And you will, basically,
+run faster for sure,",00:06:49.140,00:06:55.220
+when you have a specific target.,00:06:55.220,00:06:57.070
+"It may be the case that your
+target is the last vertex",00:06:57.070,00:07:00.100
+that you find.,00:07:00.100,00:07:01.090
+"And in that case,
+you run no slower.",00:07:01.090,00:07:05.180
+All right?,00:07:05.180,00:07:06.130
+"So that's something
+that you looked at.",00:07:06.130,00:07:09.720
+"And that takes care of the
+first optimization corresponding",00:07:09.720,00:07:16.430
+"to single source, single target.",00:07:16.430,00:07:18.306
+"Let's talk about
+something that's",00:07:18.306,00:07:19.680
+"a little more interesting,
+and non-obvious,",00:07:19.680,00:07:25.590
+"which is the notion of
+bi-directional search.",00:07:25.590,00:07:27.465
+"And, in bi-directional
+search, we have s.",00:07:30.260,00:07:36.800
+And we have t.,00:07:36.800,00:07:39.930
+"And we have a bunch
+of nodes in between,",00:07:39.930,00:07:48.170
+"corresponding to
+this graph here.",00:07:48.170,00:07:56.670
+"And what you do is,
+you alternate search",00:07:56.670,00:08:01.540
+"in the forward direction
+and backward direction.",00:08:01.540,00:08:06.940
+"So, you're going to do one step
+of Dijkstra, standard Dijkstra",00:08:06.940,00:08:15.550
+that starts with s.,00:08:15.550,00:08:19.060
+And goes forward.,00:08:19.060,00:08:21.360
+"And so, you could imagine
+that you're forward",00:08:21.360,00:08:23.590
+"search in the first step, you're
+going to pick the vertex, s,",00:08:23.590,00:08:30.410
+"off of Q. And you're
+going to process",00:08:30.410,00:08:34.000
+the edges that come out of s.,00:08:34.000,00:08:36.470
+"And that would correspond
+with these two edges.",00:08:36.470,00:08:39.010
+"And so that's one step of
+forward search, going forward.",00:08:39.010,00:08:43.480
+"And then you stop with
+the forward search,",00:08:43.480,00:08:46.860
+"and you do a step
+of backward search.",00:08:46.860,00:08:50.170
+"And so, you go backward
+search, and I'll",00:08:50.170,00:08:52.870
+"explain exactly what this
+means, backward search from t.",00:08:52.870,00:08:58.917
+"And the important
+thing is that you're",00:08:58.917,00:09:00.500
+following edges backward.,00:09:00.500,00:09:05.380
+"So that means your
+data structure",00:09:05.380,00:09:08.960
+"has to, essentially, have these
+edges that can be traversed",00:09:08.960,00:09:12.070
+"in either the forward direction,
+or the reverse direction.",00:09:12.070,00:09:15.540
+"So that's something
+to keep in mind.",00:09:15.540,00:09:17.100
+"But what will happen
+here is simply",00:09:17.100,00:09:18.580
+"that your first frontier
+of backward search,",00:09:18.580,00:09:24.750
+"t now, in the backward search,
+is the minimum priority.",00:09:24.750,00:09:30.360
+"So , we're going to have to have
+two priorities corresponding",00:09:30.360,00:09:33.060
+"to s in the fourth search, where
+that's a straightforward one.",00:09:33.060,00:09:37.590
+v of s equals 0.,00:09:37.590,00:09:39.630
+"And we should think of
+it as d of f s equals 0.",00:09:39.630,00:09:46.210
+And we have d of b t equals 0.,00:09:46.210,00:09:52.310
+"And these subscripts
+correspond to these two",00:09:52.310,00:09:54.750
+different priorities.,00:09:54.750,00:09:56.370
+And it's exactly complimentary.,00:09:56.370,00:10:00.240
+"Only the source, s,
+in the forward search,",00:10:00.240,00:10:02.610
+has 0 priority in the beginning.,00:10:02.610,00:10:04.890
+"Everything else has
+infinite priority.",00:10:04.890,00:10:08.190
+"Only the target,
+or destination, has",00:10:08.190,00:10:13.230
+"0 priority in the
+backward search.",00:10:13.230,00:10:15.530
+Everything else is infinity.,00:10:15.530,00:10:17.710
+"And you go forward,
+backward, forward, backward.",00:10:17.710,00:10:22.480
+And so on.,00:10:22.480,00:10:23.540
+"And the question is,
+when do you stop?",00:10:23.540,00:10:25.600
+And we have to talk about that.,00:10:25.600,00:10:27.180
+"And, it turns out, it's not
+a perfectly straightforward",00:10:27.180,00:10:30.230
+stopping condition.,00:10:30.230,00:10:31.480
+"But it's something that
+will make sense, hopefully,",00:10:31.480,00:10:34.270
+"when I get around
+to describing it.",00:10:34.270,00:10:36.980
+"But, having said
+all that, let's just",00:10:36.980,00:10:41.770
+"put down all of the
+different data structures",00:10:41.770,00:10:45.770
+that we have to have.,00:10:45.770,00:10:47.490
+"And it's kind of a doubling
+of the data structure,",00:10:47.490,00:10:49.900
+"right, because just like
+I double the priorities,",00:10:49.900,00:10:52.530
+"I also need two
+different min priority",00:10:52.530,00:10:54.650
+"queues, corresponding
+to Q f and Q b.",00:10:54.650,00:10:58.750
+"And, as I said
+before, these edges",00:10:58.750,00:11:01.010
+"have to be traversable in
+the backward direction.",00:11:01.010,00:11:04.090
+"So this edge, in the
+graph, goes this way.",00:11:04.090,00:11:07.250
+"But you're going in
+the backward direction,",00:11:07.250,00:11:09.590
+"as you are growing
+your backward frontier.",00:11:09.590,00:11:12.360
+OK?,00:11:12.360,00:11:13.790
+That's important to understand.,00:11:13.790,00:11:15.760
+"So let me put down all of
+the specifics associated",00:11:15.760,00:11:21.270
+with these data structures.,00:11:21.270,00:11:23.640
+"df u correspond to the distances
+for the forward search.",00:11:23.640,00:11:29.790
+"And db u correspond
+to the distances",00:11:33.770,00:11:39.390
+for the backward search.,00:11:39.390,00:11:40.395
+OK?,00:11:43.528,00:11:44.840
+"And, of course,
+we're going to have",00:11:44.840,00:11:47.190
+"to have priority queues, plural.",00:11:47.190,00:11:58.500
+"Qf corresponding to
+the forward search.",00:11:58.500,00:12:03.650
+"And Qb corresponding
+to the backward search.",00:12:03.650,00:12:08.230
+"And in initialize,
+as I said before,",00:12:08.230,00:12:10.960
+"we're going to initialize df
+s to be 0 and db t equals 0.",00:12:10.960,00:12:14.940
+"And then everything, the
+df's and the db's, are",00:12:14.940,00:12:18.000
+going to be infinity.,00:12:18.000,00:12:19.420
+All right?,00:12:19.420,00:12:21.130
+OK.,00:12:21.130,00:12:21.630
+Great.,00:12:21.630,00:12:22.480
+So that's what we have here.,00:12:22.480,00:12:24.760
+"Now, first question.",00:12:24.760,00:12:27.085
+"Roughly speaking, as I said,
+you can imagine intuitively",00:12:40.230,00:12:45.040
+"that you're going to
+terminate the search when",00:12:45.040,00:12:48.720
+"these frontiers meet, OK?",00:12:48.720,00:12:51.031
+"Clearly, you can't
+terminate it when",00:12:51.031,00:12:52.530
+"these frontiers
+look like this, OK.",00:12:52.530,00:12:56.460
+So that's the intuition.,00:12:56.460,00:13:00.780
+"And you see that
+for the [INAUDIBLE]",00:13:00.780,00:13:02.460
+"first, as well, in
+your problem set.",00:13:02.460,00:13:05.050
+"But in the context of Dijkstra,
+single source, single target,",00:13:05.050,00:13:09.370
+"can someone tell me what
+the termination condition",00:13:09.370,00:13:12.450
+"should be by
+looking at the code?",00:13:12.450,00:13:15.930
+"I want a more specific,
+or a more concrete,",00:13:15.930,00:13:19.590
+"termination condition that
+I can actually code up,",00:13:19.590,00:13:21.980
+"as opposed to saying,
+the frontiers meet.",00:13:21.980,00:13:24.070
+"Which, you know, I
+don't know how to code.",00:13:24.070,00:13:26.380
+OK?,00:13:26.380,00:13:28.450
+Someone else?,00:13:28.450,00:13:30.850
+"All right, go for it.",00:13:30.850,00:13:31.886
+"AUDIENCE: When
+there's some node that",00:13:31.886,00:13:36.017
+"can keep track of two
+different cost values from--",00:13:36.017,00:13:41.610
+"PROFESSOR: The Qf and
+the Qb, that's correct.",00:13:41.610,00:13:43.710
+"And, somehow--",00:13:43.710,00:13:45.047
+"AUDIENCE: Somehow
+they're cost runs",00:13:45.047,00:13:48.386
+"to get there from the start
+and from the [INAUDIBLE].",00:13:48.386,00:13:53.160
+PROFESSOR: OK.,00:13:53.160,00:13:53.930
+It's close.,00:13:53.930,00:13:55.370
+"It's not quite
+something I can code up.",00:13:55.370,00:13:58.070
+Someone want to improve that?,00:13:58.070,00:14:00.120
+Someone want to improve that?,00:14:00.120,00:14:01.680
+"I want something
+very, very specific.",00:14:01.680,00:14:04.500
+Someone?,00:14:04.500,00:14:05.390
+Go for it.,00:14:05.390,00:14:06.756
+"AUDIENCE: The node has been
+extracted from both Qf and Qb.",00:14:06.756,00:14:10.104
+"PROFESSOR: The
+node which has been",00:14:10.104,00:14:11.520
+extracted from both Qf and Qb.,00:14:11.520,00:14:13.580
+"So, the reason I didn't
+quite buy your answer",00:14:13.580,00:14:15.460
+"was, finite part is
+obviously correct.",00:14:15.460,00:14:20.430
+"But I wanted a
+specific condition",00:14:20.430,00:14:22.740
+"that says, I'm going
+to do extract-min,",00:14:22.740,00:14:25.790
+"just like I said when I
+extract-min and u equals t,",00:14:25.790,00:14:28.375
+"I stop with the single
+source, single target.",00:14:28.375,00:14:31.010
+"In the bi-directional
+case, I need",00:14:31.010,00:14:32.780
+to pull out a node from Qf.,00:14:32.780,00:14:35.810
+And pull out a node from Qb.,00:14:35.810,00:14:38.510
+"And then I get to
+stop, all right?",00:14:38.510,00:14:40.370
+"So, you get a cushion.",00:14:40.370,00:14:43.334
+"You don't need to
+feel too bad because I",00:14:43.334,00:14:45.000
+"think you already
+have a cushion.",00:14:45.000,00:14:47.020
+Yeah.,00:14:47.020,00:14:47.590
+I know that.,00:14:47.590,00:14:48.150
+"I know everyone
+who has cushions.",00:14:48.150,00:14:50.716
+Right.,00:14:50.716,00:14:52.430
+"Actually, I don't.",00:14:52.430,00:14:53.180
+But I'm going to pretend I do.,00:14:53.180,00:14:56.150
+"So, the termination condition
+is that some vertex, and this is",00:14:56.150,00:15:03.490
+"correct, some vertex,
+u, has been processed,",00:15:03.490,00:15:09.800
+"both in the forward search
+and the backward search.",00:15:09.800,00:15:23.880
+OK?,00:15:23.880,00:15:24.670
+"That corresponds to
+the frontiers meeting.",00:15:24.670,00:15:28.810
+"But, specifically,
+it's been deleted,",00:15:28.810,00:15:33.290
+"or extracted from
+both Qf and Qb.",00:15:33.290,00:15:42.020
+"So that's actually
+the easier question.",00:15:42.020,00:15:46.090
+"Visit a harder question, which
+is how do we find the shortest",00:15:46.090,00:15:58.770
+"path after termination
+from s to t?",00:15:58.770,00:16:07.705
+OK?,00:16:07.705,00:16:08.480
+"And I should say specifically,
+that-- and I forgot",00:16:08.480,00:16:11.490
+"to put this up, which
+I should-- that we're",00:16:11.490,00:16:14.020
+"going to have to have
+pi f and pi b, which",00:16:14.020,00:16:18.680
+"this is the normal
+data structure.",00:16:18.680,00:16:21.690
+"And the pi b is following
+the edges backward.",00:16:21.690,00:16:27.960
+"So, in some sense,
+the predecessor,",00:16:27.960,00:16:31.180
+"in the case of pi b, what
+you're saying is, on this node",00:16:31.180,00:16:35.990
+"here-- which I'll
+call v2 for example--",00:16:35.990,00:16:44.420
+"is, if I'm going to
+choose this path here--",00:16:44.420,00:16:46.730
+"and I need to obviously choose
+this edge here in any shortest",00:16:46.730,00:16:51.690
+"path that gets to t, right?",00:16:51.690,00:16:53.470
+"Because that's the only
+edge that goes to t.",00:16:53.470,00:16:55.800
+"And so, what I'm saying here
+is that a predecessor of pi b t",00:16:55.800,00:17:05.410
+equals v2.,00:17:05.410,00:17:07.660
+OK?,00:17:07.660,00:17:10.050
+That make sense?,00:17:10.050,00:17:10.990
+"And then over here,
+if this was v1,",00:17:10.990,00:17:13.810
+"then I would have
+pi f v1 equals s.",00:17:13.810,00:17:22.240
+Right?,00:17:22.240,00:17:23.099
+That make sense?,00:17:23.099,00:17:25.000
+Everybody buy that?,00:17:25.000,00:17:26.660
+"All right, so how do I find
+the shortest path from s to t,",00:17:26.660,00:17:31.980
+"after these frontiers have met,
+and I've terminated the search?",00:17:31.980,00:17:36.820
+How do I do that?,00:17:36.820,00:17:38.960
+Someone?,00:17:38.960,00:17:39.460
+Go ahead.,00:17:42.570,00:17:43.160
+"AUDIENCE: Well, given that data
+structure, you start at your t.",00:17:43.160,00:17:47.518
+"And you keep on going
+back to the [INAUDIBLE]",00:17:47.518,00:17:49.392
+"until you get to the point
+where they've peaked.",00:17:49.392,00:17:52.876
+"Then you use the pi f
+to go from that node,",00:17:52.876,00:17:55.296
+all the way back to s.,00:17:55.296,00:17:56.748
+"PROFESSOR: So, what
+I'm going to have to do",00:18:00.059,00:18:01.850
+"is-- but where do I
+switch, is the question.",00:18:01.850,00:18:07.470
+"Where do I switch
+from pi f to pi b?",00:18:07.470,00:18:11.070
+"There has to be some point where
+I switch from-- Yeah, go ahead.",00:18:11.070,00:18:16.240
+"AUDIENCE: At the meeting
+point of the node",00:18:16.240,00:18:18.160
+"that was [INAUDIBLE]
+Q [INAUDIBLE].",00:18:18.160,00:18:23.440
+PROFESSOR: All right.,00:18:23.440,00:18:24.400
+"Is that what you
+were saying, too?",00:18:24.400,00:18:25.816
+OK.,00:18:25.816,00:18:28.290
+"So the claim is, if w was
+processed first, extracted",00:18:28.290,00:18:43.720
+"from both Qf and Qb, then find
+the shortest path using pi",00:18:43.720,00:18:56.060
+f from s to w.,00:18:56.060,00:19:02.181
+Right?,00:19:02.181,00:19:02.680
+"So, you can use pi f
+to get from s to w.",00:19:02.680,00:19:05.250
+"And the way you do that
+is by applying pi f to w.",00:19:05.250,00:19:08.440
+"And then keep applying it
+until you get to s, OK?",00:19:08.440,00:19:12.230
+"This is normal search, right?",00:19:12.230,00:19:13.890
+Everybody knows this.,00:19:13.890,00:19:15.200
+You coded it.,00:19:15.200,00:19:16.270
+So I hope you know it.,00:19:16.270,00:19:17.650
+"And then, we go find shortest
+path using pi b, right?",00:19:20.690,00:19:28.300
+"And you're going
+to constantly apply",00:19:28.300,00:19:30.380
+"pi b-- and this is the
+backward path-- from t to w.",00:19:30.380,00:19:38.520
+"And this follows the
+edges backward, all right?",00:19:42.620,00:19:48.450
+This sounds pretty good?,00:19:48.450,00:19:50.937
+Everybody agree with this?,00:19:50.937,00:19:52.020
+Anybody disagree?,00:19:54.600,00:19:56.540
+Yeah.,00:19:56.540,00:19:58.088
+AUDIENCE: Pi b.,00:19:58.088,00:19:59.456
+"If [INAUDIBLE], pi b would
+be like pi b b2 equals t,",00:19:59.456,00:20:07.594
+because b2 [INAUDIBLE]--,00:20:07.594,00:20:08.608
+"PROFESSOR: That's
+a good question.",00:20:08.608,00:20:10.024
+I might have done this wrong.,00:20:10.024,00:20:13.070
+"So, in the backward search,
+this can get pretty confusing.",00:20:13.070,00:20:21.230
+So what do I have here?,00:20:21.230,00:20:23.160
+"I want to follow
+the predecessor.",00:20:23.160,00:20:26.630
+You're exactly right.,00:20:26.630,00:20:28.116
+You're exactly right.,00:20:28.116,00:20:28.990
+Thank you.,00:20:28.990,00:20:29.590
+Thank you for pointing that out.,00:20:29.590,00:20:30.980
+"All right, so what
+I have here is",00:20:30.980,00:20:35.220
+"when I look at this path that
+goes this way, all right?",00:20:35.220,00:20:38.760
+"I'm going to look at the
+path that goes this way.",00:20:38.760,00:20:42.130
+s is the predecessor of v1.,00:20:42.130,00:20:44.190
+"v1 is a predecessor
+of, let's call this v3.",00:20:44.190,00:20:47.250
+v3 is a predecessor of v4.,00:20:47.250,00:20:49.200
+"I'm just talking about
+the regular forward path.",00:20:49.200,00:20:51.960
+We have s to v1.,00:20:51.960,00:20:53.300
+v1 to v3.,00:20:53.300,00:20:54.510
+v3 to v4.,00:20:54.510,00:20:55.990
+"All the way to t, right?",00:20:55.990,00:20:59.370
+So what I have here is correct.,00:20:59.370,00:21:01.220
+The predecessor of v1 is s.,00:21:01.220,00:21:02.860
+"The predecessor
+of v3 would be v1.",00:21:02.860,00:21:05.600
+"So I could write,
+pi f v3 equals v1.",00:21:05.600,00:21:11.050
+Et cetera.,00:21:11.050,00:21:12.117
+"Now, let's just forget about
+the forward path, and let's",00:21:12.117,00:21:14.450
+"just talk about
+the backward path.",00:21:14.450,00:21:16.250
+"In the backwoods
+path, I want to be",00:21:16.250,00:21:20.860
+"able to construct
+this backward path.",00:21:20.860,00:21:22.840
+"It's got to be the reverse
+of what I have, OK?",00:21:22.840,00:21:27.070
+"And, in that case,
+what I'm saying",00:21:27.070,00:21:29.670
+"is that I want to move
+in this direction.",00:21:29.670,00:21:34.040
+"So pretend that I've
+made the edges flip, OK?",00:21:34.040,00:21:39.830
+"So, in that case, if I pretend
+that this edge is like that,",00:21:39.830,00:21:45.390
+"and then I just apply
+the regular predecessor",00:21:45.390,00:21:47.850
+"relationship, then t is
+the predecessor of v2.",00:21:47.850,00:21:52.220
+"And that's the
+point you're making.",00:21:52.220,00:21:54.020
+OK? t is the predecessor of v2.,00:21:54.020,00:21:56.940
+"And so, my apologies.",00:21:56.940,00:21:58.540
+I have pi b v2 equals t.,00:22:02.860,00:22:08.120
+"And, if I follow this
+edge here, then I'd",00:22:08.120,00:22:11.564
+"have the appropriate
+relationship.",00:22:11.564,00:22:12.980
+"But let's just stick to
+this one because that's",00:22:12.980,00:22:15.510
+the simple example.,00:22:15.510,00:22:16.510
+"I don't quite know
+whether this edge",00:22:16.510,00:22:19.020
+"is going to be part of
+my shortest path or not.",00:22:19.020,00:22:21.300
+It might be.,00:22:21.300,00:22:22.054
+"And that's something
+that we'll compute.",00:22:22.054,00:22:23.720
+"But what I have here is the
+predecessor relationship",00:22:23.720,00:22:29.150
+"corresponding to
+the backward edge.",00:22:29.150,00:22:31.390
+"And so, that's like
+flipping this edge.",00:22:31.390,00:22:33.300
+"And, hopefully, that
+makes sense now.",00:22:33.300,00:22:37.910
+Thanks for pointing that out.,00:22:37.910,00:22:40.940
+"And so, let's talk
+about what happens here.",00:22:40.940,00:22:42.930
+"We know what happens
+in the forward search.",00:22:42.930,00:22:44.721
+You've done that before.,00:22:44.721,00:22:46.280
+"In the backward
+search, what happens",00:22:46.280,00:22:48.770
+"is that I need to start--
+according to this condition--",00:22:48.770,00:22:54.790
+"just like in the forward
+search, I found a w.",00:22:54.790,00:22:58.760
+"And I continually
+applied pi of f to w.",00:22:58.760,00:23:03.410
+"So, this is apply pi of f to w.",00:23:03.410,00:23:08.190
+And then do pi of f pi of f w.,00:23:08.190,00:23:12.920
+And so on and so forth.,00:23:12.920,00:23:14.330
+"And that's what you do in order
+to construct the shortest path.",00:23:14.330,00:23:17.840
+People buy that?,00:23:17.840,00:23:18.820
+Right?,00:23:18.820,00:23:19.440
+"And what I want to do
+here is apply pi b to w.",00:23:19.440,00:23:29.520
+"And then, pi b of pi b to w.",00:23:29.520,00:23:35.740
+"And so on and so
+forth, till I get to t.",00:23:35.740,00:23:38.131
+Right?,00:23:38.131,00:23:38.630
+"And this one, till I get to s.",00:23:38.630,00:23:40.820
+Right?,00:23:40.820,00:23:41.320
+"So, what I wrote
+here, s to w, t to w.",00:23:41.320,00:23:45.330
+"There's nothing
+incorrect about that.",00:23:45.330,00:23:49.000
+"What's important to understand
+is the application of the pi",00:23:49.000,00:23:52.310
+f and the pi b.,00:23:52.310,00:23:55.210
+"Both, according to
+this, start with w,",00:23:55.210,00:23:59.460
+"which is this vertex that caused
+the termination to happen.",00:23:59.460,00:24:05.350
+All right?,00:24:05.350,00:24:06.790
+"So, people buy this?",00:24:06.790,00:24:09.790
+Any other questions?,00:24:09.790,00:24:11.651
+All right.,00:24:11.651,00:24:12.150
+"Turns out this is
+not quite correct.",00:24:12.150,00:24:14.750
+OK?,00:24:14.750,00:24:15.250
+"This is not quite
+correct, right?",00:24:15.250,00:24:18.350
+"And not because of the pi b
+inversion that I had before,",00:24:18.350,00:24:24.360
+right?,00:24:24.360,00:24:24.860
+"So what have I said, so far?",00:24:24.860,00:24:26.870
+It makes perfect sense.,00:24:26.870,00:24:27.840
+"It says, I have a vertex
+that caused the termination.",00:24:27.840,00:24:32.490
+I'm going to call it w.,00:24:32.490,00:24:34.490
+OK?,00:24:34.490,00:24:34.990
+"And that vertex is on the
+intersection of these two",00:24:34.990,00:24:39.620
+"frontiers, OK?",00:24:39.620,00:24:42.505
+"And I'm going to use that
+to construct the shortest",00:24:42.505,00:24:44.630
+"path by constructing
+two sub paths,",00:24:44.630,00:24:47.650
+"using the forward pointers
+and the backward pointers.",00:24:47.650,00:24:51.840
+All right?,00:24:51.840,00:24:52.570
+"So all of that
+makes sense except,",00:24:52.570,00:24:55.020
+"it turns out, that w may
+not be on the shortest path.",00:24:55.020,00:25:03.800
+OK?,00:25:06.135,00:25:06.635
+"And I'll show you
+an example where",00:25:09.700,00:25:11.570
+w is not on the shortest path.,00:25:11.570,00:25:13.700
+All right?,00:25:13.700,00:25:14.350
+"So that's at a real
+subtle condition.",00:25:14.350,00:25:17.650
+"So we have to actually augment
+the termination condition.",00:25:17.650,00:25:22.240
+"Or, we have to do something more
+than the termination condition.",00:25:22.240,00:25:25.460
+"So, I will tell you right
+away, the termination condition",00:25:25.460,00:25:28.420
+is correct.,00:25:28.420,00:25:29.690
+OK?,00:25:29.690,00:25:30.680
+"And so, the guy who got the
+cushion, deserved the cushion.",00:25:30.680,00:25:34.620
+OK?,00:25:34.620,00:25:35.870
+"So the termination
+condition as correct.",00:25:35.870,00:25:38.356
+"You are going to run Dijkstra
+'s ultimate forward search",00:25:38.356,00:25:41.780
+and backward search.,00:25:41.780,00:25:43.150
+"And you're going to terminate
+when a particular vertex, call",00:25:43.150,00:25:46.190
+"it w, is going to get pulled
+out from both Qf and Qb.",00:25:46.190,00:25:51.510
+All right?,00:25:51.510,00:25:52.110
+"What is incorrect
+here is the use of w",00:25:52.110,00:25:57.670
+to construct the shortest path.,00:25:57.670,00:26:00.130
+All right?,00:26:00.130,00:26:00.630
+"It turns out, we have
+to do a little more work",00:26:00.630,00:26:03.070
+"to go find the shortest
+path, after we've terminated.",00:26:03.070,00:26:06.630
+"And w may not be on
+the shortest path.",00:26:06.630,00:26:09.660
+All right?,00:26:09.660,00:26:11.610
+"Any ideas as to
+what we might do?",00:26:11.610,00:26:15.170
+"This is a bit of
+an unfair question,",00:26:15.170,00:26:16.980
+but certainly worth a cushion.,00:26:16.980,00:26:20.145
+"How do you think
+we can fix this?",00:26:20.145,00:26:21.520
+"If w is not on
+the shortest path,",00:26:24.300,00:26:26.360
+"what do you think would
+be on the shortest path?",00:26:26.360,00:26:28.880
+"Is there a way of
+finding this vertex,",00:26:28.880,00:26:30.580
+so we can break this up?,00:26:30.580,00:26:31.900
+"We absolutely have to
+use both pi f and pi b.",00:26:31.900,00:26:35.640
+"There's no getting
+away from that",00:26:35.640,00:26:37.150
+"because these two frontiers
+have just barely collided.",00:26:37.150,00:26:40.860
+"The instant they barely
+collided, we've stopped.",00:26:40.860,00:26:43.760
+OK?,00:26:43.760,00:26:44.340
+"So we can't use pi f
+all the way from s to t.",00:26:44.340,00:26:47.230
+"We can't use pi b all
+the way from t to s.",00:26:47.230,00:26:49.710
+"These frontiers have
+just barely collided.",00:26:49.710,00:26:51.920
+OK?,00:26:51.920,00:26:52.930
+"So what happens if w is
+not on the shortest path?",00:26:52.930,00:26:56.270
+And why is that the case?,00:26:56.270,00:26:57.640
+Yeah.,00:26:57.640,00:26:58.326
+AUDIENCE: I just had a question.,00:26:58.326,00:26:59.659
+"Are all the edge
+weights identical?",00:26:59.659,00:27:01.189
+Or are they--,00:27:01.189,00:27:01.730
+"PROFESSOR: So, the edge
+weights don't change.",00:27:01.730,00:27:03.604
+There are no new edges.,00:27:05.680,00:27:08.834
+"The way you want
+to think about is",00:27:08.834,00:27:10.250
+"that, you can traverse
+the edges backward.",00:27:10.250,00:27:13.850
+"And so, it's not like
+there are two edges here.",00:27:13.850,00:27:19.020
+"Now, you could fake
+it, and have two edges",00:27:19.020,00:27:20.930
+"with exactly the same
+weights over here.",00:27:20.930,00:27:23.199
+"But are you saying there are
+edge weights in the graph,",00:27:23.199,00:27:25.490
+all identical across the edges?,00:27:25.490,00:27:27.120
+"Or are you asking about
+the forward search",00:27:27.120,00:27:28.870
+versus the backward search?,00:27:28.870,00:27:30.047
+"AUDIENCE: That's
+what I was asking.",00:27:30.047,00:27:31.505
+"Is each edge weight
+the same in the graph.",00:27:31.505,00:27:33.360
+PROFESSOR: No.,00:27:33.360,00:27:34.090
+They're using Dijkstra.,00:27:34.090,00:27:35.130
+The edge ways can be arbitrary.,00:27:35.130,00:27:37.250
+But they're non-negative.,00:27:37.250,00:27:40.910
+OK?,00:27:40.910,00:27:41.410
+"So that's the usual
+Dijkstra requirement.",00:27:41.410,00:27:44.050
+They could be real numbers.,00:27:44.050,00:27:45.210
+"They could be
+irrational numbers.",00:27:45.210,00:27:46.620
+They could be whatever.,00:27:46.620,00:27:48.000
+But they're all non-negative.,00:27:48.000,00:27:51.190
+All right?,00:27:51.190,00:27:51.970
+"Now, in the backward search
+and the forward search-- just",00:27:51.970,00:27:54.670
+"to make that clear-- while I've
+drawn this particular edge,",00:27:54.670,00:27:59.270
+"that weight hasn't changed, OK?",00:27:59.270,00:28:01.690
+"That weight had
+better be the same.",00:28:01.690,00:28:03.620
+OK?,00:28:03.620,00:28:05.140
+"All right, so I'll
+show you an example.",00:28:05.140,00:28:08.270
+"And we'll take an example, a
+fairly straightforward example,",00:28:08.270,00:28:12.820
+it turns out.,00:28:12.820,00:28:14.630
+"It took a while to
+concoct this five node",00:28:14.630,00:28:17.080
+"example that shows
+the idea here.",00:28:17.080,00:28:22.450
+"But what we're going to do is,
+take a look at the termination",00:28:22.450,00:28:27.480
+"condition in a
+specific case, where",00:28:27.480,00:28:29.110
+"we're going to do this
+alternation of forward",00:28:29.110,00:28:32.290
+and backward search.,00:28:32.290,00:28:33.570
+"And we'll see,
+when it terminates,",00:28:33.570,00:28:35.390
+"as to what the correct way is
+to construct the shortest path.",00:28:35.390,00:28:39.720
+All right?,00:28:39.720,00:28:40.290
+"And, as I said before,
+the termination condition",00:28:40.290,00:28:42.290
+is correct.,00:28:42.290,00:28:43.210
+It's not like we stop too early.,00:28:43.210,00:28:45.480
+"When one of those nodes
+gets off from Qf and Qb,",00:28:45.480,00:28:50.760
+you get to stop.,00:28:50.760,00:28:52.440
+"So that's my s, over here.",00:28:52.440,00:28:55.890
+"And I have a fairly
+straightforward graph.",00:28:55.890,00:29:00.660
+"I have 5, 5, 3, 3, 3.",00:29:00.660,00:29:06.682
+"So we don't need
+a computer program",00:29:06.682,00:29:08.140
+"to tell us that the
+shortest path from s to t",00:29:08.140,00:29:11.160
+"is the path with three
+edges that goes on top, OK,",00:29:11.160,00:29:15.180
+which has a weight of 9.,00:29:15.180,00:29:17.690
+All right.,00:29:17.690,00:29:18.340
+So this is a forward search.,00:29:18.340,00:29:23.120
+"And I'm going to call all
+of these vertices names.",00:29:23.120,00:29:26.820
+So I have u prime.,00:29:26.820,00:29:29.600
+t. et cetera.,00:29:29.600,00:29:31.150
+OK?,00:29:31.150,00:29:32.220
+"So, in the first step
+of the forward search,",00:29:32.220,00:29:35.790
+"I'm going to be able
+to set-- oh, I'm sorry.",00:29:35.790,00:29:39.160
+This one is a w.,00:29:39.160,00:29:40.930
+"I'm going to be able
+to set df w equals 5.",00:29:40.930,00:29:47.060
+And df u equals 3.,00:29:47.060,00:29:51.220
+"And, obviously,
+df of s equals 0.",00:29:51.220,00:29:55.625
+"And I'm not going to bother
+writing the infinities.",00:29:55.625,00:29:57.750
+"It's just going to clutter
+up the board, all right?",00:29:57.750,00:30:00.400
+"So, stop me if you have
+questions on anything",00:30:00.400,00:30:03.330
+I'm writing here.,00:30:03.330,00:30:05.740
+So that's a forward search.,00:30:05.740,00:30:08.730
+"Now, let's do the first step
+of backward search, right?",00:30:08.730,00:30:12.940
+"Alternate, remember?",00:30:12.940,00:30:14.440
+"Alternate forward
+search, backward search,",00:30:14.440,00:30:16.190
+"forward search, backward search.",00:30:16.190,00:30:17.890
+"And I'm just going to
+write this out again,",00:30:17.890,00:30:19.170
+"so bear with me,
+because I think it'd",00:30:19.170,00:30:20.711
+"be clearer if you see
+this graph many times.",00:30:20.711,00:30:26.380
+"As opposed to my erasing
+what I've written.",00:30:26.380,00:30:30.620
+"So I've got an s, here.",00:30:30.620,00:30:32.296
+t there.,00:30:32.296,00:30:34.030
+u.,00:30:34.030,00:30:34.580
+u prime.,00:30:34.580,00:30:35.560
+w.,00:30:35.560,00:30:36.280
+"And I'm going to hash
+this vertex vertically",00:30:36.280,00:30:39.790
+"because that's my
+backward search.",00:30:39.790,00:30:41.600
+And db of t equals 0.,00:30:41.600,00:30:46.690
+OK?,00:30:46.690,00:30:47.340
+"And I'm going to follow this
+backward, and this backward.",00:30:47.340,00:30:51.470
+And my weights are the same.,00:30:51.470,00:30:53.810
+It's the same graph.,00:30:53.810,00:30:55.590
+"So I'm going to have d
+of b u prime equals 3.",00:30:55.590,00:31:03.544
+And db of w equals 5.,00:31:03.544,00:31:07.770
+And I haven't seen u yet.,00:31:07.770,00:31:11.050
+I haven't seen s yet.,00:31:11.050,00:31:13.220
+"And so, all I've done
+is mark these two.",00:31:13.220,00:31:15.790
+All right?,00:31:15.790,00:31:17.060
+"So far, so good?",00:31:17.060,00:31:18.370
+"Again, stop me if
+you have questions.",00:31:18.370,00:31:21.880
+"We've got, obviously, a
+couple more steps to go here.",00:31:21.880,00:31:26.870
+And let's keep going.,00:31:26.870,00:31:35.280
+"So now we do a
+forward search again.",00:31:35.280,00:31:37.075
+"Yeah, that's fine.",00:31:49.680,00:31:50.430
+"That's this hash that
+way, just to make sure.",00:31:50.430,00:31:53.320
+"This is s, u, u prime, w, t.",00:31:53.320,00:31:57.020
+"And what I have
+now is, I'm going",00:32:03.020,00:32:05.760
+"process this vertex
+in the forward search",00:32:05.760,00:32:07.910
+"because I have a choice
+in the forward search",00:32:07.910,00:32:09.785
+to either pick w or w.,00:32:09.785,00:32:12.420
+"This clearly has lower
+priority because df w equals 5.",00:32:12.420,00:32:17.380
+And df of u equals 3.,00:32:17.380,00:32:20.660
+"So extract-min is
+obviously going to pick u.",00:32:20.660,00:32:23.600
+"And it's going to process this
+edge now, after extract-min.",00:32:23.600,00:32:28.340
+"And I'm going have df
+of u prime equals 6.",00:32:28.340,00:32:33.090
+OK?,00:32:33.090,00:32:33.590
+AUDIENCE: It's 3 over there.,00:32:33.590,00:32:34.757
+"PROFESSOR: Oh,
+it's 3 over there.",00:32:34.757,00:32:36.131
+Thanks.,00:32:36.131,00:32:36.836
+Good.,00:32:36.836,00:32:38.660
+"So, so far, so good?",00:32:38.660,00:32:40.740
+Yeah?,00:32:40.740,00:32:41.420
+All right.,00:32:41.420,00:32:41.920
+"So now, I go to the
+backward search.",00:32:41.920,00:32:44.755
+"And again, I have
+s, t, u, u prime, w.",00:32:55.170,00:33:01.550
+"I'm going to go
+ahead and hash this.",00:33:01.550,00:33:04.190
+"This has been
+hashed horizontally.",00:33:04.190,00:33:06.492
+"The hash horizontally means
+that it's been removed from Qf.",00:33:06.492,00:33:09.780
+"The hash vertically means that
+it's been removed from Qb.",00:33:09.780,00:33:13.220
+"And so, when I look at this,
+and I do a backward search,",00:33:13.220,00:33:17.370
+I'm going to hash this.,00:33:17.370,00:33:20.180
+"And I'm going to set
+db of u prime equals 3.",00:33:20.180,00:33:25.360
+And I have db of w equals 5.,00:33:25.360,00:33:30.715
+"So, that I already had.",00:33:36.370,00:33:38.600
+"And so, when I have db of w
+equals 5 and db of u prime",00:33:38.600,00:33:43.340
+"equals 3, then,
+obviously, I'm going",00:33:43.340,00:33:46.100
+"to pick the one with
+the min priority.",00:33:46.100,00:33:53.050
+This corresponds to this one.,00:33:53.050,00:33:55.930
+"And what it's going
+to do is, it's",00:33:55.930,00:33:58.510
+"going to go process that
+and set db of u equals 6.",00:33:58.510,00:34:03.175
+All right?,00:34:03.175,00:34:04.460
+"So what happened here simply was
+that I picked this vertex off",00:34:04.460,00:34:09.034
+"of Qb because that
+was the min priority.",00:34:09.034,00:34:12.310
+"And all I did was relax
+this particular edge",00:34:12.310,00:34:15.560
+in the backward direction.,00:34:15.560,00:34:17.080
+And said db u equals 6.,00:34:17.080,00:34:19.399
+All right?,00:34:19.399,00:34:20.170
+Almost there.,00:34:20.170,00:34:21.610
+Any questions so far?,00:34:21.610,00:34:22.790
+"Any bugs you noticed so
+far, in what I've written?",00:34:22.790,00:34:25.889
+"Yeah, back there, question.",00:34:25.889,00:34:27.727
+AUDIENCE: [INAUDIBLE].,00:34:27.727,00:34:30.199
+PROFESSOR: OK.,00:34:30.199,00:34:31.000
+Good.,00:34:31.000,00:34:31.500
+So people agree with this.,00:34:31.500,00:34:32.940
+"All right, one more.",00:34:32.940,00:34:34.520
+One more board to draw.,00:34:34.520,00:34:36.710
+And we'll be done.,00:34:36.710,00:34:38.135
+We will have terminated.,00:34:38.135,00:34:39.135
+"All right, so
+getting pretty close.",00:34:47.409,00:34:49.800
+So I'm set up this way.,00:35:06.490,00:35:09.050
+"Oh, shoot.",00:35:09.050,00:35:09.970
+Sorry.,00:35:09.970,00:35:10.470
+This is horizontal.,00:35:13.319,00:35:14.110
+"So, now I'm looking at it, and
+I've taken care of these two.",00:35:21.290,00:35:27.840
+"And I'm talking about
+the forward search here.",00:35:27.840,00:35:29.820
+"So this is, again, the forward.",00:35:29.820,00:35:32.060
+And that's the backward.,00:35:32.060,00:35:34.740
+"And now I'm doing
+a forward again.",00:35:34.740,00:35:37.730
+"And my only choice, now, is to
+pick the w vertex off of Qf.",00:35:37.730,00:35:43.611
+Right?,00:35:43.611,00:35:44.110
+Because df w equals 5.,00:35:44.110,00:35:47.900
+"And this one has
+already been processed.",00:35:47.900,00:35:50.450
+df of u equals 3.,00:35:50.450,00:35:52.530
+But I've hashed that.,00:35:52.530,00:35:54.000
+"And so I've gone ahead
+and processed that vertex.",00:35:54.000,00:35:58.100
+"And this one, df of
+u prime equals 6.",00:35:58.100,00:36:03.940
+"So, in Qf, I would be
+comparing u prime and w.",00:36:03.940,00:36:09.550
+"And I would take w, OK?",00:36:09.550,00:36:12.330
+People buy that?,00:36:12.330,00:36:13.860
+"That's because, I guess you by
+the fact that 5 is less than 6.",00:36:13.860,00:36:17.720
+I hope.,00:36:17.720,00:36:19.240
+"So that's what happens in
+the step of forward search.",00:36:19.240,00:36:24.240
+"And then you go ahead
+and process this.",00:36:24.240,00:36:28.800
+"You're going to set
+df of t to be 10.",00:36:28.800,00:36:36.030
+OK?,00:36:36.030,00:36:37.080
+"And now you're
+starting to see why",00:36:37.080,00:36:38.760
+"there may be a bit of a
+problem with our shortest path",00:36:38.760,00:36:41.820
+"computation, right?",00:36:41.820,00:36:43.390
+Maybe.,00:36:43.390,00:36:44.720
+All right?,00:36:44.720,00:36:45.344
+Everything good?,00:36:45.344,00:36:46.010
+All right.,00:36:46.010,00:36:46.770
+So what have I done here?,00:36:46.770,00:36:49.020
+I've removed w from Qf.,00:36:49.020,00:36:54.700
+OK.,00:36:54.700,00:36:55.460
+I've removed w from Qf.,00:36:55.460,00:36:57.375
+All right.,00:36:57.375,00:36:58.000
+"Now, let's look at the last step
+here, of the backward search.",00:36:58.000,00:37:01.050
+"s, t.",00:37:09.890,00:37:10.635
+"And so, this was hashed.",00:37:14.370,00:37:16.174
+That was hashed.,00:37:16.174,00:37:16.840
+"And, if I look at
+what I have here,",00:37:22.580,00:37:24.560
+I have db u prime equals 3.,00:37:24.560,00:37:31.790
+df u prime equals 6.,00:37:31.790,00:37:36.790
+This was df w equals 5.,00:37:36.790,00:37:41.130
+db w equals 5.,00:37:41.130,00:37:45.250
+And so on and so forth.,00:37:45.250,00:37:46.630
+"Again, you compare w.",00:37:46.630,00:37:48.910
+And you see that db w equals 5.,00:37:48.910,00:37:51.330
+And df u prime equals 6.,00:37:51.330,00:37:53.880
+"So therefore, you will pick w.",00:37:53.880,00:37:57.655
+OK?,00:37:57.655,00:37:58.930
+"You will pick w, and
+remove it from Qf.",00:37:58.930,00:38:01.990
+So remove w from Qf.,00:38:01.990,00:38:07.620
+All right?,00:38:07.620,00:38:08.340
+And process it.,00:38:08.340,00:38:10.050
+"And what you end up with
+is df of s equals 10.",00:38:10.050,00:38:17.080
+OK?,00:38:17.080,00:38:18.270
+"That's what you get
+because this is a 5.",00:38:18.270,00:38:20.916
+And that's a 5.,00:38:20.916,00:38:21.540
+OK?,00:38:24.520,00:38:26.155
+People see the problem here?,00:38:26.155,00:38:28.360
+What's the problem?,00:38:28.360,00:38:30.110
+Someone articulate the problem.,00:38:30.110,00:38:31.715
+AUDIENCE: [INAUDIBLE].,00:38:31.715,00:38:32.824
+PROFESSOR: Yeah.,00:38:32.824,00:38:33.490
+"I mean, so, what I have so
+far is, I've terminated.",00:38:33.490,00:38:37.890
+"But it looks like I
+end up with d of s.",00:38:37.890,00:38:41.650
+"If I look at it
+from a standpoint",00:38:41.650,00:38:43.690
+"of the forward weight,
+I got a 10 for t.",00:38:43.690,00:38:49.550
+I get db t equals 10.,00:38:49.550,00:38:52.035
+"If I look from a standpoint
+of the backward weight,",00:38:52.035,00:38:54.890
+I get db s equals 10.,00:38:54.890,00:38:57.520
+OK?,00:38:57.520,00:38:58.020
+"And we all know that the
+shortest path should be 9.",00:38:58.020,00:39:01.080
+OK.,00:39:01.080,00:39:01.870
+So what happened here?,00:39:01.870,00:39:03.250
+"Well, we terminated
+according to this condition.",00:39:03.250,00:39:05.760
+"We terminated when w was
+pulled off from Qf and Qb",00:39:05.760,00:39:10.730
+"because that was the
+short path, in some sense,",00:39:10.730,00:39:12.830
+"in terms of number
+of edges, right?",00:39:12.830,00:39:15.720
+It was only of length 2.,00:39:15.720,00:39:18.290
+"And so, then the
+frontiers collide.",00:39:18.290,00:39:20.500
+"This is a subtlety
+in the algorithm.",00:39:20.500,00:39:22.220
+"The frontiers collide
+at some vertex,",00:39:22.220,00:39:25.540
+"regardless of the
+weights of the edges.",00:39:25.540,00:39:28.630
+"Because we are alternating
+the forward search",00:39:28.630,00:39:30.630
+"and the backward
+search, in effect,",00:39:30.630,00:39:33.000
+"the frontiers are going to
+collide on the shortest length",00:39:33.000,00:39:36.690
+path.,00:39:36.690,00:39:37.520
+Right?,00:39:37.520,00:39:38.020
+"That makes sense, right?",00:39:38.020,00:39:40.070
+"So this example is set up so
+the shortest length path is not",00:39:40.070,00:39:45.970
+the shortest weight path.,00:39:45.970,00:39:47.740
+OK?,00:39:47.740,00:39:49.260
+"So we can't take the w
+and use pi f to construct",00:39:49.260,00:39:59.310
+"part of the path, and
+use pi b to construct",00:39:59.310,00:40:02.300
+the other part of the path.,00:40:02.300,00:40:03.830
+"And find the
+shortest weight path.",00:40:03.830,00:40:05.780
+"We would get
+something incorrect.",00:40:05.780,00:40:07.155
+Right?,00:40:07.155,00:40:07.655
+"We would get a path of
+length 10, in this case,",00:40:07.655,00:40:09.735
+if we did that.,00:40:09.735,00:40:11.370
+So how do we fix it?,00:40:11.370,00:40:14.530
+How do we fix it?,00:40:14.530,00:40:16.460
+"One little termination
+condition doesn't change.",00:40:16.460,00:40:19.410
+How do we fix it?,00:40:19.410,00:40:20.920
+Someone?,00:40:20.920,00:40:22.560
+Back there.,00:40:22.560,00:40:23.430
+"Or, actually, you.",00:40:23.430,00:40:24.398
+"AUDIENCE: Ordinate
+based on the weight.",00:40:24.398,00:40:26.594
+"PROFESSOR: Ordinate
+based on the weight.",00:40:26.594,00:40:28.260
+So exactly how would we do that?,00:40:28.260,00:40:30.592
+"AUDIENCE: At each
+point you take the one",00:40:30.592,00:40:32.476
+that has the [INAUDIBLE].,00:40:32.476,00:40:34.537
+"PROFESSOR: But that's what
+we're doing now, right?",00:40:34.537,00:40:36.620
+"So, are you changing
+the alternation",00:40:39.450,00:40:41.015
+"between the forward search
+and the backward search?",00:40:41.015,00:40:43.140
+AUDIENCE: Yeah.,00:40:43.140,00:40:44.300
+"PROFESSOR: You're
+saying that you're",00:40:44.300,00:40:45.800
+"going to do more forward
+searches, as opposed",00:40:45.800,00:40:47.850
+to backward searches?,00:40:47.850,00:40:49.455
+"AUDIENCE: If the
+overall cost is lower.",00:40:49.455,00:40:51.080
+"PROFESSOR: Overall
+cost is lower.",00:40:51.080,00:40:52.615
+"You know, if you code it
+up, you get to keep this.",00:40:52.615,00:40:58.010
+"If I want a slightly
+different, simpler",00:40:58.010,00:41:01.880
+"fix because I think what
+you're saying here--",00:41:01.880,00:41:04.190
+and I like the idea.,00:41:04.190,00:41:05.260
+I actually do like the idea.,00:41:05.260,00:41:06.860
+"You're saying you're going
+to not do strict alternation.",00:41:06.860,00:41:11.146
+"But you're going to do some
+sort of weighted alternation,",00:41:11.146,00:41:13.520
+"from what I can tell,
+based on the weights.",00:41:13.520,00:41:16.020
+OK?,00:41:16.020,00:41:16.660
+"And I think there's an
+algorithm there that's correct.",00:41:16.660,00:41:20.681
+OK?,00:41:20.681,00:41:21.180
+"I probably won't
+be able to prove",00:41:21.180,00:41:24.360
+"that it's correct to
+myself in five minutes.",00:41:24.360,00:41:28.190
+OK.,00:41:28.190,00:41:28.690
+Or 10 minutes.,00:41:28.690,00:41:30.080
+"But let's talk
+about that offline.",00:41:30.080,00:41:33.150
+And see if there's a way.,00:41:33.150,00:41:34.340
+"I'm a little
+worried that, if you",00:41:34.340,00:41:36.260
+"have positive rational
+numbers, and you've",00:41:36.260,00:41:39.780
+"got root 2, square
+root of 2, and pi.",00:41:39.780,00:41:44.110
+"And the transcendental number
+corresponding to these weights,",00:41:44.110,00:41:47.170
+"that this weighted
+alternation is",00:41:47.170,00:41:48.980
+"going to be a bit hard
+to implement correctly.",00:41:48.980,00:41:52.630
+But it's a neat idea.,00:41:52.630,00:41:54.460
+"I would actually like
+a follow up on that.",00:41:54.460,00:41:56.840
+"Something that's a
+little-- yeah, back there.",00:41:56.840,00:41:59.918
+"AUDIENCE: Can you look at the
+neighbors of all the nodes that",00:41:59.918,00:42:02.459
+"are in your forward
+[INAUDIBLE], and see",00:42:02.459,00:42:04.504
+"if any of their neighbors
+are in backwards [INAUDIBLE].",00:42:04.504,00:42:07.004
+"And see if that's going to give
+you a shorter path than the one",00:42:07.004,00:42:10.738
+that you pulled out previously.,00:42:10.738,00:42:12.597
+PROFESSOR: That's correct.,00:42:12.597,00:42:13.680
+That's almost exactly correct.,00:42:13.680,00:42:17.140
+"I won't bother throwing it
+over, but this is yours.",00:42:17.140,00:42:19.810
+You want to catch it?,00:42:19.810,00:42:20.750
+AUDIENCE: I already have one.,00:42:20.750,00:42:21.610
+"PROFESSOR: You already
+have a cushion.",00:42:21.610,00:42:23.010
+All right.,00:42:23.010,00:42:23.360
+So how about I just throw it.,00:42:23.360,00:42:24.568
+"And anybody who wants
+to catch it gets it.",00:42:24.568,00:42:26.480
+How's that?,00:42:26.480,00:42:27.210
+Whoa.,00:42:27.210,00:42:28.405
+All right.,00:42:28.405,00:42:29.140
+I didn't hit anybody.,00:42:29.140,00:42:30.420
+"Anybody who wants it, who
+doesn't have a cushion.",00:42:30.420,00:42:32.860
+Right.,00:42:32.860,00:42:33.430
+"We've got all these cushions in
+my office, and Eric's office.",00:42:33.430,00:42:36.630
+"We've got to do
+something about them.",00:42:36.630,00:42:39.627
+They're actually not that great.,00:42:39.627,00:42:40.960
+"You know, it's bit of
+an issue, I understand.",00:42:43.690,00:42:46.535
+"You know, we've got to
+do Frisbees next time,",00:42:46.535,00:42:48.420
+or something.,00:42:48.420,00:42:50.630
+"I can see why you're not
+enthusiastic about this.",00:42:50.630,00:42:53.541
+Right?,00:42:53.541,00:42:54.040
+OK.,00:42:54.040,00:42:54.980
+"All right, so the answer
+was, in fact, correct.",00:42:54.980,00:42:59.100
+"And let me write
+it up over here.",00:42:59.100,00:43:04.270
+"So we had to do a
+little more work.",00:43:04.270,00:43:06.250
+We terminate properly.,00:43:06.250,00:43:07.970
+We do the strict alternation.,00:43:07.970,00:43:09.990
+"But we have to do a
+little bit more work.",00:43:09.990,00:43:13.030
+OK.,00:43:13.030,00:43:14.750
+"And the work we have to do
+is summarized very neatly",00:43:14.750,00:43:19.950
+"by saying, we want to
+find an x, which is maybe",00:43:19.950,00:43:30.030
+"different from w,
+possibly, that has",00:43:30.030,00:43:40.610
+"minimum value of
+d of x plus db x.",00:43:40.610,00:43:53.895
+All right?,00:43:53.895,00:43:54.500
+So we have to actually look.,00:43:54.500,00:43:55.750
+"And this x is going
+to be neighboring.",00:43:55.750,00:43:58.490
+"But we don't really
+need to specify that.",00:43:58.490,00:44:00.880
+"What we say is, you're going
+to have to look at Qf and Qb.",00:44:00.880,00:44:05.290
+"And it's possible
+that w is the one that",00:44:05.290,00:44:08.580
+has minimum df w plus db w.,00:44:08.580,00:44:11.810
+"But, clearly, that wasn't
+the case in this example.",00:44:11.810,00:44:14.820
+"So, in this example, w
+caused the termination.",00:44:14.820,00:44:17.650
+But now we need to scan.,00:44:17.650,00:44:18.800
+"And there's only
+two other vertices",00:44:18.800,00:44:20.258
+"that are interesting here,
+which are u and u prime.",00:44:20.258,00:44:22.830
+"And either of those
+will fit the bill",00:44:22.830,00:44:24.840
+"because we see that df of u
+plus db of u equals 3 plus 6",00:44:24.840,00:44:31.270
+equals 9.,00:44:31.270,00:44:32.710
+"And df of u prime plus db of
+u prime equals-- I'm sorry,",00:44:32.710,00:44:41.070
+I should have out db here.,00:44:41.070,00:44:42.400
+"db of u prime would
+be 6 plus 3 equals 9.",00:44:42.400,00:44:48.370
+Right?,00:44:48.370,00:44:48.870
+"So both of these
+are less than 10.",00:44:48.870,00:44:50.930
+"And so we had to pick
+one of these as our x.",00:44:50.930,00:44:54.450
+OK.,00:44:54.450,00:44:55.410
+"And if you pick one of these
+as our x, then, at that point,",00:44:55.410,00:45:01.052
+we don't do w here.,00:45:01.052,00:45:03.670
+We do x.,00:45:03.670,00:45:05.520
+OK?,00:45:05.520,00:45:06.020
+Let me write it as x.,00:45:09.330,00:45:10.205
+It looks like a cross here.,00:45:10.205,00:45:11.490
+So that's what happens.,00:45:15.570,00:45:16.570
+So this small little tweak.,00:45:16.570,00:45:18.240
+Do the alternation.,00:45:18.240,00:45:19.350
+Do the termination.,00:45:19.350,00:45:20.700
+"Once you do the
+termination, go look",00:45:20.700,00:45:22.210
+"and see if you can
+minimize the shortest path",00:45:22.210,00:45:25.290
+"length by finding
+an appropriate x.",00:45:25.290,00:45:27.680
+"Which has the minimum sum of
+the forward and the backward",00:45:27.680,00:45:31.030
+priorities.,00:45:31.030,00:45:32.060
+"And then, you're in business.",00:45:32.060,00:45:34.000
+"And then, everything works.",00:45:34.000,00:45:35.530
+OK?,00:45:35.530,00:45:36.850
+All right.,00:45:36.850,00:45:37.350
+Great.,00:45:37.350,00:45:38.110
+"So, so much for
+bi-directional search.",00:45:38.110,00:45:42.950
+"Let me talk a little
+bit about heuristics",00:45:42.950,00:45:45.520
+"that people use to modify the
+graph so things run faster",00:45:45.520,00:45:53.160
+in practice.,00:45:53.160,00:45:54.490
+"So, in particular, you can think
+about the goal directed search,",00:45:54.490,00:46:01.500
+"or a star, if
+you're taking 6034.",00:46:01.500,00:46:04.400
+"And there's some
+commonality between what",00:46:04.400,00:46:08.970
+"I'm going to talk about
+here, and that material.",00:46:08.970,00:46:13.710
+"The basic idea is
+that we're going",00:46:13.710,00:46:17.190
+"to modify the edge
+weights in such a way",00:46:17.190,00:46:29.910
+"that you go downhill
+toward the shortest path.",00:46:29.910,00:46:36.660
+"And so, the priorities are
+modified heuristically.",00:46:36.660,00:46:41.640
+"So things run a
+little bit quicker.",00:46:41.640,00:46:43.806
+"You're trying to
+prune the search here.",00:46:43.806,00:46:45.430
+"So we're going to
+modify edge weights.",00:46:50.020,00:46:52.472
+"And we have to be careful
+when we do this, obviously.",00:46:52.472,00:46:54.680
+"We don't want to do
+things that are incorrect.",00:46:54.680,00:46:57.810
+"But the way we want to
+modify the edge weights",00:46:57.810,00:47:03.960
+"is by having some sort
+of potential function",00:47:03.960,00:47:07.970
+that corresponds to lambda.,00:47:07.970,00:47:10.800
+"And, if the edge
+is between u and v,",00:47:10.800,00:47:13.330
+"then we have an equation
+given a lambda that says,",00:47:13.330,00:47:17.180
+"the new w, w bar, is w u, v
+minus lambda u plus lambda",00:47:17.180,00:47:22.760
+v. OK?,00:47:22.760,00:47:25.140
+"Now, we have to be a little
+careful here, with respect",00:47:25.140,00:47:29.320
+to the choice of lambda.,00:47:29.320,00:47:30.850
+"But the basic idea,
+in terms of lambda,",00:47:30.850,00:47:33.730
+"is that, suppose you
+have something like this,",00:47:33.730,00:47:45.720
+"where you have a
+source vertex, s.",00:47:45.720,00:47:49.814
+"And you're again trying
+to do a single source,",00:47:49.814,00:47:51.730
+single target going to t.,00:47:51.730,00:47:53.990
+"And let's say I have an
+edge of weight 5 going out",00:47:53.990,00:47:56.810
+"and an edge of a 5
+going out this way.",00:47:56.810,00:47:59.430
+"Is there a way
+that you can guess",00:47:59.430,00:48:03.790
+"that this is the
+edge that is more",00:48:03.790,00:48:06.300
+"likely to be on
+your shortest path?",00:48:06.300,00:48:08.550
+As opposed to this other edge?,00:48:08.550,00:48:09.940
+"Essentially increase
+the potential",00:48:17.430,00:48:21.200
+"of this node, all right?",00:48:21.200,00:48:23.690
+"So this node here
+may be the node t2.",00:48:23.690,00:48:28.400
+"And this node may
+be the node t1.",00:48:28.400,00:48:30.660
+"You want to increase the
+potential of node t2,",00:48:30.660,00:48:34.390
+"such that, you're
+actually trying",00:48:34.390,00:48:35.830
+"to go uphill when
+you go this way.",00:48:35.830,00:48:38.400
+And this goes downhill.,00:48:38.400,00:48:40.050
+"And that has the
+appropriate modifications",00:48:40.050,00:48:42.390
+"on the edge weights, such
+that the Dijkstra algorithm is",00:48:42.390,00:48:45.740
+steered towards going downhill.,00:48:45.740,00:48:48.070
+And going down this path.,00:48:48.070,00:48:49.620
+"And it terminates a
+little bit quicker.",00:48:49.620,00:48:51.801
+Right?,00:48:51.801,00:48:52.300
+"It doesn't change as
+asymptotic complexity.",00:48:52.300,00:48:54.270
+"It just makes things run, in
+practice, a little bit faster.",00:48:54.270,00:48:58.180
+"If you choose the
+right potentials.",00:48:58.180,00:49:00.370
+Right?,00:49:00.370,00:49:01.320
+Feels like magic.,00:49:01.320,00:49:02.080
+"How do you know how to
+increase the potential?",00:49:02.080,00:49:06.030
+"What would you increase
+the potential for?",00:49:06.030,00:49:10.010
+"What nodes do you
+want to make uphill?",00:49:10.010,00:49:11.700
+"What nodes do you
+want to make downhill?",00:49:11.700,00:49:15.020
+So there's a bunch of questions.,00:49:15.020,00:49:16.910
+"I'm not going to get
+into a lot of details.",00:49:16.910,00:49:18.730
+"But I will tell you
+a couple of things.",00:49:18.730,00:49:21.380
+"I'm going to give you, really
+quickly, a simple example",00:49:21.380,00:49:26.400
+"that is both correct, in terms
+of the actual shortest path you",00:49:26.400,00:49:30.970
+will get is the correct one.,00:49:30.970,00:49:33.750
+"And a particular
+mechanism off modifying",00:49:33.750,00:49:37.060
+"the potentials that
+uses landmarks.",00:49:37.060,00:49:39.910
+Right.,00:49:39.910,00:49:40.410
+"So the way we are
+going to do this",00:49:40.410,00:49:43.960
+"is by saying that
+any path wp is going",00:49:43.960,00:49:48.210
+"to get modified based on
+its destination and source.",00:49:48.210,00:50:05.720
+"So the only way that we can
+use the potential method",00:50:05.720,00:50:10.490
+"is by ensuring that
+all of the shortest",00:50:10.490,00:50:12.850
+"paths between any pair
+of vertices, we're",00:50:12.850,00:50:16.699
+"only concerned about single
+source, single target here.",00:50:16.699,00:50:18.990
+"But, in general,
+it's a good thing",00:50:18.990,00:50:20.580
+"to not change any of
+the shortest paths.",00:50:20.580,00:50:22.920
+"So what used to
+be a shortest path",00:50:22.920,00:50:24.420
+should stay the shortest path.,00:50:24.420,00:50:26.060
+"And the way you do
+that is by having",00:50:26.060,00:50:27.980
+"a potential function that,
+if you have an arbitrary",00:50:27.980,00:50:30.710
+"path, essentially-- and
+this is a path from s to t.",00:50:30.710,00:50:34.920
+"That you subtract
+out something based",00:50:34.920,00:50:36.880
+on a function of the vertex.,00:50:36.880,00:50:39.100
+"In this case, you have s.",00:50:39.100,00:50:40.510
+"And, in this case, you have t.",00:50:40.510,00:50:42.200
+"So the nice thing is
+that, any path from s to t",00:50:42.200,00:50:45.020
+"is going to get shifted by
+the same amount, corresponding",00:50:45.020,00:50:48.020
+to this additional term here.,00:50:48.020,00:50:51.380
+"So what that means is
+that the final shortest",00:50:51.380,00:50:53.830
+"path that you discover will
+be the correct shortest path.",00:50:53.830,00:50:56.790
+"You just may, hopefully,
+discover it faster.",00:50:56.790,00:51:00.080
+All right?,00:51:00.080,00:51:00.710
+So that's the correctness check.,00:51:00.710,00:51:02.350
+And I'll put this in the notes.,00:51:02.350,00:51:04.970
+"And maybe the TAs can
+cover it in the section.",00:51:04.970,00:51:08.580
+"But one way of getting
+this potential function",00:51:08.580,00:51:12.860
+"is to use what's
+called a landmark.",00:51:12.860,00:51:15.560
+"And so the basic idea is
+that you have a landmark, l,",00:51:15.560,00:51:25.040
+"which is a vertex
+belonging to v.",00:51:25.040,00:51:27.740
+"And we're going to pre-compute
+delta of u comma l.",00:51:27.740,00:51:37.880
+"So, for any input
+vertex, you want",00:51:37.880,00:51:42.200
+"to find the shortest
+path to this landmark.",00:51:42.200,00:51:44.320
+"So it's like, change the
+source, but the destination",00:51:44.320,00:51:47.110
+stays the same.,00:51:47.110,00:51:48.770
+"And the potential
+lambda t u is defined",00:51:48.770,00:51:53.900
+"as delta of u, l
+minus delta of t, l.",00:51:53.900,00:52:00.840
+OK?,00:52:00.840,00:52:01.340
+"So you have the source, s.",00:52:01.340,00:52:02.890
+"You have a destination, t.",00:52:02.890,00:52:04.310
+"And now you have a landmark, l.",00:52:04.310,00:52:08.180
+"I'm going to pre-compute delta
+u,l for all u belonging to v.",00:52:08.180,00:52:16.710
+"And I'm also going to
+pre-compute, for a given t,",00:52:16.710,00:52:21.450
+"delta t, l.",00:52:21.450,00:52:22.220
+So that's just a single t.,00:52:22.220,00:52:23.720
+So that's just one computation.,00:52:23.720,00:52:25.370
+"This one is much
+more computation.",00:52:25.370,00:52:28.380
+"And, if I use this potential,
+you can show that it's correct,",00:52:28.380,00:52:35.360
+using the triangle inequality.,00:52:35.360,00:52:37.350
+And this is not a heuristic.,00:52:37.350,00:52:40.240
+"With the correct
+choice of landmark,",00:52:40.240,00:52:42.530
+"Dijkstra, empirically,
+will run faster.",00:52:42.530,00:52:45.970
+"So, if you know
+for sure that you",00:52:45.970,00:52:47.660
+"need to go through middle
+America to get from Cal Tech",00:52:47.660,00:52:50.030
+"to Boston-- and there's
+one particular landmark",00:52:50.030,00:52:54.030
+"you want to go through--
+Texas or something.",00:52:54.030,00:52:58.500
+"And you pick Austin, Texas, then
+you can do this computation.",00:52:58.500,00:53:02.840
+"And maybe Dijkstra runs
+2x faster, 20% faster.",00:53:02.840,00:53:07.250
+All right?,00:53:07.250,00:53:07.770
+"I'll put the argument about
+correctness, and the specifics",00:53:07.770,00:53:10.590
+"of these things, in the notes.",00:53:10.590,00:53:12.790
+"And you can take a
+look at it offline.",00:53:12.790,00:53:15.950

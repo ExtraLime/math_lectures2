@@ -1,0 +1,2653 @@
+text,start,stop
+"ANNOUNCER: The following program
+is brought to you by Caltech.",00:00:00.570,00:00:03.275
+YASER ABU-MOSTAFA: Welcome back.,00:00:15.800,00:00:18.600
+"Last time, we talked about
+regularization, which is a very",00:00:18.600,00:00:22.290
+"important technique in
+machine learning.",00:00:22.290,00:00:24.990
+"And the main analytic step that we took
+is to take a constrained form of",00:00:24.990,00:00:30.110
+"regularization, where you explicitly
+forbid some of the hypotheses from",00:00:30.110,00:00:35.120
+"being considered, and thereby reducing
+the VC dimension and improving the",00:00:35.120,00:00:39.787
+"generalization property, to
+an unconstrained version which creates",00:00:39.787,00:00:45.700
+"an augmented error in which no
+particular vector of weights is",00:00:45.700,00:00:51.510
+"prohibited per se, but basically you
+have a preference of weights based on",00:00:51.510,00:00:56.620
+"a penalty that has to do
+with the constraint.",00:00:56.620,00:00:59.820
+"And that equivalence will make us focus
+on the augmented-error form of",00:00:59.820,00:01:03.700
+"regularization, in every
+practice we have.",00:01:03.700,00:01:07.120
+"And the argument for it was to take the
+constrained version and look at it,",00:01:07.120,00:01:13.190
+"either as a Lagrangian which would be
+the formal way of solving it, or as we",00:01:13.190,00:01:18.620
+"did it in a geometric way, to find
+a condition that corresponds to",00:01:18.620,00:01:22.540
+"minimization under a constraint, and
+find that this would be locally",00:01:22.540,00:01:26.160
+"equivalent to minimizing this
+in an unconstrained way.",00:01:26.160,00:01:30.910
+"Then we went to the general form of
+a regularizer, and we called it",00:01:30.910,00:01:35.780
+Omega of h.,00:01:35.780,00:01:37.980
+"And it depends on small h rather than
+capital H, which was the other",00:01:37.980,00:01:43.070
+Omega that we used in the VC analysis.,00:01:43.070,00:01:46.210
+"And in that case, we formed the
+augmented error as the in-sample",00:01:46.210,00:01:49.500
+"error, plus this term.",00:01:49.500,00:01:51.700
+"And the idea now is that the
+augmented error will be a better thing",00:01:51.700,00:01:55.090
+"to minimize, if you want to minimize the
+out-of-sample error, rather than",00:01:55.090,00:01:58.590
+that-- just minimizing E_in by itself.,00:01:58.590,00:02:02.390
+And there are two choices here.,00:02:02.390,00:02:03.990
+One of them is the regularizer,00:02:03.990,00:02:06.170
+"Omega, weight decay or weight
+elimination, or the other",00:02:06.170,00:02:09.250
+forms you may find.,00:02:09.250,00:02:10.780
+"And the other one is lambda, which is
+the regularization parameter-- the",00:02:10.780,00:02:13.850
+"amount of regularization
+you're going to put.",00:02:13.850,00:02:17.050
+"And the long and short of it is that
+the choice of Omega in a practical",00:02:17.050,00:02:22.960
+"situation is really a heuristic choice,
+guided by theory and guided by",00:02:22.960,00:02:28.400
+"certain goals, but there is no
+mathematical way in a given practical",00:02:28.400,00:02:33.650
+"situation to come up with
+a totally principled omega.",00:02:33.650,00:02:37.580
+"But we follow the guidelines,
+and we do quite well.",00:02:37.580,00:02:40.820
+"So we make a choice of Omega towards
+smoother or simpler hypotheses.",00:02:40.820,00:02:46.630
+"And then we leave the amount of
+regularization to the determination of",00:02:46.630,00:02:51.080
+"lambda, and lambda is a little
+bit more principled.",00:02:51.080,00:02:53.620
+"We'll find out that we will determine
+lambda using validation, which is the",00:02:53.620,00:02:56.520
+subject of today's lecture.,00:02:56.520,00:02:58.020
+"And when you do that, you will
+get some benefit of Omega.",00:02:58.020,00:03:01.020
+"If you choose a great Omega, you
+will get a great benefit.",00:03:01.020,00:03:03.570
+"If you choose an OK Omega, you
+will get some benefit.",00:03:03.570,00:03:06.140
+"If you choose a terrible Omega, you are
+still safe, because lambda will",00:03:06.140,00:03:08.820
+"tell you-- the validation
+will tell you-- just",00:03:08.820,00:03:10.900
+"take lambda equal to 0, and
+therefore no harm done.",00:03:10.900,00:03:14.430
+"And as you see, the choice of lambda is
+indeed critical, because when you",00:03:14.430,00:03:18.060
+"take the correct amount of lambda, which
+happens to be very small in this",00:03:18.060,00:03:21.170
+"case, the fit, which is the red curve,
+is very close to the target,",00:03:21.170,00:03:25.170
+which is the blue.,00:03:25.170,00:03:26.070
+"Whereas if you push your luck, and have
+more of the regularization,",00:03:26.070,00:03:29.380
+"you end up constraining the fit so much
+that the red-- it wants to move",00:03:29.380,00:03:35.080
+"toward the blue, but it can't because
+of the penalty, and ends up being",00:03:35.080,00:03:38.020
+a poor fit for the blue curve.,00:03:38.020,00:03:41.000
+"So that leads us to today's lecture,
+which is about validation.",00:03:41.000,00:03:44.470
+"Validation is another technique that
+you will be using in almost every",00:03:44.470,00:03:47.830
+"machine learning problem
+you will encounter.",00:03:47.830,00:03:50.450
+And the outline is very simple.,00:03:50.450,00:03:53.550
+"First, I'm going to talk about
+the validation set.",00:03:53.550,00:03:55.600
+"There are two aspects that
+I'm going to talk about.",00:03:55.600,00:03:58.380
+"The size of the validation
+set is critical.",00:03:58.380,00:04:01.110
+"So we'll spend some time looking at
+the size of the validation set.",00:04:01.110,00:04:04.980
+"And then we'll ask ourselves, why
+did we call it validation",00:04:04.980,00:04:07.840
+in the first place?,00:04:07.840,00:04:08.700
+"It looks exactly like the test
+set that we looked at before.",00:04:08.700,00:04:12.910
+So why do we call it validation?,00:04:12.910,00:04:14.310
+"And the distinction will
+be pretty important.",00:04:14.310,00:04:17.050
+"And then we'll go for model selection,
+a very important",00:04:17.050,00:04:19.950
+subject in machine learning.,00:04:19.950,00:04:21.260
+And it is the main task of validation.,00:04:21.260,00:04:23.510
+That's what you use validation for.,00:04:23.510,00:04:25.410
+"And we'll find that model selection
+covers more territory than what the",00:04:25.410,00:04:28.540
+name may suggest to you.,00:04:28.540,00:04:31.300
+"Finally, we will go to cross-validation,
+which is a type of",00:04:31.300,00:04:33.740
+"validation that is very interesting,
+that allows you, if I give you",00:04:33.740,00:04:36.890
+"a budget of N examples, to basically use
+all of them for validation, and all of",00:04:36.890,00:04:41.970
+"them for training, which looks like
+cheating, because validation will look",00:04:41.970,00:04:46.280
+"like a distinct activity from
+training, as we will see.",00:04:46.280,00:04:48.810
+"But with this trick, you will be able
+to find a way to go around that.",00:04:48.810,00:04:55.060
+"Now, let me contrast validation with
+regularization, as far as control",00:04:55.060,00:05:00.290
+of overfitting is concerned.,00:05:00.290,00:05:03.190
+"We have seen, in one form or another,
+the following by-now-famous equation,",00:05:03.190,00:05:07.840
+"or inequality or rule, where you have the
+out-of-sample error that you want",00:05:07.840,00:05:14.670
+"equal the in-sample error, or at most equal
+the in-sample error, plus some penalty.",00:05:14.670,00:05:19.050
+"Could be penalty for model complexity,
+overfit complexity, a bunch of other",00:05:19.050,00:05:22.970
+ways of describing that.,00:05:22.970,00:05:24.910
+"But basically, this tells us that
+E_in is not exactly E_out.",00:05:24.910,00:05:28.090
+"That, we know all too well.",00:05:28.090,00:05:29.770
+"And there is a discrepancy, and the
+discrepancy has to do with the",00:05:29.770,00:05:32.630
+complexity of something.,00:05:32.630,00:05:34.940
+"An overfit penalty has to do with the
+complexity of the model you are using",00:05:34.940,00:05:37.850
+"to fit, and so on.",00:05:37.850,00:05:39.890
+"So in terms of this equation, I'd like
+to pose both regularization and",00:05:39.890,00:05:43.890
+"validation as an activity that
+deals with this equation.",00:05:43.890,00:05:48.760
+So what about regularization?,00:05:48.760,00:05:50.190
+We put the equation.,00:05:50.190,00:05:52.030
+What did regularization do?,00:05:52.030,00:05:53.610
+It tried to estimate this penalty.,00:05:56.810,00:06:01.590
+"Basically, what we did is concoct
+a term that we think captures the",00:06:01.590,00:06:10.200
+overfit penalty.,00:06:10.200,00:06:11.870
+"And then, instead of minimizing the
+in-sample, we minimize the in-sample",00:06:11.870,00:06:15.670
+"plus that, and we call that
+the augmented error.",00:06:15.670,00:06:18.150
+"And hopefully, the augmented error
+will be a better proxy for E_out.",00:06:18.150,00:06:21.490
+That was the deal.,00:06:21.490,00:06:23.170
+"And we notice that we are very,
+very inaccurate in the choice here.",00:06:23.170,00:06:29.130
+"We just say, smooth, pick lambda,
+you can use this, you can use that.",00:06:29.130,00:06:33.630
+"So obviously, we are not satisfying
+any equality by any chance.",00:06:33.630,00:06:36.540
+"But we are basically getting
+a quantity that has a monotonic",00:06:36.540,00:06:40.010
+"property, that when you minimize this,
+this gets minimized, which does the",00:06:40.010,00:06:43.880
+job for us.,00:06:43.880,00:06:46.540
+"Now, to contrast this, let's look at
+validation, when it's dealing with the",00:06:46.540,00:06:50.740
+same equation.,00:06:50.740,00:06:51.810
+What does validation do?,00:06:51.810,00:06:54.110
+"Well, validation cuts to the chase.",00:06:54.110,00:06:56.355
+It just estimates the out-of-sample.,00:06:59.680,00:07:01.420
+"Why bother with this analysis, and
+overfit, and this and that?",00:07:01.420,00:07:04.640
+"You want to minimize
+the out-of-sample?",00:07:04.640,00:07:05.930
+"Let's estimate the out-of-sample,
+and minimize it.",00:07:05.930,00:07:08.650
+"Obviously, it's too good to be true,
+but it's not totally untrue.",00:07:08.650,00:07:12.670
+"Validation does achieve something
+in that direction.",00:07:12.670,00:07:15.840
+"So let me spend a few slides just
+describing the estimate.",00:07:15.840,00:07:20.420
+"I'm trying to estimate the
+out-of-sample error.",00:07:20.420,00:07:22.710
+"This is not completely a foreign idea
+to us, because we use a test set in",00:07:22.710,00:07:26.740
+order to do that.,00:07:26.740,00:07:27.910
+"So let's focus on this, and see what
+are the parameters involved in",00:07:27.910,00:07:32.690
+estimating the out-of-sample error.,00:07:32.690,00:07:35.460
+Let's look at the estimate.,00:07:35.460,00:07:38.110
+"The starting point is to take
+an out-of-sample point x, y.",00:07:38.110,00:07:42.310
+"This is a point that was
+not involved in training.",00:07:42.310,00:07:46.360
+We used to call it test point.,00:07:46.360,00:07:47.840
+"Now we are going to call
+it validation point.",00:07:47.840,00:07:50.000
+"It's not going to become clear why we
+are giving it a different name for",00:07:50.000,00:07:52.770
+"a while, until we use the validation
+set for something, and then the",00:07:52.770,00:07:56.170
+distinction will become clear.,00:07:56.170,00:07:57.590
+"But as far as you are concerned now,
+this is just a test point.",00:07:57.590,00:08:00.380
+"We are estimating E_out, and we will
+just read the value of E_out and be",00:08:00.380,00:08:04.560
+"happy with that, and not
+do anything further.",00:08:04.560,00:08:07.090
+"So you take this point, and the error
+on it is the difference between what",00:08:07.090,00:08:13.090
+"your hypothesis does on x, and what
+the target value is, which is y.",00:08:13.090,00:08:18.020
+And what is the error?,00:08:18.020,00:08:19.330
+We have seen many forms of the error.,00:08:19.330,00:08:20.940
+"Let's just mention two
+to make it concrete.",00:08:20.940,00:08:23.000
+This could be a simple squared error.,00:08:23.000,00:08:24.655
+"We have seen that in
+linear regression.",00:08:24.655,00:08:26.490
+It could be the binary error.,00:08:26.490,00:08:27.630
+We have seen that in classification.,00:08:27.630,00:08:28.880
+So nothing foreign here.,00:08:28.880,00:08:31.870
+"Now, if you take this quantity,
+and we are now treating it as",00:08:31.870,00:08:35.959
+"an estimate for E_out,",00:08:35.959,00:08:37.780
+"a poor estimate, but nonetheless
+an estimate.",00:08:37.780,00:08:40.620
+"We call it an estimate because, if you
+take the expected value of that with",00:08:40.620,00:08:44.250
+"respect to the choice of x, with the
+probability distribution over the",00:08:44.250,00:08:47.750
+"input space that generates x,
+what will that value be?",00:08:47.750,00:08:52.640
+"Well, that is simply E_out.",00:08:52.640,00:08:55.190
+"So indeed, this quantity, the random
+variable here, has the correct",00:08:55.190,00:09:00.410
+expected value.,00:09:00.410,00:09:01.160
+It's an unbiased estimate or E_out.,00:09:01.160,00:09:03.850
+"But unbiased means that it's as likely
+to be here or here, in terms of",00:09:03.850,00:09:08.110
+expected value.,00:09:08.110,00:09:09.410
+"But we could be this, and this would
+be a good estimate, or we could be",00:09:09.410,00:09:12.960
+"this, and this would be
+a terrible estimate.",00:09:12.960,00:09:14.440
+"Because you are not getting
+all of them.",00:09:14.440,00:09:15.580
+You are just getting one of them.,00:09:15.580,00:09:17.150
+"So if this guy swings very large, and
+I tell you this is an estimate of",00:09:17.150,00:09:21.030
+"E_out, and you get it here, this is
+what you will think E_out is.",00:09:21.030,00:09:24.990
+"So there is an error, but
+the error is not biased.",00:09:24.990,00:09:27.590
+That's what this equation says.,00:09:27.590,00:09:30.300
+"But we have to evaluate that swing, and
+the swing is obviously evaluated",00:09:30.300,00:09:33.770
+"by the usual quantity, the variance.",00:09:33.770,00:09:36.420
+"And let's just call the variance
+sigma squared.",00:09:36.420,00:09:38.980
+"It depends on a number of things,
+including what is your error measure",00:09:38.980,00:09:41.590
+"and whatnot, but that is what
+a single point does.",00:09:41.590,00:09:44.940
+"So you get an estimate, but
+the estimate is poor because it's one",00:09:44.940,00:09:47.530
+"point, and therefore sigma squared
+is likely to be large.",00:09:47.530,00:09:50.150
+"So you are unlikely to use the estimate
+on one point as your guide to",00:09:50.150,00:09:54.410
+E_out.,00:09:54.410,00:09:55.660
+What do you use?,00:09:55.660,00:09:57.120
+"You move from one point, to a full set.",00:09:57.120,00:10:00.390
+So you get what?,00:10:00.390,00:10:01.380
+"You get a validation set that you are
+going to use to estimate E_out.",00:10:01.380,00:10:05.820
+"Now, the notation we are going to have
+is that the number of points in the",00:10:05.820,00:10:08.940
+"validation set is K. Remember that
+the number of points in the",00:10:08.940,00:10:12.700
+training set was N.,00:10:12.700,00:10:15.700
+"So this will be K points, also generated
+according to the same rules--",00:10:15.700,00:10:19.620
+"independently, according to the
+probability distribution",00:10:19.620,00:10:21.800
+over the input space.,00:10:21.800,00:10:24.030
+"And the error on that set we are
+going to call it E_val, as",00:10:24.030,00:10:30.495
+in validation error.,00:10:30.495,00:10:31.540
+"So we have E_in, and we have E_out.",00:10:31.540,00:10:34.860
+"Now we are introducing another one,
+E_val, the validation error.",00:10:34.860,00:10:38.740
+"And the form for it is what
+you expect it to be.",00:10:38.740,00:10:41.020
+"You take the individual errors on the
+examples, and you take the average,",00:10:41.020,00:10:44.300
+"like you did with the training set, and
+this one is the validation error.",00:10:44.300,00:10:47.930
+"The only difference is that this
+is done out-of-sample.",00:10:47.930,00:10:51.150
+"These guys were not used in training,
+and therefore you would expect that",00:10:51.150,00:10:54.330
+"this would be a good estimate for
+the out-of-sample performance.",00:10:54.330,00:10:57.590
+Let's see if it is.,00:10:57.590,00:10:59.870
+"What is the expected value of
+E_val, the validation error?",00:10:59.870,00:11:04.020
+"Well, you take the expected
+value of this fellow.",00:11:04.020,00:11:07.260
+The expectation goes inside.,00:11:07.260,00:11:08.960
+"So the main component is the expected
+value of this fellow, which we have",00:11:08.960,00:11:12.550
+"seen before-- expected value
+on a single point.",00:11:12.550,00:11:14.520
+"And you just average linearly,
+as you did.",00:11:14.520,00:11:18.420
+"Now, this quantity happens
+to be E_out.",00:11:18.420,00:11:22.560
+"The expected value on
+one point is E_out.",00:11:22.560,00:11:25.480
+"Therefore, when you do that,
+you just get E_out again.",00:11:25.480,00:11:27.700
+"So indeed, again, the validation error is
+an unbiased estimate of the out-of-sample",00:11:29.200,00:11:35.560
+"error, provided that all you did with
+the validation set is just measure the",00:11:35.560,00:11:39.820
+out-of-sample error.,00:11:39.820,00:11:40.610
+You didn't use it in any way.,00:11:40.610,00:11:43.040
+"Now, let's look at the variance, because
+that was our problem with the",00:11:43.040,00:11:46.720
+"single-point estimate, and let's
+see if there's an improvement.",00:11:46.720,00:11:50.290
+"When you get the variance, you are
+going to take this formula.",00:11:50.290,00:11:52.870
+"And then you are going to have a double
+summation, and have all cross",00:11:52.870,00:11:56.760
+terms of e between different points.,00:11:56.760,00:12:00.140
+"So you will have the covariance between
+the value for k equals 1 and k",00:12:00.140,00:12:04.920
+"equals 2, k equals 1 and
+k equals 3, et cetera.",00:12:04.920,00:12:06.990
+"And you also have that diagonal guys,
+which is the variance in this case,",00:12:06.990,00:12:10.050
+"with k equals 1 and 
+k equals 1 again.",00:12:10.050,00:12:15.150
+"The main component you are going to
+get are the variance, and a bunch of",00:12:15.150,00:12:20.850
+covariances.,00:12:20.850,00:12:21.400
+"Actually, there are more covariances
+than variances, because the variances",00:12:21.400,00:12:23.700
+"are the diagonal, the covariances
+are the off-diagonal.",00:12:23.700,00:12:26.140
+There are almost K squared of them.,00:12:26.140,00:12:28.160
+"The good thing about the covariance
+in this case is that it will be 0,",00:12:28.160,00:12:31.060
+"because we picked the points
+independently.",00:12:31.060,00:12:33.840
+"And therefore, the covariance between
+a quantity that depends on these",00:12:33.840,00:12:36.390
+points will be 0.,00:12:36.390,00:12:37.920
+"So I'm only stuck with the diagonal
+elements, which happen",00:12:37.920,00:12:41.530
+to have this form.,00:12:41.530,00:12:42.280
+I have the variance here.,00:12:42.280,00:12:43.670
+"And when I put the summation,
+something interesting happens.",00:12:43.670,00:12:46.390
+"I have the summation again,
+a double summation reduced to one,",00:12:46.390,00:12:48.900
+because I'm only summing the diagonal.,00:12:48.900,00:12:50.930
+"But I still have the normalizing factor
+with the number of elements.",00:12:50.930,00:12:54.270
+"Because I had K squared elements, the
+fact that many of them dropped out is",00:12:54.270,00:12:57.800
+just to my advantage.,00:12:57.800,00:12:59.310
+"I still have the 1 over K squared, and
+that gives me the better variance for",00:12:59.310,00:13:03.810
+"the estimate based on E_val,
+than on a single point.",00:13:03.810,00:13:07.180
+"This is your typical analysis
+of adding a bunch",00:13:07.180,00:13:12.450
+of independent estimates.,00:13:12.450,00:13:13.740
+So you get the sigma squared.,00:13:13.740,00:13:15.240
+"That was the variance on
+a particular point.",00:13:15.240,00:13:17.240
+"But now you divide it by K. Now we see
+a hope, because even if the original",00:13:17.240,00:13:22.440
+"estimate was this way, maybe we can
+have K big enough that we keep",00:13:22.440,00:13:25.730
+"shrinking the error bar, such that the
+E_val itself as a random variable",00:13:25.730,00:13:29.640
+"becomes this, which is around
+E_out-- what we want.",00:13:29.640,00:13:33.090
+"And therefore, it becomes
+a reliable estimate.",00:13:33.090,00:13:35.820
+This looks promising.,00:13:35.820,00:13:38.240
+"Now we can write the E_val, which
+is a random variable, to be E_out,",00:13:38.240,00:13:43.720
+"which is the value we want, plus or
+minus something that averages to 0, and",00:13:43.720,00:13:48.440
+"happens to be the order of approximately
+1 over square root of K.",00:13:48.440,00:13:52.700
+"If the variance is 1 over K, then
+the standard deviation is 1 over",00:13:52.700,00:13:55.410
+square root of K.,00:13:55.410,00:13:56.390
+"I'm assuming here that sigma
+squared is constant in the",00:13:56.390,00:13:59.300
+range that I'm using.,00:13:59.300,00:14:01.210
+"And therefore, the dependency
+on K only comes from here.",00:14:01.210,00:14:04.440
+"Therefore, I have this quantity
+that tells me this is what I'm",00:14:04.440,00:14:07.790
+"estimating, and this is the error I'm
+committing, and this is how the error",00:14:07.790,00:14:11.380
+"is behaving as I increase
+the number K.",00:14:11.380,00:14:15.550
+"The interesting point now
+is that K is not free.",00:14:15.550,00:14:19.100
+"It's not like I tell you, it
+looks like if I increase K,",00:14:19.100,00:14:22.670
+this is a good situation.,00:14:22.670,00:14:23.900
+"So why don't we use more and
+more validation points?",00:14:23.900,00:14:26.770
+"Because the reality is, K not given to
+you on top of your training set.",00:14:26.770,00:14:31.390
+"What I give you is a data set, N points,
+and it's up to you to use how",00:14:31.390,00:14:36.910
+"many to train, and how
+many to validate.",00:14:36.910,00:14:39.250
+"I'm not going to give you more, just
+because you want to validate.",00:14:39.250,00:14:43.200
+"So every time you take a point for
+validation, you are taking it away",00:14:43.200,00:14:46.580
+"from training, so to speak.",00:14:46.580,00:14:48.400
+"Let's see the ramifications
+of this regime.",00:14:48.400,00:14:53.120
+"K is taken out of N. So let's
+now have the notation.",00:14:53.120,00:14:55.590
+"We are given a data set D, as
+we always called it, and it has",00:14:55.590,00:15:00.560
+N points.,00:15:00.560,00:15:02.540
+What do we do with it?,00:15:02.540,00:15:06.430
+"We are going to take K points,
+and use them for validation.",00:15:06.430,00:15:09.720
+"And you can take any K points, as long
+as you don't look at the particular",00:15:09.720,00:15:13.600
+input and output.,00:15:13.600,00:15:14.600
+"Let's say you pick K points at
+random, from the N points.",00:15:14.600,00:15:17.870
+"That will be a valid set
+of validation for you.",00:15:17.870,00:15:22.900
+"So I have the K points, and therefore
+I'm left with N minus K for training.",00:15:22.900,00:15:31.020
+"The ones I left for training,
+I'm going",00:15:31.020,00:15:35.860
+to call D_train.,00:15:35.860,00:15:38.140
+"I didn't have to use that when I
+didn't have validation, because",00:15:38.140,00:15:40.560
+"D all went to training,
+so I didn't need to have the",00:15:40.560,00:15:44.660
+distinction.,00:15:44.660,00:15:45.470
+"Now, because I have two utilities, I'm
+going to take the guys that go into",00:15:45.470,00:15:48.260
+"training and call that subset
+D_train.",00:15:48.260,00:15:51.970
+"And the guys that I hold
+for validation I'm going to",00:15:51.970,00:15:54.160
+call it D_val.,00:15:54.160,00:15:56.680
+"The union of them is D.
+That's the setup.",00:15:56.680,00:16:01.900
+"Now, we looked in the previous slide
+at the reliability of the estimate of",00:16:01.900,00:16:07.320
+the validation set.,00:16:07.320,00:16:08.320
+"And we found that this reliability, if we
+measure it by the error bar on the",00:16:08.320,00:16:11.810
+"fluctuation, it will be the order of
+1 over square root of K, the",00:16:11.810,00:16:17.020
+number of validation points.,00:16:17.020,00:16:19.070
+"Then our conclusion is that if you use
+small K, you have a bad estimate.",00:16:19.070,00:16:24.950
+"And the whole role we have for
+validation so far is estimate, so we",00:16:24.950,00:16:28.180
+are not doing a good job.,00:16:28.180,00:16:29.780
+So we need to increase K.,00:16:29.780,00:16:31.540
+"It looks like a good idea, just from
+that point of view, to take",00:16:31.540,00:16:35.115
+large K.,00:16:35.115,00:16:36.960
+"But there are ramifications for taking
+large K, so we have a question mark.",00:16:36.960,00:16:40.790
+"And let's try to be
+quantitative about it.",00:16:40.790,00:16:44.300
+Remember this fellow?,00:16:44.300,00:16:46.790
+That was the learning curve.,00:16:46.790,00:16:48.280
+What did it do?,00:16:48.280,00:16:49.980
+"It told us, as you increase the number
+of training points, what is the",00:16:49.980,00:16:55.660
+"expected value of E_out and what is the
+expected value of E_in, for a given",00:16:55.660,00:16:59.890
+"model, the model that I'm plotting
+the learning curves of. Right?",00:16:59.890,00:17:05.270
+"Now, the number of data points used to
+be N. Here I'm writing it as N minus",00:17:05.270,00:17:11.530
+K. Why am I doing that?,00:17:11.530,00:17:13.180
+"Because under the regime of
+validation, this is what",00:17:13.180,00:17:15.560
+I'm using for training.,00:17:15.560,00:17:17.560
+"Therefore if you increase K, you are
+moving in this direction, right?",00:17:17.560,00:17:23.490
+"I used to be here, and I used
+to expect that level of E_out.",00:17:23.490,00:17:28.220
+"Now I am here, and I'm expecting
+that level of E_out.",00:17:28.220,00:17:31.720
+That doesn't look very promising.,00:17:31.720,00:17:34.480
+"I may get a reliable estimate, because
+I'm using bigger K, but I'm getting",00:17:34.480,00:17:38.900
+a reliable estimate of a worse quantity.,00:17:38.900,00:17:42.750
+"If you want to take an extreme case, you
+are going to take this estimate and",00:17:42.750,00:17:46.980
+"go to your customer, and tell them what
+you expect for the performance to be.",00:17:46.980,00:17:50.990
+"So you don't only deliver
+the final hypothesis.",00:17:50.990,00:17:53.950
+"You deliver the final hypothesis, with
+an estimate for how it will do when",00:17:53.950,00:17:58.390
+"they test it on a point that
+you haven't seen before.",00:17:58.390,00:18:02.170
+"Now, we want the estimate to be very
+reliable, and you forget about the",00:18:02.170,00:18:04.860
+quality of the hypothesis.,00:18:04.860,00:18:06.420
+"So you keep increasing K, keep
+increasing K, keep increasing K.",00:18:06.420,00:18:10.260
+"You end up with a very, very
+reliable estimate.",00:18:10.260,00:18:13.920
+"The problem is that it's an estimate of
+a very, very poor quantity, because",00:18:13.920,00:18:17.830
+"you used 2 examples to train, and
+you are basically in the noise.",00:18:17.830,00:18:22.150
+"So the statement you are going to make
+to your customer in this case is that,",00:18:22.150,00:18:27.200
+here is a system.,00:18:27.200,00:18:29.600
+I am very sure that it's terrible!,00:18:29.600,00:18:34.480
+That is unlikely to please a customer.,00:18:34.480,00:18:38.250
+"So now, we realize that there is a price
+to be paid for K. It turns out",00:18:38.250,00:18:42.850
+"that we are going to have a trick that
+will make us not pay that price.",00:18:42.850,00:18:47.970
+"But still, the question of what happens
+when K is big is a question",00:18:47.970,00:18:52.130
+mark in our mind.,00:18:52.130,00:18:53.450
+"What I'm going to do now, I'm going
+to tell you, you used K to",00:18:53.450,00:18:57.310
+estimate the error.,00:18:57.310,00:18:59.420
+"Now, what I'm going to tell you, why
+don't you restore the data set after",00:18:59.420,00:19:04.460
+"you have the estimate? Because the
+estimate now is in your pocket, train",00:19:04.460,00:19:07.970
+"on the full set, so that you
+get the better guy.",00:19:07.970,00:19:12.410
+"Well, I estimated for the smaller guy.",00:19:12.410,00:19:14.580
+What are we doing here?,00:19:14.580,00:19:15.610
+Let's just do this systematically.,00:19:15.610,00:19:18.330
+Let's put K back into the pot.,00:19:18.330,00:19:21.680
+So here is the regime.,00:19:21.680,00:19:23.250
+"I'm going to describe this figure,
+but let's talk it piece by piece.",00:19:25.860,00:19:30.860
+"We have the data set D, right?",00:19:30.860,00:19:33.710
+"We separated it into
+D_train and D_val.",00:19:33.710,00:19:40.450
+D itself has N points.,00:19:40.450,00:19:43.000
+"We took N minus K to train,
+K to validate.",00:19:43.000,00:19:47.460
+That's the game.,00:19:47.460,00:19:49.680
+What happened?,00:19:49.680,00:19:51.790
+"If we used the full training set to
+train, we would get a final hypothesis",00:19:51.790,00:19:57.030
+that we called g.,00:19:57.030,00:19:59.020
+This is just a matter of notation.,00:19:59.020,00:20:01.930
+"But under the regime of validation,
+you took out some guys.",00:20:01.930,00:20:05.750
+"And therefore, you are using
+only D_train to train.",00:20:05.750,00:20:10.630
+"And this has N minus K. Doesn't
+have all the examples.",00:20:10.630,00:20:13.430
+"Therefore, I am going to generically
+label the final hypothesis that I get",00:20:13.430,00:20:18.600
+"from training on a reduced set, D_train,
+I am going to call it g minus.",00:20:18.600,00:20:23.200
+"Just to remind ourselves that it's
+not on the full training set.",00:20:23.200,00:20:28.090
+"So now, here is the idea, if
+you look at the figure.",00:20:28.090,00:20:31.780
+"I have the D. Let me get it a bit
+smaller so that we can get the output.",00:20:34.860,00:20:41.680
+"If I use the training set by
+itself, I would get g.",00:20:44.710,00:20:49.530
+"What I am doing now is that I am going
+to take D_train, which has fewer",00:20:49.530,00:20:54.530
+"examples, and the rest
+go to validation.",00:20:54.530,00:20:58.150
+"I use D_train to get g minus, and then
+I take g minus and evaluate it on",00:20:58.150,00:21:04.300
+"D_val, the validation set, in
+order to get an estimate.",00:21:04.300,00:21:08.410
+"So the trick now is that instead of
+reporting g minus as my final",00:21:08.410,00:21:11.850
+"hypothesis, I know if I added the other
+data points here to the pot, I",00:21:11.850,00:21:17.675
+"am going to get a better
+out-of-sample.",00:21:17.675,00:21:19.630
+I don't know what it is.,00:21:19.630,00:21:20.700
+I don't have an estimate for it.,00:21:20.700,00:21:22.130
+"But I know it's going to be better
+than the one for g minus, simply",00:21:22.130,00:21:25.070
+because of the learning curve.,00:21:25.070,00:21:26.090
+"On average, I get more examples, I
+get better out-of-sample error.",00:21:26.090,00:21:30.510
+So I put it back and then report g.,00:21:30.510,00:21:32.850
+So it's a funny situation.,00:21:32.850,00:21:33.830
+"I'm giving you g, and I'm giving you
+the validation estimate on g minus.",00:21:33.830,00:21:37.700
+Why?,00:21:37.700,00:21:38.640
+"Because that's the only
+estimate I have.",00:21:38.640,00:21:39.930
+"I cannot give you the estimate on g,
+because now if I get g, I don't have",00:21:39.930,00:21:43.090
+any guys to validate on.,00:21:43.090,00:21:45.230
+So you can see now the compromise.,00:21:45.230,00:21:47.970
+"Under this scenario, I'm not really
+losing in performance by taking",00:21:47.970,00:21:52.410
+"a bigger validation set, because I'm going
+to put them back when I get",00:21:52.410,00:21:55.840
+the final hypothesis.,00:21:55.840,00:21:56.870
+"What I am losing here is that, the
+validation error I'm reporting, is",00:21:56.870,00:22:01.570
+"a validation error on a different
+hypothesis than the",00:22:01.570,00:22:03.900
+one I am giving you.,00:22:03.900,00:22:05.650
+"And if the difference is big, then
+my estimate is bad, because I'm",00:22:05.650,00:22:09.700
+"estimating on something other
+than what I am giving you.",00:22:09.700,00:22:12.380
+"And that's what happens
+when you have large K.",00:22:12.380,00:22:15.500
+"When you have large K, the discrepancy
+between g minus and g is bigger.",00:22:15.500,00:22:19.840
+"And I am giving you the
+estimate on g minus.",00:22:19.840,00:22:22.020
+So that estimate is poor.,00:22:22.020,00:22:24.090
+"And therefore, I get
+a bad estimate again.",00:22:24.090,00:22:27.490
+"Now, you see the subtlety here.",00:22:27.490,00:22:29.770
+"This is the regime that is used
+in validation, universally.",00:22:29.770,00:22:32.680
+"After you do your thing, and you do your
+estimates, and, as you will see",00:22:32.680,00:22:36.330
+"further, you do your choices, you go and
+put all the examples to train on,",00:22:36.330,00:22:40.450
+"because this is your best bet of
+getting a good hypothesis.",00:22:40.450,00:22:43.910
+"If your K is small, the validation
+error is not reliable.",00:22:43.910,00:22:48.260
+"It's a bad estimate, just because
+the variance of it is big.",00:22:48.260,00:22:52.770
+"I have small K, it's 1 over square
+root of K, so I'm doing this.",00:22:52.770,00:22:56.260
+"If you get big K, the problem is not
+the reliability of the estimate.",00:22:56.260,00:22:59.990
+"The problem is that the thing you are
+estimating is getting further and",00:22:59.990,00:23:03.260
+"further away from the thing
+you are reporting.",00:23:03.260,00:23:06.450
+So now we have a compromise.,00:23:06.450,00:23:07.910
+"We don't want K to be too small, in
+order not to have fluctuations.",00:23:07.910,00:23:11.100
+"We don't want K to be too big, in order
+not to be too far from",00:23:11.100,00:23:14.740
+what we are reporting.,00:23:14.740,00:23:16.460
+"And as usual in machine learning,
+there is a rule of thumb.",00:23:16.460,00:23:21.240
+"And the rule of thumb
+is pretty simple.",00:23:21.240,00:23:22.970
+That's why it's a rule of thumb.,00:23:22.970,00:23:24.640
+"It says, take one fifth
+for validation.",00:23:24.640,00:23:29.580
+"That usually gives you the
+best of both worlds.",00:23:29.580,00:23:32.600
+Nothing proved.,00:23:32.600,00:23:33.880
+You can find counterexamples.,00:23:33.880,00:23:35.350
+I'm not going to argue with that.,00:23:35.350,00:23:36.430
+It's a rule of thumb.,00:23:36.430,00:23:37.870
+"Use it in practice, and actually you
+will be quite successful here.",00:23:37.870,00:23:42.970
+"There's an argument with some
+people, whether it should be N",00:23:42.970,00:23:44.890
+over 5 or N over 6.,00:23:44.890,00:23:46.450
+"I'm going not going
+to fret over that.",00:23:46.450,00:23:48.000
+"It's a rule of thumb, after
+all, for crying out loud!",00:23:48.000,00:23:49.670
+We'll just leave it at that.,00:23:49.670,00:23:50.920
+So we now have that.,00:23:53.520,00:23:55.560
+Let's go to the other aspect.,00:23:55.560,00:23:57.160
+"We know what validation is, and we
+understand how critical it is to",00:23:57.160,00:24:01.060
+"choose the number, and we
+have a rule of thumb.",00:24:01.060,00:24:02.810
+"Now let's ask the question, why
+are we calling this validation",00:24:02.810,00:24:06.310
+in the first place?,00:24:06.310,00:24:07.470
+"So far, it's purely a test.",00:24:07.470,00:24:09.570
+We get an out-of-sample point.,00:24:09.570,00:24:11.010
+The estimate is unbiased.,00:24:11.010,00:24:11.870
+What is the deal?,00:24:11.870,00:24:13.280
+"We call it validation, because
+we use it to make choices.",00:24:13.280,00:24:16.630
+"And this is a very important point,
+so let's talk about it in detail.",00:24:16.630,00:24:21.080
+"Once I make my estimate affect the
+learning process, the set I am using",00:24:21.080,00:24:29.270
+is going to change nature.,00:24:29.270,00:24:30.920
+"So let's look at a situation
+that we have seen before.",00:24:30.920,00:24:33.680
+Remember this fellow?,00:24:33.680,00:24:35.200
+"Yeah, this was early stopping
+in neural networks.",00:24:35.200,00:24:38.730
+"And let me magnify it for you
+to see the green curve.",00:24:38.730,00:24:43.300
+Do you see the green curve now?,00:24:43.300,00:24:45.680
+"OK, so there is a green curve.",00:24:45.680,00:24:46.820
+Now we'll scoot it back.,00:24:46.820,00:24:48.070
+So the in-sample goes down.,00:24:50.490,00:24:52.690
+Out-of-sample--,00:24:52.690,00:24:53.590
+"let's say that I have a general estimate
+for the out-of-sample--",00:24:53.590,00:24:56.780
+"goes down with it until such a point
+that it goes up, and we have the",00:24:56.780,00:25:00.010
+"overfitting, and we talked about it.",00:25:00.010,00:25:01.430
+"And in this case, it's a good
+idea to have early stopping.",00:25:01.430,00:25:04.800
+"Now, let's say that you are using K
+points, that you did not use for",00:25:04.800,00:25:08.660
+"training, in order to estimate E_out.",00:25:08.660,00:25:12.240
+"That would be E_test, the test error, if
+all you are doing is just plotting",00:25:12.240,00:25:17.010
+"the red in order to look
+at it and admire it.",00:25:17.010,00:25:19.560
+"Oh, that's a nice curve.",00:25:19.560,00:25:20.650
+"Oh, it's going up.",00:25:20.650,00:25:21.580
+"But you're not going to take
+any actions based on it.",00:25:21.580,00:25:25.220
+"Now, if you decide that,
+this is going up,",00:25:25.220,00:25:29.510
+I had better stop here.,00:25:29.510,00:25:32.940
+That changes the game dramatically.,00:25:32.940,00:25:35.710
+"All of a sudden, this is
+no longer a test error.",00:25:35.710,00:25:38.620
+Now it's a validation error.,00:25:38.620,00:25:40.970
+"So you ask yourself, what the heck?",00:25:40.970,00:25:43.040
+It's just semantics.,00:25:43.040,00:25:44.930
+It's the same curve.,00:25:44.930,00:25:46.790
+Why am I calling it a different name?,00:25:46.790,00:25:48.910
+"I'm calling it a different name, because
+it used to be unbiased.",00:25:48.910,00:25:52.660
+"That is, if this is an estimate of E_out,
+not the actual E_out, there will be",00:25:52.660,00:25:57.200
+an error bar in estimating E_out.,00:25:57.200,00:25:59.440
+"But it is as likely to be optimistic,
+as pessimistic.",00:25:59.440,00:26:04.460
+"Now, when you do early stopping, you
+say, I'm going to stop here and I'm",00:26:04.460,00:26:07.920
+"going to use this value as my estimate
+for what you are getting.",00:26:07.920,00:26:12.720
+"I claim that your
+estimate is now biased.",00:26:12.720,00:26:17.260
+It's the same point.,00:26:17.260,00:26:18.510
+You told us it was unbiased before.,00:26:18.510,00:26:20.870
+What is the deal?,00:26:20.870,00:26:22.230
+"Let's look at a very specific
+simple case, in order to",00:26:22.230,00:26:25.250
+understand what happens.,00:26:25.250,00:26:26.500
+This is no longer a test set.,00:26:29.750,00:26:32.060
+"It becomes, in red, a validation set.",00:26:32.060,00:26:35.940
+"Fine, fine.",00:26:35.940,00:26:36.920
+"Now convince us of the
+substance of it.",00:26:36.920,00:26:38.620
+We know the name.,00:26:38.620,00:26:40.580
+"So let's look at the difference, when
+you actually make a choice.",00:26:40.580,00:26:44.290
+"Very simple thing
+that you can reason.",00:26:44.290,00:26:47.020
+"Let's say I have the test set, which is
+unbiased, and I'm claiming that the",00:26:47.020,00:26:50.540
+validation set has an optimistic bias.,00:26:50.540,00:26:52.450
+Optimism is good.,00:26:54.970,00:26:56.080
+"But here, it's optimism followed
+by disappointment.",00:26:56.080,00:26:58.530
+It's deception.,00:26:58.530,00:27:00.000
+"We are just calling it optimistic, to
+understand that it's always in the",00:27:00.000,00:27:02.530
+"direction of thinking that the error
+will be smaller than it will, actually,",00:27:02.530,00:27:05.360
+turn out to be.,00:27:05.360,00:27:06.610
+So let's say we have two hypotheses.,00:27:08.550,00:27:11.040
+"And for simplicity, let's have them
+both have the same E_out.",00:27:11.040,00:27:15.620
+So I have two hypotheses.,00:27:15.620,00:27:16.480
+"Each of them has out-of-sample
+error 0.5.",00:27:16.480,00:27:20.210
+"Now, I'm using a point to
+estimate that error.",00:27:20.210,00:27:24.420
+"And I have two estimates,",00:27:24.420,00:27:26.140
+"e_1 for the hypothesis 1, and
+e_2 for the hypothesis 2.",00:27:26.140,00:27:31.720
+"I'm going to use-- because the
+estimate has fluctuations in it, just",00:27:31.720,00:27:34.900
+"again for simplicity, I'm going to
+assume that both e_1 and e_2 are uniform",00:27:34.900,00:27:39.460
+between 0 and 1.,00:27:39.460,00:27:41.270
+"So indeed, the expected value is half,
+which is the expected value I want,",00:27:41.270,00:27:44.480
+which is the out-of-sample error.,00:27:44.480,00:27:46.860
+"Now, I'm not going to assume strictly
+that e_1 and e_2 are independent, but",00:27:46.860,00:27:50.250
+"you can assume they are independent
+for the sake of argument.",00:27:50.250,00:27:53.170
+"But they can have some level of
+correlation, and you'll still get the",00:27:53.170,00:27:55.740
+same effect.,00:27:55.740,00:27:56.400
+"Let's think now that they are
+independent variables, e_1 and e_2.",00:27:56.400,00:28:01.480
+"Now, e_1 is an unbiased estimate of
+its out-of-sample error, right?",00:28:01.480,00:28:05.700
+Right.,00:28:05.700,00:28:06.760
+"e_2 is the same, right?",00:28:06.760,00:28:08.600
+Right.,00:28:08.600,00:28:09.380
+"Unbiased means the expected value
+is what it should be.",00:28:09.380,00:28:13.130
+"And the expected value,
+indeed in this case,",00:28:13.130,00:28:15.080
+"is what it should be, 0.5.",00:28:15.080,00:28:17.390
+"Now, let's take the game, where we
+pick one of the hypotheses,",00:28:17.390,00:28:21.170
+either h_1 or h_2.,00:28:21.170,00:28:23.320
+How are we going to pick it?,00:28:23.320,00:28:24.990
+"We are going to pick it according
+to the value of the error.",00:28:24.990,00:28:29.090
+"So now, the measurement we have
+is applying to that choice.",00:28:29.090,00:28:35.180
+"What I'm going to do,
+I'm going to pick the",00:28:35.180,00:28:37.020
+smaller of e_1 and e_2.,00:28:37.020,00:28:39.230
+"And whichever that one is, I'm going
+to pick the hypothesis that",00:28:39.230,00:28:42.300
+corresponds to it.,00:28:42.300,00:28:43.840
+So this is mini learning.,00:28:43.840,00:28:45.320
+The error--,00:28:45.320,00:28:46.440
+"just pick one, and this is the one.",00:28:46.440,00:28:48.420
+My question to you is very simple.,00:28:48.420,00:28:51.570
+What is the expected value of e?,00:28:51.570,00:28:55.380
+"A naive thought would say, you told us
+the expected value of e_1 is 1/2.",00:28:55.380,00:28:59.270
+"You told us the expected
+value of e_2 is 1/2.",00:28:59.270,00:29:01.930
+e has to be either e_1 or e_2.,00:29:01.930,00:29:04.030
+So the expected value should be 1/2?,00:29:04.030,00:29:07.180
+"Of course not, because now the rules
+of the game-- the probabilities that",00:29:07.180,00:29:09.910
+"you're applying-- have changed, because
+you are deliberately picking the",00:29:09.910,00:29:12.660
+minimum of the realization.,00:29:12.660,00:29:15.180
+"And it's very easy to see that the
+expected value of e is less than 0.5.",00:29:15.180,00:29:20.000
+"The easiest thing to say is that if
+I have two variables like that, the",00:29:20.000,00:29:24.360
+"probability that the minimum will be
+less than 1/2 is 75%, because all you",00:29:24.360,00:29:31.650
+"need to do is one of them
+being less than 1/2.",00:29:31.650,00:29:34.390
+"If the probability of being less
+than 1/2 is 75%, you expect the",00:29:34.390,00:29:37.340
+expected value to be less than 1/2.,00:29:37.340,00:29:39.170
+It's mostly there.,00:29:39.170,00:29:39.910
+The mass is mostly below.,00:29:39.910,00:29:42.230
+So now you realize this is what?,00:29:42.230,00:29:44.190
+This is an optimistic bias.,00:29:44.190,00:29:46.500
+"And that is exactly the same as what
+happened with the early stopping.",00:29:46.500,00:29:49.770
+"We picked the point because it's minimum
+on the realization, and that is what",00:29:49.770,00:29:54.390
+we reported.,00:29:54.390,00:29:54.880
+"Because of that-- the thing
+used to be this,",00:29:54.880,00:29:57.260
+but we wait.,00:29:57.260,00:29:57.950
+"When it's there, we ignore it.",00:29:57.950,00:29:59.440
+"When it's here, we take it.",00:29:59.440,00:30:01.090
+"So now that introduces a bias,
+and that bias is optimistic.",00:30:01.090,00:30:04.550
+"And that will be true for
+the validation set.",00:30:04.550,00:30:06.690
+"Our discussion so far is based
+on just looking at the E_out.",00:30:06.690,00:30:11.180
+"Now we're going to use it, and we're
+going to introduce a bias.",00:30:11.180,00:30:14.630
+"Fortunately for us, the utility of
+validation in machine learning is so",00:30:14.630,00:30:19.810
+"light, that we are going
+to swallow the bias.",00:30:19.810,00:30:23.740
+Bias is minor.,00:30:23.740,00:30:24.760
+We are not going to push our luck.,00:30:24.760,00:30:26.120
+"We are not going to estimate tons of
+stuff, and keep adding bias until the",00:30:26.120,00:30:30.550
+"validation error basically becomes
+training error in disguise.",00:30:30.550,00:30:33.380
+"We're just going to-- let's choose
+a parameter, choose between models,",00:30:33.380,00:30:36.130
+and whatnot.,00:30:36.130,00:30:36.860
+"And by and large, if you do that, and
+you have a respectable-size validation",00:30:36.860,00:30:40.660
+"set, you get a pretty reliable
+estimate for the E_out,",00:30:40.660,00:30:44.092
+"conceding that it's biased, but the bias
+is not going to hurt us too much.",00:30:44.092,00:30:47.310
+So this is the general philosophy.,00:30:47.310,00:30:50.150
+"Now with this understanding, let's
+use validation set for model",00:30:50.150,00:30:53.440
+"selection, which is what
+validation sets do.",00:30:53.440,00:30:55.840
+"That is the main use
+of validation sets.",00:30:55.840,00:30:59.700
+"And the choice of lambda, in the
+case we saw, happens to be",00:30:59.700,00:31:03.740
+a manifestation of this.,00:31:03.740,00:31:05.390
+So let's talk about it.,00:31:05.390,00:31:07.630
+"Basically, we are going to use the
+validation set more than once.",00:31:07.630,00:31:11.930
+"That's how we are going
+to make the choice.",00:31:11.930,00:31:13.410
+So let's look.,00:31:13.410,00:31:15.060
+This is a diagram.,00:31:15.060,00:31:16.140
+I'm going to build it up.,00:31:16.140,00:31:17.640
+"Let's build it up, and then I'll
+focus on it, and look at how the",00:31:17.640,00:31:21.040
+diagram reflects the logic.,00:31:21.040,00:31:24.140
+"We have M models that
+we're going to choose from.",00:31:24.140,00:31:28.560
+"When I say model, you are thinking of
+one model versus another, but this is",00:31:28.560,00:31:32.980
+really talking more generally.,00:31:32.980,00:31:35.090
+"I could be talking about models as in,
+should I use linear models or neural",00:31:35.090,00:31:40.660
+networks or support vector machines?,00:31:40.660,00:31:43.200
+These are models.,00:31:43.200,00:31:45.250
+"I could be using only
+polynomial models.",00:31:45.250,00:31:48.810
+"And I'm asking myself, should
+I go for 2nd order, 5th",00:31:48.810,00:31:52.070
+"order, or 10th order?",00:31:52.070,00:31:54.020
+That's a choice between models.,00:31:54.020,00:31:56.540
+"I could be using 5th-order polynomials
+throughout, and the only",00:31:56.540,00:32:00.930
+"thing I'm choosing,",00:32:00.930,00:32:02.110
+"should I choose lambda of the
+regularization to be 0.01, 0.1, or 1?",00:32:02.110,00:32:09.550
+"All of this lies under
+model selection.",00:32:09.550,00:32:11.820
+"There's a choice to be made, and I want
+to make it in a principled way,",00:32:11.820,00:32:15.270
+"based on the out-of-sample error,
+because that's the bottom line.",00:32:15.270,00:32:17.820
+"And I'm going to use the validation
+set to do that.",00:32:17.820,00:32:20.050
+This is the game.,00:32:20.050,00:32:21.300
+"So we'll call them, since they're
+models, I have H_1 up to H_M.",00:32:23.290,00:32:28.230
+"And we are going to use D to train,
+and I am going to get",00:32:28.230,00:32:34.000
+as a result of that--,00:32:34.000,00:32:35.250
+"it's not the whole set, as usual,
+so I left some for validation.",00:32:37.950,00:32:42.280
+And I'm going to get g minus.,00:32:42.280,00:32:43.640
+"That is our convention for whenever
+we train on something less",00:32:43.640,00:32:46.260
+than the full set.,00:32:46.260,00:32:47.520
+"But because I'm getting a hypothesis
+from each model, I am labeling it",00:32:47.520,00:32:51.700
+"by the subscript m. So there is g_1 up
+to g_M, with a minus, because they",00:32:51.700,00:32:58.080
+used D_train to train.,00:32:58.080,00:33:01.450
+So I get one for each model.,00:33:01.450,00:33:03.850
+"And then I'm going to evaluate that
+fellow, using the validation set.",00:33:03.850,00:33:08.340
+"The validation set are the examples that
+were left out from D, when I took",00:33:08.340,00:33:12.440
+the D_train.,00:33:12.440,00:33:14.140
+So now I'm going to do this.,00:33:14.140,00:33:15.060
+"All I'm doing is exactly what I did
+before, except I'm doing it M",00:33:15.060,00:33:18.490
+"times, and introducing the notation
+that goes with that.",00:33:18.490,00:33:22.660
+"Let's look at the figure
+now a little bit.",00:33:22.660,00:33:26.260
+Here is the situation.,00:33:26.260,00:33:28.310
+I have the data set.,00:33:28.310,00:33:30.010
+What do I do with it?,00:33:30.010,00:33:30.920
+"I break it into two,",00:33:30.920,00:33:32.410
+validation and training.,00:33:32.410,00:33:35.800
+"I use the training to apply to
+each of these",00:33:35.800,00:33:40.960
+"hypothesis sets, H_1 up to H_M.",00:33:40.960,00:33:43.740
+"And when I train, I end up
+with a final hypothesis.",00:33:43.740,00:33:47.350
+"It is with a minus, a small
+minus in this case, because I'm",00:33:47.350,00:33:51.740
+training on D_train.,00:33:51.740,00:33:53.130
+"And they correspond to the hypotheses
+they came from, so g_1, g_2, up to g_M.",00:33:53.130,00:33:59.430
+"These are done without any
+validation, just training",00:33:59.430,00:34:02.510
+on a reduced set.,00:34:02.510,00:34:03.990
+"Once I get them, I'm going to
+evaluate their performance.",00:34:03.990,00:34:07.930
+"I'm going to evaluate their performance
+using the validation set.",00:34:07.930,00:34:11.540
+"So I take the validation
+set and run it here.",00:34:11.540,00:34:13.960
+"It's out-of-sample as far they're
+concerned, because it's",00:34:13.960,00:34:16.600
+not part of D_train.,00:34:16.600,00:34:17.929
+"And therefore, I'm going to get
+estimates-- these are the validation errors.",00:34:17.929,00:34:20.780
+"I'm just giving them a simple notation
+as E_1, E_2, up to E_M.",00:34:20.780,00:34:26.580
+"Now, your model selection is to look
+at these errors, which supposedly",00:34:26.580,00:34:31.620
+"reflect the out-of-sample performance if
+you use this as your final product,",00:34:31.620,00:34:37.440
+and you pick the best.,00:34:37.440,00:34:39.870
+"Now that you are picking one of them,
+you immediately have alarm bells--",00:34:39.870,00:34:43.500
+"bias, bias, bias.",00:34:43.500,00:34:44.790
+"Something is happening now, because
+now we are going to be biased.",00:34:44.790,00:34:47.810
+"Each of these guys was an unbiased
+estimate of the out-of-sample error of",00:34:47.810,00:34:51.650
+the corresponding hypothesis.,00:34:51.650,00:34:53.179
+"You pick the smallest of them,
+and now you have a bias.",00:34:53.179,00:34:56.159
+"So the smallest of them will give the
+index m star, whichever that might be.",00:34:56.159,00:34:59.970
+"So E_m star is the validation error on
+the model we selected, and now we",00:34:59.970,00:35:05.340
+realize it has an optimistic bias.,00:35:05.340,00:35:07.650
+"And we are not going to take g_m
+star minus, which is the one that",00:35:07.650,00:35:11.280
+gave rise to this.,00:35:11.280,00:35:12.310
+"We are now going to go back
+to the full data set, as",00:35:12.310,00:35:14.630
+we said in our regime.,00:35:14.630,00:35:15.890
+We are going to train with it.,00:35:15.890,00:35:17.580
+"And from that training, which is
+training now on the model we chose, we",00:35:17.580,00:35:22.080
+"are going to get the final hypothesis,
+which is g_m star.",00:35:22.080,00:35:27.170
+"So again, we are reporting the
+validation error on a reduced",00:35:27.170,00:35:32.090
+"hypothesis, if you will, but reporting
+the hypothesis-- the best we can do,",00:35:32.090,00:35:35.950
+"because we know that we get
+better out-of-sample",00:35:35.950,00:35:37.860
+when we add the examples.,00:35:37.860,00:35:39.060
+So this is the regime.,00:35:39.060,00:35:41.630
+Let's complete the slide.,00:35:41.630,00:35:44.680
+"E_m, that we introduced, happens to be
+the value of the validation error on",00:35:44.680,00:35:49.055
+"the reduced, as we discussed.",00:35:49.055,00:35:51.570
+And this is true for all of them.,00:35:51.570,00:35:53.400
+"And then you pick the model m star, that
+happens to have the smallest E_m.",00:35:53.400,00:35:58.790
+"And that is the one that you are going
+to report, and you are going to",00:35:58.790,00:36:02.520
+"restore your D, as we did before,
+and this is what you have.",00:36:02.520,00:36:06.250
+"This is the algorithm
+for model selection.",00:36:06.250,00:36:10.890
+"Now, let's look at the bias.",00:36:10.890,00:36:12.426
+"I'm going to run an experiment
+to show you the bias.",00:36:12.426,00:36:15.020
+"So let me put it here and
+just build towards it.",00:36:15.020,00:36:18.280
+What is the bias now?,00:36:18.280,00:36:19.680
+"We know we selected a particular
+model, and we selected",00:36:19.680,00:36:23.380
+it based on D_val.,00:36:23.380,00:36:25.580
+That's the killer.,00:36:25.580,00:36:27.040
+"When you use the estimate to choose,
+the estimate is no longer",00:36:27.040,00:36:30.520
+"reliable, because you particularly
+chose it, so now it looks",00:36:30.520,00:36:34.680
+optimistic.,00:36:34.680,00:36:35.110
+"Because by choice, it has a good
+performance, not because it has",00:36:35.110,00:36:39.150
+"an inherently good performance. Because
+you looked for the one with",00:36:39.150,00:36:41.190
+the good performance.,00:36:41.190,00:36:44.210
+"So the expected value of this fellow
+is now a biased estimate of the",00:36:44.210,00:36:50.950
+"ultimate quantity we want, which
+is the out-of-sample error.",00:36:50.950,00:36:53.940
+"So E_val, the sample thing,
+is biased from that.",00:36:53.940,00:36:58.300
+And we would like to evaluate that.,00:36:58.300,00:37:00.500
+"Here is the illustration on the
+curve, and I'm going to ask you",00:37:00.500,00:37:03.250
+"a question about it, so you have to pay
+attention in order to be able to",00:37:03.250,00:37:05.750
+answer the question.,00:37:05.750,00:37:07.230
+Here is the experiment.,00:37:07.230,00:37:08.330
+I have a very simple situation.,00:37:08.330,00:37:10.140
+"I have only two models
+to choose between.",00:37:10.140,00:37:12.650
+"One of them is 2nd-order polynomials,
+and the other one is",00:37:12.650,00:37:16.020
+5th-order polynomials.,00:37:16.020,00:37:18.130
+"I'm generating a bunch of problems, and
+in each of them, I make a choice",00:37:18.130,00:37:21.990
+based on validation set.,00:37:21.990,00:37:24.010
+"And after that, I look at the
+actual out-of-sample error.",00:37:24.010,00:37:28.160
+"And I'm trying to find out whether there
+is a systematic bias in the one",00:37:28.160,00:37:31.900
+"I choose, with respect to
+its out-of-sample error.",00:37:31.900,00:37:34.830
+So it's not clear which--,00:37:34.830,00:37:37.580
+I'm saying that I chose H_2 or H_5.,00:37:37.580,00:37:39.460
+"In each run, I may choose H_2 sometimes
+and H_5 sometimes, whichever gave me",00:37:39.460,00:37:43.840
+the smaller E_val.,00:37:43.840,00:37:45.650
+"And I'm taking the average over
+an incredible number of runs.",00:37:45.650,00:37:48.680
+That's why you have a smooth curve.,00:37:48.680,00:37:50.670
+"So this will give me an indication of
+the typical bias you get when you make",00:37:50.670,00:37:54.160
+"a choice between two models, under the
+circumstances of the experiment.",00:37:54.160,00:37:58.120
+"Now the experiment is done carefully,
+with few examples.",00:37:58.120,00:38:01.180
+The total is 30-some examples.,00:38:01.180,00:38:03.240
+"And I'm taking a validation set,
+which is 5 examples, 15",00:38:03.240,00:38:07.440
+"examples, up to 25 examples.",00:38:07.440,00:38:09.610
+"So at this point really, the
+number of examples left for",00:38:09.610,00:38:12.010
+training is very small.,00:38:12.010,00:38:14.440
+"And I'm plotting this, so this is what I
+get for the average over the runs, of",00:38:14.440,00:38:21.520
+"the validation error on the model I
+chose-- the final hypothesis of the",00:38:21.520,00:38:25.550
+model I chose.,00:38:25.550,00:38:26.460
+"And this is the out-of-sample
+error of that guy.",00:38:26.460,00:38:30.420
+"Now, I'd like to ask
+you two questions.",00:38:30.420,00:38:33.950
+"Think about them, and also
+for the online audience,",00:38:33.950,00:38:36.610
+please think about them.,00:38:36.610,00:38:38.370
+First question--,00:38:38.370,00:38:40.330
+why are the curves going up?,00:38:40.330,00:38:42.030
+"This is K, the size of
+the validation set.",00:38:54.550,00:38:57.620
+I'm evaluating it.,00:38:57.620,00:38:59.110
+"It's not because I'm evaluating
+on more points that the",00:38:59.110,00:39:02.330
+curves are going up.,00:39:02.330,00:39:03.690
+"It's because when I use more for
+validation, I'm inherently using less",00:39:03.690,00:39:08.750
+for training.,00:39:08.750,00:39:10.280
+"So there's an N minus K that is
+going the other direction.",00:39:10.280,00:39:13.160
+"And what we are seeing here really
+is the learning curve, backwards.",00:39:13.160,00:39:18.450
+This is E_out.,00:39:18.450,00:39:19.810
+"I have more and more examples to train
+as I go here, so the out-of-sample",00:39:19.810,00:39:23.250
+error goes down.,00:39:23.250,00:39:24.460
+"So in the other direction, it goes up.",00:39:24.460,00:39:27.340
+"And this, being an estimate for
+it, goes up with it.",00:39:27.340,00:39:29.880
+So that makes sense.,00:39:29.880,00:39:31.740
+Second question--,00:39:31.740,00:39:34.200
+"why are the two curves getting
+closer together?",00:39:34.200,00:39:36.325
+"Whether they're going up or down, that's
+not my concern at this point,",00:39:38.870,00:39:41.390
+"just the fact that they are
+converging to each other.",00:39:41.390,00:39:43.230
+"Now, that has to do with
+K proper, directly.",00:39:48.060,00:39:50.440
+"The other had to do with K indirectly,
+because I'm left with N minus K.",00:39:50.440,00:39:53.750
+"But now, when I have bigger K, the
+estimate is more and more reliable,",00:39:53.750,00:39:57.700
+"and therefore I get closer
+to what I'm estimating.",00:39:57.700,00:40:00.560
+So we understand this.,00:40:00.560,00:40:01.790
+"This is the definitely evidence,",00:40:01.790,00:40:03.270
+"and in every situation you will
+have, there will be a bias.",00:40:03.270,00:40:05.620
+"How much bias depends on a number of
+factors, but the bias is there.",00:40:05.620,00:40:08.915
+"Let's try to find, analytically,
+a guideline for the type of bias.",00:40:18.070,00:40:22.210
+Why is that?,00:40:22.210,00:40:22.910
+"Because I'm using the validation set to
+estimate the out-of-sample error,",00:40:22.910,00:40:26.420
+"and I'm really claiming that it's close
+to the out-of-sample error.",00:40:26.420,00:40:29.170
+"And we realize that, if I don't
+use it too much, I'll be OK.",00:40:29.170,00:40:33.210
+But what is too much?,00:40:33.210,00:40:34.470
+"I want to be a little bit quantitative
+about it, at least as a guideline.",00:40:34.470,00:40:38.370
+"So I have M models, and you can see
+that the M is in red.",00:40:38.370,00:40:43.870
+"That should remind you when we had
+M in red very early in the",00:40:43.870,00:40:47.810
+"course, because M used
+to make things worse.",00:40:47.810,00:40:52.060
+"It was the number of hypotheses, when we
+were talking about generalization.",00:40:52.060,00:40:55.040
+"And it was really that, when you have
+bigger M, you are in bigger trouble.",00:40:55.040,00:40:59.530
+"So it seems like we are also going to
+be in bigger trouble here, but the",00:40:59.530,00:41:02.530
+manifestation is different.,00:41:02.530,00:41:04.080
+"We have now M models we
+are choosing from-- models",00:41:04.080,00:41:07.360
+in the general sense.,00:41:07.360,00:41:08.140
+"This could be M values of the
+regularization parameter lambda in",00:41:08.140,00:41:13.130
+"a fixed situation, but we are still
+making one of M choices.",00:41:13.130,00:41:16.850
+"Now, the way to look at it is to think
+that the validation set is actually",00:41:20.180,00:41:25.810
+"used for training, but training on
+a very special hypothesis set, the",00:41:25.810,00:41:34.130
+hypothesis set of the finalists.,00:41:34.130,00:41:36.980
+What does that mean?,00:41:36.980,00:41:38.780
+So I have H_1 up to H_M.,00:41:38.780,00:41:40.720
+"I'm going to run a full training
+algorithm on each of them, in order to",00:41:40.720,00:41:44.720
+"find a final hypothesis from
+each, using D_train.",00:41:44.720,00:41:50.700
+"Now, after I'm done, I am only
+left with the finalists,",00:41:50.700,00:41:53.770
+"g_1 up to g_M, with a minus sign because
+they are trained on the",00:41:53.770,00:41:58.230
+reduced set.,00:41:58.230,00:41:59.940
+"So the hypothesis set that I am training
+on now is just those guys.",00:41:59.940,00:42:09.010
+"As far as the validation set is
+concerned, it didn't know what",00:42:09.010,00:42:11.130
+happened before.,00:42:11.130,00:42:12.100
+It doesn't relate to D_train.,00:42:12.100,00:42:13.470
+"All you did, you gave it this hypothesis
+set, which is the final",00:42:13.470,00:42:17.520
+"hypotheses from your previous guy,
+and you are asking it to choose.",00:42:17.520,00:42:22.060
+And what are you going to choose?,00:42:22.060,00:42:23.160
+"You are going to choose
+the minimum error.",00:42:23.160,00:42:24.670
+"Well, that is simply training.",00:42:24.670,00:42:26.710
+"If I just told you that this is your
+hypothesis set, and that D_val is your",00:42:26.710,00:42:31.090
+"training, what would you do?",00:42:31.090,00:42:32.750
+"You will look for the hypothesis
+with the smallest error.",00:42:32.750,00:42:35.310
+That's what you are doing here.,00:42:35.310,00:42:36.860
+"So we can think of it now as if we are
+actually training on this set.",00:42:36.860,00:42:42.850
+"And this tells us, oh, we need to
+estimate the discrepancy or the bias",00:42:42.850,00:42:47.560
+between this and that.,00:42:47.560,00:42:48.500
+"Now it's between the validation error
+and the out-of-sample error.",00:42:48.500,00:42:51.680
+"But the validation error is really the
+training error on this special set.",00:42:51.680,00:42:55.980
+"So we can go back to our good old
+Hoeffding and VC, and say that the",00:42:55.980,00:43:00.520
+"out-of-sample error,",00:43:00.520,00:43:02.060
+"in this case, given from those--
+and now you can see that the",00:43:02.060,00:43:05.090
+choice here is star.,00:43:05.090,00:43:06.350
+"So I'm actually choosing
+one of those guys.",00:43:06.350,00:43:08.250
+"This is my training, and the final,
+final hypothesis is this guy-- is less",00:43:08.250,00:43:14.510
+"than or equal to the out-of-sample
+error, plus a penalty for the model",00:43:14.510,00:43:17.900
+complexity.,00:43:17.900,00:43:18.850
+"And the penalty, if you use even
+the simple union bound,",00:43:18.850,00:43:21.400
+will have that form.,00:43:21.400,00:43:22.840
+"You still have the 1 over square root
+of K, so you can always make it",00:43:22.840,00:43:26.710
+better by having more examples.,00:43:26.710,00:43:28.630
+"But then you have a contribution because
+of the number of guys you are",00:43:28.630,00:43:31.490
+choosing from.,00:43:31.490,00:43:32.650
+"If you are choosing between
+10 guys, that's one thing.",00:43:32.650,00:43:35.070
+"If you are choosing between
+100 guys, that's another.",00:43:35.070,00:43:37.080
+It's worse.,00:43:37.080,00:43:38.480
+"Well, benignly worse, because
+it's logarithmic, but",00:43:38.480,00:43:41.240
+"nonetheless, worse.",00:43:41.240,00:43:43.820
+"And if you are choosing between
+an infinite number of guys, we know",00:43:43.820,00:43:49.570
+"better than to dismiss
+the case off-hand.",00:43:49.570,00:43:51.280
+"You say, infinite number
+of guys, we can't do that.",00:43:51.280,00:43:53.720
+"No, no, no. Because once you
+go to the infinite choices,",00:43:53.720,00:43:56.950
+you don't count anymore.,00:43:56.950,00:43:58.490
+"You go for a VC dimension
+of what you are doing.",00:43:58.490,00:44:01.310
+"That's what the effective
+complexity goes with.",00:44:01.310,00:44:04.680
+"And indeed, if you're looking for choice of
+one parameter, let's say I'm picking the",00:44:04.680,00:44:09.490
+regularization parameter.,00:44:09.490,00:44:11.260
+"When you are actually picking the
+regularization parameter, and you",00:44:11.260,00:44:13.370
+"haven't put a grid-- you don't
+say, I'm choosing between 1, 0.1,",00:44:13.370,00:44:16.652
+"and 0.01, et cetera--",00:44:16.652,00:44:18.820
+a finite number.,00:44:18.820,00:44:19.820
+"I'm actually choosing the numerical
+value of lambda, whatever it would be.",00:44:19.820,00:44:22.770
+"So I could end up with
+lambda equal 0.127543.",00:44:22.770,00:44:27.850
+"You are making a choice between
+an infinite number of guys, but you don't",00:44:27.850,00:44:30.530
+"look at it as an infinite
+number of guys.",00:44:30.530,00:44:32.660
+You look at it as a single parameter.,00:44:32.660,00:44:35.160
+"And we know a single parameter
+goes with a VC dimension 1.",00:44:35.160,00:44:38.530
+That doesn't faze us.,00:44:38.530,00:44:40.940
+"We dealt with VC dimensions
+much bigger than that.",00:44:40.940,00:44:43.190
+"And we know that if we have one
+parameter, or maybe two parameters,",00:44:43.190,00:44:46.440
+"and the VC dimension maybe is 2,
+if you have a decent set--",00:44:46.440,00:44:49.750
+"in this case decent K, not decent N,
+because that's the size of the set you",00:44:49.750,00:44:52.760
+are talking about--,00:44:52.760,00:44:53.580
+"then your estimate will not
+be that far from E_out.",00:44:53.580,00:44:57.870
+This is the idea.,00:44:57.870,00:44:58.980
+So now you can apply this with the VC,00:44:58.980,00:45:00.870
+"analysis. Instead of just going for
+the number, which is the union bound,",00:45:00.870,00:45:04.890
+"you go for the VC version, and
+now apply it to this fellow.",00:45:04.890,00:45:08.550
+"And you can ask yourself, if
+I have a regularization",00:45:08.550,00:45:10.480
+"parameter, what do I need?",00:45:10.480,00:45:12.580
+"Or if I have another thing, which
+is the early stopping.",00:45:12.580,00:45:14.670
+What is early stopping?,00:45:14.670,00:45:16.500
+"I'm choosing how many
+epochs to choose.",00:45:16.500,00:45:19.200
+"Epochs is integer, but there is
+a continuity to it, so I'm",00:45:19.200,00:45:22.830
+choosing where to stop.,00:45:22.830,00:45:23.960
+"All of those choices, where one parameter
+is being chosen one way or",00:45:23.960,00:45:26.930
+"the other, correspond
+to one degree of freedom.",00:45:26.930,00:45:30.500
+"So if I tell you the rule of thumb is
+that, when you are using the",00:45:30.500,00:45:33.940
+"validation set, if it's a reasonable-size
+set, let's say 100 points, and you",00:45:33.940,00:45:37.650
+"use those 100 points to choose a couple
+of parameters, you are OK.",00:45:37.650,00:45:42.710
+You already can relate to that.,00:45:42.710,00:45:44.140
+You don't need me to tell you that.,00:45:44.140,00:45:45.580
+"Because, 100 points,
+VC dimension 2,",00:45:45.580,00:45:47.600
+"yeah, I can get something.",00:45:47.600,00:45:49.250
+"Now, if I give you the 100 points
+and tell you you are choosing 20",00:45:49.250,00:45:52.420
+"parameters, you immediately
+say, this is crazy.",00:45:52.420,00:45:55.560
+"Your estimate will be completely
+ruined, because you are now",00:45:55.560,00:45:58.670
+contaminating the thing.,00:45:58.670,00:45:59.720
+"This is now genuinely training, because
+the choice of the value of",00:45:59.720,00:46:02.940
+a parameter is what?,00:46:02.940,00:46:03.740
+"Well, that's what training did.",00:46:03.740,00:46:05.100
+"The training of a neural network tried to
+choose the weights of the network,",00:46:05.100,00:46:09.340
+the parameters.,00:46:09.340,00:46:10.140
+"There were just so many of them,
+that we called it training.",00:46:10.140,00:46:12.500
+"Now, when it's only one parameter or two,
+we call it choice of a parameter by",00:46:12.500,00:46:16.000
+validation.,00:46:16.000,00:46:17.250
+So it's a gray area.,00:46:17.250,00:46:19.820
+"If you push your luck in that direction,
+the validation estimate",00:46:19.820,00:46:23.620
+"will lose its main attraction, which
+is the fact that it's a reasonable",00:46:23.620,00:46:27.640
+"estimate of the out-of-sample,
+that we can rely on.",00:46:27.640,00:46:30.320
+The reliability goes down.,00:46:30.320,00:46:31.730
+So there is this tradeoff.,00:46:31.730,00:46:32.980
+"So with the data contamination, let me
+summarize it as follows.",00:46:36.030,00:46:39.790
+We have error estimates.,00:46:39.790,00:46:40.910
+We have seen some of them.,00:46:40.910,00:46:42.240
+"We looked at the in-sample error, the
+out-of-sample error, or E_test, and",00:46:42.240,00:46:49.750
+"then we have E_val, the
+validation error.",00:46:49.750,00:46:52.700
+"I'd like to describe those as data
+contamination, that if you use the",00:46:52.700,00:46:57.240
+"data to make choices, you are
+contaminating it as far as its ability",00:46:57.240,00:47:01.250
+to estimate the real performance.,00:47:01.250,00:47:03.010
+That's the idea.,00:47:03.010,00:47:04.180
+"So you can look at what
+is contamination.",00:47:04.180,00:47:07.560
+"It's the built-in optimistic,
+better described as deceptive",00:47:07.560,00:47:11.960
+because it's bad--,00:47:11.960,00:47:13.720
+"you are going to go to the
+bank and tell them, I can",00:47:13.720,00:47:17.150
+forecast the stock market.,00:47:17.150,00:47:18.340
+"No, you can't.",00:47:18.340,00:47:19.230
+So that's bad.,00:47:19.230,00:47:20.250
+"You were optimistic before
+you went there.",00:47:20.250,00:47:21.960
+"After that, you are in trouble.",00:47:21.960,00:47:24.420
+"You are trying to get the bias in
+estimating E_out, and you are trying to",00:47:24.420,00:47:28.040
+"measure what is the level
+of contamination.",00:47:28.040,00:47:30.170
+"So let's look at the
+three sets we used.",00:47:30.170,00:47:33.110
+We have the training set.,00:47:33.110,00:47:35.770
+This is just totally contaminated.,00:47:35.770,00:47:37.390
+Forget it.,00:47:37.390,00:47:38.860
+"We took a neural network with 70 parameters,
+and we did backpropagation, and",00:47:38.860,00:47:42.510
+"we went back and forth, and we ended up
+with something, and we have a great",00:47:42.510,00:47:45.600
+"E_in, and we know that E_in
+is no indication of E_out.",00:47:45.600,00:47:48.740
+This has been contaminated to death.,00:47:48.740,00:47:50.860
+"So you cannot really rely on E_in,
+as an estimate for E_out.",00:47:50.860,00:47:55.680
+"When you go to the test set,
+this is totally clean.",00:47:55.680,00:48:00.720
+It wasn't used in any decisions.,00:48:00.720,00:48:02.770
+It will give you an estimate.,00:48:02.770,00:48:04.320
+The estimate is unbiased.,00:48:04.320,00:48:06.750
+"When you give that as your estimate,
+your customer is as likely to be",00:48:06.750,00:48:10.440
+"pleasantly surprised, as
+unpleasantly surprised.",00:48:10.440,00:48:14.340
+"And if your test set is big, they are
+likely not to be surprised at all.",00:48:14.340,00:48:18.560
+It'll be very close to your estimate.,00:48:18.560,00:48:20.560
+So there is no bias there.,00:48:20.560,00:48:23.090
+"Now, the validation set is in between.",00:48:23.090,00:48:26.620
+"It's slightly contaminated, because
+it made few choices.",00:48:26.620,00:48:30.380
+"And the wisdom here,",00:48:30.380,00:48:32.030
+please keep it slightly contaminated.,00:48:32.030,00:48:36.260
+Don't get carried away.,00:48:36.260,00:48:37.520
+"Sometimes when you are in the middle
+of a big problem, with lots of",00:48:37.520,00:48:40.140
+"data, you choose this parameter.",00:48:40.140,00:48:42.180
+"Then, oh, there's another parameter I
+want to choose, so you use the same",00:48:42.180,00:48:44.640
+validation set--,00:48:44.640,00:48:46.300
+"alarm bells, alarm bells--
+and you keep doing it.",00:48:46.300,00:48:48.890
+"So you should have a regime to begin
+with, that you should have not only one",00:48:48.890,00:48:52.200
+validation set.,00:48:52.200,00:48:52.860
+"You could have a number of them, such
+that when one of them gets dirty,",00:48:52.860,00:48:56.240
+"contaminated, you move on to the other
+one which hasn't been used for",00:48:56.240,00:48:59.560
+"decisions, and therefore the
+estimates will be reliable.",00:48:59.560,00:49:01.650
+Now we go to cross-validation.,00:49:04.610,00:49:06.310
+"Very sweet regime, and it has to do with
+the dilemma about K. So now we're",00:49:06.310,00:49:14.100
+"not talking about biased versus
+unbiased, because this is",00:49:14.100,00:49:16.130
+already behind us.,00:49:16.130,00:49:17.070
+"Now we're looking at an estimate
+and a variation of the",00:49:17.070,00:49:19.590
+"estimate, as we did before.",00:49:19.590,00:49:20.930
+"And we have the discipline to make
+sure that we don't mess it up by",00:49:20.930,00:49:24.950
+making it biased.,00:49:24.950,00:49:26.260
+So that is taken for granted.,00:49:26.260,00:49:27.690
+"Now I'm just looking at a regime of
+validation as we described it, versus",00:49:27.690,00:49:31.380
+"another regime which will get us
+a better estimate, in terms of the error",00:49:31.380,00:49:36.200
+"bar, the fluctuation around
+the estimate we want.",00:49:36.200,00:49:39.170
+"So we had the following
+chain of reasoning.",00:49:39.170,00:49:42.640
+"E_out of g, the hypothesis we are
+actually going to report, is what we",00:49:42.640,00:49:47.400
+would like to know.,00:49:47.400,00:49:48.370
+"If we know that, we are set.",00:49:48.370,00:49:51.010
+"We don't have that, but that
+is approximately the same",00:49:51.010,00:49:53.610
+as E_out of g minus.,00:49:53.610,00:49:58.660
+"This is the out-of-sample error, the
+proper out-of-sample error, but on the",00:49:58.660,00:50:02.730
+"hypothesis that was trained
+on a reduced set.",00:50:02.730,00:50:05.670
+Correct?,00:50:05.670,00:50:07.030
+"And if I didn't take too
+many examples, they are",00:50:07.030,00:50:10.660
+close to each other.,00:50:10.660,00:50:11.910
+"This one happens to be close to
+the validation estimate of it.",00:50:13.950,00:50:18.620
+"So here, it is because it's a different
+set that I'm training on.",00:50:18.620,00:50:25.650
+"Here, it's because I am
+making a finite-sample",00:50:25.650,00:50:28.250
+estimate of the quantity.,00:50:28.250,00:50:29.650
+"Here, I could go up
+and down from this.",00:50:29.650,00:50:32.570
+"I'm looking at this chain. This
+is really what I want, and this",00:50:32.570,00:50:36.060
+is what I'm working with.,00:50:36.060,00:50:36.930
+This is unknown to me.,00:50:36.930,00:50:38.880
+"In order to get from here to
+here, I need the following.",00:50:38.880,00:50:41.670
+"I need K to be small, so that g
+minus is fairly close to g.",00:50:44.940,00:50:50.400
+"And therefore I can claim that their
+out-of-sample error is close, because",00:50:50.400,00:50:53.160
+"the bigger K is, the bigger the
+discrepancy between the training set",00:50:53.160,00:50:57.690
+"and the full set, and therefore the
+bigger the discrepancy between the",00:50:57.690,00:51:00.890
+"hypothesis I get here, and the
+hypothesis I get here.",00:51:00.890,00:51:03.040
+So I'd like K to be small.,00:51:03.040,00:51:05.490
+"But also, I'd like K to be large,
+because the bigger K is, the more",00:51:05.490,00:51:10.910
+"reliable this estimate is, for that.",00:51:10.910,00:51:13.910
+So I want K to have two conditions.,00:51:13.910,00:51:16.520
+"It has to be small, and
+it has to be large.",00:51:16.520,00:51:20.760
+We will achieve both.,00:51:20.760,00:51:23.460
+You'll see in a moment.,00:51:23.460,00:51:24.390
+"New mathematics is going
+to be introduced!",00:51:24.390,00:51:27.860
+So here is the dilemma.,00:51:27.860,00:51:30.690
+"Can we have K to be both
+small and large?",00:51:30.690,00:51:36.450
+"The method looks like complete cheating,
+when you look at it first,",00:51:36.450,00:51:40.530
+"and then you realize,
+this is actually valid.",00:51:40.530,00:51:42.600
+So what do we do?,00:51:42.600,00:51:44.600
+"I'm going to describe one form of
+cross-validation, which is the simplest",00:51:44.600,00:51:47.620
+"to describe, which is called ""leave
+one out"". Other methods will be",00:51:47.620,00:51:50.950
+"""leave more out"", that's all.",00:51:50.950,00:51:53.210
+"But let's focus on ""leave one out"".",00:51:53.210,00:51:55.290
+Here is the idea.,00:51:55.290,00:51:58.590
+"You give me a data set of N.
+I am going to use N minus",00:51:58.590,00:52:01.790
+1 of them for training.,00:52:01.790,00:52:04.220
+"That's good, because now I am very close
+to N, so the hypothesis g minus",00:52:04.220,00:52:08.800
+will be awfully close to g.,00:52:08.800,00:52:11.520
+"That's great, wonderful,
+except for one problem.",00:52:11.520,00:52:16.150
+You have one point to validate on.,00:52:16.150,00:52:18.820
+"Your estimate will be completely
+laughable, right?",00:52:18.820,00:52:22.580
+Not so fast.,00:52:22.580,00:52:23.830
+"In terms of a notation, I'm going to
+create a reduced data set from",00:52:27.240,00:52:31.730
+"D, call it D_n, because I'm actually
+going to repeat this",00:52:31.730,00:52:35.180
+"exercise for different
+indices n.",00:52:35.180,00:52:38.780
+What do I do?,00:52:38.780,00:52:39.800
+"I take the full data set, and then take
+one of the points, that happens to",00:52:39.800,00:52:43.930
+"be n, and take it out.",00:52:43.930,00:52:46.610
+"This will be the one that
+is used for validation.",00:52:46.610,00:52:49.060
+"And the rest of the guys are going
+to be used for training.",00:52:49.060,00:52:52.200
+"Nothing different, except that
+it's a very small validation set.",00:52:52.200,00:52:57.020
+That's what is different.,00:52:57.020,00:52:59.580
+"Now the final hypothesis, that we learn
+from this particular set, we have",00:52:59.580,00:53:05.550
+"to call g minus because it's
+not on the full set.",00:53:05.550,00:53:08.000
+"But now, because it depends on which guy
+we left out, we give it the label",00:53:08.000,00:53:11.890
+of the guy we left out.,00:53:11.890,00:53:12.950
+"So we know that this one is trained
+on all the examples but n.",00:53:12.950,00:53:16.970
+"Let's look at the validation error,
+which has to be one point.",00:53:21.540,00:53:26.930
+This would be what?,00:53:26.930,00:53:28.720
+"This would be E validation-- big
+symbol of this and that--",00:53:28.720,00:53:31.800
+"but in reality, the validation set is
+one point, so this is simply just the",00:53:31.800,00:53:35.920
+error on the point I left out.,00:53:35.920,00:53:39.150
+g did not involve the n-th example.,00:53:39.150,00:53:44.190
+It was taken out.,00:53:44.190,00:53:45.460
+"And now that we froze it, we are going
+to evaluate it on that example,",00:53:45.460,00:53:48.585
+"so that example is indeed
+out-of-sample for it.",00:53:48.585,00:53:51.820
+So I get this fellow.,00:53:51.820,00:53:53.490
+"Now, I know that this guy is an unbiased
+estimate, and I know that",00:53:53.490,00:53:57.260
+it's a crummy estimate.,00:53:57.260,00:53:59.570
+"That much, I know.",00:54:00.270,00:54:02.130
+"Now, here is the idea.",00:54:02.130,00:54:03.760
+"What happens if I repeat this exercise
+for different n?",00:54:03.760,00:54:07.890
+"So I generate D_1, do all of this,
+and end up with this estimate.",00:54:07.890,00:54:13.720
+"Do D_2, all of this-- end up
+with another estimate.",00:54:13.720,00:54:18.380
+"Each estimate is out-of-sample with
+respect to the hypothesis that it's",00:54:18.380,00:54:23.050
+used to evaluate.,00:54:23.050,00:54:25.460
+"Now, the hypotheses are different.",00:54:25.460,00:54:28.740
+"So I'm not really getting the
+performance of a particular hypothesis.",00:54:28.740,00:54:33.640
+"For this hypothesis, this
+is the estimate.",00:54:33.650,00:54:35.330
+It's off.,00:54:35.330,00:54:35.840
+"For this hypothesis, this
+is the estimate.",00:54:35.840,00:54:37.110
+It's off.,00:54:37.110,00:54:37.470
+"For this hypothesis,
+this is the estimate.",00:54:37.470,00:54:39.360
+"The common thread between all the
+hypotheses is that they are hypotheses",00:54:39.360,00:54:43.290
+"that were obtained by training on
+N minus 1 data points.",00:54:43.290,00:54:49.500
+That is common between all of them.,00:54:49.500,00:54:51.620
+"It's different N minus 1
+data points, but nonetheless,",00:54:51.620,00:54:55.560
+it's N minus 1.,00:54:55.560,00:54:57.840
+"Because of the learning curve,
+I know there is a tendency.",00:54:57.840,00:55:00.350
+"If I told you this is the number of
+examples, you can tell me what is the",00:55:00.350,00:55:04.130
+expected out-of-sample error.,00:55:04.130,00:55:06.200
+"So in spite of the fact that these are
+different hypotheses, the fact that",00:55:06.200,00:55:09.480
+"they come from the same
+number of points,",00:55:09.480,00:55:11.620
+"N minus 1,",00:55:11.620,00:55:12.720
+"tells me that they are all realizations
+of something that is the",00:55:12.720,00:55:16.780
+expected value of all of them.,00:55:16.780,00:55:19.340
+"So the small errors estimate
+the error on these guys,",00:55:19.340,00:55:24.030
+"and these guys estimate the error of
+the expected value on N minus 1",00:55:24.030,00:55:29.380
+"examples, regardless of the
+identity of the examples.",00:55:29.380,00:55:32.460
+"So there is something common
+between these guys.",00:55:32.460,00:55:34.340
+They are trying to estimate something.,00:55:34.340,00:55:36.940
+"So now what I'm going to do, I am going
+to define the cross-validation",00:55:36.940,00:55:41.020
+error to be--,00:55:41.020,00:55:44.280
+"E cross-validation, E_cv,",00:55:44.280,00:55:47.500
+to be the average of those guys.,00:55:47.500,00:55:50.860
+It's a funny situation now.,00:55:50.860,00:55:53.020
+"These came from N full training
+sessions, each of them",00:55:53.020,00:55:58.200
+"followed by a single evaluation on
+a point, and I get a number.",00:55:58.200,00:56:02.250
+"And after I'm done with all of this, I
+take these numbers and average them.",00:56:02.250,00:56:06.760
+"Now, if you think of it as a validation
+set, now all of a sudden",00:56:06.760,00:56:09.700
+"the validation set is
+very respectable.",00:56:09.700,00:56:11.820
+It has N points.,00:56:11.820,00:56:15.450
+"Never mind the fact that each of them
+is evaluated on a different",00:56:15.450,00:56:18.150
+hypothesis.,00:56:18.150,00:56:19.690
+"I was able to use N minus 1
+points to train, and that will give me",00:56:19.690,00:56:25.270
+"something very close to what
+happens with N. And I'm",00:56:25.270,00:56:27.580
+using N points to validate.,00:56:27.580,00:56:30.570
+"The catch, obviously--",00:56:30.570,00:56:31.820
+"these are not independent, because the
+examples were used to create the",00:56:31.830,00:56:38.720
+"hypotheses, and some example
+was used to evaluate them.",00:56:38.720,00:56:42.230
+"And you will see that each of them is
+affected by the other, because the",00:56:42.230,00:56:48.070
+"hypothesis either has the point you left
+out, or you are evaluating on that.",00:56:48.070,00:56:53.100
+"Let's say, e_1 and e_3.",00:56:53.100,00:56:56.430
+"e_1 was used to evaluate the error on
+a hypothesis that involved the third",00:56:56.430,00:57:01.930
+"example, because the third example
+was in, when I talk about e_1.",00:57:01.930,00:57:06.340
+"Then e_3 was used to evaluate on the
+third example, but on a hypothesis",00:57:06.340,00:57:11.380
+that involved e_1.,00:57:11.380,00:57:12.760
+"So you can see where
+the correlation is.",00:57:12.760,00:57:14.710
+"Surprisingly, the effective number, if
+you use this, is very close to N. It's",00:57:14.710,00:57:20.340
+as if they were independent.,00:57:20.340,00:57:22.840
+"If you do the variance analysis,
+you will be using",00:57:22.840,00:57:26.800
+"out of 100 examples, it's probably
+as if you were using 95 examples.",00:57:26.800,00:57:30.130
+"So it's remarkably efficient,
+in terms of getting that.",00:57:30.130,00:57:35.110
+So this is the algorithm.,00:57:35.110,00:57:36.830
+"Now, let's illustrate it.",00:57:36.830,00:57:38.990
+"If you understand this, you
+understand cross-validation.",00:57:38.990,00:57:41.660
+"I'm illustrating it for
+the ""leave one out"".",00:57:41.660,00:57:45.390
+I have a case.,00:57:45.390,00:57:46.150
+I am trying to estimate a function.,00:57:46.150,00:57:48.020
+"I actually generated this function
+using a particular target.",00:57:48.020,00:57:50.350
+"I'm not going to tell you yet what
+it is. Added some noise.",00:57:50.350,00:57:53.720
+"And I am trying to use cross-validation,
+in order to choose a model,",00:57:53.720,00:57:58.240
+"or to just evaluate the
+out-of-sample error.",00:57:58.240,00:58:00.630
+"So let's evaluate the out-of-sample
+error using the cross-validation",00:58:00.630,00:58:04.160
+"method, for a linear model.",00:58:04.160,00:58:06.420
+So what do you do?,00:58:06.420,00:58:07.730
+"First order of business, take a point
+that you will leave out. Right?",00:58:07.730,00:58:12.660
+"So now, this guy is the training set,
+and this guy is the validation set.",00:58:12.660,00:58:18.750
+It's one point.,00:58:18.750,00:58:21.190
+Then you train.,00:58:21.190,00:58:24.380
+And you get a good fit.,00:58:24.380,00:58:26.570
+"Then, you evaluate the validation
+error on the point you left out.",00:58:26.570,00:58:31.550
+That will be that.,00:58:31.550,00:58:34.230
+That's one session.,00:58:34.230,00:58:35.880
+"We are going to repeat this three times,
+because we have three points.",00:58:35.880,00:58:38.580
+So this is the second time we do it.,00:58:38.580,00:58:41.450
+"This time, this point was left out.",00:58:41.450,00:58:43.750
+These guys were the training.,00:58:43.750,00:58:45.700
+"I connected them and
+computed the error.",00:58:45.700,00:58:49.110
+Third one. You can see the pattern.,00:58:49.110,00:58:54.560
+"After I am done, I'm going to compute
+the cross-validation error to",00:58:54.560,00:58:59.670
+"be simply the average
+of the three errors.",00:58:59.670,00:59:02.990
+"So let's say we are using
+squared errors.",00:59:02.990,00:59:05.110
+"e_1 is the squared of this
+distance, et cetera, and you are",00:59:05.110,00:59:08.920
+"adding them up, one third.",00:59:08.920,00:59:10.140
+This will be the cross-validation error.,00:59:10.140,00:59:12.010
+"What I am saying now is that you
+are going to take this as",00:59:12.010,00:59:15.430
+"an indication for how well the linear
+model fits the data, out-of-sample.",00:59:15.430,00:59:22.790
+"If you look in-sample, obviously
+it fits the data perfectly.",00:59:22.790,00:59:25.400
+"And if you use the three points, the
+line will be something like that.",00:59:25.400,00:59:29.140
+It will fit it pretty decently.,00:59:29.140,00:59:31.010
+"But you have no way to tell how you are
+going to perform out-of-sample.",00:59:31.010,00:59:34.990
+"Here, we created a mini out-of-sample, in
+each case, and we took the average",00:59:34.990,00:59:39.450
+"performance of those as an indication
+of what will happen out-of-sample.",00:59:39.450,00:59:42.860
+"Mind you, we are using
+only 2 points here.",00:59:42.860,00:59:46.100
+"And when we are done, we are going
+to use it on 3 points.",00:59:46.100,00:59:48.600
+That's g minus versus g.,00:59:48.600,00:59:50.410
+"It's a little bit dramatic here,
+because 2 and 3--",00:59:50.410,00:59:53.400
+"the difference is 1, but
+the ratio is huge.",00:59:53.400,00:59:55.210
+But think of 99 versus 100.,00:59:55.210,00:59:57.130
+Who cares?,00:59:57.130,00:59:57.810
+It's close enough.,00:59:57.810,00:59:58.900
+This is just for illustration.,00:59:58.900,01:00:00.920
+So let's use this for model selection.,01:00:00.920,01:00:03.670
+"We did the linear model,
+and we call it linear.",01:00:03.670,01:00:09.560
+"So now let's go for the usual suspect,
+the constant model, exactly with the",01:00:09.560,01:00:16.710
+same data set.,01:00:16.710,01:00:17.970
+Let's look at the first guy.,01:00:17.970,01:00:20.130
+"These are the two points left out, the
+two points left out, and this is the",01:00:20.130,01:00:23.120
+one for validation.,01:00:23.120,01:00:24.870
+You train on those.,01:00:24.870,01:00:25.990
+"Here, you connected. Here,",01:00:25.990,01:00:27.020
+you have the middle number--,01:00:27.020,01:00:28.200
+it's a constant number.,01:00:28.200,01:00:29.810
+"And this would be you error
+here. Right?",01:00:29.810,01:00:33.220
+"Second guy, you get the
+idea? Third guy.",01:00:33.220,01:00:40.570
+"Now, if your question is:
+is the linear model better ",01:00:40.570,01:00:46.270
+than the constant model in this case?,01:00:46.270,01:00:49.680
+"the only thing you look in all of this
+is the cross-validation error.",01:00:49.680,01:00:56.310
+"So this guy, this guy, this guy,
+averaged, is the grade--",01:00:56.310,01:01:01.750
+"negative grade, because it's error--
+for the linear model.",01:01:01.750,01:01:04.620
+"This guy, this guy, this guy, averaged,
+is that grade for the constant model.",01:01:04.620,01:01:08.920
+"And as you see, the constant
+model wins.",01:01:08.920,01:01:11.990
+"And it's a matter of record that these
+three points were actually generated",01:01:11.990,01:01:15.030
+by a constant model.,01:01:15.030,01:01:17.640
+"Of course, they could have been
+generated by anything.",01:01:17.640,01:01:19.590
+"But on average, they will give
+you the correct decision.",01:01:19.590,01:01:23.510
+"And they avoid a lot of funny heuristics
+that you can apply.",01:01:23.510,01:01:26.400
+"You can say-- wait a minute,
+linear model, OK.",01:01:26.400,01:01:30.290
+"Any two points I pick, the
+slope here is positive.",01:01:30.290,01:01:34.110
+"So there is a very strong indication
+that there is a positive slope",01:01:34.110,01:01:37.320
+"involved, and maybe it's a linear
+model with a positive slope.",01:01:37.320,01:01:41.260
+Don't go there.,01:01:41.260,01:01:42.590
+"You can fool yourself into
+any pattern you want.",01:01:42.590,01:01:45.470
+Go about it in a systematic way.,01:01:45.470,01:01:47.560
+"This is a quantity we know,
+the cross-validation error.",01:01:47.560,01:01:50.050
+This is the way to compute it.,01:01:50.050,01:01:51.430
+"We are going to take it as the
+indication, notwithstanding that there",01:01:51.430,01:01:55.040
+"is an error bar because it's a small
+sample, in this case 3,",01:01:55.040,01:01:59.080
+"and also because we are making the
+decision for 2 points, and we are",01:01:59.080,01:02:03.180
+using it for 3 points.,01:02:03.180,01:02:05.000
+"These are obviously inherent, but
+at least it gives you something",01:02:05.000,01:02:08.020
+systematic.,01:02:08.020,01:02:08.790
+"And indeed, it gives you the correct
+choice in this case.",01:02:08.790,01:02:13.470
+"So let's look at
+cross-validation in action.",01:02:13.470,01:02:18.400
+"I'm going to go with
+a familiar case.",01:02:18.400,01:02:21.970
+You remember this one?,01:02:21.970,01:02:23.580
+"Oh, these were the handwritten
+digits, and we",01:02:23.580,01:02:26.350
+"extracted two features,",01:02:26.350,01:02:27.450
+symmetry and intensity.,01:02:27.450,01:02:30.250
+"And we are plotting the different guys,
+and we would like to find",01:02:30.250,01:02:34.340
+a separating surface.,01:02:34.340,01:02:36.450
+"We are going to use a nonlinear
+transform, as we always do.",01:02:36.450,01:02:40.040
+"And in this case, what I'm going to
+do, I'm going to sample 500 points",01:02:40.040,01:02:43.580
+"from this set at random for training,
+and use the rest for testing the",01:02:43.580,01:02:49.050
+hypothesis.,01:02:49.050,01:02:51.050
+What is the nonlinear transformation?,01:02:51.050,01:02:52.840
+It's huge--,01:02:52.840,01:02:53.990
+5th order.,01:02:53.990,01:02:55.930
+"So I am going to take all
+20 features, or 21",01:02:55.930,01:02:59.620
+including the constant.,01:02:59.620,01:03:01.600
+"And what am I going to
+use validation for?",01:03:01.600,01:03:03.550
+This is the interesting part.,01:03:03.550,01:03:05.200
+"What I'm going to use validation
+for is, where do I cut off?",01:03:05.200,01:03:09.700
+So I'm comparing 20 models.,01:03:09.700,01:03:12.180
+"The first model is,
+just take this guy.",01:03:12.180,01:03:14.420
+"Second model is, take x_1 and x_2.",01:03:14.420,01:03:16.000
+"Third model, take x_1, x_2, and
+x_1 squared, et cetera.",01:03:16.000,01:03:18.640
+Each of them is a model.,01:03:18.640,01:03:19.800
+"I can definitely train on
+it and see what happens.",01:03:19.800,01:03:22.270
+"And I'm going to use cross-validation
+""leave one out"", in order to choose",01:03:22.270,01:03:25.690
+where to stop.,01:03:25.690,01:03:28.550
+"So if I have 500 examples, realize that
+every time I do this, I have to",01:03:28.550,01:03:32.040
+have 500 training sessions.,01:03:32.040,01:03:36.060
+Each training session has 499 points.,01:03:36.060,01:03:39.200
+It's quite an elaborate thing.,01:03:39.200,01:03:41.000
+"But when you do this, this
+is the curve you get.",01:03:41.000,01:03:43.980
+You get different errors.,01:03:43.980,01:03:45.690
+Let me magnify it.,01:03:45.690,01:03:47.110
+"This is the number
+of features used.",01:03:51.010,01:03:53.530
+This is the cutoff I talked about.,01:03:53.530,01:03:54.730
+"You can go all the way
+up to 20 features.",01:03:54.730,01:03:57.820
+"When you look at the training error, not
+surprisingly, the training error",01:03:57.820,01:04:01.180
+always goes down.,01:04:01.180,01:04:02.570
+What else is new?,01:04:02.570,01:04:03.230
+"You have more, you fit better.",01:04:03.230,01:04:06.190
+"The out-of-sample error, which I'm
+evaluating on the points that were not",01:04:06.190,01:04:09.080
+"involved at all in this process,
+cross-validation or otherwise, just out of",01:04:09.080,01:04:12.630
+"sample totally, I get this fellow.",01:04:12.630,01:04:16.140
+"And the cross-validation error, which
+I get from the 500 examples by",01:04:16.140,01:04:19.810
+"excluding one point at a time and taking
+the average, is remarkably",01:04:19.810,01:04:23.690
+similar to E_out.,01:04:23.690,01:04:25.115
+It tracks it very nicely.,01:04:25.115,01:04:27.620
+"And if I use it as a criterion for model
+choice, the minima are here.",01:04:27.620,01:04:32.000
+"So if I take between 5 and 7,
+let's say I take 6.",01:04:32.000,01:04:34.370
+"I would say, let me cut off at 6
+and see what the performance is like.",01:04:37.040,01:04:40.310
+"Let's look at the result of that,",01:04:40.310,01:04:43.460
+"without validation, and with validation.",01:04:43.460,01:04:44.710
+"Without validation, I'm using
+the full model, all 20.",01:04:48.670,01:04:51.600
+"And you can see, we have seen
+this before-- overfitting.",01:04:51.600,01:04:54.910
+"I'm sweating bullets to include this
+single point in the middle, and after",01:04:54.910,01:04:58.300
+"I included it, guess what?",01:04:58.300,01:04:59.710
+"None of the out-of-sample points
+was red here.",01:04:59.710,01:05:01.490
+This was just an anomaly.,01:05:01.490,01:05:02.520
+So I didn't get anything for it.,01:05:02.520,01:05:04.380
+This is a typical thing.,01:05:04.380,01:05:05.870
+It's unregularized.,01:05:05.870,01:05:07.940
+"Now, when you use the validation, and
+you stop at the 6th because the",01:05:07.940,01:05:10.860
+"cross-validation error told you so,
+it's a nice, smooth surface.",01:05:10.860,01:05:14.200
+"It's not perfect error, but it didn't
+put an effort where it didn't belong.",01:05:14.200,01:05:19.600
+"And when you look at the bottom line,
+what is the in-sample error here?",01:05:19.600,01:05:24.200
+0%.,01:05:24.200,01:05:24.810
+You got it perfect.,01:05:24.810,01:05:26.080
+We know that.,01:05:26.080,01:05:27.970
+And the out-of-sample sample error?,01:05:27.970,01:05:30.190
+2.5%.,01:05:30.190,01:05:31.280
+"For digits, that's OK.",01:05:31.280,01:05:33.106
+"OK, but not great.",01:05:33.106,01:05:36.650
+"Here, we went.",01:05:36.650,01:05:37.440
+And now the in-sample error is 0.8%.,01:05:37.440,01:05:39.580
+But we know better.,01:05:39.580,01:05:40.610
+"We don't care about the in-sample
+error going to 0.",01:05:40.610,01:05:42.610
+That's actually harmful in some cases.,01:05:42.610,01:05:44.600
+The out-of-sample error is 1.5%.,01:05:44.600,01:05:48.810
+"Now, if you are in the range--
+2.5% means that you are",01:05:48.810,01:05:52.000
+performing 97.5%.,01:05:52.000,01:05:54.080
+"Here, you are performing 98.5%.",01:05:54.080,01:05:56.620
+"40% improvement in that
+range is a lot.",01:05:56.620,01:06:00.570
+"There is a limit here that
+you cannot exceed.",01:06:00.570,01:06:03.400
+"So here, you are really doing great
+by just doing that simple thing.",01:06:03.400,01:06:07.730
+"Now you can see why validation is
+considered, in this context, as",01:06:07.730,01:06:11.700
+similar to regularization.,01:06:11.700,01:06:12.920
+It does the same thing.,01:06:12.920,01:06:14.220
+"It prevented overfitting, but it
+prevented overfitting by estimating",01:06:14.220,01:06:18.040
+"the out-of-sample error, rather than
+estimating something else.",01:06:18.040,01:06:21.230
+"Now, let me go and very quickly--",01:06:25.310,01:06:31.910
+and I will close the lecture with it--,01:06:31.910,01:06:33.520
+give you the more general form.,01:06:33.520,01:06:34.650
+"We talked about ""leave one out"".
+Seldom you use ""leave one out""",01:06:34.650,01:06:38.230
+"in real problems, and you
+can think of why.",01:06:38.230,01:06:39.930
+"Because if I give you 100,000 data
+points, and you want to leave one out,",01:06:39.930,01:06:44.120
+"you are going to have 100,000 sessions
+training on 99,999 for each, and you",01:06:44.120,01:06:50.330
+"will be an old person before
+the results are out.",01:06:50.330,01:06:53.220
+"So when you have ""leave one out"",
+you have N training sessions",01:06:53.220,01:06:58.520
+"using N minus 1 points each, right?",01:06:58.520,01:07:02.990
+"Now, let's consider to take
+more points for validation.",01:07:03.000,01:07:07.070
+"1 point makes it great, because
+N minus 1 is so close to N,",01:07:07.070,01:07:10.070
+"that my g minus will
+be so close to g.",01:07:10.070,01:07:12.130
+"But hey, 100,000, if you decided
+to take 100,000 minus 1,000,",01:07:12.130,01:07:16.200
+"that's still 99,000.",01:07:16.200,01:07:17.600
+"That's fairly close to 100,000.",01:07:17.600,01:07:18.720
+"You don't have to make
+it difference 1.",01:07:18.720,01:07:21.030
+"So what you do is, you take your
+data set, and you break it into",01:07:21.030,01:07:26.740
+a number of folds.,01:07:26.740,01:07:27.630
+Let's say 10-fold.,01:07:27.630,01:07:29.110
+"So this will be 10-fold
+cross-validation.",01:07:29.110,01:07:31.830
+"And each time, you take one of the guys
+here, that is, 1/10 in this",01:07:31.830,01:07:36.860
+"case, use it for validation, and the
+9/10, you use them for training.",01:07:36.860,01:07:41.360
+"And you change, from one run to another,
+which one you take for validation.",01:07:41.360,01:07:45.190
+"So ""leave one out"" is exactly the
+same, except that here, the 10,",01:07:45.190,01:07:48.900
+"replace it by N. I break the thing
+into 1 example at a time, and then I",01:07:48.900,01:07:52.850
+validate on 1 example.,01:07:52.850,01:07:54.120
+"Here, I'm taking a chunk.",01:07:54.120,01:07:57.150
+"And therefore, you have fewer
+training sessions,",01:07:57.150,01:08:00.530
+"in this case 10 training sessions,",01:08:00.530,01:08:03.100
+"with not that much of a difference, in
+terms of the number of examples.",01:08:03.100,01:08:07.730
+"If N is big, instead of taking 1,
+you take a few more.",01:08:07.730,01:08:12.340
+"Now, the reason I introduced this is
+because this is what I actually",01:08:12.340,01:08:15.100
+recommend to you.,01:08:15.100,01:08:16.689
+"Very specifically, 10-fold
+cross-validation works",01:08:16.689,01:08:20.590
+very nicely in practice.,01:08:20.590,01:08:24.069
+"So the rule is, you take the total
+number of examples, divide them by 10,",01:08:24.069,01:08:27.540
+"and that is the size of
+your validation set.",01:08:27.540,01:08:29.090
+"You repeat it 10 times, and you get
+an estimate, and you are ready to go.",01:08:29.090,01:08:33.020
+That's it.,01:08:33.020,01:08:34.609
+"I will stop here, and we'll take
+questions after a short break.",01:08:34.609,01:08:37.571
+"Let's start the Q&amp;A. And we
+have an in-house question.",01:08:40.520,01:08:46.430
+"STUDENT: You told about
+validation, and you told that we",01:08:46.430,01:08:51.780
+"should restrict ourselves in amount of
+parameters we should estimate.",01:08:51.780,01:08:57.340
+"Do we have a rule of thumb about
+the number of these parameters?",01:08:57.340,01:09:02.660
+"So is, say, K over 20 parameters
+reasonable for the maximum number?",01:09:02.660,01:09:09.470
+"PROFESSOR: It obviously depends
+on the number of data points.",01:09:09.470,01:09:12.300
+"So the reason why I didn't give a rule
+of thumb in this case, because it goes",01:09:12.300,01:09:16.180
+with the number of points.,01:09:16.180,01:09:17.840
+"But let's say that if I have 100 points
+for validation, so it's a small",01:09:17.840,01:09:21.729
+"data set, I would say that a couple
+of parameters would be fine.",01:09:21.729,01:09:24.770
+"At least, that's my own experience.",01:09:24.770,01:09:27.319
+"And you can afford more,
+when you have more.",01:09:27.319,01:09:30.260
+"And when you have more, you can even
+afford more than one validation set,",01:09:30.260,01:09:33.410
+"in which case, you use each of them
+for a different estimate.",01:09:33.410,01:09:37.180
+"But the simplest thing, I would say,
+a couple of parameters for 100 points",01:09:37.180,01:09:41.500
+would be OK.,01:09:41.500,01:09:42.750
+"MODERATOR: Can you clarify why model
+choice by validation doesn't count as",01:09:48.200,01:09:54.800
+data snooping?,01:09:54.800,01:09:56.050
+"PROFESSOR: For the same reason
+that the answer is usually given for",01:10:00.640,01:10:04.870
+"a question like that, because
+it is accounted for.",01:10:04.870,01:10:08.870
+"I took the validation set, the
+validation set are patently out of",01:10:08.870,01:10:14.880
+"sample, and I used them
+to make a choice.",01:10:14.880,01:10:19.490
+"And when I did that choice, I made
+sure that the discrepancy between",01:10:19.490,01:10:27.870
+"in-sample and out-of-sample on the
+validation set is very little.",01:10:27.870,01:10:31.110
+"So we had this discussion of how much
+bias there is, and we want to make",01:10:31.110,01:10:34.300
+"sure that the discrepancy
+is very little.",01:10:34.300,01:10:37.120
+"So because I have already done the
+accounting, I can take it as",01:10:37.120,01:10:40.860
+"a reasonable estimate for the
+out-of-sample.",01:10:40.860,01:10:44.170
+That is why.,01:10:44.170,01:10:46.540
+"In the other case, the problem with the
+data snooping that I gave is that",01:10:46.540,01:10:50.320
+"you use the data in order
+to make choices, and in",01:10:50.320,01:10:54.420
+"that case, huge choices.",01:10:54.420,01:10:55.530
+"You looked at the data and you chose
+between different models, and you",01:10:55.530,01:10:58.270
+didn't pay for it.,01:10:58.270,01:10:59.240
+You didn't account for it.,01:10:59.240,01:11:01.480
+That's where the problem was.,01:11:01.480,01:11:02.730
+"MODERATOR: Some people recommend
+using cross-validation 10 times.",01:11:06.250,01:11:14.130
+What does that add?,01:11:14.130,01:11:15.380
+"PROFESSOR: The regime I
+described, I only need to tell you",01:11:18.590,01:11:25.320
+"10-fold, 12-fold, 50-fold, and
+then the rest is fixed.",01:11:25.320,01:11:30.510
+"So if I use 10-fold, then
+by definition I'm going",01:11:30.510,01:11:33.230
+to do this 10 times.,01:11:33.230,01:11:34.250
+"It's not a choice, given the regime
+that I described. In each",01:11:34.250,01:11:38.740
+"run, I am choosing one of the 10 to
+be my validation, and the rest for",01:11:38.740,01:11:43.590
+"training, and taking the average.",01:11:43.590,01:11:46.720
+"So the question is asking,
+do I do this 10 times?",01:11:46.720,01:11:51.200
+"Inherently, built in the method
+is that you use it 10 times,",01:11:51.200,01:11:54.170
+if that's the question.,01:11:54.170,01:11:55.920
+"MODERATOR: I think the question goes to,
+since you chose your 10 data sets",01:11:55.920,01:12:02.270
+"inside, then you'd run
+cross-validation.",01:12:02.270,01:12:06.780
+"What if you do it again choosing 10
+subsets, and you repeat that process?",01:12:06.780,01:12:11.270
+PROFESSOR: There are variations.,01:12:11.270,01:12:12.100
+"For example, even, let's say, with the
+""leave one out"", maybe I can take",01:12:12.100,01:12:16.560
+"a point at random, and not necessarily
+insist on going through all the",01:12:16.560,01:12:19.590
+"examples-- do it like 50 times,
+and take the average.",01:12:19.590,01:12:22.400
+"Or I can take subsets, like in the
+10-fold, but I take random subsets",01:12:22.400,01:12:26.400
+and stop at some point.,01:12:26.400,01:12:27.390
+So there are variations of those.,01:12:27.390,01:12:29.070
+"The ones I described are
+the most standard ones.",01:12:29.070,01:12:32.650
+"But there are obviously
+variations.",01:12:32.650,01:12:34.270
+"And one can do an analysis
+for them as well.",01:12:34.270,01:12:35.920
+"MODERATOR: Is there any rule for
+separating data among training,",01:12:38.860,01:12:41.910
+"validation, and test?",01:12:41.910,01:12:43.790
+"PROFESSOR: Random is
+the only trustworthy thing.",01:12:43.790,01:12:47.010
+"Because if you use your judgment
+somehow, you may introduce a sampling",01:12:47.010,01:12:51.740
+"bias, which we'll talk about
+in a later lecture.",01:12:51.740,01:12:54.180
+"And the best way to avoid that for sure,
+if you sort of flip coins to",01:12:54.180,01:12:58.970
+"choose your examples, then you
+know that you are safe.",01:12:58.970,01:13:00.740
+"MODERATOR: What's the computational
+complexity of adding",01:13:04.390,01:13:07.190
+a cross-validation?,01:13:07.190,01:13:08.840
+"PROFESSOR: I didn't give
+the formula for it.",01:13:10.770,01:13:13.450
+"Basically, for ""leave one out"", you
+are doing N times as much",01:13:13.450,01:13:18.590
+training as you did before.,01:13:18.590,01:13:20.110
+"The evaluation is trivial. Most of
+the time goes for the training.",01:13:20.110,01:13:23.370
+"So you can ask yourself, how many
+training sessions do I have to do now",01:13:23.370,01:13:27.440
+"that I'm using cross-validation, versus
+what I had to do before?",01:13:27.440,01:13:30.305
+"Before, you had to do one session.",01:13:30.305,01:13:32.080
+"Here, you have to do as many sessions
+as there are folds.",01:13:32.080,01:13:35.200
+So 10-fold will be 10 times.,01:13:35.200,01:13:37.520
+"""Leave one out"" would be N,
+because it's really N-fold, if",01:13:37.520,01:13:40.480
+"you want, and so on.",01:13:40.480,01:13:41.730
+MODERATOR: A clarification--,01:13:44.850,01:13:45.870
+"can you use both regularization
+and cross-validation?",01:13:45.870,01:13:48.650
+PROFESSOR: Absolutely.,01:13:48.650,01:13:50.110
+"In fact, one of the biggest utilities
+for validation is to choose",01:13:50.110,01:13:54.530
+the regularization parameter.,01:13:54.530,01:13:56.570
+"So inherently in those
+cases, you do it.",01:13:56.570,01:13:58.220
+"You can use it to choose the
+regularization parameter.",01:13:58.220,01:14:00.510
+"And then you can also use it on
+the side, to do something else.",01:14:00.510,01:14:03.350
+"So both of them are active
+in the same problem.",01:14:03.350,01:14:05.760
+"And in most of the practical cases you
+will encounter, you will actually be",01:14:05.760,01:14:10.390
+using both.,01:14:10.390,01:14:11.810
+"Very seldom can you get away without
+regularization, and very seldom can",01:14:11.810,01:14:15.700
+you get away without validation.,01:14:15.700,01:14:17.070
+"MODERATOR: Someone is asking that, this
+seems to be a brute force method for",01:14:20.250,01:14:23.960
+model selection.,01:14:23.960,01:14:25.200
+"Is there a way to branch and bound
+how many hypotheses to consider?",01:14:25.200,01:14:31.480
+"PROFESSOR: There are lots
+of methods for model selection.",01:14:31.480,01:14:35.630
+"This is the only one, at least among the
+major ones, which does not require",01:14:35.630,01:14:41.620
+assumptions.,01:14:41.620,01:14:43.290
+"I can do model selection based on,
+I know my target function is",01:14:43.290,01:14:47.610
+"symmetric, so I'm going to
+choose a symmetric model.",01:14:47.610,01:14:50.260
+"That can be considered
+model selection.",01:14:50.260,01:14:52.290
+"And there are a bunch of other logical
+methods to choose the model.",01:14:52.290,01:14:57.030
+"The great thing about validation is
+that there are no assumptions",01:14:57.030,01:15:00.140
+whatsoever.,01:15:00.140,01:15:01.400
+You have M models.,01:15:01.400,01:15:02.550
+"What are the models?
+What assumptions do they have?",01:15:02.550,01:15:05.210
+"How close they are, or not close
+to the target function--",01:15:05.210,01:15:07.630
+Who cares?,01:15:07.630,01:15:08.760
+They are M models.,01:15:08.760,01:15:10.320
+"I am going to take a validation set, and
+I'm going to find this objective",01:15:10.320,01:15:13.460
+"criterion, which is a validation or
+cross-validation error, and I'm going",01:15:13.460,01:15:16.470
+to use it to choose.,01:15:16.470,01:15:17.670
+"So it's extremely simple to implement,
+and very immune to assumptions.",01:15:17.670,01:15:21.530
+"Obviously, if you make assumptions and
+you know that the assumption are",01:15:21.530,01:15:24.260
+"valid, then you would be doing
+better than I am doing.",01:15:24.260,01:15:27.600
+"But then you know that the
+assumptions are valid.",01:15:27.600,01:15:29.550
+"I'm taking a case where I don't want to
+make assumptions, that I don't know",01:15:29.550,01:15:32.660
+"hold, and still make the
+model selection.",01:15:32.660,01:15:37.740
+"MODERATOR: In the case where the data
+depends on time evolution,",01:15:37.740,01:15:41.570
+how can validation update the model?,01:15:41.570,01:15:45.440
+"Is it used for that, or not?",01:15:45.440,01:15:46.690
+"PROFESSOR: Validation makes
+a principled choice, regardless of the",01:15:49.330,01:15:54.570
+nature of that choice.,01:15:54.570,01:15:57.760
+"Let's say that I have a time series, and
+one of the things in time series--",01:15:57.760,01:16:03.130
+"let's say they're for financial
+forecasting--",01:16:03.130,01:16:04.660
+"is that, you can train, and then you
+get a system, and then the world",01:16:04.660,01:16:09.920
+is not stationary.,01:16:09.920,01:16:11.110
+"So a system that used to work,
+doesn't work anymore.",01:16:11.110,01:16:14.490
+"You can make choices about, let's
+say I have a bunch of models, and I",01:16:14.490,01:16:17.680
+"want to know which one of them works
+at a particular time, given some",01:16:17.680,01:16:22.220
+conditions.,01:16:22.220,01:16:23.120
+"You can make the model selection
+based on validation, and then you take",01:16:23.120,01:16:25.960
+"that model and apply it to the real
+data, or there are a bunch of things",01:16:25.960,01:16:31.420
+you can do.,01:16:31.420,01:16:32.110
+"But in terms of tracking the evolution
+of systems, again, if you translate",01:16:32.110,01:16:36.730
+"the problem into making a choice, then
+you are ready to go with validation.",01:16:36.730,01:16:40.200
+So the answer is yes.,01:16:40.200,01:16:41.850
+"And the method is to make it
+spelled out as a choice.",01:16:41.850,01:16:46.950
+MODERATOR: Another clarification--,01:16:46.950,01:16:48.040
+"so with cross-validation,
+there's still some bias.",01:16:48.040,01:16:53.090
+"can you quantify why is it better
+than just regular validation?",01:16:53.090,01:17:01.190
+"PROFESSOR: Both validation and
+cross-validation will have bias for",01:17:01.190,01:17:03.830
+the same reasons.,01:17:03.830,01:17:05.860
+"The only question is the reliability
+of the estimate.",01:17:05.860,01:17:10.900
+"Let's say that I use ""leave
+one out"", so here's E_out.",01:17:10.900,01:17:16.391
+"And the bias aside, if I use
+""leave one out"", I'm using all N of",01:17:16.391,01:17:22.520
+"the examples eventually,
+when I average them.",01:17:22.520,01:17:24.750
+So the error bar is small.,01:17:24.750,01:17:26.510
+"Granted, it's not as small as it would
+be if the N errors were independent of",01:17:26.510,01:17:31.690
+each other.,01:17:31.690,01:17:32.420
+"But it's fairly close to being
+as if they were independent.",01:17:32.420,01:17:35.300
+So I get that estimate.,01:17:35.300,01:17:37.320
+"Therefore, anytime you have this
+estimate, it becomes less",01:17:37.320,01:17:41.890
+vulnerable to bias.,01:17:41.890,01:17:43.130
+"Because if I have this play, and I'm
+pulling down, I'm not going to pull",01:17:43.130,01:17:47.320
+"down too far, because I'm
+still within here.",01:17:47.320,01:17:50.380
+"If I have the other guy which is
+completely swinging, it's very easy to",01:17:50.380,01:17:53.150
+"pull it down and I get worse
+effect of the bias.",01:17:53.150,01:17:55.660
+"So whenever you minimize the error bar,
+you minimize the vulnerability to",01:17:55.660,01:17:59.805
+bias as well.,01:17:59.805,01:18:00.920
+"That's the only thing that
+cross-validation does.",01:18:00.920,01:18:03.420
+"It allows you to use a lot of examples
+to validate, while using a lot of",01:18:03.420,01:18:07.430
+examples to train.,01:18:07.430,01:18:08.690
+That's the key.,01:18:08.690,01:18:09.940
+"MODERATOR: Going back to the previous
+lecture, a question on that.",01:18:13.250,01:18:17.120
+"Can you see the augmented error as
+conceptually the same as a low-pass",01:18:17.120,01:18:24.790
+"filtered version of the initial
+error, or not?",01:18:24.790,01:18:29.090
+"PROFESSOR: It can be translated
+to that under the condition",01:18:29.090,01:18:31.690
+"that the regularizer is a smoothness
+regularizer, because that's what",01:18:31.690,01:18:35.100
+low-pass filters do.,01:18:35.100,01:18:36.590
+"So as an intuition, it's not
+a bad thing to consider",01:18:36.590,01:18:41.080
+"in the case of something like weight
+decay. It's not going to be strictly",01:18:41.080,01:18:45.240
+"low-pass as in working in the Fourier
+domain and cutting off, et cetera.",01:18:45.240,01:18:48.940
+"But it will have the same
+effect of being smooth.",01:18:48.940,01:18:51.590
+"If you have a question,",01:18:51.590,01:18:52.670
+"please step to the microphone,
+and you can ask it.",01:18:52.670,01:18:57.240
+So there's a question in house.,01:18:57.240,01:19:00.310
+STUDENT: Yes.,01:19:00.310,01:19:01.560
+"It seems that cross-validation is
+a method to deal with limited size of",01:19:04.450,01:19:09.140
+the data set.,01:19:09.140,01:19:10.060
+"So is it possible in practice that
+we have a data set so large that",01:19:10.060,01:19:14.040
+"cross-validation is not needed or not
+beneficial, or do people do it all the",01:19:14.040,01:19:17.540
+time in principle?,01:19:17.540,01:19:18.550
+"PROFESSOR: It is possible, and
+one of the cases is the Netflix case,",01:19:18.550,01:19:23.610
+where you had 100 million points.,01:19:23.610,01:19:25.390
+"So you think at this point, nobody will
+care about cross-validation.",01:19:25.390,01:19:28.610
+"But it turned out that even in this
+case, the 100 million points only had",01:19:28.610,01:19:32.590
+"a very small subset which come from the
+same distribution as the output.",01:19:32.590,01:19:37.510
+So the 100 million--,01:19:37.510,01:19:38.580
+"again, it's the same question
+as the time evolution.",01:19:38.580,01:19:41.320
+"You have people making ratings,
+and different people making different",01:19:41.320,01:19:44.470
+"number of ratings, and this
+changes for a number of reasons.",01:19:44.470,01:19:48.640
+"Even the same user,",01:19:48.640,01:19:49.920
+"after you rate for a while, you tend
+to change from the initial rating.",01:19:49.920,01:19:54.385
+"Maybe you are initially
+excited or something.",01:19:54.385,01:19:55.850
+"So there are lots of
+considerations like that.",01:19:55.850,01:19:57.860
+"So eventually, the number of points
+that were patently coming from the",01:19:57.860,01:20:03.010
+"same distribution as the out-of-sample
+was much smaller than 100 million.",01:20:03.010,01:20:07.110
+"And these are the ones that were
+used to make big decisions,",01:20:07.110,01:20:09.380
+like validation decisions.,01:20:09.380,01:20:10.980
+"And in that case, even if we started
+with 100 million, it might be a good",01:20:10.980,01:20:14.480
+"idea to use cross-validation
+at the end.",01:20:14.480,01:20:16.340
+"And if you use something like 10-fold
+cross-validation, then it's not that",01:20:16.340,01:20:20.440
+"big a deal, because you are just
+multiplying the effort by 10, which",01:20:20.440,01:20:23.390
+"is, given what is involved,
+not that big a deal.",01:20:23.390,01:20:26.860
+"And you really get a dividend
+in performance.",01:20:26.860,01:20:29.210
+"And if you insist on performance,
+then it becomes indicated.",01:20:29.210,01:20:32.380
+"So the answer is yes, because it doesn't
+cost that much, and because",01:20:32.380,01:20:38.280
+"sometimes in a big data set, the
+relevant part, or the most relevant",01:20:38.280,01:20:42.870
+"part, is smaller than the whole set.",01:20:42.870,01:20:44.190
+"MODERATOR: Say there's a scenario where
+you find your model through",01:20:46.930,01:20:50.160
+"cross-validation, and then you
+test the out-of-sample error.",01:20:50.160,01:20:53.660
+"But somehow you test a different model,
+and it gives you a smaller",01:20:53.660,01:20:57.010
+out-of-sample error.,01:20:57.010,01:20:57.800
+"Should you still keep the one you
+found through cross-validation?",01:20:57.800,01:21:01.590
+"PROFESSOR: So I went
+through this learning and",01:21:01.590,01:21:05.060
+came up with a model.,01:21:05.060,01:21:06.380
+"Someone else went through whatever
+exercise they have and came up with",01:21:06.380,01:21:10.710
+a final hypothesis in this case.,01:21:10.710,01:21:12.780
+"And I am declaring mine the winner
+because of cross-validation, and now",01:21:12.780,01:21:16.240
+"we are saying that there's further
+statistical evidence.",01:21:16.240,01:21:18.360
+"We get an out-of-sample error that tells
+me that mine is not as good as",01:21:18.360,01:21:22.780
+the other one.,01:21:22.780,01:21:24.110
+"Then it really is the question of,
+I have two samples, and I'm doing",01:21:24.110,01:21:28.540
+an evaluation.,01:21:28.540,01:21:29.850
+"And one of them tells me something, and
+the other one tells me the other.",01:21:29.850,01:21:33.410
+"So I need to consider first the size
+of them. That will give me the",01:21:33.410,01:21:36.665
+"relative size of the error bar.
+And correlations, if any. And bias, which",01:21:36.665,01:21:40.210
+"cross-validation may have, whereas the
+other one, if it's truly out of",01:21:40.210,01:21:43.040
+"sample, does not.",01:21:43.040,01:21:44.010
+"If I go through the math, and maybe
+the math won't go through--",01:21:44.010,01:21:47.310
+it's not always the case--,01:21:47.310,01:21:48.790
+"I will get an indication about
+which one I would favor.",01:21:48.790,01:21:52.170
+"But basically, it's purely a statistical
+question at this point.",01:21:52.170,01:21:58.910
+"MODERATOR: When there are few points,
+and cross-validation is going to be",01:21:58.910,01:22:02.190
+"done, is it a good idea to re-sample
+to enlarge the current",01:22:02.190,01:22:06.330
+"sample, or not really?",01:22:06.330,01:22:08.420
+PROFESSOR: So I have a small data set.,01:22:08.420,01:22:10.290
+That's the premise?,01:22:10.290,01:22:11.580
+And I'm doing cross-validation.,01:22:11.580,01:22:12.860
+So what is the--,01:22:12.860,01:22:13.850
+"MODERATOR: So the problem is,
+since you have few samples,",01:22:13.850,01:22:17.520
+do you want to re-sample?,01:22:17.520,01:22:19.890
+"PROFESSOR: So instead of
+breaking them into chunks,",01:22:19.890,01:22:23.210
+keep taking at random?,01:22:23.210,01:22:24.940
+"Well, I don't have from my experience
+something that would indicate that one",01:22:24.940,01:22:33.430
+would win over the other.,01:22:33.430,01:22:35.320
+"And I suspect that if you are close to
+10-fold, you probably are close to the",01:22:35.320,01:22:40.300
+"best performance you can get with
+variations of these methods.",01:22:40.300,01:22:44.240
+"And the problem is that all of these
+things are not completely pinned down",01:22:44.240,01:22:47.820
+mathematically.,01:22:47.820,01:22:48.460
+"There is a heuristic part of it, because
+even cross-validation, we",01:22:48.460,01:22:51.250
+"don't know what the correlation
+is, et cetera.",01:22:51.250,01:22:53.340
+"So we cannot definitively answer the
+question of which one is better.",01:22:53.340,01:22:56.810
+"It's a question of trying in a number
+of problems, after getting the",01:22:56.810,01:22:59.560
+"theoretical guidelines, and
+then choosing something.",01:22:59.560,01:23:02.440
+"What is being reported here is that
+the 10-fold cross-validation stood the",01:23:02.440,01:23:06.520
+test of time.,01:23:06.520,01:23:07.550
+That's the statement.,01:23:07.550,01:23:10.000
+"MODERATOR: When there is a big class
+size imbalance, does cross-validation",01:23:10.000,01:23:14.820
+become a problem?,01:23:14.820,01:23:16.070
+"PROFESSOR: When there is an imbalance
+between the classes, that is",01:23:18.105,01:23:20.690
+"a bunch of +1's and fewer -1's,
+there are certain things that need",01:23:20.690,01:23:24.810
+"to be taken into consideration, in order
+to make learning go through",01:23:24.810,01:23:27.350
+"well-- in order to basically avoid the
+learning algorithm going for the",01:23:27.350,01:23:31.500
+"all +1 solution, because it's
+a very attractive one.",01:23:31.500,01:23:34.760
+"So there are a bunch of things that can
+be taken into consideration, and I",01:23:34.760,01:23:37.270
+"can see a possible role
+for cross-validation.",01:23:37.270,01:23:39.600
+"But it's not a strong component
+as far as I can see.",01:23:39.600,01:23:48.660
+"The question of balancing them, making
+sure that you avoid the all-constant,",01:23:48.660,01:23:52.170
+"and stuff like that will probably
+play a bigger role.",01:23:52.170,01:23:54.333
+"MODERATOR: How does the bias behave when
+we increase the number of points",01:23:59.430,01:24:05.790
+that we leave out?,01:24:05.790,01:24:07.620
+The size of t if we leave t out.,01:24:07.620,01:24:09.820
+"PROFESSOR: The points we
+leave out are the validation points.",01:24:09.820,01:24:16.380
+"And if we are using the 10-fold or
+12-fold, et cetera, the total number",01:24:16.380,01:24:21.080
+"that go into the summation will be
+constant, because in spite of the fact",01:24:21.080,01:24:24.665
+"that we're taking different numbers,
+we go through all of them,",01:24:24.665,01:24:26.870
+and we add them up.,01:24:26.870,01:24:28.410
+So that number doesn't change.,01:24:28.410,01:24:30.400
+"MODERATOR: So how does it change,
+if instead of doing",01:24:34.770,01:24:38.650
+"10-fold, you use 20-fold?",01:24:38.650,01:24:40.930
+How does that--,01:24:40.930,01:24:43.040
+PROFESSOR: How does it change?,01:24:43.040,01:24:43.640
+"It doesn't change the number of total
+points going into the estimate",01:24:43.640,01:24:47.180
+of cross-validation.,01:24:47.180,01:24:48.220
+But what was the original question?,01:24:48.220,01:24:49.590
+"MODERATOR: So how does
+the bias behave?",01:24:49.590,01:24:51.480
+PROFESSOR: Oh.,01:24:51.480,01:24:53.120
+"Well, given that the total number will
+give you the error bar, and given that",01:24:53.120,01:24:59.040
+"the bias is really a function of how
+you use it, rather than something",01:24:59.040,01:25:02.010
+"inherent in the estimate, the error bar
+will give you an indication of how",01:25:02.010,01:25:07.500
+vulnerable you are to bias.,01:25:07.500,01:25:09.140
+"Say that, if you take two scenarios
+where the error bar is comparable, you",01:25:09.140,01:25:12.300
+"have no reason to think that one of them
+will be more vulnerable to bias",01:25:12.300,01:25:15.190
+or another.,01:25:15.190,01:25:16.500
+"Now, you need a very detailed analysis
+to see the difference between taking",01:25:16.500,01:25:19.740
+"one at a time coming from N minus 1,
+et cetera, and to consider the",01:25:19.740,01:25:23.720
+"correlations, and then taking 1/10 at
+the time and adding them up, to find",01:25:23.720,01:25:28.740
+"out what is the correlation and what is
+the effective number of examples,",01:25:28.740,01:25:31.710
+and therefore what is the error bar.,01:25:31.710,01:25:33.360
+"In any given situation, that would
+be a pretty heavy task to do.",01:25:33.360,01:25:38.230
+"So basically, that answer is that as
+long as you do a number of",01:25:38.230,01:25:44.500
+"folds, and you take every example to
+appear in the cross-validation",01:25:44.500,01:25:47.470
+"estimate exactly once, then there is no
+preference between them as far as",01:25:47.470,01:25:52.500
+the bias is concerned.,01:25:52.500,01:25:54.262
+MODERATOR: I think that's it.,01:25:54.262,01:25:55.730
+PROFESSOR: Very good.,01:25:55.730,01:25:56.340
+We'll see you on Thursday.,01:25:56.340,01:25:57.840

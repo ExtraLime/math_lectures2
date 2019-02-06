@@ -1,0 +1,2807 @@
+text,start,stop
+"The following content is
+provided under a Creative",00:00:00.120,00:00:02.460
+Commons license.,00:00:02.460,00:00:03.880
+"Your support will help
+MIT OpenCourseWare",00:00:03.880,00:00:06.090
+"continue to offer high quality
+educational resources for free.",00:00:06.090,00:00:10.180
+"To make a donation or to
+view additional materials",00:00:10.180,00:00:12.720
+"from hundreds of MIT courses,
+visit MIT OpenCourseWare",00:00:12.720,00:00:16.200
+at ocw.mit.edu.,00:00:16.200,00:00:17.625
+"PHILIPPE RIGOLLET: --of
+our limiting distribution,",00:00:20.507,00:00:22.590
+which happen to be Gaussian.,00:00:22.590,00:00:24.259
+"But if the central
+limit theorem told",00:00:24.259,00:00:25.800
+"us that the limiting
+distribution of some average",00:00:25.800,00:00:28.560
+"was something that
+looked like a Poisson",00:00:28.560,00:00:30.549
+"or an [? exponential, ?]
+then we would just",00:00:30.549,00:00:32.340
+"have in the same way
+taken the quintiles",00:00:32.340,00:00:34.770
+of the exponential distribution.,00:00:34.770,00:00:36.700
+So let's go back to what we had.,00:00:36.700,00:00:39.440
+"So generically if you have a
+set of observations X1 to Xn.",00:00:39.440,00:00:46.990
+"So remember for the kiss example
+they were denoted by R1 to Rn,",00:00:46.990,00:00:52.180
+"because they were turning
+the head to the right,",00:00:52.180,00:00:55.240
+but let's just go back.,00:00:55.240,00:00:56.850
+"We say X1 to Xn,
+and in this case",00:00:56.850,00:00:59.800
+"I'm going to assume
+they're IID, and I'm",00:00:59.800,00:01:02.710
+"going to make them Bernoulli
+with [INAUDIBLE] p,",00:01:02.710,00:01:05.700
+"and p is unknown, right?",00:01:05.700,00:01:06.710
+So what did we do from here?,00:01:10.150,00:01:11.600
+"Well, we said p is
+the expectation of Xi,",00:01:11.600,00:01:15.824
+"and actually we didn't even
+think about it too much.",00:01:15.824,00:01:17.990
+"We said, well, if
+I need to estimate",00:01:17.990,00:01:19.090
+"the proportion of people who
+turn their head to the right",00:01:19.090,00:01:21.460
+"when they kiss, I
+just basically I'm",00:01:21.460,00:01:22.960
+going to compute the average.,00:01:22.960,00:01:24.400
+"So our p hat was just
+Xn bar, which was just 1",00:01:24.400,00:01:28.660
+"over n sum from i
+over 1 2n of the Xi.",00:01:28.660,00:01:32.170
+"The average of the observations
+was their estimate.",00:01:32.170,00:01:34.990
+"And then we wanted to build
+some confidence intervals",00:01:34.990,00:01:37.690
+around this.,00:01:37.690,00:01:38.220
+"So what we wanted to understand
+is, how much that this p hat",00:01:38.220,00:01:41.360
+fluctuates.,00:01:41.360,00:01:42.970
+This is a random variable.,00:01:42.970,00:01:44.060
+"It's an average of
+random variables.",00:01:44.060,00:01:45.100
+"It's a random
+variable, so we want",00:01:45.100,00:01:46.570
+"to know what the
+distribution is.",00:01:46.570,00:01:47.740
+"And if we know what
+the distribution is,",00:01:47.740,00:01:49.406
+"then we actually know,
+well, where it fluctuates.",00:01:49.406,00:01:51.670
+What the expectation is.,00:01:51.670,00:01:52.810
+"Around which value it tends
+to fluctuate et cetera.",00:01:52.810,00:01:55.649
+"And so what the
+central limit theorem",00:01:55.649,00:01:57.190
+"told us was if I take square
+root of n times Xn bar minus p,",00:01:57.190,00:02:03.310
+which is its average.,00:02:03.310,00:02:04.990
+"And then I divide it by
+the standard deviation.",00:02:04.990,00:02:07.445
+"Then this thing here converges
+as n goes to infinity,",00:02:10.840,00:02:15.670
+"and we will say
+a little bit more",00:02:15.670,00:02:17.380
+"about what it means
+in distribution",00:02:17.380,00:02:19.360
+"to some standard
+normal random variable.",00:02:19.360,00:02:23.157
+"So that was the
+central limit theorem.",00:02:23.157,00:02:24.740
+"So what it means is
+that when I think",00:02:27.069,00:02:28.610
+"of this as a random variable,
+when n is large enough",00:02:28.610,00:02:35.410
+it's going to look like this.,00:02:35.410,00:02:37.630
+"And so I understand
+perfectly its fluctuations.",00:02:37.630,00:02:40.030
+"I know that this
+thing here has--",00:02:40.030,00:02:43.450
+"I know the probability
+of being in this zone.",00:02:43.450,00:02:45.520
+"I know that this
+number here is 0.",00:02:45.520,00:02:47.890
+I know a bunch of things.,00:02:47.890,00:02:49.600
+"And then, in
+particular, what I was",00:02:49.600,00:02:51.910
+"interested in was that
+the probability, that's",00:02:51.910,00:02:55.990
+"the absolute value of a
+Gaussian random variable,",00:02:55.990,00:02:59.110
+"exceeds q alpha over
+2, q alpha over 2.",00:02:59.110,00:03:05.111
+"We said that this
+was equal to what?",00:03:05.111,00:03:06.610
+Anybody?,00:03:13.610,00:03:15.527
+What was that?,00:03:15.527,00:03:16.110
+AUDIENCE: [INAUDIBLE],00:03:16.110,00:03:18.137
+"PHILIPPE RIGOLLET: Alpha, right?",00:03:18.137,00:03:19.470
+So that's the probability.,00:03:19.470,00:03:21.210
+That's my random variable.,00:03:21.210,00:03:23.060
+"So this is by definition q
+alpha over 2 is the number.",00:03:23.060,00:03:27.050
+"So that to the right
+of it is alpha over 2.",00:03:27.050,00:03:29.960
+"And this is a negative q
+alpha over 2 by symmetry.",00:03:29.960,00:03:34.100
+"And so the probability
+that i exceeds-- well,",00:03:34.100,00:03:36.120
+"it's not very symmetric,
+but the probability",00:03:36.120,00:03:38.150
+"that i exceeds this
+value, q alpha over 2,",00:03:38.150,00:03:41.020
+"is just the sum of
+the two gray areas.",00:03:41.020,00:03:46.250
+All right?,00:03:46.250,00:03:47.360
+"So now I said that this thing
+was approximately equal,",00:03:47.360,00:03:50.605
+"due to the central
+limit theorem,",00:03:50.605,00:03:51.980
+"to the probability,
+that square root of n.",00:03:51.980,00:03:55.320
+"Xn bar minus p divided by
+square root p 1 minus p.",00:03:55.320,00:03:59.063
+"Well, absolute value was
+larger than q alpha over 2.",00:04:04.970,00:04:10.180
+"Well, then this thing by default
+is actually approximately equal",00:04:10.180,00:04:12.870
+"to alpha, just because of virtue
+of the central limit theorem.",00:04:12.870,00:04:16.870
+"And then we just said,
+well, I'll solve for p.",00:04:16.870,00:04:23.770
+"Has anyone attempted to solve
+the degree two equation for p",00:04:23.770,00:04:28.420
+in the homework?,00:04:28.420,00:04:29.412
+Everybody has tried it?,00:04:29.412,00:04:30.370
+"So essentially, this is
+going to be an equation in p.",00:04:35.400,00:04:37.740
+"Sometimes we don't
+want to solve it.",00:04:37.740,00:04:39.240
+"Some of the p's we will replace
+by their worst possible value.",00:04:39.240,00:04:41.823
+"For example, we said one
+of the tricks we had was",00:04:41.823,00:04:44.430
+"that this value here,
+square root of p 1 minus p,",00:04:44.430,00:04:48.830
+was always less than one half.,00:04:48.830,00:04:51.217
+"Until we could actually get
+the confidence interval that",00:04:51.217,00:04:53.550
+"was larger than all
+possible confidence",00:04:53.550,00:04:55.174
+"intervals for all
+possible values of p,",00:04:55.174,00:04:57.170
+but we could solve for p.,00:04:57.170,00:04:59.390
+"Do we all agree on the
+principle of what we did?",00:04:59.390,00:05:01.570
+"So that's how you build
+confidence intervals.",00:05:01.570,00:05:03.840
+"Now let's step
+back for a second,",00:05:03.840,00:05:05.360
+"and see what was important in
+the building of this confidence",00:05:05.360,00:05:08.070
+interval.,00:05:08.070,00:05:09.470
+"The really key thing is
+that I didn't tell you",00:05:09.470,00:05:11.870
+"why I formed this thing, right?",00:05:11.870,00:05:15.350
+"We started from
+x bar, and then I",00:05:15.350,00:05:17.120
+"took some weird function of x
+bar that depended on p and n.",00:05:17.120,00:05:21.000
+"And the reason is, because
+when I take this function,",00:05:21.000,00:05:23.824
+"the central limit
+theorem tells me",00:05:23.824,00:05:25.240
+"that it converges to
+something that I know.",00:05:25.240,00:05:28.009
+"But this very important thing
+about the something that I know",00:05:28.009,00:05:30.550
+"is that it does not depend on
+anything that I don't know.",00:05:30.550,00:05:35.030
+"For example, if I
+forgot to divide",00:05:35.030,00:05:36.800
+"by square root of p 1 minus
+p, then this thing would have",00:05:36.800,00:05:40.220
+"had a variance, which
+is the p 1 minus p.",00:05:40.220,00:05:43.980
+"If I didn't remove this
+p here, the mean here",00:05:43.980,00:05:47.620
+would have been affected by p.,00:05:47.620,00:05:49.860
+"And there's no table
+for normal p 1.",00:05:49.860,00:05:53.041
+Yes?,00:05:53.041,00:05:53.540
+AUDIENCE: [INAUDIBLE],00:05:53.540,00:05:55.834
+"PHILIPPE RIGOLLET: Oh, so
+the square root of n terms",00:05:55.834,00:05:58.000
+come from.,00:05:58.000,00:05:58.500
+So really you should view this.,00:05:58.500,00:06:00.830
+"So there's a rule and sort
+of a quiet rule in math",00:06:00.830,00:06:04.780
+"that you don't write a
+divided by b over c, right?",00:06:04.780,00:06:08.990
+"You write c times a divided
+by b, because it looks nicer.",00:06:08.990,00:06:12.714
+"But the way you want
+to think about this",00:06:12.714,00:06:14.380
+"is that this is x bar minus p
+divided by the square root of p",00:06:14.380,00:06:20.600
+1 minus p divided by n.,00:06:20.600,00:06:23.839
+"And the reason is,
+because this is actually",00:06:23.839,00:06:25.630
+the standard deviation of this--,00:06:25.630,00:06:27.000
+"oh sorry, x bar n.",00:06:27.000,00:06:28.720
+"This is actually the standard
+deviation of this guy,",00:06:28.720,00:06:31.510
+"and the square root of n comes
+from the [INAUDIBLE] average.",00:06:31.510,00:06:36.540
+"So the key thing
+was that this thing,",00:06:36.540,00:06:39.922
+"this limiting distribution
+did not depend on anything",00:06:39.922,00:06:42.130
+I don't know.,00:06:42.130,00:06:43.340
+"And this is actually called
+a pivotal distribution.",00:06:43.340,00:06:45.635
+It's pivotal.,00:06:45.635,00:06:47.690
+I don't need anything.,00:06:47.690,00:06:49.020
+"I don't need to know anything,
+and I can read it in a table.",00:06:49.020,00:06:51.750
+"Sometimes there's going
+to be complicated things,",00:06:51.750,00:06:54.320
+but now we have computers.,00:06:54.320,00:06:55.430
+"The beauty about Gaussian is
+that people have studied them",00:06:55.430,00:06:57.846
+"to death, and you can
+open any stats textbook,",00:06:57.846,00:07:00.049
+"and you will see a table
+again that will tell you",00:07:00.049,00:07:02.090
+"for each value of alpha
+you're interested in,",00:07:02.090,00:07:04.140
+"it will tell you what
+q alpha over 2 is.",00:07:04.140,00:07:07.220
+"But there might be some
+crazy distributions,",00:07:07.220,00:07:10.566
+"but as long as they
+don't depend on anything,",00:07:10.566,00:07:12.440
+"we might actually
+be able to simulate",00:07:12.440,00:07:13.981
+"from them, and in particular
+compute what q alpha over 2",00:07:13.981,00:07:16.540
+"is for any possible
+value [INAUDIBLE]..",00:07:16.540,00:07:19.157
+"And so that's what we're
+going to be trying to do.",00:07:19.157,00:07:21.240
+Finding pivotal distributions.,00:07:21.240,00:07:22.800
+"How do we take this Xn bar,
+which is a good estimate,",00:07:22.800,00:07:26.060
+"and turn it into something
+which may be exactly",00:07:26.060,00:07:28.940
+"or asymptotically
+does not depend",00:07:28.940,00:07:31.100
+on any unknown parameter.,00:07:31.100,00:07:33.410
+"So here is one way
+we can actually--",00:07:33.410,00:07:35.600
+"so that's what we did for
+the kiss example, right?",00:07:35.600,00:07:38.084
+"And here I mentioned,
+for example,",00:07:38.084,00:07:39.500
+"in the extreme case,
+when n was equal to 3",00:07:39.500,00:07:41.780
+"we would get a different
+thing, but here the CLT",00:07:41.780,00:07:44.240
+would not be valid.,00:07:44.240,00:07:45.860
+"And what that means is that
+my pivotal distribution",00:07:45.860,00:07:49.520
+"is actually not the
+normal distribution,",00:07:49.520,00:07:52.870
+but it might be something else.,00:07:52.870,00:07:54.620
+"And I said we can make
+take exact computations.",00:07:54.620,00:07:56.920
+"Well, let's see
+what it is, right?",00:07:56.920,00:07:58.510
+"If I have three observations,
+so I'm going to have X1, X2, X3.",00:07:58.510,00:08:06.610
+"So now I take the
+average of those guys.",00:08:06.610,00:08:08.810
+"OK, so that's my estimate.",00:08:13.260,00:08:15.404
+"How many values
+can this guy take?",00:08:15.404,00:08:16.820
+It's a little bit of counting.,00:08:23.125,00:08:25.065
+Four values.,00:08:27.980,00:08:28.529
+How did you get to that number?,00:08:28.529,00:08:29.820
+"OK, so each of these guys
+can take value 0, 1, right?",00:08:37.590,00:08:41.919
+"So the number of values
+that it can take,",00:08:41.919,00:08:43.669
+"I mean, it's a little
+annoying, because then I",00:08:43.669,00:08:45.730
+"have to sum them, right?",00:08:45.730,00:08:47.110
+"So basically, I have to
+count the number of 1's.",00:08:47.110,00:08:51.620
+"So how many 1's
+can I get, right?",00:08:51.620,00:08:54.789
+"Sorry I have to-- yeah, so this
+is the number of 1's that I--",00:08:54.789,00:08:57.330
+"OK, so let's look at that.",00:08:57.330,00:08:58.500
+"So we get 0, 0, 0.",00:08:58.500,00:09:00.182
+"0, 0, 1.",00:09:00.182,00:09:01.690
+"And then I get
+basically three of them",00:09:01.690,00:09:03.350
+"that have just the
+one in there, right?",00:09:03.350,00:09:04.975
+So there's three of them.,00:09:07.660,00:09:08.920
+"How many of them
+have exactly two 1's?",00:09:08.920,00:09:12.710
+2.,00:09:12.710,00:09:13.350
+"Sorry, 3, right?",00:09:13.350,00:09:15.270
+"So it's just this guy where
+I replaced the 0's and the 1.",00:09:15.270,00:09:18.230
+"OK, so now I get--",00:09:18.230,00:09:21.390
+"so here I get three
+that take the value 1,",00:09:21.390,00:09:23.750
+and one that gets the value 0.,00:09:23.750,00:09:25.680
+"And then I get three
+that take the value 2,",00:09:25.680,00:09:28.110
+"and then one that
+takes the value 1.",00:09:28.110,00:09:30.970
+"The value [? 0 ?] 1's, right?",00:09:30.970,00:09:33.100
+"OK, so everybody knows what I'm
+missing here is just the ones",00:09:33.100,00:09:35.870
+"here where I replaced
+the 0's by 1's.",00:09:35.870,00:09:38.440
+"So the number of values
+that this thing can take",00:09:38.440,00:09:40.480
+"is 1, 2, 3, 4.",00:09:40.480,00:09:43.080
+"So someone is counting
+much faster than me.",00:09:43.080,00:09:45.749
+"And so those numbers, you've
+probably seen them before,",00:09:45.749,00:09:48.040
+right?,00:09:48.040,00:09:48.539
+"1, 3, 3, 1, remember?",00:09:48.539,00:09:50.530
+"And so essentially
+those guys, it",00:09:50.530,00:09:52.930
+"takes only three values,
+which are either 1/3, 1.",00:09:52.930,00:09:58.760
+"Sorry, 1/3.",00:09:58.760,00:10:02.332
+"Oh OK, so it's 0, sorry.",00:10:02.332,00:10:06.400
+"1/3, 2/3, and 1.",00:10:06.400,00:10:10.100
+"Those are the four possible
+values you can take.",00:10:10.100,00:10:12.790
+"And so now-- which is
+probably much easier",00:10:12.790,00:10:14.870
+"to count like that--
+and so now all",00:10:14.870,00:10:16.714
+"I have to tell you
+if I want to describe",00:10:16.714,00:10:18.380
+"the distribution
+of this probability",00:10:18.380,00:10:20.240
+"of this random variable,
+is just the probability",00:10:20.240,00:10:23.090
+"that it takes each
+of these values.",00:10:23.090,00:10:24.990
+"So X bar 3 takes the
+value 0 probability",00:10:24.990,00:10:30.170
+"that X bar 3 takes the
+value 1/3, et cetera.",00:10:30.170,00:10:34.160
+"If I give you each of
+these possible values,",00:10:34.160,00:10:36.262
+"then you will be able to know
+exactly what the distribution",00:10:36.262,00:10:38.720
+"is, and hopefully maybe
+to turn it into something",00:10:38.720,00:10:41.720
+you can compute.,00:10:41.720,00:10:42.691
+"Now the thing is that
+those values will actually",00:10:42.691,00:10:44.690
+depend on the unknown p.,00:10:44.690,00:10:47.290
+What is the unknown p here?,00:10:47.290,00:10:48.440
+"What is the
+probability that X bar",00:10:48.440,00:10:49.856
+3 is equal to 0 for example?,00:10:49.856,00:10:52.214
+I'm sorry?,00:10:52.214,00:10:53.166
+AUDIENCE: [INAUDIBLE],00:10:53.166,00:10:54.594
+"PHILIPPE RIGOLLET: Yeah, OK.",00:10:54.594,00:10:55.760
+"So let's write it without
+making the computation So 1/8 is",00:10:55.760,00:10:59.930
+"probably not the
+right answer, right?",00:10:59.930,00:11:03.866
+"For example, if p is equal to
+0, what is this probability?",00:11:03.866,00:11:09.267
+1.,00:11:09.267,00:11:10.740
+"If p is 1, what is
+this probability?",00:11:10.740,00:11:13.980
+0.,00:11:13.980,00:11:14.480
+So it will depend on p.,00:11:14.480,00:11:16.250
+"So the probability that
+this thing is equal to 0,",00:11:16.250,00:11:18.314
+"is just the probability
+that all three of those guys",00:11:18.314,00:11:20.480
+are equal to 0.,00:11:20.480,00:11:21.606
+"The probability that X1 is equal
+to 0, and X2 is equal to 0,",00:11:21.606,00:11:24.105
+and X3 is equal to 0.,00:11:24.105,00:11:25.532
+"Now my things are
+independent, so I",00:11:25.532,00:11:26.990
+"do what I actually
+want to do, which",00:11:26.990,00:11:28.340
+"say the probability
+of the intersection",00:11:28.340,00:11:29.964
+"is the product of the
+probabilities, right?",00:11:29.964,00:11:32.330
+"So it's just the probability
+that each of them is equal to 0",00:11:32.330,00:11:34.940
+to the power of 3.,00:11:34.940,00:11:36.315
+"And the probability that each
+of them, or say one of them",00:11:36.315,00:11:38.690
+"is equal to 0, is
+just 1 minus p.",00:11:38.690,00:11:41.585
+"And then for this guy I just
+get the probability-- well,",00:11:45.960,00:11:48.900
+"it's more complicated, because I
+have to decide which one it is.",00:11:48.900,00:11:51.690
+"But those things are
+just the probability",00:11:51.690,00:11:53.580
+"of some binomial random
+variables, right?",00:11:53.580,00:11:56.290
+"This is just a
+binomial, X bar 3.",00:11:56.290,00:12:00.320
+"So if I look at X bar 3,
+and then I multiply it by 3,",00:12:00.320,00:12:03.986
+"it's just this sum of
+independent Bernoulli's",00:12:03.986,00:12:05.860
+with parameter p.,00:12:05.860,00:12:07.120
+"So this is actually a binomial
+with parameter 3 and p.",00:12:07.120,00:12:11.696
+"And there's tables
+for binomials,",00:12:11.696,00:12:13.070
+and they tell you all this.,00:12:13.070,00:12:16.567
+"Now the thing is I want
+to invert this guy, right?",00:12:16.567,00:12:18.650
+Somehow.,00:12:18.650,00:12:19.870
+This thing depends on p.,00:12:19.870,00:12:21.055
+"I don't like it, so
+I'm going to have",00:12:21.055,00:12:22.990
+"to find ways to get this
+things depending on p,",00:12:22.990,00:12:25.874
+"and I could make all
+these nasty computations,",00:12:25.874,00:12:27.790
+and spend hours doing this.,00:12:27.790,00:12:29.710
+"But there's tricks
+to go around this.",00:12:29.710,00:12:31.330
+There's upper bounds.,00:12:31.330,00:12:32.410
+"Just like we just
+said, well, maybe I",00:12:32.410,00:12:34.390
+"don't want to solve the
+second degree equation in p,",00:12:34.390,00:12:36.840
+"because it's just going to
+capture maybe smaller order",00:12:36.840,00:12:40.360
+"terms, right?",00:12:40.360,00:12:41.030
+"Things that maybe won't make
+a huge difference numerically.",00:12:41.030,00:12:43.930
+"You can check that in
+your problem set one.",00:12:43.930,00:12:46.900
+"Does it make a huge
+difference numerically",00:12:46.900,00:12:48.910
+"to solve the second
+degree equation,",00:12:48.910,00:12:50.590
+"or to just use the
+[INAUDIBLE] p 1",00:12:50.590,00:12:52.960
+"minus p or even to plug
+in p hat instead of p.",00:12:52.960,00:12:56.050
+"Those are going to
+be the-- problem",00:12:56.050,00:12:57.720
+"set one is to make sure that you
+see what magnitude of changes",00:12:57.720,00:13:01.540
+"you get by changing from
+one method to the other.",00:13:01.540,00:13:05.350
+"So what I wanted to
+go to is something",00:13:05.350,00:13:13.420
+"where we can use
+something, which is just",00:13:13.420,00:13:16.150
+a little more brute force.,00:13:16.150,00:13:17.900
+"So the probability
+that-- so here",00:13:17.900,00:13:19.600
+is this Hoeffding's inequality.,00:13:19.600,00:13:20.931
+We saw that.,00:13:20.931,00:13:21.430
+"That's what we've
+finished on last time.",00:13:21.430,00:13:23.320
+"So Hoeffding's
+inequality is actually",00:13:23.320,00:13:25.120
+"one of the most
+useful inequalities.",00:13:25.120,00:13:27.560
+"If any one of you is doing
+anything really to algorithms,",00:13:27.560,00:13:30.130
+"you've seen that
+inequality before.",00:13:30.130,00:13:32.089
+"It's extremely convenient
+that it tells you",00:13:32.089,00:13:33.880
+"something about bounded
+random variables,",00:13:33.880,00:13:35.650
+"and if you do algorithms
+typically with things bounded.",00:13:35.650,00:13:37.984
+"And that's the case of
+Bernoulli's random variables,",00:13:37.984,00:13:40.150
+right?,00:13:40.150,00:13:40.649
+They're bounded between 0 and 1.,00:13:40.649,00:13:42.765
+"And so when I do
+this thing, when",00:13:42.765,00:13:44.140
+"I do Hoeffding's inequality,
+what this thing is telling",00:13:44.140,00:13:46.810
+"me is for any given epsilon
+here, for any given epsilon,",00:13:46.810,00:13:53.120
+"what is the probability
+that Xn bar goes away",00:13:53.120,00:13:55.790
+from its expectation?,00:13:55.790,00:13:58.370
+"All right, then we saw that it
+decreases somewhat similarly",00:13:58.370,00:14:02.030
+"to the way a Gaussian
+would look like.",00:14:02.030,00:14:04.560
+"So essentially what Hoeffding's
+inequality is telling me, is",00:14:04.560,00:14:08.120
+"that I have this picture, when
+I have a Gaussian with mean u,",00:14:08.120,00:14:18.120
+"I know it looks
+like this, right?",00:14:18.120,00:14:20.747
+"What Hoeffding's
+inequality is telling",00:14:20.747,00:14:22.330
+"me is that if I actually
+take the average",00:14:22.330,00:14:24.780
+"of some bounded
+random variables,",00:14:24.780,00:14:27.740
+"then their probability
+distribution function or maybe",00:14:27.740,00:14:30.494
+"math function-- this thing
+might not even have [INAUDIBLE]",00:14:30.494,00:14:32.910
+"the density, but let's think
+of it as being a density just",00:14:32.910,00:14:35.540
+"for simplicity-- it's
+going to be something",00:14:35.540,00:14:38.630
+that's going to look like this.,00:14:38.630,00:14:40.895
+"It's going to be
+somewhat-- well,",00:14:40.895,00:14:42.270
+"sometimes it's going
+to have to escape just",00:14:42.270,00:14:44.061
+"for the sake of
+having integral 1.",00:14:44.061,00:14:46.540
+"But it's essentially
+telling me that those guys",00:14:46.540,00:14:49.362
+stay below those guys.,00:14:49.362,00:14:52.680
+"The probability that
+Xn bar exceeds mu",00:14:52.680,00:14:56.610
+"is bounded by
+something that decays",00:14:56.610,00:14:58.940
+like to tail of Gaussian.,00:14:58.940,00:15:00.802
+"So really that's the picture
+you should have in mind.",00:15:00.802,00:15:03.010
+"When I average bounded
+random variables,",00:15:03.010,00:15:05.740
+"I actually have something
+that might be really rugged.",00:15:05.740,00:15:08.240
+"It might not be smooth
+like a Gaussian,",00:15:08.240,00:15:10.510
+"but I know that it's always
+bounded by a Gaussian.",00:15:10.510,00:15:12.620
+"And what's nice about it
+is that when I actually",00:15:12.620,00:15:14.620
+"start computing probability
+that exceeds some number,",00:15:14.620,00:15:17.800
+"say alpha over 2, then I
+know that this I can actually",00:15:17.800,00:15:24.340
+"get a number, which is just--",00:15:24.340,00:15:29.460
+"sorry, the probability
+that it exceeds, yeah.",00:15:29.460,00:15:31.830
+"So this number that I
+get here is actually",00:15:31.830,00:15:33.580
+"going to be somewhat
+smaller, right?",00:15:33.580,00:15:35.424
+"So that's going to be the q
+alpha over 2 for the Gaussian,",00:15:35.424,00:15:37.840
+and that's going to be the--,00:15:37.840,00:15:39.390
+"I don't know, r alpha over
+2 for this [? Bernoulli ?]",00:15:39.390,00:15:41.598
+random variable.,00:15:41.598,00:15:43.550
+Like q prime or different q.,00:15:43.550,00:15:46.478
+"So I can actually do
+this without actually",00:15:46.478,00:15:50.149
+"taking any limits, right?",00:15:50.149,00:15:51.190
+This is valid for any n.,00:15:51.190,00:15:53.200
+"I don't need to
+actually go to infinity.",00:15:53.200,00:15:54.910
+"Now this seems a
+bit magical, right?",00:15:54.910,00:15:57.370
+"I mean, I just said
+we need n to be,",00:15:57.370,00:15:59.821
+"we discussed that we
+wanted n to be larger",00:15:59.821,00:16:01.570
+"than 30 last time for
+the central limit theorem",00:16:01.570,00:16:03.660
+"to kick in, and this
+one seems to tell me",00:16:03.660,00:16:05.950
+I can do it for any n.,00:16:05.950,00:16:07.940
+"Now there will be a price to pay
+is that I pick up this 2 over b",00:16:07.940,00:16:12.970
+minus alpha squared.,00:16:12.970,00:16:13.930
+"So that's the variance of the
+Gaussian that I have, right?",00:16:13.930,00:16:20.421
+Sort of.,00:16:20.421,00:16:20.920
+"That's telling me what
+the variance should be,",00:16:20.920,00:16:23.450
+"and this is actually
+not as nice.",00:16:23.450,00:16:24.950
+"I pick factor 4
+compared to the Gaussian",00:16:24.950,00:16:27.530
+that I would get for that.,00:16:27.530,00:16:29.290
+"So let's try to solve
+it for our case.",00:16:29.290,00:16:32.230
+So I just told you try it.,00:16:32.230,00:16:33.800
+Did anybody try to do it?,00:16:33.800,00:16:35.038
+"So we started from
+this last time, right?",00:16:37.362,00:16:39.070
+"And the reason was
+that we could say",00:16:41.980,00:16:43.730
+"that the probability that this
+thing exceeds q alpha over 2",00:16:43.730,00:16:46.490
+is alpha.,00:16:46.490,00:16:47.690
+"So that was using CLT, so let's
+just keep it here, and see",00:16:47.690,00:16:52.000
+what we would do differently.,00:16:52.000,00:16:53.484
+"What Hoeffding tells me is
+that the probability that Xn",00:16:56.230,00:16:58.530
+bar minus--,00:16:58.530,00:17:00.070
+"well, what is mu in this case?",00:17:00.070,00:17:04.265
+"It's p, right?",00:17:04.265,00:17:06.220
+It's just notation here.,00:17:06.220,00:17:07.660
+"Mu was the average,
+but we call it",00:17:07.660,00:17:09.280
+"p in the case of
+Bernoulli's, exceeds--",00:17:09.280,00:17:12.970
+"let's just call it
+epsilon for a second.",00:17:12.970,00:17:17.220
+"So we said that this
+was bounded by what?",00:17:17.220,00:17:19.271
+"So Hoeffding tells me
+that this is bounded",00:17:19.271,00:17:21.020
+by 2 times exponential minus 2.,00:17:21.020,00:17:26.059
+"Now the nice thing is that
+I pick up a factor n here,",00:17:26.059,00:17:29.150
+epsilon squared.,00:17:29.150,00:17:30.150
+"And what is b minus a
+squared for the Bernoulli's?",00:17:30.150,00:17:33.130
+1.,00:17:33.130,00:17:33.840
+"So I don't have a
+denominator here.",00:17:33.840,00:17:36.517
+"And I'm going to do
+exactly what I did here.",00:17:36.517,00:17:38.350
+"I'm going to set this
+guy to be equal to alpha.",00:17:38.350,00:17:40.720
+"So that if I get
+alpha here, then that",00:17:43.240,00:17:46.640
+"means that just
+solving for epsilon,",00:17:46.640,00:17:50.100
+"I'm going to have some number,
+which will play the role of q",00:17:50.100,00:17:52.600
+"alpha over 2, and
+then I'm going to be",00:17:52.600,00:17:54.200
+"able to just say that p
+is between X bar and minus",00:17:54.200,00:17:58.400
+"epsilon, and X bar
+n plus epsilon.",00:17:58.400,00:18:00.834
+"OK, so let's do it.",00:18:00.834,00:18:02.268
+"So we have to
+solve the equation.",00:18:05.140,00:18:06.780
+"2 exponential minus 2n
+epsilon squared equals alpha,",00:18:14.572,00:18:20.770
+which means that--,00:18:20.770,00:18:22.846
+"so here I'm going to get,
+there's a 2 right here.",00:18:22.846,00:18:26.542
+"So that means that I
+get alpha over 2 here.",00:18:26.542,00:18:29.200
+"Then I take the
+logs on both sides,",00:18:29.200,00:18:30.850
+and now let me just write it.,00:18:30.850,00:18:32.058
+"And then I want to
+solve for epsilon.",00:18:36.650,00:18:39.430
+"So that means that epsilon
+is equal to square root log",00:18:39.430,00:18:43.350
+q over alpha divided by 2n.,00:18:43.350,00:18:45.860
+Yes?,00:18:50.618,00:18:51.118
+AUDIENCE: [INAUDIBLE],00:18:51.118,00:18:53.030
+"PHILIPPE RIGOLLET:
+Why is b minus a 1?",00:18:53.030,00:18:55.410
+"Well, let's just look, right?",00:18:55.410,00:18:57.840
+"X lives in the
+interval b minus a.",00:18:57.840,00:19:00.860
+"So I can take b to be 25,
+and a to be my negative 42.",00:19:00.860,00:19:06.110
+"But I'm going to try to
+be as sharp as I can.",00:19:06.110,00:19:09.134
+"All right, so what
+is the smallest value",00:19:09.134,00:19:10.800
+"you can think of such that
+a Bernoulli random variable",00:19:10.800,00:19:13.340
+"is larger than or
+equal to this value?",00:19:13.340,00:19:15.290
+"What values does a Bernoulli
+random variable take?",00:19:19.510,00:19:23.740
+0 and 1.,00:19:23.740,00:19:24.530
+"So it takes values
+between 0 and 1.",00:19:24.530,00:19:29.240
+It just maxes the value.,00:19:29.240,00:19:31.280
+"Actually, this is the
+worst possible case",00:19:31.280,00:19:33.860
+for the Hoeffding inequality.,00:19:33.860,00:19:38.130
+"So now I just get this
+one, and so now you",00:19:38.130,00:19:40.250
+tell me that I have this thing.,00:19:40.250,00:19:41.750
+"So when I solve
+this guy over there.",00:19:41.750,00:19:43.260
+"So combining this
+thing and this thing",00:19:43.260,00:19:46.070
+"implies that the probability
+that p lives between Xn",00:19:46.070,00:19:53.300
+"bar minus square root log 2
+over alpha divided by 2n and X",00:19:53.300,00:20:01.660
+"bar plus the square root log
+2 over alpha divided by 2n",00:20:01.660,00:20:10.970
+is equal to?,00:20:10.970,00:20:12.020
+"I mean, is at least.",00:20:15.170,00:20:16.882
+What is it at least equal to?,00:20:16.882,00:20:18.090
+"Here this controls the
+probability of them outside",00:20:22.930,00:20:25.870
+"of this interval, right?",00:20:25.870,00:20:27.180
+"It tells me the probability
+that Xn bar is far from p",00:20:27.180,00:20:31.730
+by more than epsilon.,00:20:31.730,00:20:32.605
+"So there's a probability
+that they're actually",00:20:32.605,00:20:34.521
+"outside of the interval
+that I just wrote.",00:20:34.521,00:20:36.640
+"So it's 1 minus the probability
+of being in the interval.",00:20:36.640,00:20:39.650
+"So this is at least
+1 minus alpha.",00:20:39.650,00:20:43.882
+"So I just use the fact that a
+probability of the complement",00:20:43.882,00:20:46.340
+"is 1 minus the
+probability of the set.",00:20:46.340,00:20:50.100
+"And since I have an upper bound
+on the probability of the set,",00:20:50.100,00:20:53.460
+"I have a lower bound on the
+probability of the complement.",00:20:53.460,00:20:59.100
+So now it's a bit different.,00:20:59.100,00:21:03.170
+"Before, we actually wrote
+something that was--",00:21:03.170,00:21:06.640
+so let me get it back.,00:21:06.640,00:21:08.010
+"So if we go back to the example
+where we took the [INAUDIBLE]",00:21:08.010,00:21:11.990
+"over p, we got this guy.",00:21:11.990,00:21:16.840
+q alpha over square root of--,00:21:16.840,00:21:19.990
+over 2 square root n.,00:21:19.990,00:21:21.700
+"So we had Xn bar plus minus
+q alpha over 2 square root n.",00:21:21.700,00:21:24.966
+"Actually, that was q alpha
+over 2n, I'm sorry about that.",00:21:24.966,00:21:27.340
+"And so now we have something
+that replaces this q alpha,",00:21:30.730,00:21:34.540
+"and it's essentially square
+root of 2 log 2 over alpha.",00:21:34.540,00:21:40.880
+"Because if I replace
+q alpha by square root",00:21:40.880,00:21:43.580
+"of 2 log 2 over
+alpha, I actually",00:21:43.580,00:21:47.240
+get exactly this thing here.,00:21:47.240,00:21:49.338
+"And so the question is,
+what would you guess?",00:21:52.030,00:21:55.970
+"Is this number, this margin,
+square root of log 2 over alpha",00:21:55.970,00:22:01.790
+"divided by 2n, is it smaller
+or larger than this guy?",00:22:01.790,00:22:05.930
+q alpha all over 2/3n.,00:22:05.930,00:22:08.915
+Yes?,00:22:08.915,00:22:09.810
+Larger.,00:22:09.810,00:22:10.640
+Everybody agrees with this?,00:22:10.640,00:22:12.180
+Just qualitatively?,00:22:12.180,00:22:14.690
+"Right, because we just made a
+very conservative statement.",00:22:14.690,00:22:17.430
+We do not use anything.,00:22:17.430,00:22:18.510
+This is true always.,00:22:18.510,00:22:20.100
+So it can only be better.,00:22:20.100,00:22:22.080
+"The reason in statistics where
+you use those assumptions",00:22:22.080,00:22:24.840
+"that n is large enough, that you
+have this independence that you",00:22:24.840,00:22:27.590
+"like so much, and so you can
+actually have the central limit",00:22:27.590,00:22:30.090
+"theorem kick in,
+all these things",00:22:30.090,00:22:32.290
+"are for you to have
+enough assumptions",00:22:32.290,00:22:35.500
+"so that you can actually make
+sharper and sharper decisions.",00:22:35.500,00:22:38.190
+"More and more
+confident statement.",00:22:38.190,00:22:40.249
+"And that's why there's all
+this junk science out there,",00:22:40.249,00:22:42.540
+"because people make too much
+assumptions for their own good.",00:22:42.540,00:22:45.540
+"They're saying,
+well, let's assume",00:22:45.540,00:22:46.956
+"that everything is the way I
+love it, so that I can for sure",00:22:46.956,00:22:50.720
+"any minor change, I
+will be able to say",00:22:50.720,00:22:53.539
+"that's because I made an
+important scientific discovery",00:22:53.539,00:22:55.830
+"rather than, well, that
+was just [INAUDIBLE] OK?",00:22:55.830,00:23:02.050
+So now here's the fun moment.,00:23:02.050,00:23:04.350
+"And actually let me tell you
+why we look at this thing.",00:23:04.350,00:23:09.110
+"So there's actually--
+who has seen",00:23:09.110,00:23:11.600
+"different types of convergence
+in the probability statistic",00:23:11.600,00:23:14.328
+class?,00:23:14.328,00:23:14.828
+[INAUDIBLE] students.,00:23:17.900,00:23:20.430
+"And so there's
+different types of--",00:23:20.430,00:23:22.340
+"in the real numbers
+there's very simple.",00:23:22.340,00:23:25.610
+"There's one
+convergence, Xn turns",00:23:25.610,00:23:27.160
+"to X. To start thinking
+about functions,",00:23:27.160,00:23:29.680
+"well, maybe you have
+uniform convergence,",00:23:29.680,00:23:32.230
+you have pointwise convergence.,00:23:32.230,00:23:33.610
+"So if you've done
+some real analysis,",00:23:33.610,00:23:34.990
+"you know there's different
+types of convergence",00:23:34.990,00:23:36.948
+you can think of.,00:23:36.948,00:23:37.790
+"And in the convergence
+of random variables,",00:23:37.790,00:23:40.437
+"there's also different types,
+but for different reasons.",00:23:40.437,00:23:42.770
+"It's just because the
+question is, what do you",00:23:42.770,00:23:44.802
+do with the randomness?,00:23:44.802,00:23:45.760
+"When you see that something
+converges to something,",00:23:45.760,00:23:47.885
+"it probably means that
+you're willing to tolerate",00:23:47.885,00:23:50.620
+"low probability things happening
+or where it doesn't happen,",00:23:50.620,00:23:54.190
+"and on how you
+handle those, creates",00:23:54.190,00:23:56.350
+different types of convergence.,00:23:56.350,00:23:58.670
+"So to be fair, in statistics the
+only convergence we care about",00:23:58.670,00:24:03.340
+"is the convergence
+in distribution.",00:24:03.340,00:24:05.600
+That's this one.,00:24:05.600,00:24:07.857
+"The one that comes from
+the central limit theorem.",00:24:07.857,00:24:09.940
+"That's actually the weakest
+possible you could make.",00:24:09.940,00:24:12.617
+"Which is good, because
+that means it's",00:24:12.617,00:24:14.200
+going to happen more often.,00:24:14.200,00:24:16.150
+"And so why do we
+need this thing?",00:24:16.150,00:24:17.840
+"Because the only
+thing we really need",00:24:17.840,00:24:19.400
+"to do is to say that
+when I start computing",00:24:19.400,00:24:21.580
+"probabilities on
+this random variable,",00:24:21.580,00:24:23.854
+"they're going to look
+like probabilities",00:24:23.854,00:24:25.520
+on that random variable.,00:24:25.520,00:24:27.840
+"All right, so for example,
+think of the following",00:24:27.840,00:24:30.000
+"two random variables,
+x and minus x.",00:24:30.000,00:24:41.070
+"So this is the same
+random variable,",00:24:41.070,00:24:42.570
+and this one is negative.,00:24:42.570,00:24:44.970
+"When I look at those
+two random variables,",00:24:44.970,00:24:48.050
+"think of them as a sequence,
+a constant sequence.",00:24:48.050,00:24:51.310
+"These two constant sequences
+do not go to the same number,",00:24:51.310,00:24:53.970
+right?,00:24:53.970,00:24:54.470
+"One is plus-- one is x,
+the other one is minus x.",00:24:54.470,00:24:57.910
+"So unless x is the random
+variable always equal to 0,",00:24:57.910,00:25:01.240
+those two things are different.,00:25:01.240,00:25:03.290
+"However, when I compute
+probabilities on this guy,",00:25:03.290,00:25:05.920
+"and when I compute probabilities
+on that guy, they're the same.",00:25:05.920,00:25:09.010
+"Because x and minus x
+have the same distribution",00:25:09.010,00:25:12.250
+"just by symmetry of the
+gaps in random variables.",00:25:12.250,00:25:15.430
+"And so you can see
+this is very weak.",00:25:15.430,00:25:17.040
+"I'm not saying anything about
+the two random variables being",00:25:17.040,00:25:19.150
+"close to each other
+every time I'm",00:25:19.150,00:25:20.566
+"going to flip my coin, right?",00:25:20.566,00:25:22.100
+"Maybe I'm going to press my
+computer and say, what is x?",00:25:22.100,00:25:25.685
+"Well, it's 1.2.",00:25:25.685,00:25:26.560
+"Negative x is going
+to be negative 1.2.",00:25:26.560,00:25:29.110
+"Those things are
+far apart, and it",00:25:29.110,00:25:30.670
+"doesn't matter, because
+in average those things",00:25:30.670,00:25:32.230
+"are going to have the same
+probabilities that's happening.",00:25:32.230,00:25:34.330
+"And that's all we care
+about in statistics.",00:25:34.330,00:25:36.040
+"You need to realize that
+this is what's important,",00:25:36.040,00:25:37.810
+and why you need to know.,00:25:37.810,00:25:39.130
+Because you have it really good.,00:25:39.130,00:25:40.600
+"If your problem is you really
+care more about convergence",00:25:40.600,00:25:43.120
+"almost surely, which is probably
+the strongest you can think of.",00:25:43.120,00:25:45.956
+"So what we're going to do is
+talk about different types",00:25:45.956,00:25:48.590
+"of convergence not to
+just reflect on the fact",00:25:48.590,00:25:51.200
+on how our life is good.,00:25:51.200,00:25:53.120
+"It's just that the problem
+is that when the convergence",00:25:53.120,00:25:56.420
+"in distribution is so weak that
+it cannot do anything I want",00:25:56.420,00:26:00.110
+with it.,00:26:00.110,00:26:00.740
+"In particular, I cannot
+say that if X converges,",00:26:00.740,00:26:04.400
+"Xn converges in distribution,
+and Yn converges",00:26:04.400,00:26:07.230
+"in distribution, then Xn plus
+Yn converge in distribution",00:26:07.230,00:26:10.790
+to the sum of their limits.,00:26:10.790,00:26:12.080
+I cannot do that.,00:26:12.080,00:26:12.890
+It's just too weak.,00:26:12.890,00:26:14.855
+"Think of this example
+and it's preventing you",00:26:14.855,00:26:16.730
+to do quite a lot of things.,00:26:16.730,00:26:17.896
+"So this is converge in
+distribution to sum n 0, 1.",00:26:20.820,00:26:26.030
+"This is converge in
+distribution to sum n 0, 1.",00:26:26.030,00:26:28.940
+"But their sum is 0, and
+it's certainly not--",00:26:28.940,00:26:31.490
+"it doesn't look
+like the sum of two",00:26:31.490,00:26:33.830
+"independent Gaussian
+random variables, right?",00:26:33.830,00:26:36.440
+"And so what we need is to
+have stronger conditions here",00:26:36.440,00:26:40.220
+"and there, so that we can
+actually put things together.",00:26:40.220,00:26:42.950
+"And we're going to have
+more complicated formulas.",00:26:42.950,00:26:45.176
+"One of the formulas,
+for example,",00:26:45.176,00:26:46.550
+"is if I replace p by p
+hat in this denominator.",00:26:46.550,00:26:50.430
+"We mentioned doing
+this at some point.",00:26:50.430,00:26:53.470
+"So I would need that
+p hat goes to p,",00:26:53.470,00:26:57.550
+"but I need stronger
+than n distributions",00:26:57.550,00:26:59.320
+so that this happens.,00:26:59.320,00:27:00.420
+"I actually need this to
+happen in a stronger sense.",00:27:00.420,00:27:04.270
+"So here are the first two
+strongest sense in which",00:27:04.270,00:27:07.690
+random variables can converge.,00:27:07.690,00:27:09.670
+The first one is almost surely.,00:27:09.670,00:27:13.140
+"And who has already seen
+this notation little omega",00:27:13.140,00:27:16.570
+"when they're talking
+about random variables?",00:27:16.570,00:27:19.490
+"All right, so very few.",00:27:19.490,00:27:20.510
+"So this little omega is-- so
+what is a random variable?",00:27:20.510,00:27:24.012
+"A random variable is
+something that you measure",00:27:24.012,00:27:25.970
+on something that's random.,00:27:25.970,00:27:27.625
+"So the example I
+like to think of",00:27:27.625,00:27:29.000
+"is, if you take a ball
+of snow, and put it",00:27:29.000,00:27:34.910
+in the sun for some time.,00:27:34.910,00:27:37.070
+You come back.,00:27:37.070,00:27:38.212
+"It's going to have a
+random shape, right?",00:27:38.212,00:27:39.920
+"It's going to be a random
+blurb of something.",00:27:39.920,00:27:42.604
+"But there's still a bunch of
+things you can measure on it.",00:27:42.604,00:27:45.020
+You can measure its volume.,00:27:45.020,00:27:46.410
+"You can measure its
+inner temperature.",00:27:46.410,00:27:48.200
+"You can measure
+its surface area.",00:27:48.200,00:27:50.210
+"All these things are
+random variables,",00:27:50.210,00:27:52.250
+but the ball itself is omega.,00:27:52.250,00:27:54.590
+"That's the thing on which
+you make your measurement.",00:27:54.590,00:27:56.900
+"And so a random variable is
+just a function of those omegas.",00:27:56.900,00:28:00.870
+"Now why do we make all
+these things fancy?",00:28:00.870,00:28:03.210
+"Because you cannot
+take any function.",00:28:03.210,00:28:04.800
+"This function has to be
+what's called measurable,",00:28:04.800,00:28:06.841
+"and there's entire
+courses on measure theory,",00:28:06.841,00:28:09.070
+"and not everything
+is measurable.",00:28:09.070,00:28:11.030
+"And so that's why you have
+to be a little careful",00:28:11.030,00:28:13.175
+"why not everything
+is measurable,",00:28:13.175,00:28:14.550
+"because you need some
+sort of nice property.",00:28:14.550,00:28:17.590
+"So that the measure
+of something,",00:28:17.590,00:28:19.797
+"the union of two things, is less
+than the sum of the measures,",00:28:19.797,00:28:22.380
+things like that.,00:28:22.380,00:28:23.830
+"And so almost surely is telling
+you that for most of the balls,",00:28:23.830,00:28:30.940
+"for most of the omegas,
+that's the right-hand side.",00:28:30.940,00:28:34.540
+"The probability of omega is
+such that those things converge",00:28:34.540,00:28:37.150
+"to each other is
+actually equal to 1.",00:28:37.150,00:28:41.400
+"So it tells me that for almost
+all omegas, all the omegas,",00:28:41.400,00:28:45.620
+"if I put them together,
+I get something",00:28:45.620,00:28:47.246
+that has probability of 1.,00:28:47.246,00:28:48.328
+"It might be that there are other
+ones that have probability 0,",00:28:48.328,00:28:50.970
+"but what it's telling
+is that this thing",00:28:50.970,00:28:52.680
+"happens for all possible
+realization of the underlying",00:28:52.680,00:28:55.841
+thing.,00:28:55.841,00:28:56.340
+That's very strong.,00:28:56.340,00:28:57.720
+"It essentially says
+randomness does not matter,",00:28:57.720,00:29:00.141
+because it's happening always.,00:29:00.141,00:29:01.390
+"Now convergence in
+probability allows",00:29:04.310,00:29:06.340
+"you to squeeze a little bit
+of probability under the rock.",00:29:06.340,00:29:09.180
+"It tells you I want the
+convergence to hold,",00:29:09.180,00:29:12.130
+"but I'm willing to let go
+of some little epsilon.",00:29:12.130,00:29:17.120
+"So I'm willing to allow Tn
+to be less than epsilon.",00:29:17.120,00:29:23.500
+"Tn minus T to be-- sorry,
+to be larger than epsilon.",00:29:23.500,00:29:27.380
+"But the problem is they
+want this to go to 0",00:29:27.380,00:29:29.360
+"as well as n goes to
+infinity, but for each",00:29:29.360,00:29:31.430
+"n this thing does not
+have to be 0, which",00:29:31.430,00:29:34.091
+"is different from here, right?",00:29:34.091,00:29:36.250
+"So this probability
+here is fine.",00:29:36.250,00:29:40.140
+"So it's a little weaker, but
+it's a slightly different one.",00:29:40.140,00:29:44.460
+"I'm not going to ask you
+to learn and show that one",00:29:44.460,00:29:46.860
+is weaker than the other one.,00:29:46.860,00:29:48.510
+"But just know that these
+are two different types.",00:29:48.510,00:29:51.010
+"This one is actually much
+easier to check than this one.",00:29:51.010,00:29:53.805
+"Then there's something
+called convergence in Lp.",00:30:02.550,00:30:06.550
+"So this one is the fact that
+it embodies the following fact.",00:30:06.550,00:30:09.200
+"If I give you a random
+variable with mean 0,",00:30:09.200,00:30:11.740
+"and I tell you that its
+variance is going to 0, right?",00:30:11.740,00:30:14.110
+"You have a sequence of random
+variables, their mean is 0,",00:30:14.110,00:30:16.795
+"their expectation is 0, but
+their variance is going to 0.",00:30:16.795,00:30:20.390
+"So think of Gaussian random
+variables with mean 0,",00:30:20.390,00:30:23.500
+"and a variance
+that shrinks to 0.",00:30:23.500,00:30:26.300
+"And this random variable
+converges to a spike at 0,",00:30:26.300,00:30:29.260
+"so it converges to 0, right?",00:30:29.260,00:30:31.570
+"And so what I mean by that is
+that to have this convergence,",00:30:31.570,00:30:35.660
+"all I had to tell you was that
+the variance was going to 0.",00:30:35.660,00:30:38.800
+"And so in L2 this is really
+what it's telling you.",00:30:38.800,00:30:41.700
+"It's telling you, well, if
+the variance is going to 0--",00:30:41.700,00:30:44.720
+"well, it's for any
+random variable T,",00:30:44.720,00:30:46.870
+"so here what I describe
+was for a deterministic.",00:30:46.870,00:30:50.240
+"So Tn goes to a random variable
+T. If you look at the square--",00:30:50.240,00:30:55.340
+"the expectation of the square
+distance, and it goes to 0.",00:30:55.340,00:30:58.415
+"But you don't have to limit
+yourself to the square.",00:30:58.415,00:31:00.540
+You can take power of three.,00:31:00.540,00:31:01.910
+"You can take power
+67.6, power of 9 pi.",00:31:01.910,00:31:06.780
+"You take whatever power you
+want, it can be fractional.",00:31:06.780,00:31:09.780
+"It has to be lower than 1, and
+that's the convergence in Lp.",00:31:09.780,00:31:13.920
+"But we mostly care
+about integer p.",00:31:13.920,00:31:17.520
+"And then here's our star, the
+convergence in distribution,",00:31:17.520,00:31:20.107
+"and that's just the
+one that tells you",00:31:20.107,00:31:21.690
+"that when I start computing
+probabilities on the Tn,",00:31:21.690,00:31:27.290
+"they're going to look very close
+to the probabilities on the T.",00:31:27.290,00:31:31.620
+"So that was our Tn with
+this guy, for example,",00:31:31.620,00:31:34.410
+"and T was this standard
+Gaussian distribution.",00:31:34.410,00:31:37.110
+"Now here, this is
+not any probability.",00:31:37.110,00:31:38.960
+"This is just the probability
+then less than or equal to x.",00:31:38.960,00:31:42.440
+"But if you remember
+your probability class,",00:31:42.440,00:31:44.390
+"if you can compute
+those probabilities,",00:31:44.390,00:31:45.830
+"you can compute
+any probabilities",00:31:45.830,00:31:47.204
+"just by subtracting and just
+building things together.",00:31:47.204,00:31:50.034
+"Well, I need this for all x's,
+so I want this for each x,",00:31:55.230,00:31:58.650
+"So you fix x, and then you
+make the limit go to infinity.",00:31:58.650,00:32:01.520
+"You make n go to
+infinity, and I want",00:32:01.520,00:32:03.180
+"this for the point x's at which
+the cumulative distribution",00:32:03.180,00:32:06.480
+function of T is continuous.,00:32:06.480,00:32:08.230
+"There might be jumps, and that
+I don't actually care for those.",00:32:08.230,00:32:15.350
+"All right, so here I mentioned
+it for random variables.",00:32:15.350,00:32:17.777
+"If you're interested,
+there's also random vectors.",00:32:17.777,00:32:19.860
+"A random vector is just a
+table of random variables.",00:32:19.860,00:32:23.430
+"You can talk about
+random matrices.",00:32:23.430,00:32:25.351
+"And you can talk about
+random whatever you want.",00:32:25.351,00:32:27.350
+"Every time you have
+an object that's",00:32:27.350,00:32:28.920
+"just collecting real
+numbers, you can just",00:32:28.920,00:32:31.140
+plug random variables in there.,00:32:31.140,00:32:33.370
+"And so there's all these
+definitions that [? extend. ?]",00:32:33.370,00:32:37.050
+"So where I see you
+see an absolute value,",00:32:37.050,00:32:39.080
+we'll see a norm.,00:32:39.080,00:32:40.166
+Things like this.,00:32:40.166,00:32:43.040
+"So I'm sure this might
+look scary a little bit,",00:32:43.040,00:32:46.070
+"but really what we are going to
+use is only the last one, which",00:32:46.070,00:32:49.010
+"as you can see is
+just telling you",00:32:49.010,00:32:50.426
+"that the probabilities
+converge to the probabilities.",00:32:50.426,00:32:52.890
+"But I'm going to need the other
+ones every once in a while.",00:32:52.890,00:32:55.830
+"And the reason is,
+well, OK, so here I'm",00:32:55.830,00:32:59.670
+"actually going to the
+important characterizations",00:32:59.670,00:33:02.970
+"of the convergence
+in distribution,",00:33:02.970,00:33:05.340
+which is R convergence style.,00:33:05.340,00:33:08.110
+"So i converge in
+distribution if and only",00:33:08.110,00:33:10.200
+"if for any function that's
+continuous and bounded,",00:33:10.200,00:33:14.070
+"when I look at the
+expectation of f of Tn,",00:33:14.070,00:33:16.170
+"this converges to the
+expectation of f of T. OK,",00:33:16.170,00:33:19.870
+"so this is just those two
+things are actually equivalent.",00:33:19.870,00:33:25.127
+"Sometimes it's easier to check
+one, easier to check the other,",00:33:25.127,00:33:27.710
+"but in this class you won't
+have to prove that something",00:33:27.710,00:33:30.043
+"converges in distribution
+other than just combining",00:33:30.043,00:33:33.380
+"our existing
+convergence results.",00:33:33.380,00:33:37.240
+"And then the last one which
+is equivalent to the above two",00:33:37.240,00:33:40.020
+"is, anybody knows what the
+name of this quantity is?",00:33:40.020,00:33:42.990
+This expectation here?,00:33:42.990,00:33:45.120
+What is it called?,00:33:45.120,00:33:47.160
+"The characteristic
+function, right?",00:33:47.160,00:33:49.080
+"And so this i is the complex
+i, and is the complex number.",00:33:49.080,00:33:52.680
+"And so it's
+essentially telling me",00:33:52.680,00:33:54.120
+"that, well, rather
+than actually looking",00:33:54.120,00:33:56.070
+"at all bounded and continuous
+but real functions,",00:33:56.070,00:33:58.620
+"I can actually look
+at one specific family",00:33:58.620,00:34:03.630
+"of complex functions, which
+are the functions that maps",00:34:03.630,00:34:08.290
+"T to E to the ixT
+for x and R. That's",00:34:08.290,00:34:12.980
+"a much smaller
+family of functions.",00:34:12.980,00:34:14.880
+"All possible continuous
+embedded functions",00:34:14.880,00:34:17.280
+"has many more elements
+than just the real element.",00:34:17.280,00:34:21.590
+"And so now I can show that
+if I limit myself to do it,",00:34:21.590,00:34:24.310
+it's actually sufficient.,00:34:24.310,00:34:25.492
+"So those three things are used
+all over the literature just",00:34:28.139,00:34:32.520
+to show things.,00:34:32.520,00:34:33.360
+"In particular, if you're
+interested in deep digging",00:34:33.360,00:34:37.219
+"a little more mathematically,
+the central limit theorem",00:34:37.219,00:34:39.510
+is going to be so important.,00:34:39.510,00:34:40.510
+"Maybe you want to read
+about how to prove it.",00:34:40.510,00:34:42.120
+"We're not going to
+prove it in this class.",00:34:42.120,00:34:43.949
+"There's probably at least five
+different ways of proving it,",00:34:43.949,00:34:49.800
+"but the most canonical one, the
+one that you find in textbooks,",00:34:49.800,00:34:52.440
+"is the one that actually
+uses the third element.",00:34:52.440,00:34:55.980
+"So you just look at the
+characteristic function",00:34:55.980,00:34:59.100
+"of the square root of
+n Xn bar minus say mu,",00:34:59.100,00:35:04.400
+"and you just expand the thing,
+and this is what you get.",00:35:04.400,00:35:07.850
+"And you will see
+that in the end,",00:35:07.850,00:35:09.230
+"you will get the characteristic
+function of a Gaussian.",00:35:09.230,00:35:13.820
+Why a Gaussian?,00:35:13.820,00:35:14.570
+Why does it kick in?,00:35:14.570,00:35:15.800
+"Well, because what is the
+characteristic function",00:35:15.800,00:35:17.420
+of a Gaussian?,00:35:17.420,00:35:17.900
+"Does anybody remember the
+characteristic function",00:35:17.900,00:35:19.760
+of a standard Gaussian?,00:35:19.760,00:35:20.718
+AUDIENCE: [INAUDIBLE],00:35:20.718,00:35:21.929
+"PHILIPPE RIGOLLET:
+Yeah, well, I mean",00:35:21.929,00:35:23.470
+"there's two pi's and stuff
+that goes away, right?",00:35:23.470,00:35:27.760
+A Gaussian is a random variable.,00:35:27.760,00:35:29.330
+"A characteristic
+function is a function,",00:35:29.330,00:35:31.140
+and so it's not really itself.,00:35:31.140,00:35:33.040
+It looks like itself.,00:35:33.040,00:35:34.800
+"Anybody knows what
+the actual formula is?",00:35:34.800,00:35:37.262
+Yeah.,00:35:37.262,00:35:37.761
+AUDIENCE: [INAUDIBLE],00:35:37.761,00:35:39.584
+"PHILIPPE RIGOLLET:
+E to the minus?",00:35:39.584,00:35:41.000
+"AUDIENCE: E to the
+minus x squared over 2.",00:35:41.000,00:35:42.230
+PHILIPPE RIGOLLET: Exactly.,00:35:42.230,00:35:43.355
+E to the minus x squared over 2.,00:35:43.355,00:35:44.960
+"But this x squared
+over 2 is actually",00:35:44.960,00:35:46.670
+"just the second order expansion
+in the Taylor expansion.",00:35:46.670,00:35:49.701
+"And that's why the
+Gaussian is so important.",00:35:49.701,00:35:51.534
+"It's just the second
+order Taylor expansion.",00:35:51.534,00:35:54.820
+And so you can check it out.,00:35:54.820,00:35:56.190
+"I think Terry Tao has
+some stuff on his blog,",00:35:56.190,00:35:58.350
+"and there's a bunch
+of different proofs.",00:35:58.350,00:36:00.360
+"But if you want to prove
+convergence in distribution,",00:36:00.360,00:36:02.790
+"you very likely are going to
+use one this three right here.",00:36:02.790,00:36:07.900
+So let's move on.,00:36:07.900,00:36:09.010
+"This is when I said
+that this convergence is",00:36:13.050,00:36:15.510
+weaker than that convergence.,00:36:15.510,00:36:17.190
+This is what I meant.,00:36:17.190,00:36:18.870
+"If you have convergence
+in one style,",00:36:18.870,00:36:20.700
+"it implies convergence
+in the other stuff.",00:36:20.700,00:36:23.200
+"So the first [INAUDIBLE] is that
+if Tn converges almost surely,",00:36:23.200,00:36:26.505
+"this a dot s dot
+means almost surely,",00:36:26.505,00:36:28.950
+"then it also converges
+in probability",00:36:28.950,00:36:31.200
+"and actually the
+two limits, which",00:36:31.200,00:36:32.900
+"are this random variable
+T, are equal almost surely.",00:36:32.900,00:36:37.410
+"Basically what it means is
+that whatever you measure one",00:36:37.410,00:36:39.750
+"is going to be the same that
+you measure on the other one.",00:36:39.750,00:36:42.166
+So that's very strong.,00:36:42.166,00:36:44.300
+"So that means that
+convergence almost surely",00:36:44.300,00:36:47.960
+"is stronger than
+convergence in probability.",00:36:47.960,00:36:50.990
+"If you're converge in Lp
+then you also converge",00:36:50.990,00:36:53.570
+in Lq for sum q less than p.,00:36:53.570,00:36:56.390
+"So if you converge in L2,
+you'll also converge in L1.",00:36:56.390,00:36:59.480
+"If you converge in L67,
+you converge in L2.",00:36:59.480,00:37:03.050
+"If you're converge
+in L infinity,",00:37:03.050,00:37:04.920
+you converge in Lp for anything.,00:37:04.920,00:37:09.390
+"And so, again, limits are equal.",00:37:09.390,00:37:12.390
+"And then when you
+converge in distribution,",00:37:12.390,00:37:14.396
+"when you converge
+in probability,",00:37:14.396,00:37:15.770
+"you also converge
+in distribution.",00:37:15.770,00:37:18.860
+"OK, so almost surely
+implies probability.",00:37:18.860,00:37:22.780
+Lp implies probability.,00:37:22.780,00:37:24.400
+"Probability implies
+distribution.",00:37:24.400,00:37:26.520
+"And here note that
+I did not write,",00:37:26.520,00:37:28.740
+"and the limits are
+equal almost surely.",00:37:28.740,00:37:30.890
+Why?,00:37:30.890,00:37:31.390
+"Because the convergence
+in distribution",00:37:35.446,00:37:37.070
+"is actually not telling you
+that your random variable",00:37:37.070,00:37:38.930
+"is converging to
+another random variable.",00:37:38.930,00:37:40.850
+"It's telling you
+that the distribution",00:37:40.850,00:37:42.433
+"of your random variable is
+converging to a distribution.",00:37:42.433,00:37:45.190
+"And think of this, guys.",00:37:45.190,00:37:47.180
+x and minus x.,00:37:47.180,00:37:49.064
+"The central limit
+theorem tells me",00:37:49.064,00:37:50.480
+"that I'm converging to some
+standard Gaussian distribution,",00:37:50.480,00:37:53.460
+"but am I converging to x or
+am I converging to minus x?",00:37:53.460,00:37:57.334
+It's not well identified.,00:37:57.334,00:37:58.375
+"It's any random variable
+that has this distribution.",00:37:58.375,00:38:01.470
+"So there's no way
+the limits are equal.",00:38:01.470,00:38:04.110
+"Their distributions are
+going to be the same,",00:38:04.110,00:38:06.070
+but they're not the same limit.,00:38:06.070,00:38:07.910
+Is that clear for everyone?,00:38:07.910,00:38:09.970
+"So in a way, convergence
+in distribution",00:38:09.970,00:38:12.700
+"is really not a convergence
+of a random variable",00:38:12.700,00:38:15.177
+towards another random variable.,00:38:15.177,00:38:16.510
+"It's just telling you
+the limiting distribution",00:38:16.510,00:38:18.520
+"of your random
+variable [INAUDIBLE]",00:38:18.520,00:38:20.390
+which is enough for us.,00:38:20.390,00:38:22.822
+"And one thing that's
+actually really nice",00:38:22.822,00:38:24.530
+"is this continuous
+mapping theorem, which",00:38:24.530,00:38:28.790
+essentially tells you that--,00:38:28.790,00:38:30.347
+"so this is one of the
+theorems that we like,",00:38:30.347,00:38:32.180
+"because they tell
+us you can do what",00:38:32.180,00:38:33.950
+you feel like you want to do.,00:38:33.950,00:38:35.660
+"So if I have Tn that goes to
+T, f of Tn goes to f of T,",00:38:35.660,00:38:39.830
+"and this is true for
+any of those convergence",00:38:39.830,00:38:42.800
+except for Lp.,00:38:42.800,00:38:45.650
+"But they have to have f,
+which is continuous, otherwise",00:38:48.170,00:38:51.490
+weird stuff can happen.,00:38:51.490,00:38:54.950
+"So this is going to be
+convenient, because here I",00:38:54.950,00:38:58.150
+don't have X to n minus p.,00:38:58.150,00:39:00.012
+I have a continuous function.,00:39:00.012,00:39:01.220
+"It's between a linear
+function of Xn minus p,",00:39:01.220,00:39:03.094
+"but I could think of like
+even crazier stuff to do,",00:39:03.094,00:39:05.800
+and it would still be true.,00:39:05.800,00:39:07.876
+"If I took the square, it would
+converge to something that",00:39:07.876,00:39:10.250
+looks like its distribution.,00:39:10.250,00:39:11.600
+"It's the same as
+the distribution",00:39:11.600,00:39:12.975
+of a square Gaussian.,00:39:12.975,00:39:16.100
+"So this is a mouthful,
+these two slides--",00:39:16.100,00:39:18.435
+"actually this particular
+slide is a mouthful.",00:39:18.435,00:39:20.310
+"What I have in my head since
+I was pretty much where you're",00:39:20.310,00:39:24.620
+"sitting, is this diagram.",00:39:24.620,00:39:27.890
+"So what it tells me-- so it's
+actually voluntarily cropped,",00:39:27.890,00:39:32.100
+"so you can start from
+any Lq you want large.",00:39:32.100,00:39:35.430
+"And then as you
+decrease the index,",00:39:35.430,00:39:38.030
+"you are actually
+implying, implying,",00:39:38.030,00:39:39.750
+"implying until you imply
+convergence in probability.",00:39:39.750,00:39:42.690
+"Convergence almost surely
+implies convergence",00:39:42.690,00:39:44.850
+"in probability, and everything
+goes to the [? sync, ?]",00:39:44.850,00:39:49.650
+"that is convergence
+in distribution.",00:39:49.650,00:39:52.590
+"So everything implies
+convergence in distribution.",00:39:52.590,00:39:55.230
+"So that's basically rather than
+remembering those formulas,",00:39:55.230,00:39:57.800
+"this is really the diagram
+you want to remember.",00:39:57.800,00:39:59.840
+"All right, so why do we bother
+learning about those things.",00:40:02.690,00:40:06.590
+"That's because of this
+limits and operations.",00:40:06.590,00:40:09.380
+Operations and limits.,00:40:09.380,00:40:10.580
+"If I have a sequence
+of real numbers,",00:40:10.580,00:40:13.710
+"and I know that Xn converges
+to X and Yn converges to Y,",00:40:13.710,00:40:17.770
+"then I can start doing all
+my manipulations and things",00:40:17.770,00:40:20.051
+are happy.,00:40:20.051,00:40:20.550
+I can add stuff.,00:40:20.550,00:40:21.560
+I can multiply stuff.,00:40:21.560,00:40:23.240
+"But it's not true always for
+convergence in distribution.",00:40:23.240,00:40:28.049
+"But it is, what's
+nice, it's actually",00:40:28.049,00:40:29.590
+"true for convergence
+almost surely.",00:40:29.590,00:40:32.490
+"Convergence almost surely
+everything is true.",00:40:32.490,00:40:35.250
+"It's just impossible
+to make it fail.",00:40:35.250,00:40:38.110
+"But convergence in probability
+is not always everything,",00:40:38.110,00:40:41.080
+"but at least you can actually
+add stuff and multiply stuff.",00:40:41.080,00:40:43.870
+"And it will still give
+you the sum of the n,",00:40:43.870,00:40:46.600
+and the product of the n.,00:40:46.600,00:40:49.080
+"You can even take the ratio
+if V is not 0 of course.",00:40:49.080,00:40:55.590
+"If the limit is not
+0, then actually",00:40:55.590,00:40:57.090
+you need Vn to be not 0 as well.,00:40:57.090,00:40:58.520
+"You can actually prove
+this last statement, right?",00:41:01.440,00:41:05.530
+"Because it's a combination
+of the first statement",00:41:05.530,00:41:08.620
+"of the second one, and the
+continuous mapping theorem.",00:41:08.620,00:41:11.740
+"Because the function
+that maps x to 1",00:41:11.740,00:41:14.770
+"over x on everything
+but 0, is continuous.",00:41:14.770,00:41:19.180
+"And so 1 over Vn
+converges to 1 over V,",00:41:19.180,00:41:24.560
+"and then I can multiply
+those two things.",00:41:24.560,00:41:26.820
+So you actually knew that one.,00:41:26.820,00:41:28.870
+"But really this is
+not what matters,",00:41:28.870,00:41:30.760
+"because this is something that
+you will do whatever happens.",00:41:30.760,00:41:35.110
+"If I don't tell you you cannot
+do it, well, you will do it.",00:41:35.110,00:41:37.786
+"But in general
+those things don't",00:41:37.786,00:41:39.160
+"apply to convergence
+in distribution",00:41:39.160,00:41:40.660
+"unless the pair itself is known
+to converge in distribution.",00:41:40.660,00:41:44.390
+"Remember when I said that
+these things apply to vectors,",00:41:44.390,00:41:48.220
+"then you need to actually
+say that the vector converges",00:41:48.220,00:41:51.150
+"in distributions to
+the limiting factor.",00:41:51.150,00:41:53.520
+"Now this tells
+you in particular,",00:41:53.520,00:41:55.299
+"since the cumulative
+distribution function is not",00:41:55.299,00:41:57.340
+"defined for vectors,
+I would have",00:41:57.340,00:41:59.820
+"to actually use one of the
+other distributions, one",00:41:59.820,00:42:02.610
+"of the other criteria,
+which is convergence",00:42:02.610,00:42:04.410
+"of characteristic
+functions or convergence",00:42:04.410,00:42:07.410
+"of a function of bounded
+continuous function",00:42:07.410,00:42:11.100
+of the random variable.,00:42:11.100,00:42:12.470
+"0.2 or 0.3, but 0.1 is not
+going get you anywhere.",00:42:12.470,00:42:17.154
+"But this is something
+that's going",00:42:17.154,00:42:18.570
+"to be too hard for us to
+deal with, so we're actually",00:42:18.570,00:42:20.850
+"going to rely on the
+fact that we have",00:42:20.850,00:42:23.742
+something that's even better.,00:42:23.742,00:42:24.950
+"There's something
+that is waiting for us",00:42:24.950,00:42:26.580
+"at the end of his lecture, which
+is called Slutsky's that says",00:42:26.580,00:42:29.163
+"that if V, in this case,
+converges in probability",00:42:29.163,00:42:33.490
+"but U converge in distribution,
+I can actually still do that.",00:42:33.490,00:42:36.040
+"I actually don't
+need both of them",00:42:36.040,00:42:37.456
+to converge in probability.,00:42:37.456,00:42:38.746
+"I actually need only one of
+them to converge in probability",00:42:38.746,00:42:41.204
+to make this statement.,00:42:41.204,00:42:42.162
+But two sum.,00:42:42.162,00:42:45.070
+So let's go to another example.,00:42:45.070,00:42:47.060
+"So I just want to make sure that
+we keep on doing statistics.",00:42:47.060,00:42:49.750
+"And every time we're going
+to just do a little bit",00:42:49.750,00:42:51.953
+"too much probability, I'm
+going to reset the pressure,",00:42:51.953,00:42:54.202
+"and start doing
+statistics again.",00:42:54.202,00:42:56.090
+"All right, so assume
+you observe the times",00:42:56.090,00:42:59.460
+"the inter-arrival time
+of the T at Kendall.",00:42:59.460,00:43:04.590
+So this is not the arrival time.,00:43:04.590,00:43:06.030
+"It's not like 7:56, 8:15.",00:43:06.030,00:43:09.980
+"No, it's really the
+inter-arrival time, right?",00:43:09.980,00:43:12.920
+"So say the next T is
+arriving in six minutes.",00:43:12.920,00:43:17.300
+So let's say [INAUDIBLE] bound.,00:43:17.300,00:43:20.950
+"And so you have this
+inter-arrival time.",00:43:20.950,00:43:23.250
+"So those are numbers say,
+3, 4, 5, 4, 3, et cetera.",00:43:23.250,00:43:27.260
+"So I have this
+sequence of numbers.",00:43:27.260,00:43:29.490
+"So I'm going to
+observe this, and I'm",00:43:29.490,00:43:31.100
+"going to try to infer what
+is the rate of T's going out",00:43:31.100,00:43:36.050
+of the station from this.,00:43:36.050,00:43:38.957
+"So I'm going to assume
+that these things are",00:43:38.957,00:43:40.790
+mutually independent.,00:43:40.790,00:43:43.160
+"That's probably not
+completely true.",00:43:43.160,00:43:44.890
+"Again, it just means
+that what it would mean",00:43:44.890,00:43:46.850
+"is that two consecutive
+inter-arrival times are",00:43:46.850,00:43:49.100
+independent.,00:43:49.100,00:43:50.021
+"I mean, you can make it
+independent if you want,",00:43:50.021,00:43:52.020
+"but again, this
+independent assumption",00:43:52.020,00:43:53.603
+is for us to be happy and safe.,00:43:53.603,00:43:56.180
+"Unless someone comes
+with overwhelming proof",00:43:56.180,00:43:58.160
+"that it's not independent and
+far from being independent,",00:43:58.160,00:44:01.466
+"then yes, you have a problem.",00:44:01.466,00:44:03.950
+"But it might be the fact
+that it's actually-- if you",00:44:03.950,00:44:06.200
+have a T that's one hour late.,00:44:06.200,00:44:09.240
+"If an inter-arrival time is
+one hour, then the other T,",00:44:09.240,00:44:12.330
+"either they fixed
+it, and it's going",00:44:12.330,00:44:14.300
+"to be just 30 seconds behind,
+or they haven't fixed it,",00:44:14.300,00:44:17.150
+"then it's going to be
+another hour behind.",00:44:17.150,00:44:18.990
+"So they're not
+exactly independent,",00:44:18.990,00:44:20.780
+"but they are when things
+work well and approximate.",00:44:20.780,00:44:24.430
+"And so now I need to model
+a random variable that's",00:44:24.430,00:44:27.580
+"positive, maybe
+not upper bounded.",00:44:27.580,00:44:29.564
+"I mean, people complain
+enough that this thing",00:44:29.564,00:44:31.480
+can be really large.,00:44:31.480,00:44:32.435
+"And so one thing that people
+like for inter-arrival times",00:44:32.435,00:44:34.810
+is exponential distribution.,00:44:34.810,00:44:36.839
+"So that's a positive
+random variable.",00:44:36.839,00:44:38.380
+"Looks like an exponential
+on the right-hand slide,",00:44:38.380,00:44:40.463
+on the positive line.,00:44:40.463,00:44:41.650
+"And so it decays
+very fast towards 0.",00:44:41.650,00:44:43.600
+"The probability that
+you have very large",00:44:43.600,00:44:45.400
+"values exponentially small, and
+there's a [INAUDIBLE] lambda",00:44:45.400,00:44:49.080
+"that controls how
+exponential is defined.",00:44:49.080,00:44:50.900
+"It's exponential minus
+lambda times something.",00:44:50.900,00:44:53.600
+"And so we're going
+to assume that they",00:44:53.600,00:44:56.270
+"have the same distribution,
+the same random variable.",00:44:56.270,00:44:58.610
+"So they're IID, because
+they are independent,",00:44:58.610,00:45:00.530
+"and they're identically
+distributed.",00:45:00.530,00:45:01.810
+"They all have this exponential
+with parameter lambda,",00:45:01.810,00:45:04.018
+"and I'm going to try to
+learn something about lambda.",00:45:04.018,00:45:06.330
+"What is the estimated
+value of lambda,",00:45:06.330,00:45:08.790
+"and can I build a confidence
+interval for lambda.",00:45:08.790,00:45:12.210
+So we observe n arrival times.,00:45:12.210,00:45:16.470
+"So as I said, the
+mutual independence",00:45:16.470,00:45:20.420
+"is plausible, but not
+completely justified.",00:45:20.420,00:45:24.055
+"The fact that
+they're exponential",00:45:24.055,00:45:25.430
+"is actually something that
+people like in all this what's",00:45:25.430,00:45:27.804
+called queuing theory.,00:45:27.804,00:45:29.030
+"So exponentials
+arise a lot when you",00:45:29.030,00:45:31.040
+talk about inter-arrival times.,00:45:31.040,00:45:32.450
+"It's not about
+the bus, but where",00:45:32.450,00:45:34.010
+"it's very important is call
+centers, service, servers where",00:45:34.010,00:45:41.780
+"tasks come, and people
+want to know how long it's",00:45:41.780,00:45:45.260
+going to take to serve a task.,00:45:45.260,00:45:47.450
+"So when I call at
+a center, nobody",00:45:47.450,00:45:50.060
+"knows how long I'm going to stay
+on the phone with this person.",00:45:50.060,00:45:52.710
+"But it turns out that
+empirically exponential",00:45:52.710,00:45:54.590
+"distributions have been
+very good at modeling this.",00:45:54.590,00:45:56.797
+"And what it means is
+that they're actually--",00:45:56.797,00:45:58.630
+"you have this
+memoryless property.",00:45:58.630,00:46:01.860
+"It's kind of crazy if
+you think about it.",00:46:01.860,00:46:03.570
+What does that thing say?,00:46:03.570,00:46:04.611
+Let's parse it.,00:46:04.611,00:46:06.560
+That's the probability.,00:46:06.560,00:46:08.910
+"So this is condition on the
+fact that T1 is larger than T.",00:46:08.910,00:46:12.620
+"So T1 is just say the
+first arrival time.",00:46:12.620,00:46:14.780
+"That means that
+conditionally on the fact",00:46:14.780,00:46:16.820
+"that I've been waiting
+for the first T, well,",00:46:16.820,00:46:19.700
+the first [INAUDIBLE].,00:46:19.700,00:46:23.500
+"Well, I should probably-- the
+first subway for more than T",00:46:23.500,00:46:27.440
+"conditionally-- so I've been
+there T minutes already.",00:46:27.440,00:46:30.340
+"Then the probability that
+I wait for s more minutes.",00:46:30.340,00:46:33.126
+"So that's the probability
+that T1 is learned,",00:46:33.126,00:46:35.000
+"and the time that we've
+already waited plus x.",00:46:35.000,00:46:38.439
+"Given that I've been
+waiting for T minutes,",00:46:38.439,00:46:40.230
+"really I wait for
+s more minutes,",00:46:40.230,00:46:42.340
+"is actually the probability
+that I wait for s minutes total.",00:46:42.340,00:46:46.416
+It's completely memoryless.,00:46:46.416,00:46:47.540
+"It doesn't remember how
+long have you been waiting.",00:46:47.540,00:46:49.670
+The probability does not change.,00:46:49.670,00:46:51.020
+"You can have waited for
+two hours, the probability",00:46:51.020,00:46:53.450
+"that it takes
+another 10 minutes is",00:46:53.450,00:46:55.429
+"going to be the
+same as if you had",00:46:55.429,00:46:56.845
+been waiting for zero minutes.,00:46:56.845,00:46:59.250
+"And that's something
+that's actually",00:46:59.250,00:47:00.750
+part of your problem set.,00:47:00.750,00:47:02.470
+Very easy to compute.,00:47:02.470,00:47:03.420
+"This is just an
+analytical property.",00:47:03.420,00:47:05.730
+"And you just
+manipulate functions,",00:47:05.730,00:47:07.226
+"and you see that this thing
+just happen to be true,",00:47:07.226,00:47:09.351
+"and that's something
+that people like.",00:47:09.351,00:47:11.840
+"Because that's also
+something that benefit.",00:47:11.840,00:47:15.140
+"And also what we like is
+that this thing is positive",00:47:15.140,00:47:17.540
+"almost surely, which is good
+when you model arrival times.",00:47:17.540,00:47:21.080
+"To be fair, we're not
+going to be that careful.",00:47:21.080,00:47:23.132
+"Because sometimes
+we are just going",00:47:23.132,00:47:24.590
+"to assume that something
+follows a normal distribution.",00:47:24.590,00:47:29.010
+"And in particular,
+I mean, I don't",00:47:29.010,00:47:30.627
+"know if we're going to
+go into that details,",00:47:30.627,00:47:32.460
+"but a good thing that you
+can model with a Gaussian",00:47:32.460,00:47:34.830
+"distribution are
+heights of students.",00:47:34.830,00:47:38.430
+"But technically with
+positive probability,",00:47:38.430,00:47:40.720
+"you can have a negative
+Gaussian random variable, right?",00:47:40.720,00:47:44.290
+"And the probability being it's
+probably 10 to the minus 25,",00:47:44.290,00:47:48.550
+but it's positive.,00:47:48.550,00:47:49.716
+"But it's good enough
+for us for our modeling.",00:47:49.716,00:47:51.590
+"So this thing is nice, but this
+is not going to be required.",00:47:51.590,00:47:54.242
+"When you're modeling
+positive random variables,",00:47:54.242,00:47:56.200
+"you don't always have to use
+positive distributions that are",00:47:56.200,00:47:59.050
+supported on positive numbers.,00:47:59.050,00:48:01.465
+"You can use distributions
+like Gaussian.",00:48:01.465,00:48:03.397
+"So now this exponential
+distribution of T1, Tn",00:48:06.300,00:48:09.817
+"they have the same
+parameter, and that",00:48:09.817,00:48:11.400
+"means that in average they have
+the same inter-arrival time.",00:48:11.400,00:48:14.430
+"So this lambda is
+actually the expectation.",00:48:14.430,00:48:16.890
+"And what I'm just saying
+is that they're identically",00:48:16.890,00:48:19.390
+"distributed means
+that I mean some sort",00:48:19.390,00:48:21.600
+"of a stationary regime,
+and it's not always true.",00:48:21.600,00:48:24.279
+"I have to look at a
+shorter period of time,",00:48:24.279,00:48:26.070
+"because at rush
+hour and 11:00 PM",00:48:26.070,00:48:28.810
+"clearly those average
+inter-arrival times",00:48:28.810,00:48:31.200
+"are going to be different
+So it means that I am really",00:48:31.200,00:48:33.540
+focusing maybe on rush hour.,00:48:33.540,00:48:35.310
+"Sorry, I said it's lambda.",00:48:38.567,00:48:39.650
+It's actually 1 over lambda.,00:48:39.650,00:48:40.816
+I always mix the two.,00:48:40.816,00:48:42.460
+"All right, so you have
+the density of T1.",00:48:42.460,00:48:44.300
+So f of T is this.,00:48:44.300,00:48:46.970
+"So it's on the
+positive real line.",00:48:46.970,00:48:49.400
+"The fact that I have strictly
+positive or larger [INAUDIBLE]",00:48:49.400,00:48:52.390
+"to 0 doesn't make
+any difference.",00:48:52.390,00:48:54.542
+So this is the density.,00:48:54.542,00:48:55.500
+"So it's lambda E to the minus
+lambda T. The lambda in front",00:48:55.500,00:48:58.220
+"just ensures that
+when I integrate",00:48:58.220,00:48:59.690
+"this function between 0
+and infinity, I get 1.",00:48:59.690,00:49:03.500
+"And you can see, it decays like
+exponential minus lambda T.",00:49:03.500,00:49:06.160
+"So if I were to draw it, it
+would just look like this.",00:49:06.160,00:49:09.688
+"So at 0, what
+value does it take?",00:49:13.630,00:49:17.862
+Lambda.,00:49:17.862,00:49:19.750
+"And then I decay like
+exponential minus lambda T.",00:49:19.750,00:49:23.160
+"So this is 0, and
+this is f of T.",00:49:23.160,00:49:30.840
+"So very small probability
+of being very large.",00:49:30.840,00:49:33.730
+"Of course, it depends on lambda.",00:49:33.730,00:49:35.730
+"Now the expectation, you
+can compute the expectation",00:49:35.730,00:49:37.916
+"of this thing, right?",00:49:37.916,00:49:38.790
+"So you integrate T
+times f of T. This",00:49:38.790,00:49:41.881
+"is part of the little sheet
+that I gave you last time.",00:49:41.881,00:49:44.130
+"This is one of the
+things you should",00:49:44.130,00:49:45.629
+be able to do blindfolded.,00:49:45.629,00:49:47.160
+"And then you get the expectation
+of T1 is 1 over lambda.",00:49:47.160,00:49:51.276
+That's what comes out.,00:49:51.276,00:49:53.010
+"So as I actually tell many of
+my students, 99% of statistics",00:49:53.010,00:49:57.630
+"is replacing
+expectations by averages.",00:49:57.630,00:50:00.274
+"And so what you're tempted to do
+is say, well, if in average I'm",00:50:00.274,00:50:02.940
+"supposed to see 1 over lambda,
+I have 15 observations.",00:50:02.940,00:50:05.910
+"I'm just going to average
+those observations,",00:50:05.910,00:50:07.810
+"and I'm going to see something
+that should be close to 1",00:50:07.810,00:50:10.143
+over lambda.,00:50:10.143,00:50:11.710
+"So statistics is about
+replacing averages,",00:50:11.710,00:50:14.890
+"expectations with
+averages, and that's we do.",00:50:14.890,00:50:17.950
+"So Tn bar here, which is
+the average of the Ti's, is",00:50:17.950,00:50:21.530
+"a pretty good estimator
+for 1 over lambda.",00:50:21.530,00:50:25.060
+"So if I want an
+estimate for lambda,",00:50:25.060,00:50:27.140
+"then I need to
+take 1 over Tn bar.",00:50:27.140,00:50:30.190
+So here is one estimator.,00:50:30.190,00:50:32.510
+"I did it without much
+principle except that I just",00:50:32.510,00:50:36.340
+"want to replace
+expectations by averages,",00:50:36.340,00:50:38.740
+"and then I fixed the problem
+that I was actually estimating",00:50:38.740,00:50:41.290
+1 over lambda by lambda.,00:50:41.290,00:50:43.030
+"But you could come up with
+other estimators, right?",00:50:43.030,00:50:45.490
+"But let's say this is my way
+of getting to that estimator.",00:50:45.490,00:50:49.730
+"Just like I didn't give you
+any principled way of getting p",00:50:49.730,00:50:52.480
+"hat, which is Xn bar
+in the kiss example.",00:50:52.480,00:50:54.770
+"But that's the
+natural way to do it.",00:50:54.770,00:50:57.850
+"Everybody is completely
+shocked by this approach?",00:50:57.850,00:51:01.380
+"All right, so let's do this.",00:51:01.380,00:51:03.300
+"So what can I say about the
+properties of this estimator",00:51:03.300,00:51:06.260
+lambda hat?,00:51:06.260,00:51:08.130
+"Well, I know that Tn bar
+is going to 1 over lambda",00:51:08.130,00:51:12.750
+by the law of large number.,00:51:12.750,00:51:14.214
+It's an average.,00:51:14.214,00:51:14.880
+"It converges to the
+expectation both almost surely,",00:51:14.880,00:51:18.120
+and in probability.,00:51:18.120,00:51:19.185
+"So the first one is the
+strong law of large number,",00:51:19.185,00:51:21.310
+"the second one is the
+weak law of large number.",00:51:21.310,00:51:23.526
+I can apply the strong one.,00:51:23.526,00:51:24.650
+I have enough conditions.,00:51:24.650,00:51:26.800
+"And hence, what do I apply
+so that 1 over Tn bar",00:51:26.800,00:51:31.610
+actually goes to lambda?,00:51:31.610,00:51:35.110
+So I said hence.,00:51:35.110,00:51:36.250
+What is hence?,00:51:36.250,00:51:37.041
+What is it based on?,00:51:37.041,00:51:37.874
+AUDIENCE: [INAUDIBLE],00:51:37.874,00:51:43.455
+"PHILIPPE RIGOLLET Yeah,
+continuous mapping theorem,",00:51:43.455,00:51:45.580
+right?,00:51:45.580,00:51:45.720
+"So I have this
+function 1 over x.",00:51:45.720,00:51:47.370
+I just apply this function.,00:51:47.370,00:51:49.180
+"So if it was 1 over
+lambda squared,",00:51:49.180,00:51:51.397
+"I would have the
+same thing that would",00:51:51.397,00:51:52.980
+"happen just because
+the function 1 over x",00:51:52.980,00:51:54.688
+is continuous away from 0.,00:51:54.688,00:51:58.130
+"And now the central
+limit theorem",00:51:58.130,00:52:00.300
+"is also telling me
+something about lambda.",00:52:00.300,00:52:02.370
+"About Tn bar, right?",00:52:02.370,00:52:03.256
+"It's telling me that if
+I look at my average,",00:52:03.256,00:52:05.130
+I remove the expectation here.,00:52:05.130,00:52:08.520
+"So if I do Tn bar
+minus my expectation,",00:52:08.520,00:52:11.520
+"rescale by this guy here,
+then this thing is going",00:52:11.520,00:52:15.820
+"to converge to some
+Gaussian random variable,",00:52:15.820,00:52:18.280
+"but here I have this
+lambda to the negative 1--",00:52:18.280,00:52:21.260
+"to the negative 2
+here, and that's",00:52:21.260,00:52:23.530
+"because they did not
+tell you that if you",00:52:23.530,00:52:25.720
+compute the variance--,00:52:25.720,00:52:28.730
+"so from this, you
+can probably extract.",00:52:28.730,00:52:30.532
+"So if I have X that follows
+some exponential distribution",00:52:34.308,00:52:39.280
+with parameter lambda.,00:52:39.280,00:52:40.350
+"Well, let's call it T.",00:52:40.350,00:52:42.580
+"So we know that T in
+expectation, the expectation",00:52:42.580,00:52:46.540
+of T is 1 over lambda.,00:52:46.540,00:52:48.340
+What is the variance of T?,00:52:48.340,00:52:49.560
+"You should be able to read
+it from the thing here.",00:52:56.690,00:53:00.360
+1 over lambda squared.,00:53:09.984,00:53:10.900
+"That's what you actually
+read in the variance,",00:53:10.900,00:53:12.816
+"because the central limit
+theorem is really telling you",00:53:12.816,00:53:16.530
+"the distribution
+goes through this n.",00:53:16.530,00:53:19.590
+"But this numbers and this
+number you can read, right?",00:53:19.590,00:53:23.739
+"If you look at the expectation
+of this guy it's-- of this guy",00:53:23.739,00:53:26.280
+comes out.,00:53:26.280,00:53:26.830
+"This is 1 over lambda
+minus 1 over lambda.",00:53:26.830,00:53:28.660
+That's why you read the 0.,00:53:28.660,00:53:30.360
+"And if you look at the
+variance of the dot,",00:53:30.360,00:53:32.550
+"you get n times the
+variance of this average.",00:53:32.550,00:53:36.330
+"Variance of the average is
+picking up a factor 1 over n.",00:53:36.330,00:53:39.510
+So the n cancels.,00:53:39.510,00:53:40.590
+"And then I'm left with only
+one of the variances, which",00:53:40.590,00:53:42.881
+is 1 over lambda squared.,00:53:42.881,00:53:45.250
+"OK, so we're not going
+to do that in details,",00:53:45.250,00:53:48.130
+"because, again, this is just
+a pure calculus exercise.",00:53:48.130,00:53:50.430
+"But this is if you compute
+integral of lambda e",00:53:50.430,00:53:54.700
+"to the minus t lambda
+times t squared.",00:53:54.700,00:53:58.430
+"Actually t minus 1
+over lambda squared",00:53:58.430,00:54:01.754
+dt between 0 and infinity.,00:54:01.754,00:54:05.180
+"You will see that this thing
+is 1 over lambda squared.",00:54:05.180,00:54:07.774
+How would I do this?,00:54:14.157,00:54:15.139
+"Configuration by
+[INAUDIBLE] or you know it.",00:54:20.540,00:54:24.490
+All right.,00:54:24.490,00:54:26.100
+"So this is what the central
+limit theorem tells me.",00:54:26.100,00:54:29.200
+"So this gives me
+if I solve this,",00:54:29.200,00:54:31.620
+"and I plug in so I can
+multiply by lambda and solve,",00:54:31.620,00:54:35.550
+"it would give me somewhat
+a confidence interval for 1",00:54:35.550,00:54:40.100
+over lambda.,00:54:40.100,00:54:42.940
+"If we just think
+of 1 over lambda",00:54:42.940,00:54:44.370
+"as being the p
+that I had before,",00:54:44.370,00:54:46.590
+"this would give me a
+central limit theorem for--",00:54:46.590,00:54:48.826
+"sorry, a confidence
+interval for 1 over lambda.",00:54:51.664,00:54:54.460
+"So I'm hiding a little
+bit under the rug",00:54:54.460,00:54:56.250
+"the fact that I have
+to still define it.",00:54:56.250,00:54:58.540
+"Let's just actually
+go through this.",00:54:58.540,00:55:00.955
+"I see some of you are
+uncomfortable with this,",00:55:00.955,00:55:02.890
+so let's just do it.,00:55:02.890,00:55:04.884
+"So what we've just proved
+by the central limit",00:55:04.884,00:55:06.800
+"theorem is that the
+probability, that's",00:55:06.800,00:55:09.330
+"square root of n Tn minus 1 over
+lambda exceeds q alpha over 2",00:55:09.330,00:55:21.180
+"is approximately
+equal to alpha, right?",00:55:21.180,00:55:24.690
+"That's just the statement of
+the central limit theorem,",00:55:24.690,00:55:27.180
+"and by approximately equal I
+mean as n goes to infinity.",00:55:27.180,00:55:30.654
+"Sorry I did not
+write it correctly.",00:55:34.230,00:55:36.750
+"I still have to divide
+by square root of 1",00:55:36.750,00:55:39.440
+"over lambda squared, which is
+the standard deviation, right?",00:55:39.440,00:55:43.050
+"And we said that
+this is a bit ugly.",00:55:43.050,00:55:44.620
+"So let's just do it
+the way it should be.",00:55:44.620,00:55:46.820
+"So multiply all these
+things by lambda.",00:55:46.820,00:55:50.290
+"So that means now that
+the absolute value, so",00:55:50.290,00:55:56.020
+"with probability 1 minus
+alpha asymptotically,",00:55:56.020,00:55:59.530
+"I have that square root of
+n times lambda Tn minus 1",00:55:59.530,00:56:07.870
+"is less than or equal
+to q alpha over 2.",00:56:07.870,00:56:11.080
+"So what it means is that, oh,
+I have negative q alpha over 2",00:56:14.930,00:56:20.020
+less than square root of n.,00:56:20.020,00:56:22.640
+"Let me divide by
+square root of n here.",00:56:22.640,00:56:25.224
+"lambda Tn minus
+1 q alpha over 2.",00:56:25.224,00:56:34.620
+"And so now what I have is that
+I get that lambda is between--",00:56:34.620,00:56:41.891
+"that's Tn bar-- is between
+1 plus q alpha over 2",00:56:41.891,00:56:50.410
+divided by root n.,00:56:50.410,00:56:53.510
+"And the whole thing
+is divided by Tn bar,",00:56:53.510,00:56:57.470
+"and same thing on the other side
+except I have 1 minus q alpha",00:56:57.470,00:57:04.010
+"over 2 divided by root
+n divided by Tn bar.",00:57:04.010,00:57:08.678
+"So it's kind of a weird
+shape, but it's still",00:57:12.980,00:57:16.270
+"of the form 1 over Tn bar
+plus or minus something.",00:57:16.270,00:57:20.238
+"But this something
+depends on Tn bar itself.",00:57:20.238,00:57:23.830
+"And that's actually normal,
+because Tn bar is not only",00:57:23.830,00:57:26.230
+"giving me information
+about the mean,",00:57:26.230,00:57:29.020
+"but it's also giving me
+information about the variance.",00:57:29.020,00:57:31.360
+"So it should definitely come
+in the size of my error bars.",00:57:31.360,00:57:37.570
+"And that's the way it comes
+in this fairly natural way.",00:57:37.570,00:57:41.710
+Everybody agrees?,00:57:41.710,00:57:43.810
+"So now I have actually
+built a confidence interval.",00:57:43.810,00:57:46.880
+"But what I want to show
+you with this example is,",00:57:46.880,00:57:50.770
+"can I translate this
+in a central limit",00:57:50.770,00:57:52.870
+"theorem for something that
+converges to lambda, right?",00:57:52.870,00:57:57.520
+"I know that Tn bar
+converges to 1 over lambda,",00:57:57.520,00:58:00.760
+"but I also know that 1 over
+Tn bar converges to lambda.",00:58:00.760,00:58:05.260
+"So do I have a central limit
+theorem for 1 over Tn bar?",00:58:05.260,00:58:09.450
+"Technically no, right?",00:58:09.450,00:58:11.490
+"Central limit theorems are about
+averages, and 1 over an average",00:58:11.490,00:58:14.520
+is not an average.,00:58:14.520,00:58:16.474
+"But there's something that
+statisticians like a lot,",00:58:16.474,00:58:20.520
+"and it's called
+the Delta method.",00:58:20.520,00:58:23.060
+"The Delta method
+is really something",00:58:23.060,00:58:24.800
+"that's telling you
+that you can actually",00:58:24.800,00:58:27.200
+"take a function of
+an average, and let",00:58:27.200,00:58:30.440
+"it go to the function
+of the limit,",00:58:30.440,00:58:32.570
+"and you still have a
+central limit theorem.",00:58:32.570,00:58:34.700
+"And the factor or the
+price to pay for this",00:58:34.700,00:58:37.280
+"is something which depends on
+the derivative of the function.",00:58:37.280,00:58:44.040
+"And so let's just
+go through this,",00:58:44.040,00:58:46.276
+"and it's, again, just like
+the proof of the central limit",00:58:46.276,00:58:48.650
+theorem.,00:58:48.650,00:58:49.640
+"And actually in many of those
+asymptotic statistics results,",00:58:49.640,00:58:53.550
+"this is actually just
+a Taylor expansion,",00:58:53.550,00:58:55.834
+"and here it's not
+even the second order,",00:58:55.834,00:58:57.500
+"it's actually the
+first order, all right?",00:58:57.500,00:58:59.600
+"So I'm just going to do linear
+approximation of this function.",00:58:59.600,00:59:02.183
+So let's do it.,00:59:04.360,00:59:05.320
+So I have that g of Tn bar--,00:59:05.320,00:59:12.950
+"actually let's use the
+notation of this slide,",00:59:12.950,00:59:15.420
+which is Zn and theta.,00:59:15.420,00:59:17.590
+"So what I know is that Zn
+minus theta square root of n",00:59:17.590,00:59:24.250
+"goes to some Gaussian,
+this standard Gaussian.",00:59:24.250,00:59:29.454
+"No, not standard.",00:59:29.454,00:59:32.810
+"OK, so that's the assumptions.",00:59:32.810,00:59:34.080
+"And what I want to show is
+some convergence of g of Zn",00:59:34.080,00:59:40.502
+to g of theta.,00:59:40.502,00:59:43.590
+"So I'm not going to
+multiply by root n just yet.",00:59:43.590,00:59:46.350
+"So I'm going to do a first
+order Taylor expansion.",00:59:46.350,00:59:49.125
+"So what it is telling me is that
+this is equal to Zn minus theta",00:59:49.125,00:59:57.040
+"times g prime of,
+let's call it theta bar",00:59:57.040,01:00:01.570
+"where theta bar is
+somewhere between say",01:00:01.570,01:00:06.200
+"Zn and theta, for sum.",01:00:06.200,01:00:11.148
+"OK, so if theta is less than
+Zn you just permute those two.",01:00:13.980,01:00:17.700
+"So that's what the
+Taylor first order Taylor",01:00:17.700,01:00:21.169
+expansion tells me.,01:00:21.169,01:00:21.960
+"There exists a theta bar
+that's between the two",01:00:21.960,01:00:23.918
+"values at which I'm expanding
+so that those two things are",01:00:23.918,01:00:26.912
+equal.,01:00:26.912,01:00:29.292
+Is everybody shocked?,01:00:29.292,01:00:31.172
+No?,01:00:31.172,01:00:31.672
+"So that's standard
+Taylor expansion.",01:00:31.672,01:00:36.350
+"Now I'm going to
+multiply by root n.",01:00:36.350,01:00:38.054
+And so that's going to be what?,01:00:44.519,01:00:45.810
+"That's going to be
+root n Zn minus theta.",01:00:45.810,01:00:50.200
+"Ah-ha, that's something I like.",01:00:50.200,01:00:51.970
+Times g prime of theta bar.,01:00:51.970,01:00:57.130
+"Now the central limit
+theorem tells me",01:00:59.887,01:01:01.470
+that this goes to what?,01:01:01.470,01:01:02.904
+"Well, this goes to sum n
+0 sigma squared, right?",01:01:06.250,01:01:12.370
+"That was the first
+line over there.",01:01:12.370,01:01:15.400
+"This guy here, well,
+it's not clear, right?",01:01:15.400,01:01:20.520
+Actually it is.,01:01:20.520,01:01:21.540
+Let's start with this guy.,01:01:21.540,01:01:24.840
+What does theta bar go to?,01:01:24.840,01:01:28.450
+"Well, I know that Zn
+is going to theta.",01:01:28.450,01:01:30.752
+"Just because, well, that's
+my law of large numbers.",01:01:33.660,01:01:37.760
+"Zn is going to
+theta, which means",01:01:37.760,01:01:41.010
+"that theta bar is sandwiched
+between two values that",01:01:41.010,01:01:44.520
+converge to theta.,01:01:44.520,01:01:46.910
+"So that means that theta bar
+converges to theta itself",01:01:46.910,01:01:49.580
+as n goes to infinity.,01:01:49.580,01:01:51.300
+"That's just the law
+of large numbers.",01:01:51.300,01:01:54.940
+Everybody agrees?,01:01:54.940,01:01:57.450
+"Just because it's
+sandwiched, right?",01:01:57.450,01:01:58.950
+So I have Zn.,01:01:58.950,01:02:01.180
+"I have theta, and theta
+bar is somewhere here.",01:02:01.180,01:02:05.651
+The picture might be reversed.,01:02:05.651,01:02:06.900
+"It might be that Zn end
+is larger than theta.",01:02:06.900,01:02:08.980
+"But the law of large
+number tells me",01:02:08.980,01:02:10.480
+"that this guy is not moving,
+but this guy is moving that way.",01:02:10.480,01:02:14.050
+"So you know when
+n is [INAUDIBLE],,",01:02:14.050,01:02:16.444
+"there's very little
+wiggle room for theta bar,",01:02:16.444,01:02:18.360
+and it can only get to theta.,01:02:18.360,01:02:19.975
+"And I call it the
+sandwich theorem,",01:02:23.370,01:02:25.310
+"or just find your
+favorite food in there.",01:02:25.310,01:02:29.230
+"So this guy goes
+to theta, and now I",01:02:29.230,01:02:31.716
+"need to make an extra
+assumption, which",01:02:31.716,01:02:33.340
+is that g prime is continuous.,01:02:33.340,01:02:38.601
+"And if g prime is continuous,
+then g prime of theta bar",01:02:38.601,01:02:42.300
+goes to g prime of theta.,01:02:42.300,01:02:44.630
+"So this thing goes
+to g prime of theta.",01:02:44.630,01:02:49.132
+But I have an issue here.,01:02:52.580,01:02:54.776
+"Is that now I have
+something that",01:02:54.776,01:02:56.150
+"converges in distribution
+and something",01:02:56.150,01:02:57.860
+that converges in say--,01:02:57.860,01:03:01.540
+"I mean, this converges almost
+surely or saying probability",01:03:01.540,01:03:04.200
+just to be safe.,01:03:04.200,01:03:06.370
+"And this one converges
+in distribution.",01:03:06.370,01:03:09.820
+And I want to combine them.,01:03:09.820,01:03:11.050
+"But I don't have a
+slide that tells me",01:03:11.050,01:03:12.633
+"I'm allowed to take the product
+of something that converges",01:03:12.633,01:03:15.660
+"in distribution, and something
+that converges in probability.",01:03:15.660,01:03:18.460
+This does not exist.,01:03:18.460,01:03:19.500
+"Actually, if
+anything it told me,",01:03:19.500,01:03:21.450
+"do not do anything with things
+that converge in distribution.",01:03:21.450,01:03:25.970
+And so that gets us to our--,01:03:25.970,01:03:32.770
+"OK, so I'll come back
+to this in a second.",01:03:32.770,01:03:36.000
+"And that gets us to something
+called Slutsky's theorem.",01:03:36.000,01:03:39.560
+"And Slutsky's theorem tells us
+that in very specific cases,",01:03:39.560,01:03:42.940
+you can do just that.,01:03:42.940,01:03:44.740
+"So you have two sequences
+of random variables, Xn bar,",01:03:44.740,01:03:49.000
+"that's Xn that converges to
+X. And Yn that converges to Y,",01:03:49.000,01:03:53.370
+but Y is not anything.,01:03:53.370,01:03:55.370
+Y is not any random variable.,01:03:55.370,01:03:57.410
+"So X converges in
+this distribution.",01:03:57.410,01:03:59.090
+"Sorry, I forgot to mention,
+this is very important.",01:03:59.090,01:04:01.215
+"Xn converges in distribution,
+Y converges in probability.",01:04:01.215,01:04:04.920
+"And we know that in generality
+we cannot combine those two",01:04:04.920,01:04:07.570
+"things, but Slutsky tells
+us that if the limit of Y is",01:04:07.570,01:04:11.272
+"a constant, meaning it's
+not a random variable,",01:04:11.272,01:04:13.230
+"but it's a
+deterministic number 2,",01:04:13.230,01:04:16.080
+"just a fixed number that's
+not a random variable,",01:04:16.080,01:04:18.940
+then you can combine them.,01:04:18.940,01:04:21.390
+"Then you can sum them, and
+then you can multiply them.",01:04:21.390,01:04:24.869
+"I mean, actually you can do
+whatever combination you want,",01:04:28.874,01:04:31.290
+"because it actually implies
+that X, the vector Xn, Yn",01:04:31.290,01:04:34.800
+converges to the vector Xc.,01:04:34.800,01:04:39.250
+"OK, so here I just
+took two combinations.",01:04:39.250,01:04:41.420
+"They are very convenient for
+us, the sum and the product",01:04:41.420,01:04:44.070
+"so I could do other
+stuff like the ratio",01:04:44.070,01:04:45.850
+"if c is not 0, things like that.",01:04:45.850,01:04:47.563
+"So that's what
+Slutsky does for us.",01:04:51.190,01:04:53.010
+"So what you're going to have to
+write a lot in your homework,",01:04:53.010,01:04:56.120
+"in your mid-terms, by Slutsky.",01:04:56.120,01:04:58.880
+"I know some people are very
+generous with their by Slutsky.",01:04:58.880,01:05:03.230
+"They just do numerical
+applications,",01:05:03.230,01:05:05.940
+"mu is equal to 6, and
+therefore by Slutsky",01:05:05.940,01:05:08.250
+mu square is equal to 36.,01:05:08.250,01:05:10.260
+"All right, so don't do that.",01:05:10.260,01:05:11.690
+"Just use, write Slutsky when
+you're actually using Slutsky.",01:05:11.690,01:05:15.415
+"But this is something that's
+very important for us,",01:05:15.415,01:05:17.540
+"and it turns out
+that you're going",01:05:17.540,01:05:18.860
+"to feel like you can write
+by Slutsky all the time,",01:05:18.860,01:05:20.985
+"because that's going to
+work for us all the time.",01:05:20.985,01:05:23.362
+"Everything we're going
+to see is actually",01:05:23.362,01:05:25.070
+"going to be where we're going
+to have to combine stuff.",01:05:25.070,01:05:27.590
+"Since we only rely on
+convergence from distribution",01:05:27.590,01:05:30.260
+"arising from the
+central limit theorem,",01:05:30.260,01:05:32.090
+"we're actually going to have
+to rely on something that",01:05:32.090,01:05:34.340
+"allows us to combine them,
+and the only thing we know",01:05:34.340,01:05:36.920
+is Slutsky.,01:05:36.920,01:05:37.590
+"So we better hope
+that this thing works.",01:05:37.590,01:05:40.290
+So why Slutsky works for us.,01:05:40.290,01:05:41.780
+"Can somebody tell
+me why Slutsky works",01:05:41.780,01:05:43.640
+to combine those two guys?,01:05:43.640,01:05:46.960
+"So this one is converging
+in distribution.",01:05:46.960,01:05:48.820
+"This one is converging
+in probability,",01:05:48.820,01:05:51.740
+but to a deterministic number.,01:05:51.740,01:05:54.710
+"g prime of theta is a
+deterministic number.",01:05:54.710,01:05:57.440
+"I don't know what theta is, but
+it's certainly deterministic.",01:05:57.440,01:06:02.200
+"All right, so I can combine
+them, multiply them.",01:06:02.200,01:06:04.380
+"So that's just the second
+line of that in particular.",01:06:04.380,01:06:08.740
+"All right, everybody is with me?",01:06:08.740,01:06:12.090
+So now I'm allowed to do this.,01:06:12.090,01:06:13.340
+"You can actually--
+you will see something",01:06:13.340,01:06:15.048
+"like counterexample
+questions in your problem",01:06:15.048,01:06:16.950
+"set just so that you
+can convince yourself.",01:06:16.950,01:06:18.741
+It's always a good thing.,01:06:18.741,01:06:19.960
+"I don't like to
+give them, because I",01:06:19.960,01:06:21.150
+"think it's much better
+for you to actually come",01:06:21.150,01:06:23.108
+to the counterexample yourself.,01:06:23.108,01:06:24.860
+"Like what can go wrong
+if Y is not a random--",01:06:24.860,01:06:35.670
+"sorry, if Y is not a--",01:06:35.670,01:06:38.450
+"sorry, if c is not the constant,
+but it's a random variable.",01:06:38.450,01:06:42.572
+You can figure that out.,01:06:42.572,01:06:45.534
+"All right, so let's go back.",01:06:45.534,01:06:46.700
+"So we have now this Delta
+method that tells us",01:06:46.700,01:06:49.040
+"that now I have a
+central limit theorem",01:06:49.040,01:06:51.080
+"for functions of averages,
+and not just for averages.",01:06:51.080,01:06:55.500
+"So the only price to pay
+is this derivative there.",01:06:55.500,01:06:57.922
+"So, for example, if g is
+just a linear function,",01:07:00.600,01:07:05.490
+"then I'm going to have a
+constant multiplication.",01:07:05.490,01:07:07.860
+"If g is a quadratic
+function, then I'm",01:07:07.860,01:07:10.680
+"going to have theta squared
+that shows up there.",01:07:10.680,01:07:13.710
+Things like that.,01:07:13.710,01:07:14.550
+"So just think of what
+kind of applications",01:07:14.550,01:07:16.300
+you could have for this.,01:07:16.300,01:07:17.770
+"Here are the functions
+that we're interested in,",01:07:17.770,01:07:19.769
+is x maps to 1 over x.,01:07:19.769,01:07:21.270
+"What is the derivative
+of this guy?",01:07:21.270,01:07:23.049
+"What is the derivative
+of 1 over x?",01:07:25.947,01:07:29.746
+"Negative 1 over
+x squared, right?",01:07:29.746,01:07:31.120
+"That's the thing we're going
+to have to put in there.",01:07:31.120,01:07:33.470
+And so this is what we get.,01:07:33.470,01:07:37.630
+"So now when I'm actually
+going to write this,",01:07:37.630,01:07:44.260
+"so if I want to show square root
+of n lambda hat minus lambda.",01:07:44.260,01:07:51.272
+"That's my application, right?",01:07:51.272,01:07:52.480
+"This is actually 1 over Tn, and
+this is 1 over 1 over lambda.",01:07:52.480,01:07:59.150
+"So the function g of x
+is 1 over x in this case.",01:07:59.150,01:08:05.510
+So now I have this thing.,01:08:05.510,01:08:06.590
+"So I know that by
+the Delta method--",01:08:06.590,01:08:08.960
+"oh, and I knew
+that Tn, remember,",01:08:08.960,01:08:11.240
+"square root of Tn
+minus 1 over lambda",01:08:11.240,01:08:16.790
+"was going to sum
+normal with mean 0",01:08:16.790,01:08:19.310
+"and variance 1 over
+lambda squared, right?",01:08:19.310,01:08:21.932
+"So the sigma square over there
+is 1 over lambda squared.",01:08:21.932,01:08:26.079
+So now this thing goes to what?,01:08:26.079,01:08:27.370
+Sum normal.,01:08:27.370,01:08:28.938
+What is going to be the mean?,01:08:28.938,01:08:32.190
+0.,01:08:32.190,01:08:32.690
+And what is the variance?,01:08:35.510,01:08:37.187
+So the variance is going--,01:08:37.187,01:08:38.270
+"I'm going to pick up
+this guy, 1 over lambda",01:08:38.270,01:08:40.250
+"squared, and then I'm going to
+have to take g prime of what?",01:08:40.250,01:08:46.930
+"Of 1 over lambda, right?",01:08:46.930,01:08:48.709
+That's my theta.,01:08:48.709,01:08:49.627
+"So I have g of theta,
+which is 1 over theta.",01:08:52.840,01:08:55.069
+"So I'm going to have g
+prime of 1 over lambda.",01:08:55.069,01:08:58.406
+"And what is g prime
+of 1 over lambda?",01:08:58.406,01:09:00.294
+"So we said that g prime is 1
+over negative 1 over x squared.",01:09:05.029,01:09:09.260
+"So it's negative 1 over
+1 over lambda squared--",01:09:09.260,01:09:13.885
+"sorry, squared.",01:09:17.877,01:09:18.875
+"Which is nice, because
+g can be decreasing.",01:09:21.870,01:09:24.340
+"So that would be annoying
+to have a negative variance.",01:09:24.340,01:09:26.850
+"And so g prime is
+negative 1 over, and so",01:09:26.850,01:09:29.250
+"what I get eventually is
+lambda squared up here,",01:09:29.250,01:09:33.569
+but then I square it again.,01:09:33.569,01:09:36.370
+"So this whole thing
+here becomes what?",01:09:36.370,01:09:39.764
+"Can somebody tell me
+what the final result is?",01:09:39.764,01:09:41.688
+Lambda squared right?,01:09:44.274,01:09:45.149
+"So it's lambda 4
+divided by lambda 2.",01:09:45.149,01:09:47.323
+So that's what's written there.,01:09:55.179,01:09:59.620
+"And now I can just do my
+good old computation for a--",01:09:59.620,01:10:04.460
+"I can do a good computation
+for a confidence interval.",01:10:10.610,01:10:14.570
+"All right, so let's just
+go from the second line.",01:10:14.570,01:10:17.880
+"So we know that lambda
+hat minus lambda",01:10:17.880,01:10:21.200
+"is less than, we've done
+that several times already.",01:10:21.200,01:10:23.980
+So it's q alpha over 2--,01:10:23.980,01:10:25.520
+"sorry, I should put alpha
+over 2 over this thing, right?",01:10:25.520,01:10:28.190
+"So that's really the quintile
+of what our alpha over 2 times",01:10:28.190,01:10:31.025
+"lambda divided by
+square root of n.",01:10:31.025,01:10:34.870
+"All right, and so that means
+that my confidence interval",01:10:34.870,01:10:39.610
+"should be this, lambda hat.",01:10:39.610,01:10:42.610
+"Lambda belongs to lambda
+plus or minus q alpha",01:10:42.610,01:10:47.670
+"over 2 lambda divided
+by root n, right?",01:10:47.670,01:10:51.325
+"So that's my
+confidence interval.",01:10:51.325,01:10:53.640
+"But again, it's not
+very suitable, because--",01:10:53.640,01:10:56.957
+"sorry, that's lambda hat.",01:10:56.957,01:10:59.292
+"Because they don't
+know how to compute it.",01:10:59.292,01:11:02.561
+"So now I'm going to
+request from the audience",01:11:02.561,01:11:04.510
+some remedies for this.,01:11:04.510,01:11:06.464
+What do you suggest we do?,01:11:06.464,01:11:07.940
+"What is the laziest
+thing I can do?",01:11:12.860,01:11:14.828
+Anybody?,01:11:18.272,01:11:19.248
+Yeah.,01:11:19.248,01:11:19.748
+AUDIENCE: [INAUDIBLE],01:11:19.748,01:11:21.332
+"PHILIPPE RIGOLLET Replace
+lambda by lambda hat.",01:11:21.332,01:11:23.290
+"What justifies
+for me to do this?",01:11:23.290,01:11:25.152
+AUDIENCE: [INAUDIBLE],01:11:25.152,01:11:27.602
+"PHILIPPE RIGOLLET
+Yeah, and Slutsky",01:11:27.602,01:11:29.060
+"tells me I can actually do
+it, because Slutsky tells me,",01:11:29.060,01:11:32.850
+"where does this lambda
+come from, right?",01:11:32.850,01:11:35.210
+This lambda comes from here.,01:11:35.210,01:11:37.280
+That's the one that's here.,01:11:37.280,01:11:39.530
+"So actually I could
+rewrite this entire thing",01:11:39.530,01:11:41.810
+"as square root of n lambda hat
+minus lambda divided by lambda",01:11:41.810,01:11:47.000
+"converges to sum n 0, 1.",01:11:47.000,01:11:51.420
+"Now if I replace this by
+lambda hat, what I have is",01:11:51.420,01:11:55.560
+"that this is actually really
+the original one times",01:11:55.560,01:12:01.600
+lambda divided by lambda hat.,01:12:01.600,01:12:04.830
+"And this converges
+to n 0, 1, right?",01:12:04.830,01:12:07.510
+"And now what you're telling
+me is, well, this guy",01:12:07.510,01:12:10.500
+"I know it converges to n 0, 1,
+and this guy is converging to 1",01:12:10.500,01:12:15.360
+by the law of large number.,01:12:15.360,01:12:16.650
+"But this one is converging to 1,
+which happens to be a constant.",01:12:16.650,01:12:19.880
+"It converges in probability,
+so by Slutsky I can actually",01:12:19.880,01:12:22.860
+"take the product and still
+maintain my conversion",01:12:22.860,01:12:25.590
+"to distribution to
+a standard Gaussian.",01:12:25.590,01:12:29.070
+So you can always do this.,01:12:29.070,01:12:30.360
+"Every time you replace
+some p by p hat,",01:12:30.360,01:12:34.080
+"as long as their
+ratio goes to 1,",01:12:34.080,01:12:35.752
+"which is going to be guaranteed
+by the law of large number,",01:12:35.752,01:12:38.210
+"you're actually
+going to be fine.",01:12:38.210,01:12:40.381
+"And that's where we're
+going to use Slutsky a lot.",01:12:40.381,01:12:42.464
+"When we do plug in, Slutsky
+is going to be our friend.",01:12:42.464,01:12:46.640
+"OK, so we can do this.",01:12:46.640,01:12:47.890
+And that's one way.,01:12:51.180,01:12:52.110
+"And then other
+ways to just solve",01:12:52.110,01:12:53.650
+for lambda like we did before.,01:12:53.650,01:12:56.160
+"So the first one we
+got is actually--",01:12:56.160,01:12:58.200
+"I don't know if I still
+have it somewhere.",01:12:58.200,01:13:00.840
+"Yeah, that was the one, right?",01:13:00.840,01:13:03.680
+"So we had 1 over Tn q, and
+that's exactly the same",01:13:03.680,01:13:08.240
+that we have here.,01:13:08.240,01:13:09.180
+"So your solution is actually
+giving us exactly this guy when",01:13:09.180,01:13:12.712
+we actually solve for lambda.,01:13:12.712,01:13:14.368
+So this is what we get.,01:13:17.420,01:13:20.690
+Lambda hat.,01:13:20.690,01:13:21.620
+"We replace lambda by
+lambda hat, and we",01:13:21.620,01:13:24.140
+"have our asymptotic
+convergence theorem.",01:13:24.140,01:13:27.750
+"And that's exactly what we
+did in Slutsky's theorem.",01:13:27.750,01:13:30.400
+"Now we're getting to it at
+this point is just telling us",01:13:30.400,01:13:32.817
+that we can actually do this.,01:13:32.817,01:13:36.640
+"Are there any questions
+about what we did here?",01:13:36.640,01:13:39.680
+"So this derivation right
+here is exactly what I",01:13:39.680,01:13:42.520
+did on the board I showed you.,01:13:42.520,01:13:44.190
+"So let me just show you
+with a little more space",01:13:44.190,01:13:46.690
+"just so that we all
+understand, right?",01:13:46.690,01:13:49.094
+"So we know that square root of n
+lambda hat minus lambda divided",01:13:49.094,01:13:58.570
+"by lambda, the
+true lambda defined",01:13:58.570,01:14:00.760
+"converges to sum n 0, 1.",01:14:00.760,01:14:04.100
+"So that was CLT
+plus Delta method.",01:14:04.100,01:14:07.215
+"Applying those two,
+we got to here.",01:14:11.700,01:14:13.710
+"And we know that
+lambda hat converges",01:14:13.710,01:14:17.400
+"to lambda in probability and
+almost surely, and that's what?",01:14:17.400,01:14:21.600
+"That was law of large number
+plus continued mapping theorem,",01:14:21.600,01:14:24.980
+right?,01:14:24.980,01:14:25.729
+"Because we only knew that
+one of our lambda hat",01:14:25.729,01:14:27.687
+converges to 1 over lambda.,01:14:27.687,01:14:29.148
+"So we had to flip
+those things around.",01:14:29.148,01:14:31.590
+"And now what I said is
+that I apply Slutsky,",01:14:31.590,01:14:33.920
+"so I write square root of n
+lambda hat minus lambda divided",01:14:33.920,01:14:38.210
+"by lambda hat, which is the
+suggestion that was made to me.",01:14:38.210,01:14:42.260
+"They said, I want
+this, but I would",01:14:42.260,01:14:44.160
+"want to show that it
+converges to sum n 0,",01:14:44.160,01:14:45.910
+"1 so I can legitimately use
+q alpha over 2 in this one",01:14:45.910,01:14:49.970
+though.,01:14:49.970,01:14:50.745
+"And the way we said is like,
+well, this thing is actually",01:14:50.745,01:14:53.120
+"really q divided by lambda times
+lambda divided by lambda hat.",01:14:53.120,01:15:00.737
+"So this thing that
+was proposed to me,",01:15:00.737,01:15:02.320
+"I can decompose
+it in the product",01:15:02.320,01:15:03.730
+of those two random variables.,01:15:03.730,01:15:05.980
+"The first one here converges
+through the Gaussian",01:15:05.980,01:15:09.060
+from the central limit theorem.,01:15:09.060,01:15:10.600
+"And the second one converges
+to 1 from this guy,",01:15:10.600,01:15:14.718
+but in probability this time.,01:15:14.718,01:15:17.038
+"That was the ratio of two
+things in probability,",01:15:20.620,01:15:23.260
+we can actually get it.,01:15:23.260,01:15:25.030
+And so now I apply Slutsky.,01:15:25.030,01:15:26.753
+"And Slutsky tells me that
+I can actually do that.",01:15:31.180,01:15:34.537
+"But when I take the product
+of this thing that converges",01:15:34.537,01:15:36.870
+"to some standard Gaussian,
+and this thing that converges",01:15:36.870,01:15:40.010
+"in probability to 1, then
+their product actually",01:15:40.010,01:15:43.380
+"converges to still this
+standard Gaussian [INAUDIBLE]",01:15:43.380,01:15:48.618
+"Well, that's exactly
+what's done here,",01:15:55.370,01:15:58.880
+and I think I'm getting there.,01:15:58.880,01:16:02.340
+"So in our case, OK, so just a
+remark for Slutsky's theorem.",01:16:02.340,01:16:07.570
+So that's the last line.,01:16:07.570,01:16:09.070
+"So in the first example we used
+the problem dependent trick,",01:16:09.070,01:16:11.850
+"which was to say,
+well, turns out",01:16:11.850,01:16:13.980
+"that we knew that p
+is between 0 and 1.",01:16:13.980,01:16:16.380
+"So we have this p 1 minus
+p that was annoying to us.",01:16:16.380,01:16:18.960
+"We just said, let's
+just bound it by 1/4,",01:16:18.960,01:16:21.240
+"because that's going to be
+true for any value of p.",01:16:21.240,01:16:23.870
+"But here, lambda takes any
+value between 0 and infinity,",01:16:23.870,01:16:26.310
+so we didn't have such a trick.,01:16:26.310,01:16:27.612
+"It's something like we could
+see that lambda was less",01:16:27.612,01:16:29.820
+than something.,01:16:29.820,01:16:30.970
+"Maybe we know it, in which
+case we could use that.",01:16:30.970,01:16:34.070
+"But then in this case,
+we could actually also",01:16:34.070,01:16:36.844
+"have used Slutsky's theorem
+by doing plug in, right?",01:16:36.844,01:16:39.010
+"So here this is my p 1 minus
+p that's replaced by p hat 1",01:16:39.010,01:16:41.890
+minus p hat.,01:16:41.890,01:16:43.060
+"And Slutsky justify,
+so we did that",01:16:43.060,01:16:45.084
+"without really
+thinking last time.",01:16:45.084,01:16:46.500
+"But Slutsky actually
+justifies the fact",01:16:46.500,01:16:48.700
+"that this is valid, and
+still allows me to use",01:16:48.700,01:16:51.225
+this q alpha over 2 here.,01:16:51.225,01:16:52.940
+"All right, so that's
+the end of this lecture.",01:16:56.230,01:16:58.180
+"Tonight I will post the next
+set of slides, chapter two.",01:16:58.180,01:17:01.300
+"And, well, hopefully the video.",01:17:01.300,01:17:04.060
+"I'm not sure when it's
+going to come out.",01:17:04.060,01:17:06.810

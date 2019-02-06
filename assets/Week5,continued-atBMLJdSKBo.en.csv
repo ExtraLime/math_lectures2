@@ -1,0 +1,1788 @@
+text,start,stop
+&gt;&gt; [MUSIC PLAYING],00:00:00.000,00:00:10.970
+&gt;&gt; DAVID J. MALAN: All right.,00:00:10.970,00:00:12.536
+&gt;&gt; [LAUGHTER],00:00:12.536,00:00:13.392
+&gt;&gt; Welcome back.,00:00:13.392,00:00:14.240
+This is CS50.,00:00:14.240,00:00:14.990
+And this the end of week five.,00:00:14.990,00:00:16.890
+"And up until now, we've pretty much
+been taking for granted that there",00:00:16.890,00:00:20.020
+"exists this compiler, Clang, that you've
+been invoking by way of this",00:00:20.020,00:00:23.480
+"other tool called Make that somehow
+magically converts your source code",00:00:23.480,00:00:27.100
+"into object code, the zeros and ones
+that your computers CPU, central",00:00:27.100,00:00:31.350
+"processing unit, actually understands.",00:00:31.350,00:00:33.410
+"But it turns out there's a number that's
+going on underneath the hood in",00:00:33.410,00:00:36.770
+between input and output.,00:00:36.770,00:00:38.690
+"&gt;&gt; And I'd like to propose that we flesh
+that out in a little more detail into",00:00:38.690,00:00:41.800
+"these four steps, have something called
+pre-processing, something",00:00:41.800,00:00:45.130
+"called compiling, which we have seen,
+something called assembling, and",00:00:45.130,00:00:48.300
+something called linking.,00:00:48.300,00:00:49.420
+"So up until now, in some of our
+programs, we've had sharp includes.",00:00:49.420,00:00:53.270
+"More recently we've had some sharp
+defines for constants.",00:00:53.270,00:00:56.650
+"So it turns out that those things that
+are prefixed with the hash symbol or",00:00:56.650,00:01:00.660
+"the pound symbol are pre-processor
+directives.",00:01:00.660,00:01:04.150
+"That's just a fancy way of saying it's
+a line of code that's actually",00:01:04.150,00:01:07.960
+"converted into something else before the
+computer even try to convert your",00:01:07.960,00:01:12.280
+program into zeros and ones.,00:01:12.280,00:01:13.800
+"&gt;&gt; For instance, sharp includes standard
+I/O .h, pretty much just means go",00:01:13.800,00:01:19.000
+"ahead, grab the contents of the files
+stdio.h and paste them right there.",00:01:19.000,00:01:24.010
+"So no zeros and ones
+at that point yet.",00:01:24.010,00:01:25.880
+It's really just a substitution.,00:01:25.880,00:01:27.470
+"And that's done during the so-called
+pre-processing stage, when you",00:01:27.470,00:01:30.790
+"actually run Clang or specifically
+Make in most cases.",00:01:30.790,00:01:34.230
+"So all this has been happening
+first automatically thus far.",00:01:34.230,00:01:36.950
+&gt;&gt; Then comes the compilation step.,00:01:36.950,00:01:38.800
+"But we've been oversimplified
+compilation.",00:01:38.800,00:01:40.920
+"Compiling a program really means to
+take it from something like C, the",00:01:40.920,00:01:45.060
+"source code we've been writing, down
+to something called assembly.",00:01:45.060,00:01:48.430
+"Assembly language is a lower level
+language that, thankfully, we won't",00:01:48.430,00:01:52.900
+"have much occasion to
+write this semester.",00:01:52.900,00:01:55.480
+"But it's at the lowest level in the
+sense that you literally start writing",00:01:55.480,00:01:59.100
+"add and subtract and multiply and load
+from memory and save to memory, the",00:01:59.100,00:02:04.270
+"very basic instructions that a computer,
+underneath the hood,",00:02:04.270,00:02:08.259
+actually understands.,00:02:08.259,00:02:09.639
+"&gt;&gt; Lastly, assembling takes that language
+to the zeros and ones that we've been",00:02:09.639,00:02:14.930
+describing thus far.,00:02:14.930,00:02:16.190
+"And truly lastly, there's the so-called
+linking phase, which we'll",00:02:16.190,00:02:19.270
+"see in just a moment, which combines
+your zeros and ones with zeros and",00:02:19.270,00:02:22.360
+"ones other people before
+you have created.",00:02:22.360,00:02:24.870
+&gt;&gt; So consider this super simple program.,00:02:24.870,00:02:26.660
+It was from Week 1.,00:02:26.660,00:02:27.560
+"It just said, Hello World,
+on the screen.",00:02:27.560,00:02:29.610
+We ran this through Clang.,00:02:29.610,00:02:30.920
+"Or we ran it through Make
+which ran Clang.",00:02:30.920,00:02:33.200
+"And outputted at the time where
+some zeros and ones.",00:02:33.200,00:02:36.170
+"But it turns out there's
+an intermediate step.",00:02:36.170,00:02:38.100
+"If I go over here-- oops, didn't
+want to see him yet.",00:02:38.100,00:02:40.460
+"If I go over here to my appliance
+and I open up hello.c, here",00:02:40.460,00:02:44.800
+is that same program.,00:02:44.800,00:02:46.160
+"And what I'm going to do in my terminal
+window here is I'm going to",00:02:46.160,00:02:48.600
+"run Clang rather than Make, which
+automates all four of",00:02:48.600,00:02:51.430
+those steps for us.,00:02:51.430,00:02:52.870
+"And I'm going to do clang-S and
+then hello.c and then enter.",00:02:52.870,00:02:58.620
+"&gt;&gt; And I get a blinking prompt
+again, which is good.",00:02:58.620,00:03:00.590
+"And now in a slightly bigger window,
+I'm going to open up gedit in here.",00:03:00.590,00:03:05.280
+"And I'm going to open up a file that,
+turns out, is called hello.s this",00:03:05.280,00:03:09.610
+"contains that assembly language
+I referred to earlier.",00:03:09.610,00:03:11.870
+"And this is what's called assembly
+language, fairly low level",00:03:11.870,00:03:15.060
+"instructions that your Intel CPU
+or whatever it is that's inside",00:03:15.060,00:03:18.470
+understands.,00:03:18.470,00:03:19.350
+"And mov is for move. call is for
+calling, a very low level function.",00:03:19.350,00:03:24.480
+sub is for subtract.,00:03:24.480,00:03:26.380
+"&gt;&gt; So when you have a particular CPU inside
+of your computer, what makes it",00:03:26.380,00:03:30.370
+"distinct, versus other CPUs on the
+market, is which instructions it",00:03:30.370,00:03:34.300
+"understands and often how efficient it
+is, how fast it is at executing some",00:03:34.300,00:03:39.460
+of those instructions.,00:03:39.460,00:03:40.380
+"Now for more on this, you can take
+next Fall CS61 at the college.",00:03:40.380,00:03:45.150
+"But here we have, for instance, a few
+identifiers that might look familiar.",00:03:45.150,00:03:48.170
+hello.c is the name of the program.,00:03:48.170,00:03:50.150
+&gt;&gt; .text--,00:03:50.150,00:03:51.070
+"there's not much of interest there
+just now, recall that the text",00:03:51.070,00:03:54.190
+"segment, as of Monday, is where in
+memory your program actually ends up.",00:03:54.190,00:03:59.190
+"So that's at least vaguely
+familiar there.",00:03:59.190,00:04:01.330
+"Here, of course, is a mention
+of our main function.",00:04:01.330,00:04:03.730
+"Scrolling down, these refer to things
+called registers, very small chunks of",00:04:03.730,00:04:07.220
+memory inside of your actual CPU.,00:04:07.220,00:04:09.190
+"And if I scroll down even
+further, I see some sort",00:04:09.190,00:04:12.930
+indirect mention of ASCII.,00:04:12.930,00:04:14.240
+"And there, indeed, is that string,
+hello, comma, world.",00:04:14.240,00:04:17.120
+"&gt;&gt; So long story short, this has been
+happening for you, automatically,",00:04:17.120,00:04:20.079
+underneath the hood all of this time.,00:04:20.079,00:04:22.140
+"And what's been happening really is once
+you've run Clang, or by way of",00:04:22.140,00:04:26.450
+"Make, you're getting first,
+from the source code, the",00:04:26.450,00:04:29.150
+so-called assembly language.,00:04:29.150,00:04:30.700
+"Then Clang is converting this assembly
+language down to zeros and ones.",00:04:30.700,00:04:35.210
+"And this is the slide that we started
+our discussion in Week 0 on--",00:04:35.210,00:04:38.340
+and then Week 1 on.,00:04:38.340,00:04:39.840
+"And then finally, those zeros and ones
+are combined with the zeros and ones",00:04:39.840,00:04:44.030
+"from those libraries we've been taking
+for granted like Standard I/O or the",00:04:44.030,00:04:47.190
+"String Library or even
+the CS50 library.",00:04:47.190,00:04:50.010
+"&gt;&gt; So to paint this picture more
+visually, we have hello.c.",00:04:50.010,00:04:54.200
+"And it, of course, uses the printf
+function to say, hello world.",00:04:54.200,00:04:57.220
+"The compilation step takes it down to
+that file we just saw hello.s, even",00:04:57.220,00:05:01.810
+"though that's typically deleted
+automatically for you.",00:05:01.810,00:05:04.290
+"But that's the assembly code
+in the middle step.",00:05:04.290,00:05:06.050
+"And then when we assemble the assembly
+language, so to speak, that's when you",00:05:06.050,00:05:09.750
+get those zeros and ones.,00:05:09.750,00:05:10.830
+"So we've zoomed in effectively today on
+what we've been taking for granted,",00:05:10.830,00:05:13.920
+"means going source code
+to object code.",00:05:13.920,00:05:16.430
+"&gt;&gt; But lastly, now that same picture--
+let's shove it over to",00:05:16.430,00:05:18.850
+the left hand side.,00:05:18.850,00:05:20.020
+"And note that in the top there
+I mentioned stdio.h.",00:05:20.020,00:05:22.880
+"That's a file that we've included
+in almost all of the",00:05:22.880,00:05:25.030
+programs we've written.,00:05:25.030,00:05:26.250
+"And that's the file whose contents
+get copy pasted,",00:05:26.250,00:05:28.830
+effectively atop your code.,00:05:28.830,00:05:30.350
+"But it turns out that, on a computer
+system somewhere, there's presumably a",00:05:30.350,00:05:34.170
+"stdio.c file that someone wrote years
+ago that implements all of the",00:05:34.170,00:05:39.150
+"functions that were declared
+in stdio.h.",00:05:39.150,00:05:41.870
+"&gt;&gt; Now in reality it's probably not on
+your Mac or your PC or even in the",00:05:41.870,00:05:45.465
+CS50 appliance is a raw C code.,00:05:45.465,00:05:47.660
+"Someone already compiled it and included
+.o file for object code or .a",00:05:47.660,00:05:52.710
+"file, which refers to a shared library
+that's been pre-installed and",00:05:52.710,00:05:56.020
+pre-compiled for you.,00:05:56.020,00:05:57.240
+"But suppose that there indeed exists
+on our computer stdio.c in parallel",00:05:57.240,00:06:01.950
+with Clang.,00:06:01.950,00:06:02.650
+"Your code's being compiled
+and assembled.",00:06:02.650,00:06:04.960
+"stdio.c's code is being compiled and
+assembled, so that this very last",00:06:04.960,00:06:09.200
+"step, down here, we have to somehow
+link, so to speak, your zeros and ones",00:06:09.200,00:06:13.730
+"with his or her zeros and ones into one
+simple program that ultimately is",00:06:13.730,00:06:18.430
+called just Hello.,00:06:18.430,00:06:20.540
+"&gt;&gt; So that's all of the magic that's
+been happening thus far.",00:06:20.540,00:06:23.340
+"And will continue to take these
+processes for granted, but realize",00:06:23.340,00:06:26.430
+"there's a lot of juicy details
+going on underneath there.",00:06:26.430,00:06:28.750
+"And this is what makes your
+computer with Intel inside",00:06:28.750,00:06:31.920
+particularly distinct.,00:06:31.920,00:06:33.940
+"&gt;&gt; So on that note, if you would like to
+join us for lunch this Friday, do go",00:06:33.940,00:06:37.020
+"to the usual place cs50.net/rsvp,
+1:15 PM this Friday.",00:06:37.020,00:06:41.570
+And now a few announcements.,00:06:41.570,00:06:43.400
+So we have some good news.,00:06:43.400,00:06:44.670
+And we have some bad news.,00:06:44.670,00:06:45.970
+Start with some good news here.,00:06:45.970,00:06:47.260
+&gt;&gt; [GROANING],00:06:52.038,00:06:54.510
+&gt;&gt; All right.,00:06:54.510,00:06:54.710
+"Well, it's technically a holiday, so
+it's not so much a gift from us.",00:06:54.710,00:06:56.670
+But then the bad news of course.,00:06:56.670,00:06:58.030
+&gt;&gt; [GROANING],00:07:00.550,00:07:01.880
+"&gt;&gt; I spent a lot of time
+on these animations.",00:07:01.880,00:07:03.530
+&gt;&gt; [LAUGHTER],00:07:03.530,00:07:04.690
+"&gt;&gt; There will be a review session
+this coming Monday.",00:07:04.690,00:07:07.000
+It's going to be at 5:30 PM.,00:07:07.000,00:07:08.340
+"We will remind you of all these details
+via email on the course's",00:07:08.340,00:07:11.210
+website in just a couple of days time.,00:07:11.210,00:07:13.470
+"It will be filmed and made available
+shortly thereafter.",00:07:13.470,00:07:16.610
+"So if you can't make that Monday
+night slot, don't worry.",00:07:16.610,00:07:19.200
+"Sections this coming week will also
+focus on review for the quiz.",00:07:19.200,00:07:22.270
+"If your section is on Monday, which is
+indeed university holiday, we will",00:07:22.270,00:07:25.670
+still meet in section.,00:07:25.670,00:07:26.920
+"If you simply can't make that
+section because you're going",00:07:26.920,00:07:28.890
+"away, that's fine.",00:07:28.890,00:07:29.860
+"Attend a Sunday or Tuesday section or
+tune-in to Jason's section, which is",00:07:29.860,00:07:33.710
+available online.,00:07:33.710,00:07:35.110
+"&gt;&gt; So, more bad news.",00:07:35.110,00:07:37.490
+"So according to the syllabus,
+we have lecture next Friday.",00:07:37.490,00:07:41.960
+But the good news--,00:07:41.960,00:07:43.690
+"clearly, I spent too much time on this.",00:07:43.690,00:07:44.860
+&gt;&gt; [LAUGHTER],00:07:44.860,00:07:45.280
+&gt;&gt; We'll cancel next Friday's lectures.,00:07:45.280,00:07:47.140
+"So that will be a gift for us, so you
+can really have a nice respite in",00:07:47.140,00:07:50.590
+between this week and two weeks hence.,00:07:50.590,00:07:52.990
+"So no lectures next week, just a tiny
+little quiz, for which you should be",00:07:52.990,00:07:57.460
+getting increasingly excited.,00:07:57.460,00:07:59.030
+"&gt;&gt; So let's now turn our attention to
+something that is indeed more visual",00:07:59.030,00:08:03.870
+"and more exciting and to set the stage
+for what's going to be on the horizon",00:08:03.870,00:08:06.990
+in just a couple of weeks time.,00:08:06.990,00:08:08.420
+"After the first quiz, we'll turn the
+focus of our problem sets to another",00:08:08.420,00:08:12.160
+"domain specific problem, that of
+forensics or security more generally.",00:08:12.160,00:08:16.710
+"&gt;&gt; In fact, the tradition with this problem
+set is for me one of the",00:08:16.710,00:08:19.550
+"teaching fellow or CAs to walk across
+campus taking some photographs of",00:08:19.550,00:08:24.850
+"identifiable but non obvious people,
+places, or things, then every year I",00:08:24.850,00:08:29.450
+"somehow manage to accidentally delete
+or corrupt the digital media card",00:08:29.450,00:08:34.520
+that's inside of our camera.,00:08:34.520,00:08:35.720
+But no big deal.,00:08:35.720,00:08:36.860
+"I can go ahead and plug
+that into my computer.",00:08:36.860,00:08:39.200
+"I can make a forensic image of it, so
+to speak, by copying the zeros and",00:08:39.200,00:08:43.010
+"ones off of that memory card, whether
+its a SD card or compact flash card or",00:08:43.010,00:08:46.830
+whatever you're familiar with.,00:08:46.830,00:08:48.100
+And then we can hand that out.,00:08:48.100,00:08:49.300
+"&gt;&gt; And so the challenge ahead, among other
+things for you, will be to write",00:08:49.300,00:08:53.190
+"C code that recovers a whole bunch of
+JPEGs for me and revealed will be",00:08:53.190,00:08:58.630
+"those people, places, or things.",00:08:58.630,00:09:00.190
+"And we'll also talk, in this problem
+set and in the days to come, about",00:09:00.190,00:09:03.340
+graphics more generally.,00:09:03.340,00:09:04.440
+"We've used them, a course,
+for break out.",00:09:04.440,00:09:06.140
+"But you've sort of taken for granted
+there exists these high level notions",00:09:06.140,00:09:09.080
+of rectangles and ovals.,00:09:09.080,00:09:10.680
+"But underneath the hood
+there are pixels.",00:09:10.680,00:09:12.450
+"And you have had to start
+thinking about those.",00:09:12.450,00:09:14.370
+"Or you will for p-set 4 have to think
+about the gap between your bricks, how",00:09:14.370,00:09:18.800
+"quickly you're ball is moving across
+the screen for break out.",00:09:18.800,00:09:21.990
+"So there is this notion of the
+dots on your screen that's",00:09:21.990,00:09:24.830
+come into play already.,00:09:24.830,00:09:26.290
+"&gt;&gt; Now what you see, though, is what
+you get on a computer screen.",00:09:26.290,00:09:29.430
+"If you've ever watched some good or
+bad TV, odds are they pretty much",00:09:29.430,00:09:33.680
+"treat the audience like technophobes
+who don't really",00:09:33.680,00:09:36.280
+know much about computing.,00:09:36.280,00:09:37.630
+"And so it's very easy for the police
+detective to say, can you",00:09:37.630,00:09:40.840
+clean that up for me?,00:09:40.840,00:09:41.710
+"Or enhance, right?",00:09:41.710,00:09:42.710
+"Enhance is like the buzz word in
+most any crime related show.",00:09:42.710,00:09:45.550
+"And the reality is if you take a very
+blurry picture of a suspect doing",00:09:45.550,00:09:49.240
+"something bad, you cannot
+just enhance it.",00:09:49.240,00:09:51.620
+You cannot zoom in infinitely.,00:09:51.620,00:09:53.080
+"You cannot see in the glint of someone's
+eye who committed that",00:09:53.080,00:09:56.350
+"particular crime, despite the
+prevalence of this on TV.",00:09:56.350,00:09:59.860
+"&gt;&gt; And so with that let's motivate that
+upcoming problem set with a glimpse at",00:09:59.860,00:10:04.110
+"some shows with which you
+might be familiar.",00:10:04.110,00:10:05.765
+&gt;&gt; [VIDEO PLAYBACK],00:10:05.765,00:10:06.500
+&gt;&gt; -OK.,00:10:06.500,00:10:07.835
+"Now, let's get a good look at you.",00:10:07.835,00:10:09.956
+&gt;&gt; -Hold it.,00:10:17.060,00:10:17.766
+Run that back.,00:10:17.766,00:10:18.658
+&gt;&gt; -Wait a minute.,00:10:18.658,00:10:19.550
+Go right.,00:10:19.550,00:10:21.580
+&gt;&gt; -There.,00:10:21.580,00:10:21.800
+Freeze that.,00:10:21.800,00:10:22.690
+&gt;&gt; -Full screen.,00:10:22.690,00:10:23.692
+&gt;&gt; -OK.,00:10:23.692,00:10:23.846
+Freeze that.,00:10:23.846,00:10:24.154
+"&gt;&gt; -Tighten up on that, will ya?",00:10:24.154,00:10:25.140
+"&gt;&gt; -Vector in on that guy
+by the back wheel.",00:10:25.140,00:10:27.090
+&gt;&gt; -Zoom in right here on this spot.,00:10:27.090,00:10:29.730
+"&gt;&gt; -With the right equipment, the imaged
+can be enlarged and sharpened.",00:10:29.730,00:10:33.700
+&gt;&gt; -What's that?,00:10:33.700,00:10:34.490
+&gt;&gt; -It's an enhancement program.,00:10:34.490,00:10:35.870
+&gt;&gt; -Can you clear that up any?,00:10:35.870,00:10:36.793
+&gt;&gt; -I don't know.,00:10:36.793,00:10:38.560
+Let's enhance it.,00:10:38.560,00:10:39.090
+&gt;&gt; -Enhance section A-6.,00:10:39.090,00:10:41.690
+&gt;&gt; -I enhanced the detail and--,00:10:41.690,00:10:43.510
+&gt;&gt; -I think there's enough to enhance.,00:10:43.510,00:10:44.456
+Release it to my screen.,00:10:44.456,00:10:45.402
+&gt;&gt; -Enhance the reflection in her eye.,00:10:45.402,00:10:47.300
+"&gt;&gt; -Let's run this through
+video enhancement.",00:10:47.300,00:10:49.330
+"&gt;&gt; -Edgar, can you enhance this?",00:10:49.330,00:10:50.340
+&gt;&gt; -Hang on.,00:10:50.340,00:10:52.320
+&gt;&gt; -I've been working on this reflection.,00:10:52.320,00:10:54.290
+&gt;&gt; -Someone's reflection.,00:10:54.290,00:10:55.560
+&gt;&gt; -Reflection.,00:10:55.560,00:10:56.440
+"&gt;&gt; -There's a reflection
+of the man's face.",00:10:56.440,00:10:57.940
+&gt;&gt; -The reflection.,00:10:57.940,00:10:58.860
+&gt;&gt; -There's a reflection.,00:10:58.860,00:10:59.710
+&gt;&gt; -Zoom in on the mirror.,00:10:59.710,00:11:00.900
+&gt;&gt; -You can see a reflection.,00:11:00.900,00:11:03.500
+&gt;&gt; -Can you enhance the image from here?,00:11:03.500,00:11:04.700
+&gt;&gt; -Can you enhance him right here?,00:11:04.700,00:11:05.700
+&gt;&gt; -Can you enhance it?,00:11:05.700,00:11:06.500
+&gt;&gt; -Can you enhance it?,00:11:06.500,00:11:07.380
+&gt;&gt; -Can we enhance this?,00:11:07.380,00:11:08.190
+&gt;&gt; -Can you enhance it?,00:11:08.190,00:11:08.940
+"&gt;&gt; -Hold on a second, I'll enhance.",00:11:08.940,00:11:10.280
+&gt;&gt; -Zoom in on the door.,00:11:10.280,00:11:11.570
+&gt;&gt; -x10.,00:11:11.570,00:11:12.180
+&gt;&gt; -Zoom.,00:11:12.180,00:11:13.052
+&gt;&gt; [LAUGHTER],00:11:13.052,00:11:13.197
+&gt;&gt; -Move in.,00:11:13.197,00:11:14.360
+"&gt;&gt; -Wait, stop.",00:11:14.360,00:11:15.100
+&gt;&gt; -Stop.,00:11:15.100,00:11:15.740
+&gt;&gt; -Pause it.,00:11:15.740,00:11:16.290
+"&gt;&gt; -Rotate a 75 degrees around
+the vertical please.",00:11:16.290,00:11:19.390
+&gt;&gt; [LAUGHTER],00:11:19.390,00:11:19.886
+"&gt;&gt; -Stop, and back to the part
+about the door again.",00:11:19.886,00:11:24.350
+"&gt;&gt; -Got an image enhancer
+that can bitmap?",00:11:24.350,00:11:26.330
+"&gt;&gt; -Maybe we can use the Pradeep Sen
+method to see into the windows.",00:11:26.330,00:11:28.990
+&gt;&gt; -This software is state of the art.,00:11:28.990,00:11:30.680
+&gt;&gt; -The icon value is off.,00:11:30.680,00:11:31.676
+"&gt;&gt; -With the right combination
+of algorithms.",00:11:31.676,00:11:34.166
+"&gt;&gt; -He's taken illumination algorithms to
+the next level and I can use them to",00:11:34.166,00:11:38.399
+enhance this photograph.,00:11:38.399,00:11:38.648
+&gt;&gt; -Lock on and enlarge the z-axis.,00:11:38.648,00:11:42.050
+&gt;&gt; -Enhance.,00:11:42.050,00:11:42.760
+&gt;&gt; -Enhance.,00:11:42.760,00:11:43.060
+&gt;&gt; -Enhance.,00:11:43.060,00:11:43.760
+&gt;&gt; -Freeze and enhance.,00:11:43.760,00:11:45.010
+&gt;&gt; [END VIDEO PLAYBACK],00:11:47.470,00:11:47.910
+"&gt;&gt; DAVID J. MALAN: So Problem Set
+5 is what lies ahead there.",00:11:47.910,00:11:51.470
+"So we'll soon get a better understanding
+of when and why you can",00:11:51.470,00:11:55.260
+and our cannot enhance in that way.,00:11:55.260,00:11:57.300
+"But first, let's return our attention
+to some of the building blocks we'll",00:11:57.300,00:12:00.090
+need to be able to tell that story.,00:12:00.090,00:12:02.250
+"&gt;&gt; So recall that we drew this picture on
+Monday and a little bit last week.",00:12:02.250,00:12:05.580
+"And this describes the layout of things
+in your computer's memory when",00:12:05.580,00:12:09.970
+running some program.,00:12:09.970,00:12:11.000
+"The tech segment up top, recall, refers
+to the actual zeros and ones",00:12:11.000,00:12:14.310
+that compose your program.,00:12:14.310,00:12:16.000
+"There's, below that, some initialized or
+uninitialized data, which typically",00:12:16.000,00:12:19.340
+"refers to things like constants or
+strings or global variables that have",00:12:19.340,00:12:22.910
+been declared in advance.,00:12:22.910,00:12:24.200
+"There's the heap, but we'll come
+back to that in a bit.",00:12:24.200,00:12:26.500
+&gt;&gt; And then there's the stack.,00:12:26.500,00:12:27.410
+"Much like a stack of trays in the
+cafeteria, this is where memory gets",00:12:27.410,00:12:30.660
+"layered and layered whenever
+you do what in a program?",00:12:30.660,00:12:33.610
+What is the stack use for?,00:12:36.380,00:12:37.730
+&gt;&gt; Yeah?,00:12:37.730,00:12:39.320
+&gt;&gt; Call of function.,00:12:39.320,00:12:40.000
+"Any time you call a function, it's
+given to sliver of memory for its",00:12:40.000,00:12:42.890
+local variables or its parameters.,00:12:42.890,00:12:45.020
+"And pictorially, we see that with each
+successive function called, when A",00:12:45.020,00:12:48.810
+"calls B calls C calls D, they
+get layered onto the stack.",00:12:48.810,00:12:52.520
+"And within each of those slices of
+memory is essentially a unique scope",00:12:52.520,00:12:55.630
+"for that function, which, of course,
+is problematic if you want to hand",00:12:55.630,00:12:58.590
+"from one function to another A piece
+of data that you want it",00:12:58.590,00:13:01.850
+to mutate or change.,00:13:01.850,00:13:03.500
+"&gt;&gt; So what was our solution to enabling
+A function represented by one stack",00:13:03.500,00:13:08.060
+"frame to change the memory inside
+of another stack frame?",00:13:08.060,00:13:11.390
+How do those two talk to one another?,00:13:11.390,00:13:14.590
+"So by way of pointers or addresses,
+which, again, just describe where in",00:13:14.590,00:13:18.510
+"memory, by way of a specific
+bite number, the particular",00:13:18.510,00:13:22.280
+value can be found.,00:13:22.280,00:13:23.830
+"So recall last time too we continued
+the story and looked at a",00:13:23.830,00:13:26.860
+fairly buggy program.,00:13:26.860,00:13:28.280
+"And this program is buggy for a few
+reasons, but the most worrisome one is",00:13:28.280,00:13:32.900
+because it fails to check what?,00:13:32.900,00:13:34.620
+"&gt;&gt; Yeah, it fails to check the input.",00:13:39.111,00:13:40.450
+Sorry?,00:13:40.450,00:13:41.870
+&gt;&gt; If it's more than 12 characters.,00:13:41.870,00:13:43.880
+"So very smartly, when calling memcopy,
+which, as the name suggests, just",00:13:43.880,00:13:47.260
+"copies memory from its second argument
+into its first argument.",00:13:47.260,00:13:50.630
+"The third argument, very smartly, is
+checked to make sure that you don't",00:13:50.630,00:13:54.730
+"copy more than, in this case, the length
+of bar, number of characters,",00:13:54.730,00:13:59.400
+"into the destination, which is this
+array C. But the problem is that what",00:13:59.400,00:14:03.810
+"if C itself is not big enough
+to handle that?",00:14:03.810,00:14:07.230
+"You're going to copy the number of
+bytes that you've been given.",00:14:07.230,00:14:09.900
+"But what do you actually have more
+bytes than you have room for?",00:14:09.900,00:14:13.040
+"&gt;&gt; Well, this program very foolishly just
+blindly proceeds to take whatever it's",00:14:13.040,00:14:16.770
+"given, hello backslash 0 is
+great if string is short",00:14:16.770,00:14:20.650
+"enough, like five chars.",00:14:20.650,00:14:22.040
+"But if it's actually 12 characters or
+1,200 characters, we saw last time",00:14:22.040,00:14:26.470
+"that you're just going to completely
+overwrite memory that",00:14:26.470,00:14:29.380
+doesn't belong to you.,00:14:29.380,00:14:30.470
+"And worst case, if you overwrite that
+red portion there that we called the",00:14:30.470,00:14:34.390
+return address--,00:14:34.390,00:14:35.380
+"this is just where the computer
+automatically, for you, behind the",00:14:35.380,00:14:38.370
+"scenes, tucks away a 32-bit value that
+reminds it to what address it should",00:14:38.370,00:14:43.130
+"return when foo, this other function,
+is done executing.",00:14:43.130,00:14:47.080
+"It's a bread crumb of sorts
+to which it returns.",00:14:47.080,00:14:49.320
+"If you overwrite that, potentially,
+if you're the bad guy, can could",00:14:49.320,00:14:52.490
+"potentially take over
+someone's computer.",00:14:52.490,00:14:54.750
+"And you'll most certainly
+crash it in most cases.",00:14:54.750,00:14:58.020
+"&gt;&gt; Now this problem was only exacerbated
+as we started talking about memory",00:14:58.020,00:15:01.690
+management more generally.,00:15:01.690,00:15:03.010
+"And malloc, for memory allocation, is a
+function that we can use to allocate",00:15:03.010,00:15:07.150
+"memory when we don't know in advance
+that we might need some.",00:15:07.150,00:15:11.260
+"So, for instance, if I go back
+to the appliance here.",00:15:11.260,00:15:13.960
+"And I open up from last time hello2.c,
+recall this program here, which looked",00:15:13.960,00:15:21.010
+"a little something like this,
+just three lines--",00:15:21.010,00:15:23.500
+"state your name, then string name,
+on the left, equals getstring.",00:15:23.500,00:15:27.940
+"And then we print it out,
+the user's name.",00:15:27.940,00:15:29.690
+&gt;&gt; So this was a super simple program.,00:15:29.690,00:15:31.170
+"To be clear, let me go ahead
+and make hello-2.",00:15:31.170,00:15:34.870
+I'm going to do dot slash hello-2.,00:15:34.870,00:15:36.680
+State your name--,00:15:36.680,00:15:37.750
+David.,00:15:37.750,00:15:38.140
+Enter.,00:15:38.140,00:15:38.840
+Hello David.,00:15:38.840,00:15:39.540
+It seems to work OK.,00:15:39.540,00:15:41.060
+"But what's really going on
+underneath hood here?",00:15:41.060,00:15:43.140
+First let's peel back some layers.,00:15:43.140,00:15:44.670
+"String is just a synonym we've
+realized for what?",00:15:44.670,00:15:48.380
+Char star.,00:15:48.380,00:15:49.110
+"So let's make it a little more arcane
+but more technically correct that this",00:15:49.110,00:15:52.740
+"is a char star, which means that
+name, yes, is a variable.",00:15:52.740,00:15:55.570
+"But what name stores is the address of
+a char, which feels a little strange",00:15:55.570,00:15:59.920
+because I'm getting back a string.,00:15:59.920,00:16:01.050
+"I'm getting back multiple
+chars not a char.",00:16:01.050,00:16:03.580
+"&gt;&gt; But of course, you only need the first
+char's address to remember where the",00:16:03.580,00:16:07.400
+whole string is because why?,00:16:07.400,00:16:08.870
+"How do you figure out where the end of
+the string is knowing the beginning?",00:16:08.870,00:16:12.700
+The backslash zero.,00:16:12.700,00:16:13.630
+"So with those two clues you figure out
+before the beginning and the end of",00:16:13.630,00:16:17.260
+"any string are, so long as they're
+properly formed with that null",00:16:17.260,00:16:20.280
+"terminator, that backslash zero.",00:16:20.280,00:16:22.110
+&gt;&gt; But this is calling getstring.,00:16:22.110,00:16:24.520
+"And it turns out that getstring
+all this time has been kind of",00:16:24.520,00:16:28.020
+cheating for us.,00:16:28.020,00:16:28.820
+"It's been doing this labor, to be sure,
+getting a string from the user.",00:16:28.820,00:16:32.460
+"But where's that memory
+been coming from?",00:16:32.460,00:16:34.580
+"If we go back to the picture here and
+apply the definition from just a",00:16:34.580,00:16:38.440
+"moment ago, that the stack is where
+memory goes when functions are called,",00:16:38.440,00:16:42.610
+"by that logic, when you call getstring,
+and then I type in",00:16:42.610,00:16:45.370
+"D-A-V-I-D Enter, where is D-A-V-I-D
+backslash zero stored, based on the",00:16:45.370,00:16:50.900
+story we've told us far?,00:16:50.900,00:16:53.480
+"&gt;&gt; It would seem to be in
+the stack, right?",00:16:53.480,00:16:55.190
+"When you call get string you get a
+little slice of memory on the stack.",00:16:55.190,00:16:58.120
+"So it stands to reason that D-A-V-I-D
+backslash zero is stored",00:16:58.120,00:17:01.630
+there in the stack.,00:17:01.630,00:17:02.770
+"But wait a minute, getstring returns
+that string, so to speak, which means",00:17:02.770,00:17:07.680
+"it's tray from the cafeteria
+is taken off the stack.",00:17:07.680,00:17:11.700
+"And we said last time that as soon as a
+function returns, and you take that",00:17:11.700,00:17:14.560
+"tray, so to speak, off the stack, what
+can you assume about the remnants of",00:17:14.560,00:17:20.109
+that memory?,00:17:20.109,00:17:21.819
+"I sort of redrew them as question marks
+because they effectively become",00:17:21.819,00:17:25.160
+unknown values.,00:17:25.160,00:17:26.250
+"They can be reused when some
+next function is called.",00:17:26.250,00:17:29.500
+"&gt;&gt; In other words, if we happen
+to be storing--",00:17:29.500,00:17:31.870
+"I'll draw a quick picture
+here of the stack.",00:17:31.870,00:17:34.350
+"If we happen to be drawing the bottom
+of my memory segment, and we'll say",00:17:34.350,00:17:38.690
+"that this is the place of memory
+occupied by main and maybe arg c and",00:17:38.690,00:17:42.230
+"arg v and anything else in the program,
+when getstring is called,",00:17:42.230,00:17:46.790
+"presumably getstring gets
+a chunk of memory here.",00:17:46.790,00:17:51.120
+"And then D-A-V-I-D somehow
+ends up in this function.",00:17:51.120,00:17:53.940
+And I'm going to oversimplify.,00:17:53.940,00:17:55.320
+"But let's assume that its D-A-V-I-D
+backslash zero.",00:17:55.320,00:18:00.050
+"So this many bytes are used in
+the frame for getstring.",00:18:00.050,00:18:03.500
+"&gt;&gt; But as soon as getstring returns, we
+said last time that this memory over",00:18:03.500,00:18:08.270
+here all becomes --woops!--,00:18:08.270,00:18:11.340
+all becomes effectively erased.,00:18:11.340,00:18:14.270
+"And we can think of this now as question
+marks because who knows",00:18:14.270,00:18:17.220
+what's going to become of that memory.,00:18:17.220,00:18:18.720
+"Indeed, I very often call functions
+other than getstring.",00:18:18.720,00:18:22.130
+"And as soon as I call some other
+function than getstring, maybe not in",00:18:22.130,00:18:24.750
+"this particular program we just looked
+at but some other, surely some other",00:18:24.750,00:18:28.860
+"function might end up being given
+this next spot in the stack.",00:18:28.860,00:18:34.180
+"&gt;&gt; So it can't be that getstring stores
+D-A-V-I-D on the stack because I would",00:18:34.180,00:18:39.410
+immediately lose access to it.,00:18:39.410,00:18:41.040
+"But we know they getstring
+only returns what?",00:18:41.040,00:18:43.720
+"It's not returning to
+me six characters.",00:18:43.720,00:18:47.220
+"What is it truly returning did
+we conclude last time?",00:18:47.220,00:18:51.090
+The address of the first.,00:18:51.090,00:18:52.480
+"So somehow, when you called getstring,
+it's allocating a chunk of memory for",00:18:52.480,00:18:56.650
+"the string that the users type and
+then returning address of it.",00:18:56.650,00:18:59.620
+"And it turns out that when you want to
+function to allocate memory in this",00:18:59.620,00:19:02.930
+"way and return to the person who called
+that function, the address of",00:19:02.930,00:19:08.390
+"that chunk of memory, you absolutely
+can't put it in the stack at the",00:19:08.390,00:19:11.870
+"bottom, because functionally it's just
+going to not become yours very",00:19:11.870,00:19:14.750
+"quickly, so you can probably guess where
+we're probably going to toss it",00:19:14.750,00:19:17.800
+"instead, the so-called heap.",00:19:17.800,00:19:20.130
+"&gt;&gt; So between the bottom of your memory's
+layout and the top of your memory's",00:19:20.130,00:19:25.290
+layout are a whole bunch of segments.,00:19:25.290,00:19:26.820
+"One is the stack, and right
+above it is the heap.",00:19:26.820,00:19:29.270
+"And heap is just a different chunk of
+memory that's not used for functions",00:19:29.270,00:19:33.680
+when they're called.,00:19:33.680,00:19:34.770
+"It's used for longer term memory, when
+you want one function to grab some",00:19:34.770,00:19:38.100
+"memory and be able to hang on to it
+without losing control over it.",00:19:38.100,00:19:42.700
+"&gt;&gt; Now you could perhaps immediately
+see that this is not",00:19:42.700,00:19:45.550
+necessarily a perfect design.,00:19:45.550,00:19:48.060
+"As your program allocated memory on
+the stack, or as you call more and",00:19:48.060,00:19:51.350
+"more functions, or as you allocate
+memory on the heap with malloc off as",00:19:51.350,00:19:55.540
+"getstring is doing, what clearly
+seems to be inevitable problem?",00:19:55.540,00:20:00.690
+&gt;&gt; Right.,00:20:00.690,00:20:00.860
+"Like the fact that these arrows
+are pointing at each other",00:20:00.860,00:20:03.150
+does not bode well.,00:20:03.150,00:20:04.380
+"And indeed, we could very quickly crash
+a program in any number of ways.",00:20:04.380,00:20:08.630
+"In fact, I think we might have
+done this accidentally once.",00:20:08.630,00:20:12.050
+"Or if not, let's do it
+deliberately now.",00:20:12.050,00:20:14.020
+"Let me go ahead and write super quickly
+a program called dontdothis.c.",00:20:14.020,00:20:21.330
+"And now I'll go in here and
+do sharp include stdio.h.",00:20:21.330,00:20:26.730
+"Let's declare function foo takes
+no arguments, which is",00:20:26.730,00:20:32.620
+denoted as well by void.,00:20:32.620,00:20:34.040
+"&gt;&gt; And the only thing foo is going to do is
+call foo, which probably isn't the",00:20:34.040,00:20:37.830
+"smartest idea, but so be it.",00:20:37.830,00:20:39.100
+Ent main void.,00:20:39.100,00:20:40.490
+"Now the only thing main is going
+to do is call foo as well.",00:20:40.490,00:20:45.270
+"And just for kicks, I'm going to go
+ahead here and say printf ""Hello from",00:20:45.270,00:20:51.050
+"foo.""",00:20:51.050,00:20:52.340
+&gt;&gt; OK.,00:20:52.340,00:20:52.890
+"So if I didn't make any mistakes,
+Make dontdothis dot slash.",00:20:52.890,00:21:00.160
+And let's do it in a bigger window--,00:21:00.160,00:21:01.960
+"dot slash, dontdothis.",00:21:01.960,00:21:03.210
+Come on.,00:21:07.590,00:21:08.840
+Uh oh.,00:21:10.940,00:21:11.890
+"Apparently, you can do this.",00:21:11.890,00:21:13.100
+Damn it.,00:21:13.100,00:21:15.190
+OK.,00:21:15.190,00:21:16.190
+Wait.,00:21:16.190,00:21:16.580
+Stand by.,00:21:16.580,00:21:17.370
+Did we--,00:21:17.370,00:21:18.270
+We did use it with Make.,00:21:18.270,00:21:20.110
+&gt;&gt; [SIGHS],00:21:20.110,00:21:22.050
+"&gt;&gt; I know but I think we
+just deleted that.",00:21:22.050,00:21:25.110
+"Uh, yeah.",00:21:25.110,00:21:28.410
+Damn it.,00:21:28.410,00:21:30.660
+Solve this Rob.,00:21:30.660,00:21:32.640
+What?,00:21:32.640,00:21:34.678
+It's very simple.,00:21:34.678,00:21:35.928
+"Yeah, we turned optimization off.",00:21:43.820,00:21:47.360
+"OK, stand bye.",00:21:47.360,00:21:48.970
+Now I feel better.,00:21:48.970,00:21:49.950
+OK.,00:21:49.950,00:21:51.390
+All right.,00:21:51.390,00:21:51.780
+&gt;&gt; So let's recompile this--,00:21:51.780,00:21:53.430
+Make you dontdothis.,00:21:53.430,00:21:55.880
+"You might have to rename this to
+dothis.c in just a moment.",00:21:55.880,00:22:00.090
+There we go.,00:22:00.090,00:22:00.710
+Thank you.,00:22:00.710,00:22:01.240
+OK.,00:22:01.240,00:22:02.050
+"So the fact that I was printing
+something out was actually just",00:22:02.050,00:22:05.480
+"slowing down the process by which we
+would have reached that point.",00:22:05.480,00:22:08.150
+OK.,00:22:08.150,00:22:08.510
+Phew!,00:22:08.510,00:22:08.870
+&gt;&gt; So what is actually going on?,00:22:08.870,00:22:11.180
+"The reason there, just as an aside, is
+doing anything in terms of input and",00:22:11.180,00:22:14.440
+"output tends to be slower because you
+have to write characters to the",00:22:14.440,00:22:17.270
+"screen, It has to scroll.",00:22:17.270,00:22:18.600
+"So long story short, had I actually
+happened so impatient, we would have",00:22:18.600,00:22:21.720
+seen this end result as well.,00:22:21.720,00:22:23.260
+"Now that I got ride of the print-ups,
+we see it right away.",00:22:23.260,00:22:26.220
+So why is this happening.,00:22:26.220,00:22:28.410
+"Well, the simple explanation, of course,
+is that foo probably shouldn't",00:22:28.410,00:22:31.300
+be calling itself.,00:22:31.300,00:22:32.500
+"&gt;&gt; Now in general terms,
+this is recursion.",00:22:32.500,00:22:34.470
+"And we thought a couple weeks
+ago recursive is good.",00:22:34.470,00:22:36.970
+"Recursion is this magical way of
+expressing yourself super succinctly.",00:22:36.970,00:22:40.330
+And it just works.,00:22:40.330,00:22:41.400
+"But there is a key feature of all of
+the recursive programs we've talked",00:22:41.400,00:22:45.060
+"about and looked at thus far, which
+was that they had what?",00:22:45.060,00:22:48.260
+"A base case, which was some hard coded
+case that said in some situations",00:22:48.260,00:22:52.610
+"don't call foo, which is clearly
+not the case here.",00:22:52.610,00:22:56.210
+"&gt;&gt; So what is really happening
+in terms of this picture?",00:22:56.210,00:22:58.920
+"Well, when main calls foo, it
+gets a slice of memory.",00:22:58.920,00:23:01.790
+"When foo calls foo, it gets
+a slice of memory.",00:23:01.790,00:23:04.150
+"When foo calls foo, it gets a slice.",00:23:04.150,00:23:06.430
+It gets a slice.,00:23:06.430,00:23:07.080
+It gets a slice.,00:23:07.080,00:23:08.120
+Because foo is never returning.,00:23:08.120,00:23:09.460
+"We're never erasing one of those
+frames from the stack.",00:23:09.460,00:23:12.160
+"So we're blowing through the heap, not
+to mention who knows what else, and",00:23:12.160,00:23:15.930
+"we're overstepping the bounds of our
+so-called segment of memory.",00:23:15.930,00:23:19.600
+Error go segmentation false.,00:23:19.600,00:23:21.790
+"&gt;&gt; So the solution there is
+clearly don't do this.",00:23:21.790,00:23:24.110
+"But the bigger implication is that, yes,
+there absolutely is some limit,",00:23:24.110,00:23:28.830
+"even if it's not well defined, as to how
+many functions you can call in a",00:23:28.830,00:23:32.470
+"program, how many times a function
+can call itself.",00:23:32.470,00:23:34.970
+"So even though we did preach recursion
+as this potentially magical thing a",00:23:34.970,00:23:38.430
+"couple of weeks ago for the sigma
+function, and when we get the data",00:23:38.430,00:23:41.870
+"structures and CS50, you'll see other
+applications for it, it's not",00:23:41.870,00:23:45.270
+necessarily the best thing.,00:23:45.270,00:23:46.500
+"Because if a function calls itself,
+calls itself, even if there's a base",00:23:46.500,00:23:50.070
+"case, if you don't hit that base case
+for 1,000 calls or 10,000 calls, by",00:23:50.070,00:23:54.860
+"that time you might have run out of room
+on your so-called stack and hit",00:23:54.860,00:23:58.800
+some other segments of memory.,00:23:58.800,00:24:00.400
+"So it too is a design trade-off
+between elegance and between",00:24:00.400,00:24:03.950
+"robustness of your particular
+implementation.",00:24:03.950,00:24:06.920
+"&gt;&gt; So there's another downside or
+another gotcha to what we've",00:24:06.920,00:24:10.780
+been doing thus far.,00:24:10.780,00:24:11.720
+When I called getstring--,00:24:11.720,00:24:12.980
+let me go back into hello-2.,00:24:12.980,00:24:15.120
+"Notice that I'm calling getstring,
+which is returning an address.",00:24:15.120,00:24:18.170
+"And we claim today that address
+is from the heap.",00:24:18.170,00:24:20.730
+"And now I am printing out the
+string at that address.",00:24:20.730,00:24:24.480
+"But we've never called the
+opposite of getstring.",00:24:24.480,00:24:27.000
+"We've never had to calll a function like
+ungetstring, where you hand back",00:24:27.000,00:24:30.850
+that memory.,00:24:30.850,00:24:31.610
+"But frankly we probably
+should have been.",00:24:31.610,00:24:33.250
+"Because if we keep asking the computer
+for memory, by way of someone like",00:24:33.250,00:24:37.390
+"getstring but never give it back, surely
+that too is bound to lead to",00:24:37.390,00:24:40.830
+problems whereby we run out of memory.,00:24:40.830,00:24:42.970
+"&gt;&gt; And in fact, we can look for these
+problems with the new tool whose usage",00:24:42.970,00:24:46.140
+is a little cryptic to type.,00:24:46.140,00:24:47.640
+"But let me go ahead and splash it up
+on the screen in just a moment.",00:24:47.640,00:24:50.960
+"I'm going to go ahead and run Valgrind
+with parameter whose first command",00:24:50.960,00:24:56.940
+"line argument is the name
+of that program hello-2.",00:24:56.940,00:25:00.260
+"And unfortunately it's
+output is atrociously",00:25:00.260,00:25:02.650
+complex for no good reason.,00:25:02.650,00:25:04.290
+So we see all that mess.,00:25:04.290,00:25:06.280
+David is state my name.,00:25:06.280,00:25:07.530
+"So that's the program
+actually running.",00:25:07.530,00:25:09.760
+And now we get this output.,00:25:09.760,00:25:11.180
+"&gt;&gt; So Valgrind is similar
+in spirit to GDB.",00:25:11.180,00:25:13.400
+It's not a debugger per se.,00:25:13.400,00:25:14.950
+But it's a memory checker.,00:25:14.950,00:25:16.270
+"It's a program that will run your
+program and tell you if you asked a",00:25:16.270,00:25:20.140
+"computer for memory and never handed it
+back, thereby meaning that you have",00:25:20.140,00:25:23.860
+a memory leak.,00:25:23.860,00:25:24.570
+And memory leaks tend to be bad.,00:25:24.570,00:25:26.240
+"And you is users of computers have
+probably felt this, whether you have a",00:25:26.240,00:25:29.120
+Mac or a PC.,00:25:29.120,00:25:30.300
+"Have you ever used your computer for
+while and not rebooted in several",00:25:30.300,00:25:33.730
+"days, or you've just got a lot of
+programs running, and the damn thing",00:25:33.730,00:25:36.820
+"slows to a grinding halt, or at least
+it's super annoying to use, because",00:25:36.820,00:25:42.360
+everything just got super slow.,00:25:42.360,00:25:44.350
+&gt;&gt; Now that can be any number of reasons.,00:25:44.350,00:25:46.260
+"It could be an infinite loop, a bug in
+someone's code, or, more simply, it",00:25:46.260,00:25:49.600
+"could mean that you're using more
+memory, or trying to, than your",00:25:49.600,00:25:53.250
+computer actually has.,00:25:53.250,00:25:54.920
+"And maybe there's a bug in some program
+that keep asking for memory.",00:25:54.920,00:25:57.770
+"Browsers for years were notorious for
+this, asking for more and more memory",00:25:57.770,00:26:02.480
+but never handing it back.,00:26:02.480,00:26:03.870
+"Surely, if you only have a finite
+amount of memory, you can't ask",00:26:03.870,00:26:07.220
+"infinitely many times for
+some of that memory.",00:26:07.220,00:26:09.990
+"&gt;&gt; And so what you see here, even though
+again Valgrind's output is",00:26:09.990,00:26:13.070
+"unnecessarily complex to glance at
+first, this is the interesting part.",00:26:13.070,00:26:17.490
+Heap --,00:26:17.490,00:26:18.890
+in use at exit.,00:26:18.890,00:26:20.060
+"So here's how much memory was
+in use in the heap at the",00:26:20.060,00:26:22.810
+time my program exited--,00:26:22.810,00:26:24.300
+apparently six bytes in one block.,00:26:24.300,00:26:27.280
+"So I'm going to wave my hands
+at what a block is.",00:26:27.280,00:26:28.710
+"Think of it is just a chunk, a more
+technical word for chunk.",00:26:28.710,00:26:31.270
+But six bytes--,00:26:31.270,00:26:33.140
+"what are the six bytes that
+were still in use?",00:26:33.140,00:26:36.870
+&gt;&gt; Exactly.,00:26:36.870,00:26:37.390
+"D-A-V-I-D backslash zero, five letter
+name plus the null terminator.",00:26:37.390,00:26:41.520
+"So this program Valgrind noticed that I
+asked for six bytes, apparently, by",00:26:41.520,00:26:46.350
+"way of getstring, but never
+gave them back.",00:26:46.350,00:26:48.950
+"And in fact, this might not be so
+obvious if my program isn't three",00:26:48.950,00:26:52.030
+"lines, but it's 300 lines.",00:26:52.030,00:26:53.590
+"So we can actually give another command
+line argument to Valgrind to",00:26:53.590,00:26:56.920
+make it more verbose.,00:26:56.920,00:26:58.290
+It's a little annoying to remember.,00:26:58.290,00:26:59.760
+But if I do--,00:26:59.760,00:27:01.580
+let's see.,00:27:01.580,00:27:01.930
+Leak--,00:27:01.930,00:27:03.540
+Was it leak--,00:27:03.540,00:27:05.030
+"even I don't remember
+what it is off hand.",00:27:05.030,00:27:07.580
+&gt;&gt; --leak-check equals full.,00:27:07.580,00:27:08.550
+"Yep, thank you.",00:27:08.550,00:27:10.180
+--leak-check equals full.,00:27:10.180,00:27:12.520
+Enter.,00:27:12.520,00:27:13.800
+Same program is running.,00:27:13.800,00:27:14.940
+Type in David again.,00:27:14.940,00:27:16.180
+Now I see a little more detail.,00:27:16.180,00:27:17.660
+"But below the heap summary, which
+is identical to four-- ah,",00:27:17.660,00:27:20.890
+this is kind of nice.,00:27:20.890,00:27:22.120
+"Now Valgrind is actually looking
+a little harder in my code.",00:27:22.120,00:27:25.460
+"And it's saying that, apparently,
+malloc at line--",00:27:25.460,00:27:29.580
+we zoom out.,00:27:29.580,00:27:30.580
+At line--,00:27:30.580,00:27:31.980
+we don't see what line it is.,00:27:31.980,00:27:32.930
+But malloc is the first culprit.,00:27:32.930,00:27:35.110
+There's a blog in malloc.,00:27:35.110,00:27:38.630
+&gt;&gt; All right?,00:27:38.630,00:27:39.810
+"OK, no.",00:27:39.810,00:27:40.450
+Right?,00:27:40.450,00:27:40.940
+I called getstring.,00:27:40.940,00:27:42.520
+getstring apparently calls malloc.,00:27:42.520,00:27:44.460
+"So what line of code is apparently
+at fault for having",00:27:44.460,00:27:47.800
+allocated this memory?,00:27:47.800,00:27:49.050
+"Let's assume that whoever wrote malloc
+has been around long enough that it's",00:27:51.560,00:27:55.540
+not their fault.,00:27:55.540,00:27:56.390
+So it's probably mine.,00:27:56.390,00:27:57.520
+"getstring in cs50.c --so that's a
+file somewhere on the computer--",00:27:57.520,00:28:02.000
+in line 286 seems to be the culprit.,00:28:02.000,00:28:05.210
+"Now let's assume that cs50 has been
+around for decent amount of time, so",00:28:05.210,00:28:08.140
+we too are infallible.,00:28:08.140,00:28:09.720
+"And so it's probably not in getstring
+that the bug lies, but rather in",00:28:09.720,00:28:14.080
+hello-2.c line 18.,00:28:14.080,00:28:17.810
+"&gt;&gt; So let's take a look at
+what that line 18 was.",00:28:17.810,00:28:20.670
+Oh.,00:28:20.670,00:28:21.130
+"Somehow this line isn't necessarily
+buggy, per se, but it is the reason",00:28:21.130,00:28:27.130
+behind that memory leak.,00:28:27.130,00:28:28.630
+"So super simply, what would intuitively
+be the solution here?",00:28:28.630,00:28:32.140
+"If we're asking for memory, were never
+giving it back, and that seems to be a",00:28:32.140,00:28:34.710
+"problem because over time my computer
+might run out of memory, might slow",00:28:34.710,00:28:37.940
+"down, bad things might happen, well,
+what's the simple intuitive solution?",00:28:37.940,00:28:42.110
+Just give it back.,00:28:42.110,00:28:43.140
+&gt;&gt; How do you free up that memory?,00:28:43.140,00:28:44.770
+"Well, thankfully it's quite simple
+to just say free name.",00:28:44.770,00:28:49.970
+And we've never done this before.,00:28:49.970,00:28:51.260
+"But you can essentially think of
+free as the opposite of malloc.",00:28:51.260,00:28:55.890
+"free is the opposite of
+allocating memory.",00:28:55.890,00:28:58.030
+So now let me recompile this.,00:28:58.030,00:28:59.540
+Make hello-2.,00:28:59.540,00:29:02.050
+Let me run it again. hello-2 David.,00:29:02.050,00:29:04.620
+"So it seems to work in
+exactly the same way.",00:29:04.620,00:29:07.290
+"But if I go back to Valgrind and re-run
+that same command on my newly",00:29:07.290,00:29:11.180
+"compiled program, typing
+in my name as before--",00:29:11.180,00:29:14.720
+nice.,00:29:14.720,00:29:15.370
+Heap summary--,00:29:15.370,00:29:16.760
+in use at exit--,00:29:16.760,00:29:17.740
+zero bytes in zero blocks.,00:29:17.740,00:29:19.370
+"And this is super nice, all
+heap blocks were freed.",00:29:19.370,00:29:21.840
+No leaks are possible.,00:29:21.840,00:29:23.480
+"&gt;&gt; So coming up, not with Problem Set 4,
+but with Problem Set 5, the forensics",00:29:23.480,00:29:27.200
+"and onward, this too will become a
+measure of the correctness of your",00:29:27.200,00:29:30.740
+"program, whether or not you have
+or don't have memory leaks.",00:29:30.740,00:29:33.630
+"But thankfully, not only can you reason
+through them intuitively, which",00:29:33.630,00:29:36.900
+"is, arguably, easy for small programs
+but harder for larger programs,",00:29:36.900,00:29:40.430
+"Valgrind, for those larger programs,
+can help you identify",00:29:40.430,00:29:43.860
+the particular problem.,00:29:43.860,00:29:45.360
+"&gt;&gt; But there's one other problem
+that might arise.",00:29:45.360,00:29:47.500
+"Let me open up this file here, which is,
+again, a somewhat simple example.",00:29:47.500,00:29:51.245
+"But let's focus on what
+this program does.",00:29:51.245,00:29:53.760
+This is called memory.c.,00:29:53.760,00:29:55.190
+"We'll post this later today in the
+zip of today's source code.",00:29:55.190,00:29:58.380
+"And notice that I have a function called
+f that takes no arguments and",00:29:58.380,00:30:01.610
+returns nothing.,00:30:01.610,00:30:02.800
+"In line 20, I'm apparently declaring a
+pointer to an int and calling it x.",00:30:02.800,00:30:07.240
+"I'm assigning is the return
+value of malloc.",00:30:07.240,00:30:09.570
+"And just to be clear, how many bytes am
+I probably getting back from malloc",00:30:09.570,00:30:14.590
+in this situation?,00:30:14.590,00:30:17.080
+&gt;&gt; Probably 40.,00:30:17.080,00:30:18.040
+Where do you get that from?,00:30:18.040,00:30:18.840
+"Well, if you recall that an int is often
+4 bytes, at least it is in the",00:30:18.840,00:30:22.410
+"appliance, 10 times 4 is obviously 40.",00:30:22.410,00:30:25.110
+"So malloc is returning an address of
+a chunk of memory and storing that",00:30:25.110,00:30:28.920
+address ultimately in x.,00:30:28.920,00:30:30.800
+"So to be clear, what
+then is happening?",00:30:30.800,00:30:32.570
+"Well, let me switch back
+to our picture here.",00:30:32.570,00:30:34.990
+"Let me not just draw the bottom of my
+computer's memory, let me go ahead and",00:30:34.990,00:30:38.150
+"draw the whole rectangle that
+represents all of my RAM.",00:30:38.150,00:30:42.990
+"&gt;&gt; We'll say that the stack
+is on the bottom.",00:30:42.990,00:30:44.790
+"And there's a text segment in
+the uninitialized data.",00:30:44.790,00:30:47.010
+"But I'm just going to abstract those
+other things away as dot, dot dot.",00:30:47.010,00:30:49.880
+"I'm just going to refer to this
+as the heap at the top.",00:30:49.880,00:30:53.470
+"And then at the bottom of this picture,
+to represent main, I'm going",00:30:53.470,00:30:57.070
+"to give it a slices memory
+on the stack.",00:30:57.070,00:30:59.880
+"For f, I'm going to give it a slice
+of memory on the stack.",00:30:59.880,00:31:03.150
+"Now, I got to consult my
+source code again.",00:31:03.150,00:31:05.140
+What are the local variables for main?,00:31:05.140,00:31:07.170
+"Apparently nothing, so that slice is
+effectively empty or not even as big",00:31:07.170,00:31:10.710
+as I've drawn it.,00:31:10.710,00:31:11.600
+"But in f, I have a local variable,
+which is called x.",00:31:11.600,00:31:15.730
+"So I'm going to go ahead and give f
+a chunk of memory, calling it x.",00:31:15.730,00:31:20.410
+"&gt;&gt; And now malloc of 10 times 4,
+So malloc 40, where's that",00:31:20.410,00:31:24.680
+memory coming from?,00:31:24.680,00:31:25.430
+"We've not drawn a picture
+like this before.",00:31:25.430,00:31:27.530
+"But let's suppose that it's effectively
+coming from here, so one,",00:31:27.530,00:31:31.140
+"two, three, four, five.",00:31:31.140,00:31:33.170
+And now I need 40 of these.,00:31:33.170,00:31:34.680
+"So I'll just do dot, dot, dot to suggest
+that there's even more memory",00:31:34.680,00:31:37.540
+coming back from the heap.,00:31:37.540,00:31:39.350
+Now what's the address?,00:31:39.350,00:31:40.710
+"Let's choose our arbitrary
+address as always--",00:31:40.710,00:31:42.620
+"Ox123, even though it's probably going
+to be something completely different.",00:31:42.620,00:31:46.310
+"That's the address of the first byte in
+memory that I'm asking malloc for.",00:31:46.310,00:31:50.420
+"&gt;&gt; So in short, once line 20 executes,
+what is literally",00:31:50.420,00:31:53.630
+stored inside of x here?,00:31:53.630,00:31:57.170
+Ox123.,00:31:57.170,00:31:58.730
+Ox123.,00:31:58.730,00:32:00.370
+And the Ox is uninteresting.,00:32:00.370,00:32:01.550
+"It just means here's a
+hexadecimal number.",00:32:01.550,00:32:03.200
+"But what's key is that what I've store
+in x, which is a local variable.",00:32:03.200,00:32:06.490
+"But its data type, again,
+is an address of an int.",00:32:06.490,00:32:10.260
+"Well, I'm going to store Ox123.",00:32:10.260,00:32:12.710
+"But again, if that's a little too
+complicated unnecessarily, if I scroll",00:32:12.710,00:32:16.610
+"back, we can abstract this away quite
+reasonably and just say that x is a",00:32:16.610,00:32:21.490
+pointer to that chunk of memory.,00:32:21.490,00:32:23.910
+&gt;&gt; OK.,00:32:23.910,00:32:24.070
+"Now the question at hand
+is the following--",00:32:24.070,00:32:26.230
+"line 21, it turns out, is buggy.",00:32:26.230,00:32:29.910
+Why?,00:32:29.910,00:32:31.160
+&gt;&gt; Sorry?,00:32:34.890,00:32:36.930
+It doesn't have--,00:32:36.930,00:32:38.640
+say that once more.,00:32:38.640,00:32:40.390
+"Well, it doesn't free.",00:32:40.390,00:32:41.240
+So that's the second but.,00:32:41.240,00:32:42.350
+"So there's one other but specifically
+at line 21.",00:32:42.350,00:32:45.000
+&gt;&gt; Exactly.,00:32:49.480,00:32:50.040
+"This simple line of code is just a
+buffer overflow, a buffer overrun.",00:32:50.040,00:32:54.980
+A buffer just means a chunk of memory.,00:32:54.980,00:32:57.050
+"But that chunk of memory is of size
+10, 10 integers, which means if we",00:32:57.050,00:33:01.520
+"index into it using the syntactic sugar
+of array notation, the square",00:33:01.520,00:33:05.350
+"brackets, you have access to
+x bracket 0 x bracket 1 x,",00:33:05.350,00:33:09.220
+"bracket dot, dot, dot.",00:33:09.220,00:33:10.390
+x bracket 9 is the biggest one.,00:33:10.390,00:33:13.270
+"So if I do x bracket 10, where
+I'm actually going in memory?",00:33:13.270,00:33:17.680
+"&gt;&gt; Well, if I have 10 int--",00:33:17.680,00:33:19.120
+"let's actually draw all
+of these out here.",00:33:19.120,00:33:21.070
+So that was the first five.,00:33:21.070,00:33:22.700
+Here's the other five ints.,00:33:22.700,00:33:24.660
+"So x bracket 0 is here. x bracket 1 is
+here. x bracket 9 is here. x bracket",00:33:24.660,00:33:29.580
+"10 is here, which means I am telling,
+in line 21, the computer to put the",00:33:29.580,00:33:37.960
+number where?,00:33:37.960,00:33:39.400
+The number 0 where?,00:33:39.400,00:33:42.010
+"Well, it's 0, yes.",00:33:42.010,00:33:43.380
+"But just the fact that its 0
+is kind of a coincidence.",00:33:43.380,00:33:45.460
+"It could be the number
+50, for all we care.",00:33:45.460,00:33:47.140
+"But we're trying to put it at x bracket
+10, which is where this",00:33:47.140,00:33:50.480
+"question mark is drawn, which
+is not a good thing.",00:33:50.480,00:33:53.700
+"This program might very well
+crash as a result.",00:33:53.700,00:33:57.070
+"&gt;&gt; Now, let's go ahead and see if this
+is, indeed, what happens.",00:33:57.070,00:33:59.400
+"Make memory, since the file
+is called memory.c.",00:33:59.400,00:34:02.600
+"Let's go ahead and run
+the program memory.",00:34:02.600,00:34:05.950
+"So we got lucky, actually, it seems.",00:34:05.950,00:34:08.239
+We got lucky.,00:34:08.239,00:34:09.340
+But let's see if we now run Valgrind.,00:34:09.340,00:34:11.060
+"At first glance, my program might
+seem to be perfectly correct.",00:34:11.060,00:34:14.170
+"But let me run Valgrind with the
+--leak-check equals full on memory.",00:34:14.170,00:34:18.010
+&gt;&gt; And now when I run this--,00:34:18.010,00:34:20.110
+interesting.,00:34:20.110,00:34:21.030
+"Invalid write of size 4 at
+line 21 of memory.c.",00:34:21.030,00:34:26.800
+Line 21 of memory.c is which one?,00:34:26.800,00:34:29.284
+"Oh, interesting.",00:34:29.284,00:34:30.340
+But wait.,00:34:30.340,00:34:31.080
+"Size 4, what is that referring to?",00:34:31.080,00:34:32.389
+"I only did one write,
+but it's of size 4.",00:34:32.389,00:34:34.969
+Why is it 4?,00:34:34.969,00:34:36.889
+"It's because it's an int, which
+is, again, four bytes.",00:34:36.889,00:34:39.280
+"So Valgrind found a bug that I,
+glancing at my code, didn't.",00:34:39.280,00:34:42.510
+And maybe your TF would or wouldn't.,00:34:42.510,00:34:45.040
+"What But Valgrind for sure found that
+we've made a mistake there, even",00:34:45.040,00:34:48.469
+"though we got lucky, and the computer
+decided, eh, I'm not going to crash",00:34:48.469,00:34:52.719
+"just because you touched one byte, one
+int's worth of memory that you didn't",00:34:52.719,00:34:57.470
+actually own.,00:34:57.470,00:34:58.550
+"&gt;&gt; Well, what else is buggy here.",00:34:58.550,00:35:00.380
+Address--,00:35:00.380,00:35:01.180
+"this is a crazy looking address
+in hexadecimal.",00:35:01.180,00:35:03.190
+"That just means somewhere in the heap is
+zero bytes after a block of size 40",00:35:03.190,00:35:06.890
+is allocated.,00:35:06.890,00:35:07.620
+"Let me zoom out here and see if
+this is a little more helpful.",00:35:07.620,00:35:10.610
+Interesting.,00:35:10.610,00:35:11.410
+"40 bytes are definitely lost
+in loss record 1 of 1.",00:35:11.410,00:35:15.600
+"Again, more words than is useful here.",00:35:15.600,00:35:17.840
+"But based on the highlighted lines,
+where should I probably focus my",00:35:17.840,00:35:21.350
+attention for another bug?,00:35:21.350,00:35:24.070
+Looks like a line 20 of memory.c.,00:35:24.070,00:35:26.570
+"&gt;&gt; So if we go back to line 20, that's the
+one that you identified earlier.",00:35:26.570,00:35:30.990
+And it's not necessarily buggy.,00:35:30.990,00:35:33.030
+But we have this reversed its effects.,00:35:33.030,00:35:35.160
+"So how do I correct at least
+one of those mistakes?",00:35:35.160,00:35:38.790
+What could I do after line 21?,00:35:38.790,00:35:42.240
+"I could do free of x, so is
+to give back that memory.",00:35:42.240,00:35:47.110
+And how do I fix this bug?,00:35:47.110,00:35:49.230
+"I should definitely go
+no farther than 0.",00:35:49.230,00:35:52.120
+So let me try and re-run this.,00:35:52.120,00:35:53.670
+"Sorry, definitely go
+no farther than 9.",00:35:53.670,00:35:56.080
+Make memory.,00:35:56.080,00:35:57.510
+"Let me rerun Valgrind
+in a bigger window.",00:35:57.510,00:36:00.650
+And now look.,00:36:00.650,00:36:01.580
+Nice.,00:36:01.580,00:36:02.250
+All heap blocks were freed.,00:36:02.250,00:36:03.270
+No leaks are possible.,00:36:03.270,00:36:04.270
+"And up above here, there's no mention
+any more of the invalid right.",00:36:04.270,00:36:07.520
+"&gt;&gt; Just to get greedy, and let's
+see if another demonstration",00:36:07.520,00:36:09.820
+does not go as intended--,00:36:09.820,00:36:11.050
+I did get lucky a moment ago.,00:36:11.050,00:36:12.560
+"And the fact that this is 0 is perhaps
+unnecessarily misleading.",00:36:12.560,00:36:15.530
+"Let's just do 50, a somewhat arbitrary
+number, make memory dot slash memory--",00:36:15.530,00:36:20.650
+still get lucky.,00:36:20.650,00:36:21.410
+Nothing's crashing.,00:36:21.410,00:36:22.510
+"Suppose I just do something really
+foolish, and I do 100.",00:36:22.510,00:36:26.150
+"Let me remake memory,
+dot slash memory--",00:36:26.150,00:36:30.360
+got lucky again.,00:36:30.360,00:36:31.075
+"How about 1,000?",00:36:31.075,00:36:32.800
+"ints beyond, roughly,
+where I should be?",00:36:32.800,00:36:35.370
+Make memory--,00:36:35.370,00:36:37.410
+damn it.,00:36:37.410,00:36:38.570
+&gt;&gt; [LAUGHTER],00:36:38.570,00:36:39.920
+&gt;&gt; OK.,00:36:39.920,00:36:41.270
+Let's not mess around anymore.,00:36:41.270,00:36:43.920
+Rerun memory.,00:36:43.920,00:36:45.120
+There we go.,00:36:45.120,00:36:45.840
+All right.,00:36:45.840,00:36:46.410
+"So apparently you index 100,000 ints
+beyond where you should have been in",00:36:46.410,00:36:52.500
+"memory, bad things happen.",00:36:52.500,00:36:54.410
+"So this is obviously not
+a hard, fast rule.",00:36:54.410,00:36:56.430
+"I was kind of using trial
+and error to get there.",00:36:56.430,00:36:58.190
+"But this is because, long story short,
+your computer's memory is also divided",00:36:58.190,00:37:02.230
+into these things called segments.,00:37:02.230,00:37:03.580
+"And sometimes, the computer actually
+has given you a little more memory",00:37:03.580,00:37:07.260
+than you ask for.,00:37:07.260,00:37:08.400
+"But for efficiency, it's just easier to
+get more memory but only tell you",00:37:08.400,00:37:12.170
+that you're getting a portion of it.,00:37:12.170,00:37:13.780
+"&gt;&gt; And if you get lucky sometimes,
+therefore, you might be able to touch",00:37:13.780,00:37:16.370
+memory that doesn't belong to you.,00:37:16.370,00:37:17.795
+"You have no guarantee that what value
+you put there will stay there, because",00:37:17.795,00:37:21.860
+"the computer still thinks it's not
+yours, but it's not necessarily going",00:37:21.860,00:37:25.080
+"to hit another segment of memory in the
+computer and induce a mistake like",00:37:25.080,00:37:29.910
+this one here.,00:37:29.910,00:37:31.710
+All right.,00:37:31.710,00:37:32.060
+Any questions then on memory?,00:37:32.060,00:37:37.240
+&gt;&gt; All right.,00:37:37.240,00:37:37.590
+"Let's take a look here, then, at
+something we've been taking for",00:37:37.590,00:37:40.610
+"granted for quite some time, which
+is in this file called cs50.h.",00:37:40.610,00:37:48.361
+So this is a file.,00:37:48.361,00:37:49.420
+"These are just a whole bunch
+of comments up top.",00:37:49.420,00:37:51.130
+"And you might have looked at this if
+you poked around on the appliance.",00:37:51.130,00:37:53.900
+"But it turns out that all the time,
+when we used to use string as a",00:37:53.900,00:37:57.000
+"synonym, the means by which we declared
+that synonym was with this",00:37:57.000,00:38:01.130
+"keyword typedef, for type definition.",00:38:01.130,00:38:03.990
+"And we're essentially saying, make
+string a synonym for char star.",00:38:03.990,00:38:07.500
+"That the means by which the stack
+created these training wheels known as",00:38:07.500,00:38:11.190
+the string.,00:38:11.190,00:38:12.040
+"&gt;&gt; Now here's just a prototype
+for getchar.",00:38:12.040,00:38:14.830
+"We might have seen it before, but that's
+indeed what it does. getchar",00:38:14.830,00:38:17.350
+"takes no arguments, returns a char.",00:38:17.350,00:38:19.070
+"getdouble takes no arguments,
+returns a double.",00:38:19.070,00:38:21.340
+"getfloat takes no arguments, returns
+a float, and so forth.",00:38:21.340,00:38:24.440
+"getint is in here. getlonglong
+is in here.",00:38:24.440,00:38:27.270
+And getstring is in here.,00:38:27.270,00:38:28.820
+And that's it.,00:38:28.820,00:38:29.420
+"This purple line is another preprocessor
+directive because of the",00:38:29.420,00:38:33.080
+hashtag at the beginning of it.,00:38:33.080,00:38:35.550
+&gt;&gt; All right.,00:38:35.550,00:38:35.870
+So now let me go into cs50.c.,00:38:35.870,00:38:38.380
+And we won't talk too long on this.,00:38:38.380,00:38:40.400
+"But to give you a glimpse of what's
+been going on all this",00:38:40.400,00:38:43.280
+"time, let me go to--",00:38:43.280,00:38:46.434
+let's do getchar.,00:38:46.434,00:38:48.250
+So getchar is mostly comments.,00:38:48.250,00:38:51.050
+But it looks like this.,00:38:51.050,00:38:52.060
+"So this is the actual function
+getchar that we've been",00:38:52.060,00:38:54.800
+taking for granted exists.,00:38:54.800,00:38:56.055
+"And even though we haven't use this one
+that often, if ever, it's at least",00:38:56.055,00:38:59.370
+relatively simple.,00:38:59.370,00:39:00.470
+"So it's worth taking a
+quick look at here.",00:39:00.470,00:39:02.580
+"&gt;&gt; So getchar has an infinite loop,
+deliberately so apparently.",00:39:02.580,00:39:06.540
+"It then calls-- and this is kind of a
+nice reuse of code we ourselves wrote.",00:39:06.540,00:39:10.050
+It calls getstring.,00:39:10.050,00:39:11.220
+"Because what does it
+mean to get a char?",00:39:11.220,00:39:12.460
+"Well, you might as well try to get a
+whole line of text from the user and",00:39:12.460,00:39:14.730
+"then just look at one
+of those characters.",00:39:14.730,00:39:16.940
+"In line 60, here's a little
+bit of a sanity check.",00:39:16.940,00:39:19.170
+"If getstring returned null,
+let's not proceed.",00:39:19.170,00:39:21.610
+Something went wrong.,00:39:21.610,00:39:22.820
+"&gt;&gt; Now this is somewhat annoying but
+conventional in C. char max probably",00:39:22.820,00:39:28.120
+"represents what just
+based on its name?",00:39:28.120,00:39:29.960
+It's a constant.,00:39:29.960,00:39:31.670
+"It's like the numeric value of the
+biggest char you can represent with",00:39:31.670,00:39:36.040
+"one bite, which is probably the number
+255, which is the biggest number you",00:39:36.040,00:39:40.370
+"represent eight bits,
+starting from zero.",00:39:40.370,00:39:42.720
+"So I've use this, in this function, when
+writing this code, only because",00:39:42.720,00:39:47.460
+"if something goes wrong in getchar but
+its purpose in life is to return a",00:39:47.460,00:39:51.753
+"char, you need to somehow be able
+to signal to the user that",00:39:51.753,00:39:54.830
+something went wrong.,00:39:54.830,00:39:55.840
+We can't return null.,00:39:55.840,00:39:56.970
+It turns out that null is a pointer.,00:39:56.970,00:39:58.480
+"And again, getchar has
+to return a char.",00:39:58.480,00:40:01.030
+"&gt;&gt; So the convention, if something goes
+wrong, is you, the programmer, or in",00:40:01.030,00:40:04.760
+"this case, me with the library, I had
+a just decide arbitrarily, if",00:40:04.760,00:40:08.160
+"something goes wrong, I'm going to
+return the number 255, which is truly",00:40:08.160,00:40:12.230
+"means we cannot, the user cannot type
+the character represented by the",00:40:12.230,00:40:17.240
+"number 255 because we had a steal it
+as a so-called sentinel value to",00:40:17.240,00:40:21.410
+represent a problem.,00:40:21.410,00:40:23.410
+"Now it turns out that the character 255
+is not something you can type on",00:40:23.410,00:40:27.010
+"your keyboard, so it's no big deal.",00:40:27.010,00:40:28.380
+"The user doesn't notice that
+I've stolen this character.",00:40:28.380,00:40:30.910
+"But if you ever see in man pages on a
+computer system some reference to an",00:40:30.910,00:40:34.620
+"all caps constant like this that says,
+in cases of error this constant might",00:40:34.620,00:40:38.560
+"be returned, that's all some human did
+years ago was arbitrarily decided to",00:40:38.560,00:40:42.720
+"return this special value and
+call it a constant in case",00:40:42.720,00:40:45.680
+something goes wrong.,00:40:45.680,00:40:46.840
+&gt;&gt; Now the magic happens down here.,00:40:46.840,00:40:48.580
+"First, I'm declaring in line 67
+two characters, C1 and C2.",00:40:48.580,00:40:52.600
+"And then in line 68, there's actually
+a line of code that's reminiscent of",00:40:52.600,00:40:57.080
+"our friend printf, given that it
+does have percent Cs in quotes.",00:40:57.080,00:41:01.140
+"But notice what's happening here.
+sscanf means string scan--",00:41:01.140,00:41:06.490
+"means scan a formatted
+string, ergo sscanf.",00:41:06.490,00:41:11.690
+What does that mean?,00:41:11.690,00:41:12.590
+It means you pass to sscanf a string.,00:41:12.590,00:41:16.310
+"And line is whatever
+the user types in.",00:41:16.310,00:41:18.420
+"You pass to sscanf a format string like
+this that tells scanf what are",00:41:18.420,00:41:23.520
+you hoping the user has typed in.,00:41:23.520,00:41:25.870
+"You then pass-in the addresses of two
+chunks of memory, in this case,",00:41:25.870,00:41:29.730
+because I have two placeholders.,00:41:29.730,00:41:31.150
+"So I'm going to give it the address
+of C1 and the address of C2.",00:41:31.150,00:41:34.610
+"&gt;&gt; And recall that you give a function the
+address of some variable, what's",00:41:34.610,00:41:37.700
+the implication?,00:41:37.700,00:41:38.950
+"What can that function do as a result
+of giving it the address of a",00:41:41.400,00:41:45.050
+"variable, as opposed to
+the variable itself?",00:41:45.050,00:41:48.170
+"It can change it, right?",00:41:48.170,00:41:49.450
+"If you had someone a map to a physical
+address, they can go there and do",00:41:49.450,00:41:53.250
+whatever they want at that address.,00:41:53.250,00:41:54.750
+Same idea here.,00:41:54.750,00:41:55.800
+"If we pass to sscanf, the address of two
+chunks of memory, even these tiny",00:41:55.800,00:41:59.950
+"little chunks of memory, C1 and C2, but
+we tell it the address of them,",00:41:59.950,00:42:03.585
+sscanf can change it.,00:42:03.585,00:42:05.170
+"&gt;&gt; So sscanf's purpose in life, if we read
+the man page, is to read what the",00:42:05.170,00:42:08.530
+"user typed in, hope for the user having
+typed in a character and maybe",00:42:08.530,00:42:13.420
+"another character, and whatever the user
+typed, the first character goes",00:42:13.420,00:42:16.470
+"here, the second character goes here.",00:42:16.470,00:42:19.310
+"Now, as an aside, this, and you would
+only know this from the documentation,",00:42:19.310,00:42:22.470
+"the fact that I put a blank space there
+just means that I don't care if",00:42:22.470,00:42:25.570
+"the user hits the Space bar a few
+times before he or she takes a",00:42:25.570,00:42:28.440
+"character, I'm going to ignore
+any white space.",00:42:28.440,00:42:30.400
+"So that, I know from
+the documentation.",00:42:30.400,00:42:32.510
+"&gt;&gt; The fact that there's a second %c
+followed by white space is actually",00:42:32.510,00:42:36.570
+deliberate.,00:42:36.570,00:42:37.410
+"I want to be able to detect if the user
+screwed up or didn't cooperate.",00:42:37.410,00:42:41.190
+"So I'm hoping that the user only typed
+in one character, therefore I'm hoping",00:42:41.190,00:42:45.630
+"that sscanf is only going to return the
+value 1 because, again, if I read",00:42:45.630,00:42:50.640
+"the documentation, sscanf's purpose in
+life is to return to the number of",00:42:50.640,00:42:55.400
+"variables that were filled
+with user input.",00:42:55.400,00:42:59.170
+"&gt;&gt; I passed in two variables
+addresses, C1 and C2.",00:42:59.170,00:43:02.270
+"I'm hoping, though, that only one of
+them gets killed because if sscanf",00:43:02.270,00:43:06.420
+"returns 2, what's presumably
+the implication logically?",00:43:06.420,00:43:11.130
+"That the user didn't just give me one
+character like I told him or her.",00:43:11.130,00:43:14.600
+"They probably typed at
+least two characters.",00:43:14.600,00:43:17.860
+"So if I instead did not have the second
+%c, I just had one, which",00:43:17.860,00:43:22.430
+"frankly would be more intuitive
+approach, I think a first glance,",00:43:22.430,00:43:25.370
+"you're not going to be able to detect
+if the user has been giving you more",00:43:25.370,00:43:30.220
+input than you actually wanted.,00:43:30.220,00:43:31.780
+"So this is an implicit form
+of error checking.",00:43:31.780,00:43:34.100
+&gt;&gt; But notice what I do here.,00:43:34.100,00:43:35.640
+"Once I'm sure that the user gave me one
+character, I free the line, doing",00:43:35.640,00:43:39.970
+"the opposite of getstring, which in turn
+uses malloc, and then I return",00:43:39.970,00:43:44.450
+"C1, the character that I hoped the
+user provided and only provided.",00:43:44.450,00:43:51.030
+"So a quick glimpsed only, but
+any questions on getchar?",00:43:51.030,00:43:54.680
+We'll come back to some of the others.,00:43:57.450,00:43:59.590
+"&gt;&gt; Well, let me go ahead and do this--
+suppose now, just to motivate our",00:43:59.590,00:44:03.770
+"discussion in a week plus time, this
+is a file called structs.h.",00:44:03.770,00:44:08.910
+"And again, this is just a taste
+of something that lies ahead.",00:44:08.910,00:44:11.440
+"But notice that a lot
+of this is comments.",00:44:11.440,00:44:13.090
+"So let me highlight only the
+interesting part for now.",00:44:13.090,00:44:17.440
+typedef--,00:44:17.440,00:44:18.020
+there's that same keyword again.,00:44:18.020,00:44:19.700
+"typedef we use to declare string
+as a special data type.",00:44:19.700,00:44:23.100
+"You can use typedef to create brand new
+data types that didn't exist when",00:44:23.100,00:44:27.490
+C was invented.,00:44:27.490,00:44:28.570
+"For instance, int comes with C. char
+comes with C. double comes with C. But",00:44:28.570,00:44:32.520
+there's no notion of a student.,00:44:32.520,00:44:34.000
+"And yet it would be pretty useful to be
+able to write a program that stores",00:44:34.000,00:44:37.230
+"in a variable, a student's ID number,
+their name, and their house.",00:44:37.230,00:44:40.440
+"In other words, three pieces
+of data, like an int and a",00:44:40.440,00:44:42.890
+string and another string.,00:44:42.890,00:44:44.420
+"&gt;&gt; With typedef, what's pretty powerful
+about this and the keyword sturct for",00:44:44.420,00:44:48.220
+"structure, you, the programmer in 2013,
+can actually define your own the",00:44:48.220,00:44:53.660
+"data types that didn't exist years
+ago but that suit your purposes.",00:44:53.660,00:44:57.530
+"And so here, in lines 13 through 19,
+we're declaring a new data type, like",00:44:57.530,00:45:01.910
+"an int, but calling it student.",00:45:01.910,00:45:04.320
+"And inside of this variable is going to
+be three things-- an int, a string,",00:45:04.320,00:45:09.310
+and a string.,00:45:09.310,00:45:09.930
+"So you can think of what's really
+happened here, even though this is a",00:45:09.930,00:45:13.040
+"bit of a simplification for today,
+a student is essentially going",00:45:13.040,00:45:17.160
+to look like this.,00:45:17.160,00:45:19.450
+"Its going to be a chunk of
+memory with an ID, a name",00:45:19.450,00:45:22.580
+"field, and a house field.",00:45:22.580,00:45:25.580
+"And we'll be able to use those chunks of
+memory and access them as follows.",00:45:25.580,00:45:30.670
+"&gt;&gt; If I go into struct0.c, here is a
+relatively long, but following a",00:45:30.670,00:45:38.870
+"pattern, of code that
+uses this new trick.",00:45:38.870,00:45:42.630
+"So first, let me draw your attention
+to the interesting parts up top.",00:45:42.630,00:45:45.790
+"Sharp defines students 3, declares a
+constant called students and assigns",00:45:45.790,00:45:49.670
+"it arbitrarily the number 3, just
+so I have three students using",00:45:49.670,00:45:53.450
+this program for now.,00:45:53.450,00:45:54.830
+Here comes Main.,00:45:54.830,00:45:55.960
+"And notice, how do I declare
+an array of students?",00:45:55.960,00:45:58.860
+"Well, I just use the same syntax.",00:45:58.860,00:46:00.480
+The word student is obviously new.,00:46:00.480,00:46:02.110
+"But student, class, bracket students.",00:46:02.110,00:46:04.790
+"&gt;&gt; So unfortunately there's a lot
+of reuse of terms here.",00:46:04.790,00:46:06.720
+This is just a number.,00:46:06.720,00:46:07.660
+So this is like saying three.,00:46:07.660,00:46:09.040
+"Class is just what I want
+to call the variable.",00:46:09.040,00:46:11.430
+I could call it students.,00:46:11.430,00:46:12.840
+"But class, this is not a class in an
+object oriented Java kind of way.",00:46:12.840,00:46:15.880
+It's just a class of students.,00:46:15.880,00:46:17.220
+"And the data type of every element
+in that array is student.",00:46:17.220,00:46:20.590
+"So this is a little different
+and from saying something",00:46:20.590,00:46:23.040
+"like this, it's just--",00:46:23.040,00:46:25.250
+"I'm saying give me three students
+and call that array class.",00:46:25.250,00:46:29.500
+&gt;&gt; All right.,00:46:29.500,00:46:29.800
+Now here's a four loop.,00:46:29.800,00:46:30.680
+"This guy's familiar-- iterate
+from zero on up to three.",00:46:30.680,00:46:33.480
+And here's the new piece of syntax.,00:46:33.480,00:46:35.160
+"The program's going to prompt me,
+the human, to give it a student",00:46:35.160,00:46:37.710
+"ID, which is an int.",00:46:37.710,00:46:39.200
+"And here's the syntax with which you can
+store something in the ID field at",00:46:39.200,00:46:44.650
+"location class bracket I. So
+this syntax is not new.",00:46:44.650,00:46:48.630
+"This just means give me the eighth
+student in the class.",00:46:48.630,00:46:51.450
+But this symbol is new.,00:46:51.450,00:46:52.940
+"Up until now, we've cannot used dot,
+at least in code like this.",00:46:52.940,00:46:56.320
+"This means go to the struct known as
+a student and put something there.",00:46:56.320,00:47:01.490
+"Similarly, in this next line, 31, go
+ahead and put whatever the user types",00:47:01.490,00:47:05.670
+"for a name here and what they do for a
+house, the same thing, go ahead and",00:47:05.670,00:47:10.530
+put it in .house.,00:47:10.530,00:47:13.230
+"&gt;&gt; So what does this program
+ultimately do?",00:47:13.230,00:47:15.955
+You can see a little teaser there.,00:47:15.955,00:47:17.220
+"Let me go ahead and do make structs 0
+dot slash struct 0, student's ID 1,",00:47:17.220,00:47:24.780
+"say David Mather, student ID 2.",00:47:24.780,00:47:28.250
+"Rob Kirkland, student ID 3.",00:47:28.250,00:47:32.070
+Lauren Leverit--,00:47:32.070,00:47:35.010
+"and the only thing this program did,
+which is just completely arbitrary, is",00:47:35.010,00:47:38.380
+"I wanted to do something with this data,
+now that I've taught us how to",00:47:38.380,00:47:40.980
+"use structs, is I just had
+this extra loop here.",00:47:40.980,00:47:43.450
+I iterate over the array of students.,00:47:43.450,00:47:45.260
+"I used our, perhaps now familiar friend,
+string compare, stircomp to",00:47:45.260,00:47:49.170
+"check is 8th student's house
+equal to Mather?",00:47:49.170,00:47:53.780
+"And if so, just print something
+arbitrarily like, yes, it is.",00:47:53.780,00:47:56.760
+"But again, just giving me opportunities
+to use and reuse and",00:47:56.760,00:47:59.430
+reuse this new dot notation.,00:47:59.430,00:48:02.270
+"&gt;&gt; So who cares, right?",00:48:02.270,00:48:03.250
+"Coming up with a student program is
+somewhat arbitrary, but it turns out",00:48:03.250,00:48:06.270
+"that we can do useful things with
+this, for instance as follows.",00:48:06.270,00:48:09.800
+"This is a much more complicated struct
+in C. It's got a dozen or more fields,",00:48:09.800,00:48:14.600
+somewhat cryptically named.,00:48:14.600,00:48:15.880
+"But if you've ever heard of a graphics
+file format called bitmap, BMP, it",00:48:15.880,00:48:20.110
+"turns out that the bitmap file format
+pretty much looks like that this.",00:48:20.110,00:48:22.830
+It's a stupid little Smiley face.,00:48:22.830,00:48:24.200
+"It's a small image that I've zoomed in
+on pretty big so that I could see each",00:48:24.200,00:48:27.840
+of the individual dots or pixels.,00:48:27.840,00:48:30.410
+"Now, it turns out we can represent a
+black dot with, say, the number 0.",00:48:30.410,00:48:33.800
+And a white dot with the number 1.,00:48:33.800,00:48:35.520
+"&gt;&gt; So in other words, if you want to draw a
+Smiley face and save that image in a",00:48:35.520,00:48:39.140
+"computer, it suffices to store zeros and
+ones that look like this, where,",00:48:39.140,00:48:42.680
+"again, ones are white
+and zeros are black.",00:48:42.680,00:48:45.250
+"And together, if you effectively have
+a gird of ones and zeros, you have a",00:48:45.250,00:48:48.290
+"grid of pixels, and if you lay
+them out, you have a cute",00:48:48.290,00:48:51.030
+little Smiley face.,00:48:51.030,00:48:52.560
+"Now, bitmap file format, BMP, is
+effectively that underneath the hood,",00:48:52.560,00:48:58.150
+"but with more pixels sot that you
+can actually represent colors.",00:48:58.150,00:49:00.970
+"&gt;&gt; But when you have more sophisticated
+file formats like BMP and JPEG and GIF",00:49:00.970,00:49:05.170
+"with which you might be familiar, those
+files on disk typically not only",00:49:05.170,00:49:09.360
+"have zeros and ones for the pixels, but
+they have some metadata as well--",00:49:09.360,00:49:13.760
+"meta in the sense that is not really
+data but it's useful to have.",00:49:13.760,00:49:16.960
+"So these fields here are implying, and
+we'll see this in more detail in P-set",00:49:16.960,00:49:21.370
+"5, that before the zeros and ones that
+represent the pixels in an image,",00:49:21.370,00:49:25.810
+"there's a bunch of metadata like
+the size of the image and the",00:49:25.810,00:49:29.110
+width of the image.,00:49:29.110,00:49:30.250
+"And notice I'm plucking off some
+arbitrary things here--",00:49:30.250,00:49:32.910
+width and height.,00:49:32.910,00:49:34.260
+Bit count and some other things.,00:49:34.260,00:49:36.160
+So there's some metadata in a file.,00:49:36.160,00:49:37.840
+"&gt;&gt; But by understanding how files are laid
+out in this way, you can actually",00:49:37.840,00:49:41.470
+"then manipulate images, recover images
+from disk, resize images.",00:49:41.470,00:49:45.890
+"But you can't necessarily
+enhance them.",00:49:45.890,00:49:47.560
+I needed a photograph.,00:49:47.560,00:49:48.480
+"So I went back to RJ here, who you saw
+on the screen quite some time ago.",00:49:48.480,00:49:52.840
+"And if I open up Keynote here, this is
+what happens if you try to zoom in and",00:49:52.840,00:49:57.160
+enhance RJ.,00:49:57.160,00:49:59.380
+He's not getting any better really.,00:49:59.380,00:50:01.480
+"Now Keynote is kind of blurring it a
+little bit, just to gloss over the",00:50:01.480,00:50:06.240
+"fact that RJ does not get particularly
+enhanced when you zoom in.",00:50:06.240,00:50:11.040
+"And if do it this way,
+see the squares?",00:50:11.040,00:50:13.310
+"Yeah, you can definitely see
+the squares on a projector.",00:50:13.310,00:50:15.490
+&gt;&gt; That's what you get when you enhance.,00:50:15.490,00:50:17.690
+"But in understanding how our RJ or the
+Smiley face is implemented will let us",00:50:17.690,00:50:22.570
+"actually write code that manipulates
+these things.",00:50:22.570,00:50:24.950
+"And I thought I'd end on this note, with
+55 seconds of an enhance that's,",00:50:24.950,00:50:29.970
+"I dare, say rather misleading.",00:50:29.970,00:50:31.230
+&gt;&gt; [VIDEO PLAYBACK],00:50:31.230,00:50:32.990
+&gt;&gt; -He's lying.,00:50:32.990,00:50:34.790
+"About what, I don't know.",00:50:34.790,00:50:38.310
+&gt;&gt; -So what do we know?,00:50:38.310,00:50:41.200
+"&gt;&gt; -That at 9:15 Ray Santoya
+was at the ATM.",00:50:41.200,00:50:45.280
+"&gt;&gt; -So the question is what
+was he doing at 9:16?",00:50:45.280,00:50:47.830
+"&gt;&gt; -Shooting the nine millimeter
+at something.",00:50:47.830,00:50:50.750
+Maybe he saw the sniper.,00:50:50.750,00:50:52.615
+&gt;&gt; -Or was working with him.,00:50:52.615,00:50:54.760
+&gt;&gt; -Wait.,00:50:54.760,00:50:56.120
+Go back one.,00:50:56.120,00:50:57.450
+&gt;&gt; -What do you see?,00:50:57.450,00:50:58.700
+"&gt;&gt; -Bring his face up, full screen.",00:51:05.530,00:51:09.490
+&gt;&gt; -His glasses.,00:51:09.490,00:51:09.790
+&gt;&gt; -There's a reflection.,00:51:09.790,00:51:11.040
+&gt;&gt; -That's the Neuvitas baseball team.,00:51:21.790,00:51:23.520
+That's their logo.,00:51:23.520,00:51:24.530
+"&gt;&gt; -And he's talking to whoever's
+wearing that jacket.",00:51:24.530,00:51:27.040
+&gt;&gt; [END VIDEO PLAYBACK],00:51:27.040,00:51:27.530
+"&gt;&gt; DAVID J. MALAN: This will
+be Problem Set 5.",00:51:27.530,00:51:29.180
+We will see you next week.,00:51:29.180,00:51:30.720
+&gt;&gt; MALE SPEAKER: At the next CS50.,00:51:30.720,00:51:32.330
+&gt;&gt; [CRICKETS CHIRPING],00:51:32.330,00:51:39.240
+&gt;&gt; [MUSIC PLAYING],00:51:39.240,00:51:41.270

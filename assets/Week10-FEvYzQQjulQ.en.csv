@@ -1,0 +1,1647 @@
+text,start,stop
+"&gt;&gt; DAVID MALAN: All right, welcome back.",00:00:11.000,00:00:13.640
+"This is CS50, and this is
+the start of week 10.",00:00:13.640,00:00:16.210
+"So, for the past several weeks, we've
+been looking at a fairly low level how",00:00:16.210,00:00:19.940
+the internet works.,00:00:19.940,00:00:20.930
+"TCP/IP, HTTP, the language [? top ?]
+which we've begun to build interesting",00:00:20.930,00:00:26.080
+"things in languages like HTML, CSS,
+PHP, and most recently JavaScript.",00:00:26.080,00:00:31.270
+"&gt;&gt; Today, though, we're joined by Jonathan
+Zittrain, a professor at",00:00:31.270,00:00:34.630
+"Harvard Law School, at Harvard Kennedy
+School, and the Harvard School of",00:00:34.630,00:00:37.760
+"Engineering and Applied Sciences, who
+most recently taught a course called",00:00:37.760,00:00:41.150
+"Computer Science 42, Controlling
+Cyberspace.",00:00:41.150,00:00:45.850
+"Today, we are poised to now look at a
+much bigger picture, and undoubtedly a",00:00:45.850,00:00:51.600
+"bit at how life, the universe, and
+everything works, with our friend,",00:00:51.600,00:00:56.650
+professor Jonathan Zittrain.,00:00:56.650,00:00:57.900
+"&gt;&gt; JONATHAN ZITTRAIN: Thank you,
+David, and good afternoon.",00:01:04.629,00:01:07.390
+"You are in an incredible
+course, as you know.",00:01:07.390,00:01:10.650
+"You are apprenticing to a set of
+technologies that are really unusual,",00:01:10.650,00:01:15.860
+"and I want to talk today about what
+makes them so unusual, why we should",00:01:15.860,00:01:20.190
+"care about it, and why they might be
+evolving in the future in directions",00:01:20.190,00:01:24.850
+that we don't like.,00:01:24.850,00:01:25.700
+"And possibly even what to do about it,
+although I realize we have about 49",00:01:25.700,00:01:29.510
+"minutes and 30 seconds yet, so
+some corners may be cut.",00:01:29.510,00:01:34.900
+"&gt;&gt; Maybe a framework to think about
+this stuff is technologies",00:01:34.900,00:01:38.080
+as owned and unowned.,00:01:38.080,00:01:42.530
+"And I want to explain what I
+mean by owned and unowned.",00:01:42.530,00:01:45.870
+"Most technology in the world is owned,
+and I'll give a few examples of that.",00:01:45.870,00:01:52.490
+"But the internet turns out to be an
+unowned technology, and that can make",00:01:52.490,00:01:57.020
+all the difference.,00:01:57.020,00:01:57.900
+&gt;&gt; So here are some owned technologies.,00:01:57.900,00:02:02.210
+This is the IBM System/360.,00:02:02.210,00:02:06.270
+"This was a serious computer back
+in its day, and as you can see,",00:02:06.270,00:02:10.169
+"everything about it radiates that you
+had better not go anywhere near it.",00:02:10.169,00:02:14.250
+"This is the kind of computer that sat
+in the basement of a big company--",00:02:14.250,00:02:18.260
+"an actuary, an insurance company, a
+bank, or maybe a government tallying",00:02:18.260,00:02:22.780
+the census.,00:02:22.780,00:02:23.960
+"And it was programmed, usually, by the
+vendor who operated the machine, in",00:02:23.960,00:02:27.830
+this case IBM.,00:02:27.830,00:02:29.320
+"And that's because, while it was a
+general purpose computer, it could be",00:02:29.320,00:02:32.570
+"programmed or reprogrammed, it was so
+precious and delicate, and part of the",00:02:32.570,00:02:36.580
+"business model of IBM was to keep
+it apart from its consumer.",00:02:36.580,00:02:42.820
+"&gt;&gt; You would instead tell IBM what you
+wanted, and then they would go ahead",00:02:42.820,00:02:46.660
+and program it for you.,00:02:46.660,00:02:47.780
+"Not a bad deal, but a very owned
+technology in the sense that we know",00:02:47.780,00:02:52.590
+"who is responsible for it, and whom to
+blame if something goes wrong with it,",00:02:52.590,00:02:56.870
+"and it means that we're not going to
+get that surprised by it, because",00:02:56.870,00:03:01.170
+"everybody is so careful about what
+they use the computer for.",00:03:01.170,00:03:05.970
+"Now, these are the sorts of
+things that went into it.",00:03:05.970,00:03:09.660
+"Those are, of course, old-fashioned
+punch cards, and those represented,",00:03:09.660,00:03:14.820
+"again, that you could program the
+machine in any way that you wanted, so",00:03:14.820,00:03:18.780
+"long as you could get near it, which
+again, generally, you could not.",00:03:18.780,00:03:23.350
+"&gt;&gt; This is another kind of technology
+that is also owned.",00:03:23.350,00:03:25.930
+This is the Friden Flexowriter.,00:03:25.930,00:03:28.170
+"And the Friden Flexowriter was like a
+standard typewriter, and as you typed,",00:03:28.170,00:03:34.480
+"the letters would appear on the paper,
+but it would also make for little",00:03:34.480,00:03:38.210
+"indentations in this tape
+that ran through it.",00:03:38.210,00:03:40.970
+"And the tape, if put back through the
+typewriter like a player piano, would",00:03:40.970,00:03:46.300
+"type out whatever had previously
+been done.",00:03:46.300,00:03:48.850
+"Which meant that with enough scissors
+and glue, you could actually cut and",00:03:48.850,00:03:52.330
+"paste your way to a mail merge
+more easily than you can",00:03:52.330,00:03:55.240
+with Microsoft Word.,00:03:55.240,00:03:56.820
+"&gt;&gt; So, the Flexowriter was very cool.",00:03:56.820,00:03:59.110
+It was very accessible.,00:03:59.110,00:04:01.030
+"It doesn't threaten to electrocute
+you if you go near it.",00:04:01.030,00:04:04.210
+"But there's no place to put a punch
+card to tell it what to do.",00:04:04.210,00:04:10.040
+The only punch technology is data.,00:04:10.040,00:04:12.960
+"Type what you see, or it generates
+that strip as you type.",00:04:12.960,00:04:17.930
+There's no code.,00:04:17.930,00:04:19.200
+"There's only content with the
+Flexowriter, and its successors are",00:04:19.200,00:04:24.200
+"what the world of the 1980s and 1990s
+was shaping up to be for information",00:04:24.200,00:04:29.960
+technology.,00:04:29.960,00:04:31.060
+"&gt;&gt; This is the Brother Smart
+Word Processor.",00:04:31.060,00:04:33.620
+"You turn this thing on, this
+is its home screen.",00:04:33.620,00:04:36.660
+Where would you like to go today?,00:04:36.660,00:04:38.730
+"Word processing, spreadsheet,
+et cetera, et cetera.",00:04:38.730,00:04:42.980
+"And the way this thing worked on
+Wednesday it was exactly the way it",00:04:42.980,00:04:47.720
+"worked on Tuesday, and was the way
+it was going to work until",00:04:47.720,00:04:51.840
+you got rid of it.,00:04:51.840,00:04:53.220
+It was not programmable.,00:04:53.220,00:04:54.750
+"&gt;&gt; Again, it only dealt with data, and it's
+an owned technology, because how",00:04:54.750,00:04:58.700
+"it would act was very much an
+artifact of what the Brother",00:04:58.700,00:05:02.750
+people put into it.,00:05:02.750,00:05:04.550
+"Ditto, one might hope, for
+a CAT scan machine.",00:05:04.550,00:05:07.150
+"You want it to operate exactly as it
+was designed, although they are",00:05:07.150,00:05:11.650
+"slightly reprogrammable in
+the IBM System/360 way.",00:05:11.650,00:05:15.820
+"Again, we see some risks, some
+unpleasant surprises that could come",00:05:15.820,00:05:19.270
+"if you have the wrong people programming
+your CAT scanner, as",00:05:19.270,00:05:22.410
+"actually has happened in
+the past few years.",00:05:22.410,00:05:25.020
+"But now, part of this CAT scanner is a
+little piece of what I would describe",00:05:25.020,00:05:29.290
+"as an unowned technology
+in the middle of it.",00:05:29.290,00:05:32.220
+And that is the personal computer.,00:05:32.220,00:05:35.070
+"&gt;&gt; So let's look at the unowned technology
+that got things started.",00:05:35.070,00:05:39.400
+"This is Steve Jobs at the West Coast
+Computer Faire in 1977, described as",00:05:39.400,00:05:45.390
+"10,000 walking, talking
+computer freaks.",00:05:45.390,00:05:48.080
+"This was very marginal, but well
+attended, and this was, for the first",00:05:48.080,00:05:53.850
+"time in consumer hands, a
+reprogrammable machine.",00:05:53.850,00:05:59.630
+You get your Apple II.,00:05:59.630,00:06:00.990
+"You turn it on after hooking it up to,
+yes, your television set, and you get",00:06:00.990,00:06:06.570
+a blinking cursor.,00:06:06.570,00:06:09.120
+"And it's up to you to figure
+out what to do.",00:06:09.120,00:06:12.010
+"When you get the Apple II out of
+the box, it is a door stop.",00:06:12.010,00:06:15.250
+"It's only when you do such things
+as 10, print hello.",00:06:15.250,00:06:19.080
+"20, go to 10, that fun really begins.",00:06:19.080,00:06:23.700
+"&gt;&gt; And you had lots and lots of people
+stepping forward to program their",00:06:23.700,00:06:29.160
+"personal computers, intended
+as hobbyist machines.",00:06:29.160,00:06:31.990
+"Within two years you had Dan Bricklin
+and Bob Frankston of the Boston area,",00:06:31.990,00:06:37.320
+"programming the first digital
+spreadsheet ever, VisiCalc.",00:06:37.320,00:06:42.000
+"And suddenly, businesses the nation
+over were like, oh my god,",00:06:42.000,00:06:46.760
+spreadsheets.,00:06:46.760,00:06:48.120
+"And they started buying
+Apple II computers.",00:06:48.120,00:06:50.370
+"They are flying off the shelves, and
+Apple had to do market research to",00:06:50.370,00:06:53.790
+"figure out why this thing
+was so popular.",00:06:53.790,00:06:56.380
+"&gt;&gt; That's what makes this an
+unowned technology.",00:06:56.380,00:06:59.210
+"You didn't buy it from Apple, but Apple
+expects you or Bob Frankston or",00:06:59.210,00:07:03.055
+or somebody to program it later.,00:07:03.055,00:07:05.410
+"And if your Apple doesn't spreadsheet
+the way you want, it's not clear that",00:07:05.410,00:07:09.930
+it's Apple's fault.,00:07:09.930,00:07:11.200
+"It is unowned in that it accepts
+contributions from anybody with the",00:07:11.200,00:07:16.160
+"moxie and skill to program it, who
+can then share that program",00:07:16.160,00:07:20.660
+with anybody else.,00:07:20.660,00:07:22.580
+"And that model became the model
+for all that followed.",00:07:22.580,00:07:26.880
+"&gt;&gt; This is Bill Gates two years after he
+dropped out of Harvard, and he was",00:07:26.880,00:07:30.840
+"pulled over for a traffic stop
+in Albuquerque, New Mexico.",00:07:30.840,00:07:34.480
+"You can see the fashion
+was different then.",00:07:34.480,00:07:37.050
+"And he does have a smile on his face,
+somehow knowing that he can buy and",00:07:37.050,00:07:41.310
+sell us all someday.,00:07:41.310,00:07:43.260
+"And he was able to take what Jobs did
+and put it into, maybe, MS-DOS or",00:07:43.260,00:07:50.040
+"later, Windows.",00:07:50.040,00:07:51.130
+"&gt;&gt; But basically, this format, which is,
+you give this thing code, it may start",00:07:51.130,00:07:57.090
+"with the blinking cursor, but
+then it will run the code.",00:07:57.090,00:08:00.490
+"And that was true on many
+PCs until recently.",00:08:00.490,00:08:04.800
+And it was true then.,00:08:04.800,00:08:06.050
+This thing is probably around 1992.,00:08:06.050,00:08:08.050
+"I place it because of
+the 66 light here.",00:08:08.050,00:08:11.580
+"It had a button that could alternate
+between 66 and 33, which was the speed",00:08:11.580,00:08:17.150
+at which the chip inside should run.,00:08:17.150,00:08:19.270
+"You may wonder, why not leave
+it fast all the time?",00:08:19.270,00:08:22.220
+"That's because it would tire the
+hamsters out inside if you made it run",00:08:22.220,00:08:26.460
+too quickly.,00:08:26.460,00:08:27.430
+"And Prince of Persia would
+be too fast as well.",00:08:27.430,00:08:30.570
+"I see, by the way, they now have hamster
+powered paper shredders.",00:08:30.570,00:08:33.960
+"So you can put the paper in the top, and
+then the hamster runs on the wheel",00:08:33.960,00:08:37.700
+"and shreds the paper, and then can
+live in the paper afterwards.",00:08:37.700,00:08:41.140
+So it's all part of the cycle of life.,00:08:41.140,00:08:43.740
+"&gt;&gt; Anyway, these things can run any
+code you give it, and that is a",00:08:43.740,00:08:50.140
+"fundamental, but still contingent,
+piece of the technology.",00:08:50.140,00:08:54.960
+It didn't have to be that way.,00:08:54.960,00:08:57.190
+"It could have been the Brother Smart
+Word Processor, and as people at",00:08:57.190,00:09:01.570
+"Brother or their competitors invent new
+stuff, they roll it out like any",00:09:01.570,00:09:06.240
+consumer product.,00:09:06.240,00:09:07.630
+"It's not up to you to put a seventh
+blade into your safety razor.",00:09:07.630,00:09:12.110
+"We wait for Gillette to say, if
+five is good, why not seven?",00:09:12.110,00:09:16.370
+"And then we get it, and we buy it.",00:09:16.370,00:09:18.500
+&gt;&gt; This is different.,00:09:18.500,00:09:19.800
+"With the modern PC revolution, for the
+past 30 years, you hand a computer",00:09:19.800,00:09:25.090
+"code that you have written or gotten
+from somebody else, it",00:09:25.090,00:09:28.250
+will run the code.,00:09:28.250,00:09:29.150
+And that changes everything.,00:09:29.150,00:09:31.470
+"That is what gave rise to the off the
+shelf independent software movement.",00:09:31.470,00:09:36.880
+"So you could buy a computer for any
+purpose, and then use it for any",00:09:36.880,00:09:40.250
+number of other purposes.,00:09:40.250,00:09:41.770
+"Or your brother could, or your
+kid could, or anything else.",00:09:41.770,00:09:45.240
+"&gt;&gt; It didn't have to be this way, but it
+turned out to be this way, once",00:09:45.240,00:09:49.410
+"everybody discovered how many
+discoveries could come if you just",00:09:49.410,00:09:54.340
+"released the technology blinking cursor
+style and figured that the",00:09:54.340,00:09:57.900
+world would build cool stuff.,00:09:57.900,00:10:00.710
+"So that's, to me, the essence of unowned
+technologies, and I just want",00:10:00.710,00:10:06.340
+"to emphasize that you don't
+have to be this way.",00:10:06.340,00:10:10.090
+"If you rewound time and played it back
+again, it's not clear to me that we",00:10:10.090,00:10:13.890
+"would end up with an unowned technology
+at the core of our consumer",00:10:13.890,00:10:20.200
+computing experience.,00:10:20.200,00:10:22.490
+"&gt;&gt; Now, on the network side, there
+was a similar transformation.",00:10:22.490,00:10:26.110
+It began in the owned space.,00:10:26.110,00:10:28.110
+"AT&amp;T ran the long distance system,
+and that was that, and it",00:10:28.110,00:10:33.690
+worked pretty well.,00:10:33.690,00:10:34.900
+"And the prices were what they were,
+and the regulators came",00:10:34.900,00:10:37.270
+in to set the prices.,00:10:37.270,00:10:39.020
+"And AT&amp;T purported to control
+the whole network.",00:10:39.020,00:10:43.310
+"So back in the early 20th century,
+when an enterprising man invented",00:10:43.310,00:10:47.890
+"this, the Hush-A-Phone, it was something
+that would go over your",00:10:47.890,00:10:51.710
+"telephone handset, so that your person
+you were talking to wouldn't hear",00:10:51.710,00:10:56.390
+extraneous noise.,00:10:56.390,00:10:57.510
+"And no one could hear what you were
+saying to your interlocutor.",00:10:57.510,00:11:01.540
+"AT&amp;T said no, we must a license that,
+because it could damage our network,",00:11:01.540,00:11:07.620
+"and they purported to block
+people using it.",00:11:07.620,00:11:10.140
+"&gt;&gt; This is an era, by the way, in which the
+telephones were leased from AT&amp;T.",00:11:10.140,00:11:13.870
+"You could not go to the store
+and buy a telephone.",00:11:13.870,00:11:16.650
+"You had to get it from your telephone
+services provider.",00:11:16.650,00:11:20.540
+"This went up and down the Federal
+Communications Commission.",00:11:20.540,00:11:23.380
+"The FCC backed up AT&amp;T. It took a
+Supreme Court decision, ultimately, to",00:11:23.380,00:11:29.190
+reverse that.,00:11:29.190,00:11:30.260
+"And the world was free to have their
+phone hushed, but not much else.",00:11:30.260,00:11:35.870
+&gt;&gt; That had its own successors.,00:11:35.870,00:11:38.270
+"Back in the day-- and I now
+mean probably the mid '80s",00:11:38.270,00:11:40.860
+into the early '90s--,00:11:40.860,00:11:42.110
+there were services like CompuServe.,00:11:42.110,00:11:44.410
+"That was going to be the
+future of networking.",00:11:44.410,00:11:46.920
+"It had competitors, like Prodigy, and
+AOL, and the source, and MCI Mail.",00:11:46.920,00:11:51.050
+"But you basically paid by the month,
+and then you got a rational menu of",00:11:51.050,00:11:55.030
+things you might want to do.,00:11:55.030,00:11:56.980
+Where you want to go today?,00:11:56.980,00:11:58.480
+"&gt;&gt; But this menu was produced
+by CompuServe.",00:11:58.480,00:12:01.340
+"If there was going to be something new
+on it, you'd get it from CompuServe.",00:12:01.340,00:12:05.070
+"And if somebody out there was like,
+I think there should be a VisiCalc",00:12:05.070,00:12:07.860
+"button, you'd better persuade CompuServe
+of its worth, or it would",00:12:07.860,00:12:11.620
+"never be accessible to somebody
+using the service.",00:12:11.620,00:12:14.910
+"So that's an example of the IBM 360 or
+the Flexowriter model of technology",00:12:14.910,00:12:20.210
+for networking.,00:12:20.210,00:12:21.990
+"That gets blown out of the water,
+unexpectedly to almost everybody in",00:12:21.990,00:12:27.380
+"the field, by this academic research
+network known as the internet.",00:12:27.380,00:12:32.240
+"&gt;&gt; Here are three of the founders, pictured
+here, of the internet--",00:12:32.240,00:12:35.630
+"classmates, it turns out, at Van
+Nuys High School in California.",00:12:35.630,00:12:39.770
+"There's Jon Postel and Steve Crocker and
+Vint Cerf, showing at their 25th",00:12:39.770,00:12:44.770
+"anniversary retrospective picture for
+Newsweek that you can build a network",00:12:44.770,00:12:48.300
+out of pretty much anything.,00:12:48.300,00:12:49.920
+"Although, as you'll see, their
+network doesn't work.",00:12:49.920,00:12:51.800
+"It goes from his ear to his ear, and
+mouth to mouth, which I hope is an",00:12:51.800,00:12:56.340
+"inside joke, rather than the founders
+of the internet don't know how to",00:12:56.340,00:12:59.160
+string tin cans together.,00:12:59.160,00:13:01.130
+"But you can see that they built a
+network because they didn't have a lot",00:13:01.130,00:13:06.760
+"of money and couldn't roll it out
+FedEx style, with lots of people",00:13:06.760,00:13:11.290
+working for them.,00:13:11.290,00:13:13.580
+"And because they weren't intending to
+make any money from it, they built a",00:13:13.580,00:13:18.180
+"network that was unowned, whose points
+would be respectively owned or",00:13:18.180,00:13:23.470
+"operated by who knows who, and maybe
+there would even be piggybacking.",00:13:23.470,00:13:27.820
+"MIT would piggyback on BBN to get its
+packets going back and forth.",00:13:27.820,00:13:33.780
+"&gt;&gt; But unowned as a total thing-- what they
+built were protocols to put the",00:13:33.780,00:13:38.550
+"internet together in a way
+that there was no CEO.",00:13:38.550,00:13:43.000
+There was no main menu.,00:13:43.000,00:13:45.010
+It just is.,00:13:45.010,00:13:46.670
+"And it's such an unusual way of doing
+it, both in methodology and in",00:13:46.670,00:13:50.150
+"substance, that for many years, IBM
+was fond of saying you couldn't",00:13:50.150,00:13:53.560
+"possibly build a corporate
+network using TCP/IP.",00:13:53.560,00:13:57.160
+"And that's why internet engineers say
+that their mascot would be the",00:13:57.160,00:13:59.820
+"bumblebee, because the fur to wingspan
+ratio of the bumblebee is far too",00:13:59.820,00:14:03.850
+"large for it to be able to fly, and
+yet, miraculously, the bee flies.",00:14:03.850,00:14:08.270
+"It turns out that we finally discovered
+how bees fly in 2006,",00:14:08.270,00:14:12.350
+thanks to massive government funding.,00:14:12.350,00:14:14.200
+"It turns out they flap their
+wings very quickly.",00:14:14.200,00:14:18.720
+"&gt;&gt; So the way the internet works is kind of
+like the way the beer finds its way",00:14:18.720,00:14:25.670
+around in Fenway Park.,00:14:25.670,00:14:27.510
+"Somebody asked for a beer, but there's
+no beer distribution limit network",00:14:27.510,00:14:33.470
+down to the last foot or so.,00:14:33.470,00:14:35.560
+"For that, the person has to hand the
+beer to the toddler sitting on the",00:14:35.560,00:14:39.190
+"end, who then passes it over.",00:14:39.190,00:14:40.970
+"And at risk to each of our trousers, we
+do this because we stand together",00:14:40.970,00:14:46.620
+to let the fun flow.,00:14:46.620,00:14:49.070
+"And that's basically the way packet
+networking works on the internet,",00:14:49.070,00:14:52.690
+"where there are entities on the internet
+handling your packets, as you",00:14:52.690,00:14:56.270
+"get them relayed from one point to
+another, who have no contractual",00:14:56.270,00:14:59.750
+"relationship with you, nor with
+the ultimate destination.",00:14:59.750,00:15:03.260
+"It's like nested matryoshka
+dolls, how it goes around.",00:15:03.260,00:15:07.850
+"&gt;&gt; The basic format is this, and you may
+have learned a little bit about it.",00:15:07.850,00:15:11.110
+"It's called hourglass architecture,
+and it says that you put not",00:15:11.110,00:15:14.740
+"intellectual property, but internet
+protocol, in the middle of the",00:15:14.740,00:15:17.480
+hourglass here.,00:15:17.480,00:15:18.230
+"That's what the engineers work on,
+and it's designed to be totally",00:15:18.230,00:15:21.690
+"ecumenical, which is why it's broad
+on the top and the bottom.",00:15:21.690,00:15:25.130
+"At the top, we allow any
+number of applications.",00:15:25.130,00:15:30.670
+"Who knows what somebody's
+going to build on it.",00:15:30.670,00:15:32.650
+It's just like a blinking cursor.,00:15:32.650,00:15:34.650
+"&gt;&gt; The internet is just designed to take
+points of presence and route packets",00:15:34.650,00:15:38.060
+between them using best efforts.,00:15:38.060,00:15:39.990
+That's it.,00:15:39.990,00:15:41.316
+That's It.,00:15:41.316,00:15:42.140
+It's not a set of applications.,00:15:42.140,00:15:44.210
+It's just the network.,00:15:44.210,00:15:45.550
+"And then anybody can build applications
+on top of it, and may the",00:15:45.550,00:15:48.660
+best apps win.,00:15:48.660,00:15:49.940
+"And underneath, it was meant
+to be ecumenical about what",00:15:49.940,00:15:52.630
+hardware you would use.,00:15:52.630,00:15:54.100
+"Whatever hardware you
+want to use, boom.",00:15:54.100,00:15:56.260
+"You can bring it to the party, so long
+as it speaks internet protocol.",00:15:56.260,00:15:59.970
+"And there is no copyright asserted in
+internet protocol, and as changes are",00:15:59.970,00:16:03.920
+"made to it, you're free
+to adopt them or not.",00:16:03.920,00:16:07.130
+"As an equipment manufacturer or as a
+network provider, it is, in fact, a",00:16:07.130,00:16:11.080
+"collective hallucination, but a very
+sustained and powerful one.",00:16:11.080,00:16:15.780
+"&gt;&gt; And the idea was, don't make
+the network smart.",00:16:15.780,00:16:18.930
+Don't keep adding features.,00:16:18.930,00:16:20.310
+"Otherwise, we would be at the animated
+paper clip phase of the internet.",00:16:20.310,00:16:24.120
+"We are not, because we never
+added many features to it.",00:16:24.120,00:16:28.160
+"Instead, it's just supposed to
+route and let the endpoints--",00:16:28.160,00:16:32.460
+the smart things on the end like PCs--,00:16:32.460,00:16:35.290
+"deal with any features they want, such
+as encryption, such as return receipt,",00:16:35.290,00:16:40.670
+"all of that stuff meant to
+be only if you need them.",00:16:40.670,00:16:44.890
+"&gt;&gt; Now a different David-- that was David
+Clark who contributed to last paper--",00:16:44.890,00:16:48.390
+"a different Clarke, Arthur C.
+Clarke, came up with what he",00:16:48.390,00:16:51.720
+calls his Third Law.,00:16:51.720,00:16:53.260
+"And this was, ""Any sufficiently
+advanced technology is",00:16:53.260,00:16:56.680
+"indistinguishable from magic."" He was
+actually borrowing from a previous",00:16:56.680,00:17:02.390
+"science fiction writer, Leigh
+Brackett, who put it",00:17:02.390,00:17:05.329
+a little less kindly.,00:17:05.329,00:17:06.990
+"""Witchcraft to the ignorant--",00:17:06.990,00:17:08.650
+"simple science to the learned.""",00:17:08.650,00:17:10.950
+"&gt;&gt; And I put it to you that part of CS50
+is to move you from one category to",00:17:10.950,00:17:16.230
+"the other, so that you can start
+understanding stuff that seems like",00:17:16.230,00:17:20.000
+magic to others.,00:17:20.000,00:17:20.930
+"I turn on my Flexowriter, and magically,
+it pounds out a paper that",00:17:20.930,00:17:25.030
+I had previously recorded.,00:17:25.030,00:17:26.859
+"You're learning about the
+guts of technology.",00:17:26.859,00:17:29.780
+"And these are unowned technologies,
+both at the endpoint and in the",00:17:29.780,00:17:33.970
+"network, that let you take what you've
+learned and just take it for a spin.",00:17:33.970,00:17:37.480
+Try it out.,00:17:37.480,00:17:38.220
+"See if you can change the
+world in some way.",00:17:38.220,00:17:41.230
+"And it will look like magic to others,
+but you are learning the secrets to",00:17:41.230,00:17:45.150
+make it simple science.,00:17:45.150,00:17:48.420
+"&gt;&gt; One such person who did this to the
+nth degree is Sir Tim Berners-Lee.",00:17:48.420,00:17:52.640
+"He wrote an app called the web, and
+that means he wrote protocols.",00:17:52.640,00:17:57.525
+"It's like, hey, if you want to just ship
+a file to somebody but have it",00:17:57.525,00:18:00.950
+"render into clickable links and pictures
+and stuff, here's how you",00:18:00.950,00:18:05.200
+would do that.,00:18:05.200,00:18:05.770
+"And now I've programed a
+server and a client.",00:18:05.770,00:18:08.740
+"So, OK, world, here's your web.",00:18:08.740,00:18:10.840
+Go to town.,00:18:10.840,00:18:12.500
+"&gt;&gt; And unbelievably, the
+world did just that.",00:18:12.500,00:18:16.040
+"Tim asserted no patent,
+no copyright in it.",00:18:16.040,00:18:20.140
+He gave it away.,00:18:20.140,00:18:21.310
+"And the web is the second great unowned,
+collective hallucination that",00:18:21.310,00:18:25.460
+"we have, which is also why if have a
+problem with a website, you can't go",00:18:25.460,00:18:29.070
+"to the CEO of the web and
+have it be taken down.",00:18:29.070,00:18:32.880
+"There is no such person, and there is no
+main menu for the web, exactly the",00:18:32.880,00:18:37.360
+opposite of AT&amp;T or CompuServe.,00:18:37.360,00:18:41.740
+"&gt;&gt; It's also, then, a moment, probably
+around 1995 or so, when Windows, which",00:18:41.740,00:18:49.840
+"had no means of connecting to internet
+protocol, got finally hooked up to it,",00:18:49.840,00:18:55.060
+"thanks to this guy, named Tattam.",00:18:55.060,00:18:57.010
+"At University of Tasmania, in the
+psychology department, he wrote",00:18:57.010,00:19:01.030
+something called Trumpet Winsock.,00:19:01.030,00:19:02.730
+That's because he likes trumpets.,00:19:02.730,00:19:04.090
+That's him.,00:19:04.090,00:19:05.090
+"And Trumpet Winsock was just a little
+shim that connected your Windows 95 or",00:19:05.090,00:19:11.210
+3.1 into web and the internet.,00:19:11.210,00:19:16.330
+"And suddenly everybody was like,
+holy crap, this is great.",00:19:16.330,00:19:19.960
+"And Tattam just said, well, if you like
+it, you can send me some money,",00:19:19.960,00:19:22.370
+but otherwise it's totally up to you.,00:19:22.370,00:19:25.310
+"&gt;&gt; And that's how you start getting
+amazing content-level unowned",00:19:25.310,00:19:30.290
+"technology taking off, such as
+catsthatlooklikehitler.com.",00:19:30.290,00:19:33.830
+"CompuServe is unlikely to put this on
+its main menu, and yet it's but a",00:19:33.830,00:19:40.030
+"click away on this web, with enough
+people now connected that have cats",00:19:40.030,00:19:45.540
+"and that know enough to upload a photo
+of them, that you can get this",00:19:45.540,00:19:48.860
+"incredible number four Kitler, which
+is just like, I don't know how you",00:19:48.860,00:19:54.095
+"would come back home
+to that every day.",00:19:54.095,00:19:57.400
+"&gt;&gt; It also lets such things
+that are crazy, like",00:19:57.400,00:20:00.040
+"Wikipedia, is being created.",00:20:00.040,00:20:02.320
+"Can you imagine, in 2001, somebody named
+Jimbo saying to you, I've got a",00:20:02.320,00:20:06.190
+great idea.,00:20:06.190,00:20:06.910
+"We start with 20 articles, and then
+anybody can edit anything, and before",00:20:06.910,00:20:10.580
+"you know it, we'll have an
+incredibly useful source.",00:20:10.580,00:20:13.080
+"How many people have used Wikipedia for
+medical advice in a direct way?",00:20:13.080,00:20:18.540
+Right.,00:20:18.540,00:20:19.190
+"And the rest of you are
+not admitting it.",00:20:19.190,00:20:21.350
+"That is amazing, given how it started
+and how it is sustained, by anybody",00:20:21.350,00:20:26.970
+able to edit any article at any time.,00:20:26.970,00:20:28.870
+"In that sense, this is an unowned
+technology at the content layer of the",00:20:28.870,00:20:35.220
+"hourglass, capable of
+incredible things.",00:20:35.220,00:20:39.220
+"So popular, in fact, that it is now
+appearing on Chinese restaurant menus.",00:20:39.220,00:20:44.570
+Not exactly sure why.,00:20:44.570,00:20:47.230
+"I have a theory, but
+we don't have time.",00:20:47.230,00:20:49.790
+"&gt;&gt; So anyway, these unowned technologies
+can end up yielding new unowned",00:20:49.790,00:20:55.670
+"technologies and content
+at other layers.",00:20:55.670,00:20:58.990
+"And we end up with the amazing
+explosion we've seen",00:20:58.990,00:21:02.320
+in the past 30 years.,00:21:02.320,00:21:04.120
+"Incredible, powerful, still contingent,
+especially because as more",00:21:04.120,00:21:09.280
+"and more people use it, you start to
+see that it's worth subverting.",00:21:09.280,00:21:13.500
+"Whether to scam people or for your own
+purposes, these technologies that",00:21:13.500,00:21:17.430
+"depend on some measure of trust and
+goodwill can themselves become very,",00:21:17.430,00:21:23.000
+very limited.,00:21:23.000,00:21:24.410
+"And the fact that we're not accrediting
+people who contribute--",00:21:24.410,00:21:28.380
+"anybody can write anything, even
+if you're from Tasmania--",00:21:28.380,00:21:32.110
+that cool thing can become a problem.,00:21:32.110,00:21:35.880
+"&gt;&gt; So we see , generally, a movement from
+owned stuff, with the introduction of",00:21:35.880,00:21:42.590
+"the web and the internet,
+to an unowned zone.",00:21:42.590,00:21:46.210
+"But then, you start to see certain apps
+themselves become foundational,",00:21:46.210,00:21:50.845
+"and some of them may in turn be owned,
+and they start to look like the new",00:21:50.845,00:21:55.560
+CompuServe.,00:21:55.560,00:21:56.300
+"So there's a kind of weird cycle going,
+as people shelter and look for",00:21:56.300,00:22:00.380
+"stability and consistency and
+security and main menus.",00:22:00.380,00:22:04.300
+"And once you start getting those, and
+some people and entities start to",00:22:04.300,00:22:08.010
+"really get powerful in the space,
+they quite naturally might",00:22:08.010,00:22:11.800
+want to assert control.,00:22:11.800,00:22:13.190
+"So things they could do to be open,
+they, in turn, can start to close, if",00:22:13.190,00:22:18.260
+it fits their business model to do it.,00:22:18.260,00:22:20.640
+"And these are, of course, several
+instances of those sorts of things",00:22:20.640,00:22:24.570
+"happening, as mere apps become
+foundational platforms and start",00:22:24.570,00:22:29.830
+pulling back.,00:22:29.830,00:22:30.750
+"&gt;&gt; But this is really more of
+an entrepreneurial story.",00:22:30.750,00:22:33.150
+"There's a more fundamental problem going
+on, which is, in all the stuff",00:22:33.150,00:22:38.140
+"running on this really cool PC you might
+have, whose lineage traces back",00:22:38.140,00:22:42.330
+"to 1977, what happens if just one
+piece of that code is bad?",00:22:42.330,00:22:48.360
+"And it turns out, terrible things can
+happen, because any piece of code",00:22:48.360,00:22:52.050
+"written by anybody running on your
+machine generally has had the keys to",00:22:52.050,00:22:56.210
+the kingdom.,00:22:56.210,00:22:57.350
+"And that's kind of like The
+Princess and the Pea.",00:22:57.350,00:22:59.540
+"Just one problem on the computer can
+spoil more than a good night's sleep.",00:22:59.540,00:23:06.000
+"&gt;&gt; And this was something that the music
+industry discovered when they produced",00:23:06.000,00:23:10.330
+"the compact disc before
+there were PCs.",00:23:10.330,00:23:13.250
+"They produced this for an
+appliance-sized world.",00:23:13.250,00:23:16.560
+"The compact disc had digital quality
+music on it, read by CD players.",00:23:16.560,00:23:21.560
+"And the CD players were in a very
+complicated arrangement with the music",00:23:21.560,00:23:25.750
+"producers, so that it never even
+occurred to them to put any form of",00:23:25.750,00:23:30.050
+encryption on the disc.,00:23:30.050,00:23:31.750
+Because who would decrypt it?,00:23:31.750,00:23:33.500
+How would a consumer decrypt it?,00:23:33.500,00:23:35.520
+"&gt;&gt; Well, it turns out, once you start
+putting CD-ROMs and CD readers in PCs,",00:23:35.520,00:23:40.430
+"anybody can decrypt it, and
+that leads to problems.",00:23:40.430,00:23:44.160
+"In fact, the industry briefly tried to
+use the reprogrammability of the PC as",00:23:44.160,00:23:50.420
+"a feature rather than, to them, a bug,
+when they started putting code onto",00:23:50.420,00:23:55.490
+"these CDs, so that, if it were loaded
+into a computer, the code would run",00:23:55.490,00:23:59.810
+"and try to protect the computer from
+copying what's on the CD, as against",00:23:59.810,00:24:05.380
+"the wishes of the user, by just
+watching, at all times, to see if you",00:24:05.380,00:24:09.640
+were ever going to try to rip the CD.,00:24:09.640,00:24:12.050
+"&gt;&gt; This is called a rootkit, and
+it was not very popular when",00:24:12.050,00:24:15.300
+it was found out.,00:24:15.300,00:24:16.350
+"And they started outing which CDs had
+this software that would ride on top,",00:24:16.350,00:24:21.210
+"load itself on your computer, and refuse
+to leave, even if you no longer",00:24:21.210,00:24:25.010
+liked the music.,00:24:25.010,00:24:27.360
+"This is the one where it was discovered,
+by the way, ironically",00:24:27.360,00:24:29.890
+called Get Right with the Man.,00:24:29.890,00:24:32.610
+"Here are my top other three rootkit
+CDs, The Invisible Invasion,",00:24:32.610,00:24:37.910
+"Suspicious Activity, and Healthy
+in Paranoid Times.",00:24:37.910,00:24:42.000
+"&gt;&gt; Anyway, that's an example of a
+compromise of your machine from a",00:24:42.000,00:24:47.010
+"trusted, or not so trusted, partner.",00:24:47.010,00:24:49.120
+"But this stuff starts coming out of the
+wild, and you end up with things",00:24:49.120,00:24:53.370
+like the Storm Worm in 2007.,00:24:53.370,00:24:56.030
+"This is one of the biggies, and
+you see quotes like this.",00:24:56.030,00:24:59.460
+"""It can launch attacks against those
+who try to figure it out.",00:24:59.460,00:25:03.480
+"It knows, and it punishes.",00:25:03.480,00:25:05.830
+Researchers are afraid.,00:25:05.830,00:25:07.150
+"I've never seen this before.""
+And you're like, is this",00:25:07.150,00:25:10.170
+"Network World, or Homeland?",00:25:10.170,00:25:11.810
+&gt;&gt; This is ridiculous.,00:25:11.810,00:25:13.190
+How is it so bad?,00:25:13.190,00:25:14.920
+"And it has, in fact, gotten
+worse and worse.",00:25:14.920,00:25:17.990
+"And as we've seen more and more
+sophisticated malware, we start to",00:25:17.990,00:25:21.270
+"realize that just one bad move can end
+up ruining things for everybody.",00:25:21.270,00:25:27.460
+"And we don't really have good defenses
+calculated for it yet, and that is a",00:25:27.460,00:25:33.820
+real problem.,00:25:33.820,00:25:35.720
+"&gt;&gt; In fact, just today it was reported that
+the Stuxnet virus has found its",00:25:35.720,00:25:41.920
+"way onto the International Space Station
+because some Russians had a",00:25:41.920,00:25:47.070
+USB key infected with it.,00:25:47.070,00:25:49.040
+"And now the space station has
+come down with a problem.",00:25:49.040,00:25:52.310
+That's pretty incredible.,00:25:52.310,00:25:54.190
+"And it's ironic, too, because it was
+a few years ago that somebody from",00:25:54.190,00:25:58.940
+"Microsoft was pointing out that malware
+is becoming so bad that once",00:25:58.940,00:26:03.840
+"you've got it, there's basically
+no way to perform an",00:26:03.840,00:26:06.280
+exorcism on your machine.,00:26:06.280,00:26:08.400
+"That's this wonderful quote that says,
+really what you have to do is nuke the",00:26:08.400,00:26:12.990
+"systems from orbit, which starts to be
+a fairly serious thing to do to clean",00:26:12.990,00:26:19.520
+your machine of a virus.,00:26:19.520,00:26:21.550
+"And if you're already in orbit on the
+space station, I don't know what's",00:26:21.550,00:26:26.110
+going to happen.,00:26:26.110,00:26:26.970
+"&gt;&gt; So, anyway, this is a real problem.",00:26:26.970,00:26:30.650
+"And the fundamental problem is this,
+the Cap'n Crunch bosun's whistle, a",00:26:30.650,00:26:35.490
+"prize in a box of Cap'n Crunch
+cereal in the early 1970s.",00:26:35.490,00:26:39.140
+"After you have sugared up your child,
+why not have her run around the house",00:26:39.140,00:26:41.790
+and blow a whistles?,00:26:41.790,00:26:42.520
+It's the perfect prize.,00:26:42.520,00:26:43.940
+"But it turns out that if you covered
+one hole of the whistle after",00:26:43.940,00:26:47.780
+"extracting it from the box and blew,
+it emitted a tone of 2,600 hertz,",00:26:47.780,00:26:52.070
+"which is exactly the tone used by AT&amp;T,
+monopoly telephone provider at",00:26:52.070,00:26:55.590
+"the time, to indicate an idle line.",00:26:55.590,00:26:57.660
+"Pick up the phone, blow
+the whistle, get free",00:26:57.660,00:26:59.790
+long-distance telephone calling.,00:26:59.790,00:27:02.390
+"Boxes of Cap'n Crunch cereal
+flying off the shelves.",00:27:02.390,00:27:06.410
+General Mills has no idea why.,00:27:06.410,00:27:08.530
+"And it turns out, there's a new
+third-party app for their cereal.",00:27:08.530,00:27:13.220
+"&gt;&gt; Now, this is a real problem for AT&amp;T,
+but they have an owned network, which",00:27:13.220,00:27:18.960
+means they can fix it.,00:27:18.960,00:27:20.040
+Which they did.,00:27:20.040,00:27:20.940
+"They turned to out of band signaling,
+so that data was distinct from code,",00:27:20.940,00:27:25.590
+"and there was nothing you could
+put into the data channel--",00:27:25.590,00:27:28.360
+the voice--,00:27:28.360,00:27:29.520
+"that could change the way
+the network worked.",00:27:29.520,00:27:32.410
+"The internet is unowned and cannot
+be so readily fixed.",00:27:32.410,00:27:36.700
+"The very channels that carry our
+music, our email, our dancing",00:27:36.700,00:27:40.360
+"hamsters, are also the channels that
+carry executable code for the network",00:27:40.360,00:27:44.730
+"itself, and for the endpoints.",00:27:44.730,00:27:46.760
+"And we wouldn't want to have it any
+other way, except that now we are in a",00:27:46.760,00:27:51.070
+"serious dilemma, because you click
+on the wrong thing, and",00:27:51.070,00:27:54.100
+now it's all over.,00:27:54.100,00:27:56.290
+"&gt;&gt; And we even start to see stuff being
+installed before you even take it out",00:27:56.290,00:28:01.140
+of the box.,00:28:01.140,00:28:01.900
+"It's compromised in one way or another,
+and trying to figure out, as",00:28:01.900,00:28:06.660
+"you peer into your box, whether it's
+already compromised, is a hopeless,",00:28:06.660,00:28:11.480
+hopeless task.,00:28:11.480,00:28:12.760
+"And try figuring out the same for
+anything you hook that box up to, the",00:28:12.760,00:28:16.310
+"intermediate routers, et cetera.",00:28:16.310,00:28:18.510
+"Which is one reason why I think people
+are very puzzled at the prospect that",00:28:18.510,00:28:25.210
+"their laptop webcam could simply be
+turned on by somebody who has",00:28:25.210,00:28:29.790
+"compromised the machine,
+and viewing everything.",00:28:29.790,00:28:32.590
+"I don't know how many of you put a
+Post-it note over your laptop webcam.",00:28:32.590,00:28:37.820
+I don't see any hands up.,00:28:37.820,00:28:39.980
+"Turns out it's a cheap security feature,
+and I recommend it, because",00:28:39.980,00:28:44.090
+"you start to see that this is a
+so-called RAT-- a remote access",00:28:44.090,00:28:49.990
+technology.,00:28:49.990,00:28:51.080
+"&gt;&gt; And here is a Danish family
+being viewed.",00:28:51.080,00:28:53.260
+"This is from the point of view of the
+hacker, who has gotten into their",00:28:53.260,00:28:56.180
+"machine and is watching them as they are
+computing, can completely control",00:28:56.180,00:28:59.790
+"the machine, watch what's going on.",00:28:59.790,00:29:01.590
+"Here is a police officer, whose
+machine in his squad car was",00:29:01.590,00:29:05.190
+compromised.,00:29:05.190,00:29:06.090
+"So you can watch the police
+officer going around.",00:29:06.090,00:29:08.260
+"I guess you can see if he's coming to
+your house to arrest you for that.",00:29:08.260,00:29:11.210
+"There's the chat room where they are
+talking about this phenomenon, and",00:29:11.210,00:29:14.820
+"amazed that they have
+managed to do this.",00:29:14.820,00:29:17.790
+"&gt;&gt; This is the kind of stuff
+that makes it hard to be",00:29:17.790,00:29:22.130
+healthy in paranoid times.,00:29:22.130,00:29:25.900
+You add up this stuff--,00:29:25.900,00:29:27.770
+"anywhere you see a PC, including that
+CAT scan machine, you now start to",00:29:27.770,00:29:32.520
+worry about bad code getting near it.,00:29:32.520,00:29:34.970
+"And this is becoming a
+somewhat dire threat.",00:29:34.970,00:29:38.990
+"And I think we have to recognize that
+threat, because it is already changing",00:29:38.990,00:29:42.950
+"the nature of the unowned technologies
+that otherwise I am extolling.",00:29:42.950,00:29:48.310
+&gt;&gt; So what do we do about it?,00:29:48.310,00:29:49.720
+"Well, here is a quick tour of
+some potential solutions.",00:29:49.720,00:29:53.660
+"Thinking through an axis between owned
+an unowned in a given environment, and",00:29:53.660,00:29:58.720
+then hierarchy and polyarchy.,00:29:58.720,00:30:00.065
+"And hierarchy means there's only
+one choice for your solution.",00:30:00.065,00:30:04.730
+"Everybody is bound by one entity
+that does something.",00:30:04.730,00:30:08.060
+"And polyarchy means no, no, there's
+lots of choice and competition.",00:30:08.060,00:30:10.655
+"And I'll give you some examples
+to straighten this out.",00:30:10.655,00:30:13.540
+"&gt;&gt; But let's first look at responses
+to the cybersecurity",00:30:13.540,00:30:16.980
+"problem, quadrant by quadrant.",00:30:16.980,00:30:18.770
+"So let's look at the unowned polyarchy
+one, which I think",00:30:18.770,00:30:21.750
+is basically anarchy.,00:30:21.750,00:30:22.750
+It means you're on your own.,00:30:22.750,00:30:25.120
+Good luck.,00:30:25.120,00:30:25.680
+There's lots of things you could do.,00:30:25.680,00:30:27.290
+"Try to pick the right one, and
+just do the best you can to",00:30:27.290,00:30:30.930
+defend what you have.,00:30:30.930,00:30:32.910
+"And that, I think, is great if
+you happen to be a ninja.",00:30:32.910,00:30:37.300
+It's not so great if you are not.,00:30:37.300,00:30:39.400
+"And it's not even great for ninjas,
+because everybody asks them for help",00:30:39.400,00:30:42.180
+and they get bored.,00:30:42.180,00:30:43.310
+"&gt;&gt; So we start to see things like
+this, designed to help you",00:30:43.310,00:30:47.370
+decide what to do.,00:30:47.370,00:30:48.560
+And if you see something like this--,00:30:48.560,00:30:49.920
+"I don't know how often you
+see windows like this--",00:30:49.920,00:30:53.350
+"it's a Saturday night, you're
+clicking around.",00:30:53.350,00:30:54.960
+"How many of you, when you see a window
+like this click, continue?",00:30:54.960,00:30:58.830
+Lots of hands.,00:30:58.830,00:30:59.780
+How many click cancel?,00:30:59.780,00:31:02.440
+A couple.,00:31:02.440,00:31:03.680
+Right.,00:31:03.680,00:31:04.570
+"And then you click cancel, and you're
+back where you started.",00:31:04.570,00:31:06.780
+"You're like, but I wanted to
+see the Hampster Dance.",00:31:06.780,00:31:08.530
+"So then you click continue,
+and away you go.",00:31:08.530,00:31:11.640
+"&gt;&gt; This is just not an effective way of
+securing things, and it reminds me of",00:31:11.640,00:31:14.800
+"this email I got several years ago
+warning Harvard Law School faculty and",00:31:14.800,00:31:18.600
+"staff of an insurgence of fraudulent
+emails at the law school, and all the",00:31:18.600,00:31:22.690
+"things you have to do so that if you
+click on the wrong thing you're not",00:31:22.690,00:31:26.480
+totally screwed.,00:31:26.480,00:31:27.880
+"And it's just ridiculous how
+much you have to do every",00:31:27.880,00:31:30.900
+time you see an email.,00:31:30.900,00:31:31.980
+"This is my favorite one, by the way.
+""Be weary of emails that have",00:31:31.980,00:31:34.700
+"misspelling, poor grammar
+or odd characters.",00:31:34.700,00:31:37.180
+"They are a red flag for fraud."" I wrote
+back, I was like, I got one.",00:31:37.180,00:31:44.950
+"And they sent me to Oxford for three
+years, so never mess with your IT",00:31:44.950,00:31:49.130
+department.,00:31:49.130,00:31:49.920
+"And if you're going to end up in an IT
+department, don't allow yourself to be",00:31:49.920,00:31:53.250
+messed with.,00:31:53.250,00:31:54.250
+"&gt;&gt; But anyway, you see that user ignorance
+is something that is going",00:31:54.250,00:32:00.800
+"to mean that it's really hard
+to rely on that bottom right",00:32:00.800,00:32:04.730
+quadrant to help people.,00:32:04.730,00:32:06.270
+"And I've got to say, I'm not even sure
+the answer to this question.",00:32:06.270,00:32:08.940
+Right?,00:32:08.940,00:32:09.170
+"If it's bad enough, I
+suppose it could.",00:32:09.170,00:32:10.810
+If there's rain over Redmond.,00:32:10.810,00:32:12.530
+"&gt;&gt; But anyway, let's look at another
+quadrant, upper left.",00:32:12.530,00:32:16.190
+"When I think of hierarchy and owned,
+I'm thinking government.",00:32:16.190,00:32:21.730
+"And what might government
+do to try to help?",00:32:21.730,00:32:24.360
+"Well, government has been trying
+to help for about 10 years now.",00:32:24.360,00:32:27.360
+"This was the original strategy
+to secure cyberspace.",00:32:27.360,00:32:31.080
+It was huge.,00:32:31.080,00:32:31.790
+"It basically said digital Pearl
+Harbor, be very afraid.",00:32:31.790,00:32:35.260
+And we don't know what to do about it.,00:32:35.260,00:32:37.500
+"So they've been trying to figure out
+what to do about it, like creating",00:32:37.500,00:32:40.300
+"information sharing and analysis centers
+that look at the internet.",00:32:40.300,00:32:43.790
+"They're like, it's down, it's down.",00:32:43.790,00:32:45.360
+"It's like, OK, it's down.",00:32:45.360,00:32:47.090
+"We can't tell anybody, it's down.",00:32:47.090,00:32:49.070
+"&gt;&gt; So, one of the disadvantages of unowned
+technologies are there's no",00:32:49.070,00:32:54.340
+"obvious place to send the Marines, and
+they have no particular comparative",00:32:54.340,00:32:58.210
+"advantage, even if you could
+send them, in securing",00:32:58.210,00:33:01.320
+this distributed network.,00:33:01.320,00:33:03.000
+"Which means the government has had a
+hard time figuring out what to do.",00:33:03.000,00:33:06.680
+"Instead they made calls like this, from
+former CIA director George Tenet,",00:33:06.680,00:33:10.660
+"who said that, maybe we have
+to make it so that people--",00:33:10.660,00:33:18.170
+"the access to the web might need to be
+limited to those who show they can",00:33:18.170,00:33:20.900
+take security seriously.,00:33:20.900,00:33:22.980
+"It would no longer be
+a world wide web.",00:33:22.980,00:33:24.600
+"It would be like, three people being
+like, we are very secure.",00:33:24.600,00:33:28.460
+"And that's one of the problems in
+trying to figure out what to do.",00:33:28.460,00:33:32.620
+"&gt;&gt; And just a couple years ago, there was
+this big thing about, oh my god, they",00:33:32.620,00:33:35.870
+"have a cybersecurity bill, and the
+president's going to have emergency",00:33:35.870,00:33:39.100
+power to shut down the internet.,00:33:39.100,00:33:41.350
+"I don't think that amounted
+to much of anything.",00:33:41.350,00:33:44.040
+"And in fact the lawmakers themselves
+were not pleased with these reports of",00:33:44.040,00:33:46.970
+the kill switch.,00:33:46.970,00:33:47.930
+"Although it doesn't make me feel better
+that, as you can see at the",00:33:47.930,00:33:52.760
+"bottom, the senator was like, the
+president already has the authority to",00:33:52.760,00:33:55.900
+"shut down the internet under a
+little-known provision of the",00:33:55.900,00:33:58.570
+"Communications Act passed one month
+after the 1941 attack on Pearl Harbor,",00:33:58.570,00:34:03.100
+"which is a very forward-looking law,
+to give the president the power to",00:34:03.100,00:34:06.720
+"shut down the internet after the
+Japanese attacked in 1941.",00:34:06.720,00:34:10.780
+"&gt;&gt; Anyway, we start to see other ways that
+government is trying to think of",00:34:10.780,00:34:15.560
+"this like the government would
+think of any other form of",00:34:15.560,00:34:18.560
+intrusion into a space.,00:34:18.560,00:34:20.139
+"And that's one of the negatives of
+calling it cyberspace, because it's",00:34:20.139,00:34:23.020
+not really a space.,00:34:23.020,00:34:23.865
+But we think of perimeter defense.,00:34:23.865,00:34:25.860
+"Of just like, well let's just put
+antivirus nodes all around the edges",00:34:25.860,00:34:30.360
+"of the country, and they can
+shoot down incoming viruses",00:34:30.360,00:34:33.510
+like missile command.,00:34:33.510,00:34:34.810
+And it doesn't quite work that way.,00:34:34.810,00:34:37.550
+"And it means, instead, that we may end
+up building a system to shoot down all",00:34:37.550,00:34:41.330
+"sorts of other content that has nothing
+to do with network security.",00:34:41.330,00:34:45.540
+It's not clear.,00:34:45.540,00:34:46.639
+"We want to take a page out of the
+books of countries that have",00:34:46.639,00:34:49.100
+already done that.,00:34:49.100,00:34:51.040
+"&gt;&gt; In the meantime, we've seen proposals
+from some multinational",00:34:51.040,00:34:54.480
+"multigovernment institutions, like the
+International Telecommunications",00:34:54.480,00:34:57.440
+"Union, to completely
+redo the internet.",00:34:57.440,00:35:00.350
+"As you can see, they are an extremely
+hierarchical organization, kind of the",00:35:00.350,00:35:03.860
+"opposite of the three guys who
+started the internet off.",00:35:03.860,00:35:07.260
+"And they have this idea of replacing the
+hourglass was what they call the",00:35:07.260,00:35:12.440
+next generation network.,00:35:12.440,00:35:15.180
+"And they started a focus group on the
+next generation networks, also known",00:35:15.180,00:35:18.550
+as the FGNGN.,00:35:18.550,00:35:19.870
+"And it came up with a new map
+for a better tomorrow.",00:35:19.870,00:35:24.270
+&gt;&gt; You ready for the new hourglass?,00:35:24.270,00:35:26.040
+Here it is.,00:35:26.040,00:35:27.200
+"It's ITU next generation network, and
+it has everything but the animated",00:35:27.200,00:35:32.010
+paper clip.,00:35:32.010,00:35:32.770
+"Suddenly it's feature laden in the
+network, because the idea should be,",00:35:32.770,00:35:36.880
+"they figure, that you want to be able to
+make it, if packet says don't copy",00:35:36.880,00:35:41.200
+"me, even if two users want to exchange
+it, the network should",00:35:41.200,00:35:44.630
+know not to do it.,00:35:44.630,00:35:45.860
+"That could help with content control,
+and that could help with security.",00:35:45.860,00:35:50.610
+"It doesn't, I think, end up mattering
+that much, because trying to replace",00:35:50.610,00:35:53.875
+"the network we have is really
+difficult to do.",00:35:53.875,00:35:56.570
+It has a lot of inertia to it.,00:35:56.570,00:35:58.410
+"Just ask the internet engineers who are
+trying to upgrade it themselves.",00:35:58.410,00:36:02.750
+"&gt;&gt; So a third quadrant here
+is the upper right.",00:36:02.750,00:36:06.800
+"And it's still owned,
+but it's polyarchy.",00:36:06.800,00:36:09.120
+"There's lots of owners,
+and you get your pick.",00:36:09.120,00:36:11.220
+That's basically the corporate sector.,00:36:11.220,00:36:13.170
+"It's turning to the corporate world
+to say, I've got a problem.",00:36:13.170,00:36:17.090
+Sell me a solution.,00:36:17.090,00:36:18.180
+I'm not looking for government.,00:36:18.180,00:36:19.380
+I can't do it myself.,00:36:19.380,00:36:20.840
+"But you could maybe come
+up with something.",00:36:20.840,00:36:23.300
+"And sure enough, we've seen lots of
+efforts by private companies to secure",00:36:23.300,00:36:27.350
+"the space, which in turn sometimes
+end up in trouble.",00:36:27.350,00:36:31.480
+&gt;&gt; Is that RSA calling?,00:36:31.480,00:36:32.730
+I hear a weird beep.,00:36:32.730,00:36:34.441
+I guess not.,00:36:34.441,00:36:35.760
+"&gt;&gt; Anyway, it turns out, then, that the
+corporate sector tries to offer some",00:36:35.760,00:36:42.170
+"measure of security, but it has the
+feel, metaphorically, of securing the",00:36:42.170,00:36:45.320
+"road from the Baghdad airport with
+your own bodyguard force.",00:36:45.320,00:36:49.060
+"It has its element of inefficiency to
+it, and it means that different people",00:36:49.060,00:36:53.240
+"will get different levels of security,
+which can end up not",00:36:53.240,00:36:56.790
+being all that fair.,00:36:56.790,00:36:58.410
+"&gt;&gt; In a more subtle sense, we've seen the
+introduction of technologies made to",00:36:58.410,00:37:03.340
+be in the mold of the Flexowriter.,00:37:03.340,00:37:05.950
+"In fact, the very company that in 1977
+gave us the first great unowned",00:37:05.950,00:37:10.190
+"technology, the PC, gave us the first
+great owned technology exactly 30",00:37:10.190,00:37:15.220
+"years later, with the iPhone, where the
+iPhone says, look, we are going to",00:37:15.220,00:37:20.470
+define everything on it.,00:37:20.470,00:37:21.840
+You don't want to be like a PC.,00:37:21.840,00:37:23.030
+Those crash all the time.,00:37:23.030,00:37:24.740
+"Instead what you want is to be able to
+have it work, have it act just like",00:37:24.740,00:37:31.930
+that Smart Word Processor.,00:37:31.930,00:37:33.960
+Now that was the original iPhone.,00:37:33.960,00:37:35.550
+"There were no apps, no App Store
+on the original iPhone.",00:37:35.550,00:37:39.900
+"It was more just like basically saying,
+look, we're going to close it",00:37:39.900,00:37:44.300
+"off, and this is going to look
+like something some of",00:37:44.300,00:37:47.190
+you have seen before.,00:37:47.190,00:37:48.570
+"And we will define what
+goes on the phone.",00:37:48.570,00:37:51.280
+"&gt;&gt; Now, that changed when, a couple years
+later, they introduced the software",00:37:51.280,00:37:56.250
+"developers kit, and suddenly third
+parties could code for the iPhone.",00:37:56.250,00:38:01.440
+And that includes you.,00:38:01.440,00:38:03.210
+This is not a real Newsweek cover.,00:38:03.210,00:38:04.820
+"In fact, it's not clear to me
+Newsweek exists anymore.",00:38:04.820,00:38:07.480
+"But anyway, it's just a bad
+dream, the whole thing.",00:38:07.480,00:38:11.410
+"&gt;&gt; It turns out, though, that they
+put an extra tweak in.",00:38:11.410,00:38:14.780
+it's not like VisiCalc.,00:38:14.780,00:38:16.040
+"If you invent something that's going to
+run on somebody's iPhone, and you",00:38:16.040,00:38:19.300
+"want to give it to them, and they want
+to take it, it must go through the App",00:38:19.300,00:38:22.520
+"Store, which in turn says, we're not
+going to allow illegal, malicious,",00:38:22.520,00:38:26.280
+"privacy invading, porn, bandwidth
+hog, or my favorite, unforeseen.",00:38:26.280,00:38:31.000
+"We can't have anything unforeseen
+happening on the iPhone.",00:38:31.000,00:38:35.820
+"And that App Store model is responding
+to a very real and pressing problem in",00:38:35.820,00:38:41.590
+the unowned universe.,00:38:41.590,00:38:43.160
+"But it's a solution that comes
+with its own worries.",00:38:43.160,00:38:46.610
+"&gt;&gt; So, for example, when a guy created
+something called Freedom Time,",00:38:46.610,00:38:51.830
+"counting down the end of George W.
+Bush's term, it was rejected",00:38:51.830,00:38:55.880
+from the App Store.,00:38:55.880,00:38:57.760
+"And he actually wrote a note to Steve
+Jobs asking why it had been rejected.",00:38:57.760,00:39:02.200
+"Steve Jobs wrote back and said, this
+is going to be offensive to roughly",00:39:02.200,00:39:05.870
+half our customers.,00:39:05.870,00:39:06.830
+What's the point?,00:39:06.830,00:39:08.340
+"And you realize that people are now
+walking around with their technology.",00:39:08.340,00:39:13.050
+They may want it.,00:39:13.050,00:39:13.830
+You may want to give it to them.,00:39:13.830,00:39:15.070
+"But somebody in the middle has
+to be persuaded of its worth",00:39:15.070,00:39:19.300
+before allowing it.,00:39:19.300,00:39:20.460
+"&gt;&gt; That's a very different technological
+environment.",00:39:20.460,00:39:23.410
+"And it's one that Steve Jobs
+accurately foresaw.",00:39:23.410,00:39:26.550
+It's not just about mobile phones.,00:39:26.550,00:39:28.570
+"This is coming to all
+our technologies.",00:39:28.570,00:39:31.290
+"And indeed, we've started to see hybrids
+and other ways in which our",00:39:31.290,00:39:36.290
+"own PC architecture is
+now App Store driven.",00:39:36.290,00:39:40.250
+"&gt;&gt; This is now like, we take
+it for granted.",00:39:40.250,00:39:42.260
+"Two years ago, it would have been, I'm
+not so sure that's going to happen.",00:39:42.260,00:39:45.310
+"And years before that, it would have
+been insane to suggest such a thing.",00:39:45.310,00:39:49.540
+"And, of course, the other day
+I tried to load this--",00:39:49.540,00:39:51.690
+"I don't even know what it does,
+this thing called Vuze.",00:39:51.690,00:39:53.890
+Anybody familiar with it?,00:39:53.890,00:39:55.220
+"Anyway, I tried to load it on my
+Mac, and I said, no, no, sorry.",00:39:55.220,00:40:00.390
+"You can only allow things approved
+by the App Store.",00:40:00.390,00:40:03.900
+"If you're totally nuts, you can change
+your settings to allow any old stuff",00:40:03.900,00:40:08.140
+to run on your machine.,00:40:08.140,00:40:09.490
+"But why would you possibly
+want to do that?",00:40:09.490,00:40:12.300
+"&gt;&gt; And it turns out that it's not
+just Apple doing that now.",00:40:12.300,00:40:16.580
+"Every major producer is building
+architectures that are both meant to",00:40:16.580,00:40:21.430
+"secure things and that become
+vectors for control.",00:40:21.430,00:40:26.520
+"And if you think Android is open, just
+wait until it gets a particularly bad",00:40:26.520,00:40:31.590
+"set of malware, and you'll see--",00:40:31.590,00:40:33.740
+this is the SMS Zombie--,00:40:33.740,00:40:35.500
+"I don't know who would click on
+""Animated Album I Found When I Fixed",00:40:35.500,00:40:38.670
+"My Female Coworker's Computer,"" but
+enough people did, and ended up then",00:40:38.670,00:40:42.960
+with Android malware.,00:40:42.960,00:40:44.920
+"And you start to see the rate of
+uptake of malware happening.",00:40:44.920,00:40:48.710
+"And you realize that it's just a matter
+of time before we go to an App",00:40:48.710,00:40:52.990
+Store model for everything.,00:40:52.990,00:40:55.290
+"&gt;&gt; So that which has become unowned is
+becoming owned, and that which is",00:40:55.290,00:40:59.990
+"owned but open is becoming just owned,
+for all sorts of reasons.",00:40:59.990,00:41:05.080
+"And we're seeing it not just on endpoint
+devices, but in the cloud as",00:41:05.080,00:41:09.200
+"well, as more and more platforms are
+starting to be intermediaries between",00:41:09.200,00:41:14.020
+"you and ostensibly an independent
+party that you want",00:41:14.020,00:41:17.450
+to communicate with.,00:41:17.450,00:41:18.770
+"Just ask the people who did something
+called Critter Island, a",00:41:18.770,00:41:22.630
+somewhat busy game.,00:41:22.630,00:41:24.290
+"And it had 150 million users back in
+its heyday, until it did something",00:41:24.290,00:41:29.180
+that Facebook didn't like.,00:41:29.180,00:41:30.610
+"Facebook simply pulled the plug, and
+there is its user graph right at the",00:41:30.610,00:41:35.460
+moment that Facebook pulled the plug.,00:41:35.460,00:41:37.880
+"That's very different from the zone
+where you get Napster out there, and",00:41:37.880,00:41:43.230
+Napster is out there.,00:41:43.230,00:41:44.110
+"There's no way that Bill Gates or
+anybody else could have pulled the",00:41:44.110,00:41:46.750
+"plug on it, for better or for worse.",00:41:46.750,00:41:49.440
+"&gt;&gt; And control over the code means
+control over the content.",00:41:49.440,00:41:53.840
+"So, for example, when the
+Kindle came out--",00:41:53.840,00:41:56.840
+"perfect example of an owned Friden
+Flexowriter style device--",00:41:56.840,00:42:00.770
+"there was a third party that submitted
+through Amazon, 1984 for $0.99.",00:42:00.770,00:42:08.650
+And people bought it.,00:42:08.650,00:42:09.840
+"And then the person submitting
+it was like, oops, it's under",00:42:09.840,00:42:11.930
+copyright in the US.,00:42:11.930,00:42:12.950
+I thought it was in the public domain.,00:42:12.950,00:42:14.730
+My mistake.,00:42:14.730,00:42:16.010
+"Amazon was like, oh my god, we
+could be in big trouble for",00:42:16.010,00:42:19.800
+allowing this to happen.,00:42:19.800,00:42:20.960
+"And as a result, Amazon reached into
+every single Kindle that had",00:42:20.960,00:42:24.490
+"downloaded 1984 and deleted 1984
+from the Kindle from afar.",00:42:24.490,00:42:31.230
+"&gt;&gt; It's like, you don't have 1984.",00:42:31.230,00:42:33.590
+You never had 1984.,00:42:33.590,00:42:36.050
+There's no such book as 1984.,00:42:36.050,00:42:40.440
+"Now, that's a problem.",00:42:40.440,00:42:42.250
+"And it's not as much of a problem when
+this happened, because there were",00:42:42.250,00:42:45.180
+still bookstores.,00:42:45.180,00:42:45.970
+Remember bookstores?,00:42:45.970,00:42:47.560
+Remember libraries?,00:42:47.560,00:42:48.670
+"It was like, don't worry, there's a
+place that just has this already",00:42:48.670,00:42:52.190
+"printed out and bound on paper in the
+unlikely event that somebody should",00:42:52.190,00:42:55.940
+"walk in and be like, I'd like to give
+you $5 for a printed copy of 1984.",00:42:55.940,00:43:01.300
+"How totally absurd is that
+as a business model?",00:43:01.300,00:43:04.700
+"And as that fades, and you start to go
+to print on demand or read on demand,",00:43:04.700,00:43:08.860
+"you realize that control over
+content is a serious thing.",00:43:08.860,00:43:12.400
+"&gt;&gt; And I just want to be sure, it's not
+just Amazon here that's a baddy.",00:43:12.400,00:43:15.560
+It's Barnes and Noble as well.,00:43:15.560,00:43:17.980
+I was reading--,00:43:17.980,00:43:18.830
+talk about not having much of a life--,00:43:18.830,00:43:20.640
+"I was reading War and Peace the other
+day when I read this passage.",00:43:20.640,00:43:24.800
+"""A vivid glow Nookd in her face.""
+What the hell is that?",00:43:24.800,00:43:28.310
+"""The flame of the sulphur splinters
+Nookd--"" Why is the work ""Nookd"" all",00:43:28.310,00:43:32.200
+over War and Peace?,00:43:32.200,00:43:33.770
+"And then you realize that every place
+the word ""Kindle"" would appear, it has",00:43:33.770,00:43:37.820
+"been replaced by the
+word ""Nook."" Yeah.",00:43:37.820,00:43:47.730
+&gt;&gt; Now that wasn't Barnes and Noble.,00:43:47.730,00:43:49.670
+"That was a third party who had probably
+done this Amazon ebook and",00:43:49.670,00:43:53.460
+"then just re-purposed it to go on the
+Nook, and figured they would change",00:43:53.460,00:43:56.750
+"their wrapper content on either end to
+say, oh, find us on our Nook store,",00:43:56.750,00:44:00.690
+"and did a search and replace,
+and disaster happened.",00:44:00.690,00:44:02.990
+"But you start to realize just how
+readily this could be repurposed.",00:44:02.990,00:44:08.910
+"And believe me, if you're halfway
+through War and Peace, you're just",00:44:08.910,00:44:11.390
+"like, whatevs, that's Tolstoy for you.",00:44:11.390,00:44:14.290
+What are you going to do?,00:44:14.290,00:44:15.500
+"&gt;&gt; So this is an era in which our products
+are becoming services, and",00:44:15.500,00:44:20.590
+"you think, I've I got a toaster.",00:44:20.590,00:44:22.620
+"Well, that's a product.",00:44:22.620,00:44:23.600
+"Imagine your toaster as
+a web-enabled service.",00:44:23.600,00:44:26.950
+What does that mean?,00:44:26.950,00:44:27.780
+"It means you come down one day, it's
+like, congratulations, you've gotten",00:44:27.780,00:44:30.220
+the Tuesday update.,00:44:30.220,00:44:31.400
+You now have three slots.,00:44:31.400,00:44:33.110
+"You're like, well that's pretty cool.",00:44:33.110,00:44:35.010
+"And then the next day, they're like
+, sorry we rolled it back.",00:44:35.010,00:44:37.090
+There was a problem.,00:44:37.090,00:44:37.860
+"We apologize for any toast
+that was crushed.",00:44:37.860,00:44:40.530
+"And then on Friday, you go down
+and it's making orange juice.",00:44:40.530,00:44:43.915
+You're like what do I own?,00:44:43.915,00:44:45.650
+The answer is you own nothing.,00:44:45.650,00:44:47.430
+"You have a long term service
+oriented relationship",00:44:47.430,00:44:50.280
+with a breakfast provider.,00:44:50.280,00:44:52.720
+"And that is great, but it's also
+something that we are still trying to",00:44:52.720,00:44:57.810
+"wrap our arms around as we get
+used to this kind of thing.",00:44:57.810,00:45:02.250
+"And the regulatory possibilities
+are only just beginning.",00:45:02.250,00:45:06.380
+"&gt;&gt; So, for example, some of you may
+remember the old OnStar system.",00:45:06.380,00:45:10.530
+It was in your car.,00:45:10.530,00:45:11.390
+"You'd be driving around, and you get
+lost or something, and you press the",00:45:11.390,00:45:14.220
+button in the rearview mirror.,00:45:14.220,00:45:16.320
+"It has a little microphone so you can
+speak right into it, and speakers so",00:45:16.320,00:45:19.120
+you can hear what people say back.,00:45:19.120,00:45:21.120
+"And this woman answers when
+you press the help button.",00:45:21.120,00:45:23.420
+"And you're like, I can't get up.",00:45:23.420,00:45:25.090
+Please help.,00:45:25.090,00:45:25.650
+"And she's like, well,
+help is on the way.",00:45:25.650,00:45:28.450
+"&gt;&gt; And then it turns out that the FBI
+ends up going to an OnStar like",00:45:28.450,00:45:33.380
+"company and says, I want you, for this
+car, to simply turn on the microphone,",00:45:33.380,00:45:38.120
+"and listen to everything going
+on in the car at all times.",00:45:38.120,00:45:41.300
+"And the company was like, uhh.",00:45:41.300,00:45:42.980
+"And they're like, that's what
+you're going to do.",00:45:42.980,00:45:44.790
+We're the FBI.,00:45:44.790,00:45:46.120
+"The company said OK, and then sued
+anonymously, leading to this wonderful",00:45:46.120,00:45:49.510
+"case, The Company v. United States of
+America, in which, it turned out,",00:45:49.510,00:45:55.280
+"then, that this was not permitted under
+the Wiretap Act for the thinnest",00:45:55.280,00:45:59.670
+of reasons.,00:45:59.670,00:46:00.310
+"Which namely was the way the FBI asked
+for it to happen, to be implemented.",00:46:00.310,00:46:04.560
+"If the person asked for help because
+they were really in trouble, it would",00:46:04.560,00:46:07.690
+"still only go to the FBI, rather than
+OnStar, or that company, which",00:46:07.690,00:46:11.510
+presumably would not come and help.,00:46:11.510,00:46:13.410
+"But if you could fix that glitch, you
+would be in a position to change the",00:46:13.410,00:46:18.560
+way this works.,00:46:18.560,00:46:19.750
+"&gt;&gt; So, all sorts of ways in which malleable
+software, for which changing",00:46:19.750,00:46:26.580
+"it is the prerogative and privilege of
+the vendor, overriding, or getting to",00:46:26.580,00:46:32.130
+"permit, third party change,
+that's today.",00:46:32.130,00:46:36.150
+"That's the new environment, and it is
+the environment of the System/360.",00:46:36.150,00:46:40.870
+"You don't own your stuff anymore,
+and that is a real problem.",00:46:40.870,00:46:46.310
+&gt;&gt; So what do we do about it?,00:46:46.310,00:46:48.090
+"Well, I'm going to give you some ideas
+in the next 4 and 1/2 minutes.",00:46:48.090,00:46:52.270
+"So, one possibility is to return to
+these very unowned technologies and",00:46:52.270,00:46:57.940
+"look for new means of defense
+in this quadrant.",00:46:57.940,00:47:01.600
+"Coming in an unowned fashion, but so
+powerful, so persuasive, so widely",00:47:01.600,00:47:06.220
+"adopted, that they end up being things
+that the criminals can't easily opt",00:47:06.220,00:47:10.400
+"out of, which is what puts them on
+the left side of this graph.",00:47:10.400,00:47:14.090
+"It's something that Wikipedia has
+discovered, in that any administrator",00:47:14.090,00:47:17.560
+"of Wikipedia can be making changes to
+Wikipedia in a privileged way, but",00:47:17.560,00:47:22.610
+"still in this kind of distributed,
+unowned fashion, in order to try to",00:47:22.610,00:47:26.770
+make for a better encyclopedia.,00:47:26.770,00:47:29.190
+"And they just take through a list of
+people that complain about stuff all",00:47:29.190,00:47:33.250
+"day long, and for no money,
+they just keep fixing it.",00:47:33.250,00:47:38.160
+"That is an incredible story, and
+always a contingent one, that I",00:47:38.160,00:47:42.320
+"believe has lessons for how people can
+intervene usefully in ways to secure",00:47:42.320,00:47:47.920
+the internet.,00:47:47.920,00:47:48.910
+"&gt;&gt; And I'll just give you some examples
+of unowned but powerful--",00:47:48.910,00:47:52.550
+"so powerful they move to the left on
+that chart-- technologies like Tor,",00:47:52.550,00:47:57.050
+"where, with enough computers together,
+you can end up laundering the source",00:47:57.050,00:48:01.170
+"and destination of packets, so the
+something like the Silk Road could be",00:48:01.170,00:48:04.170
+"up and unfindable, even though it's a
+click away, for months at a time.",00:48:04.170,00:48:08.620
+"It took the owner of the Silk Road
+trying to put out a hit on one of his",00:48:08.620,00:48:12.080
+"vendors for the cops to be
+able to find this person.",00:48:12.080,00:48:15.270
+That's pretty incredible.,00:48:15.270,00:48:17.080
+"For better or worse, this is an example
+of a technology, then, that",00:48:17.080,00:48:20.410
+"defies a certain kind of OnStar
+like surveillance.",00:48:20.410,00:48:23.660
+"At the content layer, we see things like
+Ushahidi, which allow people to",00:48:23.660,00:48:27.200
+"immediately throw up a map and make
+reports of things, so after an",00:48:27.200,00:48:30.550
+"earthquake or with other problems, you
+have people coming together in a",00:48:30.550,00:48:34.370
+"civic, unowned kind of way, to
+actually create a collective",00:48:34.370,00:48:38.090
+"hallucination, that in this case
+is a map of trouble, that can",00:48:38.090,00:48:41.220
+become quite reliable.,00:48:41.220,00:48:44.320
+"&gt;&gt; This is an idea that we're pursuing over
+at the Berkman Center, in which",00:48:44.320,00:48:47.520
+"currently, if you try to access a web
+page, it renders some links, and you",00:48:47.520,00:48:51.370
+"click on one of those links and try
+to go where the link points.",00:48:51.370,00:48:54.310
+"If you can't get there, that's it.",00:48:54.310,00:48:56.200
+You're stuck.,00:48:56.200,00:48:57.250
+"Well, what if we made it so that when
+you visit a page, it has already",00:48:57.250,00:49:02.540
+"cached some of the links
+that point elsewhere?",00:49:02.540,00:49:05.300
+"It's taken a copy from that server to
+itself, so that if you go to the",00:49:05.300,00:49:09.370
+"server and you can't get there, you can
+go back to the place where you got",00:49:09.370,00:49:13.500
+"the link, and it will send
+you what you missed.",00:49:13.500,00:49:15.890
+"&gt;&gt; That's an example of a distributed
+defensive system that could take some",00:49:15.890,00:49:20.080
+"of the sting out of distributed
+denial of service attacks.",00:49:20.080,00:49:23.250
+"And, it turns out, if the filtering,
+if the blocking is somewhere in the",00:49:23.250,00:49:26.050
+"middle, maybe thanks to government
+filtering, this system would be a",00:49:26.050,00:49:29.460
+distributed means around it.,00:49:29.460,00:49:31.220
+"That's an example of an unowned
+civic technology coming back.",00:49:31.220,00:49:35.010
+"&gt;&gt; Now if the entire plug is pulled on the
+internet, as now has been known to",00:49:35.010,00:49:38.800
+"happen, although at the time
+it was like, wow, who knew",00:49:38.800,00:49:41.330
+that actually happened?,00:49:41.330,00:49:43.040
+"It turns out there's mesh networking, in
+which each one of our devices could",00:49:43.040,00:49:46.840
+"be programmed to be able to respond
+to nearby devices, and then onward",00:49:46.840,00:49:51.280
+"onward, like that beer passing brigade
+at Fenway Park, so that we end up with",00:49:51.280,00:49:56.030
+"a network among ourselves, possibly
+with cached Facebook and Twitter",00:49:56.030,00:49:59.540
+credentials.,00:49:59.540,00:50:00.370
+"So you can find your Facebook friends
+in your mesh network without even",00:50:00.370,00:50:04.330
+having to get to facebook.com.,00:50:04.330,00:50:05.910
+"That's an example of a distributed,
+unowned collective hallucination that",00:50:05.910,00:50:11.150
+could greatly affect security.,00:50:11.150,00:50:13.930
+"&gt;&gt; There was a time when there was a debate
+among state governments about",00:50:13.930,00:50:19.890
+"slavery, and about returning slaves
+to the South who were on",00:50:19.890,00:50:24.790
+the run in the North.,00:50:24.790,00:50:26.050
+"And a political accommodation was
+reached, to try to prevent the Civil",00:50:26.050,00:50:30.470
+"War at the time, that they
+would be returned.",00:50:30.470,00:50:34.250
+And it turns out it didn't work.,00:50:34.250,00:50:36.160
+And why didn't it work?,00:50:36.160,00:50:37.670
+"Because there was not centralized
+law enforcement in any big way.",00:50:37.670,00:50:42.360
+"If you needed to find somebody or do
+anything that was bigger than a single",00:50:42.360,00:50:46.460
+"arrest, you needed a posse, you needed
+to recruit citizens to do it.",00:50:46.460,00:50:50.920
+"And enough citizens were like, I don't
+think so, that it didn't happen.",00:50:50.920,00:50:55.900
+"Technologies that rely on the general
+public to work are also technologies",00:50:55.900,00:51:01.190
+"that have some check valves against
+abuse in a way that's different from",00:51:01.190,00:51:05.110
+"the check valves against abuse that
+we are familiar with from the more",00:51:05.110,00:51:10.590
+"traditional centralized
+government scenarios.",00:51:10.590,00:51:13.930
+&gt;&gt; So I end up with this question.,00:51:13.930,00:51:16.490
+You are now graduating from CS50.,00:51:16.490,00:51:19.810
+"You've gotten the bug bit that gets
+you into this technology.",00:51:19.810,00:51:26.100
+"And in this following puzzle from
+Game of Thrones, try to think",00:51:26.100,00:51:29.370
+about who you are.,00:51:29.370,00:51:30.620
+&gt;&gt; [VIDEO PLAYBACK],00:51:33.746,00:51:34.705
+&gt;&gt; -Are you fond of riddles?,00:51:34.705,00:51:35.810
+&gt;&gt; -Why?,00:51:35.810,00:51:35.866
+Am I about to hear one?,00:51:35.866,00:51:37.300
+"&gt;&gt; -Three great men sit it a room, a king,
+a priest, and the rich man.",00:51:37.300,00:51:42.630
+"Between them stands a
+common cell sword.",00:51:42.630,00:51:45.630
+"Each great man bids the cell
+sword kill the other two.",00:51:45.630,00:51:49.610
+Who lives?,00:51:49.610,00:51:50.490
+Who dies?,00:51:50.490,00:51:52.840
+&gt;&gt; -Depends on the cell sword.,00:51:52.840,00:51:54.300
+&gt;&gt; -Does it?,00:51:54.300,00:51:55.280
+"He has neither crown, nor gold,
+nor favor with the gods.",00:51:55.280,00:51:58.710
+&gt;&gt; -He has a sword.,00:51:58.710,00:51:59.450
+The power of life and death.,00:51:59.450,00:52:00.770
+"&gt;&gt; -But if it's swordsmen who rule, why
+do we pretend kings hold all the",00:52:00.770,00:52:05.305
+power?,00:52:05.305,00:52:05.440
+&gt;&gt; -I've decided I don't like riddles.,00:52:05.440,00:52:07.240
+&gt;&gt; [END VIDEO PLAYBACK],00:52:07.240,00:52:08.440
+"&gt;&gt; JONATHAN ZITTRAIN: OK, so, in this
+scenario, I think you're either",00:52:08.440,00:52:14.290
+"Maesters in training, for those
+who read the books, or",00:52:14.290,00:52:18.760
+you've got the sword.,00:52:18.760,00:52:20.070
+That's what you're sharpening.,00:52:20.070,00:52:21.140
+"You have a tool that you can use in
+an environment still sufficiently",00:52:21.140,00:52:26.340
+"generative that in a week you
+could flip things over.",00:52:26.340,00:52:30.690
+"You could completely transform
+it with some good code",00:52:30.690,00:52:33.380
+deployed on this network.,00:52:33.380,00:52:35.050
+"How you choose to use it will, in part,
+influence whether anybody sees",00:52:35.050,00:52:40.140
+"reason to keep the network generative,
+or whether it's time to just call it",00:52:40.140,00:52:45.630
+"quits and go back to the
+Flexowriters we love.",00:52:45.630,00:52:49.070
+&gt;&gt; In this graph of people--,00:52:49.070,00:52:51.250
+"this is Clarke's Third Law
+coming back again--",00:52:51.250,00:52:53.830
+"basically there are Luddites on the
+left, so removed from technology that",00:52:53.830,00:52:57.080
+"they don't care what happens
+in the world.",00:52:57.080,00:52:58.600
+"OnStar isn't a problem, because
+they don't drive.",00:52:58.600,00:53:01.030
+"OK, not that many left of those.",00:53:01.030,00:53:03.500
+They are all the Harvard bookstore.,00:53:03.500,00:53:05.560
+"Then, on the right, you have the nerds,
+who are the ninjas, who can get",00:53:05.560,00:53:09.620
+around anything.,00:53:09.620,00:53:10.420
+"In the middle, you have the public.",00:53:10.420,00:53:14.880
+"And you have a chance to emerge from the
+herd, while still remembering what",00:53:14.880,00:53:21.160
+"it was like, and influence the course
+of history in a way that",00:53:21.160,00:53:26.870
+is better for everybody.,00:53:26.870,00:53:29.030
+"&gt;&gt; So, to me, that is the test.",00:53:29.030,00:53:30.860
+"Can we make systems that distribute
+power, rather than focus it,",00:53:30.860,00:53:35.580
+and still be secure?,00:53:35.580,00:53:38.580
+"And I am confident that the answer lies
+within this room, and over this",00:53:38.580,00:53:42.620
+"webcast, and with those who are
+curious enough to undergo the",00:53:42.620,00:53:48.220
+phenomenon that is CS50.,00:53:48.220,00:53:50.580
+"And they are the kind of people that,
+clacking late at night, end up like",00:53:50.580,00:53:56.440
+this.,00:53:56.440,00:53:56.800
+"&gt;&gt; ""Are you coming to bed?",00:53:56.800,00:53:57.890
+&gt;&gt; I can't.,00:53:57.890,00:53:58.520
+This is important.,00:53:58.520,00:53:59.570
+&gt;&gt; What?,00:53:59.570,00:54:00.290
+"&gt;&gt; Someone is wrong on the internet.""",00:54:00.290,00:54:03.130
+"&gt;&gt; That's the instinct I believe
+that's going to save us.",00:54:03.130,00:54:07.030
+Thank you very much.,00:54:07.030,00:54:08.280
+"&gt;&gt; DAVID MALAN: Thank you so much
+to professor Zittrain.",00:54:16.980,00:54:18.870
+Do come on up if you have questions.,00:54:18.870,00:54:20.185
+We'll see you on Wednesday.,00:54:20.185,00:54:21.860

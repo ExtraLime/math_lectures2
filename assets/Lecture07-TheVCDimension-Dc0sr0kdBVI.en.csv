@@ -1,0 +1,2333 @@
+text,start,stop
+"ANNOUNCER: The following program
+is brought to you by Caltech.",00:00:00.570,00:00:03.270
+YASER ABU-MOSTAFA: Welcome back.,00:00:13.980,00:00:16.730
+"Last time, we introduced the main result
+in learning theory, and there",00:00:16.730,00:00:21.730
+were two parts.,00:00:21.730,00:00:23.850
+"The first part is to get a handle on the
+growth function m_H of N, which",00:00:23.850,00:00:29.860
+"characterizes the hypothesis set H. And
+the way we got a handle on it is",00:00:29.860,00:00:36.190
+"by introducing the idea of a break
+point, and then bounding the growth",00:00:36.190,00:00:40.670
+"function in terms of a formula that
+depends on that break point.",00:00:40.670,00:00:44.750
+"There was a simple recursion that
+you recall by this figure.",00:00:44.750,00:00:49.340
+"And then we finally found the formula
+that upper-bounds the growth function,",00:00:49.340,00:00:54.470
+given that it has a break point k.,00:00:54.470,00:00:58.190
+"And it's a combinatorial formula that
+is fairly easy to understand.",00:00:58.190,00:01:02.100
+"And the most important aspect about it,
+as far as the theory is concerned,",00:01:02.100,00:01:06.180
+is that this is polynomial.,00:01:06.180,00:01:08.020
+"It is bounded above by a polynomial
+in N, since k is a constant.",00:01:08.020,00:01:12.550
+"And if you look at this, this is indeed
+a polynomial, and the maximum",00:01:12.550,00:01:16.200
+"power you have in this expression
+is N to the k minus 1.",00:01:16.200,00:01:20.460
+"So not only is it polynomial, but also
+the order of the polynomial depends on",00:01:20.460,00:01:24.550
+the break point.,00:01:24.550,00:01:26.620
+"We were interested in the growth function,
+because it was our way of",00:01:26.620,00:01:29.730
+"characterizing the redundancy that we
+need to understand, in order to be able",00:01:29.730,00:01:35.400
+"to switch from the Hoeffding inequality
+to the VC inequality.",00:01:35.400,00:01:39.670
+"And the VC inequality will be the case
+that handles the learning proper.",00:01:39.670,00:01:43.630
+"And in order to do that, we looked
+at the bad events that are",00:01:43.630,00:01:46.750
+"characterized by a small area
+according to Hoeffding.",00:01:46.750,00:01:49.680
+"And then we went here, and looked at the
+redundancy that results from the",00:01:49.680,00:01:53.770
+"fact that the different hypotheses
+have, by and large,",00:01:53.770,00:01:57.460
+overlapping bad regions.,00:01:57.460,00:01:59.610
+"And the way to characterize this
+was through the growth function.",00:01:59.610,00:02:03.360
+"And after an argument that took the
+redundancy and related it to the growth",00:02:03.360,00:02:09.000
+"function, and then got rid of a technical
+problem with E_out, if you",00:02:09.000,00:02:12.770
+"recall that one, we ended up switching
+completely from the Hoeffding",00:02:12.770,00:02:16.950
+"inequality, which is the top one, into
+the VC inequality, which is the final",00:02:16.950,00:02:21.080
+"theoretical result in machine learning--
+the characterization of",00:02:21.080,00:02:24.150
+generalization.,00:02:24.150,00:02:25.320
+"And they are very similar except for
+a fundamental difference, which is here,",00:02:25.320,00:02:30.990
+"and technical differences, which
+are in the constants.",00:02:30.990,00:02:34.100
+"So as you go through the proof, you will
+have to change 2's into 4's, and",00:02:34.100,00:02:37.030
+"epsilon into a smaller
+epsilon, and whatnot.",00:02:37.030,00:02:39.910
+"But the main thing is that instead of
+the number of hypotheses M, we",00:02:39.910,00:02:43.540
+"were able to replace it
+by the growth function.",00:02:43.540,00:02:46.590
+"And we had a final technical finesse,
+because we took the growth function not",00:02:46.590,00:02:51.810
+"on N points, in spite of the fact that
+we have only N points in the sample.",00:02:51.810,00:02:56.190
+"We needed to have 2N in order to have
+another sample and carry the argument,",00:02:56.190,00:03:01.030
+"not for the single sample that we have,
+but for the difference between",00:03:01.030,00:03:06.100
+two samples.,00:03:06.100,00:03:06.990
+"And that got rid of the technicality
+that we alluded to, which is the role",00:03:06.990,00:03:11.830
+"of E_out that really destroys the
+utility of the growth function, because",00:03:11.830,00:03:16.040
+"the growth function depends on
+dichotomies, and the E_out depends on",00:03:16.040,00:03:19.230
+the full hypothesis itself.,00:03:19.230,00:03:21.940
+So this is where we stand.,00:03:21.940,00:03:23.610
+"In today's lecture, I am going to put
+this together in the main notion",00:03:23.610,00:03:28.720
+"of the theory, which is
+the VC dimension.",00:03:28.720,00:03:30.990
+It will not be a new notion for you.,00:03:30.990,00:03:32.470
+"It's very much related
+to the break point.",00:03:32.470,00:03:34.540
+"But it is the quantity that you are
+going to remember from all of this",00:03:34.540,00:03:37.780
+after a while.,00:03:37.780,00:03:39.100
+So you may forget about the recursion.,00:03:39.100,00:03:40.710
+"You may forget about
+the growth function.",00:03:40.710,00:03:42.850
+"But you will remember
+the VC dimension.",00:03:42.850,00:03:44.810
+"And when you are in a learning
+situation, you ask yourself, what is",00:03:44.810,00:03:47.610
+the VC dimension?,00:03:47.610,00:03:48.440
+Is it 7 or 10?,00:03:48.440,00:03:49.960
+"And then you say, oh, this guy is
+using a hypothesis set with VC",00:03:49.960,00:03:53.350
+dimension 5000.,00:03:53.350,00:03:54.300
+He must be crazy. And so on.,00:03:54.300,00:03:55.720
+"So this will be the currency we use out
+of the theory, in order to use in",00:03:55.720,00:04:00.500
+a real learning situation.,00:04:00.500,00:04:03.410
+"The topics for today, first I'm going
+to give the definition, this",00:04:03.410,00:04:06.630
+will be an easy definition.,00:04:06.630,00:04:07.690
+"And I'm going to discuss it a little
+bit, to make sure that everybody",00:04:07.690,00:04:09.910
+understands it.,00:04:09.910,00:04:11.210
+"And then we are going to spend some
+time getting the VC dimension of",00:04:11.210,00:04:15.870
+perceptrons.,00:04:15.870,00:04:16.750
+"We will be able to compute the VC
+dimension exactly for perceptrons, in",00:04:16.750,00:04:21.260
+any-dimensional space.,00:04:21.260,00:04:22.750
+"It doesn't have to be two-dimensional
+space, like the one we",00:04:22.750,00:04:24.950
+did before.,00:04:24.950,00:04:25.710
+"You take any dimension, and we will get
+the value of the VC dimension exactly.",00:04:25.710,00:04:29.510
+This is a rare case.,00:04:29.510,00:04:30.490
+"Because usually, when we get the VC
+dimension, we get a bound on the VC",00:04:30.490,00:04:34.150
+"dimension, just out of the practicality
+of the situation.",00:04:34.150,00:04:36.640
+"But here, we'll be able
+to get it exactly.",00:04:36.640,00:04:38.530
+"And that will help us
+going through the",00:04:38.530,00:04:40.640
+interpretation of the VC dimension.,00:04:40.640,00:04:42.690
+We'll ask ourselves.,00:04:42.690,00:04:43.610
+"Now we understand it, and we compute
+it for a complete case that we are",00:04:43.610,00:04:46.210
+familiar with.,00:04:46.210,00:04:47.210
+"Then, we would like to understand,
+what does it signify?",00:04:47.210,00:04:51.430
+How do we apply it in practice?,00:04:51.430,00:04:53.330
+"And this will be the subject
+of the interpretation.",00:04:53.330,00:04:56.550
+"Finally, I will spend the last few
+minutes of the lecture transforming",00:04:56.550,00:05:00.510
+"the theory into a form that is
+extremely simple, and it's",00:05:00.510,00:05:03.960
+very easy to remember.,00:05:03.960,00:05:05.460
+"And this is the one that will survive
+with us for the rest of the course, and",00:05:05.460,00:05:08.440
+"we'll be able to relate it
+to different theories and",00:05:08.440,00:05:10.330
+techniques as we go.,00:05:10.330,00:05:14.360
+So let's start with the definition.,00:05:14.360,00:05:17.120
+"The VC dimension is a quantity that
+is defined for a hypothesis set.",00:05:17.120,00:05:22.080
+"You give me hypothesis set, I return
+a number which I call the VC dimension.",00:05:22.080,00:05:26.030
+"And the notation for it will be d,
+as in dimension, sub VC as in",00:05:26.030,00:05:31.150
+Vapnik-Chervonenkis.,00:05:31.150,00:05:32.640
+"And it is applied to H. And every
+now and then, we will drop the",00:05:32.640,00:05:37.390
+"dependency on H, where it
+is clear from the context.",00:05:37.390,00:05:40.620
+"So we don't have to carry
+this long notation.",00:05:40.620,00:05:42.920
+"We will just say d_VC,
+and we'll understand that",00:05:42.920,00:05:46.330
+this is the VC dimension.,00:05:46.330,00:05:47.630
+What is it?,00:05:47.630,00:05:48.890
+"In words, it is the most
+points you can shatter.",00:05:48.890,00:05:55.700
+That is not a foreign notion for us.,00:05:55.700,00:05:58.050
+"So if you can shatter 20 points, and that
+is the most you can do, then the",00:05:58.050,00:06:02.910
+VC dimension is 20.,00:06:02.910,00:06:05.220
+"In terms of the technical quantities we
+defined, this will be the largest",00:06:05.220,00:06:09.560
+"value of N such that the growth function
+is 2 to the N. So if you go",00:06:09.560,00:06:15.410
+"one above, the 2 to the
+N will be broken.",00:06:15.410,00:06:17.750
+"You can think, if VC dimension
+is the maximum, next one",00:06:17.750,00:06:20.840
+must be a break point.,00:06:20.840,00:06:21.980
+"And that is, indeed, the case.",00:06:21.980,00:06:23.870
+"The most important thing to realize is
+that we are talking about the most",00:06:23.870,00:06:27.580
+points you can shatter.,00:06:27.580,00:06:28.910
+"It doesn't guarantee that every N
+points-- let's say that the VC",00:06:28.910,00:06:33.340
+"dimension is N. It doesn't say that
+every N points can be shattered.",00:06:33.340,00:06:37.230
+"All you need is one set of N points that
+can be shattered, in order to say",00:06:37.230,00:06:42.360
+that you can shatter N points.,00:06:42.360,00:06:44.430
+"That has always been the
+case in our analysis.",00:06:44.430,00:06:48.390
+"Let's try to take this definition
+and interpret it.",00:06:48.390,00:06:53.420
+"Let's say that I computed
+the VC dimension.",00:06:53.420,00:06:55.220
+"I told you the VC dimension
+in this case is 15.",00:06:55.220,00:06:58.390
+"Now, what can you say about N which is
+at most 15, in terms of the ability to",00:06:58.390,00:07:03.370
+shatter or not?,00:07:03.370,00:07:05.570
+"You can say that if N is at most 15, the
+VC dimension, then H is guaranteed to",00:07:05.570,00:07:12.170
+be able to shatter N points.,00:07:12.170,00:07:13.810
+"Which N points I haven't said, but there
+has to be N points which the",00:07:13.810,00:07:19.290
+hypothesis set can shatter.,00:07:19.290,00:07:20.580
+Why is that?,00:07:20.580,00:07:21.600
+"It's simply because, since the VC
+dimension is this number, there will",00:07:21.600,00:07:26.790
+"be that many points that
+can be shattered.",00:07:26.790,00:07:29.515
+"Well, any subset of them will have
+to be shattered as well.",00:07:29.515,00:07:34.240
+"Therefore, a smaller number
+will also be shattered.",00:07:34.240,00:07:36.790
+"Which means that if N is smaller,
+you can shatter it.",00:07:36.790,00:07:39.950
+"The other direction is
+also meaningful.",00:07:39.950,00:07:42.290
+"If N is greater than the VC dimension,
+now the statement is strong-- N is",00:07:42.290,00:07:48.200
+a break point.,00:07:48.200,00:07:48.930
+"You cannot shatter any set
+of that many points.",00:07:48.930,00:07:53.090
+"Because by definition, the VC
+dimension was the maximum.",00:07:53.090,00:07:56.060
+"And although I called it N here,
+we used to call it small k.",00:07:56.060,00:08:00.810
+"So anything above the VC dimension is
+a break point, and anything below, you",00:08:00.810,00:08:06.070
+can shatter.,00:08:06.070,00:08:07.310
+Very simple notion.,00:08:07.310,00:08:09.130
+"If you look at the growth function in
+terms of the VC dimension, when we",00:08:09.130,00:08:14.620
+"had the break points, in terms of this k,
+we were able to find the bound that",00:08:14.620,00:08:18.830
+I showed in the review.,00:08:18.830,00:08:20.660
+"So we know that the growth function is
+bounded above by this formula, and k",00:08:20.660,00:08:24.220
+"appears here for the index of summation,
+which gives us the maximum",00:08:24.220,00:08:30.590
+power of this formula.,00:08:30.590,00:08:32.900
+"Now, in terms of the VC dimension, it's
+not a big deal because the smallest",00:08:32.900,00:08:36.679
+"break point is 1 above
+the VC dimension.",00:08:36.679,00:08:40.340
+"So all you need to do is substitute,
+and you will get this formula",00:08:40.340,00:08:44.870
+involving the VC dimension.,00:08:44.870,00:08:46.080
+"The VC dimension is unique,
+because it's the maximum.",00:08:46.080,00:08:48.270
+So you get that number.,00:08:48.270,00:08:49.680
+"And now you can say that the growth
+function, for any hypothesis set that",00:08:49.680,00:08:52.980
+"has VC dimension d_VC, is
+bounded above by this.",00:08:52.980,00:08:57.070
+"A nicer formula than this,",00:08:57.070,00:08:58.160
+"because it doesn't have
+the annoying 1.",00:08:58.160,00:08:59.560
+"And furthermore, when you look at the
+maximum power in this polynomial, the",00:08:59.560,00:09:03.730
+"maximum power happens to be
+N to the VC dimension.",00:09:03.730,00:09:07.520
+"So the VC dimension will also serve as
+the order of the polynomial, that",00:09:07.520,00:09:11.570
+"bounds the growth function
+of a hypothesis set",00:09:11.570,00:09:14.120
+that has that VC dimension.,00:09:14.120,00:09:17.120
+All of this is very simple.,00:09:17.120,00:09:20.180
+"Now, let's take examples in order to
+get the VC dimension in some cases.",00:09:20.180,00:09:23.410
+And you have seen this before.,00:09:23.410,00:09:25.280
+Remember positive rays?,00:09:25.280,00:09:27.570
+"How many points can positive
+rays shatter?",00:09:27.570,00:09:30.365
+"Just one point, right?",00:09:34.030,00:09:35.340
+"This is where you can get
+all possible patterns.",00:09:35.340,00:09:37.450
+"If you get two, it's a break point.",00:09:37.450,00:09:38.940
+Remember that argument?,00:09:38.940,00:09:40.960
+"Therefore, VC dimension here is 1.",00:09:40.960,00:09:45.110
+Good.,00:09:45.110,00:09:47.090
+How about 2D perceptrons?,00:09:47.090,00:09:49.620
+How many can we shatter?,00:09:49.620,00:09:51.405
+We remember that constellation.,00:09:51.405,00:09:52.830
+"If we have three points in that
+position, then we can get",00:09:52.830,00:09:55.770
+all possible patterns.,00:09:55.770,00:09:57.020
+"And 4 is a break point,
+so we cannot go up.",00:09:57.020,00:09:59.630
+"Therefore, the VC dimension is 3.",00:09:59.630,00:10:01.920
+Convex sets.,00:10:05.240,00:10:07.230
+"What is the VC dimension of convex sets
+in two dimensions, the example",00:10:07.230,00:10:10.250
+that we gave before?,00:10:10.250,00:10:11.970
+"We had this funny construction where,
+if you choose your points on the",00:10:11.970,00:10:16.420
+"perimeter of a circle, you can
+shatter any number of points. Right?",00:10:16.420,00:10:20.910
+"Therefore, what would be the
+VC dimension in this case?",00:10:20.910,00:10:24.810
+It will be infinite.,00:10:24.810,00:10:26.490
+There is no maximum.,00:10:26.490,00:10:28.900
+"Now, we said before that this one is
+particularly pessimistic, which indeed",00:10:28.900,00:10:34.860
+"it is, because this is a very specific
+way of getting the points.",00:10:34.860,00:10:39.240
+"And in all of the analysis, you will
+find that using the VC dimension",00:10:39.240,00:10:43.940
+"always gives an upper
+bound-- worst case.",00:10:43.940,00:10:46.500
+"You cannot violate it, but you
+can do better at times.",00:10:46.500,00:10:49.970
+"Here, for example, you can do better if
+you choose the points, let's say,",00:10:49.970,00:10:52.380
+uniformly over a space.,00:10:52.380,00:10:54.120
+"Therefore, some of them will
+be internal points.",00:10:54.120,00:10:55.900
+"And therefore, the corresponding growth
+function, which can be defined",00:10:55.900,00:10:59.200
+"in this case, will not be 2 to the N,
+and you may be able to learn.",00:10:59.200,00:11:02.480
+"Now, let's look at the VC dimension
+as it relates to learning.",00:11:05.190,00:11:08.840
+This is an important viewgraph.,00:11:08.840,00:11:10.550
+"When we talk about learning, we
+have to go back to our friend, the",00:11:10.550,00:11:13.720
+learning diagram.,00:11:13.720,00:11:14.840
+"And in case you forgot it, let
+me magnify it a little bit.",00:11:14.840,00:11:17.980
+There are different components.,00:11:21.350,00:11:22.860
+"And we have studied the matter
+so well, that we now can",00:11:22.860,00:11:25.320
+relate more to this.,00:11:25.320,00:11:26.440
+"Remember, this is the target function,
+gives me the examples.",00:11:26.440,00:11:28.790
+"Learning algorithm picks the hypothesis,
+puts it as the final one.",00:11:28.790,00:11:31.340
+"We hope that the final hypothesis
+approximates this guy.",00:11:31.340,00:11:34.120
+"And we introduced this thing, in order
+to get the probabilistic analysis.",00:11:34.120,00:11:36.600
+We have seen this before.,00:11:36.600,00:11:39.000
+"Now, let's look at this diagram, and
+see what the VC dimension says.",00:11:39.000,00:11:44.850
+"The main result is that if the VC
+dimension is finite-- that's all you",00:11:44.850,00:11:51.030
+"are asking-- then,",00:11:51.030,00:11:54.300
+"now the green final hypothesis
+will generalize.",00:11:54.300,00:11:58.210
+"That we have established
+by the theory.",00:11:58.210,00:11:59.990
+"So you don't even need
+to know its value.",00:11:59.990,00:12:02.455
+"You just need to know it's finite, and then
+you can say the g will generalize.",00:12:02.455,00:12:06.250
+That we have in the bag.,00:12:06.250,00:12:08.250
+"Now, I'd like to understand the rest
+of the diagram, in terms of the VC",00:12:08.250,00:12:12.740
+"dimension. We can understand
+the green part.",00:12:12.740,00:12:15.960
+"Here, we'll generalize to
+the target function, for",00:12:15.960,00:12:19.800
+better or for worse.,00:12:19.800,00:12:20.610
+"It could be doing very poorly in the
+in-sample, and that will generalize.",00:12:20.610,00:12:24.440
+"Or could be doing great in the
+in-sample, and that will generalize.",00:12:24.440,00:12:27.000
+"We are only talking about
+generalization here.",00:12:27.000,00:12:30.190
+"Now, this statement is independent
+of the learning algorithm.",00:12:30.190,00:12:37.510
+Why is that?,00:12:37.510,00:12:38.860
+"Because the learning algorithm here, if
+it picks a hypothesis, it will have",00:12:38.860,00:12:43.520
+to pick it from the hypothesis set.,00:12:43.520,00:12:45.650
+"We have gone through all of this trouble,
+in order to guarantee that",00:12:45.650,00:12:49.390
+"generalization will happen, uniformly,
+regardless of which",00:12:49.390,00:12:53.600
+hypothesis you pick.,00:12:53.600,00:12:55.420
+"Therefore, you can find the craziest
+learning algorithm, and it can pick",00:12:55.420,00:12:59.240
+"anything you want, and you still can
+make the statement about the final",00:12:59.240,00:13:02.320
+hypothesis.,00:13:02.320,00:13:03.270
+"So the learning algorithm
+doesn't matter, as far as",00:13:03.270,00:13:05.390
+generalization is concerned.,00:13:05.390,00:13:06.990
+Let's punish it by graying it out.,00:13:06.990,00:13:11.640
+"Now, it's also independent of
+the input distribution.",00:13:11.640,00:13:17.880
+This is the box.,00:13:17.880,00:13:19.550
+"This was technically introduced
+in order to get Hoeffding.",00:13:19.550,00:13:22.380
+"And obviously, it has to survive in
+order to get the VC inequality.",00:13:22.380,00:13:26.620
+"The reason I am talking about the
+independence here is because of",00:13:26.620,00:13:29.420
+an interesting point.,00:13:29.420,00:13:30.700
+"We mentioned that when we define the
+growth function or the VC dimension, I",00:13:30.700,00:13:35.070
+"give you the budget N and then you
+choose the points any way you want,",00:13:35.070,00:13:39.800
+"with a view to maximizing
+the dichotomies, right?",00:13:39.800,00:13:43.890
+"So now there is no probability
+distribution that can beat you.",00:13:43.890,00:13:47.720
+"I can pick the weirdest probability
+distribution that has preferences for",00:13:47.720,00:13:51.270
+"funny points, and your choice
+of the points will be fine,",00:13:51.270,00:13:55.190
+"because you chose the points
+that maximize.",00:13:55.190,00:13:57.610
+"So whatever the probability
+distribution does, you",00:13:57.610,00:13:59.690
+will be doing more.,00:13:59.690,00:14:02.130
+"And therefore, your bound will hold.",00:14:02.130,00:14:04.950
+"Therefore, we don't have to worry
+about probability distributions.",00:14:04.950,00:14:07.620
+"The learning statement, that this guy
+will generalize, will hold for any",00:14:07.620,00:14:10.710
+probability distribution.,00:14:10.710,00:14:12.760
+So another guy bites the dust.,00:14:12.760,00:14:17.390
+"Now, you look at this and then there
+is a third guy which is an obvious",00:14:17.390,00:14:20.960
+"one, which is the target function.",00:14:20.960,00:14:23.370
+"All of this analysis, the target
+function didn't matter at all as far",00:14:23.370,00:14:27.920
+as generalization is concerned.,00:14:27.920,00:14:29.020
+"We are generalizing to it, but
+we don't care what it is.",00:14:29.020,00:14:32.330
+"As long as it generates the examples we
+learn from, and then we test on it,",00:14:32.330,00:14:36.660
+that's all we care about.,00:14:36.660,00:14:37.880
+"The generalization statement
+will hold.",00:14:37.880,00:14:40.420
+So it also goes.,00:14:40.420,00:14:42.210
+"So now as far as the VC theory
+is concerned, we",00:14:42.210,00:14:45.490
+really have three blocks.,00:14:45.490,00:14:48.400
+The first one is the hypothesis.,00:14:48.400,00:14:50.250
+"That is the one that we are claiming
+the generalization with respect to.",00:14:50.250,00:14:53.670
+That's number one.,00:14:53.670,00:14:56.130
+"The hypothesis set is where we
+define the VC dimension.",00:14:56.130,00:14:58.950
+"And if you remember very early on, I
+told you that the hypothesis set is",00:14:58.950,00:15:01.800
+"a little bit of an artificial notion
+to introduce as part of",00:15:01.800,00:15:05.050
+the learning diagram.,00:15:05.050,00:15:06.560
+"And I said that we are
+going to introduce it",00:15:06.560,00:15:08.320
+because there is no downside.,00:15:08.320,00:15:09.590
+"There is no loss of generality,
+which is true.",00:15:09.590,00:15:11.810
+And there is an upside for the theory.,00:15:11.810,00:15:13.770
+"Now, you can see the upside.",00:15:13.770,00:15:15.550
+"The entire VC theory deals with
+the hypothesis set by itself.",00:15:15.550,00:15:20.170
+"That's what's has a VC dimension, and
+that's what will tell you, you are able to",00:15:20.170,00:15:23.520
+generalize.,00:15:23.520,00:15:24.320
+"The rest of the guys that are more
+intuitive, that disappeared here, are not",00:15:24.320,00:15:27.730
+relevant to that theory.,00:15:27.730,00:15:30.510
+"Now, that training examples are left,
+because the statement that involves",00:15:30.510,00:15:34.420
+"the VC dimension is a probabilistic
+statement.",00:15:34.420,00:15:37.380
+"It says that, with high probability,
+you will generalize.",00:15:37.380,00:15:41.510
+"With high probability with
+respect to what?",00:15:41.510,00:15:45.080
+"It's with respect to generating
+the data.",00:15:45.080,00:15:48.100
+"You may get a very unlucky data set,
+for which you are not going to",00:15:48.100,00:15:52.160
+generalize.,00:15:52.160,00:15:53.160
+"The guarantee is that this happens
+with a very small probability.",00:15:53.160,00:15:56.360
+"So this remains here, just because
+it is part of the statement.",00:15:56.360,00:15:59.890
+"And this triangle is where
+the VC inequality lives.",00:15:59.890,00:16:03.730
+"Now we go into a fun thing of
+computing the VC dimension for the",00:16:07.100,00:16:12.050
+perceptrons.,00:16:12.050,00:16:12.940
+There are two goals for doing this.,00:16:12.940,00:16:14.250
+We'll do it exactly.,00:16:14.250,00:16:14.970
+We'll get exact formula for it.,00:16:14.970,00:16:17.140
+"One thing is to test your
+understanding of the definition.",00:16:17.140,00:16:21.380
+"The definition is a little bit tricky
+because I give you N. You choose the",00:16:21.380,00:16:25.690
+points any which way.,00:16:25.690,00:16:27.000
+You maximize this.,00:16:27.000,00:16:27.780
+"This is a bound, so what is minimum,
+what is maximum, and whatnot, may be",00:16:27.780,00:16:32.390
+a little bit fuzzy.,00:16:32.390,00:16:33.320
+"And trying to get the number for
+a particular case will seal the deal.",00:16:33.320,00:16:37.320
+So that's number one.,00:16:37.320,00:16:39.080
+"Number two is that, because we understand
+the perceptron model so",00:16:39.080,00:16:42.050
+"well, we will be able to get the result,
+which is the VC dimension of",00:16:42.050,00:16:45.980
+perceptrons.,00:16:45.980,00:16:46.910
+"And that will give us insight into
+what the VC dimension signifies.",00:16:46.910,00:16:50.990
+"And that will set the stage, when we go
+to interpreting the VC dimension.",00:16:50.990,00:16:54.530
+"So this is an important part, that will
+take a little bit of analysis.",00:16:54.530,00:16:57.255
+"For the two-dimensional perceptron,
+we already have done the exercise, and",00:17:00.120,00:17:05.520
+we got the VC dimension to be 3.,00:17:05.520,00:17:08.180
+Right?,00:17:08.180,00:17:10.390
+"Now, if you go for the general case and
+you have d-dimensional space, you",00:17:10.390,00:17:14.010
+expect the VC dimension to be more.,00:17:14.010,00:17:15.700
+"Because even if you just go to three
+dimensions, the troublesome case",00:17:15.700,00:17:21.240
+"of four points, that we had before, is
+very easily shattered in this case.",00:17:21.240,00:17:25.630
+Just pick the points not on a plane.,00:17:25.630,00:17:27.890
+"And remember the problem with those guys
+is that if you want these guys to",00:17:27.890,00:17:31.570
+"be -1 and these guys to be +1,
+it was a problem for the plane.",00:17:31.570,00:17:36.630
+"Now, you can very easily separate any
+two points from the other two points",00:17:36.630,00:17:40.560
+and you can shatter four points.,00:17:40.560,00:17:42.110
+So the VC dimension went up for sure.,00:17:42.110,00:17:44.270
+"And we ask ourselves:
+how much did it go up?",00:17:44.270,00:17:47.260
+"Well, it turns out to be
+a very simple formula.",00:17:47.260,00:17:50.040
+"The VC dimension of perceptrons
+is exactly d plus 1.",00:17:50.040,00:17:53.800
+Now we need to prove that.,00:17:56.340,00:17:58.170
+"And we are going to prove it in two
+stages, very simple stages.",00:17:58.170,00:18:02.080
+"One of them is that we are going to
+show that the VC dimension is",00:18:02.080,00:18:08.490
+at most d plus 1.,00:18:08.490,00:18:12.380
+"Then, we are going to show that the
+VC dimension is at least d plus 1.",00:18:12.380,00:18:17.590
+"And that leaves the single possibility
+that the VC dimension is d plus 1.",00:18:17.590,00:18:23.060
+So let's go.,00:18:23.060,00:18:26.040
+Here is one direction.,00:18:26.040,00:18:27.900
+"And by the way, pay attention because
+I am going to give you a quiz in the",00:18:27.900,00:18:31.390
+"middle of the argument, to make sure
+that you are paying attention.",00:18:31.390,00:18:33.910
+This is for real.,00:18:33.910,00:18:34.870
+And for the online audience as well.,00:18:34.870,00:18:37.026
+Here is the first direction.,00:18:37.026,00:18:39.590
+"I am going to construct a specific set
+of N points, and that N in this case",00:18:39.590,00:18:46.160
+"is d plus 1, because that's the number
+of points I want to shatter.",00:18:46.160,00:18:51.270
+"And I am going to construct them
+in the d-dimensional Euclidean",00:18:51.270,00:18:54.630
+"space, R to the d.",00:18:54.630,00:18:56.690
+"I am going to construct them with a view
+to being able to shatter them.",00:18:56.690,00:19:02.340
+"So I get to choose the points,
+which is my privilege.",00:19:02.340,00:19:04.970
+"As long as I can shatter
+them, we are OK.",00:19:04.970,00:19:08.230
+So what are these points?,00:19:08.230,00:19:11.070
+"I am going to construct
+them using a matrix.",00:19:11.070,00:19:13.790
+And you have seen this matrix before.,00:19:13.790,00:19:16.520
+"Remember our old friend
+linear regression?",00:19:16.520,00:19:19.730
+"We actually set the input points in
+linear regression this way, in order to",00:19:19.730,00:19:23.560
+"get the algorithm, the pseudo-inverse,
+and all of that.",00:19:23.560,00:19:26.550
+"And in the case of linear regression,
+this was a very tall matrix where this",00:19:26.550,00:19:30.940
+"is one data point, which means that it's
+d plus 1 dimensional vector.",00:19:30.940,00:19:37.940
+"The 1 dimension is the constant x_0,
+which is the constant +1 we add to",00:19:37.940,00:19:43.260
+take care of the threshold.,00:19:43.260,00:19:44.520
+"And then the rest of the dimensions,
+from 1 to d, are actually the",00:19:44.520,00:19:47.540
+coordinates of the point.,00:19:47.540,00:19:49.820
+So we put these.,00:19:49.820,00:19:50.440
+And this is one data point.,00:19:50.440,00:19:51.580
+This is the second.,00:19:51.580,00:19:52.400
+This is the third.,00:19:52.400,00:19:53.220
+"And usually, since we have many, many
+more points than dimensions, this is",00:19:53.570,00:19:57.000
+a tall matrix.,00:19:57.000,00:19:58.360
+"In this case, I am choosing
+N to be exactly d plus 1.",00:19:58.360,00:20:03.420
+"And since we already established
+that this is d plus 1, this is",00:20:03.420,00:20:06.480
+actually a square matrix in this case.,00:20:06.480,00:20:10.150
+"But that's all I need for the purpose
+that I am after here.",00:20:10.150,00:20:13.950
+"I need to give you the
+identity of these guys.",00:20:13.950,00:20:15.690
+What are these guys?,00:20:15.690,00:20:17.740
+These guys look like this.,00:20:17.740,00:20:21.160
+This is no mystery.,00:20:21.160,00:20:23.140
+"See, if you look at the first
+column, it's all 1's.",00:20:23.140,00:20:27.340
+"Well, it has to be.",00:20:27.340,00:20:28.250
+That's dictated.,00:20:28.250,00:20:29.180
+That is the constant coordinate.,00:20:29.180,00:20:30.680
+It has to be +1.,00:20:30.680,00:20:31.890
+"If I want a legitimate point in this
+representation, the d plus 1",00:20:31.890,00:20:35.710
+"dimensional representation, the
+first coordinate has to be 1.",00:20:35.710,00:20:38.770
+"The rest of the guys, I chose the
+simplest possible form I can imagine.",00:20:38.770,00:20:42.210
+"You have basically a diagonal matrix
+here, and I added all 0's here.",00:20:42.210,00:20:47.390
+"So these are the guys that
+are my data set.",00:20:47.390,00:20:52.130
+"Now, you can see that I chose them such
+that X is invertible, because",00:20:52.130,00:20:55.740
+"that is the technique I'm going to use
+in order to be able to shatter them.",00:20:55.740,00:20:59.080
+You will see in a moment.,00:20:59.080,00:21:01.600
+Do I know that this is invertible?,00:21:01.600,00:21:03.960
+"Yes, the determinant is 1, actually.",00:21:03.960,00:21:07.270
+And that means it's invertible.,00:21:07.270,00:21:09.450
+Can you compute the determinant?,00:21:09.450,00:21:12.080
+This is 1.,00:21:12.080,00:21:13.610
+"And then every time you have this guy,
+you have the 0 term wiping out",00:21:13.610,00:21:16.860
+everything.,00:21:16.860,00:21:17.270
+So I get a 1.,00:21:17.270,00:21:19.370
+So this is an invertible matrix.,00:21:19.370,00:21:21.650
+"Why am I interested in
+an invertible matrix?",00:21:21.650,00:21:24.830
+Because we can shatter the data set.,00:21:24.830,00:21:26.900
+This is how we are going to do it.,00:21:26.900,00:21:29.450
+Look at any set of labels you want.,00:21:29.450,00:21:31.930
+So this is a dichotomy.,00:21:31.930,00:21:34.610
+"This is the value at the first one, +1
+or -1, +1 or -1, and",00:21:34.610,00:21:38.720
+"+1 or -1, on the x points
+that I just showed you.",00:21:38.720,00:21:41.800
+"All of these could be any pattern
+of +1 or -1's.",00:21:41.800,00:21:45.770
+"I would like to tell you that any
+dichotomy you pick from this--",00:21:45.770,00:21:49.950
+"+1, +1, -1, -1, +1, et cetera,
+I can find a perceptron",00:21:49.950,00:21:55.310
+that realizes this dichotomy.,00:21:55.310,00:21:57.170
+"If I do that, then I have showed
+you that I can shatter the set.",00:21:57.170,00:22:02.270
+"Let us look for the
+w that satisfies--",00:22:02.270,00:22:06.750
+and what does it satisfy?,00:22:06.750,00:22:08.480
+It satisfies this condition.,00:22:08.480,00:22:12.180
+"This computes the signal for all the
+points at once, in vector form.",00:22:12.180,00:22:17.710
+You take the sign of that.,00:22:17.710,00:22:19.130
+"And you would like the sign of that to
+agree with the particular y you chose.",00:22:19.130,00:22:22.840
+"So you give me y, I am supposed to come
+up with w, such that this holds.",00:22:22.840,00:22:28.730
+"If I can do that for every choice of
+y you give me, then I am done.",00:22:28.730,00:22:32.530
+I have shattered your set.,00:22:32.530,00:22:33.870
+"Or, my set, the set I chose.",00:22:33.870,00:22:36.590
+How am I going to do that?,00:22:36.590,00:22:38.350
+"Oh, it's pretty easy.",00:22:38.350,00:22:40.120
+"What I am going to do, I am going
+to do even better than this.",00:22:40.120,00:22:44.286
+"I am going to actually have X w
+numerically equal y, even before",00:22:44.286,00:22:50.100
+taking the sign.,00:22:50.100,00:22:52.380
+"So when you multiply the matrix X by w,
+you are going to get specifically",00:22:52.380,00:22:56.920
+a pattern of +1 or -1's.,00:22:56.920,00:22:58.650
+"Well, if you get +1 or -1, guess
+what happens when you take the",00:22:58.650,00:23:01.400
+sign of that?,00:23:01.400,00:23:03.470
+"You'll get the same thing,
++1 or -1.",00:23:03.470,00:23:05.770
+So that will satisfy that.,00:23:05.770,00:23:07.420
+"But that is easy to handle, because now
+I have algebra working for me.",00:23:07.420,00:23:10.680
+Remember that X was invertible.,00:23:10.680,00:23:13.250
+That's pretty easy.,00:23:13.250,00:23:14.270
+So all you do is just solve for it.,00:23:14.270,00:23:18.180
+w would be the inverse of X times y.,00:23:18.180,00:23:21.540
+"And you have a solution that realizes
+any dichotomy you can think of.",00:23:21.540,00:23:27.450
+That's wonderful.,00:23:27.450,00:23:28.090
+"So we were able to shatter
+d plus 1 points.",00:23:28.090,00:23:30.100
+Now comes the quiz.,00:23:30.100,00:23:35.990
+We can shatter these points.,00:23:35.990,00:23:37.330
+Wonderful.,00:23:37.330,00:23:38.360
+"But we are not really interested
+in shattering for its own sake.",00:23:38.360,00:23:41.990
+"We were trying to establish the
+value of the VC dimension.",00:23:41.990,00:23:44.850
+So let's see what we have established.,00:23:44.850,00:23:46.340
+"I showed you particular
+d plus 1 points.",00:23:49.765,00:23:53.830
+I showed you that we can shatter them.,00:23:53.830,00:23:57.130
+What is the conclusion?,00:23:57.130,00:23:59.930
+"Is it: oh, we have established the
+VC dimension is d plus 1?",00:23:59.930,00:24:05.280
+Thank you.,00:24:05.280,00:24:06.420
+"Or, oh, we only established that it's
+greater than or equal to d plus 1?",00:24:06.420,00:24:12.750
+Wait a minute.,00:24:12.750,00:24:13.835
+"We actually established that it is
+less than or equal to d plus 1.",00:24:13.835,00:24:17.130
+"Or maybe we didn't establish anything
+at all, as far as the",00:24:17.130,00:24:21.560
+value of the VC dimension.,00:24:21.560,00:24:23.920
+"I ask you to think about it, and tell
+me which of those can we conclude?",00:24:23.920,00:24:28.760
+"And I'd like the online audience to
+text a, b, c, or d, as if you are",00:24:28.760,00:24:33.460
+solving a homework.,00:24:33.460,00:24:34.690
+"And tell me, which of these choices
+is a valid conclusion given",00:24:34.690,00:24:38.350
+what we have argued?,00:24:38.350,00:24:39.600
+So let's say by shouting.,00:24:45.250,00:24:47.330
+You just shout a or b or c or d.,00:24:47.330,00:24:50.170
+"And I hope that there is enough
+signal that I will be able to",00:24:50.170,00:24:52.730
+decipher the majority.,00:24:52.730,00:24:54.030
+Shout.,00:24:54.030,00:24:55.494
+AUDIENCE: b.,00:24:55.494,00:24:56.744
+PROFESSOR: OK.,00:24:59.700,00:25:01.420
+You guys are a tough crowd!,00:25:01.420,00:25:03.750
+"Well, why is that?",00:25:03.750,00:25:05.300
+"We were able to shatter
+d plus 1 points.",00:25:05.300,00:25:09.040
+"So we are guaranteed that, for at least
+d plus 1 points, we are OK.",00:25:09.040,00:25:13.770
+"It is conceivable that we can
+shatter a bigger set.",00:25:13.770,00:25:16.410
+We haven't argued that yet.,00:25:16.410,00:25:18.130
+"But if we even fail, at least we
+have the VC dimension to be at",00:25:18.130,00:25:22.550
+least d plus 1.,00:25:22.550,00:25:23.720
+"If we shatter a higher set,
+it will be even bigger.",00:25:23.720,00:25:25.780
+"If we cannot, it will be equal.",00:25:25.780,00:25:27.120
+So that is what we have established.,00:25:27.120,00:25:29.700
+"Since you are very good at this,
+let's do another quiz.",00:25:29.700,00:25:33.210
+"So I have now greater than
+or equal to d plus 1.",00:25:33.210,00:25:35.340
+"Now I need to show that the
+VC dimension is less than or",00:25:35.340,00:25:38.770
+equal to d plus 1.,00:25:38.770,00:25:40.480
+"I wonder what I need to do,
+in order to achieve that.",00:25:40.480,00:25:44.050
+We need to show that--,00:25:46.830,00:25:50.150
+one of several choices.,00:25:50.150,00:25:51.400
+"Oh, I need to show that there are
+some points, a set of d",00:25:54.650,00:26:01.950
+"plus 1 points, that we cannot shatter.",00:26:01.950,00:26:06.590
+"No, no.",00:26:06.590,00:26:07.460
+"I need to show that there
+is a set of d plus 2 points",00:26:07.460,00:26:11.020
+that I cannot shatter.,00:26:11.020,00:26:12.300
+"Oh. No, no.",00:26:12.300,00:26:15.320
+"Maybe we need to show that we cannot
+shatter any set of d plus 1 points.",00:26:15.320,00:26:23.210
+"Or, was it d plus 2?",00:26:23.210,00:26:25.040
+I'm confused now.,00:26:25.040,00:26:27.160
+"What among those guys will
+establish the premise?",00:26:27.160,00:26:31.010
+"The premise that we are trying to
+establish is that the VC dimension is",00:26:31.010,00:26:34.460
+at most d plus 1.,00:26:34.460,00:26:36.230
+"Which of these statements
+will establish that?",00:26:36.230,00:26:38.930
+"Again, think about it.",00:26:38.930,00:26:40.070
+"And similarly, for the online audience
+to text the result.",00:26:40.070,00:26:43.230
+I'll give you 10 seconds.,00:26:43.230,00:26:44.520
+"And then, we'll also
+answer by shouting.",00:26:44.520,00:26:45.885
+"OK, shout.",00:26:50.400,00:26:51.840
+AUDIENCE: d.,00:26:51.840,00:26:53.500
+PROFESSOR: I like this.,00:26:53.500,00:26:55.110
+"How about the online audience? d, OK.",00:26:55.110,00:26:57.220
+So everybody gets the idea.,00:26:57.220,00:27:00.740
+"Now, we know what we want to prove.",00:27:00.740,00:27:02.590
+Let's go ahead and prove it.,00:27:02.590,00:27:05.440
+"Now it's a question of
+any d plus 2 points.",00:27:05.440,00:27:10.410
+"So I don't get to choose the points,
+you get to choose them.",00:27:10.410,00:27:13.530
+"So I tell you, choose them please.",00:27:13.530,00:27:15.390
+And give them to me.,00:27:15.390,00:27:17.910
+"When you give me your points, I am
+going to make a statement about the",00:27:17.910,00:27:20.410
+points you chose.,00:27:20.410,00:27:21.745
+"Well, how can I make a statement?",00:27:21.745,00:27:23.460
+You chose them any which way.,00:27:23.460,00:27:24.410
+I'm going to make a statement.,00:27:24.410,00:27:26.280
+"I am going to say that, for those
+particular points that you chose,",00:27:26.280,00:27:30.320
+"which I really don't know what they
+are, I can say that you have more",00:27:30.320,00:27:36.560
+points than dimensions.,00:27:36.560,00:27:39.480
+Why is that?,00:27:39.480,00:27:41.100
+"Each of these guys still comes from
+a d plus 1 vector, right?",00:27:41.100,00:27:46.230
+"Because it's a d-dimensional space
+plus the added coordinate.",00:27:46.230,00:27:49.240
+So each one is d plus 1 dimensions.,00:27:49.240,00:27:51.680
+And I asked you to give me d plus 2.,00:27:51.680,00:27:53.710
+"So obviously, d plus 2 is
+bigger than d plus 1.",00:27:53.710,00:27:56.560
+"What do you know when you have
+more vectors than dimensions?",00:27:56.560,00:28:01.475
+"Oh, I know that they must
+be linearly dependent.",00:28:01.475,00:28:05.070
+"Therefore, we must have that one of
+them will be a linear combination from",00:28:08.250,00:28:15.580
+the rest of the guys.,00:28:15.580,00:28:16.650
+"So you take j, whichever it might be,
+and this will be equal to the sum over",00:28:16.650,00:28:21.410
+"the rest of the guys of some
+coefficients that I don't know, times",00:28:21.410,00:28:25.540
+those guys.,00:28:25.540,00:28:26.170
+This will apply to any set you choose.,00:28:26.170,00:28:28.540
+"And this is the property that I am
+actually going to use, in order to",00:28:28.540,00:28:31.400
+establish what I want.,00:28:31.400,00:28:34.520
+"Furthermore, I can actually
+make something about the a_i's.",00:28:34.520,00:28:37.250
+"The a_i's could be anything for
+this statement to hold.",00:28:37.250,00:28:40.790
+"But I'm going to claim that not all
+of them are zeroes, in this case.",00:28:40.790,00:28:45.180
+At least some of the a_i's are nonzero.,00:28:45.180,00:28:48.480
+How do I know that?,00:28:48.480,00:28:49.240
+"This is not part of the
+linear dependence.",00:28:49.240,00:28:51.430
+"This is actually because of the
+particular form of these guys, where",00:28:51.430,00:28:54.730
+"the first coordinate of all
+of these guys is always 1.",00:28:54.730,00:28:58.260
+"So when you look at this and apply it
+to the first coordinate, 1 equals--",00:28:58.260,00:29:02.100
+"well, these cannot all be zeroes
+because it has to add up to 1.",00:29:02.100,00:29:06.670
+"Therefore, some of the a_i's
+will be nonzero.",00:29:06.670,00:29:11.910
+That's all I need.,00:29:11.910,00:29:12.640
+I need this to hold.,00:29:12.640,00:29:13.910
+I need some of the a_i's not to be 0.,00:29:13.910,00:29:17.050
+Everybody buys that this is the case?,00:29:17.050,00:29:18.680
+That's all I need.,00:29:18.680,00:29:19.410
+"And then we go and show the dichotomy
+that you cannot implement.",00:29:19.410,00:29:23.525
+"We have that, right?",00:29:27.040,00:29:30.202
+Consider the following dichotomy.,00:29:31.440,00:29:32.690
+"I am going to take the x_i's
+corresponding to nonzero a_i's.",00:29:35.740,00:29:40.650
+"Some of the a_i's are
+nonzero for sure.",00:29:40.650,00:29:42.490
+Maybe some of them are zeroes.,00:29:42.490,00:29:43.460
+"I am going to focus only
+on the nonzero guys.",00:29:43.460,00:29:45.560
+"I don't care what you do with the
+terms that have a_i equals 0.",00:29:45.560,00:29:48.990
+Do whatever you want.,00:29:48.990,00:29:49.830
+Give them any +1 or -1.,00:29:49.830,00:29:51.110
+Let's not look at them.,00:29:51.110,00:29:53.130
+"I'm looking at those guys, and I am
+now constructing a dichotomy that I am",00:29:53.130,00:29:57.460
+"going to show you that you cannot
+implement using a perceptron.",00:29:57.460,00:30:02.340
+"So for the x_i's with the nonzero a_i,
+I am going to give the label, which",00:30:02.340,00:30:08.760
+"happens to be the sign
+of that coefficient.",00:30:08.760,00:30:12.710
+That is a nonzero number.,00:30:12.710,00:30:13.870
+It's positive or negative.,00:30:13.870,00:30:14.890
+"So I will give it +1 or -1
+according to whether",00:30:14.890,00:30:17.110
+it's positive or negative.,00:30:17.110,00:30:18.740
+"And I will do that for every
+nonzero term here.",00:30:18.740,00:30:23.210
+Everybody sees that?,00:30:23.210,00:30:25.340
+"And now I'm going to complete the
+dichotomy, by telling you what will",00:30:25.340,00:30:29.470
+happen with x_j.,00:30:29.470,00:30:31.350
+"I'm going to require that
+x_j goes to -1.",00:30:31.350,00:30:35.226
+"Now, all you need to realize is
+that this is a dichotomy.",00:30:35.226,00:30:40.950
+"These are values of +1 or -1
+on specific points.",00:30:40.950,00:30:44.400
+"The other guys, which happened to be
+0, give them any +1 or -1.",00:30:44.400,00:30:47.440
+You choose.,00:30:47.440,00:30:48.520
+"And for the final guy which is sitting
+here, I am going to it -1.",00:30:48.520,00:30:52.270
+This is a legitimate dichotomy.,00:30:52.270,00:30:53.830
+"And I'm going to show you that you
+cannot implement this particular one.",00:30:53.830,00:30:56.350
+How is that?,00:31:00.930,00:31:02.510
+"Because I really don't
+know your points.",00:31:02.510,00:31:03.930
+"So I must be using just that algebraic
+property, in order to find this.",00:31:03.930,00:31:08.330
+And the idea is very simple.,00:31:08.330,00:31:11.740
+"This is the form we have, x_j happens
+to be the linear sum of these guys.",00:31:11.740,00:31:16.920
+I am going to multiply by any w.,00:31:16.920,00:31:21.570
+For any w--,00:31:21.570,00:31:22.480
+"the perceptrons, you multiply by w.",00:31:22.480,00:31:24.260
+That is what makes it a perceptron.,00:31:24.260,00:31:25.630
+So I'm going to multiply by it.,00:31:25.630,00:31:27.200
+"And then I realize that
+w transposed times x_j,",00:31:27.200,00:31:29.900
+"which would actually be the
+signal for the last guy,",00:31:29.900,00:31:32.150
+"is actually the sum of the signals
+for the different guys, with these",00:31:32.150,00:31:35.580
+coefficients. That has to happen.,00:31:35.580,00:31:38.750
+So what is the problem?,00:31:38.750,00:31:40.710
+"The problem is that, when you take this
+as your perceptron, then by definition",00:31:40.710,00:31:45.850
+"the label is the sign
+of this quantity.",00:31:45.850,00:31:49.380
+"For the guys where a_i is nonzero, we
+force this quantity, which is the",00:31:49.380,00:31:54.290
+"value y_i, to be the sign of a_i.",00:31:54.290,00:31:58.070
+That's what we constructed.,00:31:58.070,00:32:00.860
+"What can you conclude given that the
+sign of this fellow is the same as the",00:32:00.860,00:32:04.410
+sign of this fellow?,00:32:04.410,00:32:05.340
+"It must be that these
+guys agree in sign.",00:32:05.340,00:32:08.030
+"They are either both positive,
+or both negative, right?",00:32:08.030,00:32:11.490
+"Therefore, I can conclude that
+if you multiply them, you",00:32:11.490,00:32:16.100
+get something positive.,00:32:16.100,00:32:17.330
+That is for sure.,00:32:17.330,00:32:19.920
+So now I have a handle on this term.,00:32:19.920,00:32:23.500
+"This forces the sum of these
+guys to be greater than 0.",00:32:23.500,00:32:30.450
+Why is that?,00:32:30.450,00:32:31.520
+"Because this happens for
+every nonzero a_i.",00:32:31.520,00:32:34.720
+"For zero a_i's, they don't contribute
+anything here.",00:32:34.720,00:32:37.310
+"So if I add up a bunch of positive
+numbers and zeroes, I am going to get",00:32:37.310,00:32:39.900
+a positive number.,00:32:39.900,00:32:42.350
+What is this quantity?,00:32:42.350,00:32:43.310
+"Do I see it anywhere
+else on the slide?",00:32:43.310,00:32:45.920
+"Oh, yeah, I can see it here.",00:32:45.920,00:32:48.060
+"This actually is the signal
+on the outstanding point.",00:32:48.060,00:32:54.130
+"So I know that the signal on the
+outstanding point is positive.",00:32:54.130,00:32:57.000
+"What does this force the value of the
+perceptron, your perceptron, the one",00:32:57.000,00:33:00.580
+"you had here, to be?",00:33:00.580,00:33:03.970
+It will have to be +1.,00:33:03.970,00:33:08.120
+"Therefore, it's impossible to get that
+to be -1, if you chose this.",00:33:08.120,00:33:14.210
+This is a choice that is legitimate.,00:33:14.210,00:33:15.590
+It is a dichotomy.,00:33:15.590,00:33:17.020
+"And now if you pick those guys, pick the
+rest of the zero-coefficient guys",00:33:17.020,00:33:20.760
+"any way you want, you are forbidden
+from having this as -1.",00:33:20.760,00:33:25.030
+"Therefore, you cannot shatter your
+set, for any set you choose.",00:33:25.030,00:33:30.280
+"Therefore, you cannot shatter
+any set of d plus 2 points.",00:33:30.280,00:33:34.730
+And I have the result.,00:33:34.730,00:33:35.980
+So let's put it together.,00:33:38.250,00:33:41.030
+"First, we showed that the VC dimension
+is at most d plus 1.",00:33:41.030,00:33:45.370
+"And then we showed that
+it's at least d plus 1.",00:33:45.370,00:33:49.976
+"Or actually, did we do it this
+way, or the other way around?",00:33:49.976,00:33:53.180
+That's another quiz.,00:33:53.180,00:33:53.970
+"No, it's not another quiz!",00:33:53.970,00:33:57.280
+"The conclusion is that the VC
+dimension is d plus 1.",00:33:57.280,00:34:00.660
+"And now, d-dimensional perceptron--
+the VC dimension is d plus 1.",00:34:00.660,00:34:05.790
+"Let's ask ourselves the simple question:
+what is exactly d plus 1 in",00:34:05.790,00:34:10.890
+a d-dimensional perceptron?,00:34:10.890,00:34:13.510
+It's one above the dimensions.,00:34:13.510,00:34:15.449
+"You can find many interpretations
+for it.",00:34:15.449,00:34:17.969
+"But the interpretation of interest to
+us will be the fact that this is",00:34:17.969,00:34:22.540
+"actually the number of parameters
+in the perceptron model.",00:34:22.540,00:34:26.250
+"What are the parameters in
+the perceptron model?",00:34:26.250,00:34:28.170
+We used to call it the vector w.,00:34:28.170,00:34:29.610
+"Let's spell it out, in order to count.",00:34:29.610,00:34:31.860
+This happens to be w.,00:34:31.860,00:34:34.225
+"w_0, this is the one for
+the threshold, w_1 up to w_d.",00:34:38.272,00:34:42.639
+"These are the parameters you are free
+to choose, and that we have been",00:34:42.639,00:34:45.300
+choosing through this argument.,00:34:45.300,00:34:46.909
+"And how many of them there
+are? d plus 1.",00:34:46.909,00:34:49.659
+"Why am I attaching the VC dimension
+to the number of parameters?",00:34:49.659,00:34:54.239
+"The VC dimension gives
+me the maximum number of",00:34:54.239,00:34:57.630
+points I can shatter.,00:34:57.630,00:34:59.170
+So now I can do any which way.,00:34:59.170,00:35:01.880
+"The reason I can do any which way,
+because I have a bunch of parameters",00:35:01.880,00:35:05.240
+"that I can set one way or the other,
+in order to achieve that.",00:35:05.240,00:35:08.810
+"So it stands to logic that when I have
+more parameters, I will have a higher",00:35:08.810,00:35:13.580
+VC dimension.,00:35:13.580,00:35:14.760
+"And that will be the basic part
+of the interpretation that we",00:35:14.760,00:35:17.215
+are going to go into.,00:35:17.215,00:35:18.950
+"So let's do now the interpretation
+of the VC dimension.",00:35:18.950,00:35:24.370
+Look at this--,00:35:27.250,00:35:28.910
+we are going to prove two things.,00:35:28.910,00:35:30.670
+"No, not prove, but show two things
+in terms of the interpretation.",00:35:30.670,00:35:33.360
+"One of them, we understand
+the mathematical",00:35:33.360,00:35:36.040
+definition of the VC dimension.,00:35:36.040,00:35:37.490
+What does it signify?,00:35:37.490,00:35:38.960
+That's number one.,00:35:38.960,00:35:40.070
+"And it will relate to the number
+of parameters.",00:35:40.070,00:35:42.360
+"And we'll get it a little
+bit more elaborately.",00:35:42.360,00:35:44.750
+"The second one, I know
+what it signifies.",00:35:44.750,00:35:47.180
+Is it at all useful for me?,00:35:47.180,00:35:48.390
+I am a learning person.,00:35:48.390,00:35:50.066
+"I went through the theory, just because
+you asked us to do that.",00:35:50.066,00:35:54.140
+"But when all is said and done, I just
+care about the result and how I'm",00:35:54.140,00:35:56.580
+going to use it in practice.,00:35:56.580,00:35:57.910
+"How can we apply the value of
+the VC dimension in practice?",00:35:57.910,00:36:01.070
+That's number two.,00:36:01.070,00:36:02.450
+"These are the two parts
+of the interpretation.",00:36:02.450,00:36:03.850
+"The main idea of understanding what
+the VC dimension signifies, is to look",00:36:07.370,00:36:12.530
+at the degrees of freedom.,00:36:12.530,00:36:15.550
+What is that?,00:36:15.550,00:36:17.880
+"When you have a model, the model is
+characterized by a set of hypotheses.",00:36:17.880,00:36:22.360
+"You get one hypothesis or another, by
+setting the set of parameters one way",00:36:22.360,00:36:26.050
+or another.,00:36:26.050,00:36:27.460
+"So the parameters give you degrees
+of freedom, in order to create one",00:36:27.460,00:36:31.420
+hypothesis or another hypothesis.,00:36:31.420,00:36:34.090
+So think of this picture.,00:36:34.090,00:36:38.750
+Think of the parameters as knobs.,00:36:38.750,00:36:41.900
+"So this is w_0, w_1, w_2, et cetera.",00:36:41.900,00:36:45.570
+"When you are actually having
+a hypothesis set, you are given this.",00:36:45.570,00:36:50.580
+"And you are able to set the
+knobs any way you want.",00:36:50.580,00:36:52.610
+"Increase the volume, decrease
+this, et cetera.",00:36:52.610,00:36:54.920
+"Just do this, and you get a setting that
+tells you what the hypothesis is.",00:36:54.920,00:36:59.150
+"These are, obviously, degrees of freedom.",00:36:59.150,00:37:01.140
+And it actually has a pleasant thing.,00:37:01.140,00:37:02.380
+"Because let's say you are buying
+a big-time audio system.",00:37:02.380,00:37:07.350
+"Usually, if you are not very much into
+stereo and stuff, you want a couple of",00:37:07.350,00:37:11.200
+"knobs, and you'll adjust
+them and get it right.",00:37:11.200,00:37:13.465
+"If I give you 17 channels and this and
+that, and I give you this panel,",00:37:13.465,00:37:18.180
+"that's great, if you know
+how to use it.",00:37:18.180,00:37:22.162
+If you don't know how to use it--,00:37:22.162,00:37:23.895
+ah.,00:37:23.895,00:37:24.250
+What?,00:37:24.250,00:37:24.770
+I can't.,00:37:24.770,00:37:26.480
+"So now the problem that we are
+facing is actually here.",00:37:26.480,00:37:29.860
+"Because now, the specification that
+is needed in order to get you to",00:37:29.860,00:37:34.610
+"pick the right hypothesis,
+is pretty elaborate.",00:37:34.610,00:37:37.180
+You need a lot of examples here.,00:37:37.180,00:37:39.190
+"That is the relation
+we are going to see.",00:37:39.190,00:37:42.870
+"Now, the parameters happen to be
+analog degrees of freedom.",00:37:42.870,00:37:47.320
+"When I talk about w_0, w_0 can
+assume a continuous value",00:37:47.320,00:37:52.150
+"from R, and it matters--",00:37:52.150,00:37:54.160
+"if you pick a different threshold, you
+will get to a different perceptron.",00:37:54.160,00:37:58.420
+"It will return different values
+for parts of the space.",00:37:58.420,00:38:01.510
+"So this is, genuinely, degrees of freedom
+that happen to be analog.",00:38:01.510,00:38:05.460
+"The great thing about the VC dimension
+is that, it translated those into",00:38:05.460,00:38:12.820
+"binary, if you will, degrees
+of freedom.",00:38:12.820,00:38:15.720
+"Because all you are trying
+to do is get a dichotomy.",00:38:15.720,00:38:18.780
+"So I am asking myself: when am I
+free to get any dichotomy I want?",00:38:18.780,00:38:22.550
+"For any point, I can get the +1
+or I can get -1,",00:38:22.550,00:38:25.310
+"independently of the second point. I
+get +1 or -1 all the way.",00:38:25.310,00:38:28.820
+"So you can keep adding the points, and
+see how far you can get away.",00:38:28.820,00:38:32.010
+"And the maximum you can get
+is the VC dimension.",00:38:32.010,00:38:34.440
+"So by the time you get there, you have
+that number, which is the VC dimension--",00:38:34.440,00:38:39.250
+degrees of freedom.,00:38:39.250,00:38:40.140
+"But they are binary degrees
+of freedom,",00:38:40.140,00:38:42.090
+"which is what matters here, because
+inside the box that tells you it's",00:38:42.090,00:38:45.950
+"a perceptron or a neural network or
+something like that, there may be",00:38:45.950,00:38:48.440
+"parameters playing around,
+and whatnot.",00:38:48.440,00:38:50.560
+"As far as I am concerned, all
+I'm interested in, how",00:38:50.560,00:38:53.180
+expressive is this model?,00:38:53.180,00:38:55.420
+"How many different things
+I can actually get.",00:38:55.420,00:38:58.280
+"So the VC dimension now abstracts
+whatever the mathematics that goes",00:38:58.280,00:39:02.400
+"inside, et cetera.",00:39:02.400,00:39:04.190
+You go outside.,00:39:04.190,00:39:05.110
+"And if I can shatter 20
+points, that's good.",00:39:05.110,00:39:08.880
+"If someone else can shatter 30 points,
+they have more degrees of freedom to",00:39:08.880,00:39:12.770
+"be able to do that, regardless
+of where this came from.",00:39:12.770,00:39:15.200
+"So now, let's look at the usual suspects,
+and see if the correspondence",00:39:19.330,00:39:22.750
+"between degrees of freedom
+and VC dimension holds.",00:39:22.750,00:39:26.900
+Who are the usual suspects?,00:39:26.900,00:39:30.160
+"I think this is the last lecture where
+we're going to see the positive rays",00:39:30.160,00:39:33.440
+and the rest of the gang.,00:39:33.440,00:39:35.090
+So don't despair!,00:39:35.090,00:39:36.400
+"So, positive rays.",00:39:36.400,00:39:37.890
+What are positive rays?,00:39:37.890,00:39:38.730
+What is the VC dimension?,00:39:38.730,00:39:39.630
+That was 1.,00:39:39.630,00:39:40.710
+I can shatter at most one point.,00:39:40.710,00:39:44.000
+"What were positive rays
+in the first place?",00:39:44.000,00:39:45.930
+"Oh, yeah, that was the diagram.",00:39:45.930,00:39:47.910
+"We had this thing, and I present +1
+here, and we take -1 here.",00:39:47.910,00:39:52.530
+"And what determines one hypothesis
+versus the other within this model is",00:39:52.530,00:39:55.650
+the choice of 'a'.,00:39:55.650,00:39:57.590
+"Oh, the choice of 'a'?",00:39:57.590,00:39:59.000
+"One parameter, one degree of freedom
+corresponds to VC dimension equals 1.",00:39:59.000,00:40:06.090
+That's nice.,00:40:06.090,00:40:06.490
+Let's see if this survives.,00:40:06.490,00:40:09.220
+Positive intervals.,00:40:09.220,00:40:10.240
+"OK, the positive intervals.",00:40:10.240,00:40:12.160
+The VC dimension was 2.,00:40:12.160,00:40:13.460
+That is the most I can shatter.,00:40:13.460,00:40:15.200
+What do they look like?,00:40:15.200,00:40:16.420
+"Oh, in this case.",00:40:16.420,00:40:17.730
+"I have this guy, the small blue guy.",00:40:17.730,00:40:20.720
+And there is a beginning and an end.,00:40:20.720,00:40:22.520
+"And between them I return +1,
+and here I return -1.",00:40:22.520,00:40:25.310
+"So, depending on the choice
+of the beginning",00:40:25.310,00:40:26.800
+"and the end, I will get one
+hypothesis versus another.",00:40:26.800,00:40:30.230
+"How many parameters, or how
+many degrees of freedom?",00:40:30.230,00:40:33.040
+2.,00:40:33.040,00:40:34.190
+And what is the VC dimension?,00:40:34.190,00:40:35.980
+2.,00:40:35.980,00:40:36.720
+"Then by induction, it's true.",00:40:36.720,00:40:39.230
+"No, induction is not true!",00:40:39.230,00:40:40.830
+This is just to illustrate the idea.,00:40:40.830,00:40:42.750
+"Now, let's go back and
+contradict ourselves.",00:40:45.430,00:40:50.650
+It's not just parameters.,00:40:50.650,00:40:52.340
+It's really degrees of freedom.,00:40:52.340,00:40:53.930
+And I'd like to make the distinction.,00:40:53.930,00:40:56.490
+"So let's take an example, where the
+parameters are not contributing to",00:40:56.490,00:41:01.440
+degrees of freedom.,00:41:01.440,00:41:03.156
+"I'll construct an artificial example
+just to give you the idea.",00:41:03.156,00:41:05.900
+"In more complicated models, it may be
+difficult to argue what is a parameter",00:41:05.900,00:41:09.890
+"that is contributing and what is not,
+but at least we are establishing the",00:41:09.890,00:41:12.770
+"principle that a parameter may
+not necessarily contribute",00:41:12.770,00:41:15.690
+a degree of freedom.,00:41:15.690,00:41:16.900
+"And since the VC dimension is a bottom
+line-- it looks at what you were able",00:41:16.900,00:41:21.270
+"to achieve,",00:41:21.270,00:41:22.340
+"it will be a more reliable way of
+measuring what is the actual degrees",00:41:22.340,00:41:25.390
+"of freedom you have, instead of going
+through the analysis of your model.",00:41:25.390,00:41:29.230
+"Let's take one-dimensional
+perceptron.",00:41:29.230,00:41:32.790
+Very simple model.,00:41:32.790,00:41:33.780
+"You have only one variable and
+you are going to give it",00:41:33.780,00:41:36.540
+"a weight, that's one parameter.",00:41:36.540,00:41:38.760
+"And then you are going to compare
+it with a threshold w_0,",00:41:38.760,00:41:41.160
+that's the second parameter.,00:41:41.160,00:41:42.360
+"And then you are going to
+give me +1 or -1.",00:41:42.360,00:41:45.080
+So this fellow has two parameters.,00:41:45.080,00:41:48.350
+"Indeed, two degrees of freedom.",00:41:48.350,00:41:50.210
+"And I get the VC dimension to
+be 2, because it's d plus 1.",00:41:50.210,00:41:53.900
+We proved it generally.,00:41:53.900,00:41:55.120
+"And here, d--",00:41:55.120,00:41:55.970
+"the dimensionality of the space, is 1.",00:41:55.970,00:41:57.670
+This is just a real number.,00:41:57.670,00:42:00.340
+"Now, this is not my model.",00:42:00.340,00:42:01.600
+"Actually, this is only
+part of the model.",00:42:01.600,00:42:03.100
+"What I'm going to do, I am going to take
+that output, and feed it into",00:42:03.100,00:42:07.260
+a perceptron.,00:42:07.260,00:42:09.530
+"And then get that output, and
+feed it into a perceptron.",00:42:09.530,00:42:13.980
+"And then get that output, and feed
+it into yet another perceptron.",00:42:13.980,00:42:19.360
+"And that will give me the
+output of the model.",00:42:19.360,00:42:23.420
+"Now, let's see how many
+parameters I have.",00:42:23.420,00:42:26.700
+"This guy has 2, one for the weight
+here and one for the threshold.",00:42:26.700,00:42:31.560
+"Whatever the output here, gets weighted
+by something. That's a third",00:42:31.560,00:42:34.670
+"parameter. Compared to a threshold-- fourth.
+Fifth, sixth, seventh, eighth.",00:42:34.670,00:42:40.580
+I have eight parameters in this model.,00:42:40.580,00:42:43.320
+Anybody would argue at all about this?,00:42:43.320,00:42:46.610
+I have eight parameters.,00:42:46.610,00:42:47.550
+There's no question about it.,00:42:47.550,00:42:49.290
+Do I get eight degrees of freedom?,00:42:49.290,00:42:52.530
+"No, because these guys are
+horribly redundant.",00:42:52.530,00:42:55.680
+"By the time I did this, I am done.",00:42:55.680,00:42:58.220
+This doesn't add anything.,00:42:58.220,00:42:59.950
+"Take +1 or -1, give it a weight,
+compare to a threshold, what",00:42:59.950,00:43:03.850
+are you going to get?,00:43:03.850,00:43:04.380
+"You are either going to get +1 for
++1, and -1 for -1, or the",00:43:04.380,00:43:08.250
+vice-versa.,00:43:08.250,00:43:09.390
+"So we are just replicating a function,
+and doing it again,",00:43:09.390,00:43:11.260
+"and again, and again.",00:43:11.260,00:43:12.250
+"This whole thing is a very, very
+elaborate perceptron in one dimension.",00:43:12.250,00:43:19.710
+That's all.,00:43:19.710,00:43:20.810
+"I know that I constructed it in
+a very funny way, but that's",00:43:20.810,00:43:23.570
+the function it does.,00:43:23.570,00:43:25.540
+"So if you are counting the number of
+parameters, you will say I have",00:43:25.540,00:43:28.640
+a bunch of parameters.,00:43:28.640,00:43:30.320
+"But if you are resorting to the
+VC dimension, you don't",00:43:30.320,00:43:33.200
+care about this box.,00:43:33.200,00:43:34.210
+You don't even know it.,00:43:34.210,00:43:35.120
+It's a black box.,00:43:35.120,00:43:36.460
+"You look at x and y and ask yourself,
+how many points can I shatter?",00:43:36.460,00:43:40.920
+"And you get the answer that you will get
+for one of these blocks by itself.",00:43:40.920,00:43:45.090
+The rest of the guys don't matter.,00:43:45.090,00:43:48.370
+"So you can think of now the VC dimension
+as measuring the effective",00:43:48.370,00:43:52.780
+"number of parameters, rather than
+the raw number of parameters.",00:43:52.780,00:43:56.460
+"And I gave you a case, where the
+effective number of parameters is",00:43:56.460,00:44:00.670
+"smaller, which seems to be the case.",00:44:00.670,00:44:03.160
+"Believe it or not, you can construct,
+mathematically, a case where you have",00:44:03.160,00:44:07.360
+"one parameter, literal parameter.",00:44:07.360,00:44:09.070
+"A number that is a real
+number--",00:44:09.070,00:44:11.760
+"and then you can milk out of it so many
+degrees of freedom, that you can",00:44:11.760,00:44:17.040
+"get more than one degree to freedom.
+Many more than the degree of freedom,",00:44:17.040,00:44:20.410
+from one parameter.,00:44:20.410,00:44:22.050
+"But the other case is really--
+you construct it because you want to.",00:44:22.050,00:44:26.480
+"But the message here is that, you don't
+look at the number of parameters, you",00:44:26.480,00:44:30.090
+"look at the effective number
+of parameters.",00:44:30.090,00:44:32.190
+"And effective, for us, is
+as far as the result.",00:44:32.190,00:44:34.450
+"And the result is captured by the VC
+dimension, so this is our quantity for",00:44:34.450,00:44:38.030
+measuring the degrees of freedom.,00:44:38.030,00:44:39.280
+"Now, let's look at the number of data
+points needed, which a practitioner",00:44:43.170,00:44:46.890
+"would be interested in, and doesn't care
+about the rest of the story",00:44:46.890,00:44:50.550
+that I told you.,00:44:50.550,00:44:52.000
+So you have a system.,00:44:52.000,00:44:53.630
+"Let's say that you manage a learning
+system, and you look at the hypothesis",00:44:53.630,00:44:58.550
+"set, and you say VC dimension is 7.",00:44:58.550,00:45:01.460
+"I want a certain performance.
+Could you please tell me how",00:45:01.460,00:45:03.680
+many examples I need?,00:45:03.680,00:45:05.670
+"First, we know that the most important
+theoretical thing is the fact",00:45:05.670,00:45:08.320
+"that there is a VC dimension,
+finite one.",00:45:08.320,00:45:10.810
+It means that you can learn.,00:45:10.810,00:45:12.150
+"That is the biggest achievement that
+we have done in theory.",00:45:12.150,00:45:15.770
+But now we go a little bit closer.,00:45:15.770,00:45:18.240
+"And ask yourself, the value of the VC
+dimension, how does it affect the",00:45:18.240,00:45:21.810
+number of examples you need?,00:45:21.810,00:45:25.060
+"In order to do that, let's
+do the following.",00:45:25.060,00:45:30.180
+"We notice that the VC inequality, in
+which the VC dimension arose, has two small",00:45:30.180,00:45:35.750
+"quantities-- performance quantities
+that we'd like to be small.",00:45:35.750,00:45:38.380
+Let's remind ourselves.,00:45:38.380,00:45:40.540
+One of them is this fellow.,00:45:40.540,00:45:42.610
+"You didn't want E_in to
+be far from E_out.",00:45:42.610,00:45:45.420
+"So you said that they should be
+tracking, within epsilon.",00:45:45.420,00:45:47.840
+"And therefore, the probability that they
+are not tracking within epsilon,",00:45:47.840,00:45:50.680
+"the small number, should be small.",00:45:50.680,00:45:52.100
+The probability is small.,00:45:52.100,00:45:53.485
+"The other quantity is the
+other small quantity.",00:45:53.485,00:45:56.830
+"And we are just going to
+call it something now.",00:45:56.830,00:45:59.380
+"It's a small quantity, delta.",00:45:59.380,00:46:00.830
+"It's not small because of the
+expression, expression is long!",00:46:00.830,00:46:03.400
+It's small in value.,00:46:03.400,00:46:04.800
+"Hopefully that when you get large N,
+this will reduce to a small number.",00:46:04.800,00:46:08.550
+"So we're just going to call
+it delta for now.",00:46:08.550,00:46:10.870
+"Try to phase out the details
+of this and look at: I",00:46:10.870,00:46:15.280
+have two quantities.,00:46:15.280,00:46:16.440
+This is the probability.,00:46:16.440,00:46:17.370
+This is the approximation.,00:46:17.370,00:46:18.410
+"And we are making a statement that is
+probably approximately correct, as we",00:46:18.410,00:46:22.750
+said before.,00:46:22.750,00:46:23.510
+These are our two guys.,00:46:23.510,00:46:25.340
+"In a normal situation, what you are
+trying to do is that you are trying to",00:46:25.340,00:46:29.260
+"say, I want a particular
+epsilon and delta.",00:46:29.260,00:46:32.830
+"I want to be at most 10%
+away from E_out.",00:46:32.830,00:46:37.310
+"And I want that statement to
+be correct 95% of the time.",00:46:37.310,00:46:41.240
+That's your starting point.,00:46:41.240,00:46:42.680
+"And then after you said that, you ask
+yourself, how many examples do I need?",00:46:42.680,00:46:46.505
+Fair enough.,00:46:46.505,00:46:48.370
+"When you say I want to be 10% away from
+E_out, what you are really saying",00:46:48.370,00:46:53.490
+is that epsilon is 0.1.,00:46:53.490,00:46:56.510
+"When you say that I want to be
+95% sure that the statement is",00:46:56.510,00:47:00.220
+"correct, you are picking delta
+to be 5%, or 0.05.",00:47:00.220,00:47:04.760
+So that's what you do.,00:47:04.760,00:47:05.860
+You want certain epsilon and delta.,00:47:05.860,00:47:08.130
+"And then you ask yourself, how does
+N depend on the VC dimension?",00:47:08.130,00:47:13.260
+You are competing with someone else.,00:47:13.260,00:47:14.750
+You are solving the same problem.,00:47:14.750,00:47:15.860
+The guy gives you the same data.,00:47:15.860,00:47:17.980
+"And you look at it and you say, I
+am using a VC dimension and they are",00:47:17.980,00:47:21.750
+using a VC dimension.,00:47:21.750,00:47:23.710
+"If I achieve this with this VC
+dimension, can he also achieve it with",00:47:23.710,00:47:27.350
+the bigger VC dimension?,00:47:27.350,00:47:28.480
+"Because a bigger VC dimension will
+give them more flexibility.",00:47:28.480,00:47:31.780
+"They might be able to
+fit the data better.",00:47:31.780,00:47:33.520
+They will get a better E_in.,00:47:33.520,00:47:35.270
+"So if they can get the same
+generalization bound,",00:47:35.270,00:47:37.610
+they are better off.,00:47:37.610,00:47:38.520
+"So I really am interested
+in this question.",00:47:38.520,00:47:40.020
+I just want to know how they relate.,00:47:40.020,00:47:43.590
+"In order to do this, we are going to
+look at this function, which is",00:47:43.590,00:47:48.350
+a polynomial.,00:47:48.350,00:47:48.890
+"A very simple polynomial,
+just one term.",00:47:48.890,00:47:51.300
+It's not polynomial.,00:47:51.300,00:47:52.940
+It's monomial I guess.,00:47:52.940,00:47:54.360
+N to the d.,00:47:54.360,00:47:56.590
+I'm just writing it as d.,00:47:56.590,00:47:57.565
+"It will play the role of the VC
+dimension. I just want the",00:47:57.565,00:47:59.660
+notation to be simple.,00:47:59.660,00:48:00.660
+"So N to a certain power times e to the
+minus N. What is this quantity?",00:48:00.660,00:48:05.780
+"This quantity is a caricature
+of this quantity.",00:48:05.780,00:48:09.800
+There are constants here.,00:48:09.800,00:48:11.360
+I have here multiple terms.,00:48:11.360,00:48:13.640
+"I'm just taking the biggest of them,
+because it's the dominant.",00:48:13.640,00:48:16.410
+"I have a negative exponential, but
+it has this terribly damping",00:48:16.410,00:48:20.940
+"coefficients, et cetera.",00:48:20.940,00:48:21.870
+I am leaving them out.,00:48:21.870,00:48:23.340
+"I am just trying to understand
+the behavior of functions",00:48:23.340,00:48:26.810
+that look like this.,00:48:26.810,00:48:27.920
+"I am taking the simplest case, because
+this will give me the tradeoff",00:48:27.920,00:48:31.140
+"between d and N, which is the
+tradeoff I want here.",00:48:31.140,00:48:35.980
+So let's look at it.,00:48:35.980,00:48:38.220
+This is our quantity.,00:48:38.220,00:48:40.360
+"And what I am going to do, I am
+going to plot it for you.",00:48:40.360,00:48:45.390
+"Let's plot it for the case of
+d, the power, equals 4.",00:48:45.390,00:48:50.455
+Here is what it looks like.,00:48:53.310,00:48:55.300
+"Basically, the initial part
+is mostly N to the 4.",00:48:55.300,00:48:58.310
+"If there wasn't exponential,
+this would be going up and",00:48:58.310,00:49:00.160
+up and up and up.,00:49:00.160,00:49:01.880
+"The negative exponential is
+just warming up here.",00:49:01.880,00:49:05.180
+"And then it starts becoming really,
+really effective here.",00:49:05.180,00:49:08.050
+"And then it wins over,
+and keeps doing it.",00:49:08.050,00:49:11.350
+"And by then, you will forget
+that it was N to the 4.",00:49:11.350,00:49:13.510
+"You will just remember that there
+is a negative exponential.",00:49:13.510,00:49:16.610
+"And the interesting part here is,
+obviously, this will play the",00:49:16.610,00:49:19.220
+"role of the right-hand side
+of the VC inequality.",00:49:19.220,00:49:21.630
+So this will be a probability.,00:49:21.630,00:49:23.180
+"And we'd like the probability
+to be small.",00:49:23.180,00:49:25.440
+"So obviously, the initial part of the
+curve is completely meaningless.",00:49:25.440,00:49:29.480
+You tell the probability--,00:49:29.480,00:49:30.410
+the probability now is less than 5.,00:49:30.410,00:49:32.360
+That's very nice.,00:49:32.360,00:49:34.010
+"But it's only interesting once you cross
+back to the interesting region,",00:49:34.010,00:49:37.440
+which is less than 1.,00:49:37.440,00:49:38.320
+"And then you are actually
+making a statement.",00:49:38.320,00:49:40.220
+So this will be the interesting part.,00:49:40.220,00:49:42.740
+Let's look at the next one.,00:49:42.740,00:49:44.470
+This is N to the 4.,00:49:44.470,00:49:45.570
+"Let's look at N to the 5, just to
+get a feel for these quantities.",00:49:45.570,00:49:49.070
+Uh!,00:49:49.070,00:49:51.790
+"Well, this one--",00:49:51.790,00:49:53.800
+it will peak at a different point.,00:49:53.800,00:49:55.560
+"But the main point is, it's huge now.",00:49:55.560,00:49:57.370
+"The probability now is, what?",00:49:57.370,00:49:58.650
+Less than 20 something.,00:49:58.650,00:50:00.170
+That's nice.,00:50:00.170,00:50:01.240
+"But eventually, the exponential wins.",00:50:01.240,00:50:04.550
+That's the good part.,00:50:04.550,00:50:05.360
+"So it goes down, and then it goes here.",00:50:05.360,00:50:08.310
+"You can see that this
+is the interesting region.",00:50:08.310,00:50:10.880
+"And I'm going to ask myself, in order
+to get to this region, which is the",00:50:10.880,00:50:14.140
+"performance you want,",00:50:14.140,00:50:15.830
+"how many examples, which is this
+coordinate, do I need given the",00:50:15.830,00:50:19.430
+"different VC dimensions, which
+supposedly is 4 here and 5 here?",00:50:19.430,00:50:23.330
+"Again, this is a caricature, because
+this is not the function I have.",00:50:23.330,00:50:26.390
+"If you start adding the real
+constants here, this",00:50:26.390,00:50:29.060
+"thing, instead of becoming--",00:50:29.060,00:50:30.090
+"what, 5 examples, 10 examples?",00:50:30.090,00:50:31.560
+"It probably will be 5,000
+example, 10,000 example.",00:50:31.560,00:50:34.150
+"It's a pessimistic estimate, because
+it's an upper bound.",00:50:34.150,00:50:36.590
+But the shape will remain the same.,00:50:36.590,00:50:38.770
+"And similarly, if you add the other
+probabilities, the probability",00:50:38.770,00:50:42.850
+will not be 1.,00:50:42.850,00:50:43.430
+"It will be 2, et cetera, but",00:50:43.430,00:50:45.160
+"all you need to do is just shift a little bit,
+and you will be getting here.",00:50:45.160,00:50:49.150
+"So if you understand this quantity, you
+will be able to translate it to",00:50:49.150,00:50:51.850
+the other one.,00:50:51.850,00:50:52.920
+"But because it's going up
+so fast, I have to do",00:50:52.920,00:50:55.460
+something to make it visible.,00:50:55.460,00:50:57.540
+And I'll do that in a second.,00:50:57.540,00:50:59.300
+So let's now look at it.,00:50:59.300,00:51:00.530
+"You fix the value here
+at a small value.",00:51:00.530,00:51:05.250
+Whatever the value is.,00:51:05.250,00:51:06.050
+"Not 1, maybe 0.5 or 0.1
+or 0.01, et cetera.",00:51:06.050,00:51:10.480
+"And you would like to see
+how N changes with d.",00:51:10.480,00:51:17.410
+"What I am going to now, I am
+going to switch plots on you.",00:51:17.410,00:51:20.600
+"And I am going to have the y-coordinate
+here, which is the",00:51:20.600,00:51:24.900
+"probability, drawn on
+a logarithmic scale.",00:51:24.900,00:51:28.480
+"The reason I'm doing that is because, 
+obviously, if I know N equals",00:51:28.480,00:51:31.230
+"4 and N equals 5 get me that, if I get
+to N equals 10, that will go upstairs.",00:51:31.230,00:51:35.830
+"So I really want to keep
+a handle on it.",00:51:35.830,00:51:38.150
+"So I am going to do this in order
+to keep a handle on it.",00:51:38.150,00:51:40.870
+"And more importantly, because
+this is really--",00:51:40.870,00:51:43.530
+"you see this very, very thin slice?",00:51:43.530,00:51:45.770
+That's all I'm interested in.,00:51:45.770,00:51:47.420
+"So I want to magnify
+it and look at it.",00:51:47.420,00:51:49.220
+"And this happens to be
+less than the value of 1.",00:51:49.220,00:51:50.800
+"So all the negative logarithms will
+be here, and I'll be able",00:51:50.800,00:51:53.230
+to look at it clearly.,00:51:53.230,00:51:54.730
+"So let's go and plot the N equals 5
+on a logarithmic scale.",00:51:54.730,00:51:59.740
+That's what it looks like.,00:51:59.740,00:52:00.690
+This is exactly--,00:52:00.690,00:52:02.100
+"I can afford to have
+more examples because I",00:52:02.100,00:52:04.860
+will have more curves.,00:52:04.860,00:52:06.520
+"But this is the blue curve
+we had before.",00:52:06.520,00:52:08.680
+"It peaks at a certain point
+and then goes down.",00:52:08.680,00:52:11.570
+"And 10 to the 0 here, that's
+the probability 1.",00:52:11.570,00:52:16.630
+This is the interesting region.,00:52:16.630,00:52:17.490
+"Below the line here is the
+interesting region that, when you tell",00:52:17.490,00:52:20.900
+"me what delta is, you are
+telling me a level.",00:52:20.900,00:52:24.060
+"And these levels are not going
+to be very much different.",00:52:24.060,00:52:26.250
+"On this scale, this is 1.",00:52:26.250,00:52:27.920
+"This is, what?",00:52:27.920,00:52:28.870
+This is 10 to the minus 5.,00:52:28.870,00:52:31.410
+"That's a very, very, very
+small probability.",00:52:31.410,00:52:33.440
+"So the play here is very small, as
+you vary delta significantly.",00:52:33.440,00:52:37.660
+"And the play with epsilon, which will
+affect the exponent, is that these",00:52:37.660,00:52:41.590
+guys will be spread.,00:52:41.590,00:52:42.320
+"Instead of being 20, 40, it will
+be 2000, 4000, and so on.",00:52:42.320,00:52:46.340
+But this will be the shape.,00:52:46.340,00:52:48.430
+"So now, let's add the other curve.",00:52:48.430,00:52:50.120
+So this is N to the 5.,00:52:50.120,00:52:51.900
+How about N to the 10.,00:52:51.900,00:52:53.180
+What does it look like?,00:52:53.180,00:52:55.120
+"Now, it didn't go upstairs.",00:52:55.120,00:52:56.140
+"Well, it went upstairs if you had it
+linearly, because now, look at the",00:52:56.140,00:52:58.810
+value of the top.,00:52:58.810,00:52:59.770
+This is really serious business.,00:52:59.770,00:53:02.160
+And you get this one.,00:53:02.160,00:53:05.330
+"Varying the VC dimension,",00:53:05.330,00:53:06.260
+"I am getting a different curve, and
+I'm getting the behavior in the",00:53:06.260,00:53:09.100
+interesting region.,00:53:09.100,00:53:10.250
+You see the point here.,00:53:10.250,00:53:11.100
+And I keep adding.,00:53:11.100,00:53:12.620
+and I will add up to 30.,00:53:12.620,00:53:15.360
+"So these are the curves that I get by
+varying the VC dimension, the alleged",00:53:15.360,00:53:18.740
+VC dimension here.,00:53:18.740,00:53:20.020
+"5, 10, 15, 20, 25, 30.",00:53:20.020,00:53:24.950
+"Something very nice is
+observable here.",00:53:24.950,00:53:28.780
+"These guys are extremely regular
+in their progression.",00:53:28.780,00:53:32.230
+They are very much linear.,00:53:32.230,00:53:33.730
+"I mean, they are not exactly linear,
+but very close to linear.",00:53:33.730,00:53:36.970
+"And indeed, you will find that,
+theoretically, the bound in terms of",00:53:36.970,00:53:41.130
+"the number of examples to achieve
+a certain level-- let's say you cut",00:53:41.130,00:53:43.965
+"the level here, and you are increasing
+the VC dimension.",00:53:43.965,00:53:47.510
+"It basically is proportional
+to the VC dimension.",00:53:47.510,00:53:50.860
+"You go from 5 to 10 to
+15 to 20, et cetera.",00:53:50.860,00:53:53.900
+"This is the number of
+examples you want.",00:53:53.900,00:53:55.310
+"And they are pretty much
+proportional to this.",00:53:55.310,00:53:58.250
+"Now, this is in terms of the bound.",00:53:58.250,00:54:00.950
+"The problem with the bound is that,",00:54:00.950,00:54:03.420
+"if I am using a system and the
+other guy is using a system,",00:54:03.420,00:54:06.680
+I have a VC dimension and he has his.,00:54:06.680,00:54:09.230
+"Now, I know that my performance is less
+than or equal to something, and",00:54:09.230,00:54:12.980
+"his performance is less than
+or equal to something.",00:54:12.980,00:54:15.220
+"And let's say that this
+thing is this way.",00:54:15.220,00:54:18.560
+He has a better bound than mine.,00:54:18.560,00:54:22.020
+That's the bound.,00:54:22.020,00:54:23.590
+"There is no guarantee that, when we get
+the actual quantity that is bounded,",00:54:23.590,00:54:28.000
+"they will also follow that
+same monotonicity.",00:54:28.000,00:54:30.490
+"It is conceivable that the two
+quantities are this way.",00:54:30.490,00:54:35.030
+The bounds were this way.,00:54:39.140,00:54:41.480
+The quantities are this way.,00:54:41.480,00:54:43.970
+"Under those conditions, the bounds
+are satisfied, correct?",00:54:43.970,00:54:48.960
+"And the bounds are monotonic in one
+direction, and the quantity is",00:54:48.960,00:54:51.340
+monotonic in the other.,00:54:51.340,00:54:53.070
+That is a pretty annoying feature.,00:54:53.070,00:54:55.950
+"So what I am going to make now is
+a statement that is not a mathematical",00:54:55.950,00:54:59.430
+"statement, but a practical
+observation.",00:54:59.430,00:55:03.160
+"That is almost as good as
+a mathematical statement.",00:55:03.160,00:55:07.860
+"The practical observation is that, the
+actual quantity we are trying to bound",00:55:07.860,00:55:13.320
+"follows the same monotonicity
+as the bound.",00:55:13.320,00:55:16.850
+That is the observation.,00:55:16.850,00:55:18.850
+"You use bigger VC dimension, the
+quantities you will get are bigger.",00:55:18.850,00:55:24.250
+"And actually, very close
+to proportional.",00:55:24.250,00:55:26.950
+"This is an observation by trying this
+N times, where N is very large! That",00:55:26.950,00:55:32.010
+"is the observation I got, and
+many other people got.",00:55:32.010,00:55:35.310
+"So in spite of the fact that we cannot
+get an absolute value, because this is",00:55:35.310,00:55:39.490
+"just the bound, the relative aspect
+of the VC dimension holds.",00:55:39.490,00:55:44.170
+"And therefore, if you have
+a bigger VC dimension, you",00:55:44.170,00:55:46.990
+will need more examples.,00:55:46.990,00:55:49.410
+"And in that case, you can even-- there
+are some estimates, practical",00:55:49.410,00:55:52.770
+"estimate, that if you take the ratio of
+the VC dimension to the number of",00:55:52.770,00:55:55.990
+"examples, this will give you a handle on
+the error. And we will see provable",00:55:55.990,00:55:59.400
+"versions of that, when we get to the
+bias-variance tradeoff next time, in",00:55:59.400,00:56:03.120
+"a different theoretical
+line of analysis.",00:56:03.120,00:56:06.050
+"So the first lesson is that there is
+a proportionality between the VC",00:56:06.050,00:56:10.210
+"dimension and the number of examples
+needed, in order to achieve a certain",00:56:10.210,00:56:14.170
+level of performance.,00:56:14.170,00:56:16.210
+"That is a theoretical observance for
+the bound, and a practical observance",00:56:16.210,00:56:21.180
+for the actual quantity you get.,00:56:21.180,00:56:23.050
+That's number one.,00:56:23.050,00:56:25.160
+"Number two is that, give us just
+a guide-- proportional, not",00:56:25.160,00:56:29.530
+proportional.,00:56:29.530,00:56:29.950
+"I just want to know, if I have just
+a reasonable epsilon and a reasonable",00:56:29.950,00:56:33.400
+"delta, how many example does it
+take me to get over this hump?",00:56:33.400,00:56:37.480
+"How many examples does it take me to
+get to the comfort zone of the VC",00:56:37.480,00:56:40.760
+"inequality, where I'm actually
+making a statement?",00:56:40.760,00:56:43.710
+"So now I have the probability
+is less than 1.",00:56:43.710,00:56:47.380
+Do I take the VC dimension?,00:56:47.380,00:56:48.950
+Twice the VC dimension?,00:56:48.950,00:56:49.970
+A hundred times the VC dimension?,00:56:49.970,00:56:51.500
+This is a practical observation.,00:56:51.500,00:56:52.630
+"And again, it's the practical
+observation. Obviously, this depends on",00:56:52.630,00:56:55.150
+your epsilon and delta.,00:56:55.150,00:56:56.570
+"And this depends on the particular
+application.",00:56:56.570,00:56:58.650
+"So the statement I am making is that, for
+a huge range of reasonable epsilon",00:56:58.650,00:57:02.850
+"and delta, and for a huge
+range of practical",00:57:02.850,00:57:07.900
+"applications, the following
+rule of thumb holds.",00:57:07.900,00:57:12.880
+"You have a VC dimension and you are
+asking for a number of examples, in",00:57:12.880,00:57:15.780
+"order to get reasonable
+generalization.",00:57:15.780,00:57:19.200
+"The rule is, you need 10 times
+the VC dimension.",00:57:19.200,00:57:22.960
+No proof.,00:57:25.480,00:57:25.940
+It's not a mathematical statement.,00:57:25.940,00:57:27.990
+"And I'm saying greater than or equal,
+obviously. Because if you get more, you",00:57:27.990,00:57:30.290
+will get better performance.,00:57:30.290,00:57:32.470
+"But that will get you in the middle
+of the interesting region.",00:57:32.470,00:57:35.940
+"That will get you in the region where
+the probability statement is",00:57:35.940,00:57:39.410
+"meaningful, rather than completely
+unknown-- what the",00:57:39.410,00:57:42.540
+generalization will be like.,00:57:42.540,00:57:43.800
+"Now, I'll spend just a couple
+of minutes to talk about the",00:57:48.130,00:57:51.370
+"generalization bounds, which is a form
+of the theory we have, that will",00:57:51.370,00:57:54.530
+survive with us.,00:57:54.530,00:57:55.670
+"We are not going to talk about
+growth functions anymore.",00:57:55.670,00:57:58.220
+We are not going to go through this.,00:57:58.220,00:57:59.560
+"We are only going to remember that
+the VC dimension is there, and it",00:57:59.560,00:58:02.920
+determines the number of examples.,00:58:02.920,00:58:04.700
+"And it also corresponds to
+the degrees of freedom.",00:58:04.700,00:58:07.420
+"And the form of the theoretical bound
+we are going to carry will be the",00:58:07.420,00:58:11.210
+following form.,00:58:11.210,00:58:12.770
+I am just rearranging things.,00:58:12.770,00:58:14.080
+"There is absolutely nothing new
+introduced here, except simplification.",00:58:14.080,00:58:17.340
+"But it's an important simplification,
+because it's surviving with us.",00:58:17.340,00:58:22.360
+We start with the VC inequality.,00:58:22.360,00:58:25.300
+We can bid farewell.,00:58:25.300,00:58:26.060
+"This is the last time we'll see it in
+this form. It's complex and all,",00:58:26.060,00:58:29.220
+but we will now simplify it.,00:58:29.220,00:58:31.390
+"So now we have epsilon
+and delta again.",00:58:31.390,00:58:33.190
+And I give them different color.,00:58:33.190,00:58:34.640
+"And the logic we were using is
+that, you specify epsilon,",00:58:34.640,00:58:38.690
+"and then I will compute what delta is,
+depending on the number of examples.",00:58:38.690,00:58:42.260
+"So you tell me what your tolerance
+is, and I'll tell you what",00:58:42.260,00:58:44.280
+the probability is.,00:58:44.280,00:58:46.230
+"Another way of looking at it
+is the other way around.",00:58:46.230,00:58:50.800
+You tell me what delta is.,00:58:50.800,00:58:52.670
+"You would like to make a statement
+with reliability 95%.",00:58:52.670,00:58:57.120
+"Can you tell me what tolerance can
+you guarantee, under the 95%?",00:58:57.120,00:59:02.380
+"You start with the delta, and
+you go to the epsilon.",00:59:02.380,00:59:06.690
+That's not very difficult.,00:59:06.690,00:59:09.090
+"There is nothing mysterious
+about this.",00:59:09.090,00:59:10.970
+delta equals that.,00:59:10.970,00:59:12.800
+Can I solve for epsilon?,00:59:12.800,00:59:14.130
+"If I start with delta, can
+I solve for epsilon?",00:59:14.130,00:59:17.460
+"I will get this part, put
+it on the other side.",00:59:17.460,00:59:20.740
+"That makes this ready to take
+a logarithm of both sides.",00:59:20.740,00:59:23.590
+So this now goes down.,00:59:23.590,00:59:25.320
+"Now I need to get rid of
+the extra constants.",00:59:25.320,00:59:28.040
+They go on the other side.,00:59:28.040,00:59:29.210
+"But now, there is a logarithm on the other
+side, because I took a logarithm here.",00:59:29.210,00:59:32.060
+"And finally, I take a square root.",00:59:32.060,00:59:35.020
+So that's what you get.,00:59:35.020,00:59:38.510
+Very straightforward.,00:59:38.510,00:59:40.150
+"Now, I can start with this
+fellow and get epsilon.",00:59:40.150,00:59:44.060
+"I'm going to call this formula
+capital Omega, which is the notation",00:59:44.060,00:59:47.040
+that will survive with us.,00:59:47.040,00:59:49.010
+"It's a formula that depends
+on several things.",00:59:49.010,00:59:51.390
+"And as you can see, if the growth
+function is bigger-- the VC dimension",00:59:51.390,00:59:55.100
+"is bigger, Omega is worse.",00:59:55.100,00:59:57.230
+"That's understood, because the bigger
+the VC dimension, the worse the guarantee",00:59:57.230,01:00:01.770
+"on generalization, which is
+this approximation thing.",01:00:01.770,01:00:04.870
+"And if I have more examples,
+I am in good shape.",01:00:04.870,01:00:07.720
+"Because now, the growth function
+is polynomial.",01:00:07.720,01:00:10.020
+"By the time you take the natural
+logarithm, this guy becomes",01:00:10.020,01:00:14.600
+logarithmic.,01:00:14.600,01:00:15.670
+"And logarithmic gets killed by linear,
+as much as linear gets killed by",01:00:15.670,01:00:19.730
+an exponential.,01:00:19.730,01:00:20.430
+"So this is just a one step down,
+in the exponential scale, of",01:00:20.430,01:00:24.190
+the previous statement.,01:00:24.190,01:00:25.320
+"Indeed, if I have more examples, I
+will get a smaller value of Omega.",01:00:25.320,01:00:28.550
+"And obviously, if you are more finicky,
+if you want the guarantee to be 99%",01:00:28.550,01:00:32.020
+instead of 95%.,01:00:32.020,01:00:33.500
+"So now delta is 0.01, instead of 0.05.",01:00:33.500,01:00:36.210
+"Well, then epsilon will be looser,
+because you are making a statement",01:00:36.210,01:00:39.870
+that is true for more of the time.,01:00:39.870,01:00:41.750
+"So you will have to accommodate
+bigger epsilon.",01:00:41.750,01:00:43.760
+That's what we have.,01:00:43.760,01:00:46.370
+"So the statement now
+is a positive one.",01:00:46.370,01:00:48.740
+"It used to be that we are characterizing
+bad events, right?",01:00:48.740,01:00:51.870
+"Now we are going to state
+the good event.",01:00:51.870,01:00:53.850
+"The good event happens
+most of the time.",01:00:53.850,01:00:56.480
+"It happens with probability greater
+than or equal to 1 minus delta.",01:00:56.480,01:00:59.640
+"And that statement is that,
+E_in tracks E_out.",01:00:59.640,01:01:03.610
+"They are within this Omega, and Omega
+happens to be a function of the number",01:01:03.610,01:01:09.420
+of examples--,01:01:09.420,01:01:10.270
+"this goes down with it, of
+the hypothesis set--",01:01:10.270,01:01:13.310
+"it goes up with its VC dimension,",01:01:13.310,01:01:15.190
+"and of the delta, the probability you
+chose to make the statement about.",01:01:15.190,01:01:19.320
+"And this guy will go up
+with smaller delta.",01:01:19.320,01:01:22.670
+"I'm just keeping it in this
+form, because we don't",01:01:22.670,01:01:24.570
+worry about this anymore.,01:01:24.570,01:01:26.430
+We just want to understand this fellow.,01:01:26.430,01:01:27.890
+So let's look at it.,01:01:27.890,01:01:29.950
+"And that will be called the
+generalization bound.",01:01:29.950,01:01:32.870
+"With probability greater than
+1 minus delta,",01:01:32.870,01:01:35.250
+we have this fellow.,01:01:35.250,01:01:37.070
+So now I'm going to simplify this.,01:01:37.070,01:01:39.820
+Here's the first simplification.,01:01:39.820,01:01:42.150
+"Instead of the absolute value of E_out
+minus E_in, I am going to have just",01:01:42.150,01:01:47.960
+E_out minus E_in.,01:01:47.960,01:01:51.470
+Why is that?,01:01:51.470,01:01:53.010
+"Well, because I can.",01:01:53.010,01:01:55.790
+"If I have the absolute value, I
+guarantee this one and its opposite.",01:01:55.790,01:01:59.170
+"So among other things, I guarantee this
+one, so I can make the statement.",01:01:59.170,01:02:02.560
+The reason I'm making it is twofold.,01:02:02.560,01:02:04.730
+"First, this is really the
+direction that matters.",01:02:04.730,01:02:07.490
+"Because invariably, E_in will
+be much smaller than E_out.",01:02:07.490,01:02:11.340
+"At least, smaller than E_out.",01:02:11.340,01:02:12.640
+"Because E_in is the guy you
+minimize deliberately.",01:02:12.640,01:02:16.180
+"In terms of a sample, this is E_out.",01:02:16.180,01:02:19.830
+"And there is a sample, so the sample
+will have values here.",01:02:19.830,01:02:23.280
+"Now, you start deliberately
+pulling this down.",01:02:23.280,01:02:27.040
+The other guy--,01:02:27.040,01:02:28.020
+"there is an elastic band, but the
+elastic band is getting looser and",01:02:28.020,01:02:30.690
+looser as you make more effort.,01:02:30.690,01:02:32.270
+"But invariably, E_in now has a bias,
+which is an optimistic bias.",01:02:32.270,01:02:36.970
+"And therefore, this will be
+the quantity that actually",01:02:36.970,01:02:38.960
+happens to be positive.,01:02:38.960,01:02:41.490
+"Well, that doesn't say that E_out
+is always less than E_in.",01:02:41.490,01:02:45.490
+"Once in a blue moon, maybe on your
+birthday or something, you will get",01:02:45.490,01:02:48.440
+E_out that is smaller than E_in.,01:02:48.440,01:02:50.160
+"But the rule in general is the fact,
+E_out is bigger than E_in.",01:02:50.160,01:02:54.860
+"So they are less than
+or equal to that.",01:02:54.860,01:02:56.530
+"In spite of the fact that they have
+all of these dependencies, I am just",01:02:56.530,01:02:59.170
+"going to forget about these
+dependencies for the moment.",01:02:59.170,01:03:02.050
+"I know that Omega is
+an elaborate quantity.",01:03:02.050,01:03:03.970
+I don't want to carry the details.,01:03:03.970,01:03:05.350
+"I understand its general behavior,
+so I have this fellow.",01:03:05.350,01:03:08.540
+Now we rearrange this thing.,01:03:08.540,01:03:10.170
+"By the way, this fellow is called the
+generalization error, because it's the",01:03:10.170,01:03:15.140
+"difference between what you did
+out of sample versus in sample.",01:03:15.140,01:03:18.810
+"So this is a bound on the
+generalization error.",01:03:18.810,01:03:21.840
+"And when you rearrange it, you can say
+with probability greater than or equal",01:03:21.840,01:03:25.320
+"to 1 minus delta,",01:03:25.320,01:03:25.980
+"and this is the form that
+will survive with us.",01:03:25.980,01:03:28.620
+"You just take E_in and put
+it on the other side.",01:03:28.620,01:03:32.160
+"Now, this is a generalization bound.",01:03:32.160,01:03:35.700
+"And it is very interesting
+to look at it.",01:03:35.700,01:03:37.740
+"It bounds E_out, on the left-hand
+side, with E_in plus Omega.",01:03:37.740,01:03:43.130
+This guy we don't know.,01:03:43.130,01:03:45.666
+"Both of these guys we know, and
+have some control over.",01:03:45.666,01:03:49.520
+This one we are minimizing.,01:03:49.520,01:03:51.190
+"This one is according to the choice
+of our hypothesis set.",01:03:51.190,01:03:54.690
+"So it tells us something
+about E_out, in terms of",01:03:54.690,01:03:56.960
+quantities that we control.,01:03:56.960,01:03:59.640
+"Furthermore, it shows that--",01:03:59.640,01:04:02.520
+"remember when we talked
+about a tradeoff.",01:04:02.520,01:04:04.200
+"Remember when someone asked: bigger
+hypothesis set is good or bad?",01:04:04.200,01:04:08.310
+"It's good for E_in, but bad
+for generalization.",01:04:08.310,01:04:11.880
+Now you can see why.,01:04:11.880,01:04:12.670
+"This guy goes down with
+a bigger hypothesis set.",01:04:12.670,01:04:16.520
+"This guy goes up with
+a bigger hypothesis set.",01:04:16.520,01:04:19.250
+Poorer generalization.,01:04:19.250,01:04:20.920
+"Therefore, it's not clear that it's
+a good idea to pick a bigger hypothesis",01:04:20.920,01:04:25.240
+"set, or a smaller hypothesis set.",01:04:25.240,01:04:27.210
+"There may be a balance between them that
+will make the sum the smallest",01:04:27.210,01:04:30.760
+"possible, and that affects the
+quantity I care about.",01:04:30.760,01:04:34.160
+So this will translate to that.,01:04:34.160,01:04:35.820
+"The other thing is that, now that I got
+rid of the absolute value, we'll",01:04:35.820,01:04:38.750
+"be able to take expected values in
+certain cases, and compare it with",01:04:38.750,01:04:41.920
+other stuff.,01:04:41.920,01:04:42.500
+"So this will be a very friendly
+quantity to do.",01:04:42.500,01:04:45.120
+"It's so friendly, that we are going to
+derive a technique, one of the most",01:04:45.120,01:04:49.580
+"important techniques in machine
+learning, based on this.",01:04:49.580,01:04:52.410
+It's called regularization.,01:04:52.410,01:04:54.325
+"And the idea here is that I
+use E_in as a proxy for E_out.",01:04:54.325,01:04:59.700
+"Now, after all of this analysis, I
+realize that it's not E_in only that",01:04:59.700,01:05:03.600
+affects the game.,01:05:03.600,01:05:04.760
+It's also the choice of this guy.,01:05:04.760,01:05:07.190
+"So maybe, instead of using E_in as
+a proxy, I'm going to use E_in plus",01:05:07.190,01:05:11.940
+"something else as a proxy, hoping that
+this will be a better reflection that",01:05:11.940,01:05:17.100
+will get me the E_out I want.,01:05:17.100,01:05:18.820
+"And that will be the subject
+of regularization.",01:05:18.820,01:05:21.550
+"We'll stop here and take questions
+and answers after a short break.",01:05:21.550,01:05:25.110
+"Let's go for the Q&amp;A.
+Are there questions?",01:05:30.150,01:05:34.000
+MODERATOR: Yeah.,01:05:34.000,01:05:34.450
+There was one confusion.,01:05:34.450,01:05:35.650
+"Why is the VC dimension
+exactly k minus 1?",01:05:35.650,01:05:44.460
+PROFESSOR: OK.,01:05:44.460,01:05:45.710
+"When we defined the break point, we
+defined that, I can call k break",01:05:47.850,01:05:54.920
+"point if I cannot get all dichotomies
+on any k points.",01:05:54.920,01:06:01.610
+"That means really, that if I have
+a break point, then any bigger point is",01:06:01.610,01:06:05.460
+also a break point.,01:06:05.460,01:06:07.060
+"And most of the discussion deals
+with the smallest break point.",01:06:07.060,01:06:10.305
+"So the notion of a break point
+covers a lot of values.",01:06:13.160,01:06:18.280
+"The VC dimension is a unique one, which
+happens to be the biggest value just",01:06:18.280,01:06:22.040
+short of the first break point.,01:06:22.040,01:06:23.926
+Does this cover it?,01:06:26.820,01:06:28.570
+MODERATOR: Yeah.,01:06:28.570,01:06:30.380
+"Yeah, because people were wondering if
+it was the break point for some set",01:06:30.380,01:06:34.130
+"of N points, or for all sets.",01:06:34.130,01:06:36.240
+"PROFESSOR: It's always the
+case that when I say you are able to",01:06:36.240,01:06:39.340
+"shatter, I give you the privilege
+of picking the points to shatter.",01:06:39.340,01:06:44.300
+"So I insist that you get all possible
+dichotomies, but you get to choose",01:06:44.300,01:06:48.420
+which points to shatter.,01:06:48.420,01:06:50.340
+"That is always the
+logic in those guys.",01:06:50.340,01:06:53.520
+"This does not affect a break
+point versus the VC",01:06:53.520,01:06:56.410
+"dimension, or whatever.",01:06:56.410,01:06:56.990
+"This is always the case when we talk
+about shattering N points.",01:06:56.990,01:06:59.680
+"It means that you shatter
+some set of N points.",01:06:59.680,01:07:03.410
+"Now, the only distinction between
+a break point and a VC dimension is that",01:07:03.410,01:07:06.970
+"a break point poses it negatively, and
+the VC dimension poses it positively.",01:07:06.970,01:07:11.360
+"Break point is a failure to shatter,
+and VC dimension is",01:07:11.360,01:07:15.400
+an ability to shatter.,01:07:15.400,01:07:17.340
+"And obviously, if you take the maximum
+ability to shatter, which will give",01:07:17.340,01:07:20.100
+"you the value of the VC dimension, that
+will be one short of the next",01:07:20.100,01:07:23.200
+"guy, which you failed to shatter.",01:07:23.200,01:07:25.180
+"So that is your smallest break point
+and the other ones would be other",01:07:25.180,01:07:27.780
+break points.,01:07:27.780,01:07:29.460
+"MODERATOR: Also, can you repeat
+the practical interpretation",01:07:29.460,01:07:33.460
+of epsilon and delta?,01:07:33.460,01:07:35.070
+PROFESSOR: epsilon and delta.,01:07:35.070,01:07:36.200
+"So the epsilon and delta as two
+quantities, they are the performance",01:07:36.200,01:07:40.380
+parameters of learning.,01:07:40.380,01:07:42.450
+"There are two things that
+I want to make sure of.",01:07:42.450,01:07:45.230
+"I want to make sure that
+E_in tracks E_out.",01:07:45.230,01:07:48.450
+The level of tracking is epsilon.,01:07:48.450,01:07:50.560
+That's the approximation parameter.,01:07:50.560,01:07:53.450
+"Now, I cannot guarantee that
+statement absolutely.",01:07:53.450,01:07:56.260
+"I can only guarantee it in
+a probabilistic sense.",01:07:56.260,01:07:58.370
+"But I'd like that probability
+to be as high as possible.",01:07:58.370,01:08:01.400
+"So the probability that that statement
+doesn't hold is small.",01:08:01.400,01:08:05.790
+"And that happens to be delta, which is
+the probability measure. So there are",01:08:05.790,01:08:08.930
+"always these two quantities, and that
+is an integral part of this",01:08:08.930,01:08:12.760
+type of analysis.,01:08:12.760,01:08:13.660
+I think we have an in-house question.,01:08:13.660,01:08:17.569
+"STUDENT: I wanted to know, what is
+the effect of error measure on the",01:08:17.569,01:08:21.170
+"number of points that
+you have to choose?",01:08:21.170,01:08:23.109
+PROFESSOR: OK.,01:08:23.109,01:08:25.250
+"Obviously, as you can see from the VC
+analysis, the error measure has always",01:08:25.250,01:08:29.140
+been a probability of error.,01:08:29.140,01:08:31.070
+So it was always a binary error.,01:08:31.070,01:08:32.920
+"When you go to other co-domains,",01:08:32.920,01:08:36.870
+real-valued or multi-valued.,01:08:36.870,01:08:38.040
+"Or you go to other error
+measures, you need to",01:08:38.040,01:08:40.700
+modify these things.,01:08:40.700,01:08:41.930
+"Some variances will come in,
+and some other aspects.",01:08:41.930,01:08:44.810
+"So for example, in case of the error
+measure, the binary error measure",01:08:44.810,01:08:48.200
+happens to be bounded.,01:08:48.200,01:08:50.720
+"Therefore, you never worry about the
+variance, because there is an upper",01:08:50.720,01:08:53.970
+bound on the variance.,01:08:53.970,01:08:55.310
+"If you talk about, let's say, mean squared
+error, depending on the probability",01:08:55.310,01:08:59.069
+"distribution you put on things,
+this could be very big.",01:08:59.069,01:09:02.590
+"So you need first to say that
+the variance is finite.",01:09:02.590,01:09:05.550
+"And then, actually the value of the
+variance will come into these",01:09:05.550,01:09:08.220
+"inequalities, to go through.",01:09:08.220,01:09:09.930
+"However, the reason I didn't venture
+into that is very simple.",01:09:09.930,01:09:13.790
+"There is really nothing
+added, conceptually.",01:09:13.790,01:09:16.439
+"And as you can see from the utility
+we're using, we are not going to go",01:09:16.439,01:09:19.000
+"back and unravel the mathematics, and
+apply it to a practical situation.",01:09:19.000,01:09:22.660
+We borrowed the following.,01:09:22.660,01:09:24.359
+"We borrowed that: finite, I can learn.",01:09:24.359,01:09:27.950
+"The value is proportional to
+the number of examples.",01:09:27.950,01:09:30.660
+And the rest are rules of thumb.,01:09:30.660,01:09:32.359
+That's where we stand.,01:09:32.359,01:09:33.300
+"So it's not worth sweating bullets over
+the other technicalities, when",01:09:33.300,01:09:36.740
+this is the message we are getting.,01:09:36.740,01:09:38.149
+"And that message will hold intact
+in other situations.",01:09:38.149,01:09:40.480
+MODERATOR: A question about--,01:09:46.130,01:09:47.399
+"when you're mentioning the bound,
+you usually say the VC",01:09:47.399,01:09:53.290
+dimension is known.,01:09:53.290,01:09:54.430
+"Is it true that for most hypotheses,
+this is really known?",01:09:54.430,01:10:00.350
+"PROFESSOR: To get the VC
+dimension exactly is an exception, not",01:10:00.350,01:10:04.080
+"the rule, as I mentioned.",01:10:04.080,01:10:04.950
+"So getting it for perceptrons is really
+a great achievement, because the",01:10:04.950,01:10:07.620
+"perceptron is a real
+model that you use.",01:10:07.620,01:10:09.350
+"And we know the VC dimension, exactly.",01:10:09.350,01:10:11.180
+"When you go to neural networks, we
+will get a VC dimension estimate.",01:10:11.180,01:10:15.270
+"We'll say the VC dimension
+cannot be above--",01:10:15.270,01:10:17.180
+"for the same reason that we had, when
+we talked about parameter versus",01:10:17.180,01:10:20.690
+effective number of parameters.,01:10:20.690,01:10:22.270
+"Because in a neural network, the
+parameters will go from one layer to",01:10:22.270,01:10:25.160
+"another, and there will be some
+cancellation or redundancy.",01:10:25.160,01:10:28.170
+"And therefore, you can't really--",01:10:28.170,01:10:30.470
+"keep track of these redundancies
+exactly,",01:10:30.470,01:10:31.940
+"or say it cannot be more than the
+number of parameters because-- even",01:10:31.940,01:10:35.040
+taking into consideration.,01:10:35.040,01:10:36.320
+"So in many of the cases, the VC
+dimension is estimated as a bound.",01:10:36.320,01:10:39.690
+"But again, we are already in a bound.",01:10:39.690,01:10:41.490
+"Even if you know it exactly, it's not
+like we know what the generalization",01:10:41.490,01:10:44.010
+error will be like.,01:10:44.010,01:10:44.680
+"We know a bound on the
+generalization error.",01:10:44.680,01:10:46.900
+"So in this series of logical
+development, we get a bound on a bound",01:10:46.900,01:10:51.440
+on a bound on a bound.,01:10:51.440,01:10:53.230
+"So by the time we are done, the bound
+is so loose that, in absolute value,",01:10:53.230,01:10:57.610
+it's really not indicative at all.,01:10:57.610,01:11:00.020
+"But the good news is that, in relative
+value, it maintains",01:11:00.020,01:11:03.030
+its conceptual meaning.,01:11:03.030,01:11:04.210
+"We can use it as a guide to compare
+models, and to get a general number of",01:11:04.210,01:11:07.640
+"examples, notwithstanding the fact that
+if you decide to say, I'm going to",01:11:07.640,01:11:12.020
+go for a perceptron in two dimensions.,01:11:12.020,01:11:15.010
+"And I'm going to want epsilon to
+be 0.1 and delta to be 0.05.",01:11:15.010,01:11:19.080
+"Could you please tell me how
+many examples I need?",01:11:19.080,01:11:21.560
+"If you actually go and solve the VC
+inequality and try to get a bound, the",01:11:21.560,01:11:26.340
+bound will be ridiculously high.,01:11:26.340,01:11:28.670
+"Much higher than you will actually
+need in practice.",01:11:28.670,01:11:30.780
+"But you don't use it as
+an absolute indication.",01:11:30.780,01:11:32.790
+"You use it only as
+a relative indication.",01:11:32.790,01:11:36.860
+"MODERATOR: Have you come across any
+interesting examples, where N has to be",01:11:36.860,01:11:40.460
+"much bigger than 10 times
+the VC dimension?",01:11:40.460,01:11:42.430
+"PROFESSOR: The interesting example
+is when the customer is very finicky,",01:11:45.440,01:11:47.570
+"and wants a very small
+epsilon and delta.",01:11:47.570,01:11:49.750
+"Because the smaller epsilon and delta,",01:11:49.750,01:11:52.640
+the more number of examples you had.,01:11:52.640,01:11:54.290
+"So the rule of thumb is not to tell
+you: use 10 times the VC dimension.",01:11:54.290,01:11:59.220
+"It tells you that you are in the thick
+of the game, when you have 10 times--",01:11:59.220,01:12:03.970
+now we are talking.,01:12:03.970,01:12:06.010
+There is actually generalization.,01:12:06.010,01:12:07.380
+There is a certain level.,01:12:07.380,01:12:08.200
+"There is some compromise between
+epsilon and delta.",01:12:08.200,01:12:10.330
+"Now you can tighten the screws,
+and try to get it better.",01:12:10.330,01:12:13.910
+"This is just a rule of thumb, for
+getting into the interesting region of",01:12:13.910,01:12:18.120
+the VC inequality.,01:12:18.120,01:12:19.510
+And that has stood the test of time.,01:12:19.510,01:12:20.810
+"MODERATOR: Is there a relation between
+this material and the topic of design",01:12:24.570,01:12:30.720
+"of experiments, and the number of
+experiments you require to achieve",01:12:30.720,01:12:34.160
+a certain confidence?,01:12:34.160,01:12:35.150
+"PROFESSOR: Yeah, there
+is a relationship.",01:12:35.150,01:12:36.690
+"Some of the experimental
+design and whatnot--",01:12:36.690,01:12:40.720
+"there are lots of commonalities
+between here.",01:12:40.720,01:12:43.840
+"You have control over certain things
+that you may not have here, but some",01:12:43.840,01:12:49.260
+"of the principles definitely
+extend to that.",01:12:49.260,01:12:51.390
+"As I mentioned, when we talked about
+the premise of learning, it's so",01:12:51.390,01:12:54.250
+"general, that it would not be a surprise
+at all that many of the",01:12:54.250,01:12:58.140
+"concepts go and tackle situations that
+are not strictly learning, but have the",01:12:58.140,01:13:04.580
+same theme as learning.,01:13:04.580,01:13:06.350
+MODERATOR: I think that's it.,01:13:12.780,01:13:14.150
+There's no more.,01:13:14.150,01:13:15.210
+"PROFESSOR: So we will
+see you on Thursday.",01:13:15.210,01:13:16.790

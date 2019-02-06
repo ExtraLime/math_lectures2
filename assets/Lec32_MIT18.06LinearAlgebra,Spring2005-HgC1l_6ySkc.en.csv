@@ -1,0 +1,1316 @@
+text,start,stop
+"OK, here we go with, quiz
+review for the third quiz that's",00:00:07.930,00:00:13.530
+coming on Friday.,00:00:13.530,00:00:15.910
+"So, one key point
+is that the quiz",00:00:15.910,00:00:19.040
+covers through chapter six.,00:00:19.040,00:00:25.120
+"Chapter seven on
+linear transformations",00:00:25.120,00:00:27.580
+"will appear on the final
+exam, but not on the quiz.",00:00:27.580,00:00:31.930
+"So I won't review linear
+transformations today,",00:00:31.930,00:00:35.540
+"but they'll come into the
+full course review on the very",00:00:35.540,00:00:39.720
+last lecture.,00:00:39.720,00:00:41.350
+"So today, I'm
+reviewing chapter six,",00:00:41.350,00:00:44.120
+"and I'm going to
+take some old exams,",00:00:44.120,00:00:46.330
+"and I'm always ready
+to answer questions.",00:00:46.330,00:00:48.990
+"And I thought, kind of help
+our memories if I write down",00:00:48.990,00:00:54.360
+the main topics in chapter six.,00:00:54.360,00:01:00.350
+"So, already, on
+the previous quiz,",00:01:00.350,00:01:04.019
+"we knew how to find
+eigenvalues and eigenvectors.",00:01:04.019,00:01:07.520
+"Well, we knew how to find them
+by that determinant of A minus",00:01:07.520,00:01:13.480
+lambda I equals zero.,00:01:13.480,00:01:15.390
+"But, of course, there
+could be shortcuts.",00:01:15.390,00:01:17.280
+"There could be, like,
+useful information",00:01:17.280,00:01:20.030
+"about the eigenvalues that
+we can speed things up with.",00:01:20.030,00:01:27.190
+OK.,00:01:27.190,00:01:27.830
+"Then, the new stuff starts out
+with a differential equation,",00:01:27.830,00:01:32.300
+so I'll do a problem.,00:01:32.300,00:01:34.680
+"I'll do a differential
+equation problem first.",00:01:34.680,00:01:36.810
+"What's special about
+symmetric matrices?",00:01:39.970,00:01:43.010
+Can we just say that in words?,00:01:43.010,00:01:46.060
+"I'd better write
+it down, though.",00:01:46.060,00:01:48.170
+"What's special about
+symmetric matrices?",00:01:48.170,00:01:50.960
+Their eigenvalues are real.,00:01:50.960,00:01:56.970
+"The eigenvalues of a symmetric
+matrix always come out real,",00:01:56.970,00:02:00.970
+"and there always are
+enough eigenvectors.",00:02:00.970,00:02:04.800
+"Even if there are
+repeated eigenvalues,",00:02:04.800,00:02:06.930
+"there are enough
+eigenvectors, and we",00:02:06.930,00:02:09.910
+"can choose those eigenvectors
+to be orthogonal.",00:02:09.910,00:02:13.180
+"So if A equals A
+transposed, the big fact",00:02:13.180,00:02:16.480
+"will be that we
+can diagonalize it,",00:02:16.480,00:02:22.620
+"and those eigenvector
+matrix, with the eigenvectors",00:02:22.620,00:02:28.550
+"in the column, can be
+an orthogonal matrix.",00:02:28.550,00:02:31.470
+"So we get a Q
+lambda Q transpose.",00:02:31.470,00:02:36.600
+"That, in three symbols,
+expresses a wonderful fact,",00:02:36.600,00:02:43.010
+"a fundamental fact for
+symmetric matrices.",00:02:43.010,00:02:46.250
+OK.,00:02:46.250,00:02:46.960
+"Then, we went beyond
+that fact to ask",00:02:46.960,00:02:49.740
+"about positive
+definite matrices, when",00:02:49.740,00:02:52.570
+the eigenvalues were positive.,00:02:52.570,00:02:54.370
+I'll do an example of that.,00:02:54.370,00:02:55.970
+Now we've left symmetry.,00:02:59.290,00:03:01.580
+"Similar matrices are
+any square matrices,",00:03:01.580,00:03:05.000
+"but two matrices are similar
+if they're related that way.",00:03:05.000,00:03:10.730
+"And what's the key point
+about similar matrices?",00:03:10.730,00:03:14.590
+"Somehow, those matrices
+are representing",00:03:14.590,00:03:16.770
+"the same thing in
+different basis,",00:03:16.770,00:03:19.410
+in chapter seven language.,00:03:19.410,00:03:21.980
+"In chapter six language, what's
+up with these similar matrices?",00:03:21.980,00:03:29.220
+"What's the key fact,
+the key positive fact",00:03:29.220,00:03:31.860
+about similar matrices?,00:03:31.860,00:03:33.570
+They have the same eigenvalues.,00:03:33.570,00:03:37.130
+Same eigenvalues.,00:03:37.130,00:03:39.070
+"So if one of them grows,
+the other one grows.",00:03:39.070,00:03:42.460
+"If one of them decays to zero,
+the other one decays to zero.",00:03:42.460,00:03:50.380
+"Powers of A will look
+like powers of B,",00:03:50.380,00:03:53.050
+"because powers of
+A and powers of B",00:03:53.050,00:03:55.440
+"only differ by an M
+inverse and an M way on the",00:03:55.440,00:03:59.160
+outside.,00:03:59.160,00:04:00.040
+"So if these are similar,
+then B to the k-th power",00:04:00.040,00:04:05.250
+"is M inverse A to
+the k-th power M.",00:04:05.250,00:04:09.160
+"And that's why I
+say, eh, this M, it",00:04:09.160,00:04:12.410
+"does change the
+eigenvectors, but it",00:04:12.410,00:04:14.480
+doesn't change the eigenvalues.,00:04:14.480,00:04:16.089
+So same lambdas.,00:04:16.089,00:04:21.209
+"And then, finally, I've
+got to review the point",00:04:21.209,00:04:24.510
+"about the SVD, the Singular
+Value Decomposition.",00:04:24.510,00:04:30.000
+OK.,00:04:30.000,00:04:30.500
+"So that's what this
+quiz has got to cover,",00:04:30.500,00:04:33.900
+"and now I'll just take
+problems from earlier exams,",00:04:33.900,00:04:37.720
+"starting with a
+differential equation.",00:04:37.720,00:04:40.460
+OK.,00:04:40.460,00:04:41.250
+And always ready for questions.,00:04:41.250,00:04:43.360
+"So here is an exam
+from about the year",00:04:43.360,00:04:46.640
+"zero, and it has
+a three by three.",00:04:46.640,00:04:53.290
+So that was --,00:04:53.290,00:04:54.502
+"but it's a pretty
+special-looking matrix,",00:04:57.280,00:04:59.720
+"it's got zeroes on the diagonal,
+it's got minus ones above,",00:04:59.720,00:05:04.190
+"and it's got plus
+ones like that.",00:05:04.190,00:05:08.360
+So that's the matrix A.,00:05:08.360,00:05:12.160
+OK.,00:05:12.160,00:05:12.880
+"Step one is, well,
+I want to solve that",00:05:12.880,00:05:16.750
+equation.,00:05:16.750,00:05:17.700
+"I want to find the
+general solution.",00:05:17.700,00:05:19.970
+"I haven't given you
+a u(0) here, so I'm",00:05:19.970,00:05:22.790
+"looking for the
+general solution,",00:05:22.790,00:05:24.900
+"so now what's the form
+of the general solution?",00:05:24.900,00:05:28.280
+"With three arbitrary
+constants going",00:05:28.280,00:05:30.520
+"to be inside it, because
+those will be used",00:05:30.520,00:05:33.940
+to match the initial condition.,00:05:33.940,00:05:35.780
+"So the general
+form is u at time t",00:05:35.780,00:05:39.580
+"is some multiple of the
+first special solution.",00:05:39.580,00:05:45.500
+"The first special solution will
+be growing like the eigenvalue,",00:05:45.500,00:05:50.080
+and it's the eigenvector.,00:05:50.080,00:05:51.920
+"So that's a pure exponential
+solution, just staying",00:05:51.920,00:05:56.400
+with that eigenvector.,00:05:56.400,00:05:58.580
+"Of course, I haven't
+found, yet, the eigenvalues",00:05:58.580,00:06:01.770
+and eigenvectors.,00:06:01.770,00:06:02.580
+"That's, normally, the first job.",00:06:02.580,00:06:04.900
+"Now, there will be second
+one, growing like e",00:06:04.900,00:06:08.880
+"to the lambda two, and a
+third one growing like e",00:06:08.880,00:06:13.160
+to the lambda three.,00:06:13.160,00:06:16.450
+So we're all done --,00:06:16.450,00:06:18.880
+"well, we haven't
+done anything yet,",00:06:18.880,00:06:20.860
+actually.,00:06:20.860,00:06:22.100
+"I've got to find the
+eigenvalues and eigenvectors,",00:06:22.100,00:06:25.930
+"and then I would match u(0)
+by choosing the right three",00:06:25.930,00:06:30.720
+constants.,00:06:30.720,00:06:31.420
+OK.,00:06:31.420,00:06:31.950
+"So now I ask -- ask you
+about the eigenvalues",00:06:31.950,00:06:35.030
+"and eigenvectors, and you look
+at this matrix and what do you",00:06:35.030,00:06:38.790
+see in that matrix?,00:06:38.790,00:06:41.390
+"Um, well, I guess we might
+ask ourselves right away,",00:06:41.390,00:06:47.740
+is it singular?,00:06:47.740,00:06:50.760
+Is it singular?,00:06:50.760,00:06:51.810
+"Because, if so, then we
+really have a head start,",00:06:51.810,00:06:54.040
+"we know one of the
+eigenvalues is zero.",00:06:54.040,00:06:56.810
+Is that matrix singular?,00:06:56.810,00:06:57.990
+"Eh, I don't know, do you
+take the determinant to",00:07:01.660,00:07:04.280
+find out?,00:07:04.280,00:07:05.110
+"Or maybe you look at the
+first row and third row",00:07:05.110,00:07:08.530
+"and say, hey, the
+first row and third row",00:07:08.530,00:07:10.270
+"are just opposite signs,
+they're linear-dependent?",00:07:10.270,00:07:15.180
+"The first column and third
+column are dependent -- it's",00:07:15.180,00:07:17.930
+singular.,00:07:17.930,00:07:19.150
+So one eigenvalue is zero.,00:07:19.150,00:07:22.610
+Let's make that lambda one.,00:07:22.610,00:07:24.520
+"Lambda one, then, will be zero.",00:07:24.520,00:07:26.150
+OK.,00:07:26.150,00:07:26.850
+"Now we've got a couple of
+other eigenvalues to find,",00:07:26.850,00:07:30.000
+"and, I suppose the
+simplest way is",00:07:30.000,00:07:33.430
+"to look at A minus
+lambda I So let",00:07:33.430,00:07:36.940
+"me just put minus lambda
+in here, minus ones above,",00:07:36.940,00:07:43.720
+ones below.,00:07:43.720,00:07:45.520
+"But, actually, before
+I do it, that matrix",00:07:45.520,00:07:51.430
+"is not symmetric,
+for sure, right?",00:07:51.430,00:07:53.910
+"In fact, it's the very
+opposite of symmetric.",00:07:53.910,00:07:57.220
+"That matrix A transpose, how
+is A transpose connected to A?",00:07:57.220,00:08:02.420
+It's negative A.,00:08:02.420,00:08:04.020
+"It's an anti-symmetric
+matrix, skew-symmetric matrix.",00:08:04.020,00:08:07.890
+"And we've met, maybe,
+a two-by-two example",00:08:07.890,00:08:11.230
+"of skew-symmetric
+matrices, and let",00:08:11.230,00:08:14.370
+"me just say, what's the
+deal with their eigenvalues?",00:08:14.370,00:08:17.687
+They're pure imaginary.,00:08:17.687,00:08:18.645
+"They'll be on the
+imaginary axis,",00:08:21.400,00:08:23.440
+"there be some
+multiple of I if it's",00:08:23.440,00:08:26.710
+"an anti-symmetric,
+skew-symmetric matrix.",00:08:26.710,00:08:29.090
+"So I'm looking for
+multiples of I,",00:08:29.090,00:08:31.360
+"and of course,
+that's zero times I,",00:08:31.360,00:08:33.730
+"that's on the imaginary axis,
+but maybe I just do it out,",00:08:33.730,00:08:37.760
+here.,00:08:37.760,00:08:38.350
+Lambda cubed.,00:08:38.350,00:08:39.740
+"well, maybe that's
+minus lambda cubed,",00:08:39.740,00:08:42.600
+and then a zero and a zero.,00:08:42.600,00:08:44.480
+"Zero, and then maybe I
+have a plus a lambda,",00:08:44.480,00:08:47.870
+"and another plus lambda, but
+those go with a minus sign.",00:08:47.870,00:08:52.610
+"Am I getting minus two
+lambda equals zero?",00:08:52.610,00:08:55.080
+So.,00:08:58.640,00:08:59.940
+"So I'm solving lambda cube
+plus two lambda equals zero.",00:08:59.940,00:09:04.810
+"So one root factors out
+lambda, and the the rest",00:09:04.810,00:09:09.070
+is lambda squared plus two.,00:09:09.070,00:09:11.571
+OK.,00:09:11.571,00:09:12.070
+"This is going the
+way we expect, right?",00:09:12.070,00:09:14.310
+"Because this gives the root
+lambda equals zero, and gives",00:09:14.310,00:09:22.360
+"the other two roots, which
+are lambda equal what?",00:09:22.360,00:09:27.630
+"The solutions of when
+is lambda squared",00:09:27.630,00:09:30.200
+"plus two equals zero then the
+eigenvalues those guys, what",00:09:30.200,00:09:36.510
+are they?,00:09:36.510,00:09:38.610
+"They're a multiple of i,
+they're just square root of two",00:09:38.610,00:09:41.260
+i.,00:09:41.260,00:09:42.150
+"When I set this
+equals to zero, I",00:09:42.150,00:09:45.010
+"have lambda squared equal
+to minus two, right?",00:09:45.010,00:09:48.800
+To make that zero?,00:09:48.800,00:09:50.710
+"And the roots are
+square root of two i",00:09:50.710,00:09:54.180
+"and minus the square
+root of two i.",00:09:54.180,00:09:58.060
+So now I know what those are.,00:09:58.060,00:09:59.540
+"I'll put those in, now.",00:09:59.540,00:10:01.070
+Either the zero t is just a one.,00:10:01.070,00:10:03.840
+That's just a one.,00:10:03.840,00:10:06.840
+"This is square root of
+two I and this is minus",00:10:06.840,00:10:13.700
+square root of two I.,00:10:13.700,00:10:18.280
+"So, is the solution
+decaying to zero?",00:10:18.280,00:10:22.590
+"Is this a completely
+stable problem",00:10:22.590,00:10:25.210
+"where the solution
+is going to zero?",00:10:25.210,00:10:28.630
+No.,00:10:28.630,00:10:31.200
+"In fact, all these things
+are staying the same size.",00:10:31.200,00:10:34.620
+"This thing is getting
+multiplied by this number.",00:10:34.620,00:10:39.290
+"e to the I something t, that's
+a number that has magnitude one,",00:10:39.290,00:10:46.880
+"and sort of wanders
+around the unit circle.",00:10:46.880,00:10:50.160
+Same for this.,00:10:50.160,00:10:51.660
+"So that the solution doesn't
+blow up, and it doesn't go to",00:10:51.660,00:10:55.900
+zero.,00:10:55.900,00:10:56.520
+OK.,00:10:56.520,00:10:57.410
+"And to find out
+what it actually is,",00:10:57.410,00:10:59.670
+"we would have to plug
+in initial conditions.",00:10:59.670,00:11:02.370
+"But actually, the
+next question I ask",00:11:02.370,00:11:04.410
+"is, when does the solution
+return to its initial value?",00:11:04.410,00:11:12.280
+"I won't even say what's
+the initial value.",00:11:12.280,00:11:15.910
+"This is a case in which
+I think this solution is",00:11:15.910,00:11:22.540
+periodic after.,00:11:22.540,00:11:25.350
+"At t equals zero, it
+starts with c1, c2, and c3,",00:11:25.350,00:11:31.820
+"and then at some value of
+t, it comes back to that.",00:11:31.820,00:11:36.500
+"So that's a very
+special question,",00:11:36.500,00:11:38.440
+"Well, let's just
+take three seconds,",00:11:38.440,00:11:40.280
+"because that special question
+isn't likely to be on the quiz.",00:11:40.280,00:11:44.040
+"But it comes back
+to the start, when?",00:11:44.040,00:11:49.910
+"Well, whenever we have e to
+the two pi i, that's one,",00:11:49.910,00:11:55.230
+and we've come back again.,00:11:55.230,00:11:56.450
+So it comes back to the start.,00:11:56.450,00:11:58.700
+"It's periodic, when this
+square root of two i --",00:11:58.700,00:12:07.740
+"shall I call it capital
+T, for the period?",00:12:07.740,00:12:10.930
+"For that particular T, if
+that equals two pi i, then e",00:12:10.930,00:12:17.270
+"to this thing is one, and
+we've come around again.",00:12:17.270,00:12:21.090
+"So the period is T is
+determined here, cancel the i-s,",00:12:21.090,00:12:26.250
+"and T is pi times the
+square root of two.",00:12:26.250,00:12:30.970
+So that's pretty neat.,00:12:30.970,00:12:32.270
+"We get all the information
+about all solutions,",00:12:32.270,00:12:35.610
+"we haven't fixed on only
+one particular solution,",00:12:35.610,00:12:39.230
+but it comes around again.,00:12:39.230,00:12:41.450
+"So this was probably
+my first chance",00:12:41.450,00:12:43.730
+"to say something
+about the whole family",00:12:43.730,00:12:46.270
+"of anti-symmetric,
+skew-symmetric matrices.",00:12:46.270,00:12:49.760
+OK.,00:12:49.760,00:12:50.380
+"And then, finally, I asked,
+take two eigenvectors (again,",00:12:50.380,00:12:56.880
+"I haven't computed
+the eigenvectors)",00:12:56.880,00:12:59.450
+"and it turns out
+they're orthogonal.",00:12:59.450,00:13:02.690
+They're orthogonal.,00:13:02.690,00:13:03.500
+"The eigenvectors of
+a symmetric matrix,",00:13:03.500,00:13:06.500
+"or a skew-symmetric matrix,
+are always orthogonal.",00:13:06.500,00:13:10.250
+"I guess may conscience
+makes me tell you,",00:13:13.200,00:13:18.020
+"what are all the matrices that
+have orthogonal eigenvectors?",00:13:18.020,00:13:23.950
+"And symmetric is the
+most important class,",00:13:23.950,00:13:27.040
+"so that's the one
+we've spoken about.",00:13:27.040,00:13:28.640
+"But let me just put that
+little fact down, here.",00:13:28.640,00:13:32.800
+Orthogonal x-s.,00:13:32.800,00:13:36.661
+eigenvectors.,00:13:36.661,00:13:37.202
+"A matrix has orthogonal
+eigenvectors,",00:13:41.430,00:13:44.200
+"the exact condition -- it's
+quite beautiful that I can tell",00:13:44.200,00:13:47.430
+you exactly when that happens.,00:13:47.430,00:13:49.340
+"It happens when A times A
+transpose equals A transpose",00:13:49.340,00:13:55.290
+"times A. Any time
+that's the condition",00:13:55.290,00:14:00.290
+for orthogonal eigenvectors.,00:14:00.290,00:14:03.700
+"And because we're interested
+in special families of vectors,",00:14:03.700,00:14:09.040
+"tell me some special
+families that fit.",00:14:09.040,00:14:12.690
+This is the whole requirement.,00:14:12.690,00:14:15.410
+"That's a pretty special
+requirement most matrices have.",00:14:15.410,00:14:21.120
+"So the average
+three-by-three matrix",00:14:21.120,00:14:23.070
+"has three eigenvectors,
+but not orthogonal.",00:14:23.070,00:14:26.240
+"But if it happens to
+commute with its transpose,",00:14:26.240,00:14:29.380
+"then, wonderfully, the
+eigenvectors are orthogonal.",00:14:29.380,00:14:34.010
+"Now, do you see how symmetric
+matrices pass this test?",00:14:34.010,00:14:39.250
+Of course.,00:14:39.250,00:14:40.340
+"If A transpose equals A, then
+both sides are A squared,",00:14:40.340,00:14:43.790
+we've got it.,00:14:43.790,00:14:45.640
+"How do anti-symmetric
+matrices pass this test?",00:14:45.640,00:14:49.410
+"If A transpose equals
+minus A, then we've",00:14:49.410,00:14:54.060
+"got it again, because we've got
+minus A squared on both sides.",00:14:54.060,00:14:58.220
+So that's another group.,00:14:58.220,00:15:00.050
+"And finally, let me ask you
+about our other favorite",00:15:00.050,00:15:03.090
+"family, orthogonal matrices.",00:15:03.090,00:15:06.950
+"Do orthogonal matrices pass
+this test, if A is a Q,",00:15:06.950,00:15:11.730
+"do they pass the test for
+orthogonal eigenvectors.",00:15:11.730,00:15:14.990
+"Well, if A is Q, an orthogonal
+matrix, what is Q transpose Q?",00:15:14.990,00:15:22.320
+It's I.,00:15:22.320,00:15:23.020
+And what is Q Q transpose?,00:15:23.020,00:15:25.310
+"It's I, we're talking
+square matrices here.",00:15:25.310,00:15:28.010
+"So yes, it passes the test.",00:15:28.010,00:15:30.100
+"So the special cases are
+symmetric, anti-symmetric",00:15:30.100,00:15:36.600
+"(I'll say skew-symmetric,)
+and orthogonal.",00:15:36.600,00:15:41.080
+"Those are the three
+important special classes",00:15:41.080,00:15:44.280
+that are in this family.,00:15:44.280,00:15:45.710
+OK.,00:15:45.710,00:15:46.210
+"That's like a comment that,
+could have been made back in,",00:15:46.210,00:15:52.860
+section six point four.,00:15:52.860,00:15:54.870
+"OK, I can pursue the
+differential equations, also",00:15:54.870,00:16:04.390
+"this question, didn't
+ask you to tell me,",00:16:04.390,00:16:09.090
+"how would I find this matrix
+exponential, e to the At?",00:16:09.090,00:16:13.920
+So can I erase this?,00:16:13.920,00:16:15.050
+I'll just stay with this same...,00:16:15.050,00:16:17.050
+how would I find e to the At?,00:16:19.690,00:16:23.770
+"Because, how does that come in?",00:16:23.770,00:16:27.010
+"That's the key matrix for
+a differential equation,",00:16:27.010,00:16:30.140
+because the solution is --,00:16:30.140,00:16:32.460
+"the solution is
+u(t) is e^(At) u(0).",00:16:32.460,00:16:38.520
+"So this is like the
+fundamental matrix",00:16:38.520,00:16:42.060
+"that multiplies the given
+function and gives the answer.",00:16:42.060,00:16:48.400
+"And how would we compute
+it if we wanted that?",00:16:48.400,00:16:53.630
+"We don't always have to
+find e to the At, because I",00:16:53.630,00:16:56.830
+"can go directly to the answer
+without any e to the At-s,",00:16:56.830,00:17:00.500
+"but hiding here is an e to the
+At, and how would I compute it?",00:17:00.500,00:17:06.440
+"Well, if A is diagonalizable.",00:17:06.440,00:17:10.026
+"So I'm now going to put in my
+usual if A can be diagonalized",00:17:12.589,00:17:21.510
+"(and everybody remember
+that there is an if there,",00:17:21.510,00:17:25.240
+"because it might not
+have enough eigenvectors)",00:17:25.240,00:17:28.820
+"this example does have enough,
+random matrices have enough.",00:17:28.820,00:17:33.330
+"So if we can diagonalize, then
+we get a nice formula for this,",00:17:33.330,00:17:36.720
+"because an S comes way
+out at the beginning,",00:17:36.720,00:17:40.050
+"and S inverse comes
+way out at the end,",00:17:40.050,00:17:42.740
+"and we only have to take
+the exponential of lambda.",00:17:42.740,00:17:47.450
+"And that's just a
+diagonal matrix,",00:17:47.450,00:17:49.980
+"so that's just e
+the lambda one t,",00:17:49.980,00:17:53.780
+"these guys are showing up,
+now, in e to the lambda nt.",00:17:53.780,00:18:00.030
+OK?,00:18:00.030,00:18:01.070
+"That's a really quick
+review of that formula.",00:18:01.070,00:18:03.510
+"It's something we can
+compute it quickly",00:18:06.040,00:18:08.780
+"if we have done the
+S and lambda part.",00:18:08.780,00:18:11.250
+"If we know S and
+lambda, then it's",00:18:13.770,00:18:15.470
+not hard to take that step.,00:18:15.470,00:18:17.440
+"OK, that's some comments
+on differential equations.",00:18:17.440,00:18:20.770
+"I would like to go on to a next
+question that I started here.",00:18:20.770,00:18:28.330
+"And it's, got several parts,
+and I can just read it out.",00:18:28.330,00:18:33.410
+"What we're given is a
+three-by-three matrix,",00:18:33.410,00:18:37.320
+"and we're told its eigenvalues,
+except one of these",00:18:37.320,00:18:41.900
+"is, like, we don't know, and
+we're told the eigenvectors.",00:18:41.900,00:18:47.700
+"And I want to ask
+you about the matrix.",00:18:47.700,00:18:50.500
+OK.,00:18:50.500,00:18:51.190
+"So, first question.",00:18:51.190,00:18:54.530
+Is the matrix diagonalizable?,00:18:54.530,00:18:56.430
+"And I really mean for
+which c, because I",00:18:59.000,00:19:03.030
+"don't know c, so my
+questions will all be,",00:19:03.030,00:19:06.850
+"for which is there a condition
+on c, does one c work.",00:19:06.850,00:19:12.340
+"But your answer should tell
+me all the c-s that work.",00:19:12.340,00:19:17.270
+"I'm not asking for you to
+tell me, well, c equal four,",00:19:17.270,00:19:21.390
+"yes, that checks out.",00:19:21.390,00:19:22.660
+"I want to know all the c-s
+that make it diagonalizable.",00:19:22.660,00:19:27.927
+OK?,00:19:34.950,00:19:36.640
+"What's the real
+on diagonalizable?",00:19:36.640,00:19:39.440
+"We need enough
+eigenvectors, right?",00:19:39.440,00:19:42.212
+"We don't care what
+those eigenvalues are,",00:19:42.212,00:19:43.920
+"it's eigenvectors that
+count for diagonalizable,",00:19:43.920,00:19:46.710
+"and we need three
+independent ones,",00:19:46.710,00:19:49.220
+"and are those three
+guys independent?",00:19:49.220,00:19:52.340
+Yes.,00:19:52.340,00:19:53.580
+"Actually, let's look
+at them for a moment.",00:19:53.580,00:19:56.300
+"What do you see about those
+three vectors right away?",00:19:56.300,00:19:59.921
+They're more than independent.,00:19:59.921,00:20:01.170
+"Can you see why those
+three got chosen?",00:20:04.380,00:20:09.730
+"Because it will come up in the
+next part, they're orthogonal.",00:20:09.730,00:20:15.780
+"Those eigenvectors
+are orthogonal.",00:20:15.780,00:20:17.920
+They're certainly independent.,00:20:17.920,00:20:19.710
+"So the answer to diagonalizable
+is, yes, all c, all c.",00:20:19.710,00:20:28.220
+"Doesn't matter. c could
+be a repeated guy,",00:20:28.220,00:20:30.760
+"but we've got
+enough eigenvectors,",00:20:30.760,00:20:32.360
+so that's what we care about.,00:20:32.360,00:20:33.930
+"OK, second question.",00:20:33.930,00:20:36.400
+"For which values of
+c is it symmetric?",00:20:36.400,00:20:38.365
+"OK, what's the
+answer to that one?",00:20:40.960,00:20:46.000
+"If we know the same setup if
+we know that much about it,",00:20:48.650,00:20:53.420
+"we know those
+eigenvectors, and we've",00:20:53.420,00:20:55.330
+"noticed they're orthogonal,
+then which c-s will work?",00:20:55.330,00:21:02.850
+"So the eigenvalues of that
+symmetric matrix have to be",00:21:02.850,00:21:07.800
+real.,00:21:07.800,00:21:08.490
+So all real c.,00:21:08.490,00:21:11.780
+"If c was i, the matrix
+wouldn't have been symmetric.",00:21:11.780,00:21:17.300
+"But if c is a real number, then
+we've got real eigenvalues,",00:21:17.300,00:21:24.040
+"we've got orthogonal
+eigenvectors,",00:21:24.040,00:21:25.920
+that matrix is symmetric.,00:21:25.920,00:21:27.400
+"OK, positive definite.",00:21:27.400,00:21:28.790
+"OK, now this is a
+sub-case of symmetric,",00:21:28.790,00:21:40.630
+"so we need c to be real, so
+we've got a symmetric matrix,",00:21:40.630,00:21:45.900
+"but we also want the thing
+to be positive definite.",00:21:45.900,00:21:50.360
+"Now, we're looking
+at eigenvalues,",00:21:50.360,00:21:52.340
+"we've got a lot of tests
+for positive definite,",00:21:52.340,00:21:54.740
+"but eigenvalues,
+if we know them,",00:21:54.740,00:21:57.250
+"is certainly a good,
+quick, clean test.",00:21:57.250,00:22:01.100
+"Could this matrix be
+positive definite?",00:22:01.100,00:22:05.570
+No.,00:22:05.570,00:22:06.640
+"No, because it's got
+an eigenvalue zero.",00:22:06.640,00:22:10.180
+"It could be positive
+semi-definite,",00:22:10.180,00:22:12.640
+"you know, like
+consolation prize,",00:22:12.640,00:22:15.900
+"if c was greater
+or equal to zero,",00:22:15.900,00:22:19.320
+"it would be positive
+semi-definite.",00:22:19.320,00:22:21.680
+"But it's not, no.",00:22:21.680,00:22:25.520
+"Semi-definite, if I put that
+comment in, semi-definite,",00:22:25.520,00:22:30.670
+"that the condition would be
+c greater or equal to zero.",00:22:30.670,00:22:35.010
+That would be all right.,00:22:35.010,00:22:36.300
+OK.,00:22:36.300,00:22:37.220
+Next part.,00:22:37.220,00:22:38.330
+Is it a Markov matrix?,00:22:38.330,00:22:39.675
+Hm.,00:22:44.260,00:22:44.870
+"Could this matrix be, if I
+choose the number c correctly,",00:22:44.870,00:22:50.440
+a Markov matrix?,00:22:50.440,00:22:52.040
+"Well, what do we know
+about Markov matrices?",00:22:58.750,00:23:02.700
+"Mainly, we know something
+about their eigenvalues.",00:23:02.700,00:23:05.320
+"One eigenvalue is always one,
+and the other eigenvalues",00:23:05.320,00:23:10.500
+are smaller.,00:23:10.500,00:23:13.430
+Not larger.,00:23:13.430,00:23:14.690
+"So an eigenvalue
+two can't happen.",00:23:14.690,00:23:17.380
+"So the answer is, no, not a ma-
+that's never a Markov matrix.",00:23:17.380,00:23:22.000
+OK?,00:23:22.000,00:23:22.750
+"And finally, could one half
+of A be a projection matrix?",00:23:22.750,00:23:29.970
+"So could it- could this --
+eh-eh could this be twice",00:23:29.970,00:23:32.820
+a projection matrix?,00:23:32.820,00:23:33.890
+So let me write it this way.,00:23:33.890,00:23:35.840
+"Could A over two be
+a projection matrix?",00:23:35.840,00:23:39.530
+"OK, what are
+projection matrices?",00:23:44.820,00:23:46.820
+They're real.,00:23:46.820,00:23:48.650
+"I mean, th- they're symmetric,
+so their eigenvalues are real.",00:23:48.650,00:23:53.160
+"But more than that, we know what
+those eigenvalues have to be.",00:23:53.160,00:23:56.680
+"What do the eigenvalues of a
+projection matrix have to be?",00:23:56.680,00:24:01.150
+"See, that any nice
+matrix we've got",00:24:01.150,00:24:05.670
+an idea about its eigenvalues.,00:24:05.670,00:24:08.490
+"So the eigenvalues of
+projection matrices are zero and",00:24:08.490,00:24:12.980
+one.,00:24:12.980,00:24:13.970
+"Zero and one, only.",00:24:13.970,00:24:16.710
+"Because P squared equals P,
+let me call this matrix P,",00:24:16.710,00:24:21.510
+"so P squared equals P, so
+lambda squared equals lambda,",00:24:21.510,00:24:26.510
+"because eigenvalues of P
+squared are lambda squared,",00:24:26.510,00:24:30.570
+"and we must have that, so
+lambda equals zero or one.",00:24:30.570,00:24:37.520
+OK.,00:24:37.520,00:24:38.140
+"Now what value of
+c will work there?",00:24:38.140,00:24:42.060
+"So, then, there are some
+value that will work,",00:24:42.060,00:24:48.250
+and what will work?,00:24:48.250,00:24:50.300
+"c equals zero will work,
+or what else will work?",00:24:50.300,00:24:56.340
+c equal to two.,00:24:59.310,00:25:02.690
+"Because if c is two, then
+when we divide by two,",00:25:02.690,00:25:06.260
+"this Eigenvalue of
+two will drop to one,",00:25:06.260,00:25:09.880
+"and so will the other one,
+so, or c equal to two.",00:25:09.880,00:25:13.110
+"OK, those are the
+guys that will work,",00:25:13.110,00:25:15.640
+"and it was the fact that those
+eigenvectors were orthogonal,",00:25:15.640,00:25:21.110
+"the fact that those
+eigenvectors were orthogonal",00:25:21.110,00:25:23.780
+"carried us a lot
+of the way, here.",00:25:23.780,00:25:26.170
+"If they weren't orthogonal, then
+symmetric would have been dead,",00:25:26.170,00:25:29.400
+"positive definite
+would have been dead,",00:25:29.400,00:25:31.420
+projection would have been dead.,00:25:31.420,00:25:33.150
+"But those eigenvectors
+were orthogonal,",00:25:33.150,00:25:37.090
+"so it came down to
+the eigenvalues.",00:25:37.090,00:25:40.180
+"OK, that was like a chance to
+review a lot of this chapter.",00:25:40.180,00:25:45.270
+"Shall I jump to the singular
+value decomposition,",00:25:50.790,00:25:56.030
+"then, as the third, topic
+for, for the review?",00:25:56.030,00:26:04.140
+"OK, so I'm going
+to. jump to this.",00:26:04.140,00:26:06.080
+OK.,00:26:06.080,00:26:06.580
+"So this is the singular
+value decomposition,",00:26:13.950,00:26:16.990
+known to everybody as the SVD.,00:26:16.990,00:26:21.070
+"And that's a factorization
+of A into orthogonal times",00:26:21.070,00:26:27.720
+diagonal times orthogonal.,00:26:27.720,00:26:33.830
+"And we always call those U
+and sigma and V transpose.",00:26:33.830,00:26:41.030
+OK.,00:26:41.030,00:26:42.300
+And the key to that --,00:26:42.300,00:26:46.660
+"this is for every
+matrix, every A, every A.",00:26:46.660,00:26:51.170
+"Rectangular, doesn't
+matter, whatever,",00:26:51.170,00:26:54.110
+has this decomposition.,00:26:54.110,00:26:56.740
+So it's really important.,00:26:56.740,00:26:59.070
+"And the key to it is to look
+at things like A transpose A.",00:26:59.070,00:27:04.930
+"Can we remember what
+happens with A transpose A?",00:27:04.930,00:27:07.360
+"If I just transpose that
+I get V sigma transpose U",00:27:07.360,00:27:11.300
+"transpose, that's
+multiplying A, which is U,",00:27:11.300,00:27:15.420
+"sigma V transpose, and the
+result is V on the outside,",00:27:15.420,00:27:24.850
+"s- U transpose U
+is the identity,",00:27:24.850,00:27:27.990
+"because it's an
+orthogonal matrix.",00:27:27.990,00:27:30.930
+"So I'm just left with
+sigma transpose sigma",00:27:30.930,00:27:34.550
+"in the middle, that's
+a diagonal, possibly",00:27:34.550,00:27:39.340
+"rectangular diagonal by its
+transpose, so the result,",00:27:39.340,00:27:42.960
+"this is orthogonal,
+diagonal, orthogonal.",00:27:42.960,00:27:46.036
+"So, I guess, actually, this
+is the SVD for A transpose A.",00:27:49.840,00:27:55.620
+"Here I see orthogonal,
+diagonal, and orthogonal.",00:27:55.620,00:27:59.930
+Great.,00:27:59.930,00:28:00.440
+But a little more is happening.,00:28:00.440,00:28:07.000
+"For A transpose
+A, the difference",00:28:07.000,00:28:09.580
+"is, the orthogonal
+guys are the same.",00:28:09.580,00:28:13.690
+It's V and V transpose.,00:28:13.690,00:28:15.640
+What I seeing here?,00:28:15.640,00:28:17.290
+"I'm seeing the factorization
+for a symmetric matrix.",00:28:17.290,00:28:21.950
+This thing is symmetric.,00:28:21.950,00:28:23.220
+"So in a symmetric case,
+U is the same as V.",00:28:26.790,00:28:30.590
+"U is the same as V for
+this symmetric matrix,",00:28:30.590,00:28:33.210
+"and, of course, we
+see it happening.",00:28:33.210,00:28:34.990
+OK.,00:28:34.990,00:28:35.540
+"So that tells us,
+right away, what V is.",00:28:35.540,00:28:39.760
+"V is the eigenvector
+matrix for A transpose A.",00:28:39.760,00:28:49.650
+OK.,00:28:49.650,00:28:50.490
+"Now, if you were here when I
+lectured about this topic, when",00:28:50.490,00:28:57.070
+"I gave the topic on singular
+value decompositions,",00:28:57.070,00:29:00.600
+"you'll remember that
+I got into trouble.",00:29:00.600,00:29:03.180
+"I'm sorry to remember that
+myself, but it happened.",00:29:06.150,00:29:09.860
+OK.,00:29:09.860,00:29:10.550
+How did it happen?,00:29:10.550,00:29:13.680
+"I was in great shape for
+a while, cruising along.",00:29:13.680,00:29:16.900
+"So I found the eigenvectors
+for A transpose A.",00:29:16.900,00:29:20.120
+Good.,00:29:20.120,00:29:21.870
+"I found the singular
+values, what were they?",00:29:21.870,00:29:24.800
+What were the singular values?,00:29:24.800,00:29:26.520
+"The singular value
+number i, or --",00:29:26.520,00:29:32.720
+these are the guys in sigma --,00:29:32.720,00:29:36.890
+"this is diagonal with
+the number sigma in it.",00:29:36.890,00:29:39.770
+"This diagonal is
+sigma one, sigma two,",00:29:39.770,00:29:42.910
+"up to the rank, sigma r,
+those are the non-zero ones.",00:29:42.910,00:29:46.090
+"So I found those,
+and what are they?",00:29:48.830,00:29:51.100
+Remind me about that?,00:29:51.100,00:29:53.130
+"Well, here, I'm seeing them
+squared, so their squares are",00:29:53.130,00:29:59.630
+"the eigenvalues
+of A transpose A.",00:29:59.630,00:30:03.470
+Good.,00:30:03.470,00:30:04.760
+"So I just take the square root,
+if I want the eigenvalues of A",00:30:04.760,00:30:09.160
+transpose --,00:30:09.160,00:30:10.020
+"If I want the sigmas
+and I know these,",00:30:10.020,00:30:11.990
+"I take the square root,
+the positive square root.",00:30:11.990,00:30:14.540
+OK.,00:30:14.540,00:30:16.730
+Where did I run into trouble?,00:30:16.730,00:30:20.610
+"Well, then, my final
+step was to find U.",00:30:20.610,00:30:25.220
+And I didn't read the book.,00:30:25.220,00:30:28.270
+"So, I did something that was
+practically right, but --",00:30:28.270,00:30:35.480
+"well, I guess practically
+right is not quite the same.",00:30:35.480,00:30:38.880
+"OK, so I thought, OK, I'll
+look at A A transpose.",00:30:38.880,00:30:44.650
+"What happened when I
+looked at A A transpose?",00:30:44.650,00:30:47.420
+"Let me just put it here,
+and then I can feel it.",00:30:47.420,00:30:51.070
+"OK, so here's A A transpose.",00:30:51.070,00:30:53.620
+"So that's U sigma V
+transpose, that's A,",00:30:57.120,00:31:01.050
+"and then the transpose
+is V sigma transpose,",00:31:01.050,00:31:05.240
+U sigma transpose.,00:31:05.240,00:31:06.300
+Fine.,00:31:06.300,00:31:07.930
+"And then, in the middle
+is the identity again,",00:31:07.930,00:31:10.610
+so it looks great.,00:31:10.610,00:31:12.570
+"U sigma sigma
+transpose, U transpose.",00:31:12.570,00:31:17.050
+Fine.,00:31:17.050,00:31:18.760
+"All good, and now
+these columns of U",00:31:18.760,00:31:26.570
+"are the eigenvectors,
+that's U is the eigenvector",00:31:26.570,00:31:29.900
+matrix for this guy.,00:31:29.900,00:31:33.120
+"That was correct,
+so I did that fine.",00:31:33.120,00:31:36.960
+Where did something go wrong?,00:31:36.960,00:31:38.600
+A sign went wrong.,00:31:38.600,00:31:40.820
+"A sign went wrong because --
+and now -- now I see, actually,",00:31:40.820,00:31:44.570
+"somebody told me
+right after class,",00:31:44.570,00:31:49.140
+"we can't tell from this
+description which sign to give",00:31:49.140,00:31:53.910
+the eigenvectors.,00:31:53.910,00:31:55.200
+"If these are the
+eigenvectors of this matrix,",00:31:55.200,00:32:00.570
+"well, if you give
+me an eigenvector",00:32:00.570,00:32:02.660
+"and I change all
+its signs, we've",00:32:02.660,00:32:04.790
+still got another eigenvector.,00:32:04.790,00:32:06.920
+"So what I wasn't
+able to determine",00:32:06.920,00:32:08.970
+"(and I had a fifty-fifty
+change and life let me down,)",00:32:08.970,00:32:13.940
+"the signs I just
+happened to pick",00:32:13.940,00:32:16.600
+"for the eigenvectors,
+one of them",00:32:16.600,00:32:19.070
+I should have reversed the sign.,00:32:19.070,00:32:21.750
+"So, from this, I can't tell
+whether the eigenvector",00:32:21.750,00:32:27.190
+"or its negative is the
+right one to use in there.",00:32:27.190,00:32:31.150
+"So the right way to
+do it is to, having",00:32:31.150,00:32:34.750
+"settled on the
+signs, the Vs also, I",00:32:34.750,00:32:38.640
+"don't know which sign to
+choose, but I choose one.",00:32:38.640,00:32:42.100
+I choose one.,00:32:42.100,00:32:43.220
+"And then, instead,
+I should have used",00:32:43.220,00:32:50.290
+"the one that tells me what
+sign to choose, the rule",00:32:50.290,00:32:53.950
+"that A times a V is
+sigma times the U.",00:32:53.950,00:33:02.330
+"So, having decided on
+the V, I multiply by A,",00:33:02.330,00:33:07.140
+"I'll notice the factor
+sigma coming out,",00:33:07.140,00:33:09.640
+"and there will be a
+unit vector there,",00:33:09.640,00:33:11.520
+"and I now know
+exactly what it is,",00:33:11.520,00:33:17.310
+"and not only up to
+a change of sign.",00:33:17.310,00:33:20.380
+"So that's the good
+and, of course,",00:33:20.380,00:33:22.390
+"this is the main
+point about the SVD.",00:33:22.390,00:33:25.910
+"That's the point that
+we've diagonalized,",00:33:25.910,00:33:28.210
+"that's A times the
+matrix of Vs equals",00:33:28.210,00:33:32.950
+"U times the diagonal
+matrix of sigmas.",00:33:32.950,00:33:37.710
+That's the same as that.,00:33:37.710,00:33:39.470
+OK.,00:33:39.470,00:33:39.970
+"So that's, like,
+correcting the wrong sign",00:33:39.970,00:33:47.800
+from that earlier lecture.,00:33:47.800,00:33:50.000
+"And that would complete that,
+so that's how you would compute",00:33:50.000,00:33:52.810
+the SVD.,00:33:52.810,00:33:54.040
+"Now, on the quiz, I going to
+ask -- well, maybe on the final.",00:33:54.040,00:33:58.380
+"So we've got quiz
+and final ahead.",00:33:58.380,00:34:01.010
+"Sometimes, you might be asked
+to find the SVD if I give you",00:34:01.010,00:34:05.400
+"the matrix -- let me come
+back, now, to the main board --",00:34:05.400,00:34:10.870
+"or, I might give you the pieces.",00:34:10.870,00:34:17.880
+"And I might ask you
+something about the matrix.",00:34:17.880,00:34:21.810
+"For example, suppose I
+ask you, oh, let's say,",00:34:21.810,00:34:31.580
+if I tell you what sigma is --,00:34:31.580,00:34:36.590
+OK.,00:34:36.590,00:34:37.460
+Let's take one example.,00:34:37.460,00:34:39.230
+Suppose sigma is --,00:34:39.230,00:34:43.820
+"so all that's how we
+would compute them.",00:34:43.820,00:34:46.350
+"But now, suppose
+I give you these.",00:34:46.350,00:34:48.070
+"Suppose I give you sigma
+is, say, three two.",00:34:48.070,00:34:52.320
+"And I tell you that U
+has a couple of columns,",00:34:57.130,00:35:02.110
+and V has a couple of columns.,00:35:02.110,00:35:04.580
+OK.,00:35:07.910,00:35:10.330
+"Those are orthogonal
+columns, of course,",00:35:10.330,00:35:12.600
+because U and V are orthogonal.,00:35:12.600,00:35:14.630
+"I'm just sort of,
+like, getting you",00:35:14.630,00:35:16.120
+"to think about the SVD,
+because we only had that one",00:35:16.120,00:35:19.440
+"lecture about it,
+and one homework,",00:35:19.440,00:35:22.570
+"and, what kind of a
+matrix have I got here?",00:35:22.570,00:35:28.460
+"What do I know
+about this matrix?",00:35:28.460,00:35:31.970
+"All I really know right now
+is that its singular values,",00:35:31.970,00:35:35.540
+"those sigmas are three and
+two, and the only thing",00:35:35.540,00:35:39.390
+"interesting that I can see in
+that is that they're not zero.",00:35:39.390,00:35:43.190
+"I know that this matrix
+is non-singular, right?",00:35:43.190,00:35:48.390
+"That's invertible, I don't
+have any zero eigenvalues,",00:35:48.390,00:35:51.570
+"and zero singular values,
+that's invertible,",00:35:51.570,00:35:54.710
+"there's a typical SVD for a
+nice two-by-two non-singular",00:35:54.710,00:36:02.290
+invertible good matrix.,00:36:02.290,00:36:04.990
+"If I actually gave you
+a matrix, then you'd",00:36:04.990,00:36:07.480
+"have to find the Us and
+the Vs as we just spoke.",00:36:07.480,00:36:10.390
+"But, there.",00:36:10.390,00:36:12.000
+"Now, what if the two
+wasn't a two but it was --",00:36:12.000,00:36:16.400
+"well, let me make an
+extreme case, here --",00:36:16.400,00:36:18.520
+suppose it was minus five.,00:36:18.520,00:36:20.050
+"That's wrong, right away.",00:36:23.220,00:36:24.810
+"That's not a singular
+value decomposition, right?",00:36:24.810,00:36:28.590
+"The singular values
+are not negative.",00:36:28.590,00:36:30.840
+"So that's not a singular value
+decomposition, and forget it.",00:36:30.840,00:36:36.011
+OK.,00:36:36.011,00:36:36.510
+"So let me ask you
+about that one.",00:36:36.510,00:36:40.200
+"What can you tell me
+about that matrix?",00:36:40.200,00:36:42.095
+"It's singular, right?",00:36:45.090,00:36:47.340
+"It's got a singular matrix
+there in the middle,",00:36:47.340,00:36:50.480
+"and, let's see, so,
+OK, it's singular,",00:36:50.480,00:36:56.110
+"maybe you can tell me, its rank?",00:36:56.110,00:37:01.870
+What's the rank of A?,00:37:01.870,00:37:04.320
+"It's clearly --
+somebody just say it --",00:37:04.320,00:37:08.900
+"one, thanks.",00:37:08.900,00:37:09.920
+"The rank is one,
+so the null space,",00:37:09.920,00:37:15.160
+"what's the dimension
+of the null space?",00:37:15.160,00:37:18.850
+One.,00:37:18.850,00:37:19.890
+Right?,00:37:19.890,00:37:20.390
+"We've got a two-by-two
+matrix of rank one,",00:37:20.390,00:37:23.940
+"so of all that stuff from
+the beginning of the course",00:37:23.940,00:37:26.820
+is still with us.,00:37:26.820,00:37:30.310
+"The dimensions of those
+fundamental spaces",00:37:30.310,00:37:32.790
+"is still central,
+and a basis for them.",00:37:32.790,00:37:36.950
+"Now, can you tell me a vector
+that's in the null space?",00:37:36.950,00:37:40.890
+"And then that will be my last
+point to make about the SVD.",00:37:40.890,00:37:47.000
+"Can you tell me a vector
+that's in the null space?",00:37:47.000,00:37:49.400
+"So what would I multiply
+by and get zero, here?",00:37:54.410,00:38:00.820
+"I think the answer
+is probably v2.",00:38:00.820,00:38:04.120
+"I think probably v2
+is in the null space,",00:38:04.120,00:38:07.820
+"because I think that must
+be the eigenvector going",00:38:07.820,00:38:11.950
+with this zero eigenvalue.,00:38:11.950,00:38:14.800
+Yes.,00:38:14.800,00:38:16.310
+Have a look at that.,00:38:16.310,00:38:17.200
+"And I could ask you the
+null space of A transpose.",00:38:17.200,00:38:21.390
+"And I could ask you
+the column space.",00:38:21.390,00:38:23.050
+All that stuff.,00:38:23.050,00:38:24.620
+"Everything is sitting
+there in the SVD.",00:38:24.620,00:38:27.180
+"The SVD takes a little
+more time to compute,",00:38:27.180,00:38:29.990
+"but it displays all the
+good stuff about a matrix.",00:38:29.990,00:38:36.090
+OK.,00:38:36.090,00:38:36.720
+Any question about the SVD?,00:38:36.720,00:38:39.680
+"Let me keep going
+with further topics.",00:38:39.680,00:38:47.800
+"Now, let's see.",00:38:47.800,00:38:48.990
+"Similar matrices
+we've talked about,",00:38:48.990,00:38:51.050
+"let me see if I've
+got another, --",00:38:51.050,00:38:55.390
+OK.,00:38:55.390,00:38:57.620
+"Here's a true false, so
+we can do that, easily.",00:38:57.620,00:39:04.570
+So.,00:39:04.570,00:39:05.300
+"Question, A given.",00:39:05.300,00:39:07.560
+A is symmetric and orthogonal.,00:39:10.480,00:39:17.840
+OK.,00:39:20.861,00:39:21.360
+"So beautiful matrices like that
+don't come along every day.",00:39:26.920,00:39:29.870
+"But what can we say first
+about its eigenvalues?",00:39:29.870,00:39:36.480
+"Actually, of course.",00:39:36.480,00:39:38.680
+"Here are our two most
+important classes of matrices,",00:39:38.680,00:39:41.810
+"and we're looking
+at the intersection.",00:39:41.810,00:39:45.500
+"So those really
+are neat matrices,",00:39:45.500,00:39:48.470
+"and what can you tell
+me about what could",00:39:48.470,00:39:50.920
+the possible eigenvalues be?,00:39:50.920,00:39:52.670
+Eigenvalues can be what?,00:39:52.670,00:39:57.540
+"What do I know about
+the eigenvalues",00:39:57.540,00:39:59.330
+of a symmetric matrix?,00:39:59.330,00:40:01.280
+Lambda is real.,00:40:01.280,00:40:04.690
+"What do I know about
+the eigenvalues",00:40:04.690,00:40:06.550
+of an orthogonal matrix?,00:40:06.550,00:40:10.260
+Ha.,00:40:10.260,00:40:12.370
+Maybe nothing.,00:40:12.370,00:40:13.200
+"But, no, that can't be.",00:40:13.200,00:40:15.420
+"What do I know about the
+eigenvalues of an orthogonal",00:40:15.420,00:40:17.911
+matrix?,00:40:17.911,00:40:18.410
+"Well, what feels right?",00:40:18.410,00:40:19.565
+"Basing mathematics on just
+a little gut instinct here,",00:40:22.330,00:40:26.620
+"the eigenvalues of
+an orthogonal matrix",00:40:26.620,00:40:29.910
+ought to have magnitude one.,00:40:29.910,00:40:33.800
+"Orthogonal matrices
+are like rotations,",00:40:33.800,00:40:36.280
+"they're not changing the length,
+so orthogonal, the eigenvalues",00:40:36.280,00:40:40.921
+are one.,00:40:40.921,00:40:41.420
+Let me just show you why.,00:40:41.420,00:40:50.070
+"So the matrix, can I
+call it Q for orthogonal",00:40:50.070,00:40:53.920
+Why? for the moment?,00:40:53.920,00:40:55.810
+"If I look at Q x
+equal lambda x, how",00:40:55.810,00:40:58.760
+"do I see that this
+thing has magnitude one?",00:40:58.760,00:41:03.570
+I take the length of both sides.,00:41:03.570,00:41:06.140
+"This is taking lengths,
+taking lengths,",00:41:06.140,00:41:08.930
+"this is whatever the magnitude
+is times the length of x.",00:41:08.930,00:41:13.520
+"And what's the length of Q x
+if Q is an orthogonal matrix?",00:41:13.520,00:41:18.170
+"This is something
+you should know.",00:41:18.170,00:41:20.910
+"It's the same as
+the length of x.",00:41:20.910,00:41:23.100
+"Orthogonal matrices
+don't change lengths.",00:41:23.100,00:41:26.400
+So lambda has to be one.,00:41:26.400,00:41:30.330
+Right.,00:41:30.330,00:41:31.090
+OK.,00:41:31.090,00:41:31.890
+"That's worth
+committing to memory,",00:41:31.890,00:41:34.440
+that could show up again.,00:41:34.440,00:41:36.930
+OK.,00:41:36.930,00:41:37.430
+"So what's the answer
+now to this question,",00:41:37.430,00:41:40.720
+what can the eigenvalues be?,00:41:40.720,00:41:42.940
+"There's only two
+possibilities, and they",00:41:42.940,00:41:45.220
+"are one and the other
+one, the other possibility",00:41:45.220,00:41:55.050
+"is negative one, right, because
+these have the right magnitude,",00:41:55.050,00:42:00.770
+and they're real.,00:42:00.770,00:42:03.090
+OK.,00:42:03.090,00:42:04.070
+TK.,00:42:04.070,00:42:04.730
+true -- OK.,00:42:04.730,00:42:07.090
+True or false?,00:42:07.090,00:42:08.260
+"A is sure to be
+positive definite.",00:42:08.260,00:42:12.220
+"Well, this is a great
+matrix, but is it",00:42:12.220,00:42:14.070
+sure to be positive definite?,00:42:14.070,00:42:16.570
+No.,00:42:16.570,00:42:17.090
+"If it could have an
+eigenvalue minus one,",00:42:17.090,00:42:19.380
+"it wouldn't be
+positive definite.",00:42:19.380,00:42:21.910
+"True or false, it has
+no repeated eigenvalues.",00:42:21.910,00:42:24.230
+"That's false, too.",00:42:27.820,00:42:29.700
+"In fact, it's going to
+have repeated eigenvalues",00:42:29.700,00:42:31.710
+"if it's as big as
+three by three,",00:42:31.710,00:42:33.740
+"one of these c- one
+of these, at least,",00:42:33.740,00:42:35.630
+will have to get repeated.,00:42:35.630,00:42:37.270
+Sure.,00:42:37.270,00:42:37.770
+"So it's got repeated
+eigenvalues, but,",00:42:37.770,00:42:40.040
+is it diagonalizable?,00:42:40.040,00:42:42.910
+"It's got these many, many,
+repeated eigenvalues.",00:42:42.910,00:42:45.210
+"If it's fifty by
+fifty, it's certainly",00:42:45.210,00:42:46.900
+got a lot of repetitions.,00:42:46.900,00:42:48.790
+Is it diagonalizable?,00:42:48.790,00:42:51.370
+Yes.,00:42:51.370,00:42:52.110
+"All symmetric matrices,
+all orthogonal matrices",00:42:52.110,00:42:55.500
+can be diagonalized.,00:42:55.500,00:42:57.090
+"And, in fact, the eigenvectors
+can even be chosen orthogonal.",00:42:57.090,00:43:02.620
+"So it could be, sort
+of, like, diagonalized",00:43:02.620,00:43:05.120
+"the best way with a Q,
+and not just any old S.",00:43:05.120,00:43:09.270
+OK.,00:43:09.270,00:43:09.840
+Is it non-singular?,00:43:09.840,00:43:11.820
+"Is a symmetric orthogonal
+matrix non-singular?",00:43:11.820,00:43:15.275
+"Orthogonal matrices are
+always non-singular.",00:43:19.500,00:43:21.790
+Sure.,00:43:21.790,00:43:22.900
+"And, obviously, we don't
+have any zero Eigenvalues.",00:43:22.900,00:43:26.910
+Is it sure to be diagonalizable?,00:43:26.910,00:43:28.670
+Yes.,00:43:28.670,00:43:31.310
+"Now, here's a final step -- show
+that one-half of A plus I is A",00:43:31.310,00:43:41.370
+--,00:43:41.370,00:43:42.140
+"that is, prove one-half of A
+plus I is a projection matrix.",00:43:42.140,00:43:51.705
+OK?,00:43:58.880,00:43:59.380
+Let's see.,00:44:04.080,00:44:04.750
+What do I do?,00:44:04.750,00:44:05.510
+I could see two ways to do this.,00:44:09.170,00:44:11.610
+"I could check the properties
+of a projection matrix, which",00:44:11.610,00:44:14.560
+are what?,00:44:14.560,00:44:15.700
+"A projection matrix
+is symmetric.",00:44:15.700,00:44:18.520
+"Well, that's certainly
+symmetric, because A is.",00:44:18.520,00:44:21.790
+And what's the other property?,00:44:21.790,00:44:24.440
+"I should square
+it, and hopefully",00:44:24.440,00:44:26.230
+get the same thing back.,00:44:26.230,00:44:27.900
+"So can I do that, square and see
+if I get the same thing back?",00:44:27.900,00:44:32.230
+"So if I square it, I'll get
+one-quarter of A squared",00:44:32.230,00:44:37.060
+"plus two A plus I, right?",00:44:37.060,00:44:40.640
+"And the question is, does that
+agree with p- the thing itself?",00:44:40.640,00:44:48.430
+One-half A plus I.,00:44:48.430,00:44:53.480
+Hm.,00:44:53.480,00:44:53.980
+"I guess I'd like to know
+something about A squared.",00:44:57.240,00:45:02.060
+What is A squared?,00:45:02.060,00:45:03.260
+That's our problem.,00:45:03.260,00:45:05.090
+What is A squared?,00:45:05.090,00:45:06.260
+"If A is symmetric
+and orthogonal,",00:45:11.560,00:45:13.510
+A is symmetric and orthogonal.,00:45:13.510,00:45:17.390
+"This is what we're given, right?",00:45:22.060,00:45:23.710
+"It's symmetric, and
+it's orthogonal.",00:45:23.710,00:45:27.990
+So what's A squared?,00:45:27.990,00:45:31.350
+"I. A squared is I,
+because A times A --",00:45:31.350,00:45:36.360
+"if A equals its own inverse,
+so A times A is the same as A",00:45:36.360,00:45:42.500
+"times A inverse, which is I.",00:45:42.500,00:45:46.150
+So this A squared here is I.,00:45:46.150,00:45:52.320
+And now we've got it.,00:45:52.320,00:45:54.530
+"We've got two identities
+over four, that's good,",00:45:54.530,00:45:57.810
+"and we've got two As
+over four, that's good.",00:45:57.810,00:46:01.060
+OK.,00:46:01.060,00:46:01.670
+"So it turned out to be a
+projection matrix safely.",00:46:01.670,00:46:05.960
+"And we could also
+have said, well,",00:46:05.960,00:46:08.310
+"what are the eigenvalues
+of this thing?",00:46:08.310,00:46:11.230
+"What are the eigenvalues
+of a half A plus I?",00:46:11.230,00:46:14.870
+"If the eigenvalues of A
+are one and minus one,",00:46:14.870,00:46:17.970
+"what are the
+eigenvalues of A plus I?",00:46:17.970,00:46:21.840
+"Just stay with it these
+last thirty seconds here.",00:46:21.840,00:46:25.860
+"What if I know these
+eigenvalues of A,",00:46:25.860,00:46:29.140
+"and I add the identity,
+the eigenvalues",00:46:29.140,00:46:31.480
+of A plus I are zero and two.,00:46:31.480,00:46:35.600
+"And then when I divide by two,
+the eigenvalues are zero and",00:46:35.600,00:46:39.480
+one.,00:46:39.480,00:46:40.020
+"So it's symmetric, it's
+got the right eigenvalues,",00:46:40.020,00:46:43.130
+it's a projection matrix.,00:46:43.130,00:46:45.070
+"OK, you're seeing a lot of
+stuff about eigenvalues,",00:46:45.070,00:46:49.290
+"and special matrices, and
+that's what the quiz is about.",00:46:49.290,00:46:54.460
+"OK, so good luck on the quiz.",00:46:54.460,00:46:57.230

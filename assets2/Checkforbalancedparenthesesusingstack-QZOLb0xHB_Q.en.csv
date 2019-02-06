@@ -1,0 +1,415 @@
+text,start,stop
+"In our previous lesson, we saw one simple
+application of stack",00:00:00.429,00:00:03.750
+we saw that stack can be used to,00:00:03.750,00:00:06.820
+"reverse a list or collection or may be to
+simply traverse",00:00:06.820,00:00:10.790
+"a list or collection in reverse order. In
+this lesson, we will discuss another ",00:00:10.790,00:00:14.769
+"famous problem that can be solved using
+stack.",00:00:14.769,00:00:18.000
+"And this is also a popular programming
+interview question",00:00:18.000,00:00:21.850
+"and the problem is, given an expression
+in the form of",00:00:21.850,00:00:25.820
+"a string comprising of let's say
+constants,variables,",00:00:25.820,00:00:30.369
+"operators and parenthesis and when I
+say parenthesis I also want to include",00:00:30.369,00:00:35.999
+"curly braces and brackets and my
+definition of parenthesis.",00:00:35.999,00:00:39.519
+"so my expression or string can contain
+characters that can be",00:00:39.519,00:00:44.010
+"upper or lower case letters, symbols for
+operators",00:00:44.010,00:00:47.879
+and an opening or closing parenthesis,00:00:47.879,00:00:51.519
+"or an opening or closing curly brace
+on an opening or closing square",00:00:51.519,00:00:56.280
+"bracket. Let's write down some expressions
+here. I'm going to write",00:00:56.280,00:01:00.170
+"a simple expression. We have one simple
+expression with one pair of opening",00:01:00.170,00:01:04.809
+and closing parenthesis.,00:01:04.809,00:01:06.290
+"Here in this expression we have nested
+parenthesis.",00:01:06.290,00:01:09.790
+"Now given such expressions we want to
+write a program",00:01:09.790,00:01:13.650
+"that would tell us whether parenthesis
+in the expression",00:01:13.650,00:01:17.160
+"are balanced or not and what do we
+really mean by balanced parenthesis",00:01:17.160,00:01:21.610
+what we mean by balanced parenthesis,00:01:21.610,00:01:23.760
+"is that corresponding to each opening
+parenthesis",00:01:23.760,00:01:27.300
+"or opening curly brace or opening
+bracket we should have",00:01:27.300,00:01:30.460
+a closing counter part in correct,00:01:30.460,00:01:33.480
+"order. These two expressions here are
+balanced.",00:01:33.480,00:01:37.100
+However this next expression is,00:01:37.100,00:01:40.230
+"not balanced.A closing curly brace is
+missing here",00:01:40.230,00:01:44.570
+"This next expression is also not balanced
+because we're missing",00:01:44.570,00:01:48.580
+"an opening square bracket here. This
+next one is also not balanced because",00:01:48.580,00:01:53.490
+"corresponding to this opening curly
+brace we do not have",00:01:53.490,00:01:56.350
+"a closing curly brace and corresponding
+to this closing",00:01:56.350,00:01:59.360
+"parenthesis we do not have an
+opening parenthesis. if we are opening",00:01:59.360,00:02:02.909
+"with a curly brace,we should also close
+with a curly brace.These",00:02:02.909,00:02:06.110
+"2 count for each other.Checking for
+balanced parenthesis is one of the",00:02:06.110,00:02:11.079
+"tasks performed by a compiler, when we
+write a program we often miss",00:02:11.079,00:02:16.480
+"an opening or closing curly brace
+or an opening or closing parenthesis.",00:02:16.480,00:02:21.769
+"Compiler must check for this balancing
+and if symbols are not balanced",00:02:21.769,00:02:27.180
+"it should give you an error.In this
+problem here",00:02:27.180,00:02:30.650
+"what's inside parenthesis does not
+matter,",00:02:30.650,00:02:33.930
+"we do not want to check for correctness
+of anything that is inside",00:02:33.930,00:02:37.639
+"a parenthesis so in the string any character 
+other than opening and closing",00:02:37.639,00:02:42.209
+"parenthesis or opening and closing
+curly brace or opening and closing",00:02:42.209,00:02:45.859
+square bracket,00:02:45.859,00:02:46.790
+"can be ignored. This problem sometimes is
+better stated like this",00:02:46.790,00:02:51.540
+"""Given a string comprising only of
+opening and closing characters",00:02:51.540,00:02:55.900
+of parenthesis braces or brackets,00:02:55.900,00:02:58.900
+"we want to check for balancing"". So only
+these characters and their order is",00:02:58.900,00:03:04.739
+important.,00:03:04.739,00:03:05.469
+"While parsing a real expression we can
+simply ignore other characters.",00:03:05.469,00:03:09.950
+"All we care about is these characters
+and their order.",00:03:09.950,00:03:13.129
+"Okay so now how do we solve this problem?.
+One straight forward thing that comes to",00:03:13.129,00:03:17.959
+mind is,00:03:17.959,00:03:18.859
+"that because we should have a
+closing counter part for",00:03:18.859,00:03:22.709
+"an opening parenthesis or opening curly
+brace",00:03:22.709,00:03:25.989
+"or opening square bracket what we can
+do is, we can count the number of",00:03:25.989,00:03:30.219
+"opening and closing symbols for each of
+these",00:03:30.219,00:03:33.379
+"three types and they should be equal. So
+the number of opening parenthesis should",00:03:33.379,00:03:37.999
+be equal to number of closing parenthesis.,00:03:37.999,00:03:39.950
+"and the number of opening curly braces
+should be equal to number of closings",00:03:39.950,00:03:44.200
+"curly braces and same should be true
+for square brackets as well",00:03:44.200,00:03:47.859
+"but it will not be good enough this
+expression here",00:03:47.859,00:03:51.709
+"has one opening parenthesis and one
+closing parenthesis",00:03:51.709,00:03:55.459
+but it's not balanced this next one,00:03:55.459,00:03:58.859
+"is balanced but this one with same number
+of characters",00:03:58.859,00:04:02.900
+"of each type as the second expression is
+not balanced",00:04:02.900,00:04:06.829
+"so this approach won't work. Apart from
+count being equal that are some other",00:04:06.829,00:04:12.219
+properties that must be conserved.,00:04:12.219,00:04:14.569
+"Every opening parenthesis must find a
+closing counterpart to its right",00:04:14.569,00:04:19.000
+"and every closing parenthesis must find
+an opening counterpart",00:04:19.000,00:04:23.770
+"in its left which is not true in the
+first expression.",00:04:23.770,00:04:28.020
+"And the other property that must be
+conserved is that a parenthesis",00:04:28.020,00:04:31.830
+can close,00:04:31.830,00:04:32.660
+only when all the parenthesis opened,00:04:32.660,00:04:35.680
+"after it are closed. This parenthesis has
+been opened after",00:04:35.680,00:04:40.550
+"this square bracket so this square
+bracket",00:04:40.550,00:04:44.040
+"can not close unless this parenthesis is
+closed.",00:04:44.040,00:04:47.700
+Anything that is opened last,00:04:47.700,00:04:51.040
+"should be closed first. Well actually it
+should not",00:04:51.040,00:04:54.110
+"be last opened first closed in this
+example here",00:04:54.110,00:04:57.630
+this is getting opened last but this guy I,00:04:57.630,00:05:01.900
+"that is open previous to this is closed
+first",00:05:01.900,00:05:05.010
+"and it is fine. The property that must be
+conserved is that",00:05:05.010,00:05:08.570
+"as we scan the expression from left to
+right",00:05:08.570,00:05:11.900
+"any closer should be for the previous
+unclosed parenthesis",00:05:11.900,00:05:16.670
+"any closer should be for the last
+unclosed.",00:05:16.670,00:05:20.700
+"Let's scan some expressions from left to
+right and see how it's true.",00:05:20.700,00:05:25.420
+"Let's scan this last one we will go from
+left to right",00:05:25.420,00:05:29.160
+"first character an opening of the
+square bracket",00:05:29.160,00:05:32.340
+second one is an opening parenthesis,00:05:32.340,00:05:35.570
+"Lets mark opening of closed parenthesis
+in red.",00:05:35.570,00:05:40.200
+"Okay now we have a closer here ,
+the third character is a closer.",00:05:40.200,00:05:44.440
+"this should be the closer for last
+unclosed.",00:05:44.440,00:05:48.480
+"So this should be the closer for this
+one, this guy,",00:05:48.480,00:05:52.850
+"this opening parenthesis. last unclosed
+now is this guy.",00:05:52.850,00:05:58.540
+"Next character once again is an opening
+parenthesis.",00:05:58.540,00:06:02.210
+"Now we have two unclosed parenthesis at
+this stage and this one is the last ",00:06:02.210,00:06:06.760
+"unclosed,",00:06:06.760,00:06:08.250
+"the next one's a closure.So it
+should be closer for the last unclosed.",00:06:08.250,00:06:13.700
+"Now the last unclosed once again is the
+opening of square bracket",00:06:13.700,00:06:17.890
+"now when we have a closer it should be
+closer",00:06:17.890,00:06:21.150
+for this guy.,00:06:21.150,00:06:24.509
+"we can use this approach to solve this
+problem what we can do is we can",00:06:24.509,00:06:27.960
+scan the expression from left to right,00:06:27.960,00:06:30.449
+"and as we scan at any stage we can
+keep track of",00:06:30.449,00:06:34.169
+"all the unclosed parenthesis basically
+what we can do is whenever we",00:06:34.169,00:06:38.350
+"get an opening symbol an opening
+parenthesis an opening curly brace or",00:06:38.350,00:06:43.090
+"an opening square bracket, we can add it",00:06:43.090,00:06:46.539
+to a list. If we get up closing symbol,00:06:46.539,00:06:50.460
+"it should be the closer for the last
+element in the list,",00:06:50.460,00:06:53.800
+in case of an inconsistency like if,00:06:53.800,00:06:57.100
+"the last opening symbol in the list is
+not of the same type as the",00:06:57.100,00:07:00.870
+"closing symbol or if there is no last
+opening symbol at all because the list",00:07:00.870,00:07:05.510
+is,00:07:05.510,00:07:05.949
+"empty. We can stop this whole process and
+say that",00:07:05.949,00:07:09.310
+"parenthesis are not balanced else we can
+removed the last opening symbol in the",00:07:09.310,00:07:13.830
+list,00:07:13.830,00:07:14.360
+"because we have got its counterpart and
+continue this whole process.",00:07:14.360,00:07:18.820
+"Things will be further clear if I will
+run through an example.",00:07:18.820,00:07:22.220
+"I will run through this last example
+once again.",00:07:22.220,00:07:25.430
+"We are going to scan this expression
+from left to right",00:07:25.430,00:07:28.910
+"and we will maintain a list to keep
+track of all the",00:07:28.910,00:07:32.150
+"opening parenthesis that are not yet
+closed.",00:07:32.150,00:07:35.470
+"We will keep the track of all the unclosed
+parenthesis",00:07:35.470,00:07:38.760
+"opened but not closed. Initially this
+list is empty,",00:07:38.760,00:07:42.070
+"the first character that we have got is
+an opening of square bracket.",00:07:42.070,00:07:46.940
+"This will go into the list and we will
+move to the next character",00:07:46.940,00:07:50.440
+"the next character is an opening parenthesis
+so one stick,",00:07:50.440,00:07:53.849
+"once again it should go to the list.
+We should always insert at the end in the",00:07:53.849,00:07:59.070
+list.,00:07:59.070,00:07:59.539
+"the next character is a closing of
+parenthesis now we must look at the",00:07:59.539,00:08:04.099
+last,00:08:04.099,00:08:04.680
+"opening symbol in the list and if it is
+of the same type",00:08:04.680,00:08:08.900
+"then we have got it's counterpart and we
+should remove this.",00:08:08.900,00:08:12.080
+"Now we move on to the next character
+this is once again an opening",00:08:12.080,00:08:15.690
+"parenthesis,",00:08:15.690,00:08:16.530
+it should go in the list at the end.,00:08:16.530,00:08:19.550
+"The next character is a closing of
+parenthesis so we will look at",00:08:19.550,00:08:23.490
+"the last element in the list, it's an
+opening parenthesis,",00:08:23.490,00:08:27.960
+"so we can remove it from the list and
+now we go to the last character which is",00:08:27.960,00:08:32.940
+"a closing of square bracket once again
+we need to look at",00:08:32.940,00:08:35.690
+the last element in the list we have one,00:08:35.690,00:08:39.270
+"element only one element in the list at
+this stage, its",00:08:39.270,00:08:42.640
+"an opening of square bracket so once
+again we can remove it from the list.",00:08:42.640,00:08:46.839
+"Now we're done scanning the list and
+the list is empty once again",00:08:46.839,00:08:51.000
+"if everything is alright if parenthesis
+are balanced",00:08:51.000,00:08:54.130
+we will always end with an empty list,00:08:54.130,00:08:57.320
+"and if list is not empty then some
+opening parenthesis haven't found its",00:08:57.320,00:09:02.380
+closing counterpart,00:09:02.380,00:09:03.750
+"and expression is not balanced. One thing
+worth noticing here is that",00:09:03.750,00:09:08.180
+we are always inserting and removing,00:09:08.180,00:09:11.230
+"one element at a time from the same end
+of the list",00:09:11.230,00:09:14.510
+"in this whole process whatever is coming
+in last in the list is going out first,",00:09:14.510,00:09:19.589
+there is a special kind of list that,00:09:19.589,00:09:22.640
+"enforces this behavior that element should
+be inserted and removed",00:09:22.640,00:09:27.010
+"from the same end and we call it a
+stack.",00:09:27.010,00:09:30.720
+"In a stack we can insert and remove an
+element one at a time from the same",00:09:30.720,00:09:35.709
+"end in constant time. so what we can do
+is whenever we get",00:09:35.709,00:09:39.630
+"an opening symbol while scanning the
+list we can push it onto the stack",00:09:39.630,00:09:44.570
+"and when we get a closing symbol we can
+check whether",00:09:44.570,00:09:48.000
+"the opening symbol at the top of stack
+is of the same type",00:09:48.000,00:09:52.209
+"has the closing symbol, if its of the
+same type we can pop,",00:09:52.209,00:09:55.790
+"if it's not of the same type we can
+simply say that parenthesis are not",00:09:55.790,00:10:00.339
+balanced,00:10:00.339,00:10:01.020
+"I will quickly write pseudocode for this
+logic",00:10:01.020,00:10:04.070
+"I'm going to write a function named
+CheckBalancedParenthesis() that will",00:10:04.070,00:10:07.860
+take an expression,00:10:07.860,00:10:09.110
+in the form of a string as argument.,00:10:09.110,00:10:12.680
+"first of all iI will store the number
+of characters",00:10:12.680,00:10:15.730
+in the string in a variable and then,00:10:15.730,00:10:19.020
+"I will create a stack and I will create
+a stack of characters",00:10:19.020,00:10:23.680
+"and now I will scan  the expression
+from left to right using",00:10:23.680,00:10:27.660
+"a loop, while scanning if the character is
+an opening symbol if",00:10:27.660,00:10:31.880
+"it's an opening parenthesis or opening
+curly brace or opening square bracket",00:10:31.880,00:10:36.579
+"we can push that character onto the
+stack, let's say this function",00:10:36.579,00:10:39.850
+Push() will push up character onto,00:10:39.850,00:10:42.940
+"S else if exp[i] or the
+character",00:10:42.940,00:10:46.740
+"at ith position while scanning is a
+closing symbol of",00:10:46.740,00:10:50.480
+"any of the three types. We can have two
+scenarios if stack is empty,",00:10:50.480,00:10:55.550
+"or top of stack does not pair with the
+closing symbol",00:10:55.550,00:11:00.800
+"if we have a closing of Parenthesis then
+the top of stack should be an opening of",00:11:00.800,00:11:05.569
+Parenthesis.,00:11:05.569,00:11:06.709
+"It cannot be an opening of curly brace,
+in such a scenario we can conclude that",00:11:06.709,00:11:11.140
+the parenthesis,00:11:11.140,00:11:12.470
+are not balanced else we can perform,00:11:12.470,00:11:15.600
+a pop. Finally once a scanning is over,00:11:15.600,00:11:18.949
+"we can check whether a stack is empty or
+not if it's empty Parenthesis are balanced",00:11:18.949,00:11:23.390
+if it's not they are not balanced.,00:11:23.390,00:11:26.410
+"so this is my pseudo code let's run
+through a couple of examples and see",00:11:26.410,00:11:30.760
+"whether this works for all scenarios
+all test cases or not.",00:11:30.760,00:11:34.680
+"Let's first look at this expression, the
+first thing that we're doing in our",00:11:34.680,00:11:38.520
+"code is that we're creating a stack
+of characters,",00:11:38.520,00:11:41.670
+"I have drawn logical representation of a
+stack here.",00:11:41.670,00:11:45.490
+"Okay now let's scan this string, let's say
+we have a zero-based index",00:11:45.490,00:11:49.630
+"and a string is just are character array, we
+are starting the scan and going inside",00:11:49.630,00:11:54.400
+the loop.,00:11:54.400,00:11:55.329
+"This is a closing of Parenthesis
+so this if statement will not hold true",00:11:55.329,00:11:58.930
+so we will go to the,00:11:58.930,00:12:00.240
+"else condition and now we will go inside
+the else",00:12:00.240,00:12:04.040
+"to check for this condition whether stack
+is empty or not",00:12:04.040,00:12:07.069
+or whether the top of stack pairs,00:12:07.069,00:12:10.680
+"with this closing symbol or not, the stack
+is empty,",00:12:10.680,00:12:14.199
+"if the stack is empty there is no opening
+counterpart for this closing symbol.",00:12:14.199,00:12:19.079
+"so we will simply return false, returning
+means exiting the function",00:12:19.079,00:12:23.620
+"so we are simply concluding here that Parenthesis
+are not balanced and",00:12:23.620,00:12:27.290
+exiting.,00:12:27.290,00:12:29.179
+"Let's go through this one now, first we
+have",00:12:29.179,00:12:31.920
+"an opening squad bracket so here we go
+to the first",00:12:31.920,00:12:35.439
+"if and push, next one is an",00:12:35.439,00:12:38.829
+"opening parenthesis once again it will
+be pushed next one",00:12:38.829,00:12:42.569
+"is a closing square bracket, so the
+condition for this else if will be true we",00:12:42.569,00:12:47.339
+will go inside this,00:12:47.339,00:12:48.540
+"else if, now this time to top of stack",00:12:48.540,00:12:51.860
+is an opening parenthesis it should have,00:12:51.860,00:12:54.980
+"been an opening square bracket and then
+only we would have",00:12:54.980,00:12:58.980
+"a pair so this time also we will have
+to return false",00:12:58.980,00:13:02.879
+"and exit. Okay now let's go through this
+one.",00:13:02.879,00:13:07.149
+"First we'll have a push, the next one",00:13:07.149,00:13:10.579
+"will also be a push, now next one is a
+closer of parenthesis",00:13:10.579,00:13:15.179
+"which pairs with the top of stack which
+is opening of parenthesis",00:13:15.179,00:13:19.379
+"so we will have a pop, we will go to the
+next character and this one once again",00:13:19.379,00:13:24.829
+"is an opening parenthesis so there will
+be a push.",00:13:24.829,00:13:27.410
+"next one is a closing parenthesis and
+the top is an opening parenthesis ,they",00:13:27.410,00:13:31.999
+"pair so there will be a pop, last
+character is a",00:13:31.999,00:13:35.579
+"closing curly brace so once again
+we will see whether the top of stack",00:13:35.579,00:13:40.369
+"is an opening curly brace or not? do we
+have a pair or not?",00:13:40.369,00:13:43.670
+"yes we have a pair so there will be a
+pop with this",00:13:43.670,00:13:47.679
+"our scanning will finish and finally
+stack should be empty",00:13:47.679,00:13:51.579
+"it is empty so we have balanced Parenthesis
+here",00:13:51.579,00:13:55.279
+"try implementing this pseudo code in the
+language of your choice and see whether",00:13:55.279,00:13:59.649
+it works for all test cases or not.,00:13:59.649,00:14:01.589
+"If you want to look at my implementation
+you can check the description of this",00:14:01.589,00:14:04.999
+video,00:14:04.999,00:14:05.600
+"for a link. In the coming lessons we will
+see some more problems on stack.",00:14:05.600,00:14:09.860
+"This is it for this lesson, thanks for
+watching!!",00:14:09.860,00:14:12.199

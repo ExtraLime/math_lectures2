@@ -1,0 +1,357 @@
+text,start,stop
+"In this lesson, we're going to talk about
+binary tree traversal.",00:00:00.719,00:00:03.790
+"When we are working with trees, we may often
+want to visit all the nodes in the tree.",00:00:03.790,00:00:08.639
+"Now tree is not a linear data
+structure like",00:00:08.639,00:00:11.849
+"array or linked list. In a linear data
+structure there would be a logical",00:00:11.849,00:00:15.860
+start and a logical end,00:00:15.860,00:00:17.970
+"so we can start with a pointer at
+one of the ends",00:00:17.970,00:00:21.470
+"and keep moving it towards the other
+end. For a linear data structure like",00:00:21.470,00:00:25.900
+linked list,00:00:25.900,00:00:26.699
+"for each node or element we would have
+only one next element",00:00:26.699,00:00:30.990
+"but tree is not a linear data
+structure. I have drawn a binary tree here",00:00:30.990,00:00:35.579
+"datatype is character this time, I filled in
+these characters",00:00:35.579,00:00:39.059
+"in the nodes. Now for a tree at any time
+if we are pointing to a particular node",00:00:39.059,00:00:44.120
+"then we can have more than one possible
+directions.",00:00:44.120,00:00:47.200
+"We can have more than one possible next
+nodes in this binary tree. For example",00:00:47.200,00:00:52.340
+"if we will start with a pointer at
+root node",00:00:52.340,00:00:55.440
+then we have two possible directions from,00:00:55.440,00:00:58.530
+"'F' we can either go left to 'D' or
+we can go right",00:00:58.530,00:01:02.480
+"to 'J' and of course if we will go in one
+direction",00:01:02.480,00:01:05.799
+"then we will somehow have to come back
+and go ",00:01:05.799,00:01:09.570
+"into the other direction later. So tree
+traversal",00:01:09.570,00:01:13.020
+"is not so straightforward and what we
+are going to discuss in this lesson",00:01:13.020,00:01:16.850
+"is algorithms for tree traversal. Tree
+traversal can formally be defined as",00:01:16.850,00:01:22.570
+"the process of visiting each node in the
+tree",00:01:22.570,00:01:25.590
+"exactly once in some order and by
+visiting",00:01:25.590,00:01:29.509
+"a node we mean reading or processing 
+data in the node.",00:01:29.509,00:01:33.110
+"For us in this lesson visit will mean
+printing the data in the node",00:01:33.110,00:01:37.270
+"based on the order in which nodes are visited,
+tree traversal algorithms can broadly",00:01:37.270,00:01:42.340
+be classified into two categories:,00:01:42.340,00:01:44.299
+we can either go Breadth-first or,00:01:44.299,00:01:47.640
+"we can go Depth-first. Breadth-first
+traversal and Depth-first traversal at",00:01:47.640,00:01:52.549
+general techniques,00:01:52.549,00:01:53.780
+"to traverse or search a graph. A graph
+is a data structure and we have not",00:01:53.780,00:01:58.570
+talked about graph so far in the series,00:01:58.570,00:02:01.100
+"we will discuss graph in later lessons for
+now just know that",00:02:01.100,00:02:04.770
+"tree is only a special kind of graph
+and in this lesson we are going to",00:02:04.770,00:02:09.009
+discuss,00:02:09.009,00:02:09.690
+"breadth-first and depth-first traversal in
+context of",00:02:09.690,00:02:13.220
+"trees. In a tree, in breadth-first
+approach",00:02:13.220,00:02:16.690
+"we would visit all the nodes at same
+depth or level,",00:02:16.690,00:02:20.239
+"before visiting the nodes at next level.
+In this binary tree that I'm showing",00:02:20.239,00:02:24.920
+here. This,00:02:24.920,00:02:25.620
+"node with value F which is the root
+node",00:02:25.620,00:02:29.060
+"is at level-0 (L-0). I'm writing L-0 here
+for level-0",00:02:29.060,00:02:32.950
+"depth of a node is defined as number of
+edges in path from",00:02:32.950,00:02:36.910
+"root to that node. Root node would have
+depth 'zero'.",00:02:36.910,00:02:40.220
+These two nodes 'D' and 'J' are at,00:02:40.220,00:02:44.110
+"depth 1, so we can say that these nodes
+are at level-1 (L-1).",00:02:44.110,00:02:48.140
+"Now these four nodes are at level-2 (L-2),
+these three nodes are at level-3 (L-3)",00:02:48.140,00:02:52.940
+and finally this node with value 'H',00:02:52.940,00:02:55.970
+is at level-4 (L-4). So what we can do,00:02:55.970,00:02:59.510
+"in breadth-first approach is that we can
+start at L-0",00:02:59.510,00:03:03.540
+"we would have only one node at L-0,
+the root node",00:03:03.540,00:03:06.560
+"so we can visit the root node. I'll write
+the value in the node as I'm visiting it,",00:03:06.560,00:03:11.489
+"Now L-0 is done, now I can go to
+L-1",00:03:11.489,00:03:14.980
+"and visit the nodes from left to right so
+after 'F' we would visit ",00:03:14.980,00:03:20.030
+"'D' and then we would visit 'J' and now
+we are done with L-1",00:03:20.030,00:03:24.400
+"so we can go to L-2. We will go
+like 'B'",00:03:24.400,00:03:28.420
+then 'E' then 'G' and then,00:03:28.420,00:03:31.470
+"'K' and now we can go to L-3. 'A', 'C'",00:03:31.470,00:03:36.510
+"and 'I' and finally I can go to L-4.
+This kind of breadth-first traversal",00:03:36.510,00:03:42.180
+in case of trees is called,00:03:42.180,00:03:43.470
+"level order traversal and we will
+discuss how we can do this",00:03:43.470,00:03:47.620
+program***,00:03:47.620,00:03:48.110
+"in some time but this is the order in
+which we would visit the nodes",00:03:48.110,00:03:51.760
+"we would go level by level from left to
+right",00:03:51.760,00:03:55.010
+"in breadth-first approach for any node we
+visit",00:03:55.010,00:03:58.360
+"all its children before visiting any of
+its grandchildren",00:03:58.360,00:04:02.360
+"in this tree first we are visiting 'F' and
+then we are visiting 'D'",00:04:02.360,00:04:06.640
+"and then we are not going to any child
+of 'D' like 'B' or 'E' along the depth,",00:04:06.640,00:04:11.230
+next we are going to 'J' but in depth-first,00:04:11.230,00:04:14.260
+"approach if we would go to a child,
+we would complete the whole subtree of",00:04:14.260,00:04:18.759
+the child,00:04:18.759,00:04:19.440
+before going to the next child,00:04:19.440,00:04:22.680
+"in this example tree here from 'F' the root
+node if we are going left",00:04:22.680,00:04:26.810
+"to 'D' then we should visit all the node in
+this left subtree",00:04:26.810,00:04:31.050
+"that is we should finish this left
+subtree in its complete depth",00:04:31.050,00:04:34.949
+"or in other words we should finish all
+the grandchildren",00:04:34.949,00:04:38.060
+"of 'F' along this path before going to right
+child of ",00:04:38.060,00:04:41.180
+"'F' -&gt; 'J' and once again when we will go to
+'J'",00:04:41.180,00:04:44.910
+"we will visit all the grandchildren
+along this path",00:04:44.910,00:04:48.090
+"so basically we will the complete
+right subtree.",00:04:48.090,00:04:52.000
+"In depth first approach the relative
+order of visiting",00:04:52.000,00:04:55.060
+"the left subtree, the right subtree and
+the root node",00:04:55.060,00:04:59.280
+"can be different for example we can first
+visit the",00:04:59.280,00:05:02.350
+"right subtree and then root and then
+the left subtree,",00:05:02.350,00:05:06.770
+"or we can do something like we can first
+visit the root",00:05:06.770,00:05:10.280
+"and then the left subtree and then the
+right subtree,",00:05:10.280,00:05:13.400
+"so the relative order can be different
+but the core idea in depth-first strategy",00:05:13.400,00:05:18.100
+"is that visiting a child is visiting
+the complete subtree in that path",00:05:18.100,00:05:23.509
+"and remember visiting a node is
+reading, processing or printing the",00:05:23.509,00:05:27.120
+data in that node,00:05:27.120,00:05:28.580
+"based on the relative order of left
+subtree, right subtree and the root",00:05:28.580,00:05:33.210
+there are three popular depth-first strategies,00:05:33.210,00:05:36.229
+"one way is that we can first visit
+the root node,",00:05:36.229,00:05:39.539
+"then the left subtree and then the right
+subtree",00:05:39.539,00:05:43.470
+"left and right subtrees will be visited
+recursively in same manner",00:05:43.470,00:05:47.330
+"such a traversal is called preorder
+traversal.",00:05:47.330,00:05:51.289
+"Another way is that we can first visit the
+left subtree,",00:05:51.289,00:05:54.630
+then the root and then the right subtree,00:05:54.630,00:05:58.009
+"such a traversal is called in-order
+traversal",00:05:58.009,00:06:01.150
+"and if root is visited after left and
+right subtrees then such a traversal",00:06:01.150,00:06:05.389
+"is called post-order traversal. In total
+there are six possible permutations",00:06:05.389,00:06:10.919
+"for left, right and root but
+conventionally",00:06:10.919,00:06:14.050
+"a left subtree is always visited before the
+right subtree",00:06:14.050,00:06:17.460
+"so these are the three strategies that we
+use only the position of root is",00:06:17.460,00:06:21.400
+changing here,00:06:21.400,00:06:22.380
+"if it's before left and right then its
+pre-order if it's in between its",00:06:22.380,00:06:25.860
+"in-order and if it's after left and
+right subtrees",00:06:25.860,00:06:29.270
+"then its post-order. There is an easy way
+to remember",00:06:29.270,00:06:32.889
+"these three depth-first algorithms. If we
+can denote visiting a node or reading",00:06:32.889,00:06:37.139
+the data in that node,00:06:37.139,00:06:38.789
+"with letter 'D' going to the left subtree
+as",00:06:38.789,00:06:42.539
+'L' and going to the right subtree as 'R',00:06:42.539,00:06:46.660
+"so if we can say D for Data, L for Left and
+R for Right",00:06:46.660,00:06:50.949
+"then in pre-order for each node we will go
+DLR.",00:06:50.949,00:06:54.509
+"First we will read the data in that
+node then will go left",00:06:54.509,00:06:58.580
+"and once the left subtree is done
+we will go right.",00:06:58.580,00:07:01.900
+"In in-order traversal first we will
+finish the left subtree,",00:07:01.900,00:07:06.349
+"then we will read the data in current
+node and then we will go right.",00:07:06.349,00:07:10.819
+"In post-order for each node first we will go
+left,",00:07:10.819,00:07:14.289
+once left subtree is done we will go right,00:07:14.289,00:07:17.370
+"and then we will read the data in current node,",00:07:17.370,00:07:20.550
+"so pre-order is data,left &amp; right, in-order
+is",00:07:20.550,00:07:23.889
+"left,data &amp; right and post-order is
+left,right &amp; then data",00:07:23.889,00:07:27.259
+"pre-order, in-order and post-order
+are really easy and",00:07:27.259,00:07:31.639
+intuitive to implement,00:07:31.639,00:07:33.150
+"using recursion but we will discuss
+implementation later.",00:07:33.150,00:07:36.789
+"Let's now see what will be the pre-order
+in-order and post-order traversal for",00:07:36.789,00:07:40.680
+this,00:07:40.680,00:07:41.550
+"tree that I have drawn here. Let's first see
+what will be the pre-order traversal",00:07:41.550,00:07:45.000
+for this,00:07:45.000,00:07:46.190
+"binary tree. We need to start at root
+node",00:07:46.190,00:07:49.539
+"and for each node we first need to read
+the data",00:07:49.539,00:07:52.889
+"or in other words visit that node in
+fact instead of",00:07:52.889,00:07:56.370
+"DLR we could have said VLR here
+V for visit,",00:07:56.370,00:08:00.419
+"we can use any of these assumptions V
+for visit or D for data.",00:08:00.419,00:08:04.629
+"I will go with DLR here. So let's
+start at the root",00:08:04.629,00:08:08.680
+"for each node we first need to read the
+data. I'm writing 'F' here",00:08:08.680,00:08:12.300
+"the data that I just read and now I need
+to go left and finish the complete left",00:08:12.300,00:08:17.050
+subtree,00:08:17.050,00:08:18.250
+"and once all the nodes in the left subtree
+are visited",00:08:18.250,00:08:21.770
+"then only I can go to the right subtree, the
+problem here is actually getting reduced",00:08:21.770,00:08:26.250
+in a self-similar,00:08:26.250,00:08:27.560
+"or recursive manner. Now we need to focus
+on this left subtree.",00:08:27.560,00:08:31.979
+"Now we are at 'D' root of this left
+subtree of",00:08:31.979,00:08:35.169
+"'F', once again for this node we will first",00:08:35.169,00:08:38.229
+read the data and now we can go left,00:08:38.229,00:08:41.849
+"we will go towards 'E' only when these
+three nodes",00:08:41.849,00:08:45.019
+"A,B and C will be done. Now we are focusing
+on this subtree comprising of these",00:08:45.019,00:08:49.510
+three nodes,00:08:49.510,00:08:50.779
+"now we are at 'B' we can read the data and
+now we can go left",00:08:50.779,00:08:54.779
+"to 'A' there is nothing in left of 'A',
+so we can say that for left",00:08:54.779,00:08:59.649
+"for 'A' left subtree is done and there is
+nothing in",00:08:59.649,00:09:02.839
+"right as well, so we can say right is
+also done. Now for 'B'",00:09:02.839,00:09:06.690
+"left subtree is done so we can go
+right",00:09:06.690,00:09:10.050
+"to 'C' and left, and right of 'C'
+is null",00:09:10.050,00:09:14.260
+"and now for 'D' left subtree is done so we
+can go right",00:09:14.260,00:09:18.800
+"once again for 'E' left and right are null
+and now at this stage for",00:09:18.800,00:09:22.980
+"'F' complete left subtree is visited
+so we can go right.",00:09:22.980,00:09:27.149
+"Now we need to go left of 'J' and
+there's nothing left of 'G' so",00:09:27.149,00:09:31.110
+"we can go right and now we can go
+left of",00:09:31.110,00:09:34.740
+"'I'. For 'H' there is nothing in left
+and right.",00:09:34.740,00:09:38.760
+"Now at this stage left subtree of 'I' is
+done",00:09:38.760,00:09:41.839
+"and right subtree is null and now we
+can go back to 'J'",00:09:41.839,00:09:45.529
+"the left subtree for 'J' is done so we can go
+to",00:09:45.529,00:09:48.940
+"its right subtree finally we have 'K'
+here and we're done with all the nodes.",00:09:48.940,00:09:54.850
+"This is how we can perform a preorder
+traversal manually,",00:09:54.850,00:09:57.710
+"actual implementation would be a simple
+recursion",00:09:57.710,00:10:01.110
+"and we will discuss it later. Let's now see
+what will be the",00:10:01.110,00:10:04.470
+"in-order traversal for this binary tree.
+In in-order traversal",00:10:04.470,00:10:08.950
+"we will first finish visiting the left
+subtree",00:10:08.950,00:10:12.420
+"then visit the current node and then
+go right",00:10:12.420,00:10:15.570
+"once again we'll start at the root and
+we will first go left.",00:10:15.570,00:10:19.190
+"Now we will first finish this subtree once
+again for 'D' we will first go left",00:10:19.190,00:10:24.890
+"to 'B' and from 'B' we will go to 'E',",00:10:24.890,00:10:28.080
+"now for 'A' there is nothing in left so we
+can say that for this guy",00:10:28.080,00:10:32.200
+"left subtree is done so we can read the
+data",00:10:32.200,00:10:35.250
+"and now we can go to its right but there
+nothing in right as well.",00:10:35.250,00:10:40.090
+"So this guy is done. Now for 'B' left
+subtree is done, so we can read the data",00:10:40.090,00:10:44.980
+"and now for 'B' we can go right for 'C'
+once again there is nothing in left so we",00:10:44.980,00:10:50.190
+can read the data,00:10:50.190,00:10:51.300
+"and there is nothing in right as well. Now left
+of 'D' completely done so we can visit",00:10:51.300,00:10:56.600
+"it, read the data here now we can go to
+its right",00:10:56.600,00:11:00.130
+"to 'E'. For 'E' once again left and right are
+null.",00:11:00.130,00:11:03.520
+"At this stage left subtree of 'F' is done
+so we can read",00:11:03.520,00:11:07.740
+"on the data and now we can go to right
+of 'F'",00:11:07.740,00:11:11.510
+"if we will go on like this, this finally",00:11:11.510,00:11:14.640
+will be my in-order traversal.,00:11:14.640,00:11:17.810
+"This tree that I'm showing here is
+actually a binary search tree",00:11:17.810,00:11:21.240
+"for each node, the value of nodes in left
+is lesser and the value of nodes in right",00:11:21.240,00:11:25.370
+is greater.,00:11:25.370,00:11:26.190
+"So if we are printing in this order
+left subtree and then the",00:11:26.190,00:11:29.790
+"current node and then the right subtree
+then we would get a sorted list",00:11:29.790,00:11:33.650
+"in-order traversal of a binary search
+tree would give you a sorted list.",00:11:33.650,00:11:37.640
+"Okay now you should be able to figure
+out the post-order traversal.",00:11:37.640,00:11:40.940
+"This is what will get for post-order traversal
+I leave it for you to see",00:11:40.940,00:11:45.520
+whether this is correct or not.,00:11:45.520,00:11:46.960
+I'll stop here now. In next lesson we will,00:11:46.960,00:11:51.190
+dicuss implementation of these tree traversal algorithms.,00:11:51.190,00:11:52.340
+Thanks for Watching!,00:11:52.340,00:11:53.490

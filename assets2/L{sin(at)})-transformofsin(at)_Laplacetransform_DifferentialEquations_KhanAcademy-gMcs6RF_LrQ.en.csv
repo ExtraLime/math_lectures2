@@ -1,0 +1,321 @@
+text,start,stop
+ ,00:00:00.000,00:00:00.750
+"Let's keep building our table of
+Laplace transforms. And now",00:00:00.750,00:00:04.320
+"we'll do a fairly hairy problem,
+so I'm going to have",00:00:04.320,00:00:07.910
+"to focus so that I don't make
+a careless mistake.",00:00:07.910,00:00:12.500
+"But let's say we want to take
+the Laplace transform-- and",00:00:12.500,00:00:16.090
+this is a useful one.,00:00:16.090,00:00:18.630
+"Actually, all of them we've
+done so far are useful.",00:00:18.630,00:00:20.620
+"I'll tell you when we start
+doing not-so-useful ones.",00:00:20.620,00:00:23.740
+"Let's say we want to take the
+Laplace transform of the sine",00:00:23.740,00:00:27.650
+of some constant times t.,00:00:27.650,00:00:31.700
+"Well, our definition of the
+Laplace transform, that says",00:00:31.700,00:00:35.200
+"that it's the improper
+integral.",00:00:35.200,00:00:37.210
+"And remember, the Laplace
+transform is just a",00:00:37.210,00:00:38.890
+definition.,00:00:38.890,00:00:39.350
+"It's just a tool that
+has turned out to",00:00:39.350,00:00:41.440
+be extremely useful.,00:00:41.440,00:00:43.410
+"And we'll do more on that
+intuition later on.",00:00:43.410,00:00:46.000
+"But anyway, it's the integral
+from 0 to infinity of e to the",00:00:46.000,00:00:50.660
+"minus st, times-- whatever
+we're taking the Laplace",00:00:50.660,00:00:53.750
+"transform of-- times
+sine of at, dt.",00:00:53.750,00:01:01.560
+"And now, we have to go back and
+find our integration by",00:01:01.560,00:01:07.380
+parts neuron.,00:01:07.380,00:01:08.010
+"And mine always disappears,
+so we have to reprove",00:01:08.010,00:01:12.590
+integration by parts.,00:01:12.590,00:01:13.530
+"I don't recommend you do
+this all the time.",00:01:13.530,00:01:14.940
+"If you have to do this on an
+exam, you might want to",00:01:14.940,00:01:16.720
+memorize it before the exam.,00:01:16.720,00:01:17.970
+"But always remember, integration
+by parts is just",00:01:17.970,00:01:20.280
+the product rule in reverse.,00:01:20.280,00:01:21.950
+"So I'll just do that
+in this corner.",00:01:21.950,00:01:23.290
+"So the product rule tells
+us if we have two",00:01:23.290,00:01:24.760
+"functions, u times v.",00:01:24.760,00:01:28.220
+"And if I were take the
+derivative of u times v.",00:01:28.220,00:01:32.440
+"Let's say that they're
+functions of t.",00:01:32.440,00:01:34.200
+These are both functions of t.,00:01:34.200,00:01:35.290
+"I could have written u
+of x times v of x.",00:01:35.290,00:01:37.560
+"Then that equals the derivative
+of the first times",00:01:37.560,00:01:41.140
+"the second function, plus the
+first function times the",00:01:41.140,00:01:45.140
+derivative of the second.,00:01:45.140,00:01:46.600
+"Now, if I were to integrate both
+sides, I get uv-- this",00:01:46.600,00:01:50.540
+"should be review-- is equal to
+the integral of u prime v,",00:01:50.540,00:01:54.780
+"with respect to dt-- but I'm
+just doing a little bit of",00:01:54.780,00:01:56.580
+"shorthand now-- plus the
+integral of uv prime.",00:01:56.580,00:02:01.570
+"I'm just trying to help myself
+remember this thing.",00:02:01.570,00:02:04.790
+"And let's take this and subtract
+it from both sides.",00:02:04.790,00:02:07.460
+"So we have this integral of u
+prime v is going to be equal",00:02:07.460,00:02:17.240
+"to this, uv minus the integral
+of uv prime.",00:02:17.240,00:02:24.620
+"And, of course, this
+is a function of t.",00:02:24.620,00:02:25.920
+"There's a dt here
+and all of that.",00:02:25.920,00:02:27.370
+"But I just have to do this in
+the corner of my page a lot,",00:02:27.370,00:02:29.770
+"because I always forget this,
+and with the primes and the",00:02:29.770,00:02:32.780
+"integrals and all that,
+I always forget it.",00:02:32.780,00:02:34.460
+"One way, if you did want to
+memorize it, you said, OK, the",00:02:34.460,00:02:38.070
+"integration by parts says if
+I take the integral of the",00:02:38.070,00:02:40.580
+"derivative of one thing and then
+just a regular function",00:02:40.580,00:02:44.530
+"of another, it equals the two
+functions times each other,",00:02:44.530,00:02:47.560
+"minus the integral
+of the reverse.",00:02:47.560,00:02:50.170
+Right?,00:02:50.170,00:02:50.520
+"Here, when you take the
+subtraction, you're taking the",00:02:50.520,00:02:54.080
+"one that had a derivative,
+now it doesn't.",00:02:54.080,00:02:55.530
+"And the one that didn't have
+a derivative, now it does.",00:02:55.530,00:02:58.370
+"But anyway, let's apply
+that to our problem at",00:02:58.370,00:03:01.610
+"hand, to this one.",00:03:01.610,00:03:03.730
+"Well, we could go either
+way about it.",00:03:03.730,00:03:07.060
+"Let's make u prime is equal to--
+we'll do our definition--",00:03:07.060,00:03:12.930
+"u prime is equal to e to the
+minus st, in which case you",00:03:12.930,00:03:19.580
+"would be the antiderivative of
+that, which is equal to minus",00:03:19.580,00:03:22.890
+"1 over s e to the
+minus st, right?",00:03:22.890,00:03:30.415
+"And actually, this is going to
+be an integration by parts",00:03:30.415,00:03:33.950
+"twice problem, so I'm just
+actually going to define the",00:03:33.950,00:03:36.170
+Laplace transform as y.,00:03:36.170,00:03:38.950
+"That'll come in useful
+later on.",00:03:38.950,00:03:40.240
+"And I think I actually did a
+very similar example to this",00:03:40.240,00:03:43.810
+"when we did integration
+by parts.",00:03:43.810,00:03:45.620
+"But anyway, back to the
+integration by parts.",00:03:45.620,00:03:47.660
+So that's u.,00:03:47.660,00:03:48.760
+"And let me do v in a
+different color.",00:03:48.760,00:03:50.980
+"So when v-- if this
+is u prime, right?",00:03:50.980,00:03:54.960
+"This is u prime,
+then this is v.",00:03:54.960,00:03:56.510
+So v is equal to sine of at.,00:03:56.510,00:04:01.395
+And then what is v prime?,00:04:01.395,00:04:04.320
+"Well, that's just a cosine
+of at, right?",00:04:04.320,00:04:07.930
+The chain rule.,00:04:07.930,00:04:09.110
+"And now, we're ready to
+do our integration.",00:04:09.110,00:04:12.120
+"So the Laplace transform, and
+I'll just say that's y, y is",00:04:12.120,00:04:17.519
+"equal to-- y is what we're
+trying to solve for, the",00:04:17.519,00:04:21.529
+"Laplace transform of sine
+of at-- that is",00:04:21.529,00:04:24.070
+equal to u prime v.,00:04:24.070,00:04:27.210
+"I defined u prime in v, right?",00:04:27.210,00:04:28.880
+That's equal to that.,00:04:28.880,00:04:29.650
+"The integral of u
+prime times v.",00:04:29.650,00:04:31.940
+That equals uv.,00:04:31.940,00:04:34.260
+"So that's minus 1 over s e to
+the minus st, times v, sine of",00:04:34.260,00:04:46.700
+"at, minus the integral.",00:04:46.700,00:04:52.580
+"And when you do the integration
+by parts, this",00:04:52.580,00:04:57.970
+"could be an indefinite
+integral, an improper",00:04:57.970,00:05:00.540
+"integral, a definite
+integral, whatever.",00:05:00.540,00:05:01.950
+But the boundary stays.,00:05:01.950,00:05:03.080
+"And we can still say, from 0
+to infinity of uv prime.",00:05:03.080,00:05:10.210
+"So u is minus 1 over s e to the
+minus st, times v prime,",00:05:10.210,00:05:20.800
+"times a cosine of at--
+fair enough-- dt.",00:05:20.800,00:05:32.350
+"Well, now we have another hairy",00:05:32.350,00:05:33.720
+integral we need to solve.,00:05:33.720,00:05:35.210
+"So this might involve another
+integration by",00:05:35.210,00:05:37.940
+"parts, and it does.",00:05:37.940,00:05:42.360
+"Let's see if we can simplify
+it at [? all. ?]",00:05:42.360,00:05:43.890
+"Let's take the constants
+out first. Let me",00:05:43.890,00:05:45.340
+just rewrite this.,00:05:45.340,00:05:46.890
+"So we get y is equal to minus
+e to the minus st",00:05:46.890,00:05:54.440
+"over s, sine of at.",00:05:54.440,00:06:00.090
+"So you have a minus minus plus a
+over s-- a divided by s, and",00:06:00.090,00:06:09.700
+"then these two negative signs
+cancel out-- times the",00:06:09.700,00:06:12.250
+"integral from 0 to infinity,
+e to the minus st,",00:06:12.250,00:06:19.420
+"cosine of at, dt.",00:06:19.420,00:06:23.080
+"Let's do another integration
+by parts.",00:06:23.080,00:06:25.110
+"And I'll do this in a purple
+color, just so you know this",00:06:25.110,00:06:27.250
+"is our second integration
+by parts.",00:06:27.250,00:06:29.520
+Over here.,00:06:29.520,00:06:31.720
+"Let's define once again, u prime
+is equal to e the minus",00:06:31.720,00:06:40.670
+st. So this is u prime.,00:06:40.670,00:06:43.550
+"Then u is equal to minus 1
+over s e to the minus st.",00:06:43.550,00:06:50.150
+"We'll make v equal
+to cosine of at.",00:06:50.150,00:06:53.010
+ ,00:06:53.010,00:06:55.720
+"The hardest part about this is
+not making careless mistakes.",00:06:55.720,00:06:58.730
+"And then v prime-- I just want
+it to be on the same row-- is",00:06:58.730,00:07:02.590
+"equal to minus a sine
+of at, right?",00:07:02.590,00:07:09.560
+"The chain rule, derivative
+of cosine is minus sine.",00:07:09.560,00:07:12.160
+"So let's substitute that back
+in, and we get-- this is going",00:07:12.160,00:07:17.070
+"to get hairy; actually, it
+already is hairy-- y is equal",00:07:17.070,00:07:21.960
+"to minus e to the minus st over
+s, sine of at, plus a",00:07:21.960,00:07:35.620
+"over s, times-- OK.",00:07:35.620,00:07:41.220
+Integration by parts.,00:07:41.220,00:07:42.810
+uv.,00:07:42.810,00:07:43.680
+"So that's minus 1 over s e to
+the minus st, times v, times",00:07:43.680,00:07:53.540
+"cosine at, minus the integral
+from 0 to infinity.",00:07:53.540,00:08:06.910
+"This problem is making
+me hungry.",00:08:06.910,00:08:08.310
+"It's taking so much glucose
+from my bloodstream.",00:08:08.310,00:08:10.800
+"I'm focusing so much not to
+make careless mistakes.",00:08:10.800,00:08:14.000
+"Anyway, integral from
+0 to infinity.",00:08:14.000,00:08:16.380
+"And now, we have uv prime, so
+u is minus 1 over s e to the",00:08:16.380,00:08:26.250
+minus st. That's u.,00:08:26.250,00:08:30.460
+"And then v prime
+times minus a.",00:08:30.460,00:08:34.480
+"So let's make that minus cancel
+out with this one.",00:08:34.480,00:08:37.159
+So that becomes a plus.,00:08:37.159,00:08:38.400
+"a sine of at, dt.",00:08:38.400,00:08:46.860
+"I'm starting to see the light
+at the end of the tunnel.",00:08:46.860,00:08:49.170
+"So then, let's simplify
+this thing.",00:08:49.170,00:08:51.700
+"And, of course, we're going to
+have to evaluate this whole",00:08:51.700,00:08:53.610
+"thing, right?",00:08:53.610,00:08:56.730
+"Actually, we're going to have
+to evaluate everything.",00:08:56.730,00:08:58.350
+"Let's just focus on the
+indefinite integral for now.",00:08:58.350,00:09:00.440
+"We're going to have to take
+this whole thing and",00:09:00.440,00:09:02.020
+"evaluate-- let's just say that
+y is the antiderivative and",00:09:02.020,00:09:05.180
+"then evaluate it from
+infinity to 0.",00:09:05.180,00:09:07.340
+From 0 to infinity.,00:09:07.340,00:09:08.850
+"So y is equal to minus
+e to the minus st",00:09:08.850,00:09:15.125
+"over s, sine of at.",00:09:15.125,00:09:19.072
+Now let's distribute this.,00:09:19.072,00:09:21.690
+"Minus a over s squared, e to
+the minus st, cosine of at.",00:09:21.690,00:09:32.950
+Right?,00:09:32.950,00:09:33.430
+"OK, now I want to make sure I
+don't make a careless mistake.",00:09:33.430,00:09:35.990
+OK.,00:09:35.990,00:09:36.380
+"Now, let's multiply this times
+this and take all of the",00:09:36.380,00:09:39.390
+constants out.,00:09:39.390,00:09:40.520
+So we have an a and an s.,00:09:40.520,00:09:42.450
+a over s.,00:09:42.450,00:09:43.790
+There's a minus sign.,00:09:43.790,00:09:44.740
+We have a plus a to the s.,00:09:44.740,00:09:46.470
+"So we'll have a minus a squared
+over s squared, times",00:09:46.470,00:09:56.740
+"the integral from 0-- well, I
+said I'm just worrying about",00:09:56.740,00:10:00.990
+"the indefinite integral right
+now, and we'll evaluate the",00:10:00.990,00:10:06.060
+boundaries later.,00:10:06.060,00:10:07.680
+"e to the minus st,
+sine of at, dt.",00:10:07.680,00:10:13.760
+"Now, this is the part, and we've
+done this before, it's a",00:10:13.760,00:10:15.800
+"little bit of a trick with
+integration by parts.",00:10:15.800,00:10:18.580
+"But this expression, notice,
+is the same thing as our",00:10:18.580,00:10:22.500
+original y.,00:10:22.500,00:10:23.940
+Right?,00:10:23.940,00:10:24.400
+This is our original y.,00:10:24.400,00:10:25.410
+"And we're assuming we're doing
+the indefinite integral, and",00:10:25.410,00:10:27.110
+"we'll evaluate the
+boundaries later.",00:10:27.110,00:10:28.340
+"Although we could have kept the
+boundaries the whole time,",00:10:28.340,00:10:30.440
+"but it would have made
+it even hairier.",00:10:30.440,00:10:32.120
+"So we can rewrite this
+integral as y.",00:10:32.120,00:10:34.440
+That was our definition.,00:10:34.440,00:10:37.580
+"And actually, I just realized
+I'm running out of time, so",00:10:37.580,00:10:39.440
+"I'll continue this hairy problem
+in the next video.",00:10:39.440,00:10:42.010
+See you soon.,00:10:42.010,00:10:43.260
+ ,00:10:43.260,00:10:43.900

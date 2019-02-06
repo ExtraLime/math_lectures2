@@ -1,0 +1,398 @@
+text,start,stop
+"In our previous lesson, we saw how we can
+map the logical view of a linked list",00:00:00.450,00:00:05.220
+"into a C or C++ program. We saw how
+we can implement two basic operations:",00:00:05.220,00:00:10.420
+"one traversal of the linked list and
+another inserting a Node at the",00:00:10.420,00:00:14.519
+"end of the linked list. In this lesson we
+will see a",00:00:14.519,00:00:17.580
+"running code that will insert a Node
+at the beginning of the linked list.",00:00:17.580,00:00:22.130
+"So let's get started. I will write a 'C'
+program here.",00:00:22.130,00:00:26.090
+"the first thing that we want to do in
+our program is",00:00:26.090,00:00:29.300
+"that we want to define a Node. A Node
+will be",00:00:29.300,00:00:32.870
+a structure in C. It will have two fields:,00:00:32.870,00:00:35.890
+"One to store the data, let's say we
+want to create a linked list of Integers,",00:00:35.890,00:00:39.690
+so,00:00:39.690,00:00:40.390
+"our data type will be integer. If we
+wanted to create",00:00:40.390,00:00:44.120
+"a linked list of characters, then
+our type",00:00:44.120,00:00:47.340
+"would be character here. So we will have
+another field",00:00:47.340,00:00:51.530
+"that will be pointer to Node, that will
+store the address of the next Node.",00:00:51.530,00:00:56.090
+"We can name this variable link or
+some...",00:00:56.090,00:00:59.550
+"some people also like to name this
+variable next because it sounds more",00:00:59.550,00:01:03.570
+"intuitive. This variable will store the
+address of the next Node in the linked",00:01:03.570,00:01:07.439
+list.,00:01:07.439,00:01:07.880
+"In C, whenever we have to declare",00:01:07.880,00:01:10.890
+"Node or pointer to Node, we will have
+to write struct Node or struct Node*",00:01:10.890,00:01:15.509
+(star).,00:01:15.509,00:01:16.180
+"In C++, we will have to write
+only Node*,",00:01:16.180,00:01:20.130
+"and that's one difference. Okay, so this
+is the definition",00:01:20.130,00:01:24.759
+"of a Node. Now to create a linked list
+we will have to create",00:01:24.759,00:01:28.799
+"a variable that will be pointer to Node
+and that will store",00:01:28.799,00:01:32.540
+"the address of the first Node in the
+linked list, what we also call the",00:01:32.540,00:01:36.700
+head Node.,00:01:36.700,00:01:37.390
+"so I will create a pointer to Node here.
+struct",00:01:37.390,00:01:41.049
+"Node*, we can name this variable
+whatever. Often for the sake of",00:01:41.049,00:01:45.009
+"understanding, we name this variable head.",00:01:45.009,00:01:47.060
+"Now I have declared this variable as a
+global variable.",00:01:47.060,00:01:50.920
+"I have not declared this variable inside
+any function and I'll come back to why I am",00:01:50.920,00:01:55.350
+doing so.,00:01:55.350,00:01:56.170
+"And now I'll write the main method. This
+is the entry point to my program.",00:01:56.170,00:02:00.759
+"The first thing that I want to do is I
+want to see if",00:02:00.759,00:02:05.040
+"head is equal to null which will mean
+that this pointer variable points",00:02:05.040,00:02:09.399
+nowhere.,00:02:09.399,00:02:10.020
+"So right now the list is empty. So far
+what we have done here in our code,",00:02:10.020,00:02:15.220
+"is that we have created a global
+variable named head which is of",00:02:15.220,00:02:18.910
+"type pointer to Node and the value in
+this",00:02:18.910,00:02:22.010
+"pointer variable is null, so So far",00:02:22.010,00:02:25.220
+"the list is empty. Now, what I want to do
+in my program is that I want to ask the",00:02:25.220,00:02:30.470
+user,00:02:30.470,00:02:31.140
+"to input some numbers and I want to
+insert all these numbers",00:02:31.140,00:02:35.170
+"into the linked list. so I'll print
+something like",00:02:35.170,00:02:38.230
+"how many numbers? Let's say the user
+wants to input n number so I'll",00:02:38.230,00:02:42.129
+collect this,00:02:42.129,00:02:42.920
+"number in this variable 'n' and then I'll
+define another variable",00:02:42.920,00:02:46.680
+'i' to run the loop and so,00:02:46.680,00:02:50.099
+"I'm running a loop here. If it was C++
+I could declare this integer",00:02:50.099,00:02:53.470
+variable right here inside the loop.,00:02:53.470,00:02:55.390
+"Now i'll write a print statement like this,",00:02:55.390,00:02:58.900
+"and I'll define another variable 'x' and
+each time",00:02:58.900,00:03:02.180
+"I'll take this variable 'x' as input from
+the user",00:03:02.180,00:03:05.940
+"and now I will insert this particular
+number",00:03:05.940,00:03:09.060
+"'x', this particular integer 'x' into the
+linked list, by",00:03:09.060,00:03:12.610
+"making a call to the method 'insert' and
+then each time we insert, we will print",00:03:12.610,00:03:17.690
+"all the Nodes in the linked list, the
+value of all the Nodes in the linked",00:03:17.690,00:03:21.050
+list,00:03:21.050,00:03:21.450
+"by calling a function named print. There
+will be no argument",00:03:21.450,00:03:26.349
+"to this function print. Of course we need
+to implement these two",00:03:26.349,00:03:29.799
+"functions insert and print. Let me first
+write down the definition of these two",00:03:29.799,00:03:34.819
+functions.,00:03:34.819,00:03:37.030
+"So let us implement these two functions:
+insert",00:03:37.030,00:03:39.930
+"and print. Let's first implement the
+function insert",00:03:39.930,00:03:43.370
+"that will insert a Node at the beginning
+of the linked list.",00:03:43.370,00:03:46.410
+"Now in the insert function what we
+need to do is",00:03:46.410,00:03:50.090
+"we first need to create a Node. In C we
+can create",00:03:50.090,00:03:54.150
+"a Node using malloc() function. We have
+talked about this earlier.",00:03:54.150,00:03:58.370
+"malloc() returns a pointer to the starting
+address",00:03:58.370,00:04:01.870
+"of the memory block we are having to
+type cast here because malloc returns a",00:04:01.870,00:04:06.060
+"void pointer and we need a pointer to
+Node,",00:04:06.060,00:04:08.599
+"a variable that is pointer to Node and
+then only if we dereference",00:04:08.599,00:04:13.160
+"we derefernce using an Astrix(*) sign
+then we will be",00:04:13.160,00:04:17.090
+"able to access the fields of the Node,",00:04:17.090,00:04:20.090
+"so that the data part will be 'x' and we
+have an alternate syntax for",00:04:20.090,00:04:24.700
+"this particular syntax. We could simply
+write",00:04:24.700,00:04:28.889
+something like temp and this,00:04:28.889,00:04:32.080
+"arrow and it will mean the same thing and
+this is more common.",00:04:32.080,00:04:35.789
+"With these two lines in the insert
+function,",00:04:35.789,00:04:38.910
+"all we're doing is, we're creating a
+Node. Let's say we get this Node and",00:04:38.910,00:04:43.410
+let's assume that the,00:04:43.410,00:04:44.330
+"address that we get for this Node is 100.
+Now there is",00:04:44.330,00:04:47.370
+"a variable temp where we are storing the
+address.",00:04:47.370,00:04:50.370
+"We can do one thing whenever we
+create a Node, we can set data",00:04:50.370,00:04:53.570
+"to whatever we want to set and we can set
+the link field",00:04:53.570,00:04:57.479
+"initially to null and if needed we can
+modify the link field.",00:04:57.479,00:05:01.229
+"So I'll write one more statement temp-&gt;
+next is equal to",00:05:01.229,00:05:04.680
+"null. Remember temp is a pointer variable here
+and we are dereferencing the pointer",00:05:04.680,00:05:09.130
+"variable to modify the value at this
+particular Node.",00:05:09.130,00:05:12.210
+"temp will also take some space in the
+memory that's why I have shown this",00:05:12.210,00:05:16.050
+"rectangular block for both the pointer
+variables head and temp.",00:05:16.050,00:05:20.000
+"and Node has two parts: one for the
+pointer variable and one for the data.",00:05:20.000,00:05:23.889
+"So this part, the link part is null, we can
+either write null here",00:05:23.889,00:05:27.450
+"or we can write it like this. It's the same
+thing. Logically",00:05:27.450,00:05:31.169
+it means the same.,00:05:31.169,00:05:33.110
+"Now if we want to insert this Node in
+the beginning of the list,",00:05:33.110,00:05:35.979
+"there can be two scenarios: one when
+the list is empty,",00:05:35.979,00:05:39.819
+"like in this case. So the only thing that
+we need to do",00:05:39.819,00:05:43.160
+"is, we need to point head to this particular Node,",00:05:43.160,00:05:46.440
+"instead of pointing to null. So I will
+write a statement like head is equal to",00:05:46.440,00:05:51.520
+"temp and the value in head now will be
+address 100.",00:05:51.520,00:05:55.009
+"And that's what we mean when we say a
+pointer variable points to",00:05:55.009,00:05:58.889
+"a particular Node. We store the address of
+that Node.",00:05:58.889,00:06:02.400
+"So this is our linked lis, after we insert
+the first",00:06:02.400,00:06:06.139
+"Node. Let us now see what we can do to
+insert a Node",00:06:06.139,00:06:09.370
+"at the beginning if the list is not
+empty like what we have right now.",00:06:09.370,00:06:13.490
+"Once again we can create a Node, fill in
+the value",00:06:13.490,00:06:16.870
+"'x' here that is passed as argument.
+Initially,",00:06:16.870,00:06:19.919
+"we may set the link field as null,
+and let's say this",00:06:19.919,00:06:23.199
+"Node gets address 150 in the memory and
+we have this variable temp through which we",00:06:23.199,00:06:27.810
+"are referencing this particular memory
+block.",00:06:27.810,00:06:29.949
+"Now unlike the previous case, if we just
+set",00:06:29.949,00:06:33.180
+"head = temp, this is not
+good enough because",00:06:33.180,00:06:36.690
+"we also need to build this link. We need to
+set the next",00:06:36.690,00:06:40.460
+"or the link of the newly created Node
+to whatever the previous head was.",00:06:40.460,00:06:44.960
+"So what we can do is, we can write
+something like if head is not equal to",00:06:44.960,00:06:49.159
+null or if,00:06:49.159,00:06:49.919
+"the list is not empty, first set
+temp-&gt;next equal head",00:06:49.919,00:06:54.320
+"so we first build this link. The address
+here will be 100 and then we say head = temp,",00:06:54.320,00:07:00.659
+so we cut this link and point head to,00:07:00.659,00:07:03.889
+"this newly created Node, and this is our
+modified linked list after",00:07:03.889,00:07:07.880
+"insertion of this second Node at the
+beginning of the list.",00:07:07.880,00:07:11.370
+"Now one final thing here: this
+particular line the third line",00:07:11.370,00:07:15.060
+"temp-&gt;next = null, this is getting
+used only when the list is",00:07:15.060,00:07:18.650
+"empty. If you see, when the list is empty
+head is already null.",00:07:18.650,00:07:22.280
+"So we can avoid writing two statements.
+We can simply write this one",00:07:22.280,00:07:26.659
+"statement, temp-&gt;next = head",00:07:26.659,00:07:28.639
+"and this will also cover the scenario
+when the list is empty.",00:07:28.639,00:07:32.120
+"Now the only thing remaining in this
+program to get this running,",00:07:32.120,00:07:35.690
+"is the implementation of this print
+function, so",00:07:35.690,00:07:39.219
+"let's implement this print function.
+What I will do here is that I'll create",00:07:39.219,00:07:43.669
+"a local variable which is pointer to Node,
+named",00:07:43.669,00:07:46.770
+"temp and I need to write struct Node here.
+I keep missing this.",00:07:46.770,00:07:51.360
+"In C, you need to write it like
+this and I want to set",00:07:51.360,00:07:54.789
+"this as address of the head Node so
+this global variable has the address of",00:07:54.789,00:07:59.610
+the head Node.,00:07:59.610,00:08:00.240
+"Now I want to traverse the linked list.
+so I will write a loop like this:",00:08:00.240,00:08:04.779
+"while temp is not equal to null,",00:08:04.779,00:08:07.979
+"I'll keep going to the next Node using
+this statement temp is equal to temp",00:08:07.979,00:08:13.260
+dot next and at,00:08:13.260,00:08:16.460
+each stage I'll print the value in that Node,00:08:16.460,00:08:19.969
+as temp-&gt;data. Now I'll write,00:08:19.969,00:08:23.699
+"two more print. One outside this while
+loop,",00:08:23.699,00:08:27.520
+"and one outside after this while loop to
+print",00:08:27.520,00:08:31.449
+"an end of line. Now why did we use a
+temporary variable? Because we do not",00:08:31.449,00:08:35.289
+"want to modify head,",00:08:35.289,00:08:36.699
+"because we will lose the reference of
+the first",00:08:36.699,00:08:40.159
+"Node. So first we collect the address in head
+in another temporary variable,",00:08:40.159,00:08:44.870
+"and we are modifying the addresses in this
+temporary variable using temp is equal",00:08:44.870,00:08:48.910
+to temp-&gt;next,00:08:48.910,00:08:49.980
+to traverse the list.,00:08:49.980,00:08:52.650
+"Let us now run this program and
+see what happens.",00:08:52.650,00:08:56.100
+"So this is asking how many numbers you
+want to insert in the list.",00:08:56.100,00:09:00.580
+"Let's say we want to insert 5 numbers.
+Initially the list is empty.",00:09:00.580,00:09:04.650
+"Let's say the first number that we want
+to insert is 2.",00:09:04.650,00:09:07.820
+"At each stage, we are printing the list so
+the list is now 2. The first element and",00:09:07.820,00:09:12.900
+the last element is 2.,00:09:12.900,00:09:14.180
+"We will insert another number. The list
+is now 5 2. 5 is inserted at the",00:09:14.180,00:09:18.540
+beginning of the list.,00:09:18.540,00:09:19.600
+"Again we insert 8 and 8 is also
+inserted at the beginning of the list.",00:09:19.600,00:09:23.430
+"Ok... Let's insert number 1. The list
+is now 1",00:09:23.430,00:09:27.490
+"8 5 2. And finally I insert the number 10.
+so the final list is 10 1",00:09:27.490,00:09:32.620
+8 5 2. This seems to be working.,00:09:32.620,00:09:35.710
+"Now if we were writing this code in C++,
+we could have done couple of",00:09:35.710,00:09:39.970
+things.,00:09:39.970,00:09:40.380
+"We could have written a class and
+organize the code",00:09:40.380,00:09:43.790
+"in an object-oriented manner. We
+could also have used new operator,",00:09:43.790,00:09:47.740
+"in place of the malloc function. Now,
+coming back to the fact that we have",00:09:47.740,00:09:52.020
+declared this,00:09:52.020,00:09:52.610
+"head as global variable. What if this was
+not a global variable, this was declared",00:09:52.610,00:09:56.880
+"inside this main function as a local
+variable?",00:09:56.880,00:10:00.130
+"so I'll remove this global declaration.
+Now this head",00:10:00.130,00:10:04.100
+"will not be accessible in other
+functions, so we need to pass",00:10:04.100,00:10:07.460
+"address of the first Node as argument
+to other functions:",00:10:07.460,00:10:11.250
+"to both these functions, print and
+insert. So to this print",00:10:11.250,00:10:14.980
+"method, we'll pass, let say we name this
+argument as head.",00:10:14.980,00:10:18.560
+"We can name this argument...argument as
+head or",00:10:18.560,00:10:21.710
+"a or temp or whatever. If we name
+this argument as head, this head",00:10:21.710,00:10:26.870
+"in print will be a local variable of print
+and will not be",00:10:26.870,00:10:30.370
+"this head in main. And these two heads
+will be different, these two variables will",00:10:30.370,00:10:34.390
+be different.,00:10:34.390,00:10:35.000
+"When the main function calls print,
+passing",00:10:35.000,00:10:38.490
+"its head then the value in this
+particular head in the main function is",00:10:38.490,00:10:43.250
+copied,00:10:43.250,00:10:43.810
+"to this another head in the print
+function. So now in the print function,",00:10:43.810,00:10:47.570
+"we may not use this temp variable.
+What we can do is,",00:10:47.570,00:10:51.350
+we can use this variable head itself to,00:10:51.350,00:10:54.860
+"traverse the list and this should be
+good. We're not modifying this head here",00:10:54.860,00:10:59.450
+in the main.,00:10:59.450,00:11:01.200
+"Similarly to the insert function we will
+have to pass the address of the first",00:11:01.200,00:11:04.670
+Node.,00:11:04.670,00:11:05.130
+"And this head again is just a copy. This
+is again a local variable,",00:11:05.130,00:11:09.220
+"so after we modify the linked list, the
+head",00:11:09.220,00:11:12.769
+"in main method, should also be modified
+and there are two ways to do it.",00:11:12.769,00:11:16.240
+One: we can pass the pointer to Node as,00:11:16.240,00:11:19.850
+"return from this method. So in the main
+method, insert function will take",00:11:19.850,00:11:24.130
+another argument,00:11:24.130,00:11:25.010
+"head, and we will have to collect the
+return into head again so that it is",00:11:25.010,00:11:29.880
+modified.,00:11:29.880,00:11:30.579
+"Now this code will work fine. Oops, I
+forgot to write",00:11:30.579,00:11:33.920
+"a return here, return head and we can run
+this program like before. We can give all",00:11:33.920,00:11:39.480
+"the values and see that the list is
+building up correctly.",00:11:39.480,00:11:42.110
+"There was another way of doing this.
+Instead of",00:11:42.110,00:11:45.730
+"asking this insert function to return
+the address of head,",00:11:45.730,00:11:49.370
+"we could have passed this particular
+variable head by reference.",00:11:49.370,00:11:53.640
+"So we could have passed insert
+&amp;head. head is already a pointer to",00:11:53.640,00:11:57.870
+"Node,",00:11:57.870,00:11:58.250
+"so in the insert function we will have
+to receive pointer to pointer.",00:11:58.250,00:12:02.029
+"Node** and to avoid confusion
+let's name this variable something else.",00:12:02.029,00:12:06.290
+"This time, let's name this pointertohead.",00:12:06.290,00:12:08.449
+"So to get head, we will have to write
+something like",00:12:08.449,00:12:11.459
+"we will have to dereference this
+particular variable and write",00:12:11.459,00:12:14.790
+"*pointertohead every where and
+the return type will be",00:12:14.790,00:12:19.019
+"void. Sometimes we want to name this
+variable as head,",00:12:19.019,00:12:23.329
+"this local variable as head. Doesn't
+matter, but we'll have to take care",00:12:23.329,00:12:27.149
+"of using it properly. Now this code will
+also work.",00:12:27.149,00:12:32.260
+"As you can see here, we can insert Nodes
+and this seems to be going well.",00:12:32.260,00:12:36.850
+"If you do not understand this concepts of
+scope, you can refer to the",00:12:36.850,00:12:40.640
+"description of this video for additional
+resources.",00:12:40.640,00:12:43.019
+"So this was inserting a Node at the
+beginning of the linked list.",00:12:43.019,00:12:46.930
+Thanks for watching!,00:12:46.930,00:12:47.860

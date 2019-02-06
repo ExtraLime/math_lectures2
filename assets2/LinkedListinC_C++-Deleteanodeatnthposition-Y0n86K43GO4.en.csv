@@ -1,0 +1,353 @@
+text,start,stop
+"in our previous lesson we wrote program
+to insert a node",00:00:00.520,00:00:04.529
+"at nth position or a given position in
+a list, in a linked list",00:00:04.529,00:00:08.870
+"now in this lesson, we will write a
+program to delete",00:00:08.870,00:00:11.920
+"a node at any given position in a
+linked list. So, once again I have drawn",00:00:11.920,00:00:16.609
+"a linked list here. We have four nodes in
+this list",00:00:16.609,00:00:20.250
+at addresses 100 200 150 and 250,00:00:20.250,00:00:24.230
+"respectively so this is my example of
+a linked list of integers.",00:00:24.230,00:00:28.130
+"and let say we number the positions on a one
+based",00:00:28.130,00:00:31.420
+"index, so this is the first Node in the list
+and this is the second Node",00:00:31.420,00:00:35.340
+this is the third Node and this is the fourth Node,00:00:35.340,00:00:38.420
+"when we talk about deleting a Node
+from the linked list.",00:00:38.420,00:00:42.629
+"We will have to do two things
+first",00:00:42.629,00:00:45.710
+"we will have to fix the links so that
+the Node is no more a part of the list",00:00:45.710,00:00:50.660
+"let's say, in this case we want to delete
+the node at 3rd position",00:00:50.660,00:00:55.260
+"so will go to the second node. For nth Node
+we will have to go",00:00:55.260,00:00:59.620
+"to the (n-1)th node and we will have to
+set the link part of the (n -1)th node",00:00:59.620,00:01:05.390
+as the link of the nth mode,00:01:05.390,00:01:08.460
+"which will be the (n+1)th node
+so we will cut this link",00:01:08.460,00:01:13.270
+"and now this Node with address 150 is not
+part of the linked list",00:01:13.270,00:01:17.259
+"because when we will traverse the
+linked list, we will go from address",00:01:17.259,00:01:21.670
+100 to 200 and,00:01:21.670,00:01:23.119
+"from 200, we will go to 250. This is
+one scenario",00:01:23.119,00:01:28.580
+"for deletion in which we have a node
+before and a node after",00:01:28.580,00:01:32.350
+"there will be special cases like we may
+want to delete the node at the first",00:01:32.350,00:01:37.270
+position or the head,00:01:37.270,00:01:38.390
+"itself. In that case we will have to point
+head",00:01:38.390,00:01:42.140
+"to the second node. We will have to build
+this link",00:01:42.140,00:01:45.430
+"We will talk about all these
+special cases in our",00:01:45.430,00:01:48.899
+"implementation. Let's first understand the
+logic. Now",00:01:48.899,00:01:53.030
+"fixing the links is not good enough
+because all that we do when we fix the",00:01:53.030,00:01:57.890
+links,00:01:57.890,00:01:58.530
+"is that we detach the node from the
+linked list so that",00:01:58.530,00:02:01.840
+"it is no more accessible but it is still
+occupying space in the memory",00:02:01.840,00:02:06.259
+"as we knoe Node is allocated space
+from what we call the dynamic memory",00:02:06.259,00:02:11.459
+"or the heap section of the memory. we
+have talked about this earlier",00:02:11.459,00:02:15.450
+"In C or C++ we have to explicitly
+free this memory when we are done using",00:02:15.450,00:02:20.709
+it,00:02:20.709,00:02:21.120
+because it is not automatically deallocated,00:02:21.120,00:02:24.250
+"and memory being a crucial resource we
+do not want to",00:02:24.250,00:02:28.160
+"consume it unnecessarily when we do not
+need it",00:02:28.160,00:02:31.510
+"so the second thing that we will have to
+do is we will have to free the space",00:02:31.510,00:02:35.519
+that's being,00:02:35.519,00:02:36.489
+"taken by the Node and that's when the
+Node",00:02:36.489,00:02:40.489
+"will actually be deleted from the memory
+so",00:02:40.489,00:02:44.540
+"let us now write code for this. I am
+writing my C program here",00:02:44.540,00:02:48.599
+"the first thing that I have done is I
+have defined",00:02:48.599,00:02:51.680
+a Node which is a structure with two fields,00:02:51.680,00:02:55.250
+"one to store data and another to store
+address",00:02:55.250,00:02:59.180
+"of the next node. so, the second field
+is a pointer to node. Now to create a",00:02:59.180,00:03:03.560
+"linked list, we will have to first create
+a pointer to Node",00:03:03.560,00:03:07.010
+"a variable which is pointed to Node and
+that will store the",00:03:07.010,00:03:10.110
+"address of the head node or the first
+node in the list",00:03:10.110,00:03:13.390
+and now I want to define three functions,00:03:13.390,00:03:16.870
+first insert function that will take,00:03:16.870,00:03:19.959
+"some value, some data to be inserted into
+the list",00:03:19.959,00:03:23.550
+"and always insert this value at the end
+of the list, then I want to define",00:03:23.550,00:03:28.030
+"up print function that will print all
+the elements",00:03:28.030,00:03:31.080
+"in the list. We have defined this
+variable head as a global variable, so it",00:03:31.080,00:03:36.090
+will be accessible,00:03:36.090,00:03:37.269
+"to all these functions and the third function
+that I want to write is",00:03:37.269,00:03:41.470
+delete that will take the position,00:03:41.470,00:03:45.129
+"n of the node to be deleted and delete
+the node at ",00:03:45.129,00:03:49.269
+"that particular position. We will go back
+to implementing these",00:03:49.269,00:03:54.129
+"methods. First I'll write the main method
+so",00:03:54.129,00:03:57.599
+"in the main method, first what I'll do is I'll
+set head",00:03:57.599,00:04:01.129
+"as NULL, so at this stage the list is empty",00:04:01.129,00:04:04.750
+"and then I'll make couple of calls to insert
+function",00:04:04.750,00:04:08.489
+to insert some integers in the list,00:04:08.489,00:04:12.080
+"so after this fourth insert, the list will
+be",00:04:12.080,00:04:15.200
+"2,4,6,5 because we're always inserting at the",00:04:15.200,00:04:18.949
+"end of the list. this insert function will
+insert",00:04:18.949,00:04:22.150
+the node at the end of the list,00:04:22.150,00:04:25.500
+"now, what I want to do in my main method
+is that I want to ask",00:04:25.500,00:04:29.310
+user for a position and,00:04:29.310,00:04:32.530
+"I'll input this position from the console
+and then I'll delete the node at this particular",00:04:32.530,00:04:36.690
+position,00:04:36.690,00:04:37.710
+"and then I'll print the whole linked
+list",00:04:37.710,00:04:41.900
+Let's also make a call to print after,00:04:41.900,00:04:44.900
+"all inserts. Okay, so this is what we want
+to do in our main method, we want to 
+80
+00:04:50,000 --&gt; 00:04:53,090
+insert 4 integers in a linked list",00:04:44.900,00:04:50.000
+"to create a list. 2, 4, 6, 5 in this order",00:04:53.090,00:04:56.520
+"and then I want to print the list. then
+I want to input a number from the",00:04:56.520,00:04:59.780
+console,00:04:59.780,00:05:00.780
+"and delete the Node that particular
+position. Now, let us ",00:05:00.780,00:05:04.370
+"assume that we will always give a valid
+position and in my implementation also",00:05:04.370,00:05:09.180
+"I will not handle the error condition
+when position will not be valid",00:05:09.180,00:05:13.880
+"We have seen implementation of
+insert and print",00:05:13.880,00:05:16.890
+"earlier, so i will not go into their
+implementation details",00:05:16.890,00:05:20.710
+"what I do now is I will implement delete
+function",00:05:20.710,00:05:24.250
+"Now in my delete function let's
+first handle the case",00:05:24.250,00:05:27.980
+"when there is a Node before the
+Node that we want to delete",00:05:27.980,00:05:32.240
+so we'll have no (n -1)th node,00:05:32.240,00:05:35.260
+"what I'll do is first i'll create a
+temporary variable that is pointer to",00:05:35.260,00:05:39.970
+Node,00:05:39.970,00:05:40.560
+"and point this to head and using this
+96
+00:05:44,410 --&gt; 00:05:47,410)
+temporary variable, we will go to (n-1)th",00:05:40.560,00:05:44.410
+"Node. To go to the (n-1)th Node, we
+will have to run a loop ",00:05:47.410,00:05:51.110
+n-2 times and we will have to,00:05:51.110,00:05:54.700
+do something like this temp1 = temp1-&gt;next,00:05:54.700,00:05:59.450
+"Now, what I'll do is, I'll create a variable
+to point ",00:05:59.450,00:06:04.030
+"to the nth Node, name this temp2, and this
+will be equal to",00:06:04.030,00:06:09.130
+"temp1-&gt;next and now I can fix the
+link",00:06:09.130,00:06:14.030
+"I can say that adjust the link section,
+the link",00:06:14.030,00:06:18.130
+part of  (n-1)th Node to point to,00:06:18.130,00:06:22.130
+"(n+1)th Node which will be temp2-&gt;next. 
+now, our",00:06:22.130,00:06:26.560
+link is fixed and this variable temp2,00:06:26.560,00:06:29.580
+"stores the nth node, reference to
+the nth Node, so",00:06:29.580,00:06:33.790
+"we can make a call to Free function.
+Free function",00:06:33.790,00:06:37.410
+"deallocates whatever memory is
+allocated through malloc",00:06:37.410,00:06:40.960
+if we were using c plus plus and used,00:06:40.960,00:06:44.590
+"and if we would have used new operator
+we should have said",00:06:44.590,00:06:48.250
+"delete temp2. Okay now we should
+be good",00:06:48.250,00:06:52.850
+"this much code will work for scenarios
+when we have",00:06:52.850,00:06:56.090
+"an (n-1)th Node and even if there is
+no (n+1)th node",00:06:56.090,00:07:00.550
+"If (n+1)th position is null, this will
+work for",00:07:00.550,00:07:03.980
+"that scenario I leave that as an
+exercise for you to validate",00:07:03.980,00:07:07.470
+"Now, we have not handled one special case when
+we want to delete the head Node, so if",00:07:07.470,00:07:12.020
+n = 1,00:07:12.020,00:07:13.250
+"then what we want to do is, we just want
+to set head",00:07:13.250,00:07:16.390
+"as temp1-&gt;next. temp1 is right
+now equal to head",00:07:16.390,00:07:20.310
+"and now head has moved on to point to
+the second Node",00:07:20.310,00:07:24.240
+"and temp1 still points to the first
+node. so",00:07:24.240,00:07:28.280
+"links are fixed and we can free the
+first node",00:07:28.280,00:07:31.370
+"which is not detached from the linked
+list because head is now pointing to the",00:07:31.370,00:07:35.100
+second node,00:07:35.100,00:07:35.850
+"okay, so this is our delete function. I have",00:07:35.850,00:07:39.520
+"missed one thing here. for n not equal
+to 1, we should not execute this section",00:07:39.520,00:07:44.850
+of the code. So,00:07:44.850,00:07:45.500
+either we put an else statement after this,00:07:45.500,00:07:48.580
+"or what we can do is, we can say return
+after we execute these statements",00:07:48.580,00:07:53.790
+for this condition. Now this code should work,00:07:53.790,00:07:56.800
+"if I've got everything right. so let us
+now run this and see what happens",00:07:56.800,00:08:00.690
+"I have already written the insert and
+print functions",00:08:00.690,00:08:03.900
+"I'll come back to this main function
+this is my list",00:08:03.900,00:08:07.350
+"2,4,6,5 and I can enter any of the
+positions - one two three or four",00:08:07.350,00:08:12.020
+"so let's first say we want to delete
+the head node and we are printing the list",00:08:12.020,00:08:16.490
+after deleting,00:08:16.490,00:08:17.400
+"a particular Node, so the list now is
+4, 6, 5. this seems to be correct",00:08:17.400,00:08:22.010
+"Let us run this again and this time I
+delete number 5 from position 4",00:08:22.010,00:08:26.290
+"the list is now 2,4, 6 which is correct again",00:08:26.290,00:08:30.020
+"similarly if I enter position 2, the list
+is 2,6,5",00:08:30.020,00:08:34.690
+"which is correct. so we seem to be good.
+I'll quickly walk you through this code in",00:08:34.690,00:08:39.700
+the logical view,00:08:39.700,00:08:40.830
+to make thanks further clear. Let's say,00:08:40.830,00:08:43.940
+"we first make a call to delete Node from
+the first position",00:08:43.940,00:08:48.860
+"that is we want to delete the head node.
+So, in this code, what we are doing is",00:08:48.860,00:08:53.800
+"we are first creating a variable temp1
+which is pointer to Node",00:08:53.800,00:08:57.710
+"Initially temp1 is equal to head
+So, it stores the address 100,
+so it points to",00:08:57.710,00:09:02.370
+the head Node,00:09:02.370,00:09:03.310
+"now n =1, so we come to
+this instruction",00:09:03.310,00:09:06.620
+head = temp1-&gt;next,00:09:06.620,00:09:10.420
+"actually this is temp arrow dot next, but while reading we read this as ",00:09:10.420,00:09:14.520
+"temp1 dot next. This is nothing but a
+syntactical",00:09:14.520,00:09:17.840
+sugar for this statement (*temp1).next,00:09:17.840,00:09:22.390
+"So, we are dereferencing this pointer
+variable",00:09:22.390,00:09:26.190
+"to go to this Node and then accessing the
+next field of this node",00:09:26.190,00:09:30.120
+"now we're saying head= temp1-&gt;next,
+so head",00:09:30.120,00:09:34.150
+"is now 200. So, we are building",00:09:34.150,00:09:37.510
+this link and breaking this link,00:09:37.510,00:09:40.520
+"and now in the next line we see free(temp1)
+so we want to free the memory",00:09:40.520,00:09:45.110
+"which is being pointed to by this
+variable temp1",00:09:45.110,00:09:47.910
+"temp1 still points to this
+node at address 100",00:09:47.910,00:09:51.850
+"so, this node now will be cleared from
+the memory",00:09:51.850,00:09:56.660
+"and now we return, so this function does not
+execute any further, it finishes",00:09:56.660,00:10:02.100
+"its execution. Once the function
+execution ",00:10:02.100,00:10:05.750
+"finishes, temp1 which was a local
+variable",00:10:05.750,00:10:08.780
+"also gets cleared from the memory. head
+is a global variable so it does not get",00:10:08.780,00:10:13.380
+cleared,00:10:13.380,00:10:14.010
+"this is how we know the linked list. This
+is the identity of the linked list",00:10:14.010,00:10:18.250
+this particular variable head,00:10:18.250,00:10:21.330
+"let's rerun this code again and this
+time I want to delete the",00:10:21.330,00:10:25.330
+"Node at 3rd position in the list. I have
+drawn this",00:10:25.330,00:10:29.190
+"initial list. So, once again we create
+this",00:10:29.190,00:10:32.770
+"variable temp1. We say that the address
+here is equal to 100",00:10:32.770,00:10:37.750
+"so it points to the head Node or the
+first Node",00:10:37.750,00:10:41.050
+"and now n is not equal to 1. it is equal
+to 3",00:10:41.050,00:10:44.260
+"so we come to this particular loop
+n is equal to 3, ",00:10:44.260,00:10:48.830
+"so this loop will execute exactly once.
+this statement will execute exactly once",00:10:48.830,00:10:54.240
+so temp1 will now move to address 200,00:10:54.240,00:10:58.430
+"so temp one is now pointing to the
+second node",00:10:58.430,00:11:02.330
+"this is what we wanted to do. we 
+wanted temp1 to point to (n-1)th node, n",00:11:02.330,00:11:07.400
+"is 3 here. Now, we create another
+variable",00:11:07.400,00:11:10.740
+"another pointer to Node, temp2 and we
+set this guy",00:11:10.740,00:11:14.800
+as temp1-&gt;next. temp1-&gt;next is 150. ,00:11:14.800,00:11:19.510
+"so we set this guy as 150. so this guy
+points to the nth node",00:11:19.510,00:11:24.100
+"or the third Node. Now, in the next line",00:11:24.100,00:11:27.200
+we are saying that temp1-&gt;next,00:11:27.200,00:11:30.560
+this value which is 150 right now is now,00:11:30.560,00:11:33.880
+"temp2-&gt;next, address of the (n+1)th
+node or 4th node",00:11:33.880,00:11:37.810
+So this guy will now be 250,00:11:37.810,00:11:40.810
+"So, we are building this link and we're
+breaking this link",00:11:40.810,00:11:45.390
+"so we have fixed the links and now
+finally we are seeing that free the",00:11:45.390,00:11:49.810
+memory,00:11:49.810,00:11:50.580
+"which is being pointed to by temp2.
+so now this third Node",00:11:50.580,00:11:54.570
+"the memory block will be deleted from
+the memory and once this function",00:11:54.570,00:11:58.930
+execution finishes,00:11:58.930,00:12:00.390
+"all the local variables temp1 and
+temp2 will be cleared",00:12:00.390,00:12:04.200
+"and this is what the list will be. This
+Node at address 250 will now be",00:12:04.200,00:12:09.180
+the third node,00:12:09.180,00:12:11.400
+"so, this was deleting a Node at a
+particular position in the linked list",00:12:11.400,00:12:15.360
+"we can also have a problem where we may
+want to delete",00:12:15.360,00:12:18.770
+"a Node with a particular value. You
+can try implementing it.",00:12:18.770,00:12:22.530
+"in the coming lessons, we will see more
+problems are linked list",00:12:22.530,00:12:26.400
+"so, thanks for watching !",00:12:26.400,00:12:28.240

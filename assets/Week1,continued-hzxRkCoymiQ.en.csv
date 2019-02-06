@@ -1,0 +1,1716 @@
+text,start,stop
+&gt;&gt; [MUSIC PLAYING],00:00:00.000,00:00:12.410
+&gt;&gt; DAVID MALAN: All right.,00:00:12.410,00:00:12.830
+Welcome back.,00:00:12.830,00:00:13.370
+"This is CS50, and this is
+Week One, Continued.",00:00:13.370,00:00:16.510
+"So one of the reasons we've been passing
+around technologies like",00:00:16.510,00:00:20.050
+"Google Glass is that they come with
+something known as an API, an",00:00:20.050,00:00:24.120
+Application Programming Interface.,00:00:24.120,00:00:25.980
+"And what this means is that with the
+right files and with the right",00:00:25.980,00:00:28.830
+"documentation, you can actually write
+software for even devices like these.",00:00:28.830,00:00:32.850
+"&gt;&gt; And so what we have in mind toward
+semesters end is, if a project",00:00:32.850,00:00:36.200
+"involving, say, Google Glass might
+appeal, we'll see what we can do in",00:00:36.200,00:00:39.310
+"terms of hooking you up with some
+loaner hardware as well as the",00:00:39.310,00:00:42.220
+"publicly-accessible API so that you can
+actually start creating software",00:00:42.220,00:00:46.500
+that runs on that same Google Glass.,00:00:46.500,00:00:48.630
+"&gt;&gt; Another device that we've been playing
+with of late that we thought might be",00:00:48.630,00:00:51.710
+"fun at semester's end is
+this little thing here.",00:00:51.710,00:00:53.910
+"It's called Leap Motion, and what you're
+about to see is technically an",00:00:53.910,00:00:56.860
+"advertisement for the device, but it
+does speak to what this particular",00:00:56.860,00:01:00.280
+device is capable of.,00:01:00.280,00:01:01.240
+"And it, too, comes with an API via
+which you can write software to",00:01:01.240,00:01:05.550
+"control your own computer in a manner
+quite like this one-minute film here.",00:01:05.550,00:01:10.545
+&gt;&gt; [VIDEO PLAYBACK],00:01:10.545,00:01:12.070
+&gt;&gt; [END VIDEO PLAYBACK],00:02:08.002,00:02:08.590
+"&gt;&gt; So right now, this device happens to
+be implemented as a little USB",00:02:08.590,00:02:11.190
+"connector that you can plug into your
+computer, but I wouldn't be surprised",00:02:11.190,00:02:14.290
+"if before long we have these kinds of
+technologies in the next batch of PCs",00:02:14.290,00:02:17.930
+"and Macs so that you can, indeed,
+interact with it in",00:02:17.930,00:02:20.510
+a manner like that.,00:02:20.510,00:02:21.650
+"In fact, what I thought I'd do, too, is
+I pulled up a little demonstration",00:02:21.650,00:02:24.250
+program that comes with this software.,00:02:24.250,00:02:25.860
+"So I've put the little sensor
+in front of my laptop.",00:02:25.860,00:02:28.700
+"&gt;&gt; And as you can see, it already realizes
+that my hand is there",00:02:28.700,00:02:32.420
+controlling it.,00:02:32.420,00:02:33.400
+"And all this application does is
+swimmingly little things like this.",00:02:33.400,00:02:37.900
+"But you can see that, indeed,
+I have five fingers there.",00:02:37.900,00:02:41.080
+"If we can get it to do all 10,
+you can imagine a neat piano",00:02:41.080,00:02:44.270
+application or the like.,00:02:44.270,00:02:45.390
+"So if you'd like to come up after class
+today and play with that as",00:02:45.390,00:02:47.820
+"well, you are welcome to.",00:02:47.820,00:02:49.720
+So more on that toward semester's end.,00:02:49.720,00:02:52.930
+"&gt;&gt; So a couple of administrative
+announcements.",00:02:52.930,00:02:54.420
+"One, do section by this Friday
+at noon at cs60.net/section.",00:02:54.420,00:02:58.690
+"That URL is on the course's
+homepage as well.",00:02:58.690,00:03:01.260
+"In the meantime, though, supersections
+will debut this Sunday.",00:03:01.260,00:03:04.010
+"Supersections are a one-time thing,
+because it takes us some time to work",00:03:04.010,00:03:07.800
+out who's in which section and where.,00:03:07.800,00:03:09.470
+"&gt;&gt; So this coming Sunday, there'll be one
+section for those less comfortable,",00:03:09.470,00:03:12.280
+"one section for those
+more comfortable.",00:03:12.280,00:03:14.040
+"And those of you somewhere in
+between are welcome to go to",00:03:14.040,00:03:16.110
+either or both or neither.,00:03:16.110,00:03:17.850
+Both of these will be filmed.,00:03:17.850,00:03:19.150
+"They'll be in a larger auditorium than
+a section normally would be in.",00:03:19.150,00:03:22.740
+"But the goal here is to equip you with
+some comfort with problem set one,",00:03:22.740,00:03:26.110
+"with C, with the CS50 appliance, this
+weekend, even before you find out your",00:03:26.110,00:03:29.910
+formal section assignment.,00:03:29.910,00:03:31.050
+"So you'll meet your TF and your smaller
+group of sectionmates in about",00:03:31.050,00:03:34.700
+a week's time.,00:03:34.700,00:03:36.350
+"&gt;&gt; Office hours, meanwhile,
+have been going on.",00:03:36.350,00:03:38.200
+"Do take advantage of them tonight or
+tomorrow night if you would like.",00:03:38.200,00:03:41.020
+Problem set 0 is due on Friday.,00:03:41.020,00:03:43.460
+"This is a day later than the
+regularly-scheduled Thursday.",00:03:43.460,00:03:46.680
+"But with problem set 1, you'll see
+that it includes some warm-up",00:03:46.680,00:03:50.410
+"exercises with which you yourself
+can extend your",00:03:50.410,00:03:52.770
+Thursday deadline to Friday.,00:03:52.770,00:03:54.660
+"Problem set 1, meanwhile, will debut
+on the course's website this coming",00:03:54.660,00:03:58.410
+"Friday, if you'd like to curl up with
+it as I did once upon a time late",00:03:58.410,00:04:02.000
+Friday night in your room.,00:04:02.000,00:04:04.370
+"&gt;&gt; So cs50.net/appliance is the place where
+you can get the CS50 appliance",00:04:04.370,00:04:07.660
+that we started using on Monday.,00:04:07.660,00:04:09.040
+We'll use it a bit more today.,00:04:09.040,00:04:10.140
+"But rest assured that the problem set 1
+specification will walk you through",00:04:10.140,00:04:14.040
+"precisely the steps you need
+to get that up and running.",00:04:14.040,00:04:16.490
+"So don't worry about doing that before
+Pset 1 if you'd rather not.",00:04:16.490,00:04:22.120
+&gt;&gt; All right.,00:04:22.120,00:04:22.660
+"So we looked on Monday at source code,
+but in the context of a new",00:04:22.660,00:04:27.180
+"programming language, namely C. And C,
+unlike Scratch, is not graphical.",00:04:27.180,00:04:30.895
+It's not puzzle pieces.,00:04:30.895,00:04:32.270
+It's more English-like syntax.,00:04:32.270,00:04:34.450
+"And there's a couple of steps involved
+in actually writing and running a",00:04:34.450,00:04:37.140
+"program in C, because besides source
+code like this, you need something",00:04:37.140,00:04:41.650
+called a compiler.,00:04:41.650,00:04:42.890
+"And in layman's terms, what
+does a compiler do for us?",00:04:42.890,00:04:46.682
+Yeah.,00:04:46.682,00:04:47.650
+"&gt;&gt; STUDENT: It converts the code
+that you write to 0s and 1s.",00:04:47.650,00:04:51.040
+&gt;&gt; DAVID MALAN: Good.,00:04:51.040,00:04:51.151
+"So it converts the code that
+we write to 0s and 1s.",00:04:51.151,00:04:53.580
+"It converts so-called source code to
+object code, the latter of which looks",00:04:53.580,00:04:57.730
+a little something like this.,00:04:57.730,00:04:59.140
+"And it's your CPU, the brains inside of
+your computer, that because of the",00:04:59.140,00:05:02.860
+"people who created those computers,
+know what those sequences",00:05:02.860,00:05:06.280
+of 0s and 1s mean.,00:05:06.280,00:05:07.460
+&gt;&gt; Maybe it means print.,00:05:07.460,00:05:08.640
+Maybe it means addition.,00:05:08.640,00:05:10.265
+Maybe it means subtraction.,00:05:10.265,00:05:11.610
+Maybe it means display a graphic.,00:05:11.610,00:05:13.350
+"There are predefined patterns of bits
+that the world has decided mean",00:05:13.350,00:05:16.870
+certain things.,00:05:16.870,00:05:17.700
+"But for the most part in this course,
+we'll work at a higher level, and",00:05:17.700,00:05:20.760
+"we'll take for granted that there exist
+things like compilers that can",00:05:20.760,00:05:24.180
+"make our source code function
+in the way we intend.",00:05:24.180,00:05:27.670
+"&gt;&gt; So the program we wrote first last week
+and then began to port, so to",00:05:27.670,00:05:31.660
+"speak, to C this past
+Monday, was this.",00:05:31.660,00:05:33.920
+"When green flag clicked, say hello.",00:05:33.920,00:05:35.700
+"This was, of course,
+written in Scratch.",00:05:35.700,00:05:37.430
+"And I claimed that the equivalent
+program in C looked a little",00:05:37.430,00:05:40.710
+something like this.,00:05:40.710,00:05:41.520
+"&gt;&gt; So what I thought we'd do at first is,
+let's tease apart what looks, at first",00:05:41.520,00:05:45.050
+"glance, admittedly, as fairly arcane
+syntax, but you'll start to notice",00:05:45.050,00:05:48.790
+patterns quite quickly.,00:05:48.790,00:05:50.160
+"What we'll also do today is provide
+you with a mental model for some",00:05:50.160,00:05:53.770
+"canonical, some standard constructs
+in programming.",00:05:53.770,00:05:57.280
+"And then we'll actually get our hands
+dirty with some examples as well.",00:05:57.280,00:06:00.420
+"&gt;&gt; So for those of you more comfortable,
+realize that this week and then next",00:06:00.420,00:06:04.140
+week may very well be a bit of review.,00:06:04.140,00:06:05.940
+"But especially when the hacker edition
+of problem set 1 goes out on the",00:06:05.940,00:06:08.810
+"course's website on Friday, I do think
+you'll find that even as you fill in",00:06:08.810,00:06:12.330
+"some blanks over the next week or two,
+you'll begin to get ever more",00:06:12.330,00:06:15.390
+"challenged and encounter
+new and newer things.",00:06:15.390,00:06:18.410
+"&gt;&gt; So let's tease this program apart
+a few lines at a time.",00:06:18.410,00:06:21.310
+"At the very top, we have what's
+technically called a",00:06:21.310,00:06:24.140
+preprocessor directive.,00:06:24.140,00:06:25.950
+"This is just a line of code that says
+to include the contents of a file,",00:06:25.950,00:06:30.510
+"called standard I/N, standard input--
+or, sorry, standard I/O, standard",00:06:30.510,00:06:35.080
+"input/output, .h, inside
+of my own program.",00:06:35.080,00:06:38.670
+"&gt;&gt; So in other words, if I wrote this
+program with a simple text editor like",00:06:38.670,00:06:41.670
+"gedit, the simpler equivalent of
+something like Microsoft Word, that",00:06:41.670,00:06:45.260
+"instruction, #include stdio.h, is just
+going to tell the compiler, grab the",00:06:45.260,00:06:50.970
+"contents of that other file, stdio.h,
+and paste them right here.",00:06:50.970,00:06:56.080
+"&gt;&gt; Now, why do I care?",00:06:56.080,00:06:57.090
+"What did we claim is inside of this file
+called stdio.h, which is stored",00:06:57.090,00:07:01.850
+"somewhere on my hard drive, or in this
+case, somewhere in the CS50 appliance?",00:07:01.850,00:07:05.490
+Someone else put it there for me.,00:07:05.490,00:07:06.635
+But what's in it?,00:07:06.635,00:07:09.910
+"&gt;&gt; Yeah, so it's a declaration of
+a function called printf.",00:07:09.910,00:07:13.020
+"So printf recalls the function that
+displays words and characters and",00:07:13.020,00:07:17.400
+numbers on the screen at my bidding.,00:07:17.400,00:07:20.160
+But I didn't write it.,00:07:20.160,00:07:21.220
+CS50 didn't write it.,00:07:21.220,00:07:22.230
+"Someone years ago wrote it, and they
+essentially gave us the recipe for it",00:07:22.230,00:07:26.990
+in a file called stdio.h.,00:07:26.990,00:07:29.110
+"So that first line just gives me access
+to functions that someone else",00:07:29.110,00:07:33.240
+"wrote years ago, among
+which are printf.",00:07:33.240,00:07:36.500
+"&gt;&gt; Now, the next line I'm going to wave my
+hand at, at least until next week.",00:07:36.500,00:07:39.450
+"But for now, know that int main(void) is
+essentially the equivalent of this",00:07:39.450,00:07:43.620
+"yellow puzzle piece when
+green flag clicked.",00:07:43.620,00:07:46.310
+"The world, years ago, decided that if
+you're writing a program in the",00:07:46.310,00:07:49.510
+"language called C, you start
+your program with a line",00:07:49.510,00:07:53.150
+that looks like that.,00:07:53.150,00:07:54.410
+"In just about a week's time, it'll make
+sense what int is, what void is.",00:07:54.410,00:07:57.650
+"But for now, just think of it
+as this yellow puzzle piece.",00:07:57.650,00:08:00.840
+"&gt;&gt; Now next, we have a curly brace followed
+by another close curly brace,",00:08:00.840,00:08:04.550
+so to speak.,00:08:04.550,00:08:05.240
+"And we'll see these throughout
+programs in C, as well as",00:08:05.240,00:08:07.430
+JavaScript and PHP.,00:08:07.430,00:08:08.930
+"And these just encapsulate
+related lines of code.",00:08:08.930,00:08:11.345
+"The open curly brace essentially
+says, here comes some code.",00:08:11.345,00:08:14.600
+"And the closed curly brace, which is
+angled in the other direction, just",00:08:14.600,00:08:17.590
+"means, that's it for
+the relevant code.",00:08:17.590,00:08:19.920
+"&gt;&gt; So the juicy line in this first
+program is the last, printf,",00:08:19.920,00:08:22.970
+"quote-unquote, hello world.",00:08:22.970,00:08:25.080
+"And I called the thing between
+quotes what last time?",00:08:25.080,00:08:30.670
+So it's a string.,00:08:30.670,00:08:31.285
+"And a string is just the techie
+term for a sequence of",00:08:31.285,00:08:35.309
+"characters, a word, a phrase.",00:08:35.309,00:08:37.169
+"Even a single letter could
+be double quoted.",00:08:37.169,00:08:39.380
+"But it's a sequence of zero
+or more characters.",00:08:39.380,00:08:41.840
+"&gt;&gt; Backslash-n, though, looks
+a bit strange.",00:08:41.840,00:08:43.650
+"But it simply meant something
+simple to the computer.",00:08:43.650,00:08:46.290
+What's backslash-n?,00:08:46.290,00:08:48.060
+New line.,00:08:48.060,00:08:48.570
+"So that's just the special sequence of
+characters that the world has decided",00:08:48.570,00:08:52.490
+"means put a line break right there,
+because the compiler will actually get",00:08:52.490,00:08:56.880
+"confused, usually, if you, very
+understandably, but incorrectly, just",00:08:56.880,00:09:02.280
+"start hitting Enter to put
+new lines in your code.",00:09:02.280,00:09:04.570
+"You need to be a little more
+explicit with backslash-n.",00:09:04.570,00:09:07.150
+"&gt;&gt; And we'll see there's a few other such
+patterns for special characters.",00:09:07.150,00:09:10.540
+"For instance, if you wanted to let your
+mind wander to a corner case,",00:09:10.540,00:09:14.340
+"suppose that I wanted to print a
+double quote on the screen for",00:09:14.340,00:09:18.080
+"whatever reason, that would seem to
+be a little problematic, right?",00:09:18.080,00:09:21.840
+"Because if I put a double quote in the
+middle of ""hello, world,"" for whatever",00:09:21.840,00:09:24.990
+"reason, why does that seem
+potentially problematic?",00:09:24.990,00:09:30.120
+It breaks the string.,00:09:30.120,00:09:32.180
+&gt;&gt; The compiler is just a program.,00:09:32.180,00:09:34.700
+"A program like a compiler is just going
+to read your code top to bottom,",00:09:34.700,00:09:37.210
+left to right.,00:09:37.210,00:09:37.990
+"And if sees three double quotes instead
+of two, it's not going to know",00:09:37.990,00:09:41.850
+"if you mean that the thing to the left
+should be the string, or the thing to",00:09:41.850,00:09:45.210
+"the right, or the whole thing.",00:09:45.210,00:09:46.570
+"It's ambiguous, and so what a typical
+compiler would do is just freak out,",00:09:46.570,00:09:50.560
+"and give you some error message, and
+make you deal with the problem.",00:09:50.560,00:09:53.710
+"&gt;&gt; So given that backslash-n means a new
+line, what would your instincts now",00:09:53.710,00:09:58.120
+"start to be if you wanted to include
+something anomalous like a double",00:09:58.120,00:10:02.610
+"quote inside of this otherwise-quoted
+string?",00:10:02.610,00:10:06.210
+Backslash-double quote.,00:10:06.210,00:10:07.640
+"And so we'll see this
+kind of pattern too.",00:10:07.640,00:10:09.630
+"&gt;&gt; If you want to do something a little
+strange, you'll find that the",00:10:09.630,00:10:12.490
+"solutions often follow a pattern,
+and the backslash",00:10:12.490,00:10:15.060
+denotes an escape sequence.,00:10:15.060,00:10:17.150
+"And it just means something special
+that we need to represent in a",00:10:17.150,00:10:20.320
+different way.,00:10:20.320,00:10:21.060
+"As for how do you represent
+a backslash, well, we'll",00:10:21.060,00:10:23.830
+come back to that.,00:10:23.830,00:10:24.550
+"But the answer, too, is actually
+a bit obvious.",00:10:24.550,00:10:26.930
+"&gt;&gt; So let's now introduce some other
+programming constructs",00:10:26.930,00:10:31.080
+that you saw in Scratch.,00:10:31.080,00:10:31.915
+"You've probably taken for granted
+already if you've already dived into",00:10:31.915,00:10:34.790
+problem set 0.,00:10:34.790,00:10:36.060
+"But let's now introduce the syntax in C
+for these otherwise fairly intuitive",00:10:36.060,00:10:40.950
+"ideas, at least some of them.",00:10:40.950,00:10:42.300
+"&gt;&gt; So this notion of a condition or
+a branch, whereas previously we",00:10:42.300,00:10:45.570
+"represented it with code that looked
+like this on the left in Scratch--",00:10:45.570,00:10:49.330
+"if x is less than y, then say so--",00:10:49.330,00:10:52.200
+"instead now in C-- let me hone
+in on the simplest case--",00:10:52.200,00:10:56.760
+"we're simply going to say, if, open
+parenthesis, something is true-- a",00:10:56.760,00:11:01.235
+"Boolean expression is going to go
+where I have said condition--",00:11:01.235,00:11:04.190
+"close parenthesis, then do what's
+inside of those curly braces.",00:11:04.190,00:11:08.170
+"&gt;&gt; So here, too, the curly braces
+are kind of like Scratch's",00:11:08.170,00:11:11.020
+U-shaped puzzle pieces.,00:11:11.020,00:11:12.460
+Do what's inside these curly braces.,00:11:12.460,00:11:14.890
+"In this case, slash slash.",00:11:14.890,00:11:16.790
+"And notice this is a forward
+slash, not a backslash.",00:11:16.790,00:11:19.720
+"Forward slash, forward slash,
+for those who've programmed",00:11:19.720,00:11:21.440
+"before, just means--",00:11:21.440,00:11:23.370
+it's just a comment.,00:11:23.370,00:11:24.190
+"A comment is not a line
+of code, per se.",00:11:24.190,00:11:26.630
+"It's a line of English that you, the
+human, have written to yourself to",00:11:26.630,00:11:30.200
+"perhaps remind you to do something, to
+explain to yourself, to explain to",00:11:30.200,00:11:33.540
+"someone else, what your code is doing.",00:11:33.540,00:11:35.260
+It's just a descriptive comment.,00:11:35.260,00:11:37.050
+"&gt;&gt; Now, of course, we can have a two-way
+fork in the road just by doing this, a",00:11:37.050,00:11:40.880
+"three-way fork in the road by doing
+this, and if you continue this",00:11:40.880,00:11:43.930
+"pattern, you can have four-way,
+five-way, six-way forks in the road if",00:11:43.930,00:11:47.570
+"you need to handle, indeed,
+that many conditions.",00:11:47.570,00:11:50.150
+And then notice the parallelism here--,00:11:50.150,00:11:52.010
+"if (condition), else if (condition),
+and the only one that's a little",00:11:52.010,00:11:55.070
+"strange is the last, which
+is just that else.",00:11:55.070,00:11:58.010
+"But again, this is identical,
+conceptually, to what we've done",00:11:58.010,00:12:01.170
+"already, even though the syntax will
+take a little bit getting used to.",00:12:01.170,00:12:04.690
+"&gt;&gt; Now, in this example, there are
+some other strange syntax.",00:12:04.690,00:12:07.730
+"We see printf again, open parenthesis,
+and close parenthesis.",00:12:07.730,00:12:11.220
+"And inside of there is
+a quoted string.",00:12:11.220,00:12:13.190
+"The parentheses, in the context
+of printf, go on the left",00:12:13.190,00:12:17.060
+and right of what?,00:12:17.060,00:12:18.160
+"What do we describe that quoted
+string as more generally?",00:12:18.160,00:12:22.190
+&gt;&gt; So it's an argument.,00:12:22.190,00:12:23.320
+"Any time you have a function, like
+printf, and then an open paren and a",00:12:23.320,00:12:26.620
+"close paren and something inside of
+it, whether it's a string, or an",00:12:26.620,00:12:30.330
+"integer, or anything else, the thing in
+between those parentheses is called",00:12:30.330,00:12:34.420
+an argument.,00:12:34.420,00:12:35.110
+"&gt;&gt; And an argument just influences
+the function's behavior.",00:12:35.110,00:12:37.910
+"In this case, it's pretty clear how.",00:12:37.910,00:12:39.990
+"x &lt; y is what's being passed in,
+so to speak, as an argument.",00:12:39.990,00:12:44.480
+"And printf is going to
+print exactly that.",00:12:44.480,00:12:47.720
+"Because surely, the person years ago
+who implemented printf had no idea",00:12:47.720,00:12:51.590
+"what we human successors were
+going to use printf for.",00:12:51.590,00:12:55.000
+"So that's why arguments exist, to
+influence behavior after a function's",00:12:55.000,00:12:58.610
+been written.,00:12:58.610,00:12:59.450
+"&gt;&gt; Now, Boolean expression.",00:12:59.450,00:13:00.780
+We've seen these before in Scratch.,00:13:00.780,00:13:02.470
+"It turns out in C you can also ""or""
+them together, so to speak.",00:13:02.470,00:13:06.680
+"Two vertical bars means that this block
+of code, this do this, will",00:13:06.680,00:13:10.930
+"execute if the first condition is true
+or the second condition is true.",00:13:10.930,00:13:15.350
+"And even though you might not have done
+this in Scratch, you could indeed",00:13:15.350,00:13:17.710
+"do this in Scratch, And you can also
+express yourself differently--",00:13:17.710,00:13:20.580
+"if the first condition and the second
+condition are true, then do what's",00:13:20.580,00:13:25.300
+inside of the curly braces.,00:13:25.300,00:13:27.160
+"&gt;&gt; And just as an aside, the reason it's
+a double ampersand and a double",00:13:27.160,00:13:31.210
+"vertical bar, we'll see eventually
+that a single vertical bar and a",00:13:31.210,00:13:34.610
+"single ampersand actually have different
+meaning in C. So for now,",00:13:34.610,00:13:38.710
+"that duplication of symbols
+is intentional.",00:13:38.710,00:13:41.840
+"&gt;&gt; So let's introduce, briefly,
+this other bit of syntax.",00:13:41.840,00:13:45.070
+"This doesn't quite carry over to
+Scratch, but I claim that I can",00:13:45.070,00:13:48.940
+"implement the notion of an if else, if
+else, if else, if else statement using",00:13:48.940,00:13:55.190
+something called a switch statement.,00:13:55.190,00:13:56.760
+"And the only reason this really exists
+is to just give you, the programmer, a",00:13:56.760,00:14:00.820
+"slightly different way of solving some
+problem, even though logically it",00:14:00.820,00:14:05.470
+doesn't give you any new capabilities.,00:14:05.470,00:14:07.340
+&gt;&gt; By that I mean this.,00:14:07.340,00:14:08.530
+"When you say switch, and then a space,
+and then a pair of parentheses, inside",00:14:08.530,00:14:13.330
+of which goes an expression--,00:14:13.330,00:14:14.570
+"and this might be a little non-obvious
+at first, but this is not an argument,",00:14:14.570,00:14:18.010
+"technically, because switch
+is not a function.",00:14:18.010,00:14:20.680
+"So for now, just assume that we're using
+parentheses in different places",00:14:20.680,00:14:24.230
+for different reasons.,00:14:24.230,00:14:25.250
+"&gt;&gt; So switch on expression means I can
+put a variable inside of those",00:14:25.250,00:14:29.310
+parentheses where it says expression.,00:14:29.310,00:14:31.350
+And then if that variable--,00:14:31.350,00:14:33.090
+"suppose it's called x, and
+it's just an integer--",00:14:33.090,00:14:35.400
+"I can then enumerate in my slide
+here something like this.",00:14:35.400,00:14:38.900
+"If x is my variable, and I
+want to do something if x",00:14:38.900,00:14:41.690
+"equals 1, I can do that.",00:14:41.690,00:14:43.480
+"&gt;&gt; If I instead want to do something
+if x is 2, I can do that.",00:14:43.480,00:14:46.660
+"Else, if I want to do something else
+entirely, I can have a default case in",00:14:46.660,00:14:50.390
+which case I do this other thing.,00:14:50.390,00:14:52.750
+"So in that sense, it's equivalent to an
+if x equals equals 1, else if else,",00:14:52.750,00:14:58.730
+"but I mention this now just because
+we'll see it again.",00:14:58.730,00:15:01.150
+"But for now, just know that it exists.",00:15:01.150,00:15:03.720
+&gt;&gt; All right.,00:15:03.720,00:15:04.220
+"So these last couple are a little more
+complex at first glance, but they do",00:15:04.220,00:15:07.660
+something fairly straightforward.,00:15:07.660,00:15:09.385
+"A for loop in C is a chunk of code that
+just does something again and",00:15:09.385,00:15:14.410
+again and again.,00:15:14.410,00:15:15.330
+"And the only annoying thing about it is
+that is that it's a little cryptic",00:15:15.330,00:15:17.590
+"to express yourself in this cyclical
+pattern, but the world standardized on",00:15:17.590,00:15:21.380
+the following way.,00:15:21.380,00:15:22.450
+"&gt;&gt; When you use a for loop, you've got
+a pair of parentheses again.",00:15:22.450,00:15:25.760
+"And notice the two semicolons
+in there.",00:15:25.760,00:15:27.570
+"Those two semicolons separate three
+different expressions inside of the",00:15:27.570,00:15:34.380
+parentheses.,00:15:34.380,00:15:35.020
+One is the so-called initializations.,00:15:35.020,00:15:37.170
+One is the so-called condition.,00:15:37.170,00:15:38.830
+And one is the so-called updates.,00:15:38.830,00:15:40.210
+"&gt;&gt; Looked at in the abstract, this is
+completely non-obvious, so let's look",00:15:40.210,00:15:43.240
+at a concrete example.,00:15:43.240,00:15:44.630
+In Scratch we had a repeat block.,00:15:44.630,00:15:46.720
+"And this block said repeat 10 times, say
+""hello, world."" Let me claim for",00:15:46.720,00:15:50.670
+"now, and we'll come back to this, and
+this, too, will get more familiar to",00:15:50.670,00:15:53.810
+"you before long, the equivalent C
+code could be said to be this--",00:15:53.810,00:15:57.345
+"a for statement and a space, a pair of
+parentheses, notice the semicolons in",00:15:57.345,00:16:02.320
+"there, which separate three distinct
+things, the initialization, the",00:16:02.320,00:16:05.730
+"condition, and the update.",00:16:05.730,00:16:07.320
+"&gt;&gt; And take a guess what
+the first is doing.",00:16:07.320,00:16:08.840
+Int i = 0.,00:16:08.840,00:16:10.690
+"In rough layman's terms, what is
+that doing for us, probably?",00:16:10.690,00:16:15.120
+So yeah.,00:16:15.120,00:16:15.590
+"It's declaring a variable called i,
+and it's giving it what value?",00:16:15.590,00:16:19.630
+0.,00:16:19.630,00:16:20.220
+"So it's creating a variable called
+i, storing the value 0 in it.",00:16:20.220,00:16:24.280
+That's the so-called initialization.,00:16:24.280,00:16:26.420
+"&gt;&gt; All right, now I claimed before
+that the middle thing, i",00:16:26.420,00:16:29.360
+"&lt; 10, is the condition.",00:16:29.360,00:16:31.760
+So what is doing?,00:16:31.760,00:16:32.730
+"Well, what the for loop does when a
+program with a for loop is run, is",00:16:32.730,00:16:36.560
+"every time the computer runs through
+this loop, top to bottom, top to",00:16:36.560,00:16:41.050
+"bottom, just like you guys did when
+counting yourselves and sitting down,",00:16:41.050,00:16:43.740
+"again and again and again,
+the computer is going",00:16:43.740,00:16:47.090
+to check that condition.,00:16:47.090,00:16:48.560
+"And if i is less than 10,
+it'll do it again.",00:16:48.560,00:16:51.140
+"If i is less than 10,
+it'll do it again.",00:16:51.140,00:16:53.100
+"If i is less than ten,
+it'll do it again.",00:16:53.100,00:16:55.030
+"So that seems to suggest that
+hopefully i is changing.",00:16:55.030,00:16:57.330
+"Otherwise, we'd have an infinite loop.",00:16:57.330,00:16:59.010
+"And indeed, i is changing, because the
+last thing after the semicolon there",00:16:59.010,00:17:02.590
+is the somewhat cryptic syntax of i++.,00:17:02.590,00:17:05.569
+"But those of you who've done this
+before, that just means",00:17:05.569,00:17:07.630
+quite simply what?,00:17:07.630,00:17:08.609
+&gt;&gt; STUDENTS: [INTERPOSING VOICES].,00:17:08.609,00:17:09.730
+&gt;&gt; DAVID MALAN: Add 1 to i.,00:17:09.730,00:17:10.740
+Increment i.,00:17:10.740,00:17:11.819
+"So we saw a Scratch puzzle
+piece for that, actually.",00:17:11.819,00:17:13.910
+"It didn't look like i++, but that just
+means, quite simply, increment the",00:17:13.910,00:17:18.230
+value i by 1 every time you do this.,00:17:18.230,00:17:24.040
+"So literally, you start by
+initializing i to 0.",00:17:24.040,00:17:26.910
+You then check your condition.,00:17:26.910,00:17:29.520
+Is 0 less than 10?,00:17:29.520,00:17:31.070
+Yes.,00:17:31.070,00:17:31.730
+We go through the loop.,00:17:31.730,00:17:32.910
+"&gt;&gt; The next thing I claim the computer's
+going to do is it's going",00:17:32.910,00:17:35.150
+to increment i.,00:17:35.150,00:17:35.910
+So i is now 1.,00:17:35.910,00:17:37.080
+It checks the condition.,00:17:37.080,00:17:37.940
+Is 1 less than 10?,00:17:37.940,00:17:39.290
+Of course.,00:17:39.290,00:17:39.930
+So does it again.,00:17:39.930,00:17:41.030
+Then it increments i++ to 2.,00:17:41.030,00:17:43.580
+Is 2 less than 10?,00:17:43.580,00:17:44.610
+Yes.,00:17:44.610,00:17:45.230
+And again and again and again.,00:17:45.230,00:17:46.670
+"And eventually, because of the
+plus-plussing, we get to i equals 10.",00:17:46.670,00:17:50.070
+Is 10 less than 10?,00:17:50.070,00:17:51.675
+"Well, obviously not.",00:17:51.675,00:17:52.990
+"And that's the point at which
+the for loop just stops.",00:17:52.990,00:17:55.320
+"And if you have more code on the
+screen down below, the computer",00:17:55.320,00:17:58.320
+proceeds to run that code instead.,00:17:58.320,00:18:01.620
+"&gt;&gt; So again, even though this is going to
+look and feel a little strange at",00:18:01.620,00:18:05.380
+"first, certainly for those of you who
+have never programmed before, it",00:18:05.380,00:18:07.830
+"literally reduces conceptually
+to what's otherwise a very",00:18:07.830,00:18:11.640
+"straightforward puzzle
+piece in Scratch.",00:18:11.640,00:18:14.330
+"&gt;&gt; All right, I promised that there'd
+be other analogs in Scratch.",00:18:14.330,00:18:19.130
+There's this one too.,00:18:19.130,00:18:20.060
+And we saw this briefly last time.,00:18:20.060,00:18:21.700
+"But remember the forever
+block in Scratch?",00:18:21.700,00:18:23.530
+It just does something forever?,00:18:23.530,00:18:25.490
+"I claimed that you could implement
+this in this way.",00:18:25.490,00:18:27.470
+"And you can actually implement this
+in a bunch of different ways.",00:18:27.470,00:18:29.740
+"&gt;&gt; But the while loop is just a different
+way in C of expressing yourself.",00:18:29.740,00:18:34.260
+"At the end of the day, you can't do
+anything with a while loop that you",00:18:34.260,00:18:37.080
+can't with a for loop.,00:18:37.080,00:18:38.360
+"So they're at the end of the
+day functionally the same.",00:18:38.360,00:18:41.430
+"But it allows you to express yourself
+a little differently in",00:18:41.430,00:18:43.840
+the following way.,00:18:43.840,00:18:44.850
+"&gt;&gt; With the while loop, it's what's in
+parentheses that's checked again and",00:18:44.850,00:18:49.720
+again and again.,00:18:49.720,00:18:51.050
+"And as soon as that expression is false,
+then the loop stops executing,",00:18:51.050,00:18:55.100
+"and the computer proceeds to
+run whatever other code you",00:18:55.100,00:18:57.890
+have in your file.,00:18:57.890,00:18:59.230
+"&gt;&gt; But what's interesting here is
+that I literally typed true.",00:18:59.230,00:19:02.180
+"And true is a type of Boolean value,
+a true or false value.",00:19:02.180,00:19:06.680
+"So could true ever become
+false if I've literally",00:19:06.680,00:19:09.750
+hard-coded it into my program?,00:19:09.750,00:19:11.970
+So no.,00:19:11.970,00:19:12.470
+It's a little strange that I did this.,00:19:12.470,00:19:13.730
+But true is true.,00:19:13.730,00:19:15.190
+There's no plus-plussing.,00:19:15.190,00:19:16.320
+There's no use of variables in here.,00:19:16.320,00:19:17.820
+"So because I hard-coded while true, this
+loop is always going to evaluate",00:19:17.820,00:19:22.740
+again and again and again.,00:19:22.740,00:19:24.090
+"&gt;&gt; So how many times is hello world
+going to print on the screen?",00:19:24.090,00:19:27.660
+Forever.,00:19:27.660,00:19:28.170
+"An infinite number of times until the
+battery dies or some other external",00:19:28.170,00:19:31.980
+event happens.,00:19:31.980,00:19:32.730
+"So this is probably not the best program
+to write, because if the user",00:19:32.730,00:19:35.880
+"can never quit your program, it's
+probably not what you intended.",00:19:35.880,00:19:38.660
+"&gt;&gt; But sometimes, programs should
+have an infinite loop.",00:19:38.660,00:19:41.070
+"For instance, if your computer has a
+clock on it, it certainly would be",00:19:41.070,00:19:44.050
+"nice if your clock it does keep updating
+itself forever, albeit once a",00:19:44.050,00:19:48.130
+"second or once a minute or
+something like that.",00:19:48.130,00:19:50.500
+"So even infinite loops
+do have their place.",00:19:50.500,00:19:53.690
+&gt;&gt; All right.,00:19:53.690,00:19:54.360
+"Lastly, this one.",00:19:54.360,00:19:55.190
+"And this one is a little bit different
+functionally, and we'll come back to",00:19:55.190,00:19:57.770
+this probably in Pset 1.,00:19:57.770,00:19:59.460
+"But there's another type of loop
+called a do while loop.",00:19:59.460,00:20:02.370
+"And the only difference here between a
+do while loop and, say, a while loop,",00:20:02.370,00:20:07.100
+"is that the condition is checked not
+before you execute the code, but after",00:20:07.100,00:20:11.120
+you execute the code.,00:20:11.120,00:20:12.080
+"So at the top for the while
+loop, whereas the do while",00:20:12.080,00:20:15.380
+checks it at the bottom.,00:20:15.380,00:20:16.560
+"&gt;&gt; And this just means that the while loop
+will typically execute more times",00:20:16.560,00:20:21.370
+or fewer times than a while loop?,00:20:21.370,00:20:24.630
+"Potentially more times, because a do
+while loop is clearly saying do this,",00:20:24.630,00:20:30.810
+"only after which point you check
+if the condition inside of the",00:20:30.810,00:20:34.600
+parentheses is true.,00:20:34.600,00:20:35.980
+"&gt;&gt; So we'll see this again
+probably in Pset 1.",00:20:35.980,00:20:37.940
+"If you ever want to do something at
+least once and then maybe some more",00:20:37.940,00:20:41.150
+"times, this is a good
+construct to use.",00:20:41.150,00:20:43.350
+"But a while loop, by contrast, will
+check its condition first.",00:20:43.350,00:20:46.970
+"And that's it for loops in C, do
+while, while, and for loops.",00:20:46.970,00:20:50.660
+"And again, they map pretty nicely back
+to Scratch, except this one doesn't",00:20:50.660,00:20:54.700
+quite have the same analog in Scratch.,00:20:54.700,00:20:57.350
+"&gt;&gt; Well, how about, now, variables?",00:20:57.350,00:20:58.880
+"So this is how I declared a variable
+syntactically the other day.",00:20:58.880,00:21:02.600
+"I had an int, which I claimed
+is an integer.",00:21:02.600,00:21:06.440
+"I then had a variable called counter,
+and then a semicolon.",00:21:06.440,00:21:09.690
+So what is this line of code doing?,00:21:09.690,00:21:11.070
+"This is, quite simply, declaring
+a variable--",00:21:11.070,00:21:14.540
+"that is, asking the computer, give me
+some memory, give me some bits-- in",00:21:14.540,00:21:17.940
+which I can store what?,00:21:17.940,00:21:19.450
+An int.,00:21:19.450,00:21:20.300
+"And the semicolon just means
+end of line of code.",00:21:20.300,00:21:23.570
+"&gt;&gt; Now, the second line is probably
+pretty guessable.",00:21:23.570,00:21:25.500
+What is counter = 0; doing?,00:21:25.500,00:21:29.710
+It's assigning 0 to counter.,00:21:29.710,00:21:31.690
+"And so this is the other thing
+that's a little annoying",00:21:31.690,00:21:33.470
+"versus, say, algebra.",00:21:33.470,00:21:34.540
+"Whereas in algebra, the equal sign means
+equals, here in C, the equal",00:21:34.540,00:21:39.110
+sign means assignment.,00:21:39.110,00:21:40.470
+"So it means put what's on the right
+into what's on the left.",00:21:40.470,00:21:45.380
+"And we'll see another symbol, equals
+equals, when we want to actually test",00:21:45.380,00:21:49.030
+"for quality, somewhat annoyingly.",00:21:49.030,00:21:50.570
+&gt;&gt; But this is a little inefficient.,00:21:50.570,00:21:52.590
+"It's kind of annoying that I have
+to declare a variable and",00:21:52.590,00:21:55.090
+then give it a value.,00:21:55.090,00:21:56.110
+"So C actually lets us simplify this
+and just do it all at once.",00:21:56.110,00:21:59.380
+"You can declare the variable
+on the left.",00:21:59.380,00:22:01.330
+"You can still do the assignment on the
+right by putting that equal sign in",00:22:01.330,00:22:04.590
+the middle.,00:22:04.590,00:22:05.030
+"So at the end of the day, these two are
+equivalent, but this one, frankly,",00:22:05.030,00:22:08.740
+"is probably the better habit to get into
+just because it's a little less",00:22:08.740,00:22:11.840
+"code, it's a little easier to read,
+and it just tightens up",00:22:11.840,00:22:15.040
+"your code, so to speak.",00:22:15.040,00:22:17.470
+"&gt;&gt; Any questions thus far on the loops,
+on variables, on conditions, on",00:22:17.470,00:22:22.120
+"Booleans, either technically
+or conceptually?",00:22:22.120,00:22:27.001
+All right.,00:22:27.001,00:22:28.010
+"So now this next one gets a
+little more interesting.",00:22:28.010,00:22:30.690
+"And this is the example I put up last
+time that just maps a Scratch example",00:22:30.690,00:22:34.790
+over to C.,00:22:34.790,00:22:35.820
+&gt;&gt; So a function.,00:22:35.820,00:22:36.580
+"In layman's terms, what's a function?",00:22:36.580,00:22:38.110
+Got to be bolder with your answer.,00:22:42.900,00:22:44.350
+What's a function?,00:22:44.350,00:22:45.020
+&gt;&gt; STUDENT: Does something.,00:22:45.020,00:22:46.320
+&gt;&gt; DAVID MALAN: What's that?,00:22:46.320,00:22:46.780
+&gt;&gt; STUDENT: Does something.,00:22:46.780,00:22:48.000
+&gt;&gt; DAVID MALAN: Does something.,00:22:48.000,00:22:48.710
+OK.,00:22:48.710,00:22:49.000
+We'll start there.,00:22:49.000,00:22:49.590
+So a function does something.,00:22:49.590,00:22:51.270
+"So it's a piece of code that's
+essentially implemented elsewhere that",00:22:51.270,00:22:55.160
+indeed does something.,00:22:55.160,00:22:56.620
+"Now, what's interesting about a function
+is that it can take input,",00:22:56.620,00:23:00.180
+and it can produce output.,00:23:00.180,00:23:02.710
+"And let's actually take
+a look at this.",00:23:02.710,00:23:05.090
+"&gt;&gt; So the man behind the curtain
+was deliberate a moment ago.",00:23:05.090,00:23:09.030
+Here we have a table.,00:23:09.030,00:23:10.320
+"But suppose that this actually
+represents a big box.",00:23:10.320,00:23:13.010
+So this is a so-called black box.,00:23:13.010,00:23:14.940
+"And in general, in design, in computer
+science, black boxes just refer to",00:23:14.940,00:23:19.800
+"pieces of functionality that someone
+has implemented, and you don't",00:23:19.800,00:23:22.510
+"necessarily know or care how it's
+implemented underneath the hood.",00:23:22.510,00:23:26.140
+"You just care that this black box,
+which we'll now start calling a",00:23:26.140,00:23:28.960
+"function, does something.",00:23:28.960,00:23:30.730
+"&gt;&gt; So, for instance, if this black box on
+the stage here represents printf, a",00:23:30.730,00:23:34.710
+"function, I know from previous examples
+that printf takes one or more",00:23:34.710,00:23:38.040
+"arguments, and the first of those
+arguments should be a string, like",00:23:38.040,00:23:40.910
+"""hello, world."" Well, if I am the person
+writing the program, and I want",00:23:40.910,00:23:44.780
+"to use printf, I, for instance, might
+take a piece of blank paper here and a",00:23:44.780,00:23:50.460
+black marker and write on it--,00:23:50.460,00:23:55.060
+"I misspelled ""world""--",00:23:55.060,00:23:56.580
+H-E-L-L-O.,00:23:56.580,00:23:59.560
+"&gt;&gt; So I'll take my black marker and I'll
+write, as big and legibly as I can on",00:23:59.560,00:24:04.220
+"this piece of paper, ""hello, world,"" And
+now I claim this is my argument.",00:24:04.220,00:24:07.260
+"This is a string represented with
+a piece of white paper.",00:24:07.260,00:24:09.740
+"And my input now to the function
+printf is going to be this.",00:24:09.740,00:24:13.030
+"So I am calling printf, passing
+that argument as input to it.",00:24:13.030,00:24:18.250
+"&gt;&gt; And now, I don't know how the person who
+wrote printf did it years ago, but",00:24:22.110,00:24:26.740
+"I do know from its documentation that
+its purpose in life is to print what I",00:24:26.740,00:24:31.110
+provide to it as input.,00:24:31.110,00:24:34.410
+"And so, even though this implementation
+is unbeknownst to me",00:24:34.410,00:24:40.630
+"underneath the hood, now
+I see, oh, it is done.",00:24:40.630,00:24:44.170
+"It has printed something
+on the screen.",00:24:44.170,00:24:45.740
+"And now control of the program, if there
+were more lines of code, would",00:24:45.740,00:24:49.070
+have now returned to me.,00:24:49.070,00:24:51.070
+And so the fact that Colton--,00:24:51.070,00:24:52.290
+"bless his heart, is hiding here under
+a table in front of all of you--",00:24:52.290,00:24:55.370
+"is deliberate in that I don't know
+and I don't care how printf is",00:24:55.370,00:24:59.530
+implemented.,00:24:59.530,00:25:00.100
+"I just know, again, from its
+documentation, what it does and how I",00:25:00.100,00:25:03.390
+am supposed to use it.,00:25:03.390,00:25:05.040
+"&gt;&gt; Now, recall that printf could get
+a little more sophisticated.",00:25:05.040,00:25:09.140
+"Again, we're just talking about the
+equivalent of Scratch's Say block.",00:25:09.140,00:25:12.220
+But I also did this last time.,00:25:12.220,00:25:14.230
+"I wanted to make my hello program a
+little more dynamic and not just hard",00:25:14.230,00:25:17.270
+"code something like ""world,"" and
+definitely not hard code something",00:25:17.270,00:25:19.740
+"arbitrary like D-A-V-I-D
+into the program.",00:25:19.740,00:25:22.520
+"I wanted to ask the user for his or her
+name, and then do something with",00:25:22.520,00:25:27.510
+that string that they provide.,00:25:27.510,00:25:29.720
+"&gt;&gt; So there's something a little different
+here. printf, a moment ago,",00:25:29.720,00:25:32.690
+"did, indeed, do something, but it
+didn't return anything to me.",00:25:32.690,00:25:35.860
+Right?,00:25:35.860,00:25:36.020
+"Colton did not hand me anything
+back, no piece of paper.",00:25:36.020,00:25:38.910
+There was just a side effect.,00:25:38.910,00:25:40.320
+"My providing ""hello, world"" as an
+argument to Colton resulted in the",00:25:40.320,00:25:44.510
+"side effect of a word, some words,
+appearing on the screen.",00:25:44.510,00:25:48.420
+"&gt;&gt; getstring, though, is a little
+different. getstring is also a",00:25:48.420,00:25:51.350
+"function, but it returns some value.",00:25:51.350,00:25:54.590
+"It doesn't just have an
+aesthetic side effect.",00:25:54.590,00:25:56.370
+"It actually gives me, the person
+calling or using the function,",00:25:56.370,00:26:00.230
+something back.,00:26:00.230,00:26:01.320
+"So in this case, getstring is
+called with getstring open",00:26:01.320,00:26:05.740
+"paren, close paren.",00:26:05.740,00:26:07.510
+"Does getstring, therefore, take
+any arguments or input?",00:26:07.510,00:26:11.370
+"No, it seems not.",00:26:11.370,00:26:12.340
+"Its purpose in life is
+just to get a string.",00:26:12.340,00:26:14.460
+It needs no more detail than that.,00:26:14.460,00:26:16.910
+"So let me go ahead and pretend that,
+again, this black box is not printf,",00:26:16.910,00:26:20.430
+"but getstring, and let me, the person
+writing this program, call or use",00:26:20.430,00:26:25.160
+"getstring by just writing
+G-E-T-S-T-R-I-N-G, open paren, close",00:26:25.160,00:26:29.720
+"paren, getstring.",00:26:29.720,00:26:32.170
+"&gt;&gt; Now, I have no idea how the CS50 staff
+implemented getstring, but I know that",00:26:32.170,00:26:36.920
+"if I wait long enough, it will do its
+thing underneath the hood, maybe using",00:26:36.920,00:26:41.240
+"some variables, maybe using some
+conditions, maybe using some loops,",00:26:41.240,00:26:44.940
+"maybe using some functions,
+maybe using--",00:26:44.940,00:26:48.170
+"just trying to stall-- maybe using
+some other programming features.",00:26:48.170,00:26:52.290
+"But if I wait long enough-- in reality,
+in the computer, this happens",00:26:52.290,00:26:55.350
+super fast--,00:26:55.350,00:26:56.270
+"if I wait long enough, this function
+getstring is going to get a string",00:26:56.270,00:26:59.910
+"from the user, who is presumably typing
+it out on their keyboard, and",00:26:59.910,00:27:04.060
+"then, when you getstring is done getting
+those characters from the user",00:27:04.060,00:27:08.090
+"and storing them into a string, that
+function, getstring, is going to have",00:27:08.090,00:27:14.080
+"ready for me some output which I am
+going to retrieve by way of the",00:27:14.080,00:27:17.990
+assignment operator.,00:27:17.990,00:27:19.470
+"&gt;&gt; And if I go, indeed, into the output
+here, Obosi has generously",00:27:19.470,00:27:25.390
+"participated, without knowing this in
+advance, by writing his name onto this",00:27:25.390,00:27:29.900
+"variable, which is representing
+a string.",00:27:29.900,00:27:33.100
+"Now, the assignment operator means, even
+though this might feel a little",00:27:33.100,00:27:35.640
+"redundant, I actually do need
+to make my own copy of this.",00:27:35.640,00:27:38.790
+"Because on the left hand
+side-- whoops!--",00:27:38.790,00:27:40.700
+"notice that I essentially have string
+name on the left hand side.",00:27:40.700,00:27:45.760
+"So I'm also going to make
+my own copy of this.",00:27:45.760,00:27:48.280
+"And this is a bit of a white lie,
+because we'll see in a week or two's",00:27:48.280,00:27:50.990
+"time that strings are not actually
+what they appear to be.",00:27:50.990,00:27:54.100
+"&gt;&gt; But for now, here is the return value.",00:27:54.100,00:27:56.700
+"Here is my own copy of it after
+using the assignment operator.",00:27:56.700,00:28:00.160
+"And now, what do I want to do next?",00:28:00.160,00:28:01.790
+"We now have the second
+of two lines of code.",00:28:01.790,00:28:04.080
+So I now want to call printf.,00:28:04.080,00:28:05.640
+"Let's pretend now that the black
+box is back again to being",00:28:05.640,00:28:08.500
+printf and not getstring.,00:28:08.500,00:28:10.210
+"&gt;&gt; Printf this time is going to
+take how many arguments?",00:28:10.210,00:28:12.200
+"So look, it's like two.",00:28:14.890,00:28:16.770
+"There's two commas in there, but
+one of those commas, it's",00:28:16.770,00:28:18.860
+inside of the quotes.,00:28:18.860,00:28:20.220
+"So the first argument is literally
+going to be this.",00:28:20.220,00:28:23.190
+"H-E-L-L-O, comma, percent
+s, backslash-n.",00:28:23.190,00:28:31.850
+"And now I'm providing not one argument,
+but two arguments to printf.",00:28:31.850,00:28:36.560
+"&gt;&gt; And what's printf supposed to do with
+these two inputs after I pass them in",00:28:36.560,00:28:39.530
+as arguments?,00:28:39.530,00:28:42.050
+"It's supposed to take the second of
+them, which I called name, so the",00:28:42.050,00:28:45.360
+"second piece of paper I wrote out
+a moment ago is called name.",00:28:45.360,00:28:48.660
+"It's going to plug of the value inside
+of that variable into the placeholder,",00:28:48.660,00:28:53.550
+"%s, so that, again, in just a moment's
+time, we will see a side effect of",00:28:53.550,00:28:58.310
+"having called printf, whereby now we
+see not ""hello, world,"" but ""hello,",00:28:58.310,00:29:04.180
+"Obosi.""",00:29:04.180,00:29:04.710
+"&gt;&gt; So a big round of applause to both of
+our volunteers, only one of whom knew",00:29:04.710,00:29:08.730
+this would be happening.,00:29:08.730,00:29:12.010
+All right.,00:29:12.010,00:29:12.990
+"So, perhaps, simple as that was,
+certainly, if you're already familiar",00:29:12.990,00:29:16.480
+"with such, hopefully you will never
+forget that particular visual of how",00:29:16.480,00:29:20.190
+functions work.,00:29:20.190,00:29:21.220
+&gt;&gt; So there's more than just getstring.,00:29:21.220,00:29:23.000
+"Inside of the CS50 library, there's a
+whole bunch of functions, all of which",00:29:23.000,00:29:26.020
+"are capitalized just to make clear
+that we wrote these functions.",00:29:26.020,00:29:29.510
+"Typically, in C, almost every other
+function you'll use is lowercase.",00:29:29.510,00:29:33.610
+"But we deliberately use capital letters
+just to make clear that these",00:29:33.610,00:29:36.190
+"are training wheels of sorts that we'll
+use for just a few weeks that",00:29:36.190,00:29:39.880
+"simplify the process of getting
+input from the user.",00:29:39.880,00:29:42.890
+"&gt;&gt; The CS50 library does not do anything
+that you yourselves could not do by",00:29:42.890,00:29:46.740
+"just using C code from an
+oldschool textbook.",00:29:46.740,00:29:50.230
+"But, again, we use them as training
+wheels of sorts for just a couple of",00:29:50.230,00:29:53.310
+"weeks so that we can get rid of the
+complexity that you'll soon understand",00:29:53.310,00:29:57.250
+"yourself of doing something as
+relatively straightforward as getting",00:29:57.250,00:30:00.460
+input from a user.,00:30:00.460,00:30:02.080
+"&gt;&gt; So know that you'll have access
+to GetChar, GetDouble--",00:30:02.080,00:30:05.540
+double.,00:30:05.540,00:30:06.050
+What's-- and then GetFloat.,00:30:06.050,00:30:07.050
+What's a float?,00:30:07.050,00:30:07.600
+Let's start there.,00:30:07.600,00:30:09.382
+&gt;&gt; STUDENT: [INAUDIBLE].,00:30:09.382,00:30:10.600
+&gt;&gt; DAVID MALAN: Yeah.,00:30:10.600,00:30:10.790
+It's a number with a decimal point.,00:30:10.790,00:30:12.120
+"So whereas an int is an integer, which
+is just a number with 0 through 9,",00:30:12.120,00:30:15.930
+"some number of repetitions thereof,
+a float is something",00:30:15.930,00:30:18.940
+with a decimal point.,00:30:18.940,00:30:20.100
+"And a double, meanwhile, is also a
+number with a decimal point, but more",00:30:20.100,00:30:26.090
+"numbers after the decimal
+point, potentially.",00:30:26.090,00:30:28.160
+&gt;&gt; So we'll get back to this before long.,00:30:28.160,00:30:30.040
+"But typically, each of these types of
+data, each of these types of variables",00:30:30.040,00:30:34.560
+"that a library like ours can return to
+you, use different numbers of bits to",00:30:34.560,00:30:39.380
+store information.,00:30:39.380,00:30:40.290
+"Typically, a Char, which just means
+one character, uses 8 bits.",00:30:40.290,00:30:43.910
+"And that's actually consistent with our
+byte of volunteers last week who",00:30:43.910,00:30:47.490
+"came up and represented one
+Ascii character at a time.",00:30:47.490,00:30:50.410
+So a Char is 8 bits.,00:30:50.410,00:30:51.850
+"&gt;&gt; A float happens to be
+32 bits, typically.",00:30:51.850,00:30:54.430
+"And a double, as you might guess, is
+actually 64 bits, which is just more,",00:30:54.430,00:30:59.230
+"which means you can have bigger
+numbers or more precision.",00:30:59.230,00:31:01.360
+"But again, more on that another time.",00:31:01.360,00:31:03.000
+"GetLongLong, meanwhile, though stupidly
+named, is really just a",00:31:03.000,00:31:06.550
+"integer that's twice as big, twice as
+long, potentially, as a regular",00:31:06.550,00:31:10.770
+"integer, 64 bits instead of 32.",00:31:10.770,00:31:12.940
+And GetString we've been using.,00:31:12.940,00:31:14.560
+"&gt;&gt; But it turns out, in the CS50 library,
+which is implemented, as we'll see, in",00:31:14.560,00:31:18.870
+"the form of the two files, one of which
+is called cs50.h, has two other",00:31:18.870,00:31:23.560
+data types in it.,00:31:23.560,00:31:24.770
+"Booleans do not exist in C. You can
+simulate them by just using 0s and 1s",00:31:24.770,00:31:29.700
+throughout your programs.,00:31:29.700,00:31:30.850
+"But we in the CS50 library have created
+the symbols ""true"" and ""false""",00:31:30.850,00:31:35.500
+"to represent 1 and 0 so you don't
+have to hard code something",00:31:35.500,00:31:38.580
+literally like 1 and 0.,00:31:38.580,00:31:39.810
+But we'll see those again.,00:31:39.810,00:31:40.980
+"&gt;&gt; String, too, does not exist.",00:31:40.980,00:31:42.330
+"And that's why I mentioned it's
+a bit of a white lie for now.",00:31:42.330,00:31:44.520
+"But we'll peel back that
+layer before long.",00:31:44.520,00:31:46.660
+"But for now, a string is a
+sequence of characters.",00:31:46.660,00:31:49.540
+"&gt;&gt; Meanwhile, in C, you indeed
+have different data types.",00:31:49.540,00:31:51.790
+Notice these are lowercase.,00:31:51.790,00:31:53.200
+"So the functions you saw a moment ago
+are functions written by CS50 that",00:31:53.200,00:31:56.960
+"will return to you a value that falls
+into one of these categories.",00:31:56.960,00:32:02.310
+"&gt;&gt; A couple cheat sheets just to plant
+the seed here. printf doesn't just",00:32:02.310,00:32:06.730
+take %s as placeholders.,00:32:06.730,00:32:08.600
+"It takes %d for decimal integers,
+or %i would work as well.",00:32:08.600,00:32:13.490
+"%f is floating point values. %c is for
+a char, if you want to just plug one",00:32:13.490,00:32:19.450
+"character into a preformatted string
+like we've been doing, you can use %c.",00:32:19.450,00:32:23.510
+"&gt;&gt; And then, somewhat annoyingly, %lld is
+for a long, long decimal integer,",00:32:23.510,00:32:28.490
+"which just means if you need a really
+big number and you're using something",00:32:28.490,00:32:31.050
+"called a long long, which we'll come
+back to in a pset, you can use %lld to",00:32:31.050,00:32:35.450
+"tell printf, plug in a really big
+integer here by way of its second or",00:32:35.450,00:32:40.700
+some other argument.,00:32:40.700,00:32:41.830
+"&gt;&gt; And lastly, I promised that
+there's a few other escape",00:32:41.830,00:32:45.700
+sequences that printf supports.,00:32:45.700,00:32:47.670
+We've seen backslash-n.,00:32:47.670,00:32:49.160
+Backslash-r you may see.,00:32:49.160,00:32:50.510
+It's sort of an old-school thing.,00:32:50.510,00:32:51.780
+"If you ever used a real typewriter years
+ago and you pulled on the crank",00:32:51.780,00:32:55.920
+"which not only rotated the wheel to
+move the lineup, it also moved the",00:32:55.920,00:32:59.810
+"whole thing all the way back over to
+the left, well, backslash-r just",00:32:59.810,00:33:03.730
+"essentially moves your cursor back
+to the start of the line",00:33:03.730,00:33:06.480
+without moving it down.,00:33:06.480,00:33:07.830
+"But again, more on that,
+perhaps, in the future.",00:33:07.830,00:33:09.780
+"&gt;&gt; Backslash-quote, backslash-double quote,
+backslash-backslash is the",00:33:09.780,00:33:13.670
+"solution to the tiny little riddle
+I alluded to earlier.",00:33:13.670,00:33:16.600
+"And backslash-0 is actually
+quite interesting.",00:33:16.600,00:33:18.920
+"But we'll come back to
+that before long.",00:33:18.920,00:33:21.470
+"&gt;&gt; So let me go into, now, the CS50
+appliance, and let's actually do a",00:33:21.470,00:33:25.640
+"quick warm up with one of the examples
+we did already and then move on to",00:33:25.640,00:33:28.930
+something a little more complex.,00:33:28.930,00:33:31.160
+"So if I open up my program
+called gedit--",00:33:31.160,00:33:34.980
+this is my graphical editor.,00:33:34.980,00:33:36.840
+And I can do that--,00:33:36.840,00:33:38.460
+let me close that window there--,00:33:38.460,00:33:39.820
+"by way of this icon down here,
+gedit, in the bottom-left",00:33:39.820,00:33:42.720
+corner next to the menu.,00:33:42.720,00:33:44.170
+"&gt;&gt; I'm going to go ahead and advance, and
+save this example into, say, John",00:33:44.170,00:33:48.670
+Harvard's folder.,00:33:48.670,00:33:49.660
+"John Harvard's folder is just his home
+directory where all of his files live",00:33:49.660,00:33:52.690
+by default.,00:33:52.690,00:33:53.340
+"And I'm going to save this as
+a file called hello-0.c.",00:33:53.340,00:33:58.410
+"And I've chosen this name just so it
+lines up with the sample code on the",00:33:58.410,00:34:01.260
+"course's website and in the
+YouTube videos online.",00:34:01.260,00:34:04.210
+"&gt;&gt; So now I'm going to begin to
+write my first program.",00:34:04.210,00:34:06.320
+Let me zoom in for legibility.,00:34:06.320,00:34:08.469
+"And I'm going to go ahead and say int
+main void, which is just like that",00:34:08.469,00:34:12.760
+"yellow puzzle piece that
+starts a program.",00:34:12.760,00:34:14.900
+"I have gotten into the habit over the
+years of opening my curly brace, then",00:34:14.900,00:34:18.290
+"also closing it and then going back to
+where I want to put my code, just",00:34:18.290,00:34:22.000
+"because it helps me keep everything
+balanced, especially as my",00:34:22.000,00:34:24.630
+program gets long.,00:34:24.630,00:34:25.880
+"&gt;&gt; And now, in here, I'm going to go ahead
+and say, printf, quote unquote,",00:34:25.880,00:34:29.239
+"hello world, backslash-n, close quote,
+close parenthesis, semicolon.",00:34:29.239,00:34:34.330
+"So I'm just repeating everything we've
+been taking for granted thus far.",00:34:34.330,00:34:38.100
+Now I'm going to zoom out.,00:34:38.100,00:34:39.270
+"&gt;&gt; And this terminal window down here, what
+am I allowed to do in this black",00:34:39.270,00:34:43.030
+and white window?,00:34:43.030,00:34:44.389
+What can I use it for?,00:34:44.389,00:34:46.977
+"So this is where I run commands and
+where I can compile things.",00:34:46.977,00:34:49.770
+And I'm going to keep it simple.,00:34:49.770,00:34:50.620
+"I'm going to use a program
+called Make, which isn't",00:34:50.620,00:34:52.780
+technically a compiler.,00:34:52.780,00:34:54.020
+"The compiler's called Clang, but
+we'll come back to that in a",00:34:54.020,00:34:56.360
+week or two's time.,00:34:56.360,00:34:57.190
+"&gt;&gt; For now, I'm just going to type make
+hello-0, But those of you who were",00:34:57.190,00:35:03.410
+"comparing in your minds what I just
+typed to what I should have typed may",00:35:03.410,00:35:07.050
+"know already that I did
+something wrong here.",00:35:07.050,00:35:10.180
+"Now, there's clearly some errors.",00:35:10.180,00:35:12.160
+"Before I even look at what they are, any
+thoughts as to what I did wrong?",00:35:12.160,00:35:16.742
+&gt;&gt; STUDENTS: [INTERPOSING VOICES].,00:35:16.742,00:35:18.590
+&gt;&gt; DAVID MALAN: Yeah.,00:35:18.590,00:35:18.840
+I'm missing the library's header file.,00:35:18.840,00:35:20.640
+"Any of these .h files are called header
+files, and they collectively",00:35:20.640,00:35:24.240
+belong to things called libraries.,00:35:24.240,00:35:25.680
+"Libraries are just chunks of code
+that other people wrote.",00:35:25.680,00:35:28.030
+"So the standard [? i ?] library is a
+collection of files containing code",00:35:28.030,00:35:32.140
+that other people wrote.,00:35:32.140,00:35:33.330
+&gt;&gt; So I'm missing that.,00:35:33.330,00:35:34.820
+So why am I getting an error?,00:35:34.820,00:35:36.520
+"Well, let me scroll back up in
+my terminal window here.",00:35:36.520,00:35:40.840
+"And unfortunately, in C, as in a lot of
+programming languages, especially",00:35:40.840,00:35:44.310
+"if it's all new to you, the error
+messages are precise, but they're also",00:35:44.310,00:35:47.830
+quite cryptic.,00:35:47.830,00:35:48.620
+"And the error here, in red, is
+""implicitly declaring library function",00:35:48.620,00:35:51.720
+"printf with type,"" and then it scrolls
+to the next line, ""int const char * ,",00:35:51.720,00:35:57.660
+"..."" It just gets really
+overwhelming quickly.",00:35:57.660,00:36:00.220
+"&gt;&gt; But what you should begin to do, if,
+again, new to all of this, is just to",00:36:00.220,00:36:04.420
+begin to look for keywords.,00:36:04.420,00:36:06.010
+"Clearly, I might not understand half
+of the words I'm seeing just yet.",00:36:06.010,00:36:08.770
+"You will, though, in a week's time.",00:36:08.770,00:36:10.140
+But I see printf.,00:36:10.140,00:36:11.230
+"And that should begin, before long, to
+jog your memory, all right, printf.",00:36:11.230,00:36:14.310
+Something's wrong with printf.,00:36:14.310,00:36:15.210
+Did I spell it wrong?,00:36:15.210,00:36:16.580
+"No, it doesn't look like-- oh.",00:36:16.580,00:36:18.130
+"I can't use it unless I teach
+the compiler that it exists.",00:36:18.130,00:36:21.350
+"And so, again, go with your instincts,
+even if you don't actually understand",00:36:21.350,00:36:25.220
+the actual error messages.,00:36:25.220,00:36:26.510
+"&gt;&gt; And indeed, the solution here is to just
+include it at the top of the file",00:36:26.510,00:36:30.240
+"like that, resaving my file with
+Control-S or the File menu.",00:36:30.240,00:36:34.340
+"And if I now go back down here,
+I'm going to clear this.",00:36:34.340,00:36:36.730
+"Control-L is just a nice way
+to clear the screen.",00:36:36.730,00:36:39.150
+"And then I'm going to type ""make hello
+0"" Enter, and now I still see a",00:36:39.150,00:36:44.870
+"cryptic sequence of symbols, but
+we'll come back to that.",00:36:44.870,00:36:47.710
+That's what Make is doing for you.,00:36:47.710,00:36:49.230
+"It's automating the process of taking
+a fairly annoying command involving",00:36:49.230,00:36:52.590
+"Clang, the actual compiler.",00:36:52.590,00:36:54.050
+"But the fact that I got no errors means
+that this thing should work.",00:36:54.050,00:36:57.460
+"&gt;&gt; So I'm now going to do--
+let me zoom in again--",00:36:57.460,00:37:00.630
+"./hello-0 Enter, and indeed, I see
+""hello, world."" So let's now enhance",00:37:00.630,00:37:07.070
+"this ever so slightly just to replicate
+the steps we intended.",00:37:07.070,00:37:12.105
+"I'm going to rename this with
+Save As to hello1.c.",00:37:12.105,00:37:15.370
+"And now I'm going to declare a variable
+called name, so string name,",00:37:15.370,00:37:20.300
+"and I'm going to put in it the
+value of quote-unquote",00:37:20.300,00:37:23.420
+D-A-V-I-D close-quote semicolon.,00:37:23.420,00:37:27.030
+"And now I'm going to replace ""world""
+with what placeholder for a string?",00:37:27.030,00:37:31.150
+%s.,00:37:31.150,00:37:32.200
+"&gt;&gt; And now, how many arguments should
+printf take this time?",00:37:32.200,00:37:35.040
+So two.,00:37:35.040,00:37:35.700
+So I go outside of the quotes.,00:37:35.700,00:37:37.090
+"I type ""name"" after a comma.",00:37:37.090,00:37:39.330
+"But I've done something
+else wrong this time.",00:37:39.330,00:37:41.550
+"But let's assume that I didn't
+realize that yet.",00:37:41.550,00:37:43.940
+Let me go up here.,00:37:43.940,00:37:44.910
+"&gt;&gt; And notice, too, I'm getting a little
+bored of typing ""make hello 0"" all the",00:37:44.910,00:37:48.850
+"time, ""make"" and all this.",00:37:48.850,00:37:50.180
+"So, it turns out, in Linus you can
+often hit the Up arrow on your",00:37:50.180,00:37:53.270
+"keyboard, and you can actually scroll
+through all of the commands that I've",00:37:53.270,00:37:56.850
+executed previous to just now.,00:37:56.850,00:37:58.830
+"So if I do that, Up, Up,
+there's make hello 0.",00:37:58.830,00:38:02.040
+I don't want that.,00:38:02.040,00:38:02.610
+"I just want to change that to
+hello 1 this time, Enter.",00:38:02.610,00:38:05.450
+"Eventually, that will
+save you some time.",00:38:05.450,00:38:07.620
+&gt;&gt; All right.,00:38:07.620,00:38:08.150
+"Unfortunately, there's is an error.",00:38:08.150,00:38:09.520
+So let me scroll up.,00:38:09.520,00:38:10.980
+"This looks like I really
+butchered this program.",00:38:10.980,00:38:13.120
+"I mean, my god, it's two lines of code,
+and its 10 lines of errors.",00:38:13.120,00:38:16.530
+But look at the top one first.,00:38:16.530,00:38:18.800
+Use of undeclared identifier string.,00:38:18.800,00:38:21.640
+Did I mean standard i n?,00:38:21.640,00:38:23.270
+No I didn't.,00:38:23.270,00:38:23.930
+I meant string.,00:38:23.930,00:38:24.940
+"&gt;&gt; But where is the string variable
+type declared, dd we say?",00:38:24.940,00:38:29.390
+So it's in the CS50 the library.,00:38:29.390,00:38:30.730
+"So it doesn't suffice, in these first
+couple of weeks, just to use",00:38:30.730,00:38:33.740
+what C gives us.,00:38:33.740,00:38:34.860
+"I'm also going to go up here, and I
+could put it above or below, but I'll",00:38:34.860,00:38:38.120
+"just keep it alphabetical
+to keep things orderly.",00:38:38.120,00:38:40.340
+"I'm going to include cs50.h,
+which is pre-installed for",00:38:40.340,00:38:43.470
+you on the CS50 appliance.,00:38:43.470,00:38:44.900
+"And it's open source, so even people
+on the internet can use it on their",00:38:44.900,00:38:47.640
+own computers.,00:38:47.640,00:38:48.450
+But it comes with the CS50 appliance.,00:38:48.450,00:38:50.700
+"&gt;&gt; So now let me go back and recompile
+this with make hello 1.",00:38:50.700,00:38:55.320
+Damn it.,00:38:55.320,00:38:55.710
+Still another error.,00:38:55.710,00:38:57.240
+"Let me scroll up to the first, though.",00:38:57.240,00:38:59.370
+This one's a little complex.,00:38:59.370,00:39:00.630
+Multi-character character constant.,00:39:00.630,00:39:03.830
+That's not helping me.,00:39:03.830,00:39:04.890
+"But notice, Clang is at least a little
+bit decent, whereby with a little",00:39:04.890,00:39:08.220
+"green caret symbol, it's saying
+here is where I screwed up.",00:39:08.220,00:39:11.890
+"Why is it pointing, with that little
+green arrow, to the single quote next",00:39:11.890,00:39:16.160
+to my name?,00:39:16.160,00:39:18.290
+"&gt;&gt; So this is one of the things you just
+get used to, especially if you've been",00:39:18.290,00:39:20.880
+"programming in Python, or JavaScript,
+or other languages where this detail",00:39:20.880,00:39:23.980
+doesn't matter.,00:39:23.980,00:39:24.560
+"In C, it does matter.",00:39:24.560,00:39:25.740
+"If you are declaring a string, which is
+a sequence of 0 or more characters,",00:39:25.740,00:39:29.520
+you actually must use double quotes.,00:39:29.520,00:39:32.280
+"So I actually need to change this back
+to open quote, close quote, with",00:39:32.280,00:39:36.670
+double quotes.,00:39:36.670,00:39:37.800
+"Single quotes do have their place, but
+only when you're using individual",00:39:37.800,00:39:41.610
+"chars, but more on that another time.",00:39:41.610,00:39:44.100
+"For now, the double quotes
+are necessary.",00:39:44.100,00:39:46.550
+"&gt;&gt; So now, let me go back to my terminal
+window, make hello 1.",00:39:46.550,00:39:50.460
+And who's confident?,00:39:50.460,00:39:51.450
+"Is this program now going
+to compile correctly?",00:39:51.450,00:39:53.800
+OK.,00:39:58.250,00:39:58.540
+So three of us think this.,00:39:58.540,00:39:59.780
+All right.,00:39:59.780,00:40:00.280
+Enter.,00:40:00.280,00:40:01.190
+And it actually did.,00:40:01.190,00:40:02.440
+"So there's no errors this time, even
+though this program's gotten a bit",00:40:02.440,00:40:05.130
+more complex.,00:40:05.130,00:40:05.840
+"If I now do dot slash hello 1, Enter,
+it's going to say ""hello, David.""",00:40:05.840,00:40:10.110
+"&gt;&gt; But let's do the third iteration
+of this, where the",00:40:10.110,00:40:11.750
+program is truly dynamic.,00:40:11.750,00:40:13.380
+"Let me go ahead and change the file
+name, just for consistency with the",00:40:13.380,00:40:16.770
+"files you'll have available
+to you afterward online.",00:40:16.770,00:40:20.410
+Enter.,00:40:20.410,00:40:21.620
+"And now I'm going to go in and not
+store ""David"" hard coded here.",00:40:21.620,00:40:25.510
+"What could I do to very simply
+improve this program?",00:40:25.510,00:40:28.826
+&gt;&gt; I could call getstring.,00:40:28.826,00:40:30.520
+"It might be a little non-obvious what's
+about to happen, so I'm going",00:40:30.520,00:40:33.240
+"to actually add another line, printf,
+and say name, colon, close quote, just",00:40:33.240,00:40:38.470
+"to give the user a prompt
+on the screen.",00:40:38.470,00:40:40.790
+"And now I'm going to go here, and I'm
+going to use my keyboard shortcut.",00:40:40.790,00:40:42.980
+"I'm going to go Up, Up, and change
+hello 1 to hello 2, Enter.",00:40:42.980,00:40:47.680
+"And thankfully, I'm making progress.",00:40:47.680,00:40:49.260
+"&gt;&gt; And now I'm going to go up
+to dot slash hello and",00:40:49.260,00:40:52.720
+"change that to 2, Enter.",00:40:52.720,00:40:54.690
+And now my program--,00:40:54.690,00:40:55.650
+"I'll zoom in-- is getting
+a little prettier.",00:40:55.650,00:40:57.700
+"Name is going to be, let's say Rob
+this time, Enter, hello, Rob.",00:40:57.700,00:41:02.190
+We can do it again.,00:41:02.190,00:41:03.260
+"Name, Lauren, Enter.",00:41:03.260,00:41:05.360
+"Name, Joseph, Enter.",00:41:05.360,00:41:07.820
+"Name, let's try to be
+difficult, Enter.",00:41:07.820,00:41:11.596
+Eh.,00:41:11.596,00:41:12.410
+It's not really a bug.,00:41:12.410,00:41:14.680
+So it's just a little ugly.,00:41:14.680,00:41:16.090
+"So maybe we could solve this
+in the future, not now.",00:41:16.090,00:41:18.640
+"&gt;&gt; But how would you instinctively
+go about addressing",00:41:18.640,00:41:20.840
+that particular challenge?,00:41:20.840,00:41:21.990
+It just looks stupid.,00:41:21.990,00:41:23.710
+"How do you avoid things
+looking stupid?",00:41:23.710,00:41:27.320
+"So we could do, OK, I heard a couple
+of things, a condition and a loop.",00:41:27.320,00:41:29.890
+"We could use, one, a condition, to check
+what is the length of the string",00:41:29.890,00:41:33.340
+the user gave us?,00:41:33.340,00:41:34.190
+"And if it's 0, it's just quote unquote,
+they just hit Enter, then",00:41:34.190,00:41:37.100
+"maybe I should yell at them
+and prompt them again.",00:41:37.100,00:41:38.930
+But how do a prompt them again?,00:41:38.930,00:41:39.970
+"Well, I also heard loop, and I could
+do that again and again and again",00:41:39.970,00:41:44.230
+prompting the user for the same thing.,00:41:44.230,00:41:47.010
+"&gt;&gt; Well, let's do one other example
+using a different",00:41:47.010,00:41:48.880
+function in the CS50 library.,00:41:48.880,00:41:50.620
+Let me close this file.,00:41:50.620,00:41:52.330
+Let me create a new one.,00:41:52.330,00:41:53.510
+"And I'll call it adder.c, just because
+it's easy to do simple arithmetic,",00:41:53.510,00:41:58.510
+"even though this will be completely
+underwhelming with what you could do",00:41:58.510,00:42:00.890
+with any modern computer.,00:42:00.890,00:42:02.250
+&gt;&gt; But let me go ahead now and--,00:42:02.250,00:42:03.750
+"I learned my lesson last time-- include
+cs50.h, include stdio.h, int",00:42:03.750,00:42:10.680
+"main void, which, for now, I'll just
+take on blind faith, but we'll assume",00:42:10.680,00:42:14.170
+"that will understand what
+that means before long.",00:42:14.170,00:42:16.380
+"And I'm going to say something
+like ""give me an int.""",00:42:16.380,00:42:21.030
+"&gt;&gt; And now, how do I get an int?",00:42:21.030,00:42:22.140
+"I want to ultimately declare a variable
+called x of type int and",00:42:22.140,00:42:26.820
+store in it an integer from the user.,00:42:26.820,00:42:29.240
+So that was a mouthful.,00:42:29.240,00:42:29.970
+"But if someone wants to propose, how
+do I declare an integer called x?",00:42:29.970,00:42:35.680
+Int x.,00:42:35.680,00:42:36.310
+&gt;&gt; So it really is that simple.,00:42:36.310,00:42:37.430
+Give me an int.,00:42:37.430,00:42:38.240
+Call it x.,00:42:38.240,00:42:39.070
+Now I use the assignment operator.,00:42:39.070,00:42:40.580
+"And how do I store from the
+left a value of the user?",00:42:40.580,00:42:43.400
+"I don't want to call getstring,
+obviously, but rather getint.",00:42:43.400,00:42:47.310
+Any arguments?,00:42:47.310,00:42:49.060
+No.,00:42:49.060,00:42:49.350
+"So it's open paren, close paren
+immediately, and then a",00:42:49.350,00:42:51.870
+semicolon ends the line.,00:42:51.870,00:42:53.440
+&gt;&gt; Now let me do this again.,00:42:53.440,00:42:54.930
+Give me another int.,00:42:54.930,00:42:57.070
+"This time I'll do int, let's
+call it y, equals getint.",00:42:57.070,00:43:01.850
+"And now let me do something super-simple
+like some math.",00:43:01.850,00:43:05.060
+"So printf, the sum of %d is the
+placeholder for an int.",00:43:05.060,00:43:14.340
+"And %d, period, backslash-n.",00:43:14.340,00:43:20.030
+&gt;&gt; All right.,00:43:20.030,00:43:20.360
+So that's not actually math.,00:43:20.360,00:43:21.670
+"But if I want to say the sum of this
+value plus this value equals this",00:43:21.670,00:43:25.500
+"other value, how many arguments into
+total should I be giving printf,",00:43:25.500,00:43:29.320
+ultimately?,00:43:29.320,00:43:30.520
+"So four, right?",00:43:30.520,00:43:31.420
+This string and then the three values.,00:43:31.420,00:43:33.790
+"So x is the first I want to be
+plugged in first to the %d.",00:43:33.790,00:43:37.560
+y is going to be the next.,00:43:37.560,00:43:39.270
+"&gt;&gt; And now I kind of want to say
+z, but z doesn't exist.",00:43:39.270,00:43:42.030
+But that's not a big deal.,00:43:42.030,00:43:43.190
+"Because what would you do instinctively,
+especially if you had a",00:43:43.190,00:43:45.440
+"graphing calculator, what do you type?",00:43:45.440,00:43:47.820
+How about x plus y?,00:43:47.820,00:43:48.760
+So it's not an actual variable.,00:43:48.760,00:43:50.200
+"It's just the sum of two
+other variables.",00:43:50.200,00:43:51.820
+And that's perfectly legitimate.,00:43:51.820,00:43:53.170
+"C certainly understands simple
+arithmetic like this.",00:43:53.170,00:43:56.630
+"&gt;&gt; Semicolon, save.",00:43:56.630,00:43:58.450
+"Now let me go down here and
+type make adder, Enter.",00:43:58.450,00:44:02.080
+"No error, so that's progress too.",00:44:02.080,00:44:04.100
+Type adder.,00:44:04.100,00:44:04.890
+"And another keyboard shortcut,
+if you start to get bored",00:44:04.890,00:44:07.100
+with all the commands--,00:44:07.100,00:44:08.760
+"if you start typing a command, like dot
+slash ad, and that's where your",00:44:08.760,00:44:12.650
+"boredom kicks in, you can usually hit
+Tab to have the computer finish the",00:44:12.650,00:44:16.020
+"rest of the phrase for you if it's not
+ambiguous what should come after ad.",00:44:16.020,00:44:20.510
+"&gt;&gt; So let me go ahead now
+and you click Enter.",00:44:20.510,00:44:23.950
+"Give me an int, 1, 2, and
+thankfully, it's 3.",00:44:23.950,00:44:27.490
+"But as always, testing programs
+shouldn't reduce to",00:44:27.490,00:44:29.900
+just trying it once.,00:44:29.900,00:44:30.820
+"Let me try a corner case, like negative
+1, give me 1, and that one",00:44:30.820,00:44:35.560
+checks out as well.,00:44:35.560,00:44:36.210
+"And I probably want to do some more
+rigorous testing, but I'm pretty",00:44:36.210,00:44:38.870
+comfortable with where that's at.,00:44:38.870,00:44:40.630
+"&gt;&gt; Well, now let's try another program
+that this time uses a",00:44:40.630,00:44:43.110
+bit of other syntax.,00:44:43.110,00:44:44.620
+Let me create a new file.,00:44:44.620,00:44:46.100
+"I'll call this conditions0.c to line
+up with some sample code online.",00:44:46.100,00:44:51.050
+"And let me go ahead and do
+include cs50.h, include",00:44:51.050,00:44:55.550
+"stdio.h, in main void--",00:44:55.550,00:45:00.320
+OK.,00:45:00.320,00:45:01.030
+There we go.,00:45:01.030,00:45:01.850
+We have our standard boilerplate.,00:45:01.850,00:45:03.010
+"&gt;&gt; And this time I'm going to say printf,
+""I'd like an int, please,"" just to",00:45:03.010,00:45:08.170
+"make the prompt a little
+more friendly.",00:45:08.170,00:45:10.030
+"And now I want to get an
+int from the user.",00:45:10.030,00:45:11.620
+"I'm going to call it n this time, just
+because n sounds like number.",00:45:11.620,00:45:15.010
+"getint, and now, what do
+I want to do with it?",00:45:15.010,00:45:18.140
+"Well, if n is-- and I'll zoom in--",00:45:18.140,00:45:21.640
+"if n is greater than 0, I want
+to do the following--",00:45:21.640,00:45:25.930
+"printf ""You picked a positive number.""
+Else, I'm going to type printf ""You",00:45:25.930,00:45:36.060
+picked a negative,00:45:36.060,00:45:37.870
+"number."" All right.",00:45:37.870,00:45:39.650
+"So this program, even though I did it
+fast, looks right syntactically.",00:45:39.650,00:45:44.410
+Let me try this.,00:45:44.410,00:45:45.010
+Make condition 0.,00:45:45.010,00:45:46.890
+Seems to run.,00:45:46.890,00:45:47.710
+"Condition 0, enter.",00:45:47.710,00:45:49.230
+Let's give it an int of 50.,00:45:49.230,00:45:51.910
+I picked a positive number.,00:45:51.910,00:45:53.160
+Let's try it again.,00:45:53.160,00:45:54.230
+Condition 0.,00:45:54.230,00:45:54.930
+Negative 50.,00:45:54.930,00:45:56.260
+I picked a negative number.,00:45:56.260,00:45:57.290
+"&gt;&gt; But now, let me pick what we'll keep
+calling a corner case, which is more",00:45:57.290,00:46:00.350
+"an interesting case that you think
+might give you some trouble, 0.",00:46:00.350,00:46:04.702
+"Now, I'm pretty sure this is one of
+those corner cases where zero is",00:46:04.702,00:46:07.940
+"neither positive nor negative, so my
+program, though in syntactically",00:46:07.940,00:46:12.330
+"correct-- it compiles, it runs--
+is not logically correct.",00:46:12.330,00:46:15.440
+"So what's the simple fix here if I want
+to detect, if I want to handle n",00:46:15.440,00:46:21.050
+equals 0 separately?,00:46:21.050,00:46:23.840
+"&gt;&gt; So if n equals 0, then I want to say
+something like printf ""You picked 0.""",00:46:23.840,00:46:32.980
+Let me try this now.,00:46:32.980,00:46:33.990
+"Let me go back here, clear
+my window, and recompile.",00:46:33.990,00:46:38.320
+Hm.,00:46:38.320,00:46:38.690
+One error generate.,00:46:38.690,00:46:39.770
+"But I do you want to check
+if n equals 0.",00:46:39.770,00:46:41.630
+"&gt;&gt; So again, another stupid thing
+to get used to, equal sign is",00:46:44.230,00:46:47.720
+the assignment operator.,00:46:47.720,00:46:48.910
+"So this is actually mistake in that,
+technically, even though the compiler",00:46:48.910,00:46:52.240
+"protected me from myself, we'd
+technically be copying 0 into n, which",00:46:52.240,00:46:56.450
+is not what I want.,00:46:56.450,00:46:57.590
+"I want to test for equality
+with equals equals.",00:46:57.590,00:47:00.950
+"And so that now might be
+my better solution.",00:47:00.950,00:47:03.390
+"&gt;&gt; Let me actually resave this as, say,
+conditions1, to be new and improved.",00:47:03.390,00:47:07.810
+"So now if I recompile this,
+it would make conditions--",00:47:07.810,00:47:10.480
+"whoops-- make conditions1 dot slash
+conditions1, Enter, ""I'd like an int,",00:47:10.480,00:47:16.960
+"please."" I'm going to go
+ahead and type 50.",00:47:16.960,00:47:18.760
+It's still good.,00:47:18.760,00:47:19.660
+"Negative 50, still good.",00:47:19.660,00:47:21.200
+"0, and it, indeed, detected
+that I picked 0.",00:47:21.200,00:47:24.920
+&gt;&gt; So what more can I now do with this?,00:47:24.920,00:47:28.200
+"Well, we can certainly do increasingly
+complex things.",00:47:28.200,00:47:32.280
+"But what I'd like to propose is
+that we end on this note here.",00:47:32.280,00:47:37.240
+"If we pull up this, you'll see, perhaps,
+a favorite cartoon of yours",00:47:37.240,00:47:41.680
+"up until today you might
+never have understood.",00:47:41.680,00:47:43.326
+"And that's about the quality of laughter
+you should get with CS jokes.",00:47:46.550,00:47:49.520
+So that's about right.,00:47:49.520,00:47:51.060
+"&gt;&gt; But more compellingly, I thought I'd
+give us a little teaser for Monday.",00:47:51.060,00:47:54.900
+So we've started using integers.,00:47:54.900,00:47:56.430
+We've referred to floats.,00:47:56.430,00:47:57.510
+"We've even referred to doubles,
+which, again, give you numbers",00:47:57.510,00:48:00.120
+after decimal points.,00:48:00.120,00:48:01.390
+"&gt;&gt; But it turns out that floats and
+doubles, and, really, computers,",00:48:01.390,00:48:04.230
+"fundamentally, cannot express
+some values precisely.",00:48:04.230,00:48:08.470
+"We know from math classes that you can
+have any number of numbers after the",00:48:08.470,00:48:12.840
+decimal point.,00:48:12.840,00:48:13.510
+"And you can even put a vertical bar
+to say these go on forever.",00:48:13.510,00:48:16.460
+"&gt;&gt; Unfortunately, you can't really
+do that in a computer.",00:48:16.460,00:48:18.810
+And so corner cases arise.,00:48:18.810,00:48:20.400
+"For instance, suppose you're
+doing something financial.",00:48:20.400,00:48:23.120
+"You're doing mathematics
+with percentages, and",00:48:23.120,00:48:25.700
+with dollars and cents.,00:48:25.700,00:48:27.030
+"And those cents don't
+necessarily line up.",00:48:27.030,00:48:29.230
+"Well, it turns out that fractions of
+pennies can start to add up when",00:48:29.230,00:48:34.120
+"modeled with a computer system
+in such a way that clever",00:48:34.120,00:48:37.250
+humans can take advantage.,00:48:37.250,00:48:39.100
+"&gt;&gt; And those of you who haven't seen, I'd
+like to give you a 30-second teaser of",00:48:39.100,00:48:42.650
+"a wonderful film known as Office Space,
+which will paint a picture of a",00:48:42.650,00:48:48.290
+"problem we shall tackle
+first thing on Monday.",00:48:48.290,00:48:51.205
+"If we could raise the volume
+a little bit, I give you 30",00:48:51.205,00:48:53.960
+seconds of Office Space.,00:48:53.960,00:48:55.495
+&gt;&gt; [VIDEO PLAYBACK],00:48:55.495,00:48:55.770
+"&gt;&gt; -I mean, you, you haven't been showing
+up and you get to keep your job.",00:48:55.770,00:48:59.000
+"&gt;&gt; -Actually, I'm being promoted.",00:48:59.000,00:49:00.620
+"&gt;&gt; -I could program a virus that'd
+rip that place off big time.",00:49:00.620,00:49:03.240
+"&gt;&gt; -Well, how does it work?",00:49:03.240,00:49:04.430
+"&gt;&gt; -Every time there's a bank transaction
+where interest is computed, and there",00:49:04.430,00:49:06.782
+"are thousands a day, the computer ends
+up with these fractions of a cent.",00:49:06.782,00:49:10.160
+"&gt;&gt; -But I'm not going to
+do anything illegal.",00:49:10.160,00:49:12.030
+&gt;&gt; -Illegal?,00:49:12.030,00:49:12.660
+"Samir, this is America.",00:49:12.660,00:49:15.075
+&gt;&gt; -We have to swear to God.,00:49:15.075,00:49:16.570
+"&gt;&gt; -If nobody knows about this
+but us, all right?",00:49:16.570,00:49:19.070
+"No family members, no
+girlfriends, nobody.",00:49:19.070,00:49:21.920
+&gt;&gt; -Of course.,00:49:21.920,00:49:22.700
+&gt;&gt; -Agreed.,00:49:22.700,00:49:23.320
+"&gt;&gt; -Don't worry, man.",00:49:23.320,00:49:24.280
+I won't tell anyone either.,00:49:24.280,00:49:25.640
+&gt;&gt; [END VIDEO PLAYBACK],00:49:25.640,00:49:26.504
+"&gt;&gt; DAVID MALAN: So this, then, is CS50,
+that was Office Space, and it will all",00:49:26.504,00:49:30.030
+make sense on Monday.,00:49:30.030,00:49:31.465
+See you then.,00:49:31.465,00:49:33.940
+"&gt;&gt; NARRATOR: At the next CS50, Rob
+adjusts to being off the",00:49:33.940,00:49:37.880
+Harvard meal plan.,00:49:37.880,00:49:39.130

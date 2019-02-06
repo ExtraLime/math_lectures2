@@ -1,0 +1,1286 @@
+text,start,stop
+"The following content is
+provided under a Creative",00:00:00.110,00:00:02.490
+Commons license.,00:00:02.490,00:00:03.156
+"Your support will help
+MIT OpenCourseWare",00:00:03.156,00:00:05.440
+"continue to offer high quality
+educational resources for free.",00:00:05.440,00:00:09.960
+"To make a donation or to
+view additional materials",00:00:09.960,00:00:12.630
+"from hundreds of MIT courses
+visit MIT OpenCourseWare",00:00:12.630,00:00:15.910
+at ocw.mit.edu.,00:00:15.910,00:00:22.600
+"Okay so I'd like to begin the
+second lecture by reminding you",00:00:22.600,00:00:27.490
+what we did last time.,00:00:27.490,00:00:30.770
+"So last time, we
+defined the derivative",00:00:30.770,00:00:50.520
+as the slope of a tangent line.,00:00:50.520,00:01:04.260
+"So that was our
+geometric point of view",00:01:04.260,00:01:07.080
+"and we also did a
+couple of computations.",00:01:07.080,00:01:10.470
+"We worked out that the
+derivative of 1 / x was -1 /",00:01:10.470,00:01:18.290
+x^2.,00:01:18.290,00:01:20.100
+"And we also computed the
+derivative of x to the nth",00:01:20.100,00:01:24.870
+"power for n = 1, 2, etc.,
+and that turned out to be x,",00:01:24.870,00:01:32.097
+"I'm sorry, nx^(n-1).",00:01:32.097,00:01:32.930
+"So that's what we did
+last time, and today I",00:01:36.970,00:01:46.180
+"want to finish up with
+other points of view",00:01:46.180,00:01:51.580
+on what a derivative is.,00:01:51.580,00:01:53.430
+"So this is extremely
+important, it's",00:01:53.430,00:01:56.250
+"almost the most important thing
+I'll be saying in the class.",00:01:56.250,00:01:58.750
+"But you'll have to think about
+it again when you start over",00:01:58.750,00:02:01.310
+"and start using calculus
+in the real world.",00:02:01.310,00:02:04.600
+"So again we're talking
+about what is a derivative",00:02:04.600,00:02:14.030
+"and this is just a
+continuation of last time.",00:02:14.030,00:02:19.660
+"So, as I said last time,
+we talked about geometric",00:02:19.660,00:02:23.260
+"interpretations, and today
+what we're gonna talk about",00:02:23.260,00:02:28.130
+"is rate of change
+as an interpretation",00:02:28.130,00:02:34.310
+of the derivative.,00:02:34.310,00:02:40.000
+"So remember we drew graphs
+of functions, y = f(x)",00:02:40.000,00:02:46.260
+"and we kept track of the change
+in x and here the change in y,",00:02:46.260,00:02:53.190
+let's say.,00:02:53.190,00:02:56.140
+"And then from this new point
+of view a rate of change,",00:02:56.140,00:03:01.872
+"keeping track of the rate
+of change of x and the rate",00:03:01.872,00:03:04.080
+"of change of y, it's the
+relative rate of change",00:03:04.080,00:03:07.030
+"we're interested in, and that's
+delta y / delta x and that",00:03:07.030,00:03:12.590
+has another interpretation.,00:03:12.590,00:03:16.010
+This is the average change.,00:03:16.010,00:03:21.650
+"Usually we would think of that,
+if x were measuring time and so",00:03:21.650,00:03:26.880
+"the average and that's
+when this becomes a rate,",00:03:26.880,00:03:31.350
+"and the average is over
+the time interval delta x.",00:03:31.350,00:03:35.830
+"And then the limiting
+value is denoted dy/dx",00:03:35.830,00:03:42.670
+"and so this one is the
+average rate of change",00:03:42.670,00:03:47.580
+"and this one is the
+instantaneous rate.",00:03:47.580,00:03:59.860
+"Okay, so that's
+the point of view",00:03:59.860,00:04:01.412
+"that I'd like to
+discuss now and give you",00:04:01.412,00:04:03.120
+just a couple of examples.,00:04:03.120,00:04:06.200
+"So, let's see.",00:04:06.200,00:04:12.980
+"Well, first of all, maybe some
+examples from physics here.",00:04:12.980,00:04:19.620
+"So q is usually the
+name for a charge,",00:04:19.620,00:04:26.450
+"and then dq/dt is
+what's known as current.",00:04:26.450,00:04:33.660
+So that's one physical example.,00:04:33.660,00:04:38.600
+"A second example, which is
+probably the most tangible one,",00:04:38.600,00:04:45.200
+"is we could denote the
+letter s by distance",00:04:45.200,00:04:51.500
+"and then the rate of change
+is what we call speed.",00:04:51.500,00:04:58.520
+"So those are the
+two typical examples",00:04:58.520,00:05:02.110
+"and I just want to
+illustrate the second example",00:05:02.110,00:05:06.550
+"in a little bit more
+detail because I think",00:05:06.550,00:05:08.900
+"it's important to have some
+visceral sense of this notion",00:05:08.900,00:05:12.690
+of instantaneous speed.,00:05:12.690,00:05:16.320
+"And I get to use the example of
+this very building to do that.",00:05:16.320,00:05:22.570
+"Probably you know,
+or maybe you don't,",00:05:22.570,00:05:25.860
+"that on Halloween
+there's an event that",00:05:25.860,00:05:29.690
+"takes place in this
+building or really",00:05:29.690,00:05:33.042
+"from the top of
+this building which",00:05:33.042,00:05:34.500
+is called the pumpkin drop.,00:05:34.500,00:05:37.000
+"So let's illustrates this
+idea of rate of change",00:05:37.000,00:05:44.450
+with the pumpkin drop.,00:05:44.450,00:05:49.040
+"So what happens is,
+this building-- well",00:05:49.040,00:05:53.800
+"let's see here's the building,
+and here's the dot, that's",00:05:53.800,00:06:01.070
+"the beautiful grass out on
+this side of the building,",00:06:01.070,00:06:04.890
+"and then there's
+some people up here",00:06:04.890,00:06:09.430
+"and very small
+objects, well they're",00:06:09.430,00:06:12.310
+"not that small when
+you're close to them, that",00:06:12.310,00:06:15.240
+get dumped over the side there.,00:06:15.240,00:06:19.000
+And they fall down.,00:06:19.000,00:06:21.510
+"You know everything at MIT
+or a lot of things at MIT",00:06:21.510,00:06:24.170
+are physics experiments.,00:06:24.170,00:06:28.430
+That's the pumpkin drop.,00:06:28.430,00:06:29.440
+"So roughly speaking,
+the building",00:06:29.440,00:06:32.555
+"is about 300 feet
+high, we're down here",00:06:32.555,00:06:36.360
+on the first usable floor.,00:06:36.360,00:06:39.570
+"And so we're going to
+use instead of 300 feet,",00:06:39.570,00:06:44.130
+"just for convenience
+purposes we'll",00:06:44.130,00:06:46.330
+"use 80 meters because that makes
+the numbers come out simply.",00:06:46.330,00:06:55.410
+"So we have the height
+which starts out",00:06:55.410,00:07:04.380
+"at 80 meters at time 0 and then
+the acceleration due to gravity",00:07:04.380,00:07:09.590
+"gives you this formula
+for h, this is the height.",00:07:09.590,00:07:13.330
+"So at time t = 0, we're up
+at the top, h is 80 meters,",00:07:13.330,00:07:21.760
+the units here are meters.,00:07:21.760,00:07:24.580
+"And at time t = 4 you
+notice, 5 * 4^2 is 80.",00:07:24.580,00:07:32.200
+"I picked these numbers
+conveniently so",00:07:32.200,00:07:34.030
+that we're down at the bottom.,00:07:34.030,00:07:38.320
+"Okay, so this notion
+of average change here,",00:07:38.320,00:07:43.620
+"so the average change, or
+the average speed here,",00:07:43.620,00:07:51.380
+"maybe we'll call it
+the average speed,",00:07:51.380,00:07:55.636
+"since that's-- over this time
+that it takes for the pumpkin",00:07:55.636,00:08:02.910
+"to drop is going to be
+the change in h divided",00:08:02.910,00:08:07.385
+by the change in t.,00:08:07.385,00:08:10.170
+"Which starts out at, what
+does it start out as?",00:08:10.170,00:08:18.350
+"It starts out as 80, right?",00:08:18.350,00:08:21.870
+And it ends at 0.,00:08:21.870,00:08:23.930
+"So actually we have
+to do it backwards.",00:08:23.930,00:08:26.520
+"We have to take 0 - 80
+because the first value is",00:08:26.520,00:08:32.110
+"the final position
+and the second value",00:08:32.110,00:08:35.500
+is the initial position.,00:08:35.500,00:08:37.390
+"And that's divided by
+4 - 0; times 4 seconds",00:08:37.390,00:08:41.470
+minus times 0 seconds.,00:08:41.470,00:08:43.680
+"And so that of course is
+-20 meters per second.",00:08:43.680,00:08:49.200
+"So the average speed of this
+guy is 20 meters a second.",00:08:49.200,00:08:56.860
+"Now, so why did I
+pick this example?",00:08:56.860,00:09:00.970
+"Because, of course, the
+average, although interesting,",00:09:00.970,00:09:04.480
+"is not really what
+anybody cares about who",00:09:04.480,00:09:06.540
+actually goes to the event.,00:09:06.540,00:09:08.670
+"All we really care about
+is the instantaneous speed",00:09:08.670,00:09:11.460
+"when it hits the pavement
+and so that's can",00:09:11.460,00:09:19.005
+be calculated at the bottom.,00:09:19.005,00:09:23.610
+"So what's the
+instantaneous speed?",00:09:23.610,00:09:25.330
+"That's the derivative,
+or maybe to be",00:09:25.330,00:09:29.530
+"consistent with the notation
+I've been using so far,",00:09:29.530,00:09:31.720
+that's d/dt of h.,00:09:31.720,00:09:35.950
+All right?,00:09:35.950,00:09:37.580
+So that's d/dt of h.,00:09:37.580,00:09:39.090
+"Now remember we have
+formulas for these things.",00:09:39.090,00:09:42.020
+"We can differentiate
+this function now.",00:09:42.020,00:09:43.850
+We did that yesterday.,00:09:43.850,00:09:47.930
+"So we're gonna take the rate of
+change and if you take a look",00:09:47.930,00:09:51.350
+"at it, it's just the rate
+of change of 80 is 0,",00:09:51.350,00:09:56.790
+"minus the rate change for
+this -5t^2, that's minus 10t.",00:09:56.790,00:10:02.860
+"So that's using the fact
+that d/dt of 80 is equal to 0",00:10:02.860,00:10:08.750
+and d/dt of t^2 is equal to 2t.,00:10:08.750,00:10:12.350
+The special case...,00:10:12.350,00:10:14.420
+"Well I'm cheating
+here, but there's",00:10:14.420,00:10:17.160
+a special case that's obvious.,00:10:17.160,00:10:18.500
+I didn't throw it in over here.,00:10:18.500,00:10:19.850
+"The case n = 2 is that
+second case there.",00:10:19.850,00:10:23.750
+But the case n = 0 also works.,00:10:23.750,00:10:30.380
+Because that's constants.,00:10:30.380,00:10:31.534
+"The derivative of
+a constant is 0.",00:10:31.534,00:10:32.950
+"And then the factor n there's
+0 and that's consistent.",00:10:32.950,00:10:36.781
+"And actually if you look
+at the formula above it",00:10:36.781,00:10:38.780
+"you'll see that it's
+the case of n = -1.",00:10:38.780,00:10:44.090
+"So we'll get a larger pattern
+soon enough with the powers.",00:10:44.090,00:10:49.820
+Okay anyway.,00:10:49.820,00:10:50.450
+"Back over here we have
+our rate of change",00:10:50.450,00:10:53.770
+and this is what it is.,00:10:53.770,00:10:55.380
+"And at the bottom, at
+that point of impact,",00:10:55.380,00:10:59.350
+"we have t = 4 and so h',
+which is the derivative,",00:10:59.350,00:11:04.700
+"is equal to -40
+meters per second.",00:11:04.700,00:11:12.860
+"So twice as fast as
+the average speed here,",00:11:12.860,00:11:16.540
+"and if you need to convert that,
+that's about 90 miles an hour.",00:11:16.540,00:11:22.900
+"Which is why the police are
+there at midnight on Halloween",00:11:22.900,00:11:29.450
+"to make sure you're all safe
+and also why when you come",00:11:29.450,00:11:33.310
+"you have to be prepared
+to clean up afterwards.",00:11:33.310,00:11:37.330
+"So anyway that's what happens,
+it's 90 miles an hour.",00:11:37.330,00:11:40.260
+"It's actually the
+buildings a little taller,",00:11:40.260,00:11:42.320
+"there's air resistance
+and I'm sure you",00:11:42.320,00:11:45.010
+"can do a much more thorough
+study of this example.",00:11:45.010,00:11:50.350
+"All right so now I want to give
+you a couple of more examples",00:11:50.350,00:11:54.300
+"because time and these kinds
+of parameters and variables",00:11:54.300,00:11:58.700
+"are not the only ones that
+are important for calculus.",00:11:58.700,00:12:02.570
+"If it were only this kind of
+physics that was involved,",00:12:02.570,00:12:05.610
+"then this would be a much more
+specialized subject than it is.",00:12:05.610,00:12:09.710
+"And so I want to give you a
+couple of examples that don't",00:12:09.710,00:12:13.340
+involve time as a variable.,00:12:13.340,00:12:16.570
+"So the third example
+I'll give here",00:12:16.570,00:12:20.175
+"is-- The letter T often
+denotes temperature,",00:12:20.175,00:12:27.260
+"and then dT/dx would be what
+is known as the temperature",00:12:27.260,00:12:35.660
+gradient.,00:12:35.660,00:12:38.830
+"Which we really care
+about a lot when",00:12:38.830,00:12:43.310
+"we're predicting the weather
+because it's that temperature",00:12:43.310,00:12:45.820
+"difference that causes air flows
+and causes things to change.",00:12:45.820,00:12:52.140
+"And then there's
+another theme which",00:12:52.140,00:12:54.410
+"is throughout the sciences
+and engineering which",00:12:54.410,00:13:01.110
+"I'm going to talk about under
+the heading of sensitivity",00:13:01.110,00:13:07.700
+of measurements.,00:13:07.700,00:13:15.600
+So let me explain this.,00:13:15.600,00:13:18.470
+"I don't want to belabor
+it because I just",00:13:18.470,00:13:21.530
+"am doing this in
+order to introduce you",00:13:21.530,00:13:23.810
+"to the ideas on your
+problem set which",00:13:23.810,00:13:26.380
+are the first case of this.,00:13:26.380,00:13:29.350
+"So on problem set one
+you have an example",00:13:29.350,00:13:33.290
+"which is based on a
+simplified model of GPS,",00:13:33.290,00:13:37.360
+sort of the Flat Earth Model.,00:13:37.360,00:13:39.550
+"And in that situation,
+well, if the Earth is flat",00:13:39.550,00:13:42.400
+"it's just a horizontal
+line like this.",00:13:42.400,00:13:45.490
+"And then you have a satellite,
+which is over here, preferably",00:13:45.490,00:13:54.020
+"above the earth, and the
+satellite or the system",00:13:54.020,00:14:02.440
+"knows exactly where the point
+directly below the satellite",00:14:02.440,00:14:05.810
+is.,00:14:05.810,00:14:06.480
+"So this point is
+treated as known.",00:14:06.480,00:14:12.170
+"And I'm sitting here
+with my little GPS device",00:14:12.170,00:14:22.160
+and I want to know where I am.,00:14:22.160,00:14:26.440
+"And the way I
+locate where I am is",00:14:26.440,00:14:28.880
+"I communicate with this
+satellite by radio signals",00:14:28.880,00:14:34.750
+"and I can measure this distance
+here which is called h.",00:14:34.750,00:14:38.750
+"And then system will compute
+this horizontal distance which",00:14:38.750,00:14:45.060
+"is L. So in other
+words what is measured,",00:14:45.060,00:14:53.360
+"so h measured by radios,
+radio waves and a clock,",00:14:53.360,00:15:03.020
+or various clocks.,00:15:03.020,00:15:04.910
+And then L is deduced from h.,00:15:04.910,00:15:13.560
+"And what's critical in
+all of these systems",00:15:13.560,00:15:16.730
+"is that you don't
+know h exactly.",00:15:16.730,00:15:20.320
+"There's an error in h
+which will denote delta h.",00:15:20.320,00:15:26.330
+"There's some degree
+of uncertainty.",00:15:26.330,00:15:31.040
+"The main uncertainty in
+GPS is from the ionosphere.",00:15:31.040,00:15:35.550
+"But there are lots
+of corrections",00:15:35.550,00:15:38.280
+that are made of all kinds.,00:15:38.280,00:15:41.340
+"And also if you're
+inside a building",00:15:41.340,00:15:43.570
+it's a problem to measure it.,00:15:43.570,00:15:44.790
+"But it's an extremely
+important issue,",00:15:44.790,00:15:47.970
+as I'll explain in a second.,00:15:47.970,00:15:49.730
+"So the idea is we
+then get at delta",00:15:49.730,00:15:54.040
+"L is estimated by considering
+this ratio delta L/delta",00:15:54.040,00:16:04.246
+"h which is going
+to be approximately",00:16:04.246,00:16:07.060
+"the same as the derivative
+of L with respect to h.",00:16:07.060,00:16:13.910
+"So this is the thing that's
+easy because of course it's",00:16:13.910,00:16:17.815
+calculus.,00:16:17.815,00:16:18.940
+"Calculus is the
+easy part and that",00:16:18.940,00:16:21.960
+"allows us to deduce something
+about the real world that's",00:16:21.960,00:16:25.330
+close by over here.,00:16:25.330,00:16:28.600
+"So the reason why you should
+care about this quite a bit",00:16:28.600,00:16:31.980
+"is that it's used all the
+time to land airplanes.",00:16:31.980,00:16:34.870
+"So you really do care
+that they actually",00:16:34.870,00:16:36.680
+"know to within a few feet or
+even closer where your plane is",00:16:36.680,00:16:42.386
+"and how high up it
+is and so forth.",00:16:42.386,00:16:48.150
+All right.,00:16:48.150,00:16:48.650
+"So that's it for the
+general introduction",00:16:48.650,00:16:50.850
+of what a derivative is.,00:16:50.850,00:16:52.010
+"I'm sure you'll be
+getting used to this",00:16:52.010,00:16:53.670
+"in a lot of different contexts
+throughout the course.",00:16:53.670,00:16:56.560
+"And now we have to get back
+down to some rigorous details.",00:16:56.560,00:17:04.510
+"Okay, everybody happy with
+what we've got so far?",00:17:04.510,00:17:09.540
+Yeah?,00:17:09.540,00:17:10.040
+"Student: How did you get
+the equation for height?",00:17:10.040,00:17:13.400
+Professor: Ah good question.,00:17:13.400,00:17:14.980
+"The question was how did I
+get this equation for height?",00:17:14.980,00:17:18.560
+"I just made it up because
+it's the formula from physics",00:17:18.560,00:17:24.970
+"that you will learn when
+you take 8.01 and, in fact,",00:17:24.970,00:17:29.592
+"it has to do with the fact
+that this is the speed if you",00:17:29.592,00:17:35.060
+"differentiate
+another time you get",00:17:35.060,00:17:37.340
+"acceleration and
+acceleration due to gravity",00:17:37.340,00:17:40.550
+is 10 meters per second.,00:17:40.550,00:17:42.330
+"Which happens to be the
+second derivative of this.",00:17:42.330,00:17:44.450
+"But anyway I just pulled it
+out of a hat from your physics",00:17:44.450,00:17:47.710
+class.,00:17:47.710,00:17:48.350
+So you can just say see 8.01 .,00:17:48.350,00:17:55.510
+"All right, other questions?",00:17:55.510,00:18:02.840
+"All right, so let's go on now.",00:18:02.840,00:18:04.970
+"Now I have to be a little bit
+more systematic about limits.",00:18:04.970,00:18:09.340
+So let's do that now.,00:18:09.340,00:18:20.130
+"So now what I'd like to talk
+about is limits and continuity.",00:18:20.130,00:18:30.370
+"And this is a warm
+up for deriving",00:18:30.370,00:18:34.200
+"all the rest of the formulas,
+all the rest of the formulas",00:18:34.200,00:18:37.900
+"that I'm going to
+need to differentiate",00:18:37.900,00:18:40.430
+every function you know.,00:18:40.430,00:18:41.600
+"Remember, that's our goal
+and we only have about a week",00:18:41.600,00:18:44.120
+left so we'd better get started.,00:18:44.120,00:18:47.510
+"So first of all there is
+what I will call easy limits.",00:18:47.510,00:18:58.980
+So what's an easy limit?,00:18:58.980,00:19:00.650
+"An easy limit is something like
+the limit as x goes to 4 of x",00:19:00.650,00:19:07.285
+plus 3 over x^2 + 1.,00:19:07.285,00:19:11.570
+"And with this kind of limit all
+I have to do to evaluate it is",00:19:11.570,00:19:16.240
+"to plug in x = 4 because,
+so what I get here is 4 + 3",00:19:16.240,00:19:23.770
+divided by 4^2 + 1.,00:19:23.770,00:19:27.900
+And that's just 7 / 17.,00:19:27.900,00:19:31.560
+And that's the end of it.,00:19:31.560,00:19:33.720
+So those are the easy limits.,00:19:33.720,00:19:38.510
+"The second kind of limit -
+well so this isn't the only",00:19:38.510,00:19:42.669
+"second kind of limit but I
+just want to point this out,",00:19:42.669,00:19:44.960
+"it's very important - is that:
+derivatives are are always",00:19:44.960,00:19:55.680
+harder than this.,00:19:55.680,00:19:59.370
+"You can't get away
+with nothing here.",00:19:59.370,00:20:03.230
+"So, why is that?",00:20:03.230,00:20:05.090
+"Well, when you
+take a derivative,",00:20:05.090,00:20:07.620
+"you're taking the limit
+as x goes to x_0 of f(x),",00:20:07.620,00:20:13.160
+"well we'll write it all
+out in all its glory.",00:20:13.160,00:20:24.520
+"Here's the formula
+for the derivative.",00:20:24.520,00:20:28.790
+"Now notice that if you plug in
+x = x:0, always gives 0 / 0.",00:20:28.790,00:20:39.110
+"So it just basically
+never works.",00:20:39.110,00:20:42.080
+"So we always are going
+to need some cancellation",00:20:42.080,00:20:50.940
+to make sense out of the limit.,00:20:50.940,00:21:05.960
+"Now in order to make things
+a little easier for myself",00:21:05.960,00:21:12.570
+"to explain what's
+going on with limits",00:21:12.570,00:21:15.700
+"I need to introduce just
+one more piece of notation.",00:21:15.700,00:21:18.660
+"What I'm gonna
+introduce here is what's",00:21:18.660,00:21:20.490
+"known as a left-hand
+and a right limit.",00:21:20.490,00:21:23.380
+"If I take the limit as x tends
+to x_0 with a plus sign here",00:21:23.380,00:21:29.500
+"of some function, this is what's
+known as the right-hand limit.",00:21:29.500,00:21:42.280
+And I can display it visually.,00:21:42.280,00:21:44.870
+So what does this mean?,00:21:44.870,00:21:45.950
+"It means practically
+the same thing",00:21:45.950,00:21:47.530
+"as x tends to x_0 except there
+is one more restriction which",00:21:47.530,00:21:51.160
+"has to do with this plus
+sign, which is we're going",00:21:51.160,00:21:53.630
+from the plus side of x_0.,00:21:53.630,00:21:55.370
+That means x is bigger than x_0.,00:21:55.370,00:21:58.710
+"And I say right-hand, so
+there should be a hyphen here,",00:21:58.710,00:22:01.770
+"right-hand limit because
+on the number line,",00:22:01.770,00:22:06.600
+"if x_0 is over here
+the x is to the right.",00:22:06.600,00:22:14.580
+All right?,00:22:14.580,00:22:15.080
+So that's the right-hand limit.,00:22:15.080,00:22:16.750
+"And then this being the
+left side of the board,",00:22:16.750,00:22:19.550
+"I'll put on the right side
+of the board the left limit,",00:22:19.550,00:22:22.716
+just to make things confusing.,00:22:22.716,00:22:24.560
+"So that one has the
+minus sign here.",00:22:24.560,00:22:30.520
+"I'm just a little dyslexic
+and I hope you're not.",00:22:30.520,00:22:33.940
+So I may have gotten that wrong.,00:22:33.940,00:22:38.200
+"So this is the left-hand
+limit, and I'll draw it.",00:22:38.200,00:22:41.510
+"So of course that just
+means x goes to x_0 but x is",00:22:41.510,00:22:45.705
+to the left of x_0 .,00:22:45.705,00:22:48.260
+"And again, on the number
+line, here's the x_0",00:22:48.260,00:22:52.290
+"and the x is on the
+other side of it.",00:22:52.290,00:22:56.570
+"Okay, so those two
+notations are going",00:22:56.570,00:22:58.970
+"to help us to clarify
+a bunch of things.",00:22:58.970,00:23:01.830
+"It's much more
+convenient to have",00:23:01.830,00:23:04.580
+"this extra bit of
+description of limits",00:23:04.580,00:23:08.520
+"than to just consider
+limits from both sides.",00:23:08.520,00:23:15.880
+"Okay so I want to give
+an example of this.",00:23:15.880,00:23:25.980
+"And also an example
+of how you're going to",00:23:25.980,00:23:29.310
+"think about these
+sorts of problems.",00:23:29.310,00:23:32.110
+"So I'll take a function which
+has two different definitions.",00:23:32.110,00:23:38.020
+"Say it's x + 1, when x &gt;
+0 and -x + 2, when x &lt; 0.",00:23:38.020,00:23:47.570
+So maybe put commas there.,00:23:47.570,00:23:51.280
+"So when x &gt; 0, it's x + 1.",00:23:51.280,00:23:58.540
+"Now I can draw a
+picture of this.",00:23:58.540,00:24:01.030
+"It's gonna be kind
+of a little small",00:24:01.030,00:24:02.955
+"because I'm gonna try
+to fit it down in here,",00:24:02.955,00:24:04.830
+"but maybe I'll put
+the axis down below.",00:24:04.830,00:24:07.670
+"So at height 1, I have to
+the right something of slope",00:24:07.670,00:24:13.990
+1 so it goes up like this.,00:24:13.990,00:24:16.890
+All right?,00:24:16.890,00:24:18.240
+"And then to the left of 0 I have
+something which has slope -1,",00:24:18.240,00:24:26.500
+"but it hits the axis
+at 2 so it's up here.",00:24:26.500,00:24:30.720
+"So I had this sort of
+strange antenna figure here,",00:24:30.720,00:24:34.175
+which is my graph.,00:24:34.175,00:24:35.150
+"Maybe I should draw these in
+another color to depict that.",00:24:35.150,00:24:43.710
+"And then if I calculate
+these two limits here,",00:24:43.710,00:24:47.780
+"what I see is that
+the limit as x",00:24:47.780,00:24:54.670
+"goes to 0 from above of f(x),
+that's the same as the limit",00:24:54.670,00:25:00.860
+"as x goes to 0 of the
+formula here, x + 1.",00:25:00.860,00:25:07.990
+Which turns out to be 1.,00:25:07.990,00:25:10.430
+"And if I take the limit, so
+that's the left-hand limit.",00:25:10.430,00:25:15.360
+"Sorry, I told you
+I was dyslexic.",00:25:15.360,00:25:20.700
+"This is the right, so
+it's that right-hand.",00:25:20.700,00:25:23.320
+Here we go.,00:25:23.320,00:25:25.080
+"So now I'm going from the
+left, and it's f(x) again,",00:25:25.080,00:25:31.530
+"but now because I'm on that
+side the thing I need to plug",00:25:31.530,00:25:35.180
+"is the other formula, -x + 2,
+and that's gonna give us 2.",00:25:35.180,00:25:43.540
+"Now, notice that the left
+and right limits, and this",00:25:43.540,00:25:48.310
+"is one little tiny subtlety
+and it's almost the only thing",00:25:48.310,00:25:51.470
+"that I need you to really
+pay attention to a little bit",00:25:51.470,00:25:53.770
+"right now, is that this, we
+did not need x = 0 value.",00:25:53.770,00:26:06.210
+"In fact I never even told
+you what f(0) was here.",00:26:06.210,00:26:11.860
+"If we stick it in we
+could stick it in.",00:26:11.860,00:26:14.650
+"Okay let's say we stick
+it in on this side.",00:26:14.650,00:26:20.050
+"Let's make it be that
+it's on this side.",00:26:20.050,00:26:22.970
+"So that means that this point
+is in and this point is out.",00:26:22.970,00:26:32.860
+"So that's a typical notation:
+this little open circle",00:26:32.860,00:26:37.680
+"and this closed dot for
+when you include the.",00:26:37.680,00:26:41.530
+"So in that case
+the value of f(x)",00:26:41.530,00:26:44.830
+"happens to be the same
+as its right-hand limit,",00:26:44.830,00:26:48.360
+"namely the value is
+1 here and not 2.",00:26:48.360,00:26:56.530
+"Okay, so that's the
+first kind of example.",00:26:56.530,00:27:01.140
+Questions?,00:27:01.140,00:27:06.610
+"Okay, so now our next
+job is to introduce",00:27:06.610,00:27:13.420
+the definition of continuity.,00:27:13.420,00:27:17.270
+"So that was the
+other topic here.",00:27:17.270,00:27:20.080
+So we're going to define.,00:27:20.080,00:27:23.490
+"So f is continuous at x_0 means
+that the limit of f(x) as x",00:27:23.490,00:27:39.515
+"tends to x_0 is
+equal to f(x_0) .",00:27:39.515,00:27:44.440
+Right?,00:27:44.440,00:27:47.090
+"So the reason why I spend
+all this time paying",00:27:47.090,00:27:51.750
+"attention to the left and the
+right and so on and so forth",00:27:51.750,00:27:54.540
+"and focusing is that I want you
+to pay attention for one moment",00:27:54.540,00:27:57.340
+"to what the content
+of this definition is.",00:27:57.340,00:28:01.820
+"What it's saying is the
+following: continuous at x_0",00:28:01.820,00:28:12.640
+has various ingredients here.,00:28:12.640,00:28:15.450
+"So the first one is
+that this limit exists.",00:28:15.450,00:28:24.540
+"And what that means
+is that there's",00:28:24.540,00:28:27.080
+"an honest limiting value
+both from the left and right.",00:28:27.080,00:28:35.150
+"And they also have
+to be the same.",00:28:35.150,00:28:39.250
+"All right, so that's
+what's going on here.",00:28:39.250,00:28:41.980
+"And the second property
+is that f(x_0) is defined.",00:28:41.980,00:28:50.380
+"So I can't be in one
+of these situations",00:28:50.380,00:28:52.100
+"where I haven't
+even specified what",00:28:52.100,00:28:54.770
+f(x_0) is and they're equal.,00:28:54.770,00:29:05.220
+"Okay, so that's the situation.",00:29:05.220,00:29:09.190
+"Now again let me
+emphasize a tricky part",00:29:09.190,00:29:13.310
+of the definition of a limit.,00:29:13.310,00:29:15.560
+"This side, the left-hand side
+is completely independent,",00:29:15.560,00:29:20.320
+"is evaluated by a
+procedure which does not",00:29:20.320,00:29:23.790
+involve the right-hand side.,00:29:23.790,00:29:25.070
+These are separate things.,00:29:25.070,00:29:26.900
+"This one is, to evaluate it, you
+always avoid the limit point.",00:29:26.900,00:29:34.310
+"So that's if you like a
+paradox, because it's exactly",00:29:34.310,00:29:37.670
+"the question: is it true
+that if you plug in x_0",00:29:37.670,00:29:41.290
+"you get the same answer as
+if you move in the limit?",00:29:41.290,00:29:44.300
+"That's the issue that
+we're considering here.",00:29:44.300,00:29:46.270
+"We have to make that
+distinction in order",00:29:46.270,00:29:48.270
+"to say that these
+are two, otherwise",00:29:48.270,00:29:50.880
+this is just tautological.,00:29:50.880,00:29:55.270
+It doesn't have any meaning.,00:29:55.270,00:29:56.630
+"But in fact it
+does have a meaning",00:29:56.630,00:29:58.046
+"because one thing is evaluated
+separately with reference",00:29:58.046,00:30:00.620
+"to all the other
+points and the other",00:30:00.620,00:30:03.850
+"is evaluated right at
+the point in question.",00:30:03.850,00:30:06.870
+"And indeed what
+these things are,",00:30:06.870,00:30:11.090
+are exactly the easy limits.,00:30:11.090,00:30:17.896
+"That's exactly what
+we're talking about here.",00:30:17.896,00:30:19.770
+"They're the ones you
+can evaluate this way.",00:30:19.770,00:30:24.150
+"So we have to make
+the distinction.",00:30:24.150,00:30:25.640
+"And these other ones are
+gonna be the ones which",00:30:25.640,00:30:27.685
+we can't evaluate that way.,00:30:27.685,00:30:29.670
+"So these are the
+nice ones and that's",00:30:29.670,00:30:31.540
+"why we care about them, why
+we have a whole definition",00:30:31.540,00:30:33.830
+associated with them.,00:30:33.830,00:30:36.470
+All right?,00:30:36.470,00:30:38.700
+So now what's next?,00:30:38.700,00:30:40.400
+"Well, I need to give you a a
+little tour, very brief tour,",00:30:40.400,00:30:48.910
+"of the zoo of what are known
+as discontinuous functions.",00:30:48.910,00:30:54.090
+"So sort of everything else
+that's not continuous.",00:30:54.090,00:30:57.430
+"So, the first example here,
+let me just write it down here.",00:30:57.430,00:31:04.550
+It's jump discontinuities.,00:31:04.550,00:31:13.670
+"So what would a jump
+discontinuity be?",00:31:13.670,00:31:15.300
+"Well we've actually
+already seen it.",00:31:15.300,00:31:18.730
+"The jump discontinuity
+is the example",00:31:18.730,00:31:21.790
+that we had right there.,00:31:21.790,00:31:23.230
+"This is when the limit
+from the left and right",00:31:23.230,00:31:32.490
+"exist, but are not equal.",00:31:32.490,00:31:42.180
+"Okay, so that's
+as in the example.",00:31:42.180,00:31:50.940
+Right?,00:31:50.940,00:31:51.440
+"In this example, the
+two limits, one of them",00:31:51.440,00:31:53.680
+was 1 and of them was 2.,00:31:53.680,00:31:57.890
+So that's a jump discontinuity.,00:31:57.890,00:32:02.150
+"And this kind of issue,
+of whether something",00:32:02.150,00:32:09.310
+"is continuous or not, may
+seem a little bit technical",00:32:09.310,00:32:14.940
+"but it is true that people
+have worried about it a lot.",00:32:14.940,00:32:26.120
+"Bob Merton, who was a
+professor at MIT when",00:32:26.120,00:32:28.820
+"he did his work for the
+Nobel prize in economics,",00:32:28.820,00:32:33.410
+"was interested in
+this very issue",00:32:33.410,00:32:36.180
+"of whether stock
+prices of various kinds",00:32:36.180,00:32:39.320
+"are continuous from the left
+or right in a certain model.",00:32:39.320,00:32:42.540
+"And that was a
+very serious issue",00:32:42.540,00:32:44.580
+"in developing the model
+that priced things",00:32:44.580,00:32:49.150
+"that our hedge funds
+use all the time now.",00:32:49.150,00:32:51.840
+"So left and right can really
+mean something very different.",00:32:51.840,00:32:57.630
+"In this case left is the
+past and right is the future",00:32:57.630,00:33:01.507
+"and it makes a big
+difference whether things",00:33:01.507,00:33:03.340
+"are continuous from the left
+or continuous from the right.",00:33:03.340,00:33:06.840
+"Right, is it true that
+the point is here,",00:33:06.840,00:33:09.120
+"here, somewhere in the
+middle, somewhere else.",00:33:09.120,00:33:11.720
+That's a serious issue.,00:33:11.720,00:33:13.480
+"So the next example
+that I want to give you",00:33:13.480,00:33:18.210
+is a little bit more subtle.,00:33:18.210,00:33:22.720
+"It's what's known as a
+removable discontinuity.",00:33:22.720,00:33:32.140
+"And so what this means is that
+the limit from left and right",00:33:32.140,00:33:43.010
+are equal.,00:33:43.010,00:33:46.190
+"So a picture of
+that would be, you",00:33:46.190,00:33:47.980
+"have a function which is
+coming along like this",00:33:47.980,00:33:50.480
+"and there's a hole
+maybe where, who knows",00:33:50.480,00:33:52.820
+"either the function is undefined
+or maybe it's defined up here,",00:33:52.820,00:33:56.270
+and then it just continues on.,00:33:56.270,00:33:58.751
+All right?,00:33:58.751,00:33:59.250
+So the two limits are the same.,00:33:59.250,00:34:01.210
+"And then of course the function
+is begging to be redefined",00:34:01.210,00:34:05.010
+so that we remove that hole.,00:34:05.010,00:34:07.370
+"And that's why it's called
+a removable discontinuity.",00:34:07.370,00:34:14.470
+"Now let me give you
+an example of this,",00:34:14.470,00:34:17.710
+"or actually a
+couple of examples.",00:34:17.710,00:34:22.460
+"So these are quite
+important examples",00:34:22.460,00:34:28.130
+"which you will be working
+with in a few minutes.",00:34:28.130,00:34:34.020
+"So the first is the function
+g(x), which is sin x / x,",00:34:34.020,00:34:41.660
+"and the second will be the
+function h(x), which is 1 -",00:34:41.660,00:34:45.260
+cos x over x.,00:34:45.260,00:34:50.520
+"So we have a problem at
+g(0), g(0) is undefined.",00:34:50.520,00:35:00.290
+"On the other hand it turns
+out this function has what's",00:35:00.290,00:35:03.760
+called a removable singularity.,00:35:03.760,00:35:05.710
+"Namely the limit as x goes
+to 0 of sin x / x does exist.",00:35:05.710,00:35:14.630
+In fact it's equal to 1.,00:35:14.630,00:35:17.050
+"So that's a very important limit
+that we will work out either",00:35:17.050,00:35:20.430
+"at the end of this lecture or
+the beginning of next lecture.",00:35:20.430,00:35:23.420
+"And similarly, the
+limit of 1 - cos x",00:35:23.420,00:35:30.940
+"divided by x, as
+x goes to 0, is 0.",00:35:30.940,00:35:35.370
+"Maybe I'll put that
+a little farther",00:35:35.370,00:35:38.051
+away so you can read it.,00:35:38.051,00:35:40.360
+"Okay, so these are
+very useful facts",00:35:40.360,00:35:44.940
+"that we're going
+to need later on.",00:35:44.940,00:35:47.800
+"And what they say is
+that these things have",00:35:47.800,00:35:50.460
+"removable singularities, sorry
+removable discontinuity at x",00:35:50.460,00:35:58.520
+= 0.,00:35:58.520,00:36:04.600
+"All right so as I say, we'll
+get to that in a few minutes.",00:36:04.600,00:36:13.030
+"Okay so are there any
+questions before I move on?",00:36:13.030,00:36:16.400
+Yeah?,00:36:16.400,00:36:16.900
+Student: [INAUDIBLE],00:36:16.900,00:36:30.630
+"Professor: The question
+is: why is this true?",00:36:30.630,00:36:38.300
+Is that what your question is?,00:36:38.300,00:36:40.300
+"The answer is it's
+very, very unobvious,",00:36:40.300,00:36:44.070
+"I haven't shown it to you
+yet, and if you were not",00:36:44.070,00:36:48.360
+"surprised by it then that
+would be very strange indeed.",00:36:48.360,00:36:51.560
+So we haven't done it yet.,00:36:51.560,00:36:53.390
+"You have to stay
+tuned until we do.",00:36:53.390,00:36:55.990
+Okay?,00:36:55.990,00:36:57.210
+We haven't shown it yet.,00:36:57.210,00:36:59.250
+"And actually even
+this other statement,",00:36:59.250,00:37:01.320
+"which maybe seems
+stranger still,",00:37:01.320,00:37:03.600
+is also not yet explained.,00:37:03.600,00:37:05.760
+"Okay, so we are going
+to get there, as I said,",00:37:05.760,00:37:08.865
+"either at the end
+of this lecture",00:37:08.865,00:37:10.240
+or at the beginning of next.,00:37:10.240,00:37:15.410
+Other questions?,00:37:15.410,00:37:22.560
+"All right, so let me
+just continue my tour",00:37:22.560,00:37:28.180
+of the zoo of discontinuities.,00:37:28.180,00:37:34.000
+"And, I guess, I want
+to illustrate something",00:37:34.000,00:37:37.050
+"with the convenience of
+right and left hand limits",00:37:37.050,00:37:41.440
+"so I'll save this board about
+right and left-hand limits.",00:37:41.440,00:37:52.180
+"So a third type of
+discontinuity is",00:37:52.180,00:37:54.970
+"what's known as an
+infinite discontinuity.",00:37:54.970,00:38:07.320
+"And we've already
+encountered one of these.",00:38:07.320,00:38:11.950
+"I'm going to draw
+them over here.",00:38:11.950,00:38:14.450
+"Remember the
+function y is 1 / x.",00:38:14.450,00:38:19.370
+That's this function here.,00:38:19.370,00:38:22.450
+"But now I'd like to draw
+also the other branch",00:38:22.450,00:38:25.500
+"of the hyperbola down here
+and allow myself to consider",00:38:25.500,00:38:31.140
+negative values of x.,00:38:31.140,00:38:32.320
+So here's the graph of 1 / x.,00:38:32.320,00:38:35.910
+"And the convenience here
+of distinguishing the left",00:38:35.910,00:38:42.640
+"and the right hand limits is
+very important because here I",00:38:42.640,00:38:46.620
+"can write down that the limit
+as x goes to 0+ of 1 / x.",00:38:46.620,00:38:51.800
+"Well that's coming from the
+right and it's going up.",00:38:51.800,00:38:57.300
+So this limit is infinity.,00:38:57.300,00:39:00.580
+"Whereas, the limit in
+the other direction,",00:39:00.580,00:39:05.380
+"from the left, that
+one is going down.",00:39:05.380,00:39:10.630
+"And so it's quite different,
+it's minus infinity.",00:39:10.630,00:39:16.510
+"Now some people say that
+these limits are undefined",00:39:16.510,00:39:19.860
+"but actually they're going in
+some very definite direction.",00:39:19.860,00:39:22.940
+"So you should,
+whenever possible,",00:39:22.940,00:39:24.950
+specify what these limits are.,00:39:24.950,00:39:26.640
+"On the other hand, the
+statement that the limit",00:39:26.640,00:39:30.860
+"as x goes to 0 of 1 / x is
+infinity is simply wrong.",00:39:30.860,00:39:37.250
+"Okay, it's not that
+people don't write this.",00:39:37.250,00:39:40.340
+It's just that it's wrong.,00:39:40.340,00:39:41.680
+"It's not that they
+don't write it down.",00:39:41.680,00:39:43.470
+In fact you'll probably see it.,00:39:43.470,00:39:45.000
+"It's because people are just
+thinking of the right hand",00:39:45.000,00:39:48.055
+branch.,00:39:48.055,00:39:48.790
+"It's not that they're making
+a mistake necessarily,",00:39:48.790,00:39:51.220
+"but anyway, it's sloppy.",00:39:51.220,00:39:53.116
+"And there's some sloppiness
+that we'll endure",00:39:53.116,00:39:54.990
+"and others that
+we'll try to avoid.",00:39:54.990,00:39:57.080
+"So here, you want to say this,
+and it does make a difference.",00:39:57.080,00:40:00.120
+"You know, plus infinity is
+an infinite number of dollars",00:40:00.120,00:40:04.990
+"and minus infinity is and
+infinite amount of debt.",00:40:04.990,00:40:07.450
+They're actually different.,00:40:07.450,00:40:08.980
+They're not the same.,00:40:08.980,00:40:09.890
+"So, you know, this is sloppy and
+this is actually more correct.",00:40:09.890,00:40:15.540
+"Okay, so now in
+addition, I just want",00:40:15.540,00:40:17.885
+to point out one more thing.,00:40:17.885,00:40:21.350
+"Remember, we calculated
+the derivative,",00:40:21.350,00:40:24.210
+and that was -1/x^2.,00:40:24.210,00:40:26.880
+"But, I want to draw
+the graph of that",00:40:26.880,00:40:31.196
+"and make a few
+comments about it.",00:40:31.196,00:40:32.570
+"So I'm going to draw
+the graph directly",00:40:32.570,00:40:34.420
+"underneath the graph
+of the function.",00:40:34.420,00:40:38.820
+And notice what this graphs is.,00:40:38.820,00:40:41.290
+"It goes like this, it's always
+negative, and it points down.",00:40:41.290,00:40:48.530
+"So now this may look
+a little strange,",00:40:48.530,00:40:51.480
+"that the derivative of
+this thing is this guy,",00:40:51.480,00:40:55.080
+"but that's because of
+something very important.",00:40:55.080,00:40:58.630
+"And you should always remember
+this about derivatives.",00:40:58.630,00:41:01.030
+"The derivative function looks
+nothing like the function,",00:41:01.030,00:41:03.995
+necessarily.,00:41:03.995,00:41:04.860
+"So you should just forget
+about that as being an idea.",00:41:04.860,00:41:07.780
+"Some people feel like
+if one thing goes down,",00:41:07.780,00:41:10.040
+the other thing has to go down.,00:41:10.040,00:41:11.470
+Just forget that intuition.,00:41:11.470,00:41:13.030
+It's wrong.,00:41:13.030,00:41:14.160
+"What we're dealing with here,
+if you remember, is the slope.",00:41:14.160,00:41:20.170
+"So if you have a slope
+here, that corresponds",00:41:20.170,00:41:23.870
+"to just a place over
+here and as the slope",00:41:23.870,00:41:26.960
+"gets a little bit
+less steep, that's",00:41:26.960,00:41:30.190
+"why we're approaching
+the horizontal axis.",00:41:30.190,00:41:33.320
+"The number is getting a
+little smaller as we close in.",00:41:33.320,00:41:36.480
+"Now over here, the
+slope is also negative.",00:41:36.480,00:41:41.120
+"It is going down and
+as we get down here",00:41:41.120,00:41:42.980
+"it's getting more
+and more negative.",00:41:42.980,00:41:44.580
+"As we go here the slope,
+this function is going up,",00:41:44.580,00:41:48.170
+but its slope is going down.,00:41:48.170,00:41:50.050
+"All right, so the slope is down
+on both sides and the notation",00:41:50.050,00:41:55.790
+"that we use for that is
+well suited to this left",00:41:55.790,00:42:03.690
+and right business.,00:42:03.690,00:42:09.410
+"Namely, the limit as x
+goes to 0 of -1 / x^2,",00:42:09.410,00:42:16.030
+"that's going to be
+equal to minus infinity.",00:42:16.030,00:42:18.140
+"And that applies to x going
+to 0+ and x going to 0-.",00:42:18.140,00:42:24.760
+So both have this property.,00:42:24.760,00:42:31.780
+"Finally let me just
+make one last comment",00:42:31.780,00:42:34.040
+about these two graphs.,00:42:34.040,00:42:37.660
+"This function here
+is an odd function",00:42:37.660,00:42:42.220
+"and when you take the
+derivative of an odd function",00:42:42.220,00:42:44.620
+you always get an even function.,00:42:44.620,00:42:50.740
+"That's closely related to the
+fact that this 1 / x is an odd",00:42:50.740,00:42:54.380
+"power and-- x^1 is an odd
+power and x^2 is an even power.",00:42:54.380,00:43:01.170
+"So all of this your intuition
+should be reinforcing the fact",00:43:01.170,00:43:05.620
+that these pictures look right.,00:43:05.620,00:43:11.070
+"Okay, now there's one
+last kind of discontinuity",00:43:11.070,00:43:16.010
+"that I want to mention
+briefly, which I will call",00:43:16.010,00:43:20.460
+other ugly discontinuities.,00:43:20.460,00:43:33.990
+"And there are lots
+and lots of them.",00:43:33.990,00:43:39.770
+"So one example would
+be the function y = sin",00:43:39.770,00:43:44.220
+"1 / x, as x goes to 0.",00:43:44.220,00:43:50.080
+"And that looks a
+little bit like this.",00:43:50.080,00:43:58.914
+"Back and forth and
+back and forth.",00:43:58.914,00:44:00.330
+"It oscillates infinitely
+often as we tend to 0.",00:44:00.330,00:44:06.170
+"There's no left or right
+limit in this case.",00:44:06.170,00:44:19.260
+"So there is a very large
+quantity of things like that.",00:44:19.260,00:44:25.330
+"Fortunately we're not gonna
+deal with them in this course.",00:44:25.330,00:44:29.350
+"A lot of times in
+real life there",00:44:29.350,00:44:31.500
+"are things that oscillate
+as time goes to infinity,",00:44:31.500,00:44:34.800
+"but we're not going to
+worry about that right now.",00:44:34.800,00:44:40.180
+"Okay, so that's our final
+mention of a discontinuity,",00:44:40.180,00:44:49.090
+"and now I need to do just
+one more piece of groundwork",00:44:49.090,00:44:54.130
+for our formulas next time.,00:44:54.130,00:44:59.360
+"Namely, I want to check
+for you one basic fact,",00:44:59.360,00:45:09.130
+one limiting tool.,00:45:09.130,00:45:10.280
+"So this is going
+to be a theorem.",00:45:10.280,00:45:12.960
+"Fortunately it's a
+very short theorem",00:45:12.960,00:45:17.450
+and has a very short proof.,00:45:17.450,00:45:19.580
+"So the theorem goes under
+the name differentiable",00:45:19.580,00:45:22.090
+implies continuous.,00:45:22.090,00:45:28.210
+"And what it says
+is the following:",00:45:28.210,00:45:30.190
+"it says that if f is
+differentiable, in other words",00:45:30.190,00:45:35.600
+"its-- the derivative
+exists at x_0, then",00:45:35.600,00:45:45.560
+f is continuous at x_0.,00:45:45.560,00:45:59.245
+"So, we're gonna need
+this is as a tool,",00:45:59.245,00:46:00.870
+"it's a key step in the
+product and quotient rules.",00:46:00.870,00:46:05.750
+"So I'd like to prove
+it right now for you.",00:46:05.750,00:46:12.380
+So here is the proof.,00:46:12.380,00:46:16.270
+"Fortunately the proof
+is just one line.",00:46:16.270,00:46:20.430
+"So first of all, I want to
+write in just the right way what",00:46:20.430,00:46:24.740
+it is that we have to check.,00:46:24.740,00:46:27.410
+"So what we have to check is that
+the limit, as x goes to x_0,",00:46:27.410,00:46:33.540
+of f(x) - f(x_0) is equal to 0.,00:46:33.540,00:46:41.347
+So this is what we want to know.,00:46:41.347,00:46:42.680
+"We don't know it
+yet, but we're trying",00:46:42.680,00:46:44.930
+"to check whether
+this is true or not.",00:46:44.930,00:46:47.650
+"So that's the same
+as the statement",00:46:47.650,00:46:49.790
+"that the function is continuous
+because the limit of f(x)",00:46:49.790,00:46:52.180
+"is supposed to be f(x_0) and
+so this difference should",00:46:52.180,00:46:56.300
+have limit 0.,00:46:56.300,00:46:59.690
+"And now, the way this
+is proved is just",00:46:59.690,00:47:02.730
+"by rewriting it by multiplying
+and dividing by (x - x_0).",00:47:02.730,00:47:09.720
+"So I'll rewrite the limit
+as x goes to x_0 of f(x) -",00:47:09.720,00:47:17.381
+"f(x_0) divided by x
+- x_0 times x - x_0.",00:47:17.381,00:47:25.570
+"Okay, so I wrote down the same
+expression that I had here.",00:47:25.570,00:47:29.230
+"This is just the same limit,
+but I multiplied and divided",00:47:29.230,00:47:32.080
+by (x - x_0).,00:47:32.080,00:47:38.070
+"And now when I take the limit
+what happens is the limit",00:47:38.070,00:47:45.150
+of the first factor is f'(x_0).,00:47:45.150,00:47:48.830
+"That's the thing we know
+exists by our assumption.",00:47:48.830,00:47:53.940
+"And the limit of the second
+factor is 0 because the limit",00:47:53.940,00:48:00.640
+"as x goes to x_0 of (x
+- x_0) is clearly 0 .",00:48:00.640,00:48:06.700
+So that's it.,00:48:06.700,00:48:09.210
+"The answer is 0, which
+is what we wanted.",00:48:09.210,00:48:12.210
+So that's the proof.,00:48:12.210,00:48:14.980
+"Now there's something
+exceedingly fishy-looking",00:48:14.980,00:48:19.500
+"about this proof and let me just
+point to it before we proceed.",00:48:19.500,00:48:26.370
+"Namely, you're used in limits
+to setting x equal to 0.",00:48:26.370,00:48:33.050
+"And this looks like we're
+multiplying, dividing by 0,",00:48:33.050,00:48:35.880
+"exactly the thing
+which makes all proofs",00:48:35.880,00:48:38.430
+"wrong in all kinds of
+algebraic situations",00:48:38.430,00:48:42.562
+and so on and so forth.,00:48:42.562,00:48:43.520
+"You've been taught
+that that never works.",00:48:43.520,00:48:45.780
+Right?,00:48:45.780,00:48:47.750
+"But somehow these
+limiting tricks",00:48:47.750,00:48:51.040
+"have found a way around
+this and let me just",00:48:51.040,00:48:54.100
+make explicit what it is.,00:48:54.100,00:48:55.880
+"In this limit we never
+are using x = x_0.",00:48:55.880,00:49:03.500
+"That's exactly the
+one value of x that we",00:49:03.500,00:49:05.720
+don't consider in this limit.,00:49:05.720,00:49:09.120
+That's how limits are cooked up.,00:49:09.120,00:49:11.910
+"And that's sort of been
+the themes so far today,",00:49:11.910,00:49:14.840
+"is that we don't
+have to consider that",00:49:14.840,00:49:17.100
+"and so this multiplication
+and division by this number",00:49:17.100,00:49:19.990
+is legal.,00:49:19.990,00:49:21.450
+"It may be small, this number,
+but it's always non-zero.",00:49:21.450,00:49:25.200
+"So this really works,
+and it's really true,",00:49:25.200,00:49:27.670
+"and we just checked that a
+differentiable function is",00:49:27.670,00:49:31.040
+continuous.,00:49:31.040,00:49:32.560
+"So I'm gonna have to carry
+out these limits, which",00:49:32.560,00:49:38.580
+"are very interesting 0
+/ 0 limits next time.",00:49:38.580,00:49:42.040
+"But let's hang on for one second
+to see if there any questions",00:49:42.040,00:49:46.512
+before we stop.,00:49:46.512,00:49:47.907
+"Yeah, there is a question.",00:49:47.907,00:49:48.990
+"Student: [INAUDIBLE] Professor:
+Repeat this proof right here?",00:49:48.990,00:50:00.970
+Just say again.,00:50:00.970,00:50:02.830
+Student: [INAUDIBLE],00:50:02.830,00:50:08.230
+"Professor: Okay, so there
+are two steps to the proof",00:50:08.230,00:50:13.060
+"and the step that you're
+asking about is the first step.",00:50:13.060,00:50:17.870
+Right?,00:50:17.870,00:50:18.580
+"And what I'm saying is
+if you have a number,",00:50:18.580,00:50:20.890
+"and you multiply it by 10
+/ 10 it's the same number.",00:50:20.890,00:50:24.640
+"If you multiply it by 3
+/ 3 it's the same number.",00:50:24.640,00:50:26.920
+"2 / 2, 1 / 1, and so on.",00:50:26.920,00:50:30.110
+"So it is okay to
+change this to this,",00:50:30.110,00:50:32.385
+it's exactly the same thing.,00:50:32.385,00:50:34.400
+That's the first step.,00:50:34.400,00:50:36.220
+Yes?,00:50:36.220,00:50:36.720
+Student: [INAUDIBLE],00:50:36.720,00:50:41.560
+Professor: Shhhh...,00:50:41.560,00:50:45.010
+"The question was how does the
+proof, how does this line,",00:50:45.010,00:50:52.100
+yeah where the question mark is.,00:50:52.100,00:50:53.960
+"So what I checked was
+that this number which",00:50:53.960,00:50:55.910
+"is on the left hand side
+is equal to this very long",00:50:55.910,00:50:59.850
+"complicated number which is
+equal to this number which",00:50:59.850,00:51:04.800
+is equal to this number.,00:51:04.800,00:51:06.270
+"And so I've checked that
+this number is equal to 0",00:51:06.270,00:51:08.600
+because the last thing is 0.,00:51:08.600,00:51:12.120
+"This is equal to that is
+equal to that is equal to 0.",00:51:12.120,00:51:16.120
+And that's the proof.,00:51:16.120,00:51:17.420
+Yes?,00:51:17.420,00:51:17.920
+Student: [INAUDIBLE],00:51:17.920,00:51:21.910
+"Professor: So that's
+a different question.",00:51:21.910,00:51:30.580
+"Okay, so the hypothesis
+of differentiability I",00:51:30.580,00:51:35.750
+"use because this limit
+is equal to this number.",00:51:35.750,00:51:39.420
+That that limit exits.,00:51:39.420,00:51:40.520
+"That's how I use the
+hypothesis of the theorem.",00:51:40.520,00:51:44.170
+"The conclusion of the
+theorem is the same",00:51:44.170,00:51:46.560
+"as this because being
+continuous is the same as limit",00:51:46.560,00:51:51.300
+"as x goes to x_0 of
+f(x) is equal to f(x_0).",00:51:51.300,00:51:56.020
+"That's the definition
+of continuity.",00:51:56.020,00:51:57.530
+"And I subtracted
+f(x_0) from both sides",00:51:57.530,00:52:00.990
+"to get this as being
+the same thing.",00:52:00.990,00:52:02.860
+"So this claim is continuity and
+it's the same as this question",00:52:02.860,00:52:08.100
+here.,00:52:08.100,00:52:10.350
+Last question.,00:52:10.350,00:52:11.180
+"Student: How did you
+get the 0 [INAUDIBLE]",00:52:11.180,00:52:16.771
+"Professor: How did we
+get the 0 from this?",00:52:16.771,00:52:18.520
+"So the claim that is
+being made, so the claim",00:52:18.520,00:52:20.450
+is why is this tending to that.,00:52:20.450,00:52:24.670
+"So for example, I'm going
+to have to erase something",00:52:24.670,00:52:27.410
+to explain that.,00:52:27.410,00:52:28.730
+"So the claim is that the limit
+as x goes to x_0 of x - x_0",00:52:28.730,00:52:33.900
+is equal to 0.,00:52:33.900,00:52:35.240
+That's what I'm claiming.,00:52:35.240,00:52:37.160
+"Okay, does that
+answer your question?",00:52:37.160,00:52:39.490
+Okay.,00:52:39.490,00:52:40.990
+All right.,00:52:40.990,00:52:42.420
+"Ask me other stuff
+after lecture.",00:52:42.420,00:52:45.320
